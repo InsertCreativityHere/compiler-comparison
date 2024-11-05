@@ -33,27 +33,16 @@ public let LongConst2: Swift.Int64 = 2147483646
 
 
 public enum ByteEnum: Swift.UInt8 {
-    /// benum1
     case benum1 = 0
-    /// benum2
     case benum2 = 1
-    /// benum3
     case benum3 = 10
-    /// benum4
     case benum4 = 11
-    /// benum5
     case benum5 = 20
-    /// benum6
     case benum6 = 21
-    /// benum7
     case benum7 = 30
-    /// benum8
     case benum8 = 31
-    /// benum9
     case benum9 = 40
-    /// benum10
     case benum10 = 41
-    /// benum11
     case benum11 = 126
     public init() {
         self = .benum1
@@ -175,27 +164,16 @@ public struct ByteEnumSeqHelper {
 }
 
 public enum ShortEnum: Swift.Int32 {
-    /// senum1
     case senum1 = 3
-    /// senum2
     case senum2 = 4
-    /// senum3
     case senum3 = 10
-    /// senum4
     case senum4 = 11
-    /// senum5
     case senum5 = 20
-    /// senum6
     case senum6 = 21
-    /// senum7
     case senum7 = 30
-    /// senum8
     case senum8 = 31
-    /// senum9
     case senum9 = 40
-    /// senum10
     case senum10 = 41
-    /// senum11
     case senum11 = 32766
     public init() {
         self = .senum1
@@ -317,29 +295,17 @@ public struct ShortEnumSeqHelper {
 }
 
 public enum IntEnum: Swift.Int32 {
-    /// ienum1
     case ienum1 = 0
-    /// ienum2
     case ienum2 = 1
-    /// ienum3
     case ienum3 = 10
-    /// ienum4
     case ienum4 = 11
-    /// ienum5
     case ienum5 = 20
-    /// ienum6
     case ienum6 = 21
-    /// ienum7
     case ienum7 = 30
-    /// ienum8
     case ienum8 = 31
-    /// ienum9
     case ienum9 = 40
-    /// ienum10
     case ienum10 = 41
-    /// ienum11
     case ienum11 = 2147483647
-    /// ienum12
     case ienum12 = 2147483646
     public init() {
         self = .ienum1
@@ -461,11 +427,8 @@ public struct IntEnumSeqHelper {
 }
 
 public enum SimpleEnum: Swift.UInt8 {
-    /// red
     case red = 0
-    /// green
     case green = 1
-    /// blue
     case blue = 2
     public init() {
         self = .red
@@ -592,45 +555,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - opByte: 
-///
-///  - opByteAsync: 
-///
-///  - opShort: 
-///
-///  - opShortAsync: 
-///
-///  - opInt: 
-///
-///  - opIntAsync: 
-///
-///  - opSimple: 
-///
-///  - opSimpleAsync: 
-///
-///  - opByteSeq: 
-///
-///  - opByteSeqAsync: 
-///
-///  - opShortSeq: 
-///
-///  - opShortSeqAsync: 
-///
-///  - opIntSeq: 
-///
-///  - opIntSeqAsync: 
-///
-///  - opSimpleSeq: 
-///
-///  - opSimpleSeqAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -718,56 +642,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - opByte: 
-///
-///  - opByteAsync: 
-///
-///  - opShort: 
-///
-///  - opShortAsync: 
-///
-///  - opInt: 
-///
-///  - opIntAsync: 
-///
-///  - opSimple: 
-///
-///  - opSimpleAsync: 
-///
-///  - opByteSeq: 
-///
-///  - opByteSeqAsync: 
-///
-///  - opShortSeq: 
-///
-///  - opShortSeqAsync: 
-///
-///  - opIntSeq: 
-///
-///  - opIntSeqAsync: 
-///
-///  - opSimpleSeq: 
-///
-///  - opSimpleSeqAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter _: `ByteEnum`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteEnum, b2: ByteEnum)`:
-    ///
-    ///   - returnValue: `ByteEnum`
-    ///
-    ///   - b2: `ByteEnum`
     func opByte(_ iceP_b1: ByteEnum, context: Ice.Context? = nil) async throws -> (returnValue: ByteEnum, b2: ByteEnum) {
         return try await _impl._invoke(operation: "opByte",
                                        mode: .Normal,
@@ -782,16 +657,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ShortEnum`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortEnum, s2: ShortEnum)`:
-    ///
-    ///   - returnValue: `ShortEnum`
-    ///
-    ///   - s2: `ShortEnum`
     func opShort(_ iceP_s1: ShortEnum, context: Ice.Context? = nil) async throws -> (returnValue: ShortEnum, s2: ShortEnum) {
         return try await _impl._invoke(operation: "opShort",
                                        mode: .Normal,
@@ -806,16 +671,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `IntEnum`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntEnum, i2: IntEnum)`:
-    ///
-    ///   - returnValue: `IntEnum`
-    ///
-    ///   - i2: `IntEnum`
     func opInt(_ iceP_i1: IntEnum, context: Ice.Context? = nil) async throws -> (returnValue: IntEnum, i2: IntEnum) {
         return try await _impl._invoke(operation: "opInt",
                                        mode: .Normal,
@@ -830,16 +685,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SimpleEnum`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SimpleEnum, s2: SimpleEnum)`:
-    ///
-    ///   - returnValue: `SimpleEnum`
-    ///
-    ///   - s2: `SimpleEnum`
     func opSimple(_ iceP_s1: SimpleEnum, context: Ice.Context? = nil) async throws -> (returnValue: SimpleEnum, s2: SimpleEnum) {
         return try await _impl._invoke(operation: "opSimple",
                                        mode: .Normal,
@@ -854,16 +699,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteEnumSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteEnumSeq, b2: ByteEnumSeq)`:
-    ///
-    ///   - returnValue: `ByteEnumSeq`
-    ///
-    ///   - b2: `ByteEnumSeq`
     func opByteSeq(_ iceP_b1: ByteEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: ByteEnumSeq, b2: ByteEnumSeq) {
         return try await _impl._invoke(operation: "opByteSeq",
                                        mode: .Normal,
@@ -878,16 +713,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ShortEnumSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortEnumSeq, s2: ShortEnumSeq)`:
-    ///
-    ///   - returnValue: `ShortEnumSeq`
-    ///
-    ///   - s2: `ShortEnumSeq`
     func opShortSeq(_ iceP_s1: ShortEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: ShortEnumSeq, s2: ShortEnumSeq) {
         return try await _impl._invoke(operation: "opShortSeq",
                                        mode: .Normal,
@@ -902,16 +727,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `IntEnumSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntEnumSeq, i2: IntEnumSeq)`:
-    ///
-    ///   - returnValue: `IntEnumSeq`
-    ///
-    ///   - i2: `IntEnumSeq`
     func opIntSeq(_ iceP_i1: IntEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: IntEnumSeq, i2: IntEnumSeq) {
         return try await _impl._invoke(operation: "opIntSeq",
                                        mode: .Normal,
@@ -926,16 +741,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SimpleEnumSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SimpleEnumSeq, s2: SimpleEnumSeq)`:
-    ///
-    ///   - returnValue: `SimpleEnumSeq`
-    ///
-    ///   - s2: `SimpleEnumSeq`
     func opSimpleSeq(_ iceP_s1: SimpleEnumSeq, context: Ice.Context? = nil) async throws -> (returnValue: SimpleEnumSeq, s2: SimpleEnumSeq) {
         return try await _impl._invoke(operation: "opSimpleSeq",
                                        mode: .Normal,
@@ -950,8 +755,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -1004,128 +807,25 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter b1: `ByteEnum`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteEnum, b2: ByteEnum)`:
-    ///
-    ///   - returnValue: `ByteEnum`
-    ///
-    ///   - b2: `ByteEnum`
     func opByte(b1: ByteEnum, current: Ice.Current) async throws -> (returnValue: ByteEnum, b2: ByteEnum)
 
-    ///
-    /// - parameter s1: `ShortEnum`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortEnum, s2: ShortEnum)`:
-    ///
-    ///   - returnValue: `ShortEnum`
-    ///
-    ///   - s2: `ShortEnum`
     func opShort(s1: ShortEnum, current: Ice.Current) async throws -> (returnValue: ShortEnum, s2: ShortEnum)
 
-    ///
-    /// - parameter i1: `IntEnum`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: IntEnum, i2: IntEnum)`:
-    ///
-    ///   - returnValue: `IntEnum`
-    ///
-    ///   - i2: `IntEnum`
     func opInt(i1: IntEnum, current: Ice.Current) async throws -> (returnValue: IntEnum, i2: IntEnum)
 
-    ///
-    /// - parameter s1: `SimpleEnum`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SimpleEnum, s2: SimpleEnum)`:
-    ///
-    ///   - returnValue: `SimpleEnum`
-    ///
-    ///   - s2: `SimpleEnum`
     func opSimple(s1: SimpleEnum, current: Ice.Current) async throws -> (returnValue: SimpleEnum, s2: SimpleEnum)
 
-    ///
-    /// - parameter b1: `ByteEnumSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteEnumSeq, b2: ByteEnumSeq)`:
-    ///
-    ///   - returnValue: `ByteEnumSeq`
-    ///
-    ///   - b2: `ByteEnumSeq`
     func opByteSeq(b1: ByteEnumSeq, current: Ice.Current) async throws -> (returnValue: ByteEnumSeq, b2: ByteEnumSeq)
 
-    ///
-    /// - parameter s1: `ShortEnumSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortEnumSeq, s2: ShortEnumSeq)`:
-    ///
-    ///   - returnValue: `ShortEnumSeq`
-    ///
-    ///   - s2: `ShortEnumSeq`
     func opShortSeq(s1: ShortEnumSeq, current: Ice.Current) async throws -> (returnValue: ShortEnumSeq, s2: ShortEnumSeq)
 
-    ///
-    /// - parameter i1: `IntEnumSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: IntEnumSeq, i2: IntEnumSeq)`:
-    ///
-    ///   - returnValue: `IntEnumSeq`
-    ///
-    ///   - i2: `IntEnumSeq`
     func opIntSeq(i1: IntEnumSeq, current: Ice.Current) async throws -> (returnValue: IntEnumSeq, i2: IntEnumSeq)
 
-    ///
-    /// - parameter s1: `SimpleEnumSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SimpleEnumSeq, s2: SimpleEnumSeq)`:
-    ///
-    ///   - returnValue: `SimpleEnumSeq`
-    ///
-    ///   - s2: `SimpleEnumSeq`
     func opSimpleSeq(s1: SimpleEnumSeq, current: Ice.Current) async throws -> (returnValue: SimpleEnumSeq, s2: SimpleEnumSeq)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - opByte: 
-///
-///  - opShort: 
-///
-///  - opInt: 
-///
-///  - opSimple: 
-///
-///  - opByteSeq: 
-///
-///  - opShortSeq: 
-///
-///  - opIntSeq: 
-///
-///  - opSimpleSeq: 
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_opByte(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

@@ -34,13 +34,6 @@ public struct TestIntfBidirTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntfBidir"
 }
 
-/// DelayedTestIntfPrx overview.
-///
-/// DelayedTestIntfPrx Methods:
-///
-///  - sleep: 
-///
-///  - sleepAsync: 
 public protocol DelayedTestIntfPrx: Ice.ObjectPrx {}
 
 private final class DelayedTestIntfPrxI: Ice.ObjectPrxI, DelayedTestIntfPrx {
@@ -128,18 +121,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// DelayedTestIntfPrx overview.
-///
-/// DelayedTestIntfPrx Methods:
-///
-///  - sleep: 
-///
-///  - sleepAsync: 
 public extension DelayedTestIntfPrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sleep(_ iceP_ms: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sleep",
                                        mode: .Normal,
@@ -150,13 +132,6 @@ public extension DelayedTestIntfPrx {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: DelayedTestIntfPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -244,16 +219,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -261,13 +227,6 @@ public extension TestIntfPrx {
     }
 }
 
-/// TestIntfBidirPrx overview.
-///
-/// TestIntfBidirPrx Methods:
-///
-///  - makeSleep: 
-///
-///  - makeSleepAsync: 
 public protocol TestIntfBidirPrx: Ice.ObjectPrx {}
 
 private final class TestIntfBidirPrxI: Ice.ObjectPrxI, TestIntfBidirPrx {
@@ -355,22 +314,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfBidirPrx overview.
-///
-/// TestIntfBidirPrx Methods:
-///
-///  - makeSleep: 
-///
-///  - makeSleepAsync: 
 public extension TestIntfBidirPrx {
-    ///
-    /// - parameter aborted: `Swift.Bool`
-    ///
-    /// - parameter ms: `Swift.Int32`
-    ///
-    /// - parameter target: `DelayedTestIntfPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func makeSleep(aborted iceP_aborted: Swift.Bool, ms iceP_ms: Swift.Int32, target iceP_target: DelayedTestIntfPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "makeSleep",
                                        mode: .Normal,
@@ -412,10 +356,6 @@ public struct DelayedTestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol DelayedTestIntf {
-    ///
-    /// - parameter ms: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sleep(ms: Swift.Int32, current: Ice.Current) async throws
 }
 
@@ -450,8 +390,6 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf: DelayedTestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -484,22 +422,9 @@ public struct TestIntfBidirDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntfBidir {
-    ///
-    /// - parameter aborted: `Swift.Bool`
-    ///
-    /// - parameter ms: `Swift.Int32`
-    ///
-    /// - parameter target: `DelayedTestIntfPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func makeSleep(aborted: Swift.Bool, ms: Swift.Int32, target: DelayedTestIntfPrx?, current: Ice.Current) async throws
 }
 
-/// DelayedTestIntf overview.
-///
-/// DelayedTestIntf Methods:
-///
-///  - sleep: 
 extension DelayedTestIntf {
     public func _iceD_sleep(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -511,11 +436,6 @@ extension DelayedTestIntf {
     }
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -525,11 +445,6 @@ extension TestIntf {
     }
 }
 
-/// TestIntfBidir overview.
-///
-/// TestIntfBidir Methods:
-///
-///  - makeSleep: 
 extension TestIntfBidir {
     public func _iceD_makeSleep(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

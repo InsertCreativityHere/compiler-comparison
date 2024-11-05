@@ -1,8 +1,3 @@
-% B   Summary of B
-%
-% B Properties:
-%   sb
-%   pb
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ClientPrivate.ice by slice2matlab version 3.8.0-alpha.0

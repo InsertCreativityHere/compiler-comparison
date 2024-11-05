@@ -1,8 +1,3 @@
-% D3   Summary of D3
-%
-% D3 Properties:
-%   sd3
-%   pd3
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ClientPrivate.ice by slice2matlab version 3.8.0-alpha.0

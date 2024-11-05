@@ -1,10 +1,3 @@
-% echo   Summary of echo
-%
-% echo Properties:
-%   if_
-%   else_
-%   elseif_
-%   empty
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0

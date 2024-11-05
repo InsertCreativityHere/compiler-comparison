@@ -22,7 +22,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// TestIntfPrx overview.
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -110,7 +109,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
 public extension TestIntfPrx {}
 
 
@@ -141,5 +139,4 @@ public struct TestIntfDisp: Ice.Dispatcher {
 
 public protocol TestIntf {}
 
-/// TestIntf overview.
 extension TestIntf {}

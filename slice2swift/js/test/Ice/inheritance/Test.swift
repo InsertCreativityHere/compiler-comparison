@@ -52,13 +52,6 @@ public struct EchoTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Echo"
 }
 
-/// MAIAPrx overview.
-///
-/// MAIAPrx Methods:
-///
-///  - iaop: 
-///
-///  - iaopAsync: 
 public protocol MAIAPrx: Ice.ObjectPrx {}
 
 private final class MAIAPrxI: Ice.ObjectPrxI, MAIAPrx {
@@ -146,20 +139,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// MAIAPrx overview.
-///
-/// MAIAPrx Methods:
-///
-///  - iaop: 
-///
-///  - iaopAsync: 
 public extension MAIAPrx {
-    ///
-    /// - parameter _: `MAIAPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MAIAPrx?`
     func iaop(_ iceP_p: MAIAPrx?, context: Ice.Context? = nil) async throws -> MAIAPrx? {
         return try await _impl._invoke(operation: "iaop",
                                        mode: .Normal,
@@ -174,13 +154,6 @@ public extension MAIAPrx {
     }
 }
 
-/// MBIB1Prx overview.
-///
-/// MBIB1Prx Methods:
-///
-///  - ib1op: 
-///
-///  - ib1opAsync: 
 public protocol MBIB1Prx: MAIAPrx {}
 
 private final class MBIB1PrxI: Ice.ObjectPrxI, MBIB1Prx {
@@ -268,20 +241,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// MBIB1Prx overview.
-///
-/// MBIB1Prx Methods:
-///
-///  - ib1op: 
-///
-///  - ib1opAsync: 
 public extension MBIB1Prx {
-    ///
-    /// - parameter _: `MBIB1Prx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MBIB1Prx?`
     func ib1op(_ iceP_p: MBIB1Prx?, context: Ice.Context? = nil) async throws -> MBIB1Prx? {
         return try await _impl._invoke(operation: "ib1op",
                                        mode: .Normal,
@@ -296,13 +256,6 @@ public extension MBIB1Prx {
     }
 }
 
-/// MBIB2Prx overview.
-///
-/// MBIB2Prx Methods:
-///
-///  - ib2op: 
-///
-///  - ib2opAsync: 
 public protocol MBIB2Prx: MAIAPrx {}
 
 private final class MBIB2PrxI: Ice.ObjectPrxI, MBIB2Prx {
@@ -390,20 +343,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// MBIB2Prx overview.
-///
-/// MBIB2Prx Methods:
-///
-///  - ib2op: 
-///
-///  - ib2opAsync: 
 public extension MBIB2Prx {
-    ///
-    /// - parameter _: `MBIB2Prx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MBIB2Prx?`
     func ib2op(_ iceP_p: MBIB2Prx?, context: Ice.Context? = nil) async throws -> MBIB2Prx? {
         return try await _impl._invoke(operation: "ib2op",
                                        mode: .Normal,
@@ -418,13 +358,6 @@ public extension MBIB2Prx {
     }
 }
 
-/// MAICPrx overview.
-///
-/// MAICPrx Methods:
-///
-///  - icop: 
-///
-///  - icopAsync: 
 public protocol MAICPrx: MBIB1Prx, MBIB2Prx {}
 
 private final class MAICPrxI: Ice.ObjectPrxI, MAICPrx {
@@ -512,20 +445,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// MAICPrx overview.
-///
-/// MAICPrx Methods:
-///
-///  - icop: 
-///
-///  - icopAsync: 
 public extension MAICPrx {
-    ///
-    /// - parameter _: `MAICPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MAICPrx?`
     func icop(_ iceP_p: MAICPrx?, context: Ice.Context? = nil) async throws -> MAICPrx? {
         return try await _impl._invoke(operation: "icop",
                                        mode: .Normal,
@@ -540,29 +460,6 @@ public extension MAICPrx {
     }
 }
 
-/// InitialPrx overview.
-///
-/// InitialPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - iaop: 
-///
-///  - iaopAsync: 
-///
-///  - ib1op: 
-///
-///  - ib1opAsync: 
-///
-///  - ib2op: 
-///
-///  - ib2opAsync: 
-///
-///  - icop: 
-///
-///  - icopAsync: 
 public protocol InitialPrx: Ice.ObjectPrx {}
 
 private final class InitialPrxI: Ice.ObjectPrxI, InitialPrx {
@@ -650,42 +547,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// InitialPrx overview.
-///
-/// InitialPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - iaop: 
-///
-///  - iaopAsync: 
-///
-///  - ib1op: 
-///
-///  - ib1opAsync: 
-///
-///  - ib2op: 
-///
-///  - ib2opAsync: 
-///
-///  - icop: 
-///
-///  - icopAsync: 
 public extension InitialPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MAIAPrx?`
     func iaop(context: Ice.Context? = nil) async throws -> MAIAPrx? {
         return try await _impl._invoke(operation: "iaop",
                                        mode: .Normal,
@@ -696,10 +564,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MBIB1Prx?`
     func ib1op(context: Ice.Context? = nil) async throws -> MBIB1Prx? {
         return try await _impl._invoke(operation: "ib1op",
                                        mode: .Normal,
@@ -710,10 +574,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MBIB2Prx?`
     func ib2op(context: Ice.Context? = nil) async throws -> MBIB2Prx? {
         return try await _impl._invoke(operation: "ib2op",
                                        mode: .Normal,
@@ -724,10 +584,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MAICPrx?`
     func icop(context: Ice.Context? = nil) async throws -> MAICPrx? {
         return try await _impl._invoke(operation: "icop",
                                        mode: .Normal,
@@ -739,25 +595,6 @@ public extension InitialPrx {
     }
 }
 
-/// EchoPrx overview.
-///
-/// EchoPrx Methods:
-///
-///  - setConnection: 
-///
-///  - setConnectionAsync: 
-///
-///  - startBatch: 
-///
-///  - startBatchAsync: 
-///
-///  - flushBatch: 
-///
-///  - flushBatchAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol EchoPrx: Ice.ObjectPrx {}
 
 private final class EchoPrxI: Ice.ObjectPrxI, EchoPrx {
@@ -845,52 +682,25 @@ public extension Ice.InputStream {
     }
 }
 
-/// EchoPrx overview.
-///
-/// EchoPrx Methods:
-///
-///  - setConnection: 
-///
-///  - setConnectionAsync: 
-///
-///  - startBatch: 
-///
-///  - startBatchAsync: 
-///
-///  - flushBatch: 
-///
-///  - flushBatchAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension EchoPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func setConnection(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setConnection",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func startBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "startBatch",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func flushBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "flushBatch",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -1977,12 +1787,6 @@ public struct MAIADisp: Ice.Dispatcher {
 }
 
 public protocol MAIA {
-    ///
-    /// - parameter p: `MAIAPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MAIAPrx?`
     func iaop(p: MAIAPrx?, current: Ice.Current) async throws -> MAIAPrx?
 }
 
@@ -2017,12 +1821,6 @@ public struct MBIB1Disp: Ice.Dispatcher {
 }
 
 public protocol MBIB1: MAIA {
-    ///
-    /// - parameter p: `MBIB1Prx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MBIB1Prx?`
     func ib1op(p: MBIB1Prx?, current: Ice.Current) async throws -> MBIB1Prx?
 }
 
@@ -2057,12 +1855,6 @@ public struct MBIB2Disp: Ice.Dispatcher {
 }
 
 public protocol MBIB2: MAIA {
-    ///
-    /// - parameter p: `MBIB2Prx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MBIB2Prx?`
     func ib2op(p: MBIB2Prx?, current: Ice.Current) async throws -> MBIB2Prx?
 }
 
@@ -2101,12 +1893,6 @@ public struct MAICDisp: Ice.Dispatcher {
 }
 
 public protocol MAIC: MBIB1, MBIB2 {
-    ///
-    /// - parameter p: `MAICPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MAICPrx?`
     func icop(p: MAICPrx?, current: Ice.Current) async throws -> MAICPrx?
 }
 
@@ -2147,32 +1933,14 @@ public struct InitialDisp: Ice.Dispatcher {
 }
 
 public protocol Initial {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MAIAPrx?`
     func iaop(current: Ice.Current) async throws -> MAIAPrx?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MBIB1Prx?`
     func ib1op(current: Ice.Current) async throws -> MBIB1Prx?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MBIB2Prx?`
     func ib2op(current: Ice.Current) async throws -> MBIB2Prx?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MAICPrx?`
     func icop(current: Ice.Current) async throws -> MAICPrx?
 }
 
@@ -2211,28 +1979,15 @@ public struct EchoDisp: Ice.Dispatcher {
 }
 
 public protocol Echo {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setConnection(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func startBatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func flushBatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// MAIA overview.
-///
-/// MAIA Methods:
-///
-///  - iaop: 
 extension MAIA {
     public func _iceD_iaop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -2247,11 +2002,6 @@ extension MAIA {
     }
 }
 
-/// MBIB1 overview.
-///
-/// MBIB1 Methods:
-///
-///  - ib1op: 
 extension MBIB1 {
     public func _iceD_ib1op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -2266,11 +2016,6 @@ extension MBIB1 {
     }
 }
 
-/// MBIB2 overview.
-///
-/// MBIB2 Methods:
-///
-///  - ib2op: 
 extension MBIB2 {
     public func _iceD_ib2op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -2285,11 +2030,6 @@ extension MBIB2 {
     }
 }
 
-/// MAIC overview.
-///
-/// MAIC Methods:
-///
-///  - icop: 
 extension MAIC {
     public func _iceD_icop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -2304,19 +2044,6 @@ extension MAIC {
     }
 }
 
-/// Initial overview.
-///
-/// Initial Methods:
-///
-///  - shutdown: 
-///
-///  - iaop: 
-///
-///  - ib1op: 
-///
-///  - ib2op: 
-///
-///  - icop: 
 extension Initial {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -2366,17 +2093,6 @@ extension Initial {
     }
 }
 
-/// Echo overview.
-///
-/// Echo Methods:
-///
-///  - setConnection: 
-///
-///  - startBatch: 
-///
-///  - flushBatch: 
-///
-///  - shutdown: 
 extension Echo {
     public func _iceD_setConnection(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

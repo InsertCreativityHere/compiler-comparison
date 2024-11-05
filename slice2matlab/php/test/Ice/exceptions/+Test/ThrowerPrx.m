@@ -1,40 +1,3 @@
-% ThrowerPrx   Summary of ThrowerPrx
-%
-% ThrowerPrx Methods:
-%   shutdown
-%   shutdownAsync
-%   supportsUndeclaredExceptions
-%   supportsUndeclaredExceptionsAsync
-%   throwAasA
-%   throwAasAAsync
-%   throwAorDasAorD
-%   throwAorDasAorDAsync
-%   throwBasA
-%   throwBasAAsync
-%   throwCasA
-%   throwCasAAsync
-%   throwBasB
-%   throwBasBAsync
-%   throwCasB
-%   throwCasBAsync
-%   throwCasC
-%   throwCasCAsync
-%   throwUndeclaredA
-%   throwUndeclaredAAsync
-%   throwUndeclaredB
-%   throwUndeclaredBAsync
-%   throwUndeclaredC
-%   throwUndeclaredCAsync
-%   throwLocalException
-%   throwLocalExceptionAsync
-%   throwNonIceException
-%   throwNonIceExceptionAsync
-%   throwMemoryLimitException
-%   throwMemoryLimitExceptionAsync
-%   throwLocalExceptionIdempotent
-%   throwLocalExceptionIdempotentAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -42,44 +5,18 @@
 classdef ThrowerPrx < Ice.ObjectPrx
     methods
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
         function result = supportsUndeclaredExceptions(obj, varargin)
-            % supportsUndeclaredExceptions
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (logical)
-            
             is_ = obj.iceInvoke('supportsUndeclaredExceptions', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readBool();
             is_.endEncapsulation();
         end
         function r_ = supportsUndeclaredExceptionsAsync(obj, varargin)
-            % supportsUndeclaredExceptionsAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = is_.readBool();
@@ -89,65 +26,30 @@ classdef ThrowerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('supportsUndeclaredExceptions', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function throwAasA(obj, a, varargin)
-            % throwAasA
-            %
-            % Parameters:
-            %   a (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('throwAasA', 0, true, os_, false, Test.ThrowerPrx.throwAasA_ex_, varargin{:});
         end
         function r_ = throwAasAAsync(obj, a, varargin)
-            % throwAasAAsync
-            %
-            % Parameters:
-            %   a (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('throwAasA', 0, true, os_, 0, [], Test.ThrowerPrx.throwAasA_ex_, varargin{:});
         end
         function throwAorDasAorD(obj, a, varargin)
-            % throwAorDasAorD
-            %
-            % Parameters:
-            %   a (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('throwAorDasAorD', 0, true, os_, false, Test.ThrowerPrx.throwAorDasAorD_ex_, varargin{:});
         end
         function r_ = throwAorDasAorDAsync(obj, a, varargin)
-            % throwAorDasAorDAsync
-            %
-            % Parameters:
-            %   a (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('throwAorDasAorD', 0, true, os_, 0, [], Test.ThrowerPrx.throwAorDasAorD_ex_, varargin{:});
         end
         function throwBasA(obj, a, b, varargin)
-            % throwBasA
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -155,15 +57,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             obj.iceInvoke('throwBasA', 0, true, os_, false, Test.ThrowerPrx.throwBasA_ex_, varargin{:});
         end
         function r_ = throwBasAAsync(obj, a, b, varargin)
-            % throwBasAAsync
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -171,14 +64,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('throwBasA', 0, true, os_, 0, [], Test.ThrowerPrx.throwBasA_ex_, varargin{:});
         end
         function throwCasA(obj, a, b, c, varargin)
-            % throwCasA
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   c (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -187,16 +72,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             obj.iceInvoke('throwCasA', 0, true, os_, false, Test.ThrowerPrx.throwCasA_ex_, varargin{:});
         end
         function r_ = throwCasAAsync(obj, a, b, c, varargin)
-            % throwCasAAsync
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   c (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -205,13 +80,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('throwCasA', 0, true, os_, 0, [], Test.ThrowerPrx.throwCasA_ex_, varargin{:});
         end
         function throwBasB(obj, a, b, varargin)
-            % throwBasB
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -219,15 +87,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             obj.iceInvoke('throwBasB', 0, true, os_, false, Test.ThrowerPrx.throwBasB_ex_, varargin{:});
         end
         function r_ = throwBasBAsync(obj, a, b, varargin)
-            % throwBasBAsync
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -235,14 +94,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('throwBasB', 0, true, os_, 0, [], Test.ThrowerPrx.throwBasB_ex_, varargin{:});
         end
         function throwCasB(obj, a, b, c, varargin)
-            % throwCasB
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   c (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -251,16 +102,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             obj.iceInvoke('throwCasB', 0, true, os_, false, Test.ThrowerPrx.throwCasB_ex_, varargin{:});
         end
         function r_ = throwCasBAsync(obj, a, b, c, varargin)
-            % throwCasBAsync
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   c (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -269,14 +110,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('throwCasB', 0, true, os_, 0, [], Test.ThrowerPrx.throwCasB_ex_, varargin{:});
         end
         function throwCasC(obj, a, b, c, varargin)
-            % throwCasC
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   c (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -285,16 +118,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             obj.iceInvoke('throwCasC', 0, true, os_, false, Test.ThrowerPrx.throwCasC_ex_, varargin{:});
         end
         function r_ = throwCasCAsync(obj, a, b, c, varargin)
-            % throwCasCAsync
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   c (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -303,39 +126,18 @@ classdef ThrowerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('throwCasC', 0, true, os_, 0, [], Test.ThrowerPrx.throwCasC_ex_, varargin{:});
         end
         function throwUndeclaredA(obj, a, varargin)
-            % throwUndeclaredA
-            %
-            % Parameters:
-            %   a (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('throwUndeclaredA', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = throwUndeclaredAAsync(obj, a, varargin)
-            % throwUndeclaredAAsync
-            %
-            % Parameters:
-            %   a (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('throwUndeclaredA', 0, false, os_, 0, [], {}, varargin{:});
         end
         function throwUndeclaredB(obj, a, b, varargin)
-            % throwUndeclaredB
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -343,15 +145,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             obj.iceInvoke('throwUndeclaredB', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = throwUndeclaredBAsync(obj, a, b, varargin)
-            % throwUndeclaredBAsync
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -359,14 +152,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('throwUndeclaredB', 0, false, os_, 0, [], {}, varargin{:});
         end
         function throwUndeclaredC(obj, a, b, c, varargin)
-            % throwUndeclaredC
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   c (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -375,16 +160,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             obj.iceInvoke('throwUndeclaredC', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = throwUndeclaredCAsync(obj, a, b, c, varargin)
-            % throwUndeclaredCAsync
-            %
-            % Parameters:
-            %   a (int32)
-            %   b (int32)
-            %   c (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(a);
             os_.writeInt(b);
@@ -393,50 +168,18 @@ classdef ThrowerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('throwUndeclaredC', 0, false, os_, 0, [], {}, varargin{:});
         end
         function throwLocalException(obj, varargin)
-            % throwLocalException
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('throwLocalException', 0, false, [], false, {}, varargin{:});
         end
         function r_ = throwLocalExceptionAsync(obj, varargin)
-            % throwLocalExceptionAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('throwLocalException', 0, false, [], 0, [], {}, varargin{:});
         end
         function throwNonIceException(obj, varargin)
-            % throwNonIceException
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('throwNonIceException', 0, false, [], false, {}, varargin{:});
         end
         function r_ = throwNonIceExceptionAsync(obj, varargin)
-            % throwNonIceExceptionAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('throwNonIceException', 0, false, [], 0, [], {}, varargin{:});
         end
         function result = throwMemoryLimitException(obj, seq, varargin)
-            % throwMemoryLimitException
-            %
-            % Parameters:
-            %   seq (Ice.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.ByteSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(seq);
             obj.iceEndWriteParams(os_);
@@ -446,14 +189,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = throwMemoryLimitExceptionAsync(obj, seq, varargin)
-            % throwMemoryLimitExceptionAsync
-            %
-            % Parameters:
-            %   seq (Ice.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(seq);
             obj.iceEndWriteParams(os_);
@@ -466,21 +201,9 @@ classdef ThrowerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('throwMemoryLimitException', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function throwLocalExceptionIdempotent(obj, varargin)
-            % throwLocalExceptionIdempotent
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('throwLocalExceptionIdempotent', 2, false, [], false, {}, varargin{:});
         end
         function r_ = throwLocalExceptionIdempotentAsync(obj, varargin)
-            % throwLocalExceptionIdempotentAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('throwLocalExceptionIdempotent', 2, false, [], 0, [], {}, varargin{:});
         end
     end

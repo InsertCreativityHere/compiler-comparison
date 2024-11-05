@@ -1,18 +1,3 @@
-% HoldPrx   Summary of HoldPrx
-%
-% HoldPrx Methods:
-%   putOnHold - Puts the adapter on hold, and optionally reactivates it.
-%   putOnHoldAsync - Puts the adapter on hold, and optionally reactivates it.
-%   waitForHold - Starts a background task that calls waitForHold and activate on the adapter.
-%   waitForHoldAsync - Starts a background task that calls waitForHold and activate on the adapter.
-%   setOneway - Saves value as the last value.
-%   setOnewayAsync - Saves value as the last value.
-%   set - Saves value as the last value after a delay.
-%   setAsync - Saves value as the last value after a delay.
-%   shutdown - Shuts down the server.
-%   shutdownAsync - Shuts down the server.
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

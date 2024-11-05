@@ -1,24 +1,3 @@
-% NodeSessionPrx   Summary of NodeSessionPrx
-%
-% NodeSessionPrx Methods:
-%   keepAlive - The node call this method to keep the session alive.
-%   keepAliveAsync - The node call this method to keep the session alive.
-%   setReplicaObserver - Set the replica observer.
-%   setReplicaObserverAsync - Set the replica observer.
-%   getTimeout - Return the node session timeout.
-%   getTimeoutAsync - Return the node session timeout.
-%   getObserver - Return the node observer.
-%   getObserverAsync - Return the node observer.
-%   loadServers - Ask the registry to load the servers on the node.
-%   loadServersAsync - Ask the registry to load the servers on the node.
-%   getServers - Get the name of the servers deployed on the node.
-%   getServersAsync - Get the name of the servers deployed on the node.
-%   waitForApplicationUpdate - Wait for the application update to complete (the application is completely updated once all the registry replicas have been updated).
-%   waitForApplicationUpdateAsync - Wait for the application update to complete (the application is completely updated once all the registry replicas have been updated).
-%   destroy - Destroy the session.
-%   destroyAsync - Destroy the session.
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0

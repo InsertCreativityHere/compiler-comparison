@@ -20,15 +20,6 @@
 classdef TestControllerPrx < Ice.ObjectPrx
     methods
         function newState = step(obj, currentSession, currentState, varargin)
-            % step
-            %
-            % Parameters:
-            %   currentSession (Glacier2.SessionPrx)
-            %   currentState (Test.TestToken)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.TestToken)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(currentSession);
             Test.TestToken.ice_write(os_, currentState);
@@ -39,15 +30,6 @@ classdef TestControllerPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = stepAsync(obj, currentSession, currentState, varargin)
-            % stepAsync
-            %
-            % Parameters:
-            %   currentSession (Glacier2.SessionPrx)
-            %   currentState (Test.TestToken)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(currentSession);
             Test.TestToken.ice_write(os_, currentState);
@@ -61,21 +43,9 @@ classdef TestControllerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('step', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
     end

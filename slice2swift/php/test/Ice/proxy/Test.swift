@@ -95,17 +95,6 @@ public struct MyDerivedClassTraits: Ice.SliceTraits {
     public static let staticId = "::Test::MyDerivedClass"
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - getContext: 
-///
-///  - getContextAsync: 
 public protocol MyClassPrx: Ice.ObjectPrx {}
 
 private final class MyClassPrxI: Ice.ObjectPrxI, MyClassPrx {
@@ -193,30 +182,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - getContext: 
-///
-///  - getContextAsync: 
 public extension MyClassPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Context`
     func getContext(context: Ice.Context? = nil) async throws -> Context {
         return try await _impl._invoke(operation: "getContext",
                                        mode: .Normal,
@@ -228,13 +200,6 @@ public extension MyClassPrx {
     }
 }
 
-/// MyDerivedClassPrx overview.
-///
-/// MyDerivedClassPrx Methods:
-///
-///  - echo: 
-///
-///  - echoAsync: 
 public protocol MyDerivedClassPrx: MyClassPrx {}
 
 private final class MyDerivedClassPrxI: Ice.ObjectPrxI, MyDerivedClassPrx {
@@ -322,20 +287,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyDerivedClassPrx overview.
-///
-/// MyDerivedClassPrx Methods:
-///
-///  - echo: 
-///
-///  - echoAsync: 
 public extension MyDerivedClassPrx {
-    ///
-    /// - parameter _: `Ice.ObjectPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?`
     func echo(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "echo",
                                        mode: .Normal,
@@ -381,14 +333,8 @@ public struct MyClassDisp: Ice.Dispatcher {
 }
 
 public protocol MyClass {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Context`
     func getContext(current: Ice.Current) async throws -> Context
 }
 
@@ -425,22 +371,9 @@ public struct MyDerivedClassDisp: Ice.Dispatcher {
 }
 
 public protocol MyDerivedClass: MyClass {
-    ///
-    /// - parameter obj: `Ice.ObjectPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.ObjectPrx?`
     func echo(obj: Ice.ObjectPrx?, current: Ice.Current) async throws -> Ice.ObjectPrx?
 }
 
-/// MyClass overview.
-///
-/// MyClass Methods:
-///
-///  - shutdown: 
-///
-///  - getContext: 
 extension MyClass {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -460,11 +393,6 @@ extension MyClass {
     }
 }
 
-/// MyDerivedClass overview.
-///
-/// MyDerivedClass Methods:
-///
-///  - echo: 
 extension MyDerivedClass {
     public func _iceD_echo(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

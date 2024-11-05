@@ -1,8 +1,3 @@
-% InternalAdapterDescriptor   Summary of InternalAdapterDescriptor
-%
-% InternalAdapterDescriptor Properties:
-%   id - The identifier of the server.
-%   serverLifetime - Specifies if the lifetime of the adapter is the same as the server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0

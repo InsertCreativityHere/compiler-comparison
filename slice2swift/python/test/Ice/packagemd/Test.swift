@@ -25,65 +25,6 @@ public struct InitialTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Initial"
 }
 
-/// InitialPrx overview.
-///
-/// InitialPrx Methods:
-///
-///  - getTest1C2AsC1: 
-///
-///  - getTest1C2AsC1Async: 
-///
-///  - getTest1C2AsC2: 
-///
-///  - getTest1C2AsC2Async: 
-///
-///  - throwTest1E2AsE1: 
-///
-///  - throwTest1E2AsE1Async: 
-///
-///  - throwTest1E2AsE2: 
-///
-///  - throwTest1E2AsE2Async: 
-///
-///  - throwTest1Def: 
-///
-///  - throwTest1DefAsync: 
-///
-///  - getTest2C2AsC1: 
-///
-///  - getTest2C2AsC1Async: 
-///
-///  - getTest2C2AsC2: 
-///
-///  - getTest2C2AsC2Async: 
-///
-///  - throwTest2E2AsE1: 
-///
-///  - throwTest2E2AsE1Async: 
-///
-///  - throwTest2E2AsE2: 
-///
-///  - throwTest2E2AsE2Async: 
-///
-///  - getTest3C2AsC1: 
-///
-///  - getTest3C2AsC1Async: 
-///
-///  - getTest3C2AsC2: 
-///
-///  - getTest3C2AsC2Async: 
-///
-///  - throwTest3E2AsE1: 
-///
-///  - throwTest3E2AsE1Async: 
-///
-///  - throwTest3E2AsE2: 
-///
-///  - throwTest3E2AsE2Async: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol InitialPrx: Ice.ObjectPrx {}
 
 private final class InitialPrxI: Ice.ObjectPrxI, InitialPrx {
@@ -171,70 +112,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// InitialPrx overview.
-///
-/// InitialPrx Methods:
-///
-///  - getTest1C2AsC1: 
-///
-///  - getTest1C2AsC1Async: 
-///
-///  - getTest1C2AsC2: 
-///
-///  - getTest1C2AsC2Async: 
-///
-///  - throwTest1E2AsE1: 
-///
-///  - throwTest1E2AsE1Async: 
-///
-///  - throwTest1E2AsE2: 
-///
-///  - throwTest1E2AsE2Async: 
-///
-///  - throwTest1Def: 
-///
-///  - throwTest1DefAsync: 
-///
-///  - getTest2C2AsC1: 
-///
-///  - getTest2C2AsC1Async: 
-///
-///  - getTest2C2AsC2: 
-///
-///  - getTest2C2AsC2Async: 
-///
-///  - throwTest2E2AsE1: 
-///
-///  - throwTest2E2AsE1Async: 
-///
-///  - throwTest2E2AsE2: 
-///
-///  - throwTest2E2AsE2Async: 
-///
-///  - getTest3C2AsC1: 
-///
-///  - getTest3C2AsC1Async: 
-///
-///  - getTest3C2AsC2: 
-///
-///  - getTest3C2AsC2Async: 
-///
-///  - throwTest3E2AsE1: 
-///
-///  - throwTest3E2AsE1Async: 
-///
-///  - throwTest3E2AsE2: 
-///
-///  - throwTest3E2AsE2Async: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension InitialPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Test1.C1?`
     func getTest1C2AsC1(context: Ice.Context? = nil) async throws -> Test1.C1? {
         return try await _impl._invoke(operation: "getTest1C2AsC1",
                                        mode: .Normal,
@@ -247,10 +125,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Test1.C2?`
     func getTest1C2AsC2(context: Ice.Context? = nil) async throws -> Test1.C2? {
         return try await _impl._invoke(operation: "getTest1C2AsC2",
                                        mode: .Normal,
@@ -263,8 +137,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwTest1E2AsE1(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwTest1E2AsE1",
                                        mode: .Normal,
@@ -278,8 +150,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwTest1E2AsE2(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwTest1E2AsE2",
                                        mode: .Normal,
@@ -293,8 +163,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwTest1Def(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwTest1Def",
                                        mode: .Normal,
@@ -308,10 +176,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Test2.C1?`
     func getTest2C2AsC1(context: Ice.Context? = nil) async throws -> Test2.C1? {
         return try await _impl._invoke(operation: "getTest2C2AsC1",
                                        mode: .Normal,
@@ -324,10 +188,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Test2.C2?`
     func getTest2C2AsC2(context: Ice.Context? = nil) async throws -> Test2.C2? {
         return try await _impl._invoke(operation: "getTest2C2AsC2",
                                        mode: .Normal,
@@ -340,8 +200,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwTest2E2AsE1(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwTest2E2AsE1",
                                        mode: .Normal,
@@ -355,8 +213,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwTest2E2AsE2(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwTest2E2AsE2",
                                        mode: .Normal,
@@ -370,10 +226,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Test3.C1?`
     func getTest3C2AsC1(context: Ice.Context? = nil) async throws -> Test3.C1? {
         return try await _impl._invoke(operation: "getTest3C2AsC1",
                                        mode: .Normal,
@@ -386,10 +238,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Test3.C2?`
     func getTest3C2AsC2(context: Ice.Context? = nil) async throws -> Test3.C2? {
         return try await _impl._invoke(operation: "getTest3C2AsC2",
                                        mode: .Normal,
@@ -402,8 +250,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwTest3E2AsE1(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwTest3E2AsE1",
                                        mode: .Normal,
@@ -417,8 +263,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwTest3E2AsE2(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwTest3E2AsE2",
                                        mode: .Normal,
@@ -432,8 +276,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -496,106 +338,35 @@ public struct InitialDisp: Ice.Dispatcher {
 }
 
 public protocol Initial {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Test1.C1?`
     func getTest1C2AsC1(current: Ice.Current) async throws -> Test1.C1?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Test1.C2?`
     func getTest1C2AsC2(current: Ice.Current) async throws -> Test1.C2?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwTest1E2AsE1(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwTest1E2AsE2(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwTest1Def(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Test2.C1?`
     func getTest2C2AsC1(current: Ice.Current) async throws -> Test2.C1?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Test2.C2?`
     func getTest2C2AsC2(current: Ice.Current) async throws -> Test2.C2?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwTest2E2AsE1(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwTest2E2AsE2(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Test3.C1?`
     func getTest3C2AsC1(current: Ice.Current) async throws -> Test3.C1?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Test3.C2?`
     func getTest3C2AsC2(current: Ice.Current) async throws -> Test3.C2?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwTest3E2AsE1(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwTest3E2AsE2(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Initial overview.
-///
-/// Initial Methods:
-///
-///  - getTest1C2AsC1: 
-///
-///  - getTest1C2AsC2: 
-///
-///  - throwTest1E2AsE1: 
-///
-///  - throwTest1E2AsE2: 
-///
-///  - throwTest1Def: 
-///
-///  - getTest2C2AsC1: 
-///
-///  - getTest2C2AsC2: 
-///
-///  - throwTest2E2AsE1: 
-///
-///  - throwTest2E2AsE2: 
-///
-///  - getTest3C2AsC1: 
-///
-///  - getTest3C2AsC2: 
-///
-///  - throwTest3E2AsE1: 
-///
-///  - throwTest3E2AsE2: 
-///
-///  - shutdown: 
 extension Initial {
     public func _iceD_getTest1C2AsC1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

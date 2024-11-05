@@ -1,7 +1,3 @@
-% C1   Summary of C1
-%
-% C1 Properties:
-%   i
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Namespace.ice by slice2matlab version 3.8.0-alpha.0

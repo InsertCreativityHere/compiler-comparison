@@ -1,22 +1,3 @@
-% ClassProperty   Summary of ClassProperty
-%
-% ClassProperty Properties:
-%   boolFalse
-%   boolTrue
-%   b
-%   s
-%   i
-%   l
-%   f
-%   d
-%   str
-%   noDefault
-%   zeroI
-%   zeroL
-%   zeroF
-%   zeroDotF
-%   zeroD
-%   zeroDotD
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

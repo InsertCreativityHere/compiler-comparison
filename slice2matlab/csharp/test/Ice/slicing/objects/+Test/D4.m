@@ -1,8 +1,3 @@
-% D4   Summary of D4
-%
-% D4 Properties:
-%   p1
-%   p2
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ServerPrivate.ice by slice2matlab version 3.8.0-alpha.0

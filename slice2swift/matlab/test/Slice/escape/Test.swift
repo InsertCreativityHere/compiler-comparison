@@ -17,69 +17,37 @@ import Foundation
 import Ice
 
 public enum breakbitand: Swift.UInt8 {
-    /// `break`
     case `break` = 0
-    /// `case`
     case `case` = 1
-    /// `catch`
     case `catch` = 2
-    /// classdef
     case classdef = 3
-    /// `continue`
     case `continue` = 4
-    /// `else`
     case `else` = 5
-    /// elseif
     case elseif = 6
-    /// end
     case end = 7
-    /// enumeration
     case enumeration = 8
-    /// events
     case events = 9
-    /// `for`
     case `for` = 10
-    /// function
     case function = 11
-    /// global
     case global = 12
-    /// `if`
     case `if` = 13
-    /// methods
     case methods = 14
-    /// otherwise
     case otherwise = 15
-    /// parfor
     case parfor = 16
-    /// persistent
     case persistent = 17
-    /// properties
     case properties = 18
-    /// `return`
     case `return` = 19
-    /// spmd
     case spmd = 20
-    /// `switch`
     case `switch` = 21
-    /// `try`
     case `try` = 22
-    /// `while`
     case `while` = 23
-    /// abs
     case abs = 24
-    /// and
     case and = 25
-    /// char
     case char = 26
-    /// eq
     case eq = 27
-    /// length
     case length = 28
-    /// size
     case size = 29
-    /// xor
     case xor = 30
-    /// LAST
     case LAST = 31
     public init() {
         self = .`break`
@@ -456,25 +424,6 @@ public struct breakelseifTraits: Ice.SliceTraits {
 public let methods: Swift.Int32 = 1
 
 
-/// breakelseifPrx overview.
-///
-/// breakelseifPrx Methods:
-///
-///  - events: 
-///
-///  - eventsAsync: 
-///
-///  - function: 
-///
-///  - functionAsync: 
-///
-///  - delete: 
-///
-///  - deleteAsync: 
-///
-///  - checkedCast: 
-///
-///  - checkedCastAsync: 
 public protocol breakelseifPrx: Ice.ObjectPrx {}
 
 private final class breakelseifPrxI: Ice.ObjectPrxI, breakelseifPrx {
@@ -562,52 +511,25 @@ public extension Ice.InputStream {
     }
 }
 
-/// breakelseifPrx overview.
-///
-/// breakelseifPrx Methods:
-///
-///  - events: 
-///
-///  - eventsAsync: 
-///
-///  - function: 
-///
-///  - functionAsync: 
-///
-///  - delete: 
-///
-///  - deleteAsync: 
-///
-///  - checkedCast: 
-///
-///  - checkedCastAsync: 
 public extension breakelseifPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func events(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "events",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func function(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "function",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func delete(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "delete",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func checkedCast(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "checkedCast",
                                        mode: .Normal,
@@ -844,34 +766,15 @@ public struct breakelseifDisp: Ice.Dispatcher {
 }
 
 public protocol breakelseif {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func events(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func function(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func delete(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func checkedCast(current: Ice.Current) async throws
 }
 
-/// breakelseif overview.
-///
-/// breakelseif Methods:
-///
-///  - events: 
-///
-///  - function: 
-///
-///  - delete: 
-///
-///  - checkedCast: 
 extension breakelseif {
     public func _iceD_events(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

@@ -22,13 +22,6 @@ public struct Interface1Traits: Ice.SliceTraits {
     public static let staticId = "::Test::Interface1"
 }
 
-/// Interface1Prx overview.
-///
-/// Interface1Prx Methods:
-///
-///  - method: 
-///
-///  - methodAsync: 
 public protocol Interface1Prx: Ice.ObjectPrx {}
 
 private final class Interface1PrxI: Ice.ObjectPrxI, Interface1Prx {
@@ -116,16 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// Interface1Prx overview.
-///
-/// Interface1Prx Methods:
-///
-///  - method: 
-///
-///  - methodAsync: 
 public extension Interface1Prx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func method(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "method",
                                        mode: .Normal,
@@ -192,16 +176,9 @@ public struct Interface1Disp: Ice.Dispatcher {
 }
 
 public protocol Interface1 {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func method(current: Ice.Current) async throws
 }
 
-/// Interface1 overview.
-///
-/// Interface1 Methods:
-///
-///  - method: 
 extension Interface1 {
     public func _iceD_method(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

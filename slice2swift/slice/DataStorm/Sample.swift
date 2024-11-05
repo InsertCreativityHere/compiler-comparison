@@ -20,13 +20,13 @@ import Ice
 /// information on what to expect from the sample. A sample with the Add or Update event always provide a value
 /// while a sample with the Remove type doesn't.
 public enum SampleEvent: Swift.UInt8 {
-    /// Add The element has been added.
+    /// The element has been added.
     case Add = 0
-    /// Update The element has been updated.
+    /// The element has been updated.
     case Update = 1
-    /// PartialUpdate The element has been partially updated.
+    /// The element has been partially updated.
     case PartialUpdate = 2
-    /// Remove The element has been removed.
+    /// The element has been removed.
     case Remove = 3
     public init() {
         self = .Add

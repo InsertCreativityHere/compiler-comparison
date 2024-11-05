@@ -16,8 +16,8 @@
 package com.zeroc.Glacier2;
 
 /**
- * The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
- * session objects are created by the {@link Router} object calling on an application-provided session manager. If
+ * The session manager for SSL authenticated users that is responsible for managing {@link Session}} objects. New
+ * session objects are created by the {@link Router}} object calling on an application-provided session manager. If
  * no session manager is provided by the application, no client-visible sessions are passed to the client.
  *
  * @see Router

@@ -22,17 +22,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - getReplicaId: 
-///
-///  - getReplicaIdAsync: 
-///
-///  - getReplicaIdAndShutdown: 
-///
-///  - getReplicaIdAndShutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -120,22 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - getReplicaId: 
-///
-///  - getReplicaIdAsync: 
-///
-///  - getReplicaIdAndShutdown: 
-///
-///  - getReplicaIdAndShutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getReplicaId(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getReplicaId",
                                        mode: .Normal,
@@ -146,10 +120,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getReplicaIdAndShutdown(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getReplicaIdAndShutdown",
                                        mode: .Normal,
@@ -192,26 +162,11 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getReplicaId(current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getReplicaIdAndShutdown(current: Ice.Current) async throws -> Swift.String
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - getReplicaId: 
-///
-///  - getReplicaIdAndShutdown: 
 extension TestIntf {
     public func _iceD_getReplicaId(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

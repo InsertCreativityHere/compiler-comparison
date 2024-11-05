@@ -1,14 +1,3 @@
-% TestIntfControllerPrx   Summary of TestIntfControllerPrx
-%
-% TestIntfControllerPrx Methods:
-%   holdAdapter
-%   holdAdapterAsync
-%   resumeAdapter
-%   resumeAdapterAsync
-%   interrupt
-%   interruptAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -16,57 +5,21 @@
 classdef TestIntfControllerPrx < Ice.ObjectPrx
     methods
         function holdAdapter(obj, varargin)
-            % holdAdapter
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('holdAdapter', 0, false, [], false, {}, varargin{:});
         end
         function r_ = holdAdapterAsync(obj, varargin)
-            % holdAdapterAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('holdAdapter', 0, false, [], 0, [], {}, varargin{:});
         end
         function resumeAdapter(obj, varargin)
-            % resumeAdapter
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('resumeAdapter', 0, false, [], false, {}, varargin{:});
         end
         function r_ = resumeAdapterAsync(obj, varargin)
-            % resumeAdapterAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('resumeAdapter', 0, false, [], 0, [], {}, varargin{:});
         end
         function interrupt(obj, varargin)
-            % interrupt
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('interrupt', 0, true, [], false, Test.TestIntfControllerPrx.interrupt_ex_, varargin{:});
         end
         function r_ = interruptAsync(obj, varargin)
-            % interruptAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('interrupt', 0, true, [], 0, [], Test.TestIntfControllerPrx.interrupt_ex_, varargin{:});
         end
     end

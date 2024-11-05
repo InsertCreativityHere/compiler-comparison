@@ -17,7 +17,6 @@ import Foundation
 import Ice
 
 public enum END: Swift.UInt8 {
-    /// alias
     case alias = 0
     public init() {
         self = .alias
@@ -373,25 +372,6 @@ public struct extendTraits: Ice.SliceTraits {
 public let redo: Swift.Int32 = 1
 
 
-/// breakPrx overview.
-///
-/// breakPrx Methods:
-///
-///  - `case`: 
-///
-///  - caseAsync: 
-///
-///  - to_a: 
-///
-///  - to_aAsync: 
-///
-///  - instance_variable_set: 
-///
-///  - instance_variable_setAsync: 
-///
-///  - instance_variables: 
-///
-///  - instance_variablesAsync: 
 public protocol breakPrx: Ice.ObjectPrx {}
 
 private final class breakPrxI: Ice.ObjectPrxI, breakPrx {
@@ -479,32 +459,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// breakPrx overview.
-///
-/// breakPrx Methods:
-///
-///  - `case`: 
-///
-///  - caseAsync: 
-///
-///  - to_a: 
-///
-///  - to_aAsync: 
-///
-///  - instance_variable_set: 
-///
-///  - instance_variable_setAsync: 
-///
-///  - instance_variables: 
-///
-///  - instance_variablesAsync: 
 public extension breakPrx {
-    ///
-    /// - parameter clone: `Swift.Int32`
-    ///
-    /// - parameter def: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func `case`(clone iceP_clone: Swift.Int32, def iceP_def: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "case",
                                        mode: .Normal,
@@ -515,24 +470,18 @@ public extension breakPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func to_a(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "to_a",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func instance_variable_set(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "instance_variable_set",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func instance_variables(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "instance_variables",
                                        mode: .Normal,
@@ -540,7 +489,6 @@ public extension breakPrx {
     }
 }
 
-/// elsifPrx overview.
 public protocol elsifPrx: breakPrx {}
 
 private final class elsifPrxI: Ice.ObjectPrxI, elsifPrx {
@@ -628,16 +576,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// elsifPrx overview.
 public extension elsifPrx {}
 
-/// extendPrx overview.
-///
-/// extendPrx Methods:
-///
-///  - `for`: 
-///
-///  - forAsync: 
 public protocol extendPrx: Ice.ObjectPrx {}
 
 private final class extendPrxI: Ice.ObjectPrxI, extendPrx {
@@ -725,30 +665,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// extendPrx overview.
-///
-/// extendPrx Methods:
-///
-///  - `for`: 
-///
-///  - forAsync: 
 public extension extendPrx {
-    ///
-    /// - parameter freeze: `display?`
-    ///
-    /// - parameter hash: `elsifPrx?`
-    ///
-    /// - parameter if: `breakPrx?`
-    ///
-    /// - parameter inspect: `display?`
-    ///
-    /// - parameter method: `elsifPrx?`
-    ///
-    /// - parameter methods: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `END`
     func `for`(freeze iceP_freeze: display?, hash iceP_hash: elsifPrx?, if iceP_if: breakPrx?, inspect iceP_inspect: display?, method iceP_method: elsifPrx?, methods iceP_methods: Swift.Int32, context: Ice.Context? = nil) async throws -> END {
         return try await _impl._invoke(operation: "for",
                                        mode: .Normal,
@@ -863,24 +780,12 @@ public struct breakDisp: Ice.Dispatcher {
 }
 
 public protocol `break` {
-    ///
-    /// - parameter clone: `Swift.Int32`
-    ///
-    /// - parameter def: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func `case`(clone: Swift.Int32, def: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func to_a(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func instance_variable_set(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func instance_variables(current: Ice.Current) async throws
 }
 
@@ -949,36 +854,9 @@ public struct extendDisp: Ice.Dispatcher {
 }
 
 public protocol extend {
-    ///
-    /// - parameter freeze: `display?`
-    ///
-    /// - parameter hash: `elsifPrx?`
-    ///
-    /// - parameter if: `breakPrx?`
-    ///
-    /// - parameter inspect: `display?`
-    ///
-    /// - parameter method: `elsifPrx?`
-    ///
-    /// - parameter methods: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `END`
     func `for`(freeze: display?, hash: elsifPrx?, if: breakPrx?, inspect: display?, method: elsifPrx?, methods: Swift.Int32, current: Ice.Current) async throws -> END
 }
 
-/// break overview.
-///
-/// break Methods:
-///
-///  - `case`: 
-///
-///  - to_a: 
-///
-///  - instance_variable_set: 
-///
-///  - instance_variables: 
 extension `break` {
     public func _iceD_case(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1012,14 +890,8 @@ extension `break` {
     }
 }
 
-/// elsif overview.
 extension elsif {}
 
-/// extend overview.
-///
-/// extend Methods:
-///
-///  - `for`: 
 extension extend {
     public func _iceD_for(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

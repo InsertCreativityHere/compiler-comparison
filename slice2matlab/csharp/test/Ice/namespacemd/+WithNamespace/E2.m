@@ -1,7 +1,3 @@
-% E2   Summary of E2
-%
-% E2 Properties:
-%   l
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Namespace.ice by slice2matlab version 3.8.0-alpha.0

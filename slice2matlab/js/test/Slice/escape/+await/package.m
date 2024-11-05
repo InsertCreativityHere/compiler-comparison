@@ -1,12 +1,3 @@
-% package   Summary of package
-%
-% package Properties:
-%   for_
-%   goto
-%   if_
-%   internal
-%   debugger
-%   null
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0

@@ -1,7 +1,3 @@
-% SS1   Summary of SS1
-%
-% SS1 Properties:
-%   s
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ServerPrivate.ice by slice2matlab version 3.8.0-alpha.0

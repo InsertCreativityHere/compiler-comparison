@@ -19,20 +19,20 @@ import Glacier2
 
 /// An enumeration representing the state of the server.
 public enum ServerState: Swift.UInt8 {
-    /// Inactive The server is not running.
+    /// The server is not running.
     case Inactive = 0
-    /// Activating The server is being activated and will change to the active state when the registered server object adapters
+    /// The server is being activated and will change to the active state when the registered server object adapters
     /// are activated or to the activation timed out state if the activation timeout expires.
     case Activating = 1
-    /// ActivationTimedOut The activation timed out state indicates that the server activation timed out.
+    /// The activation timed out state indicates that the server activation timed out.
     case ActivationTimedOut = 2
-    /// Active The server is running.
+    /// The server is running.
     case Active = 3
-    /// Deactivating The server is being deactivated.
+    /// The server is being deactivated.
     case Deactivating = 4
-    /// Destroying The server is being destroyed.
+    /// The server is being destroyed.
     case Destroying = 5
-    /// Destroyed The server is destroyed.
+    /// The server is destroyed.
     case Destroyed = 6
     public init() {
         self = .Inactive
@@ -680,7 +680,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// A sequence of RegistryInfo structures.
+/// A sequence of {@link RegistryInfo} structures.
 public typealias RegistryInfoSeq = [RegistryInfo]
 
 /// Helper class to read and write `RegistryInfoSeq` sequence values from
@@ -910,7 +910,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// A sequence of ApplicationInfo structures.
+/// A sequence of {@link ApplicationInfo} structures.
 public typealias ApplicationInfoSeq = [ApplicationInfo]
 
 /// Helper class to read and write `ApplicationInfoSeq` sequence values from
@@ -4283,17 +4283,17 @@ public extension AdapterObserverPrx {
 ///
 ///  - objectInitAsync: objectInit is called after the registration of an observer to indicate the state of the registry.
 ///
-///  - objectAdded: The objectAdded operation is called to notify an observer when an object was added to the Admin interface.
+///  - objectAdded: The objectAdded operation is called to notify an observer when an object was added to the {@link Admin} interface.
 ///
-///  - objectAddedAsync: The objectAdded operation is called to notify an observer when an object was added to the Admin interface.
+///  - objectAddedAsync: The objectAdded operation is called to notify an observer when an object was added to the {@link Admin} interface.
 ///
-///  - objectUpdated: objectUpdated is called to notify an observer when an object registered with the Admin interface was updated.
+///  - objectUpdated: objectUpdated is called to notify an observer when an object registered with the {@link Admin} interface was updated.
 ///
-///  - objectUpdatedAsync: objectUpdated is called to notify an observer when an object registered with the Admin interface was updated.
+///  - objectUpdatedAsync: objectUpdated is called to notify an observer when an object registered with the {@link Admin} interface was updated.
 ///
-///  - objectRemoved: objectRemoved is called to notify an observer when an object registered with the Admin interface was removed.
+///  - objectRemoved: objectRemoved is called to notify an observer when an object registered with the {@link Admin} interface was removed.
 ///
-///  - objectRemovedAsync: objectRemoved is called to notify an observer when an object registered with the Admin interface was removed.
+///  - objectRemovedAsync: objectRemoved is called to notify an observer when an object registered with the {@link Admin} interface was removed.
 public protocol ObjectObserverPrx: Ice.ObjectPrx {}
 
 private final class ObjectObserverPrxI: Ice.ObjectPrxI, ObjectObserverPrx {
@@ -4389,22 +4389,22 @@ public extension Ice.InputStream {
 ///
 ///  - objectInitAsync: objectInit is called after the registration of an observer to indicate the state of the registry.
 ///
-///  - objectAdded: The objectAdded operation is called to notify an observer when an object was added to the Admin interface.
+///  - objectAdded: The objectAdded operation is called to notify an observer when an object was added to the {@link Admin} interface.
 ///
-///  - objectAddedAsync: The objectAdded operation is called to notify an observer when an object was added to the Admin interface.
+///  - objectAddedAsync: The objectAdded operation is called to notify an observer when an object was added to the {@link Admin} interface.
 ///
-///  - objectUpdated: objectUpdated is called to notify an observer when an object registered with the Admin interface was updated.
+///  - objectUpdated: objectUpdated is called to notify an observer when an object registered with the {@link Admin} interface was updated.
 ///
-///  - objectUpdatedAsync: objectUpdated is called to notify an observer when an object registered with the Admin interface was updated.
+///  - objectUpdatedAsync: objectUpdated is called to notify an observer when an object registered with the {@link Admin} interface was updated.
 ///
-///  - objectRemoved: objectRemoved is called to notify an observer when an object registered with the Admin interface was removed.
+///  - objectRemoved: objectRemoved is called to notify an observer when an object registered with the {@link Admin} interface was removed.
 ///
-///  - objectRemovedAsync: objectRemoved is called to notify an observer when an object registered with the Admin interface was removed.
+///  - objectRemovedAsync: objectRemoved is called to notify an observer when an object registered with the {@link Admin} interface was removed.
 public extension ObjectObserverPrx {
     /// objectInit is called after the registration of an observer to indicate the state of the
     /// registry.
     ///
-    /// - parameter _: `ObjectInfoSeq` The objects registered with the Admin interface (not through the deployment
+    /// - parameter _: `ObjectInfoSeq` The objects registered with the {@link Admin} interface (not through the deployment
     /// mechanism).
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -4418,7 +4418,7 @@ public extension ObjectObserverPrx {
     }
 
     /// The objectAdded operation is called to notify an observer when an object was added to the
-    /// Admin interface.
+    /// {@link Admin} interface.
     ///
     /// - parameter _: `ObjectInfo` The details of the added object.
     ///
@@ -4432,7 +4432,7 @@ public extension ObjectObserverPrx {
                                        context: context)
     }
 
-    /// objectUpdated is called to notify an observer when an object registered with the Admin
+    /// objectUpdated is called to notify an observer when an object registered with the {@link Admin}
     /// interface was updated.
     ///
     /// - parameter _: `ObjectInfo` The details of the updated object.
@@ -4447,7 +4447,7 @@ public extension ObjectObserverPrx {
                                        context: context)
     }
 
-    /// objectRemoved is called to notify an observer when an object registered with the Admin
+    /// objectRemoved is called to notify an observer when an object registered with the {@link Admin}
     /// interface was removed.
     ///
     /// - parameter _: `Ice.Identity` The identity of the removed object.
@@ -4464,7 +4464,7 @@ public extension ObjectObserverPrx {
 }
 
 /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-/// sessions are created either via the Registry object or via the registry admin
+/// sessions are created either via the {@link Registry} object or via the registry admin
 /// SessionManager object.
 ///
 /// AdminSessionPrx Methods:
@@ -4616,7 +4616,7 @@ public extension Ice.InputStream {
 }
 
 /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-/// sessions are created either via the Registry object or via the registry admin
+/// sessions are created either via the {@link Registry} object or via the registry admin
 /// SessionManager object.
 ///
 /// AdminSessionPrx Methods:
@@ -4683,8 +4683,6 @@ public extension Ice.InputStream {
 public extension AdminSessionPrx {
     /// Keep the session alive.
     /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
-    ///
-    ///  ## Deprecated
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func keepAlive(context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -6304,21 +6302,21 @@ public protocol ObjectObserver {
     /// objectInit is called after the registration of an observer to indicate the state of the
     /// registry.
     ///
-    /// - parameter objects: `ObjectInfoSeq` The objects registered with the Admin interface (not through the deployment
+    /// - parameter objects: `ObjectInfoSeq` The objects registered with the {@link Admin} interface (not through the deployment
     /// mechanism).
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func objectInit(objects: ObjectInfoSeq, current: Ice.Current) async throws
 
     /// The objectAdded operation is called to notify an observer when an object was added to the
-    /// Admin interface.
+    /// {@link Admin} interface.
     ///
     /// - parameter info: `ObjectInfo` The details of the added object.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func objectAdded(info: ObjectInfo, current: Ice.Current) async throws
 
-    /// objectUpdated is called to notify an observer when an object registered with the Admin
+    /// objectUpdated is called to notify an observer when an object registered with the {@link Admin}
     /// interface was updated.
     ///
     /// - parameter info: `ObjectInfo` The details of the updated object.
@@ -6326,7 +6324,7 @@ public protocol ObjectObserver {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func objectUpdated(info: ObjectInfo, current: Ice.Current) async throws
 
-    /// objectRemoved is called to notify an observer when an object registered with the Admin
+    /// objectRemoved is called to notify an observer when an object registered with the {@link Admin}
     /// interface was removed.
     ///
     /// - parameter id: `Ice.Identity` The identity of the removed object.
@@ -6394,13 +6392,11 @@ public struct AdminSessionDisp: Ice.Dispatcher {
 }
 
 /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-/// sessions are created either via the Registry object or via the registry admin
+/// sessions are created either via the {@link Registry} object or via the registry admin
 /// SessionManager object.
 public protocol AdminSession: Glacier2.Session {
     /// Keep the session alive.
     /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
-    ///
-    ///  ## Deprecated
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func keepAlive(current: Ice.Current) async throws
@@ -7456,11 +7452,11 @@ extension AdapterObserver {
 ///
 ///  - objectInit: objectInit is called after the registration of an observer to indicate the state of the registry.
 ///
-///  - objectAdded: The objectAdded operation is called to notify an observer when an object was added to the Admin interface.
+///  - objectAdded: The objectAdded operation is called to notify an observer when an object was added to the {@link Admin} interface.
 ///
-///  - objectUpdated: objectUpdated is called to notify an observer when an object registered with the Admin interface was updated.
+///  - objectUpdated: objectUpdated is called to notify an observer when an object registered with the {@link Admin} interface was updated.
 ///
-///  - objectRemoved: objectRemoved is called to notify an observer when an object registered with the Admin interface was removed.
+///  - objectRemoved: objectRemoved is called to notify an observer when an object registered with the {@link Admin} interface was removed.
 extension ObjectObserver {
     public func _iceD_objectInit(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -7500,7 +7496,7 @@ extension ObjectObserver {
 }
 
 /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-/// sessions are created either via the Registry object or via the registry admin
+/// sessions are created either via the {@link Registry} object or via the registry admin
 /// SessionManager object.
 ///
 /// AdminSession Methods:

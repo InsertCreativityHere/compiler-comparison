@@ -22,13 +22,6 @@ public struct SingleTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Single"
 }
 
-/// SinglePrx overview.
-///
-/// SinglePrx Methods:
-///
-///  - event: 
-///
-///  - eventAsync: 
 public protocol SinglePrx: Ice.ObjectPrx {}
 
 private final class SinglePrxI: Ice.ObjectPrxI, SinglePrx {
@@ -116,18 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// SinglePrx overview.
-///
-/// SinglePrx Methods:
-///
-///  - event: 
-///
-///  - eventAsync: 
 public extension SinglePrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func event(_ iceP_i: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "event",
                                        mode: .Normal,
@@ -167,18 +149,9 @@ public struct SingleDisp: Ice.Dispatcher {
 }
 
 public protocol Single {
-    ///
-    /// - parameter i: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func event(i: Swift.Int32, current: Ice.Current) async throws
 }
 
-/// Single overview.
-///
-/// Single Methods:
-///
-///  - event: 
 extension Single {
     public func _iceD_event(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

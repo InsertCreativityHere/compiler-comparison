@@ -16,7 +16,7 @@
 package com.zeroc.Glacier2;
 
 /**
- * A client-visible session object, which is tied to the lifecycle of a {@link Router}.
+ * A client-visible session object, which is tied to the lifecycle of a {@link Router}}.
  *
  * @see Router
  * @see SessionManager

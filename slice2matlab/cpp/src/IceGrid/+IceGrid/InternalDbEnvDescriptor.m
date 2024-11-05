@@ -1,8 +1,3 @@
-% InternalDbEnvDescriptor   Summary of InternalDbEnvDescriptor
-%
-% InternalDbEnvDescriptor Properties:
-%   name - The name of the database environment.
-%   properties_ - The database properties.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0

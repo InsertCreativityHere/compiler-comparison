@@ -52,25 +52,6 @@ public struct MyClassTraits: Ice.SliceTraits {
     public static let staticId = "::Test::MyClass"
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - opOneway: 
-///
-///  - opOnewayAsync: 
-///
-///  - opString: 
-///
-///  - opStringAsync: 
-///
-///  - opException: 
-///
-///  - opExceptionAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol MyClassPrx: Ice.ObjectPrx {}
 
 private final class MyClassPrxI: Ice.ObjectPrxI, MyClassPrx {
@@ -158,44 +139,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - opOneway: 
-///
-///  - opOnewayAsync: 
-///
-///  - opString: 
-///
-///  - opStringAsync: 
-///
-///  - opException: 
-///
-///  - opExceptionAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension MyClassPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opOneway(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opOneway",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.String, s2: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.String`
-    ///
-    ///   - s2: `Swift.String`
     func opString(_ iceP_s1: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: Swift.String, s2: Swift.String) {
         return try await _impl._invoke(operation: "opString",
                                        mode: .Normal,
@@ -210,8 +160,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opException",
                                        mode: .Normal,
@@ -225,8 +173,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -269,42 +215,15 @@ public struct MyClassDisp: Ice.Dispatcher {
 }
 
 public protocol MyClass {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opOneway(current: Ice.Current) async throws
 
-    ///
-    /// - parameter s1: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.String, s2: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.String`
-    ///
-    ///   - s2: `Swift.String`
     func opString(s1: Swift.String, current: Ice.Current) async throws -> (returnValue: Swift.String, s2: Swift.String)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// MyClass overview.
-///
-/// MyClass Methods:
-///
-///  - opOneway: 
-///
-///  - opString: 
-///
-///  - opException: 
-///
-///  - shutdown: 
 extension MyClass {
     public func _iceD_opOneway(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

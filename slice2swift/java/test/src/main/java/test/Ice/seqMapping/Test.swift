@@ -402,25 +402,6 @@ open class Bar: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - opSerialSmallJava: 
-///
-///  - opSerialSmallJavaAsync: 
-///
-///  - opSerialLargeJava: 
-///
-///  - opSerialLargeJavaAsync: 
-///
-///  - opSerialStructJava: 
-///
-///  - opSerialStructJavaAsync: 
 public protocol MyClassPrx: Ice.ObjectPrx {}
 
 private final class MyClassPrxI: Ice.ObjectPrxI, MyClassPrx {
@@ -508,44 +489,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - opSerialSmallJava: 
-///
-///  - opSerialSmallJavaAsync: 
-///
-///  - opSerialLargeJava: 
-///
-///  - opSerialLargeJavaAsync: 
-///
-///  - opSerialStructJava: 
-///
-///  - opSerialStructJavaAsync: 
 public extension MyClassPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SerialSmall`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SerialSmall, o: SerialSmall)`:
-    ///
-    ///   - returnValue: `SerialSmall`
-    ///
-    ///   - o: `SerialSmall`
     func opSerialSmallJava(_ iceP_i: SerialSmall, context: Ice.Context? = nil) async throws -> (returnValue: SerialSmall, o: SerialSmall) {
         return try await _impl._invoke(operation: "opSerialSmallJava",
                                        mode: .Normal,
@@ -560,16 +510,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SerialLarge`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SerialLarge, o: SerialLarge)`:
-    ///
-    ///   - returnValue: `SerialLarge`
-    ///
-    ///   - o: `SerialLarge`
     func opSerialLargeJava(_ iceP_i: SerialLarge, context: Ice.Context? = nil) async throws -> (returnValue: SerialLarge, o: SerialLarge) {
         return try await _impl._invoke(operation: "opSerialLargeJava",
                                        mode: .Normal,
@@ -584,16 +524,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SerialStruct`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SerialStruct, o: SerialStruct)`:
-    ///
-    ///   - returnValue: `SerialStruct`
-    ///
-    ///   - o: `SerialStruct`
     func opSerialStructJava(_ iceP_i: SerialStruct, context: Ice.Context? = nil) async throws -> (returnValue: SerialStruct, o: SerialStruct) {
         return try await _impl._invoke(operation: "opSerialStructJava",
                                        mode: .Normal,
@@ -688,58 +618,15 @@ public struct MyClassDisp: Ice.Dispatcher {
 }
 
 public protocol MyClass {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter i: `SerialSmall`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SerialSmall, o: SerialSmall)`:
-    ///
-    ///   - returnValue: `SerialSmall`
-    ///
-    ///   - o: `SerialSmall`
     func opSerialSmallJava(i: SerialSmall, current: Ice.Current) async throws -> (returnValue: SerialSmall, o: SerialSmall)
 
-    ///
-    /// - parameter i: `SerialLarge`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SerialLarge, o: SerialLarge)`:
-    ///
-    ///   - returnValue: `SerialLarge`
-    ///
-    ///   - o: `SerialLarge`
     func opSerialLargeJava(i: SerialLarge, current: Ice.Current) async throws -> (returnValue: SerialLarge, o: SerialLarge)
 
-    ///
-    /// - parameter i: `SerialStruct`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SerialStruct, o: SerialStruct)`:
-    ///
-    ///   - returnValue: `SerialStruct`
-    ///
-    ///   - o: `SerialStruct`
     func opSerialStructJava(i: SerialStruct, current: Ice.Current) async throws -> (returnValue: SerialStruct, o: SerialStruct)
 }
 
-/// MyClass overview.
-///
-/// MyClass Methods:
-///
-///  - shutdown: 
-///
-///  - opSerialSmallJava: 
-///
-///  - opSerialLargeJava: 
-///
-///  - opSerialStructJava: 
 extension MyClass {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

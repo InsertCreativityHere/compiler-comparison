@@ -1,10 +1,3 @@
-% UnexpectedObjectExceptionTestPrx   Summary of UnexpectedObjectExceptionTestPrx
-%
-% UnexpectedObjectExceptionTestPrx Methods:
-%   op
-%   opAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ServerPrivate.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,13 +5,6 @@
 classdef UnexpectedObjectExceptionTestPrx < Ice.ObjectPrx
     methods
         function result = op(obj, varargin)
-            % op
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.AlsoEmpty)
-            
             is_ = obj.iceInvoke('op', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result_h_ = IceInternal.ValueHolder();
@@ -28,13 +14,6 @@ classdef UnexpectedObjectExceptionTestPrx < Ice.ObjectPrx
             result = result_h_.value;
         end
         function r_ = opAsync(obj, varargin)
-            % opAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = IceInternal.ValueHolder();

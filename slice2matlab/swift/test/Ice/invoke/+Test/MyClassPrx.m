@@ -1,16 +1,3 @@
-% MyClassPrx   Summary of MyClassPrx
-%
-% MyClassPrx Methods:
-%   opOneway
-%   opOnewayAsync
-%   opString
-%   opStringAsync
-%   opException
-%   opExceptionAsync
-%   shutdown
-%   shutdownAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -18,34 +5,12 @@
 classdef MyClassPrx < Ice.ObjectPrx
     methods
         function opOneway(obj, varargin)
-            % opOneway
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('opOneway', 0, false, [], false, {}, varargin{:});
         end
         function r_ = opOnewayAsync(obj, varargin)
-            % opOnewayAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('opOneway', 0, false, [], 0, [], {}, varargin{:});
         end
         function [result, s2] = opString(obj, s1, varargin)
-            % opString
-            %
-            % Parameters:
-            %   s1 (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (char)
-            %   s2 (char)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(s1);
             obj.iceEndWriteParams(os_);
@@ -56,14 +21,6 @@ classdef MyClassPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opStringAsync(obj, s1, varargin)
-            % opStringAsync
-            %
-            % Parameters:
-            %   s1 (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(s1);
             obj.iceEndWriteParams(os_);
@@ -78,39 +35,15 @@ classdef MyClassPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opString', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function opException(obj, varargin)
-            % opException
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('opException', 0, true, [], false, Test.MyClassPrx.opException_ex_, varargin{:});
         end
         function r_ = opExceptionAsync(obj, varargin)
-            % opExceptionAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('opException', 0, true, [], 0, [], Test.MyClassPrx.opException_ex_, varargin{:});
         end
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
     end

@@ -1,7 +1,7 @@
 % StringSetPrx   Summary of StringSetPrx
 %
 % An object for managing the set of identity constraints for specific parts of object identity on a
-% Session.
+% {@link Session}.
 %
 % StringSetPrx Methods:
 %   add - Add a sequence of strings to this set of constraints.

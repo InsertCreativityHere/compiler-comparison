@@ -1,7 +1,3 @@
-% PreservedClass   Summary of PreservedClass
-%
-% PreservedClass Properties:
-%   pc
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ClientPrivate.ice by slice2matlab version 3.8.0-alpha.0

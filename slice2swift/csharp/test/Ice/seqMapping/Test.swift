@@ -2325,11 +2325,8 @@ public struct CCRSHelper {
 }
 
 public enum En: Swift.UInt8 {
-    /// A
     case A = 0
-    /// B
     case B = 1
-    /// C
     case C = 2
     public init() {
         self = .A
@@ -2986,7 +2983,6 @@ public struct MyClassTraits: Ice.SliceTraits {
     public static let staticId = "::Test::MyClass"
 }
 
-/// IPrx overview.
 public protocol IPrx: Ice.ObjectPrx {}
 
 private final class IPrxI: Ice.ObjectPrxI, IPrx {
@@ -3074,316 +3070,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// IPrx overview.
 public extension IPrx {}
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - opAByteS: 
-///
-///  - opAByteSAsync: 
-///
-///  - opLByteS: 
-///
-///  - opLByteSAsync: 
-///
-///  - opKByteS: 
-///
-///  - opKByteSAsync: 
-///
-///  - opQByteS: 
-///
-///  - opQByteSAsync: 
-///
-///  - opSByteS: 
-///
-///  - opSByteSAsync: 
-///
-///  - opABoolS: 
-///
-///  - opABoolSAsync: 
-///
-///  - opLBoolS: 
-///
-///  - opLBoolSAsync: 
-///
-///  - opKBoolS: 
-///
-///  - opKBoolSAsync: 
-///
-///  - opQBoolS: 
-///
-///  - opQBoolSAsync: 
-///
-///  - opSBoolS: 
-///
-///  - opSBoolSAsync: 
-///
-///  - opAShortS: 
-///
-///  - opAShortSAsync: 
-///
-///  - opLShortS: 
-///
-///  - opLShortSAsync: 
-///
-///  - opKShortS: 
-///
-///  - opKShortSAsync: 
-///
-///  - opQShortS: 
-///
-///  - opQShortSAsync: 
-///
-///  - opSShortS: 
-///
-///  - opSShortSAsync: 
-///
-///  - opAIntS: 
-///
-///  - opAIntSAsync: 
-///
-///  - opLIntS: 
-///
-///  - opLIntSAsync: 
-///
-///  - opKIntS: 
-///
-///  - opKIntSAsync: 
-///
-///  - opQIntS: 
-///
-///  - opQIntSAsync: 
-///
-///  - opSIntS: 
-///
-///  - opSIntSAsync: 
-///
-///  - opALongS: 
-///
-///  - opALongSAsync: 
-///
-///  - opLLongS: 
-///
-///  - opLLongSAsync: 
-///
-///  - opKLongS: 
-///
-///  - opKLongSAsync: 
-///
-///  - opQLongS: 
-///
-///  - opQLongSAsync: 
-///
-///  - opSLongS: 
-///
-///  - opSLongSAsync: 
-///
-///  - opAFloatS: 
-///
-///  - opAFloatSAsync: 
-///
-///  - opLFloatS: 
-///
-///  - opLFloatSAsync: 
-///
-///  - opKFloatS: 
-///
-///  - opKFloatSAsync: 
-///
-///  - opQFloatS: 
-///
-///  - opQFloatSAsync: 
-///
-///  - opSFloatS: 
-///
-///  - opSFloatSAsync: 
-///
-///  - opADoubleS: 
-///
-///  - opADoubleSAsync: 
-///
-///  - opLDoubleS: 
-///
-///  - opLDoubleSAsync: 
-///
-///  - opKDoubleS: 
-///
-///  - opKDoubleSAsync: 
-///
-///  - opQDoubleS: 
-///
-///  - opQDoubleSAsync: 
-///
-///  - opSDoubleS: 
-///
-///  - opSDoubleSAsync: 
-///
-///  - opAStringS: 
-///
-///  - opAStringSAsync: 
-///
-///  - opLStringS: 
-///
-///  - opLStringSAsync: 
-///
-///  - opKStringS: 
-///
-///  - opKStringSAsync: 
-///
-///  - opQStringS: 
-///
-///  - opQStringSAsync: 
-///
-///  - opSStringS: 
-///
-///  - opSStringSAsync: 
-///
-///  - opAObjectS: 
-///
-///  - opAObjectSAsync: 
-///
-///  - opLObjectS: 
-///
-///  - opLObjectSAsync: 
-///
-///  - opAObjectPrxS: 
-///
-///  - opAObjectPrxSAsync: 
-///
-///  - opLObjectPrxS: 
-///
-///  - opLObjectPrxSAsync: 
-///
-///  - opKObjectPrxS: 
-///
-///  - opKObjectPrxSAsync: 
-///
-///  - opQObjectPrxS: 
-///
-///  - opQObjectPrxSAsync: 
-///
-///  - opSObjectPrxS: 
-///
-///  - opSObjectPrxSAsync: 
-///
-///  - opAStructS: 
-///
-///  - opAStructSAsync: 
-///
-///  - opLStructS: 
-///
-///  - opLStructSAsync: 
-///
-///  - opKStructS: 
-///
-///  - opKStructSAsync: 
-///
-///  - opQStructS: 
-///
-///  - opQStructSAsync: 
-///
-///  - opSStructS: 
-///
-///  - opSStructSAsync: 
-///
-///  - opAStructSD: 
-///
-///  - opAStructSDAsync: 
-///
-///  - opLStructSD: 
-///
-///  - opLStructSDAsync: 
-///
-///  - opKStructSD: 
-///
-///  - opKStructSDAsync: 
-///
-///  - opQStructSD: 
-///
-///  - opQStructSDAsync: 
-///
-///  - opSStructSD: 
-///
-///  - opSStructSDAsync: 
-///
-///  - opACVS: 
-///
-///  - opACVSAsync: 
-///
-///  - opLCVS: 
-///
-///  - opLCVSAsync: 
-///
-///  - opACRS: 
-///
-///  - opACRSAsync: 
-///
-///  - opLCRS: 
-///
-///  - opLCRSAsync: 
-///
-///  - opAEnS: 
-///
-///  - opAEnSAsync: 
-///
-///  - opLEnS: 
-///
-///  - opLEnSAsync: 
-///
-///  - opKEnS: 
-///
-///  - opKEnSAsync: 
-///
-///  - opQEnS: 
-///
-///  - opQEnSAsync: 
-///
-///  - opSEnS: 
-///
-///  - opSEnSAsync: 
-///
-///  - opAIPrxS: 
-///
-///  - opAIPrxSAsync: 
-///
-///  - opLIPrxS: 
-///
-///  - opLIPrxSAsync: 
-///
-///  - opKIPrxS: 
-///
-///  - opKIPrxSAsync: 
-///
-///  - opQIPrxS: 
-///
-///  - opQIPrxSAsync: 
-///
-///  - opSIPrxS: 
-///
-///  - opSIPrxSAsync: 
-///
-///  - opCustomIntS: 
-///
-///  - opCustomIntSAsync: 
-///
-///  - opCustomCVS: 
-///
-///  - opCustomCVSAsync: 
-///
-///  - opCustomIntSS: 
-///
-///  - opCustomIntSSAsync: 
-///
-///  - opCustomCVSS: 
-///
-///  - opCustomCVSSAsync: 
 public protocol MyClassPrx: Ice.ObjectPrx {}
 
 private final class MyClassPrxI: Ice.ObjectPrxI, MyClassPrx {
@@ -3471,332 +3159,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - opAByteS: 
-///
-///  - opAByteSAsync: 
-///
-///  - opLByteS: 
-///
-///  - opLByteSAsync: 
-///
-///  - opKByteS: 
-///
-///  - opKByteSAsync: 
-///
-///  - opQByteS: 
-///
-///  - opQByteSAsync: 
-///
-///  - opSByteS: 
-///
-///  - opSByteSAsync: 
-///
-///  - opABoolS: 
-///
-///  - opABoolSAsync: 
-///
-///  - opLBoolS: 
-///
-///  - opLBoolSAsync: 
-///
-///  - opKBoolS: 
-///
-///  - opKBoolSAsync: 
-///
-///  - opQBoolS: 
-///
-///  - opQBoolSAsync: 
-///
-///  - opSBoolS: 
-///
-///  - opSBoolSAsync: 
-///
-///  - opAShortS: 
-///
-///  - opAShortSAsync: 
-///
-///  - opLShortS: 
-///
-///  - opLShortSAsync: 
-///
-///  - opKShortS: 
-///
-///  - opKShortSAsync: 
-///
-///  - opQShortS: 
-///
-///  - opQShortSAsync: 
-///
-///  - opSShortS: 
-///
-///  - opSShortSAsync: 
-///
-///  - opAIntS: 
-///
-///  - opAIntSAsync: 
-///
-///  - opLIntS: 
-///
-///  - opLIntSAsync: 
-///
-///  - opKIntS: 
-///
-///  - opKIntSAsync: 
-///
-///  - opQIntS: 
-///
-///  - opQIntSAsync: 
-///
-///  - opSIntS: 
-///
-///  - opSIntSAsync: 
-///
-///  - opALongS: 
-///
-///  - opALongSAsync: 
-///
-///  - opLLongS: 
-///
-///  - opLLongSAsync: 
-///
-///  - opKLongS: 
-///
-///  - opKLongSAsync: 
-///
-///  - opQLongS: 
-///
-///  - opQLongSAsync: 
-///
-///  - opSLongS: 
-///
-///  - opSLongSAsync: 
-///
-///  - opAFloatS: 
-///
-///  - opAFloatSAsync: 
-///
-///  - opLFloatS: 
-///
-///  - opLFloatSAsync: 
-///
-///  - opKFloatS: 
-///
-///  - opKFloatSAsync: 
-///
-///  - opQFloatS: 
-///
-///  - opQFloatSAsync: 
-///
-///  - opSFloatS: 
-///
-///  - opSFloatSAsync: 
-///
-///  - opADoubleS: 
-///
-///  - opADoubleSAsync: 
-///
-///  - opLDoubleS: 
-///
-///  - opLDoubleSAsync: 
-///
-///  - opKDoubleS: 
-///
-///  - opKDoubleSAsync: 
-///
-///  - opQDoubleS: 
-///
-///  - opQDoubleSAsync: 
-///
-///  - opSDoubleS: 
-///
-///  - opSDoubleSAsync: 
-///
-///  - opAStringS: 
-///
-///  - opAStringSAsync: 
-///
-///  - opLStringS: 
-///
-///  - opLStringSAsync: 
-///
-///  - opKStringS: 
-///
-///  - opKStringSAsync: 
-///
-///  - opQStringS: 
-///
-///  - opQStringSAsync: 
-///
-///  - opSStringS: 
-///
-///  - opSStringSAsync: 
-///
-///  - opAObjectS: 
-///
-///  - opAObjectSAsync: 
-///
-///  - opLObjectS: 
-///
-///  - opLObjectSAsync: 
-///
-///  - opAObjectPrxS: 
-///
-///  - opAObjectPrxSAsync: 
-///
-///  - opLObjectPrxS: 
-///
-///  - opLObjectPrxSAsync: 
-///
-///  - opKObjectPrxS: 
-///
-///  - opKObjectPrxSAsync: 
-///
-///  - opQObjectPrxS: 
-///
-///  - opQObjectPrxSAsync: 
-///
-///  - opSObjectPrxS: 
-///
-///  - opSObjectPrxSAsync: 
-///
-///  - opAStructS: 
-///
-///  - opAStructSAsync: 
-///
-///  - opLStructS: 
-///
-///  - opLStructSAsync: 
-///
-///  - opKStructS: 
-///
-///  - opKStructSAsync: 
-///
-///  - opQStructS: 
-///
-///  - opQStructSAsync: 
-///
-///  - opSStructS: 
-///
-///  - opSStructSAsync: 
-///
-///  - opAStructSD: 
-///
-///  - opAStructSDAsync: 
-///
-///  - opLStructSD: 
-///
-///  - opLStructSDAsync: 
-///
-///  - opKStructSD: 
-///
-///  - opKStructSDAsync: 
-///
-///  - opQStructSD: 
-///
-///  - opQStructSDAsync: 
-///
-///  - opSStructSD: 
-///
-///  - opSStructSDAsync: 
-///
-///  - opACVS: 
-///
-///  - opACVSAsync: 
-///
-///  - opLCVS: 
-///
-///  - opLCVSAsync: 
-///
-///  - opACRS: 
-///
-///  - opACRSAsync: 
-///
-///  - opLCRS: 
-///
-///  - opLCRSAsync: 
-///
-///  - opAEnS: 
-///
-///  - opAEnSAsync: 
-///
-///  - opLEnS: 
-///
-///  - opLEnSAsync: 
-///
-///  - opKEnS: 
-///
-///  - opKEnSAsync: 
-///
-///  - opQEnS: 
-///
-///  - opQEnSAsync: 
-///
-///  - opSEnS: 
-///
-///  - opSEnSAsync: 
-///
-///  - opAIPrxS: 
-///
-///  - opAIPrxSAsync: 
-///
-///  - opLIPrxS: 
-///
-///  - opLIPrxSAsync: 
-///
-///  - opKIPrxS: 
-///
-///  - opKIPrxSAsync: 
-///
-///  - opQIPrxS: 
-///
-///  - opQIPrxSAsync: 
-///
-///  - opSIPrxS: 
-///
-///  - opSIPrxSAsync: 
-///
-///  - opCustomIntS: 
-///
-///  - opCustomIntSAsync: 
-///
-///  - opCustomCVS: 
-///
-///  - opCustomCVSAsync: 
-///
-///  - opCustomIntSS: 
-///
-///  - opCustomIntSSAsync: 
-///
-///  - opCustomCVSS: 
-///
-///  - opCustomCVSSAsync: 
 public extension MyClassPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AByteS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AByteS, o: AByteS)`:
-    ///
-    ///   - returnValue: `AByteS`
-    ///
-    ///   - o: `AByteS`
     func opAByteS(_ iceP_i: AByteS, context: Ice.Context? = nil) async throws -> (returnValue: AByteS, o: AByteS) {
         return try await _impl._invoke(operation: "opAByteS",
                                        mode: .Normal,
@@ -3811,16 +3180,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LByteS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LByteS, o: LByteS)`:
-    ///
-    ///   - returnValue: `LByteS`
-    ///
-    ///   - o: `LByteS`
     func opLByteS(_ iceP_i: LByteS, context: Ice.Context? = nil) async throws -> (returnValue: LByteS, o: LByteS) {
         return try await _impl._invoke(operation: "opLByteS",
                                        mode: .Normal,
@@ -3835,16 +3194,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KByteS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KByteS, o: KByteS)`:
-    ///
-    ///   - returnValue: `KByteS`
-    ///
-    ///   - o: `KByteS`
     func opKByteS(_ iceP_i: KByteS, context: Ice.Context? = nil) async throws -> (returnValue: KByteS, o: KByteS) {
         return try await _impl._invoke(operation: "opKByteS",
                                        mode: .Normal,
@@ -3859,16 +3208,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QByteS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QByteS, o: QByteS)`:
-    ///
-    ///   - returnValue: `QByteS`
-    ///
-    ///   - o: `QByteS`
     func opQByteS(_ iceP_i: QByteS, context: Ice.Context? = nil) async throws -> (returnValue: QByteS, o: QByteS) {
         return try await _impl._invoke(operation: "opQByteS",
                                        mode: .Normal,
@@ -3883,16 +3222,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SByteS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SByteS, o: SByteS)`:
-    ///
-    ///   - returnValue: `SByteS`
-    ///
-    ///   - o: `SByteS`
     func opSByteS(_ iceP_i: SByteS, context: Ice.Context? = nil) async throws -> (returnValue: SByteS, o: SByteS) {
         return try await _impl._invoke(operation: "opSByteS",
                                        mode: .Normal,
@@ -3907,16 +3236,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ABoolS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ABoolS, o: ABoolS)`:
-    ///
-    ///   - returnValue: `ABoolS`
-    ///
-    ///   - o: `ABoolS`
     func opABoolS(_ iceP_i: ABoolS, context: Ice.Context? = nil) async throws -> (returnValue: ABoolS, o: ABoolS) {
         return try await _impl._invoke(operation: "opABoolS",
                                        mode: .Normal,
@@ -3931,16 +3250,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LBoolS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LBoolS, o: LBoolS)`:
-    ///
-    ///   - returnValue: `LBoolS`
-    ///
-    ///   - o: `LBoolS`
     func opLBoolS(_ iceP_i: LBoolS, context: Ice.Context? = nil) async throws -> (returnValue: LBoolS, o: LBoolS) {
         return try await _impl._invoke(operation: "opLBoolS",
                                        mode: .Normal,
@@ -3955,16 +3264,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KBoolS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KBoolS, o: KBoolS)`:
-    ///
-    ///   - returnValue: `KBoolS`
-    ///
-    ///   - o: `KBoolS`
     func opKBoolS(_ iceP_i: KBoolS, context: Ice.Context? = nil) async throws -> (returnValue: KBoolS, o: KBoolS) {
         return try await _impl._invoke(operation: "opKBoolS",
                                        mode: .Normal,
@@ -3979,16 +3278,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QBoolS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QBoolS, o: QBoolS)`:
-    ///
-    ///   - returnValue: `QBoolS`
-    ///
-    ///   - o: `QBoolS`
     func opQBoolS(_ iceP_i: QBoolS, context: Ice.Context? = nil) async throws -> (returnValue: QBoolS, o: QBoolS) {
         return try await _impl._invoke(operation: "opQBoolS",
                                        mode: .Normal,
@@ -4003,16 +3292,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SBoolS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SBoolS, o: SBoolS)`:
-    ///
-    ///   - returnValue: `SBoolS`
-    ///
-    ///   - o: `SBoolS`
     func opSBoolS(_ iceP_i: SBoolS, context: Ice.Context? = nil) async throws -> (returnValue: SBoolS, o: SBoolS) {
         return try await _impl._invoke(operation: "opSBoolS",
                                        mode: .Normal,
@@ -4027,16 +3306,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AShortS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AShortS, o: AShortS)`:
-    ///
-    ///   - returnValue: `AShortS`
-    ///
-    ///   - o: `AShortS`
     func opAShortS(_ iceP_i: AShortS, context: Ice.Context? = nil) async throws -> (returnValue: AShortS, o: AShortS) {
         return try await _impl._invoke(operation: "opAShortS",
                                        mode: .Normal,
@@ -4051,16 +3320,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LShortS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LShortS, o: LShortS)`:
-    ///
-    ///   - returnValue: `LShortS`
-    ///
-    ///   - o: `LShortS`
     func opLShortS(_ iceP_i: LShortS, context: Ice.Context? = nil) async throws -> (returnValue: LShortS, o: LShortS) {
         return try await _impl._invoke(operation: "opLShortS",
                                        mode: .Normal,
@@ -4075,16 +3334,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KShortS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KShortS, o: KShortS)`:
-    ///
-    ///   - returnValue: `KShortS`
-    ///
-    ///   - o: `KShortS`
     func opKShortS(_ iceP_i: KShortS, context: Ice.Context? = nil) async throws -> (returnValue: KShortS, o: KShortS) {
         return try await _impl._invoke(operation: "opKShortS",
                                        mode: .Normal,
@@ -4099,16 +3348,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QShortS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QShortS, o: QShortS)`:
-    ///
-    ///   - returnValue: `QShortS`
-    ///
-    ///   - o: `QShortS`
     func opQShortS(_ iceP_i: QShortS, context: Ice.Context? = nil) async throws -> (returnValue: QShortS, o: QShortS) {
         return try await _impl._invoke(operation: "opQShortS",
                                        mode: .Normal,
@@ -4123,16 +3362,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SShortS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SShortS, o: SShortS)`:
-    ///
-    ///   - returnValue: `SShortS`
-    ///
-    ///   - o: `SShortS`
     func opSShortS(_ iceP_i: SShortS, context: Ice.Context? = nil) async throws -> (returnValue: SShortS, o: SShortS) {
         return try await _impl._invoke(operation: "opSShortS",
                                        mode: .Normal,
@@ -4147,16 +3376,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AIntS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AIntS, o: AIntS)`:
-    ///
-    ///   - returnValue: `AIntS`
-    ///
-    ///   - o: `AIntS`
     func opAIntS(_ iceP_i: AIntS, context: Ice.Context? = nil) async throws -> (returnValue: AIntS, o: AIntS) {
         return try await _impl._invoke(operation: "opAIntS",
                                        mode: .Normal,
@@ -4171,16 +3390,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LIntS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LIntS, o: LIntS)`:
-    ///
-    ///   - returnValue: `LIntS`
-    ///
-    ///   - o: `LIntS`
     func opLIntS(_ iceP_i: LIntS, context: Ice.Context? = nil) async throws -> (returnValue: LIntS, o: LIntS) {
         return try await _impl._invoke(operation: "opLIntS",
                                        mode: .Normal,
@@ -4195,16 +3404,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KIntS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KIntS, o: KIntS)`:
-    ///
-    ///   - returnValue: `KIntS`
-    ///
-    ///   - o: `KIntS`
     func opKIntS(_ iceP_i: KIntS, context: Ice.Context? = nil) async throws -> (returnValue: KIntS, o: KIntS) {
         return try await _impl._invoke(operation: "opKIntS",
                                        mode: .Normal,
@@ -4219,16 +3418,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QIntS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QIntS, o: QIntS)`:
-    ///
-    ///   - returnValue: `QIntS`
-    ///
-    ///   - o: `QIntS`
     func opQIntS(_ iceP_i: QIntS, context: Ice.Context? = nil) async throws -> (returnValue: QIntS, o: QIntS) {
         return try await _impl._invoke(operation: "opQIntS",
                                        mode: .Normal,
@@ -4243,16 +3432,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SIntS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SIntS, o: SIntS)`:
-    ///
-    ///   - returnValue: `SIntS`
-    ///
-    ///   - o: `SIntS`
     func opSIntS(_ iceP_i: SIntS, context: Ice.Context? = nil) async throws -> (returnValue: SIntS, o: SIntS) {
         return try await _impl._invoke(operation: "opSIntS",
                                        mode: .Normal,
@@ -4267,16 +3446,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ALongS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ALongS, o: ALongS)`:
-    ///
-    ///   - returnValue: `ALongS`
-    ///
-    ///   - o: `ALongS`
     func opALongS(_ iceP_i: ALongS, context: Ice.Context? = nil) async throws -> (returnValue: ALongS, o: ALongS) {
         return try await _impl._invoke(operation: "opALongS",
                                        mode: .Normal,
@@ -4291,16 +3460,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LLongS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LLongS, o: LLongS)`:
-    ///
-    ///   - returnValue: `LLongS`
-    ///
-    ///   - o: `LLongS`
     func opLLongS(_ iceP_i: LLongS, context: Ice.Context? = nil) async throws -> (returnValue: LLongS, o: LLongS) {
         return try await _impl._invoke(operation: "opLLongS",
                                        mode: .Normal,
@@ -4315,16 +3474,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KLongS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KLongS, o: KLongS)`:
-    ///
-    ///   - returnValue: `KLongS`
-    ///
-    ///   - o: `KLongS`
     func opKLongS(_ iceP_i: KLongS, context: Ice.Context? = nil) async throws -> (returnValue: KLongS, o: KLongS) {
         return try await _impl._invoke(operation: "opKLongS",
                                        mode: .Normal,
@@ -4339,16 +3488,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QLongS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QLongS, o: QLongS)`:
-    ///
-    ///   - returnValue: `QLongS`
-    ///
-    ///   - o: `QLongS`
     func opQLongS(_ iceP_i: QLongS, context: Ice.Context? = nil) async throws -> (returnValue: QLongS, o: QLongS) {
         return try await _impl._invoke(operation: "opQLongS",
                                        mode: .Normal,
@@ -4363,16 +3502,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SLongS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SLongS, o: SLongS)`:
-    ///
-    ///   - returnValue: `SLongS`
-    ///
-    ///   - o: `SLongS`
     func opSLongS(_ iceP_i: SLongS, context: Ice.Context? = nil) async throws -> (returnValue: SLongS, o: SLongS) {
         return try await _impl._invoke(operation: "opSLongS",
                                        mode: .Normal,
@@ -4387,16 +3516,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AFloatS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AFloatS, o: AFloatS)`:
-    ///
-    ///   - returnValue: `AFloatS`
-    ///
-    ///   - o: `AFloatS`
     func opAFloatS(_ iceP_i: AFloatS, context: Ice.Context? = nil) async throws -> (returnValue: AFloatS, o: AFloatS) {
         return try await _impl._invoke(operation: "opAFloatS",
                                        mode: .Normal,
@@ -4411,16 +3530,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LFloatS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LFloatS, o: LFloatS)`:
-    ///
-    ///   - returnValue: `LFloatS`
-    ///
-    ///   - o: `LFloatS`
     func opLFloatS(_ iceP_i: LFloatS, context: Ice.Context? = nil) async throws -> (returnValue: LFloatS, o: LFloatS) {
         return try await _impl._invoke(operation: "opLFloatS",
                                        mode: .Normal,
@@ -4435,16 +3544,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KFloatS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KFloatS, o: KFloatS)`:
-    ///
-    ///   - returnValue: `KFloatS`
-    ///
-    ///   - o: `KFloatS`
     func opKFloatS(_ iceP_i: KFloatS, context: Ice.Context? = nil) async throws -> (returnValue: KFloatS, o: KFloatS) {
         return try await _impl._invoke(operation: "opKFloatS",
                                        mode: .Normal,
@@ -4459,16 +3558,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QFloatS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QFloatS, o: QFloatS)`:
-    ///
-    ///   - returnValue: `QFloatS`
-    ///
-    ///   - o: `QFloatS`
     func opQFloatS(_ iceP_i: QFloatS, context: Ice.Context? = nil) async throws -> (returnValue: QFloatS, o: QFloatS) {
         return try await _impl._invoke(operation: "opQFloatS",
                                        mode: .Normal,
@@ -4483,16 +3572,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SFloatS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SFloatS, o: SFloatS)`:
-    ///
-    ///   - returnValue: `SFloatS`
-    ///
-    ///   - o: `SFloatS`
     func opSFloatS(_ iceP_i: SFloatS, context: Ice.Context? = nil) async throws -> (returnValue: SFloatS, o: SFloatS) {
         return try await _impl._invoke(operation: "opSFloatS",
                                        mode: .Normal,
@@ -4507,16 +3586,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ADoubleS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ADoubleS, o: ADoubleS)`:
-    ///
-    ///   - returnValue: `ADoubleS`
-    ///
-    ///   - o: `ADoubleS`
     func opADoubleS(_ iceP_i: ADoubleS, context: Ice.Context? = nil) async throws -> (returnValue: ADoubleS, o: ADoubleS) {
         return try await _impl._invoke(operation: "opADoubleS",
                                        mode: .Normal,
@@ -4531,16 +3600,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LDoubleS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LDoubleS, o: LDoubleS)`:
-    ///
-    ///   - returnValue: `LDoubleS`
-    ///
-    ///   - o: `LDoubleS`
     func opLDoubleS(_ iceP_i: LDoubleS, context: Ice.Context? = nil) async throws -> (returnValue: LDoubleS, o: LDoubleS) {
         return try await _impl._invoke(operation: "opLDoubleS",
                                        mode: .Normal,
@@ -4555,16 +3614,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KDoubleS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KDoubleS, o: KDoubleS)`:
-    ///
-    ///   - returnValue: `KDoubleS`
-    ///
-    ///   - o: `KDoubleS`
     func opKDoubleS(_ iceP_i: KDoubleS, context: Ice.Context? = nil) async throws -> (returnValue: KDoubleS, o: KDoubleS) {
         return try await _impl._invoke(operation: "opKDoubleS",
                                        mode: .Normal,
@@ -4579,16 +3628,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QDoubleS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QDoubleS, o: QDoubleS)`:
-    ///
-    ///   - returnValue: `QDoubleS`
-    ///
-    ///   - o: `QDoubleS`
     func opQDoubleS(_ iceP_i: QDoubleS, context: Ice.Context? = nil) async throws -> (returnValue: QDoubleS, o: QDoubleS) {
         return try await _impl._invoke(operation: "opQDoubleS",
                                        mode: .Normal,
@@ -4603,16 +3642,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SDoubleS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SDoubleS, o: SDoubleS)`:
-    ///
-    ///   - returnValue: `SDoubleS`
-    ///
-    ///   - o: `SDoubleS`
     func opSDoubleS(_ iceP_i: SDoubleS, context: Ice.Context? = nil) async throws -> (returnValue: SDoubleS, o: SDoubleS) {
         return try await _impl._invoke(operation: "opSDoubleS",
                                        mode: .Normal,
@@ -4627,16 +3656,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AStringS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AStringS, o: AStringS)`:
-    ///
-    ///   - returnValue: `AStringS`
-    ///
-    ///   - o: `AStringS`
     func opAStringS(_ iceP_i: AStringS, context: Ice.Context? = nil) async throws -> (returnValue: AStringS, o: AStringS) {
         return try await _impl._invoke(operation: "opAStringS",
                                        mode: .Normal,
@@ -4651,16 +3670,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LStringS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LStringS, o: LStringS)`:
-    ///
-    ///   - returnValue: `LStringS`
-    ///
-    ///   - o: `LStringS`
     func opLStringS(_ iceP_i: LStringS, context: Ice.Context? = nil) async throws -> (returnValue: LStringS, o: LStringS) {
         return try await _impl._invoke(operation: "opLStringS",
                                        mode: .Normal,
@@ -4675,16 +3684,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KStringS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KStringS, o: KStringS)`:
-    ///
-    ///   - returnValue: `KStringS`
-    ///
-    ///   - o: `KStringS`
     func opKStringS(_ iceP_i: KStringS, context: Ice.Context? = nil) async throws -> (returnValue: KStringS, o: KStringS) {
         return try await _impl._invoke(operation: "opKStringS",
                                        mode: .Normal,
@@ -4699,16 +3698,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QStringS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QStringS, o: QStringS)`:
-    ///
-    ///   - returnValue: `QStringS`
-    ///
-    ///   - o: `QStringS`
     func opQStringS(_ iceP_i: QStringS, context: Ice.Context? = nil) async throws -> (returnValue: QStringS, o: QStringS) {
         return try await _impl._invoke(operation: "opQStringS",
                                        mode: .Normal,
@@ -4723,16 +3712,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SStringS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SStringS, o: SStringS)`:
-    ///
-    ///   - returnValue: `SStringS`
-    ///
-    ///   - o: `SStringS`
     func opSStringS(_ iceP_i: SStringS, context: Ice.Context? = nil) async throws -> (returnValue: SStringS, o: SStringS) {
         return try await _impl._invoke(operation: "opSStringS",
                                        mode: .Normal,
@@ -4747,16 +3726,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AObjectS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AObjectS, o: AObjectS)`:
-    ///
-    ///   - returnValue: `AObjectS`
-    ///
-    ///   - o: `AObjectS`
     func opAObjectS(_ iceP_i: AObjectS, context: Ice.Context? = nil) async throws -> (returnValue: AObjectS, o: AObjectS) {
         return try await _impl._invoke(operation: "opAObjectS",
                                        mode: .Normal,
@@ -4773,16 +3742,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LObjectS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LObjectS, o: LObjectS)`:
-    ///
-    ///   - returnValue: `LObjectS`
-    ///
-    ///   - o: `LObjectS`
     func opLObjectS(_ iceP_i: LObjectS, context: Ice.Context? = nil) async throws -> (returnValue: LObjectS, o: LObjectS) {
         return try await _impl._invoke(operation: "opLObjectS",
                                        mode: .Normal,
@@ -4799,16 +3758,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AObjectPrxS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AObjectPrxS, o: AObjectPrxS)`:
-    ///
-    ///   - returnValue: `AObjectPrxS`
-    ///
-    ///   - o: `AObjectPrxS`
     func opAObjectPrxS(_ iceP_i: AObjectPrxS, context: Ice.Context? = nil) async throws -> (returnValue: AObjectPrxS, o: AObjectPrxS) {
         return try await _impl._invoke(operation: "opAObjectPrxS",
                                        mode: .Normal,
@@ -4823,16 +3772,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LObjectPrxS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LObjectPrxS, o: LObjectPrxS)`:
-    ///
-    ///   - returnValue: `LObjectPrxS`
-    ///
-    ///   - o: `LObjectPrxS`
     func opLObjectPrxS(_ iceP_i: LObjectPrxS, context: Ice.Context? = nil) async throws -> (returnValue: LObjectPrxS, o: LObjectPrxS) {
         return try await _impl._invoke(operation: "opLObjectPrxS",
                                        mode: .Normal,
@@ -4847,16 +3786,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KObjectPrxS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KObjectPrxS, o: KObjectPrxS)`:
-    ///
-    ///   - returnValue: `KObjectPrxS`
-    ///
-    ///   - o: `KObjectPrxS`
     func opKObjectPrxS(_ iceP_i: KObjectPrxS, context: Ice.Context? = nil) async throws -> (returnValue: KObjectPrxS, o: KObjectPrxS) {
         return try await _impl._invoke(operation: "opKObjectPrxS",
                                        mode: .Normal,
@@ -4871,16 +3800,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QObjectPrxS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QObjectPrxS, o: QObjectPrxS)`:
-    ///
-    ///   - returnValue: `QObjectPrxS`
-    ///
-    ///   - o: `QObjectPrxS`
     func opQObjectPrxS(_ iceP_i: QObjectPrxS, context: Ice.Context? = nil) async throws -> (returnValue: QObjectPrxS, o: QObjectPrxS) {
         return try await _impl._invoke(operation: "opQObjectPrxS",
                                        mode: .Normal,
@@ -4895,16 +3814,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SObjectPrxS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SObjectPrxS, o: SObjectPrxS)`:
-    ///
-    ///   - returnValue: `SObjectPrxS`
-    ///
-    ///   - o: `SObjectPrxS`
     func opSObjectPrxS(_ iceP_i: SObjectPrxS, context: Ice.Context? = nil) async throws -> (returnValue: SObjectPrxS, o: SObjectPrxS) {
         return try await _impl._invoke(operation: "opSObjectPrxS",
                                        mode: .Normal,
@@ -4919,16 +3828,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AStructS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AStructS, o: AStructS)`:
-    ///
-    ///   - returnValue: `AStructS`
-    ///
-    ///   - o: `AStructS`
     func opAStructS(_ iceP_i: AStructS, context: Ice.Context? = nil) async throws -> (returnValue: AStructS, o: AStructS) {
         return try await _impl._invoke(operation: "opAStructS",
                                        mode: .Normal,
@@ -4943,16 +3842,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LStructS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LStructS, o: LStructS)`:
-    ///
-    ///   - returnValue: `LStructS`
-    ///
-    ///   - o: `LStructS`
     func opLStructS(_ iceP_i: LStructS, context: Ice.Context? = nil) async throws -> (returnValue: LStructS, o: LStructS) {
         return try await _impl._invoke(operation: "opLStructS",
                                        mode: .Normal,
@@ -4967,16 +3856,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KStructS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KStructS, o: KStructS)`:
-    ///
-    ///   - returnValue: `KStructS`
-    ///
-    ///   - o: `KStructS`
     func opKStructS(_ iceP_i: KStructS, context: Ice.Context? = nil) async throws -> (returnValue: KStructS, o: KStructS) {
         return try await _impl._invoke(operation: "opKStructS",
                                        mode: .Normal,
@@ -4991,16 +3870,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QStructS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QStructS, o: QStructS)`:
-    ///
-    ///   - returnValue: `QStructS`
-    ///
-    ///   - o: `QStructS`
     func opQStructS(_ iceP_i: QStructS, context: Ice.Context? = nil) async throws -> (returnValue: QStructS, o: QStructS) {
         return try await _impl._invoke(operation: "opQStructS",
                                        mode: .Normal,
@@ -5015,16 +3884,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SStructS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SStructS, o: SStructS)`:
-    ///
-    ///   - returnValue: `SStructS`
-    ///
-    ///   - o: `SStructS`
     func opSStructS(_ iceP_i: SStructS, context: Ice.Context? = nil) async throws -> (returnValue: SStructS, o: SStructS) {
         return try await _impl._invoke(operation: "opSStructS",
                                        mode: .Normal,
@@ -5039,16 +3898,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AStructSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AStructSD, o: AStructSD)`:
-    ///
-    ///   - returnValue: `AStructSD`
-    ///
-    ///   - o: `AStructSD`
     func opAStructSD(_ iceP_i: AStructSD, context: Ice.Context? = nil) async throws -> (returnValue: AStructSD, o: AStructSD) {
         return try await _impl._invoke(operation: "opAStructSD",
                                        mode: .Normal,
@@ -5063,16 +3912,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LStructSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LStructSD, o: LStructSD)`:
-    ///
-    ///   - returnValue: `LStructSD`
-    ///
-    ///   - o: `LStructSD`
     func opLStructSD(_ iceP_i: LStructSD, context: Ice.Context? = nil) async throws -> (returnValue: LStructSD, o: LStructSD) {
         return try await _impl._invoke(operation: "opLStructSD",
                                        mode: .Normal,
@@ -5087,16 +3926,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KStructSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KStructSD, o: KStructSD)`:
-    ///
-    ///   - returnValue: `KStructSD`
-    ///
-    ///   - o: `KStructSD`
     func opKStructSD(_ iceP_i: KStructSD, context: Ice.Context? = nil) async throws -> (returnValue: KStructSD, o: KStructSD) {
         return try await _impl._invoke(operation: "opKStructSD",
                                        mode: .Normal,
@@ -5111,16 +3940,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QStructSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QStructSD, o: QStructSD)`:
-    ///
-    ///   - returnValue: `QStructSD`
-    ///
-    ///   - o: `QStructSD`
     func opQStructSD(_ iceP_i: QStructSD, context: Ice.Context? = nil) async throws -> (returnValue: QStructSD, o: QStructSD) {
         return try await _impl._invoke(operation: "opQStructSD",
                                        mode: .Normal,
@@ -5135,16 +3954,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SStructSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SStructSD, o: SStructSD)`:
-    ///
-    ///   - returnValue: `SStructSD`
-    ///
-    ///   - o: `SStructSD`
     func opSStructSD(_ iceP_i: SStructSD, context: Ice.Context? = nil) async throws -> (returnValue: SStructSD, o: SStructSD) {
         return try await _impl._invoke(operation: "opSStructSD",
                                        mode: .Normal,
@@ -5159,16 +3968,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ACVS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ACVS, o: ACVS)`:
-    ///
-    ///   - returnValue: `ACVS`
-    ///
-    ///   - o: `ACVS`
     func opACVS(_ iceP_i: ACVS, context: Ice.Context? = nil) async throws -> (returnValue: ACVS, o: ACVS) {
         return try await _impl._invoke(operation: "opACVS",
                                        mode: .Normal,
@@ -5185,16 +3984,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LCVS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LCVS, o: LCVS)`:
-    ///
-    ///   - returnValue: `LCVS`
-    ///
-    ///   - o: `LCVS`
     func opLCVS(_ iceP_i: LCVS, context: Ice.Context? = nil) async throws -> (returnValue: LCVS, o: LCVS) {
         return try await _impl._invoke(operation: "opLCVS",
                                        mode: .Normal,
@@ -5211,16 +4000,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ACRS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ACRS, o: ACRS)`:
-    ///
-    ///   - returnValue: `ACRS`
-    ///
-    ///   - o: `ACRS`
     func opACRS(_ iceP_i: ACRS, context: Ice.Context? = nil) async throws -> (returnValue: ACRS, o: ACRS) {
         return try await _impl._invoke(operation: "opACRS",
                                        mode: .Normal,
@@ -5237,16 +4016,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LCRS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LCRS, o: LCRS)`:
-    ///
-    ///   - returnValue: `LCRS`
-    ///
-    ///   - o: `LCRS`
     func opLCRS(_ iceP_i: LCRS, context: Ice.Context? = nil) async throws -> (returnValue: LCRS, o: LCRS) {
         return try await _impl._invoke(operation: "opLCRS",
                                        mode: .Normal,
@@ -5263,16 +4032,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AEnS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AEnS, o: AEnS)`:
-    ///
-    ///   - returnValue: `AEnS`
-    ///
-    ///   - o: `AEnS`
     func opAEnS(_ iceP_i: AEnS, context: Ice.Context? = nil) async throws -> (returnValue: AEnS, o: AEnS) {
         return try await _impl._invoke(operation: "opAEnS",
                                        mode: .Normal,
@@ -5287,16 +4046,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LEnS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LEnS, o: LEnS)`:
-    ///
-    ///   - returnValue: `LEnS`
-    ///
-    ///   - o: `LEnS`
     func opLEnS(_ iceP_i: LEnS, context: Ice.Context? = nil) async throws -> (returnValue: LEnS, o: LEnS) {
         return try await _impl._invoke(operation: "opLEnS",
                                        mode: .Normal,
@@ -5311,16 +4060,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KEnS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KEnS, o: KEnS)`:
-    ///
-    ///   - returnValue: `KEnS`
-    ///
-    ///   - o: `KEnS`
     func opKEnS(_ iceP_i: KEnS, context: Ice.Context? = nil) async throws -> (returnValue: KEnS, o: KEnS) {
         return try await _impl._invoke(operation: "opKEnS",
                                        mode: .Normal,
@@ -5335,16 +4074,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QEnS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QEnS, o: QEnS)`:
-    ///
-    ///   - returnValue: `QEnS`
-    ///
-    ///   - o: `QEnS`
     func opQEnS(_ iceP_i: QEnS, context: Ice.Context? = nil) async throws -> (returnValue: QEnS, o: QEnS) {
         return try await _impl._invoke(operation: "opQEnS",
                                        mode: .Normal,
@@ -5359,16 +4088,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SEnS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SEnS, o: SEnS)`:
-    ///
-    ///   - returnValue: `SEnS`
-    ///
-    ///   - o: `SEnS`
     func opSEnS(_ iceP_i: SEnS, context: Ice.Context? = nil) async throws -> (returnValue: SEnS, o: SEnS) {
         return try await _impl._invoke(operation: "opSEnS",
                                        mode: .Normal,
@@ -5383,16 +4102,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AIPrxS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AIPrxS, o: AIPrxS)`:
-    ///
-    ///   - returnValue: `AIPrxS`
-    ///
-    ///   - o: `AIPrxS`
     func opAIPrxS(_ iceP_i: AIPrxS, context: Ice.Context? = nil) async throws -> (returnValue: AIPrxS, o: AIPrxS) {
         return try await _impl._invoke(operation: "opAIPrxS",
                                        mode: .Normal,
@@ -5407,16 +4116,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LIPrxS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LIPrxS, o: LIPrxS)`:
-    ///
-    ///   - returnValue: `LIPrxS`
-    ///
-    ///   - o: `LIPrxS`
     func opLIPrxS(_ iceP_i: LIPrxS, context: Ice.Context? = nil) async throws -> (returnValue: LIPrxS, o: LIPrxS) {
         return try await _impl._invoke(operation: "opLIPrxS",
                                        mode: .Normal,
@@ -5431,16 +4130,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `KIPrxS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: KIPrxS, o: KIPrxS)`:
-    ///
-    ///   - returnValue: `KIPrxS`
-    ///
-    ///   - o: `KIPrxS`
     func opKIPrxS(_ iceP_i: KIPrxS, context: Ice.Context? = nil) async throws -> (returnValue: KIPrxS, o: KIPrxS) {
         return try await _impl._invoke(operation: "opKIPrxS",
                                        mode: .Normal,
@@ -5455,16 +4144,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `QIPrxS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: QIPrxS, o: QIPrxS)`:
-    ///
-    ///   - returnValue: `QIPrxS`
-    ///
-    ///   - o: `QIPrxS`
     func opQIPrxS(_ iceP_i: QIPrxS, context: Ice.Context? = nil) async throws -> (returnValue: QIPrxS, o: QIPrxS) {
         return try await _impl._invoke(operation: "opQIPrxS",
                                        mode: .Normal,
@@ -5479,16 +4158,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SIPrxS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SIPrxS, o: SIPrxS)`:
-    ///
-    ///   - returnValue: `SIPrxS`
-    ///
-    ///   - o: `SIPrxS`
     func opSIPrxS(_ iceP_i: SIPrxS, context: Ice.Context? = nil) async throws -> (returnValue: SIPrxS, o: SIPrxS) {
         return try await _impl._invoke(operation: "opSIPrxS",
                                        mode: .Normal,
@@ -5503,16 +4172,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `CustomIntS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CustomIntS, o: CustomIntS)`:
-    ///
-    ///   - returnValue: `CustomIntS`
-    ///
-    ///   - o: `CustomIntS`
     func opCustomIntS(_ iceP_i: CustomIntS, context: Ice.Context? = nil) async throws -> (returnValue: CustomIntS, o: CustomIntS) {
         return try await _impl._invoke(operation: "opCustomIntS",
                                        mode: .Normal,
@@ -5527,16 +4186,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `CustomCVS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CustomCVS, o: CustomCVS)`:
-    ///
-    ///   - returnValue: `CustomCVS`
-    ///
-    ///   - o: `CustomCVS`
     func opCustomCVS(_ iceP_i: CustomCVS, context: Ice.Context? = nil) async throws -> (returnValue: CustomCVS, o: CustomCVS) {
         return try await _impl._invoke(operation: "opCustomCVS",
                                        mode: .Normal,
@@ -5553,16 +4202,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `CustomIntSS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CustomIntSS, o: CustomIntSS)`:
-    ///
-    ///   - returnValue: `CustomIntSS`
-    ///
-    ///   - o: `CustomIntSS`
     func opCustomIntSS(_ iceP_i: CustomIntSS, context: Ice.Context? = nil) async throws -> (returnValue: CustomIntSS, o: CustomIntSS) {
         return try await _impl._invoke(operation: "opCustomIntSS",
                                        mode: .Normal,
@@ -5577,16 +4216,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `CustomCVSS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CustomCVSS, o: CustomCVSS)`:
-    ///
-    ///   - returnValue: `CustomCVSS`
-    ///
-    ///   - o: `CustomCVSS`
     func opCustomCVSS(_ iceP_i: CustomCVSS, context: Ice.Context? = nil) async throws -> (returnValue: CustomCVSS, o: CustomCVSS) {
         return try await _impl._invoke(operation: "opCustomCVSS",
                                        mode: .Normal,
@@ -5891,1069 +4520,161 @@ public struct MyClassDisp: Ice.Dispatcher {
 }
 
 public protocol MyClass {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter i: `AByteS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AByteS, o: AByteS)`:
-    ///
-    ///   - returnValue: `AByteS`
-    ///
-    ///   - o: `AByteS`
     func opAByteS(i: AByteS, current: Ice.Current) async throws -> (returnValue: AByteS, o: AByteS)
 
-    ///
-    /// - parameter i: `LByteS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LByteS, o: LByteS)`:
-    ///
-    ///   - returnValue: `LByteS`
-    ///
-    ///   - o: `LByteS`
     func opLByteS(i: LByteS, current: Ice.Current) async throws -> (returnValue: LByteS, o: LByteS)
 
-    ///
-    /// - parameter i: `KByteS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KByteS, o: KByteS)`:
-    ///
-    ///   - returnValue: `KByteS`
-    ///
-    ///   - o: `KByteS`
     func opKByteS(i: KByteS, current: Ice.Current) async throws -> (returnValue: KByteS, o: KByteS)
 
-    ///
-    /// - parameter i: `QByteS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QByteS, o: QByteS)`:
-    ///
-    ///   - returnValue: `QByteS`
-    ///
-    ///   - o: `QByteS`
     func opQByteS(i: QByteS, current: Ice.Current) async throws -> (returnValue: QByteS, o: QByteS)
 
-    ///
-    /// - parameter i: `SByteS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SByteS, o: SByteS)`:
-    ///
-    ///   - returnValue: `SByteS`
-    ///
-    ///   - o: `SByteS`
     func opSByteS(i: SByteS, current: Ice.Current) async throws -> (returnValue: SByteS, o: SByteS)
 
-    ///
-    /// - parameter i: `ABoolS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ABoolS, o: ABoolS)`:
-    ///
-    ///   - returnValue: `ABoolS`
-    ///
-    ///   - o: `ABoolS`
     func opABoolS(i: ABoolS, current: Ice.Current) async throws -> (returnValue: ABoolS, o: ABoolS)
 
-    ///
-    /// - parameter i: `LBoolS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LBoolS, o: LBoolS)`:
-    ///
-    ///   - returnValue: `LBoolS`
-    ///
-    ///   - o: `LBoolS`
     func opLBoolS(i: LBoolS, current: Ice.Current) async throws -> (returnValue: LBoolS, o: LBoolS)
 
-    ///
-    /// - parameter i: `KBoolS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KBoolS, o: KBoolS)`:
-    ///
-    ///   - returnValue: `KBoolS`
-    ///
-    ///   - o: `KBoolS`
     func opKBoolS(i: KBoolS, current: Ice.Current) async throws -> (returnValue: KBoolS, o: KBoolS)
 
-    ///
-    /// - parameter i: `QBoolS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QBoolS, o: QBoolS)`:
-    ///
-    ///   - returnValue: `QBoolS`
-    ///
-    ///   - o: `QBoolS`
     func opQBoolS(i: QBoolS, current: Ice.Current) async throws -> (returnValue: QBoolS, o: QBoolS)
 
-    ///
-    /// - parameter i: `SBoolS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SBoolS, o: SBoolS)`:
-    ///
-    ///   - returnValue: `SBoolS`
-    ///
-    ///   - o: `SBoolS`
     func opSBoolS(i: SBoolS, current: Ice.Current) async throws -> (returnValue: SBoolS, o: SBoolS)
 
-    ///
-    /// - parameter i: `AShortS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AShortS, o: AShortS)`:
-    ///
-    ///   - returnValue: `AShortS`
-    ///
-    ///   - o: `AShortS`
     func opAShortS(i: AShortS, current: Ice.Current) async throws -> (returnValue: AShortS, o: AShortS)
 
-    ///
-    /// - parameter i: `LShortS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LShortS, o: LShortS)`:
-    ///
-    ///   - returnValue: `LShortS`
-    ///
-    ///   - o: `LShortS`
     func opLShortS(i: LShortS, current: Ice.Current) async throws -> (returnValue: LShortS, o: LShortS)
 
-    ///
-    /// - parameter i: `KShortS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KShortS, o: KShortS)`:
-    ///
-    ///   - returnValue: `KShortS`
-    ///
-    ///   - o: `KShortS`
     func opKShortS(i: KShortS, current: Ice.Current) async throws -> (returnValue: KShortS, o: KShortS)
 
-    ///
-    /// - parameter i: `QShortS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QShortS, o: QShortS)`:
-    ///
-    ///   - returnValue: `QShortS`
-    ///
-    ///   - o: `QShortS`
     func opQShortS(i: QShortS, current: Ice.Current) async throws -> (returnValue: QShortS, o: QShortS)
 
-    ///
-    /// - parameter i: `SShortS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SShortS, o: SShortS)`:
-    ///
-    ///   - returnValue: `SShortS`
-    ///
-    ///   - o: `SShortS`
     func opSShortS(i: SShortS, current: Ice.Current) async throws -> (returnValue: SShortS, o: SShortS)
 
-    ///
-    /// - parameter i: `AIntS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AIntS, o: AIntS)`:
-    ///
-    ///   - returnValue: `AIntS`
-    ///
-    ///   - o: `AIntS`
     func opAIntS(i: AIntS, current: Ice.Current) async throws -> (returnValue: AIntS, o: AIntS)
 
-    ///
-    /// - parameter i: `LIntS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LIntS, o: LIntS)`:
-    ///
-    ///   - returnValue: `LIntS`
-    ///
-    ///   - o: `LIntS`
     func opLIntS(i: LIntS, current: Ice.Current) async throws -> (returnValue: LIntS, o: LIntS)
 
-    ///
-    /// - parameter i: `KIntS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KIntS, o: KIntS)`:
-    ///
-    ///   - returnValue: `KIntS`
-    ///
-    ///   - o: `KIntS`
     func opKIntS(i: KIntS, current: Ice.Current) async throws -> (returnValue: KIntS, o: KIntS)
 
-    ///
-    /// - parameter i: `QIntS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QIntS, o: QIntS)`:
-    ///
-    ///   - returnValue: `QIntS`
-    ///
-    ///   - o: `QIntS`
     func opQIntS(i: QIntS, current: Ice.Current) async throws -> (returnValue: QIntS, o: QIntS)
 
-    ///
-    /// - parameter i: `SIntS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SIntS, o: SIntS)`:
-    ///
-    ///   - returnValue: `SIntS`
-    ///
-    ///   - o: `SIntS`
     func opSIntS(i: SIntS, current: Ice.Current) async throws -> (returnValue: SIntS, o: SIntS)
 
-    ///
-    /// - parameter i: `ALongS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ALongS, o: ALongS)`:
-    ///
-    ///   - returnValue: `ALongS`
-    ///
-    ///   - o: `ALongS`
     func opALongS(i: ALongS, current: Ice.Current) async throws -> (returnValue: ALongS, o: ALongS)
 
-    ///
-    /// - parameter i: `LLongS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LLongS, o: LLongS)`:
-    ///
-    ///   - returnValue: `LLongS`
-    ///
-    ///   - o: `LLongS`
     func opLLongS(i: LLongS, current: Ice.Current) async throws -> (returnValue: LLongS, o: LLongS)
 
-    ///
-    /// - parameter i: `KLongS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KLongS, o: KLongS)`:
-    ///
-    ///   - returnValue: `KLongS`
-    ///
-    ///   - o: `KLongS`
     func opKLongS(i: KLongS, current: Ice.Current) async throws -> (returnValue: KLongS, o: KLongS)
 
-    ///
-    /// - parameter i: `QLongS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QLongS, o: QLongS)`:
-    ///
-    ///   - returnValue: `QLongS`
-    ///
-    ///   - o: `QLongS`
     func opQLongS(i: QLongS, current: Ice.Current) async throws -> (returnValue: QLongS, o: QLongS)
 
-    ///
-    /// - parameter i: `SLongS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SLongS, o: SLongS)`:
-    ///
-    ///   - returnValue: `SLongS`
-    ///
-    ///   - o: `SLongS`
     func opSLongS(i: SLongS, current: Ice.Current) async throws -> (returnValue: SLongS, o: SLongS)
 
-    ///
-    /// - parameter i: `AFloatS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AFloatS, o: AFloatS)`:
-    ///
-    ///   - returnValue: `AFloatS`
-    ///
-    ///   - o: `AFloatS`
     func opAFloatS(i: AFloatS, current: Ice.Current) async throws -> (returnValue: AFloatS, o: AFloatS)
 
-    ///
-    /// - parameter i: `LFloatS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LFloatS, o: LFloatS)`:
-    ///
-    ///   - returnValue: `LFloatS`
-    ///
-    ///   - o: `LFloatS`
     func opLFloatS(i: LFloatS, current: Ice.Current) async throws -> (returnValue: LFloatS, o: LFloatS)
 
-    ///
-    /// - parameter i: `KFloatS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KFloatS, o: KFloatS)`:
-    ///
-    ///   - returnValue: `KFloatS`
-    ///
-    ///   - o: `KFloatS`
     func opKFloatS(i: KFloatS, current: Ice.Current) async throws -> (returnValue: KFloatS, o: KFloatS)
 
-    ///
-    /// - parameter i: `QFloatS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QFloatS, o: QFloatS)`:
-    ///
-    ///   - returnValue: `QFloatS`
-    ///
-    ///   - o: `QFloatS`
     func opQFloatS(i: QFloatS, current: Ice.Current) async throws -> (returnValue: QFloatS, o: QFloatS)
 
-    ///
-    /// - parameter i: `SFloatS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SFloatS, o: SFloatS)`:
-    ///
-    ///   - returnValue: `SFloatS`
-    ///
-    ///   - o: `SFloatS`
     func opSFloatS(i: SFloatS, current: Ice.Current) async throws -> (returnValue: SFloatS, o: SFloatS)
 
-    ///
-    /// - parameter i: `ADoubleS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ADoubleS, o: ADoubleS)`:
-    ///
-    ///   - returnValue: `ADoubleS`
-    ///
-    ///   - o: `ADoubleS`
     func opADoubleS(i: ADoubleS, current: Ice.Current) async throws -> (returnValue: ADoubleS, o: ADoubleS)
 
-    ///
-    /// - parameter i: `LDoubleS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LDoubleS, o: LDoubleS)`:
-    ///
-    ///   - returnValue: `LDoubleS`
-    ///
-    ///   - o: `LDoubleS`
     func opLDoubleS(i: LDoubleS, current: Ice.Current) async throws -> (returnValue: LDoubleS, o: LDoubleS)
 
-    ///
-    /// - parameter i: `KDoubleS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KDoubleS, o: KDoubleS)`:
-    ///
-    ///   - returnValue: `KDoubleS`
-    ///
-    ///   - o: `KDoubleS`
     func opKDoubleS(i: KDoubleS, current: Ice.Current) async throws -> (returnValue: KDoubleS, o: KDoubleS)
 
-    ///
-    /// - parameter i: `QDoubleS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QDoubleS, o: QDoubleS)`:
-    ///
-    ///   - returnValue: `QDoubleS`
-    ///
-    ///   - o: `QDoubleS`
     func opQDoubleS(i: QDoubleS, current: Ice.Current) async throws -> (returnValue: QDoubleS, o: QDoubleS)
 
-    ///
-    /// - parameter i: `SDoubleS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SDoubleS, o: SDoubleS)`:
-    ///
-    ///   - returnValue: `SDoubleS`
-    ///
-    ///   - o: `SDoubleS`
     func opSDoubleS(i: SDoubleS, current: Ice.Current) async throws -> (returnValue: SDoubleS, o: SDoubleS)
 
-    ///
-    /// - parameter i: `AStringS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AStringS, o: AStringS)`:
-    ///
-    ///   - returnValue: `AStringS`
-    ///
-    ///   - o: `AStringS`
     func opAStringS(i: AStringS, current: Ice.Current) async throws -> (returnValue: AStringS, o: AStringS)
 
-    ///
-    /// - parameter i: `LStringS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LStringS, o: LStringS)`:
-    ///
-    ///   - returnValue: `LStringS`
-    ///
-    ///   - o: `LStringS`
     func opLStringS(i: LStringS, current: Ice.Current) async throws -> (returnValue: LStringS, o: LStringS)
 
-    ///
-    /// - parameter i: `KStringS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KStringS, o: KStringS)`:
-    ///
-    ///   - returnValue: `KStringS`
-    ///
-    ///   - o: `KStringS`
     func opKStringS(i: KStringS, current: Ice.Current) async throws -> (returnValue: KStringS, o: KStringS)
 
-    ///
-    /// - parameter i: `QStringS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QStringS, o: QStringS)`:
-    ///
-    ///   - returnValue: `QStringS`
-    ///
-    ///   - o: `QStringS`
     func opQStringS(i: QStringS, current: Ice.Current) async throws -> (returnValue: QStringS, o: QStringS)
 
-    ///
-    /// - parameter i: `SStringS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SStringS, o: SStringS)`:
-    ///
-    ///   - returnValue: `SStringS`
-    ///
-    ///   - o: `SStringS`
     func opSStringS(i: SStringS, current: Ice.Current) async throws -> (returnValue: SStringS, o: SStringS)
 
-    ///
-    /// - parameter i: `AObjectS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AObjectS, o: AObjectS)`:
-    ///
-    ///   - returnValue: `AObjectS`
-    ///
-    ///   - o: `AObjectS`
     func opAObjectS(i: AObjectS, current: Ice.Current) async throws -> (returnValue: AObjectS, o: AObjectS)
 
-    ///
-    /// - parameter i: `LObjectS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LObjectS, o: LObjectS)`:
-    ///
-    ///   - returnValue: `LObjectS`
-    ///
-    ///   - o: `LObjectS`
     func opLObjectS(i: LObjectS, current: Ice.Current) async throws -> (returnValue: LObjectS, o: LObjectS)
 
-    ///
-    /// - parameter i: `AObjectPrxS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AObjectPrxS, o: AObjectPrxS)`:
-    ///
-    ///   - returnValue: `AObjectPrxS`
-    ///
-    ///   - o: `AObjectPrxS`
     func opAObjectPrxS(i: AObjectPrxS, current: Ice.Current) async throws -> (returnValue: AObjectPrxS, o: AObjectPrxS)
 
-    ///
-    /// - parameter i: `LObjectPrxS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LObjectPrxS, o: LObjectPrxS)`:
-    ///
-    ///   - returnValue: `LObjectPrxS`
-    ///
-    ///   - o: `LObjectPrxS`
     func opLObjectPrxS(i: LObjectPrxS, current: Ice.Current) async throws -> (returnValue: LObjectPrxS, o: LObjectPrxS)
 
-    ///
-    /// - parameter i: `KObjectPrxS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KObjectPrxS, o: KObjectPrxS)`:
-    ///
-    ///   - returnValue: `KObjectPrxS`
-    ///
-    ///   - o: `KObjectPrxS`
     func opKObjectPrxS(i: KObjectPrxS, current: Ice.Current) async throws -> (returnValue: KObjectPrxS, o: KObjectPrxS)
 
-    ///
-    /// - parameter i: `QObjectPrxS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QObjectPrxS, o: QObjectPrxS)`:
-    ///
-    ///   - returnValue: `QObjectPrxS`
-    ///
-    ///   - o: `QObjectPrxS`
     func opQObjectPrxS(i: QObjectPrxS, current: Ice.Current) async throws -> (returnValue: QObjectPrxS, o: QObjectPrxS)
 
-    ///
-    /// - parameter i: `SObjectPrxS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SObjectPrxS, o: SObjectPrxS)`:
-    ///
-    ///   - returnValue: `SObjectPrxS`
-    ///
-    ///   - o: `SObjectPrxS`
     func opSObjectPrxS(i: SObjectPrxS, current: Ice.Current) async throws -> (returnValue: SObjectPrxS, o: SObjectPrxS)
 
-    ///
-    /// - parameter i: `AStructS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AStructS, o: AStructS)`:
-    ///
-    ///   - returnValue: `AStructS`
-    ///
-    ///   - o: `AStructS`
     func opAStructS(i: AStructS, current: Ice.Current) async throws -> (returnValue: AStructS, o: AStructS)
 
-    ///
-    /// - parameter i: `LStructS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LStructS, o: LStructS)`:
-    ///
-    ///   - returnValue: `LStructS`
-    ///
-    ///   - o: `LStructS`
     func opLStructS(i: LStructS, current: Ice.Current) async throws -> (returnValue: LStructS, o: LStructS)
 
-    ///
-    /// - parameter i: `KStructS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KStructS, o: KStructS)`:
-    ///
-    ///   - returnValue: `KStructS`
-    ///
-    ///   - o: `KStructS`
     func opKStructS(i: KStructS, current: Ice.Current) async throws -> (returnValue: KStructS, o: KStructS)
 
-    ///
-    /// - parameter i: `QStructS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QStructS, o: QStructS)`:
-    ///
-    ///   - returnValue: `QStructS`
-    ///
-    ///   - o: `QStructS`
     func opQStructS(i: QStructS, current: Ice.Current) async throws -> (returnValue: QStructS, o: QStructS)
 
-    ///
-    /// - parameter i: `SStructS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SStructS, o: SStructS)`:
-    ///
-    ///   - returnValue: `SStructS`
-    ///
-    ///   - o: `SStructS`
     func opSStructS(i: SStructS, current: Ice.Current) async throws -> (returnValue: SStructS, o: SStructS)
 
-    ///
-    /// - parameter i: `AStructSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AStructSD, o: AStructSD)`:
-    ///
-    ///   - returnValue: `AStructSD`
-    ///
-    ///   - o: `AStructSD`
     func opAStructSD(i: AStructSD, current: Ice.Current) async throws -> (returnValue: AStructSD, o: AStructSD)
 
-    ///
-    /// - parameter i: `LStructSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LStructSD, o: LStructSD)`:
-    ///
-    ///   - returnValue: `LStructSD`
-    ///
-    ///   - o: `LStructSD`
     func opLStructSD(i: LStructSD, current: Ice.Current) async throws -> (returnValue: LStructSD, o: LStructSD)
 
-    ///
-    /// - parameter i: `KStructSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KStructSD, o: KStructSD)`:
-    ///
-    ///   - returnValue: `KStructSD`
-    ///
-    ///   - o: `KStructSD`
     func opKStructSD(i: KStructSD, current: Ice.Current) async throws -> (returnValue: KStructSD, o: KStructSD)
 
-    ///
-    /// - parameter i: `QStructSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QStructSD, o: QStructSD)`:
-    ///
-    ///   - returnValue: `QStructSD`
-    ///
-    ///   - o: `QStructSD`
     func opQStructSD(i: QStructSD, current: Ice.Current) async throws -> (returnValue: QStructSD, o: QStructSD)
 
-    ///
-    /// - parameter i: `SStructSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SStructSD, o: SStructSD)`:
-    ///
-    ///   - returnValue: `SStructSD`
-    ///
-    ///   - o: `SStructSD`
     func opSStructSD(i: SStructSD, current: Ice.Current) async throws -> (returnValue: SStructSD, o: SStructSD)
 
-    ///
-    /// - parameter i: `ACVS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ACVS, o: ACVS)`:
-    ///
-    ///   - returnValue: `ACVS`
-    ///
-    ///   - o: `ACVS`
     func opACVS(i: ACVS, current: Ice.Current) async throws -> (returnValue: ACVS, o: ACVS)
 
-    ///
-    /// - parameter i: `LCVS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LCVS, o: LCVS)`:
-    ///
-    ///   - returnValue: `LCVS`
-    ///
-    ///   - o: `LCVS`
     func opLCVS(i: LCVS, current: Ice.Current) async throws -> (returnValue: LCVS, o: LCVS)
 
-    ///
-    /// - parameter i: `ACRS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ACRS, o: ACRS)`:
-    ///
-    ///   - returnValue: `ACRS`
-    ///
-    ///   - o: `ACRS`
     func opACRS(i: ACRS, current: Ice.Current) async throws -> (returnValue: ACRS, o: ACRS)
 
-    ///
-    /// - parameter i: `LCRS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LCRS, o: LCRS)`:
-    ///
-    ///   - returnValue: `LCRS`
-    ///
-    ///   - o: `LCRS`
     func opLCRS(i: LCRS, current: Ice.Current) async throws -> (returnValue: LCRS, o: LCRS)
 
-    ///
-    /// - parameter i: `AEnS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AEnS, o: AEnS)`:
-    ///
-    ///   - returnValue: `AEnS`
-    ///
-    ///   - o: `AEnS`
     func opAEnS(i: AEnS, current: Ice.Current) async throws -> (returnValue: AEnS, o: AEnS)
 
-    ///
-    /// - parameter i: `LEnS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LEnS, o: LEnS)`:
-    ///
-    ///   - returnValue: `LEnS`
-    ///
-    ///   - o: `LEnS`
     func opLEnS(i: LEnS, current: Ice.Current) async throws -> (returnValue: LEnS, o: LEnS)
 
-    ///
-    /// - parameter i: `KEnS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KEnS, o: KEnS)`:
-    ///
-    ///   - returnValue: `KEnS`
-    ///
-    ///   - o: `KEnS`
     func opKEnS(i: KEnS, current: Ice.Current) async throws -> (returnValue: KEnS, o: KEnS)
 
-    ///
-    /// - parameter i: `QEnS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QEnS, o: QEnS)`:
-    ///
-    ///   - returnValue: `QEnS`
-    ///
-    ///   - o: `QEnS`
     func opQEnS(i: QEnS, current: Ice.Current) async throws -> (returnValue: QEnS, o: QEnS)
 
-    ///
-    /// - parameter i: `SEnS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SEnS, o: SEnS)`:
-    ///
-    ///   - returnValue: `SEnS`
-    ///
-    ///   - o: `SEnS`
     func opSEnS(i: SEnS, current: Ice.Current) async throws -> (returnValue: SEnS, o: SEnS)
 
-    ///
-    /// - parameter i: `AIPrxS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AIPrxS, o: AIPrxS)`:
-    ///
-    ///   - returnValue: `AIPrxS`
-    ///
-    ///   - o: `AIPrxS`
     func opAIPrxS(i: AIPrxS, current: Ice.Current) async throws -> (returnValue: AIPrxS, o: AIPrxS)
 
-    ///
-    /// - parameter i: `LIPrxS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LIPrxS, o: LIPrxS)`:
-    ///
-    ///   - returnValue: `LIPrxS`
-    ///
-    ///   - o: `LIPrxS`
     func opLIPrxS(i: LIPrxS, current: Ice.Current) async throws -> (returnValue: LIPrxS, o: LIPrxS)
 
-    ///
-    /// - parameter i: `KIPrxS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: KIPrxS, o: KIPrxS)`:
-    ///
-    ///   - returnValue: `KIPrxS`
-    ///
-    ///   - o: `KIPrxS`
     func opKIPrxS(i: KIPrxS, current: Ice.Current) async throws -> (returnValue: KIPrxS, o: KIPrxS)
 
-    ///
-    /// - parameter i: `QIPrxS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: QIPrxS, o: QIPrxS)`:
-    ///
-    ///   - returnValue: `QIPrxS`
-    ///
-    ///   - o: `QIPrxS`
     func opQIPrxS(i: QIPrxS, current: Ice.Current) async throws -> (returnValue: QIPrxS, o: QIPrxS)
 
-    ///
-    /// - parameter i: `SIPrxS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SIPrxS, o: SIPrxS)`:
-    ///
-    ///   - returnValue: `SIPrxS`
-    ///
-    ///   - o: `SIPrxS`
     func opSIPrxS(i: SIPrxS, current: Ice.Current) async throws -> (returnValue: SIPrxS, o: SIPrxS)
 
-    ///
-    /// - parameter i: `CustomIntS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: CustomIntS, o: CustomIntS)`:
-    ///
-    ///   - returnValue: `CustomIntS`
-    ///
-    ///   - o: `CustomIntS`
     func opCustomIntS(i: CustomIntS, current: Ice.Current) async throws -> (returnValue: CustomIntS, o: CustomIntS)
 
-    ///
-    /// - parameter i: `CustomCVS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: CustomCVS, o: CustomCVS)`:
-    ///
-    ///   - returnValue: `CustomCVS`
-    ///
-    ///   - o: `CustomCVS`
     func opCustomCVS(i: CustomCVS, current: Ice.Current) async throws -> (returnValue: CustomCVS, o: CustomCVS)
 
-    ///
-    /// - parameter i: `CustomIntSS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: CustomIntSS, o: CustomIntSS)`:
-    ///
-    ///   - returnValue: `CustomIntSS`
-    ///
-    ///   - o: `CustomIntSS`
     func opCustomIntSS(i: CustomIntSS, current: Ice.Current) async throws -> (returnValue: CustomIntSS, o: CustomIntSS)
 
-    ///
-    /// - parameter i: `CustomCVSS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: CustomCVSS, o: CustomCVSS)`:
-    ///
-    ///   - returnValue: `CustomCVSS`
-    ///
-    ///   - o: `CustomCVSS`
     func opCustomCVSS(i: CustomCVSS, current: Ice.Current) async throws -> (returnValue: CustomCVSS, o: CustomCVSS)
 }
 
-/// I overview.
 extension I {}
 
-/// MyClass overview.
-///
-/// MyClass Methods:
-///
-///  - shutdown: 
-///
-///  - opAByteS: 
-///
-///  - opLByteS: 
-///
-///  - opKByteS: 
-///
-///  - opQByteS: 
-///
-///  - opSByteS: 
-///
-///  - opABoolS: 
-///
-///  - opLBoolS: 
-///
-///  - opKBoolS: 
-///
-///  - opQBoolS: 
-///
-///  - opSBoolS: 
-///
-///  - opAShortS: 
-///
-///  - opLShortS: 
-///
-///  - opKShortS: 
-///
-///  - opQShortS: 
-///
-///  - opSShortS: 
-///
-///  - opAIntS: 
-///
-///  - opLIntS: 
-///
-///  - opKIntS: 
-///
-///  - opQIntS: 
-///
-///  - opSIntS: 
-///
-///  - opALongS: 
-///
-///  - opLLongS: 
-///
-///  - opKLongS: 
-///
-///  - opQLongS: 
-///
-///  - opSLongS: 
-///
-///  - opAFloatS: 
-///
-///  - opLFloatS: 
-///
-///  - opKFloatS: 
-///
-///  - opQFloatS: 
-///
-///  - opSFloatS: 
-///
-///  - opADoubleS: 
-///
-///  - opLDoubleS: 
-///
-///  - opKDoubleS: 
-///
-///  - opQDoubleS: 
-///
-///  - opSDoubleS: 
-///
-///  - opAStringS: 
-///
-///  - opLStringS: 
-///
-///  - opKStringS: 
-///
-///  - opQStringS: 
-///
-///  - opSStringS: 
-///
-///  - opAObjectS: 
-///
-///  - opLObjectS: 
-///
-///  - opAObjectPrxS: 
-///
-///  - opLObjectPrxS: 
-///
-///  - opKObjectPrxS: 
-///
-///  - opQObjectPrxS: 
-///
-///  - opSObjectPrxS: 
-///
-///  - opAStructS: 
-///
-///  - opLStructS: 
-///
-///  - opKStructS: 
-///
-///  - opQStructS: 
-///
-///  - opSStructS: 
-///
-///  - opAStructSD: 
-///
-///  - opLStructSD: 
-///
-///  - opKStructSD: 
-///
-///  - opQStructSD: 
-///
-///  - opSStructSD: 
-///
-///  - opACVS: 
-///
-///  - opLCVS: 
-///
-///  - opACRS: 
-///
-///  - opLCRS: 
-///
-///  - opAEnS: 
-///
-///  - opLEnS: 
-///
-///  - opKEnS: 
-///
-///  - opQEnS: 
-///
-///  - opSEnS: 
-///
-///  - opAIPrxS: 
-///
-///  - opLIPrxS: 
-///
-///  - opKIPrxS: 
-///
-///  - opQIPrxS: 
-///
-///  - opSIPrxS: 
-///
-///  - opCustomIntS: 
-///
-///  - opCustomCVS: 
-///
-///  - opCustomIntSS: 
-///
-///  - opCustomCVSS: 
 extension MyClass {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

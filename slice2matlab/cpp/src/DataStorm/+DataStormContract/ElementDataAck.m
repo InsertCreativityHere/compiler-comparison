@@ -1,11 +1,3 @@
-% ElementDataAck   Summary of ElementDataAck
-%
-% ElementDataAck Properties:
-%   id - The id of the writer or filter.
-%   config - The config of the writer or reader.
-%   lastIds - The lastIds received by the reader.
-%   samples - The samples of the writer or reader.
-%   peerId - The id of the writer or reader on the peer.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0

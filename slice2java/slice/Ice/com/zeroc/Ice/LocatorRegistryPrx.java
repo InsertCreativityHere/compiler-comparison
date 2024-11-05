@@ -17,7 +17,7 @@ package com.zeroc.Ice;
 
 /**
  * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
- * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+ * locator. <p class="Note"> The {@link LocatorRegistry}} interface is intended to be used by Ice internals and by
  * locator implementations. Regular user code should not attempt to use any functionality of this interface
  * directly.
  **/

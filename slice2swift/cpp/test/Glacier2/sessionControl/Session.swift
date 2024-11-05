@@ -23,17 +23,6 @@ public struct SessionTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Session"
 }
 
-/// SessionPrx overview.
-///
-/// SessionPrx Methods:
-///
-///  - destroyFromClient: 
-///
-///  - destroyFromClientAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol SessionPrx: Glacier2.SessionPrx {}
 
 private final class SessionPrxI: Ice.ObjectPrxI, SessionPrx {
@@ -121,28 +110,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// SessionPrx overview.
-///
-/// SessionPrx Methods:
-///
-///  - destroyFromClient: 
-///
-///  - destroyFromClientAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension SessionPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func destroyFromClient(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroyFromClient",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -183,22 +157,11 @@ public struct SessionDisp: Ice.Dispatcher {
 }
 
 public protocol Session: Glacier2.Session {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func destroyFromClient(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Session overview.
-///
-/// Session Methods:
-///
-///  - destroyFromClient: 
-///
-///  - shutdown: 
 extension Session {
     public func _iceD_destroyFromClient(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

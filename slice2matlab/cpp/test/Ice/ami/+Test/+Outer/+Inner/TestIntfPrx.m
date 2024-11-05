@@ -1,10 +1,3 @@
-% TestIntfPrx   Summary of TestIntfPrx
-%
-% TestIntfPrx Methods:
-%   op
-%   opAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,16 +5,6 @@
 classdef TestIntfPrx < Ice.ObjectPrx
     methods
         function [result, j] = op(obj, i, varargin)
-            % op
-            %
-            % Parameters:
-            %   i (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (int32)
-            %   j (int32)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(i);
             obj.iceEndWriteParams(os_);
@@ -32,14 +15,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opAsync(obj, i, varargin)
-            % opAsync
-            %
-            % Parameters:
-            %   i (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(i);
             obj.iceEndWriteParams(os_);

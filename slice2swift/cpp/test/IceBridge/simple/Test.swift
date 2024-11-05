@@ -28,25 +28,6 @@ public struct MyClassTraits: Ice.SliceTraits {
     public static let staticId = "::Test::MyClass"
 }
 
-/// CallbackPrx overview.
-///
-/// CallbackPrx Methods:
-///
-///  - ping: 
-///
-///  - pingAsync: 
-///
-///  - getCount: 
-///
-///  - getCountAsync: 
-///
-///  - datagram: 
-///
-///  - datagramAsync: 
-///
-///  - getDatagramCount: 
-///
-///  - getDatagramCountAsync: 
 public protocol CallbackPrx: Ice.ObjectPrx {}
 
 private final class CallbackPrxI: Ice.ObjectPrxI, CallbackPrx {
@@ -134,38 +115,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// CallbackPrx overview.
-///
-/// CallbackPrx Methods:
-///
-///  - ping: 
-///
-///  - pingAsync: 
-///
-///  - getCount: 
-///
-///  - getCountAsync: 
-///
-///  - datagram: 
-///
-///  - datagramAsync: 
-///
-///  - getDatagramCount: 
-///
-///  - getDatagramCountAsync: 
 public extension CallbackPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func ping(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "ping",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func getCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getCount",
                                        mode: .Normal,
@@ -176,18 +132,12 @@ public extension CallbackPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func datagram(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "datagram",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func getDatagramCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getDatagramCount",
                                        mode: .Normal,
@@ -199,57 +149,6 @@ public extension CallbackPrx {
     }
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - callCallback: 
-///
-///  - callCallbackAsync: 
-///
-///  - getCallbackCount: 
-///
-///  - getCallbackCountAsync: 
-///
-///  - incCounter: 
-///
-///  - incCounterAsync: 
-///
-///  - waitCounter: 
-///
-///  - waitCounterAsync: 
-///
-///  - getConnectionCount: 
-///
-///  - getConnectionCountAsync: 
-///
-///  - getConnectionInfo: 
-///
-///  - getConnectionInfoAsync: 
-///
-///  - closeConnection: 
-///
-///  - closeConnectionAsync: 
-///
-///  - datagram: 
-///
-///  - datagramAsync: 
-///
-///  - getDatagramCount: 
-///
-///  - getDatagramCountAsync: 
-///
-///  - callDatagramCallback: 
-///
-///  - callDatagramCallbackAsync: 
-///
-///  - getCallbackDatagramCount: 
-///
-///  - getCallbackDatagramCountAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol MyClassPrx: Ice.ObjectPrx {}
 
 private final class MyClassPrxI: Ice.ObjectPrxI, MyClassPrx {
@@ -337,70 +236,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - callCallback: 
-///
-///  - callCallbackAsync: 
-///
-///  - getCallbackCount: 
-///
-///  - getCallbackCountAsync: 
-///
-///  - incCounter: 
-///
-///  - incCounterAsync: 
-///
-///  - waitCounter: 
-///
-///  - waitCounterAsync: 
-///
-///  - getConnectionCount: 
-///
-///  - getConnectionCountAsync: 
-///
-///  - getConnectionInfo: 
-///
-///  - getConnectionInfoAsync: 
-///
-///  - closeConnection: 
-///
-///  - closeConnectionAsync: 
-///
-///  - datagram: 
-///
-///  - datagramAsync: 
-///
-///  - getDatagramCount: 
-///
-///  - getDatagramCountAsync: 
-///
-///  - callDatagramCallback: 
-///
-///  - callDatagramCallbackAsync: 
-///
-///  - getCallbackDatagramCount: 
-///
-///  - getCallbackDatagramCountAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension MyClassPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func callCallback(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "callCallback",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func getCallbackCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getCallbackCount",
                                        mode: .Normal,
@@ -411,10 +253,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func incCounter(_ iceP_expected: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "incCounter",
                                        mode: .Normal,
@@ -424,10 +262,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func waitCounter(_ iceP_value: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "waitCounter",
                                        mode: .Normal,
@@ -437,10 +271,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func getConnectionCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getConnectionCount",
                                        mode: .Normal,
@@ -451,10 +281,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getConnectionInfo(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getConnectionInfo",
                                        mode: .Normal,
@@ -465,10 +291,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func closeConnection(_ iceP_force: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "closeConnection",
                                        mode: .Normal,
@@ -478,18 +300,12 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func datagram(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "datagram",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func getDatagramCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getDatagramCount",
                                        mode: .Normal,
@@ -500,18 +316,12 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func callDatagramCallback(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "callDatagramCallback",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func getCallbackDatagramCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getCallbackDatagramCount",
                                        mode: .Normal,
@@ -522,8 +332,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -566,24 +374,12 @@ public struct CallbackDisp: Ice.Dispatcher {
 }
 
 public protocol Callback {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func ping(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func getCount(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func datagram(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func getDatagramCount(current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -638,82 +434,31 @@ public struct MyClassDisp: Ice.Dispatcher {
 }
 
 public protocol MyClass {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func callCallback(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func getCallbackCount(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter expected: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func incCounter(expected: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter value: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func waitCounter(value: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func getConnectionCount(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getConnectionInfo(current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter force: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func closeConnection(force: Swift.Bool, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func datagram(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func getDatagramCount(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func callDatagramCallback(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func getCallbackDatagramCount(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Callback overview.
-///
-/// Callback Methods:
-///
-///  - ping: 
-///
-///  - getCount: 
-///
-///  - datagram: 
-///
-///  - getDatagramCount: 
 extension Callback {
     public func _iceD_ping(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -750,33 +495,6 @@ extension Callback {
     }
 }
 
-/// MyClass overview.
-///
-/// MyClass Methods:
-///
-///  - callCallback: 
-///
-///  - getCallbackCount: 
-///
-///  - incCounter: 
-///
-///  - waitCounter: 
-///
-///  - getConnectionCount: 
-///
-///  - getConnectionInfo: 
-///
-///  - closeConnection: 
-///
-///  - datagram: 
-///
-///  - getDatagramCount: 
-///
-///  - callDatagramCallback: 
-///
-///  - getCallbackDatagramCount: 
-///
-///  - shutdown: 
 extension MyClass {
     public func _iceD_callCallback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

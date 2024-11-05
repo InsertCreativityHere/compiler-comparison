@@ -18,11 +18,11 @@ import Ice
 
 /// Determines which load sampling interval to use.
 public enum LoadSample: Swift.UInt8 {
-    /// LoadSample1 Sample every minute.
+    /// Sample every minute.
     case LoadSample1 = 0
-    /// LoadSample5 Sample every five minutes.
+    /// Sample every five minutes.
     case LoadSample5 = 1
-    /// LoadSample15 Sample every fifteen minutes.
+    /// Sample every fifteen minutes.
     case LoadSample15 = 2
     public init() {
         self = .LoadSample1
@@ -599,10 +599,8 @@ public extension RegistryPrx {
     }
 
     /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-    /// send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
+    /// send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
     /// a session alive in the IceGrid registry.
-    ///
-    ///  ## Deprecated
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -618,7 +616,7 @@ public extension RegistryPrx {
     }
 }
 
-/// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
+/// The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
 /// registry.
 ///
 /// LocatorPrx Methods:
@@ -717,7 +715,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
+/// The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
 /// registry.
 ///
 /// LocatorPrx Methods:
@@ -948,10 +946,8 @@ public protocol Registry {
     func createAdminSessionFromSecureConnection(current: Ice.Current) async throws -> AdminSessionPrx?
 
     /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-    /// send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
+    /// send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
     /// a session alive in the IceGrid registry.
-    ///
-    ///  ## Deprecated
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -995,7 +991,7 @@ public struct LocatorDisp: Ice.Dispatcher {
     }
 }
 
-/// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
+/// The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
 /// registry.
 public protocol Locator: Ice.Locator {
     /// Get the proxy of the registry object hosted by this IceGrid registry.
@@ -1161,7 +1157,7 @@ extension Registry {
     }
 }
 
-/// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
+/// The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
 /// registry.
 ///
 /// Locator Methods:

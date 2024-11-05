@@ -176,25 +176,6 @@ public struct CommonProcessControllerRegistryTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Common::ProcessControllerRegistry"
 }
 
-/// CommonTestCasePrx overview.
-///
-/// CommonTestCasePrx Methods:
-///
-///  - startServerSide: 
-///
-///  - startServerSideAsync: 
-///
-///  - stopServerSide: 
-///
-///  - stopServerSideAsync: 
-///
-///  - runClientSide: 
-///
-///  - runClientSideAsync: 
-///
-///  - destroy: 
-///
-///  - destroyAsync: 
 public protocol CommonTestCasePrx: Ice.ObjectPrx {}
 
 private final class CommonTestCasePrxI: Ice.ObjectPrxI, CommonTestCasePrx {
@@ -282,32 +263,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// CommonTestCasePrx overview.
-///
-/// CommonTestCasePrx Methods:
-///
-///  - startServerSide: 
-///
-///  - startServerSideAsync: 
-///
-///  - stopServerSide: 
-///
-///  - stopServerSideAsync: 
-///
-///  - runClientSide: 
-///
-///  - runClientSideAsync: 
-///
-///  - destroy: 
-///
-///  - destroyAsync: 
 public extension CommonTestCasePrx {
-    ///
-    /// - parameter _: `CommonConfig?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func startServerSide(_ iceP_config: CommonConfig?, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "startServerSide",
                                        mode: .Normal,
@@ -329,12 +285,6 @@ public extension CommonTestCasePrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func stopServerSide(_ iceP_success: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "stopServerSide",
                                        mode: .Normal,
@@ -355,14 +305,6 @@ public extension CommonTestCasePrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter host: `Swift.String`
-    ///
-    /// - parameter config: `CommonConfig?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func runClientSide(host iceP_host: Swift.String, config iceP_config: CommonConfig?, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "runClientSide",
                                        mode: .Normal,
@@ -385,8 +327,6 @@ public extension CommonTestCasePrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroy",
                                        mode: .Normal,
@@ -394,25 +334,6 @@ public extension CommonTestCasePrx {
     }
 }
 
-/// CommonControllerPrx overview.
-///
-/// CommonControllerPrx Methods:
-///
-///  - runTestCase: 
-///
-///  - runTestCaseAsync: 
-///
-///  - getOptionOverrides: 
-///
-///  - getOptionOverridesAsync: 
-///
-///  - getTestSuites: 
-///
-///  - getTestSuitesAsync: 
-///
-///  - getHost: 
-///
-///  - getHostAsync: 
 public protocol CommonControllerPrx: Ice.ObjectPrx {}
 
 private final class CommonControllerPrxI: Ice.ObjectPrxI, CommonControllerPrx {
@@ -500,38 +421,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// CommonControllerPrx overview.
-///
-/// CommonControllerPrx Methods:
-///
-///  - runTestCase: 
-///
-///  - runTestCaseAsync: 
-///
-///  - getOptionOverrides: 
-///
-///  - getOptionOverridesAsync: 
-///
-///  - getTestSuites: 
-///
-///  - getTestSuitesAsync: 
-///
-///  - getHost: 
-///
-///  - getHostAsync: 
 public extension CommonControllerPrx {
-    ///
-    /// - parameter mapping: `Swift.String`
-    ///
-    /// - parameter testsuite: `Swift.String`
-    ///
-    /// - parameter testcase: `Swift.String`
-    ///
-    /// - parameter cross: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `CommonTestCasePrx?`
     func runTestCase(mapping iceP_mapping: Swift.String, testsuite iceP_testsuite: Swift.String, testcase iceP_testcase: Swift.String, cross iceP_cross: Swift.String, context: Ice.Context? = nil) async throws -> CommonTestCasePrx? {
         return try await _impl._invoke(operation: "runTestCase",
                                        mode: .Normal,
@@ -555,10 +445,6 @@ public extension CommonControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `CommonOptionOverrides?`
     func getOptionOverrides(context: Ice.Context? = nil) async throws -> CommonOptionOverrides? {
         return try await _impl._invoke(operation: "getOptionOverrides",
                                        mode: .Normal,
@@ -571,12 +457,6 @@ public extension CommonControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `CommonStringSeq`
     func getTestSuites(_ iceP_mapping: Swift.String, context: Ice.Context? = nil) async throws -> CommonStringSeq {
         return try await _impl._invoke(operation: "getTestSuites",
                                        mode: .Normal,
@@ -590,14 +470,6 @@ public extension CommonControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter protocol: `Swift.String`
-    ///
-    /// - parameter ipv6: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getHost(protocol iceP_protocol: Swift.String, ipv6 iceP_ipv6: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getHost",
                                        mode: .Normal,
@@ -613,21 +485,6 @@ public extension CommonControllerPrx {
     }
 }
 
-/// CommonProcessPrx overview.
-///
-/// CommonProcessPrx Methods:
-///
-///  - waitReady: 
-///
-///  - waitReadyAsync: 
-///
-///  - waitSuccess: 
-///
-///  - waitSuccessAsync: 
-///
-///  - terminate: 
-///
-///  - terminateAsync: 
 public protocol CommonProcessPrx: Ice.ObjectPrx {}
 
 private final class CommonProcessPrxI: Ice.ObjectPrxI, CommonProcessPrx {
@@ -715,26 +572,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// CommonProcessPrx overview.
-///
-/// CommonProcessPrx Methods:
-///
-///  - waitReady: 
-///
-///  - waitReadyAsync: 
-///
-///  - waitSuccess: 
-///
-///  - waitSuccessAsync: 
-///
-///  - terminate: 
-///
-///  - terminateAsync: 
 public extension CommonProcessPrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func waitReady(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "waitReady",
                                        mode: .Normal,
@@ -751,12 +589,6 @@ public extension CommonProcessPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func waitSuccess(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "waitSuccess",
                                        mode: .Normal,
@@ -777,10 +609,6 @@ public extension CommonProcessPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func terminate(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "terminate",
                                        mode: .Normal,
@@ -792,17 +620,6 @@ public extension CommonProcessPrx {
     }
 }
 
-/// CommonProcessControllerPrx overview.
-///
-/// CommonProcessControllerPrx Methods:
-///
-///  - start: 
-///
-///  - startAsync: 
-///
-///  - getHost: 
-///
-///  - getHostAsync: 
 public protocol CommonProcessControllerPrx: Ice.ObjectPrx {}
 
 private final class CommonProcessControllerPrxI: Ice.ObjectPrxI, CommonProcessControllerPrx {
@@ -890,28 +707,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// CommonProcessControllerPrx overview.
-///
-/// CommonProcessControllerPrx Methods:
-///
-///  - start: 
-///
-///  - startAsync: 
-///
-///  - getHost: 
-///
-///  - getHostAsync: 
 public extension CommonProcessControllerPrx {
-    ///
-    /// - parameter testsuite: `Swift.String`
-    ///
-    /// - parameter exe: `Swift.String`
-    ///
-    /// - parameter args: `CommonStringSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `CommonProcessPrx?`
     func start(testsuite iceP_testsuite: Swift.String, exe iceP_exe: Swift.String, args iceP_args: CommonStringSeq, context: Ice.Context? = nil) async throws -> CommonProcessPrx? {
         return try await _impl._invoke(operation: "start",
                                        mode: .Normal,
@@ -934,14 +730,6 @@ public extension CommonProcessControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter protocol: `Swift.String`
-    ///
-    /// - parameter ipv6: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getHost(protocol iceP_protocol: Swift.String, ipv6 iceP_ipv6: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getHost",
                                        mode: .Normal,
@@ -957,13 +745,6 @@ public extension CommonProcessControllerPrx {
     }
 }
 
-/// CommonBrowserProcessControllerPrx overview.
-///
-/// CommonBrowserProcessControllerPrx Methods:
-///
-///  - redirect: 
-///
-///  - redirectAsync: 
 public protocol CommonBrowserProcessControllerPrx: CommonProcessControllerPrx {}
 
 private final class CommonBrowserProcessControllerPrxI: Ice.ObjectPrxI, CommonBrowserProcessControllerPrx {
@@ -1051,18 +832,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// CommonBrowserProcessControllerPrx overview.
-///
-/// CommonBrowserProcessControllerPrx Methods:
-///
-///  - redirect: 
-///
-///  - redirectAsync: 
 public extension CommonBrowserProcessControllerPrx {
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func redirect(_ iceP_url: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "redirect",
                                        mode: .Normal,
@@ -1073,13 +843,6 @@ public extension CommonBrowserProcessControllerPrx {
     }
 }
 
-/// CommonProcessControllerRegistryPrx overview.
-///
-/// CommonProcessControllerRegistryPrx Methods:
-///
-///  - setProcessController: 
-///
-///  - setProcessControllerAsync: 
 public protocol CommonProcessControllerRegistryPrx: Ice.ObjectPrx {}
 
 private final class CommonProcessControllerRegistryPrxI: Ice.ObjectPrxI, CommonProcessControllerRegistryPrx {
@@ -1167,18 +930,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// CommonProcessControllerRegistryPrx overview.
-///
-/// CommonProcessControllerRegistryPrx Methods:
-///
-///  - setProcessController: 
-///
-///  - setProcessControllerAsync: 
 public extension CommonProcessControllerRegistryPrx {
-    ///
-    /// - parameter _: `CommonProcessControllerPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func setProcessController(_ iceP_controller: CommonProcessControllerPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setProcessController",
                                        mode: .Normal,
@@ -1344,34 +1096,12 @@ public struct CommonTestCaseDisp: Ice.Dispatcher {
 }
 
 public protocol CommonTestCase {
-    ///
-    /// - parameter config: `CommonConfig?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func startServerSide(config: CommonConfig?, current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter success: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func stopServerSide(success: Swift.Bool, current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter host: `Swift.String`
-    ///
-    /// - parameter config: `CommonConfig?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func runClientSide(host: Swift.String, config: CommonConfig?, current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func destroy(current: Ice.Current) async throws
 }
 
@@ -1410,42 +1140,12 @@ public struct CommonControllerDisp: Ice.Dispatcher {
 }
 
 public protocol CommonController {
-    ///
-    /// - parameter mapping: `Swift.String`
-    ///
-    /// - parameter testsuite: `Swift.String`
-    ///
-    /// - parameter testcase: `Swift.String`
-    ///
-    /// - parameter cross: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `CommonTestCasePrx?`
     func runTestCase(mapping: Swift.String, testsuite: Swift.String, testcase: Swift.String, cross: Swift.String, current: Ice.Current) async throws -> CommonTestCasePrx?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `CommonOptionOverrides?`
     func getOptionOverrides(current: Ice.Current) async throws -> CommonOptionOverrides?
 
-    ///
-    /// - parameter mapping: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `CommonStringSeq`
     func getTestSuites(mapping: Swift.String, current: Ice.Current) async throws -> CommonStringSeq
 
-    ///
-    /// - parameter protocol: `Swift.String`
-    ///
-    /// - parameter ipv6: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getHost(protocol: Swift.String, ipv6: Swift.Bool, current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1482,24 +1182,10 @@ public struct CommonProcessDisp: Ice.Dispatcher {
 }
 
 public protocol CommonProcess {
-    ///
-    /// - parameter timeout: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func waitReady(timeout: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter timeout: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func waitSuccess(timeout: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func terminate(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1534,26 +1220,8 @@ public struct CommonProcessControllerDisp: Ice.Dispatcher {
 }
 
 public protocol CommonProcessController {
-    ///
-    /// - parameter testsuite: `Swift.String`
-    ///
-    /// - parameter exe: `Swift.String`
-    ///
-    /// - parameter args: `CommonStringSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `CommonProcessPrx?`
     func start(testsuite: Swift.String, exe: Swift.String, args: CommonStringSeq, current: Ice.Current) async throws -> CommonProcessPrx?
 
-    ///
-    /// - parameter protocol: `Swift.String`
-    ///
-    /// - parameter ipv6: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getHost(protocol: Swift.String, ipv6: Swift.Bool, current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1590,10 +1258,6 @@ public struct CommonBrowserProcessControllerDisp: Ice.Dispatcher {
 }
 
 public protocol CommonBrowserProcessController: CommonProcessController {
-    ///
-    /// - parameter url: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func redirect(url: Swift.String, current: Ice.Current) async throws
 }
 
@@ -1626,24 +1290,9 @@ public struct CommonProcessControllerRegistryDisp: Ice.Dispatcher {
 }
 
 public protocol CommonProcessControllerRegistry {
-    ///
-    /// - parameter controller: `CommonProcessControllerPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setProcessController(controller: CommonProcessControllerPrx?, current: Ice.Current) async throws
 }
 
-/// CommonTestCase overview.
-///
-/// CommonTestCase Methods:
-///
-///  - startServerSide: 
-///
-///  - stopServerSide: 
-///
-///  - runClientSide: 
-///
-///  - destroy: 
 extension CommonTestCase {
     public func _iceD_startServerSide(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1694,17 +1343,6 @@ extension CommonTestCase {
     }
 }
 
-/// CommonController overview.
-///
-/// CommonController Methods:
-///
-///  - runTestCase: 
-///
-///  - getOptionOverrides: 
-///
-///  - getTestSuites: 
-///
-///  - getHost: 
 extension CommonController {
     public func _iceD_runTestCase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1758,15 +1396,6 @@ extension CommonController {
     }
 }
 
-/// CommonProcess overview.
-///
-/// CommonProcess Methods:
-///
-///  - waitReady: 
-///
-///  - waitSuccess: 
-///
-///  - terminate: 
 extension CommonProcess {
     public func _iceD_waitReady(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1800,13 +1429,6 @@ extension CommonProcess {
     }
 }
 
-/// CommonProcessController overview.
-///
-/// CommonProcessController Methods:
-///
-///  - start: 
-///
-///  - getHost: 
 extension CommonProcessController {
     public func _iceD_start(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1836,11 +1458,6 @@ extension CommonProcessController {
     }
 }
 
-/// CommonBrowserProcessController overview.
-///
-/// CommonBrowserProcessController Methods:
-///
-///  - redirect: 
 extension CommonBrowserProcessController {
     public func _iceD_redirect(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1852,11 +1469,6 @@ extension CommonBrowserProcessController {
     }
 }
 
-/// CommonProcessControllerRegistry overview.
-///
-/// CommonProcessControllerRegistry Methods:
-///
-///  - setProcessController: 
 extension CommonProcessControllerRegistry {
     public func _iceD_setProcessController(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

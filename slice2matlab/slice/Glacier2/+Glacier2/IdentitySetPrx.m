@@ -1,6 +1,6 @@
 % IdentitySetPrx   Summary of IdentitySetPrx
 %
-% An object for managing the set of object identity constraints on a Session.
+% An object for managing the set of object identity constraints on a {@link Session}.
 %
 % IdentitySetPrx Methods:
 %   add - Add a sequence of Ice identities to this set of constraints.

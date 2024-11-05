@@ -1,10 +1,3 @@
-% PingablePrx   Summary of PingablePrx
-%
-% PingablePrx Methods:
-%   ping
-%   pingAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,21 +5,9 @@
 classdef PingablePrx < Ice.ObjectPrx
     methods
         function ping(obj, varargin)
-            % ping
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('ping', 0, false, [], false, {}, varargin{:});
         end
         function r_ = pingAsync(obj, varargin)
-            % pingAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('ping', 0, false, [], 0, [], {}, varargin{:});
         end
     end

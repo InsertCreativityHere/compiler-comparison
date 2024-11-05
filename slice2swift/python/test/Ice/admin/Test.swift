@@ -34,29 +34,6 @@ public struct TestFacetTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestFacet"
 }
 
-/// RemoteCommunicatorPrx overview.
-///
-/// RemoteCommunicatorPrx Methods:
-///
-///  - getAdmin: 
-///
-///  - getAdminAsync: 
-///
-///  - getChanges: 
-///
-///  - getChangesAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - waitForShutdown: 
-///
-///  - waitForShutdownAsync: 
-///
-///  - destroy: 
-///
-///  - destroyAsync: 
 public protocol RemoteCommunicatorPrx: Ice.ObjectPrx {}
 
 private final class RemoteCommunicatorPrxI: Ice.ObjectPrxI, RemoteCommunicatorPrx {
@@ -144,34 +121,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// RemoteCommunicatorPrx overview.
-///
-/// RemoteCommunicatorPrx Methods:
-///
-///  - getAdmin: 
-///
-///  - getAdminAsync: 
-///
-///  - getChanges: 
-///
-///  - getChangesAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - waitForShutdown: 
-///
-///  - waitForShutdownAsync: 
-///
-///  - destroy: 
-///
-///  - destroyAsync: 
 public extension RemoteCommunicatorPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?`
     func getAdmin(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "getAdmin",
                                        mode: .Normal,
@@ -182,10 +132,6 @@ public extension RemoteCommunicatorPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.PropertyDict`
     func getChanges(context: Ice.Context? = nil) async throws -> Ice.PropertyDict {
         return try await _impl._invoke(operation: "getChanges",
                                        mode: .Normal,
@@ -196,24 +142,18 @@ public extension RemoteCommunicatorPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func waitForShutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "waitForShutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroy",
                                        mode: .Normal,
@@ -221,17 +161,6 @@ public extension RemoteCommunicatorPrx {
     }
 }
 
-/// RemoteCommunicatorFactoryPrx overview.
-///
-/// RemoteCommunicatorFactoryPrx Methods:
-///
-///  - createCommunicator: 
-///
-///  - createCommunicatorAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol RemoteCommunicatorFactoryPrx: Ice.ObjectPrx {}
 
 private final class RemoteCommunicatorFactoryPrxI: Ice.ObjectPrxI, RemoteCommunicatorFactoryPrx {
@@ -319,24 +248,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// RemoteCommunicatorFactoryPrx overview.
-///
-/// RemoteCommunicatorFactoryPrx Methods:
-///
-///  - createCommunicator: 
-///
-///  - createCommunicatorAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension RemoteCommunicatorFactoryPrx {
-    ///
-    /// - parameter _: `Ice.PropertyDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `RemoteCommunicatorPrx?`
     func createCommunicator(_ iceP_props: Ice.PropertyDict, context: Ice.Context? = nil) async throws -> RemoteCommunicatorPrx? {
         return try await _impl._invoke(operation: "createCommunicator",
                                        mode: .Normal,
@@ -350,8 +262,6 @@ public extension RemoteCommunicatorFactoryPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -359,13 +269,6 @@ public extension RemoteCommunicatorFactoryPrx {
     }
 }
 
-/// TestFacetPrx overview.
-///
-/// TestFacetPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public protocol TestFacetPrx: Ice.ObjectPrx {}
 
 private final class TestFacetPrxI: Ice.ObjectPrxI, TestFacetPrx {
@@ -453,16 +356,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestFacetPrx overview.
-///
-/// TestFacetPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public extension TestFacetPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
@@ -507,28 +401,14 @@ public struct RemoteCommunicatorDisp: Ice.Dispatcher {
 }
 
 public protocol RemoteCommunicator {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.ObjectPrx?`
     func getAdmin(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.PropertyDict`
     func getChanges(current: Ice.Current) async throws -> Ice.PropertyDict
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func waitForShutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func destroy(current: Ice.Current) async throws
 }
 
@@ -563,16 +443,8 @@ public struct RemoteCommunicatorFactoryDisp: Ice.Dispatcher {
 }
 
 public protocol RemoteCommunicatorFactory {
-    ///
-    /// - parameter props: `Ice.PropertyDict`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `RemoteCommunicatorPrx?`
     func createCommunicator(props: Ice.PropertyDict, current: Ice.Current) async throws -> RemoteCommunicatorPrx?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -605,24 +477,9 @@ public struct TestFacetDisp: Ice.Dispatcher {
 }
 
 public protocol TestFacet {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(current: Ice.Current) async throws
 }
 
-/// RemoteCommunicator overview.
-///
-/// RemoteCommunicator Methods:
-///
-///  - getAdmin: 
-///
-///  - getChanges: 
-///
-///  - shutdown: 
-///
-///  - waitForShutdown: 
-///
-///  - destroy: 
 extension RemoteCommunicator {
     public func _iceD_getAdmin(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -666,13 +523,6 @@ extension RemoteCommunicator {
     }
 }
 
-/// RemoteCommunicatorFactory overview.
-///
-/// RemoteCommunicatorFactory Methods:
-///
-///  - createCommunicator: 
-///
-///  - shutdown: 
 extension RemoteCommunicatorFactory {
     public func _iceD_createCommunicator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -694,11 +544,6 @@ extension RemoteCommunicatorFactory {
     }
 }
 
-/// TestFacet overview.
-///
-/// TestFacet Methods:
-///
-///  - op: 
 extension TestFacet {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

@@ -34,13 +34,6 @@ public struct RemoteCommunicatorFactoryTraits: Ice.SliceTraits {
     public static let staticId = "::Test::RemoteCommunicatorFactory"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - sleep: 
-///
-///  - sleepAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -128,18 +121,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - sleep: 
-///
-///  - sleepAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sleep(_ iceP_ms: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sleep",
                                        mode: .Normal,
@@ -150,25 +132,6 @@ public extension TestIntfPrx {
     }
 }
 
-/// RemoteCommunicatorPrx overview.
-///
-/// RemoteCommunicatorPrx Methods:
-///
-///  - getObject: 
-///
-///  - getObjectAsync: 
-///
-///  - getThreadStartCount: 
-///
-///  - getThreadStartCountAsync: 
-///
-///  - getThreadStopCount: 
-///
-///  - getThreadStopCountAsync: 
-///
-///  - destroy: 
-///
-///  - destroyAsync: 
 public protocol RemoteCommunicatorPrx: Ice.ObjectPrx {}
 
 private final class RemoteCommunicatorPrxI: Ice.ObjectPrxI, RemoteCommunicatorPrx {
@@ -256,30 +219,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// RemoteCommunicatorPrx overview.
-///
-/// RemoteCommunicatorPrx Methods:
-///
-///  - getObject: 
-///
-///  - getObjectAsync: 
-///
-///  - getThreadStartCount: 
-///
-///  - getThreadStartCountAsync: 
-///
-///  - getThreadStopCount: 
-///
-///  - getThreadStopCountAsync: 
-///
-///  - destroy: 
-///
-///  - destroyAsync: 
 public extension RemoteCommunicatorPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `TestIntfPrx?`
     func getObject(context: Ice.Context? = nil) async throws -> TestIntfPrx? {
         return try await _impl._invoke(operation: "getObject",
                                        mode: .Normal,
@@ -290,10 +230,6 @@ public extension RemoteCommunicatorPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func getThreadStartCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getThreadStartCount",
                                        mode: .Normal,
@@ -304,10 +240,6 @@ public extension RemoteCommunicatorPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func getThreadStopCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getThreadStopCount",
                                        mode: .Normal,
@@ -318,8 +250,6 @@ public extension RemoteCommunicatorPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroy",
                                        mode: .Normal,
@@ -327,17 +257,6 @@ public extension RemoteCommunicatorPrx {
     }
 }
 
-/// RemoteCommunicatorFactoryPrx overview.
-///
-/// RemoteCommunicatorFactoryPrx Methods:
-///
-///  - createCommunicator: 
-///
-///  - createCommunicatorAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol RemoteCommunicatorFactoryPrx: Ice.ObjectPrx {}
 
 private final class RemoteCommunicatorFactoryPrxI: Ice.ObjectPrxI, RemoteCommunicatorFactoryPrx {
@@ -425,24 +344,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// RemoteCommunicatorFactoryPrx overview.
-///
-/// RemoteCommunicatorFactoryPrx Methods:
-///
-///  - createCommunicator: 
-///
-///  - createCommunicatorAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension RemoteCommunicatorFactoryPrx {
-    ///
-    /// - parameter _: `Ice.PropertyDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `RemoteCommunicatorPrx?`
     func createCommunicator(_ iceP_props: Ice.PropertyDict, context: Ice.Context? = nil) async throws -> RemoteCommunicatorPrx? {
         return try await _impl._invoke(operation: "createCommunicator",
                                        mode: .Normal,
@@ -456,8 +358,6 @@ public extension RemoteCommunicatorFactoryPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -494,10 +394,6 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter ms: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sleep(ms: Swift.Int32, current: Ice.Current) async throws
 }
 
@@ -536,26 +432,12 @@ public struct RemoteCommunicatorDisp: Ice.Dispatcher {
 }
 
 public protocol RemoteCommunicator {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `TestIntfPrx?`
     func getObject(current: Ice.Current) async throws -> TestIntfPrx?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func getThreadStartCount(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func getThreadStopCount(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func destroy(current: Ice.Current) async throws
 }
 
@@ -590,24 +472,11 @@ public struct RemoteCommunicatorFactoryDisp: Ice.Dispatcher {
 }
 
 public protocol RemoteCommunicatorFactory {
-    ///
-    /// - parameter props: `Ice.PropertyDict`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `RemoteCommunicatorPrx?`
     func createCommunicator(props: Ice.PropertyDict, current: Ice.Current) async throws -> RemoteCommunicatorPrx?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - sleep: 
 extension TestIntf {
     public func _iceD_sleep(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -619,17 +488,6 @@ extension TestIntf {
     }
 }
 
-/// RemoteCommunicator overview.
-///
-/// RemoteCommunicator Methods:
-///
-///  - getObject: 
-///
-///  - getThreadStartCount: 
-///
-///  - getThreadStopCount: 
-///
-///  - destroy: 
 extension RemoteCommunicator {
     public func _iceD_getObject(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -669,13 +527,6 @@ extension RemoteCommunicator {
     }
 }
 
-/// RemoteCommunicatorFactory overview.
-///
-/// RemoteCommunicatorFactory Methods:
-///
-///  - createCommunicator: 
-///
-///  - shutdown: 
 extension RemoteCommunicatorFactory {
     public func _iceD_createCommunicator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

@@ -630,45 +630,6 @@ public struct MyClassTraits: Ice.SliceTraits {
     public static let staticId = "::Test::MyClass"
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - opNV: 
-///
-///  - opNVAsync: 
-///
-///  - opNR: 
-///
-///  - opNRAsync: 
-///
-///  - opNDV: 
-///
-///  - opNDVAsync: 
-///
-///  - opNDR: 
-///
-///  - opNDRAsync: 
-///
-///  - opNDAIS: 
-///
-///  - opNDAISAsync: 
-///
-///  - opNDGIS: 
-///
-///  - opNDGISAsync: 
-///
-///  - opNDASS: 
-///
-///  - opNDASSAsync: 
-///
-///  - opNDGSS: 
-///
-///  - opNDGSSAsync: 
 public protocol MyClassPrx: Ice.ObjectPrx {}
 
 private final class MyClassPrxI: Ice.ObjectPrxI, MyClassPrx {
@@ -756,64 +717,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - opNV: 
-///
-///  - opNVAsync: 
-///
-///  - opNR: 
-///
-///  - opNRAsync: 
-///
-///  - opNDV: 
-///
-///  - opNDVAsync: 
-///
-///  - opNDR: 
-///
-///  - opNDRAsync: 
-///
-///  - opNDAIS: 
-///
-///  - opNDAISAsync: 
-///
-///  - opNDGIS: 
-///
-///  - opNDGISAsync: 
-///
-///  - opNDASS: 
-///
-///  - opNDASSAsync: 
-///
-///  - opNDGSS: 
-///
-///  - opNDGSSAsync: 
 public extension MyClassPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `NV`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NV, o: NV)`:
-    ///
-    ///   - returnValue: `NV`
-    ///
-    ///   - o: `NV`
     func opNV(_ iceP_i: NV, context: Ice.Context? = nil) async throws -> (returnValue: NV, o: NV) {
         return try await _impl._invoke(operation: "opNV",
                                        mode: .Normal,
@@ -828,16 +738,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `NR`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NR, o: NR)`:
-    ///
-    ///   - returnValue: `NR`
-    ///
-    ///   - o: `NR`
     func opNR(_ iceP_i: NR, context: Ice.Context? = nil) async throws -> (returnValue: NR, o: NR) {
         return try await _impl._invoke(operation: "opNR",
                                        mode: .Normal,
@@ -852,16 +752,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `NDV`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NDV, o: NDV)`:
-    ///
-    ///   - returnValue: `NDV`
-    ///
-    ///   - o: `NDV`
     func opNDV(_ iceP_i: NDV, context: Ice.Context? = nil) async throws -> (returnValue: NDV, o: NDV) {
         return try await _impl._invoke(operation: "opNDV",
                                        mode: .Normal,
@@ -876,16 +766,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `NDR`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NDR, o: NDR)`:
-    ///
-    ///   - returnValue: `NDR`
-    ///
-    ///   - o: `NDR`
     func opNDR(_ iceP_i: NDR, context: Ice.Context? = nil) async throws -> (returnValue: NDR, o: NDR) {
         return try await _impl._invoke(operation: "opNDR",
                                        mode: .Normal,
@@ -900,16 +780,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `NDAIS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NDAIS, o: NDAIS)`:
-    ///
-    ///   - returnValue: `NDAIS`
-    ///
-    ///   - o: `NDAIS`
     func opNDAIS(_ iceP_i: NDAIS, context: Ice.Context? = nil) async throws -> (returnValue: NDAIS, o: NDAIS) {
         return try await _impl._invoke(operation: "opNDAIS",
                                        mode: .Normal,
@@ -924,16 +794,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `NDGIS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NDGIS, o: NDGIS)`:
-    ///
-    ///   - returnValue: `NDGIS`
-    ///
-    ///   - o: `NDGIS`
     func opNDGIS(_ iceP_i: NDGIS, context: Ice.Context? = nil) async throws -> (returnValue: NDGIS, o: NDGIS) {
         return try await _impl._invoke(operation: "opNDGIS",
                                        mode: .Normal,
@@ -948,16 +808,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `NDASS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NDASS, o: NDASS)`:
-    ///
-    ///   - returnValue: `NDASS`
-    ///
-    ///   - o: `NDASS`
     func opNDASS(_ iceP_i: NDASS, context: Ice.Context? = nil) async throws -> (returnValue: NDASS, o: NDASS) {
         return try await _impl._invoke(operation: "opNDASS",
                                        mode: .Normal,
@@ -972,16 +822,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `NDGSS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: NDGSS, o: NDGSS)`:
-    ///
-    ///   - returnValue: `NDGSS`
-    ///
-    ///   - o: `NDGSS`
     func opNDGSS(_ iceP_i: NDGSS, context: Ice.Context? = nil) async throws -> (returnValue: NDGSS, o: NDGSS) {
         return try await _impl._invoke(operation: "opNDGSS",
                                        mode: .Normal,
@@ -1042,128 +882,25 @@ public struct MyClassDisp: Ice.Dispatcher {
 }
 
 public protocol MyClass {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter i: `NV`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: NV, o: NV)`:
-    ///
-    ///   - returnValue: `NV`
-    ///
-    ///   - o: `NV`
     func opNV(i: NV, current: Ice.Current) async throws -> (returnValue: NV, o: NV)
 
-    ///
-    /// - parameter i: `NR`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: NR, o: NR)`:
-    ///
-    ///   - returnValue: `NR`
-    ///
-    ///   - o: `NR`
     func opNR(i: NR, current: Ice.Current) async throws -> (returnValue: NR, o: NR)
 
-    ///
-    /// - parameter i: `NDV`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: NDV, o: NDV)`:
-    ///
-    ///   - returnValue: `NDV`
-    ///
-    ///   - o: `NDV`
     func opNDV(i: NDV, current: Ice.Current) async throws -> (returnValue: NDV, o: NDV)
 
-    ///
-    /// - parameter i: `NDR`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: NDR, o: NDR)`:
-    ///
-    ///   - returnValue: `NDR`
-    ///
-    ///   - o: `NDR`
     func opNDR(i: NDR, current: Ice.Current) async throws -> (returnValue: NDR, o: NDR)
 
-    ///
-    /// - parameter i: `NDAIS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: NDAIS, o: NDAIS)`:
-    ///
-    ///   - returnValue: `NDAIS`
-    ///
-    ///   - o: `NDAIS`
     func opNDAIS(i: NDAIS, current: Ice.Current) async throws -> (returnValue: NDAIS, o: NDAIS)
 
-    ///
-    /// - parameter i: `NDGIS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: NDGIS, o: NDGIS)`:
-    ///
-    ///   - returnValue: `NDGIS`
-    ///
-    ///   - o: `NDGIS`
     func opNDGIS(i: NDGIS, current: Ice.Current) async throws -> (returnValue: NDGIS, o: NDGIS)
 
-    ///
-    /// - parameter i: `NDASS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: NDASS, o: NDASS)`:
-    ///
-    ///   - returnValue: `NDASS`
-    ///
-    ///   - o: `NDASS`
     func opNDASS(i: NDASS, current: Ice.Current) async throws -> (returnValue: NDASS, o: NDASS)
 
-    ///
-    /// - parameter i: `NDGSS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: NDGSS, o: NDGSS)`:
-    ///
-    ///   - returnValue: `NDGSS`
-    ///
-    ///   - o: `NDGSS`
     func opNDGSS(i: NDGSS, current: Ice.Current) async throws -> (returnValue: NDGSS, o: NDGSS)
 }
 
-/// MyClass overview.
-///
-/// MyClass Methods:
-///
-///  - shutdown: 
-///
-///  - opNV: 
-///
-///  - opNR: 
-///
-///  - opNDV: 
-///
-///  - opNDR: 
-///
-///  - opNDAIS: 
-///
-///  - opNDGIS: 
-///
-///  - opNDASS: 
-///
-///  - opNDGSS: 
 extension MyClass {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

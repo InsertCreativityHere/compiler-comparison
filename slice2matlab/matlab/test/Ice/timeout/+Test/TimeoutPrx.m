@@ -1,14 +1,3 @@
-% TimeoutPrx   Summary of TimeoutPrx
-%
-% TimeoutPrx Methods:
-%   op
-%   opAsync
-%   sendData
-%   sendDataAsync
-%   sleep
-%   sleepAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -16,70 +5,30 @@
 classdef TimeoutPrx < Ice.ObjectPrx
     methods
         function op(obj, varargin)
-            % op
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('op', 0, false, [], false, {}, varargin{:});
         end
         function r_ = opAsync(obj, varargin)
-            % opAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('op', 0, false, [], 0, [], {}, varargin{:});
         end
         function sendData(obj, seq, varargin)
-            % sendData
-            %
-            % Parameters:
-            %   seq (Test.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(seq);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('sendData', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = sendDataAsync(obj, seq, varargin)
-            % sendDataAsync
-            %
-            % Parameters:
-            %   seq (Test.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(seq);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('sendData', 0, false, os_, 0, [], {}, varargin{:});
         end
         function sleep(obj, to, varargin)
-            % sleep
-            %
-            % Parameters:
-            %   to (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(to);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('sleep', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = sleepAsync(obj, to, varargin)
-            % sleepAsync
-            %
-            % Parameters:
-            %   to (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(to);
             obj.iceEndWriteParams(os_);

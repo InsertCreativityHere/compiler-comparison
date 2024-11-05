@@ -88,7 +88,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// A sequence of LinkInfo objects.
+/// A sequence of {@link LinkInfo} objects.
 public typealias LinkInfoSeq = [LinkInfo]
 
 /// Helper class to read and write `LinkInfoSeq` sequence values from

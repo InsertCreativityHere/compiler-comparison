@@ -1,10 +1,3 @@
-% implicitPrx   Summary of implicitPrx
-%
-% implicitPrx Methods:
-%   in
-%   inAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,22 +5,6 @@
 classdef implicitPrx < Ice.ObjectPrx
     methods
         function result = in(obj, internal, is, lock, namespace, new, null, override, params, private, varargin)
-            % in
-            %
-            % Parameters:
-            %   internal (abstract.break_)
-            %   is (abstract.delegate)
-            %   lock (abstract.explicitPrx)
-            %   namespace (abstract.casePrx)
-            %   new (abstract.decimalPrx)
-            %   null (abstract.delegate)
-            %   override (int32)
-            %   params (int32)
-            %   private (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (abstract.as)
-            
             os_ = obj.iceStartWriteParams([]);
             abstract.break_.ice_write(os_, internal);
             os_.writeValue(is);
@@ -46,22 +23,6 @@ classdef implicitPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = inAsync(obj, internal, is, lock, namespace, new, null, override, params, private, varargin)
-            % inAsync
-            %
-            % Parameters:
-            %   internal (abstract.break_)
-            %   is (abstract.delegate)
-            %   lock (abstract.explicitPrx)
-            %   namespace (abstract.casePrx)
-            %   new (abstract.decimalPrx)
-            %   null (abstract.delegate)
-            %   override (int32)
-            %   params (int32)
-            %   private (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             abstract.break_.ice_write(os_, internal);
             os_.writeValue(is);

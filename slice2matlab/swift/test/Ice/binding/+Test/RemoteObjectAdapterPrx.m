@@ -1,12 +1,3 @@
-% RemoteObjectAdapterPrx   Summary of RemoteObjectAdapterPrx
-%
-% RemoteObjectAdapterPrx Methods:
-%   getTestIntf
-%   getTestIntfAsync
-%   deactivate
-%   deactivateAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -14,26 +5,12 @@
 classdef RemoteObjectAdapterPrx < Ice.ObjectPrx
     methods
         function result = getTestIntf(obj, varargin)
-            % getTestIntf
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.TestIntfPrx)
-            
             is_ = obj.iceInvoke('getTestIntf', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = Test.TestIntfPrx.ice_read(is_);
             is_.endEncapsulation();
         end
         function r_ = getTestIntfAsync(obj, varargin)
-            % getTestIntfAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = Test.TestIntfPrx.ice_read(is_);
@@ -43,21 +20,9 @@ classdef RemoteObjectAdapterPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getTestIntf', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function deactivate(obj, varargin)
-            % deactivate
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('deactivate', 0, false, [], false, {}, varargin{:});
         end
         function r_ = deactivateAsync(obj, varargin)
-            % deactivateAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('deactivate', 0, false, [], 0, [], {}, varargin{:});
         end
     end

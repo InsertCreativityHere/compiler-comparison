@@ -1,12 +1,3 @@
-% TestIntfPrx   Summary of TestIntfPrx
-%
-% TestIntfPrx Methods:
-%   getReplicaId
-%   getReplicaIdAsync
-%   getReplicaIdAndShutdown
-%   getReplicaIdAndShutdownAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -14,26 +5,12 @@
 classdef TestIntfPrx < Ice.ObjectPrx
     methods
         function result = getReplicaId(obj, varargin)
-            % getReplicaId
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (char)
-            
             is_ = obj.iceInvoke('getReplicaId', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readString();
             is_.endEncapsulation();
         end
         function r_ = getReplicaIdAsync(obj, varargin)
-            % getReplicaIdAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = is_.readString();
@@ -43,26 +20,12 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getReplicaId', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getReplicaIdAndShutdown(obj, varargin)
-            % getReplicaIdAndShutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (char)
-            
             is_ = obj.iceInvoke('getReplicaIdAndShutdown', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readString();
             is_.endEncapsulation();
         end
         function r_ = getReplicaIdAndShutdownAsync(obj, varargin)
-            % getReplicaIdAndShutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = is_.readString();

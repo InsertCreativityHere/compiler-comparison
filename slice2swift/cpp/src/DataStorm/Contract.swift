@@ -18,15 +18,10 @@ import Ice
 import DataStorm
 
 public enum ClearHistoryPolicy: Swift.UInt8 {
-    /// OnAdd
     case OnAdd = 0
-    /// OnRemove
     case OnRemove = 1
-    /// OnAll
     case OnAll = 2
-    /// OnAllExceptPartialUpdate
     case OnAllExceptPartialUpdate = 3
-    /// Never
     case Never = 4
     public init() {
         self = .OnAdd
@@ -1462,53 +1457,6 @@ public struct LookupTraits: Ice.SliceTraits {
     public static let staticId = "::DataStormContract::Lookup"
 }
 
-/// SessionPrx overview.
-///
-/// SessionPrx Methods:
-///
-///  - announceTopics: 
-///
-///  - announceTopicsAsync: 
-///
-///  - attachTopic: 
-///
-///  - attachTopicAsync: 
-///
-///  - detachTopic: 
-///
-///  - detachTopicAsync: 
-///
-///  - attachTags: 
-///
-///  - attachTagsAsync: 
-///
-///  - detachTags: 
-///
-///  - detachTagsAsync: 
-///
-///  - announceElements: 
-///
-///  - announceElementsAsync: 
-///
-///  - attachElements: 
-///
-///  - attachElementsAsync: 
-///
-///  - attachElementsAck: 
-///
-///  - attachElementsAckAsync: 
-///
-///  - detachElements: 
-///
-///  - detachElementsAsync: 
-///
-///  - initSamples: 
-///
-///  - initSamplesAsync: 
-///
-///  - disconnected: 
-///
-///  - disconnectedAsync: 
 public protocol SessionPrx: Ice.ObjectPrx {}
 
 private final class SessionPrxI: Ice.ObjectPrxI, SessionPrx {
@@ -1596,60 +1544,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// SessionPrx overview.
-///
-/// SessionPrx Methods:
-///
-///  - announceTopics: 
-///
-///  - announceTopicsAsync: 
-///
-///  - attachTopic: 
-///
-///  - attachTopicAsync: 
-///
-///  - detachTopic: 
-///
-///  - detachTopicAsync: 
-///
-///  - attachTags: 
-///
-///  - attachTagsAsync: 
-///
-///  - detachTags: 
-///
-///  - detachTagsAsync: 
-///
-///  - announceElements: 
-///
-///  - announceElementsAsync: 
-///
-///  - attachElements: 
-///
-///  - attachElementsAsync: 
-///
-///  - attachElementsAck: 
-///
-///  - attachElementsAckAsync: 
-///
-///  - detachElements: 
-///
-///  - detachElementsAsync: 
-///
-///  - initSamples: 
-///
-///  - initSamplesAsync: 
-///
-///  - disconnected: 
-///
-///  - disconnectedAsync: 
 public extension SessionPrx {
-    ///
-    /// - parameter topics: `TopicInfoSeq`
-    ///
-    /// - parameter initialize: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func announceTopics(topics iceP_topics: TopicInfoSeq, initialize iceP_initialize: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "announceTopics",
                                        mode: .Normal,
@@ -1660,10 +1555,6 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `TopicSpec`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func attachTopic(_ iceP_topic: TopicSpec, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "attachTopic",
                                        mode: .Normal,
@@ -1673,10 +1564,6 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int64`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func detachTopic(_ iceP_topic: Swift.Int64, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "detachTopic",
                                        mode: .Normal,
@@ -1686,14 +1573,6 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter tags: `ElementInfoSeq`
-    ///
-    /// - parameter initialize: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func attachTags(topic iceP_topic: Swift.Int64, tags iceP_tags: ElementInfoSeq, initialize iceP_initialize: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "attachTags",
                                        mode: .Normal,
@@ -1705,12 +1584,6 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter tags: `Ice.LongSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func detachTags(topic iceP_topic: Swift.Int64, tags iceP_tags: Ice.LongSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "detachTags",
                                        mode: .Normal,
@@ -1721,12 +1594,6 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter keys: `ElementInfoSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func announceElements(topic iceP_topic: Swift.Int64, keys iceP_keys: ElementInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "announceElements",
                                        mode: .Normal,
@@ -1737,14 +1604,6 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter elements: `ElementSpecSeq`
-    ///
-    /// - parameter initialize: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func attachElements(topic iceP_topic: Swift.Int64, elements iceP_elements: ElementSpecSeq, initialize iceP_initialize: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "attachElements",
                                        mode: .Normal,
@@ -1757,12 +1616,6 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter elements: `ElementSpecAckSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func attachElementsAck(topic iceP_topic: Swift.Int64, elements iceP_elements: ElementSpecAckSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "attachElementsAck",
                                        mode: .Normal,
@@ -1774,12 +1627,6 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter keys: `Ice.LongSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func detachElements(topic iceP_topic: Swift.Int64, keys iceP_keys: Ice.LongSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "detachElements",
                                        mode: .Normal,
@@ -1790,12 +1637,6 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter samples: `DataSamplesSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func initSamples(topic iceP_topic: Swift.Int64, samples iceP_samples: DataSamplesSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "initSamples",
                                        mode: .Normal,
@@ -1806,8 +1647,6 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func disconnected(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "disconnected",
                                        mode: .Normal,
@@ -1815,7 +1654,6 @@ public extension SessionPrx {
     }
 }
 
-/// PublisherSessionPrx overview.
 public protocol PublisherSessionPrx: SessionPrx {}
 
 private final class PublisherSessionPrxI: Ice.ObjectPrxI, PublisherSessionPrx {
@@ -1903,16 +1741,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// PublisherSessionPrx overview.
 public extension PublisherSessionPrx {}
 
-/// SubscriberSessionPrx overview.
-///
-/// SubscriberSessionPrx Methods:
-///
-///  - s: 
-///
-///  - sAsync: 
 public protocol SubscriberSessionPrx: SessionPrx {}
 
 private final class SubscriberSessionPrxI: Ice.ObjectPrxI, SubscriberSessionPrx {
@@ -2000,22 +1830,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// SubscriberSessionPrx overview.
-///
-/// SubscriberSessionPrx Methods:
-///
-///  - s: 
-///
-///  - sAsync: 
 public extension SubscriberSessionPrx {
-    ///
-    /// - parameter topicId: `Swift.Int64`
-    ///
-    /// - parameter elementId: `Swift.Int64`
-    ///
-    /// - parameter sample: `DataSample`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func s(topicId iceP_topicId: Swift.Int64, elementId iceP_elementId: Swift.Int64, sample iceP_sample: DataSample, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "s",
                                        mode: .Normal,
@@ -2541,88 +2356,26 @@ public struct SessionDisp: Ice.Dispatcher {
 }
 
 public protocol Session {
-    ///
-    /// - parameter topics: `TopicInfoSeq`
-    ///
-    /// - parameter initialize: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func announceTopics(topics: TopicInfoSeq, initialize: Swift.Bool, current: Ice.Current) async throws
 
-    ///
-    /// - parameter topic: `TopicSpec`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func attachTopic(topic: TopicSpec, current: Ice.Current) async throws
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func detachTopic(topic: Swift.Int64, current: Ice.Current) async throws
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter tags: `ElementInfoSeq`
-    ///
-    /// - parameter initialize: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func attachTags(topic: Swift.Int64, tags: ElementInfoSeq, initialize: Swift.Bool, current: Ice.Current) async throws
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter tags: `Ice.LongSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func detachTags(topic: Swift.Int64, tags: Ice.LongSeq, current: Ice.Current) async throws
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter keys: `ElementInfoSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func announceElements(topic: Swift.Int64, keys: ElementInfoSeq, current: Ice.Current) async throws
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter elements: `ElementSpecSeq`
-    ///
-    /// - parameter initialize: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func attachElements(topic: Swift.Int64, elements: ElementSpecSeq, initialize: Swift.Bool, current: Ice.Current) async throws
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter elements: `ElementSpecAckSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func attachElementsAck(topic: Swift.Int64, elements: ElementSpecAckSeq, current: Ice.Current) async throws
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter keys: `Ice.LongSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func detachElements(topic: Swift.Int64, keys: Ice.LongSeq, current: Ice.Current) async throws
 
-    ///
-    /// - parameter topic: `Swift.Int64`
-    ///
-    /// - parameter samples: `DataSamplesSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func initSamples(topic: Swift.Int64, samples: DataSamplesSeq, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func disconnected(current: Ice.Current) async throws
 }
 
@@ -2727,14 +2480,6 @@ public struct SubscriberSessionDisp: Ice.Dispatcher {
 }
 
 public protocol SubscriberSession: Session {
-    ///
-    /// - parameter topicId: `Swift.Int64`
-    ///
-    /// - parameter elementId: `Swift.Int64`
-    ///
-    /// - parameter sample: `DataSample`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func s(topicId: Swift.Int64, elementId: Swift.Int64, sample: DataSample, current: Ice.Current) async throws
 }
 
@@ -2888,31 +2633,6 @@ public protocol Lookup {
     func createSession(node: NodePrx?, current: Ice.Current) async throws -> NodePrx?
 }
 
-/// Session overview.
-///
-/// Session Methods:
-///
-///  - announceTopics: 
-///
-///  - attachTopic: 
-///
-///  - detachTopic: 
-///
-///  - attachTags: 
-///
-///  - detachTags: 
-///
-///  - announceElements: 
-///
-///  - attachElements: 
-///
-///  - attachElementsAck: 
-///
-///  - detachElements: 
-///
-///  - initSamples: 
-///
-///  - disconnected: 
 extension Session {
     public func _iceD_announceTopics(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -3024,14 +2744,8 @@ extension Session {
     }
 }
 
-/// PublisherSession overview.
 extension PublisherSession {}
 
-/// SubscriberSession overview.
-///
-/// SubscriberSession Methods:
-///
-///  - s: 
 extension SubscriberSession {
     public func _iceD_s(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

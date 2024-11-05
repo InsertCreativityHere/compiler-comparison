@@ -1,10 +1,3 @@
-% newPrx   Summary of newPrx
-%
-% newPrx Methods:
-%   notify_
-%   notifyAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,21 +5,6 @@
 classdef newPrx < Ice.ObjectPrx
     methods
         function result = notify_(obj, notifyAll, null, package, public, return_, static, strictfp, super, varargin)
-            % notify_
-            %
-            % Parameters:
-            %   notifyAll (abstract.break_)
-            %   null (abstract.else_)
-            %   package (abstract.finalizePrx)
-            %   public (abstract.catchPrx)
-            %   return_ (abstract.defaultPrx)
-            %   static (int32)
-            %   strictfp (int32)
-            %   super (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (abstract.assert)
-            
             os_ = obj.iceStartWriteParams([]);
             abstract.break_.ice_write(os_, notifyAll);
             os_.writeValue(null);
@@ -44,21 +22,6 @@ classdef newPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = notifyAsync(obj, notifyAll, null, package, public, return_, static, strictfp, super, varargin)
-            % notifyAsync
-            %
-            % Parameters:
-            %   notifyAll (abstract.break_)
-            %   null (abstract.else_)
-            %   package (abstract.finalizePrx)
-            %   public (abstract.catchPrx)
-            %   return_ (abstract.defaultPrx)
-            %   static (int32)
-            %   strictfp (int32)
-            %   super (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             abstract.break_.ice_write(os_, notifyAll);
             os_.writeValue(null);

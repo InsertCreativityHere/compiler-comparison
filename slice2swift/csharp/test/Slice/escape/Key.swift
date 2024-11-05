@@ -17,7 +17,6 @@ import Foundation
 import Ice
 
 public enum `as`: Swift.UInt8 {
-    /// base
     case base = 0
     public init() {
         self = .base
@@ -429,13 +428,6 @@ public struct TestTraits: Ice.SliceTraits {
     public static let staticId = "::System::Test"
 }
 
-/// casePrx overview.
-///
-/// casePrx Methods:
-///
-///  - `catch`: 
-///
-///  - catchAsync: 
 public protocol casePrx: Ice.ObjectPrx {}
 
 private final class casePrxI: Ice.ObjectPrxI, casePrx {
@@ -523,20 +515,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// casePrx overview.
-///
-/// casePrx Methods:
-///
-///  - `catch`: 
-///
-///  - catchAsync: 
 public extension casePrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func `catch`(_ iceP_checked: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "catch",
                                        mode: .Normal,
@@ -551,13 +530,6 @@ public extension casePrx {
     }
 }
 
-/// decimalPrx overview.
-///
-/// decimalPrx Methods:
-///
-///  - `default`: 
-///
-///  - defaultAsync: 
 public protocol decimalPrx: Ice.ObjectPrx {}
 
 private final class decimalPrxI: Ice.ObjectPrxI, decimalPrx {
@@ -645,16 +617,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// decimalPrx overview.
-///
-/// decimalPrx Methods:
-///
-///  - `default`: 
-///
-///  - defaultAsync: 
 public extension decimalPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func `default`(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "default",
                                        mode: .Normal,
@@ -662,7 +625,6 @@ public extension decimalPrx {
     }
 }
 
-/// explicitPrx overview.
 public protocol explicitPrx: decimalPrx, casePrx {}
 
 private final class explicitPrxI: Ice.ObjectPrxI, explicitPrx {
@@ -750,28 +712,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// explicitPrx overview.
 public extension explicitPrx {}
 
-/// optionalParamsPrx overview.
-///
-/// optionalParamsPrx Methods:
-///
-///  - `for`: 
-///
-///  - forAsync: 
-///
-///  - `continue`: 
-///
-///  - continueAsync: 
-///
-///  - `in`: 
-///
-///  - inAsync: 
-///
-///  - foreach: 
-///
-///  - foreachAsync: 
 public protocol optionalParamsPrx: Ice.ObjectPrx {}
 
 private final class optionalParamsPrxI: Ice.ObjectPrxI, optionalParamsPrx {
@@ -859,38 +801,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// optionalParamsPrx overview.
-///
-/// optionalParamsPrx Methods:
-///
-///  - `for`: 
-///
-///  - forAsync: 
-///
-///  - `continue`: 
-///
-///  - continueAsync: 
-///
-///  - `in`: 
-///
-///  - inAsync: 
-///
-///  - foreach: 
-///
-///  - foreachAsync: 
 public extension optionalParamsPrx {
-    ///
-    /// - parameter goto: ``as`?`
-    ///
-    /// - parameter if: `explicitPrx?`
-    ///
-    /// - parameter internal: ``while`?`
-    ///
-    /// - parameter namespace: `Swift.String?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: ``break`?`
     func `for`(goto iceP_goto: `as`? = nil, if iceP_if: explicitPrx? = nil, internal iceP_internal: `while`? = nil, namespace iceP_namespace: Swift.String? = nil, context: Ice.Context? = nil) async throws -> `break`? {
         return try await _impl._invoke(operation: "for",
                                        mode: .Normal,
@@ -907,18 +818,6 @@ public extension optionalParamsPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter goto: ``as`?`
-    ///
-    /// - parameter if: `explicitPrx?`
-    ///
-    /// - parameter internal: ``while`?`
-    ///
-    /// - parameter namespace: `Swift.String?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: ``break`?`
     func `continue`(goto iceP_goto: `as`? = nil, if iceP_if: explicitPrx? = nil, internal iceP_internal: `while`? = nil, namespace iceP_namespace: Swift.String? = nil, context: Ice.Context? = nil) async throws -> `break`? {
         return try await _impl._invoke(operation: "continue",
                                        mode: .Normal,
@@ -935,20 +834,6 @@ public extension optionalParamsPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: `break`?, goto: `as`?, if: explicitPrx?, internal: `while`?, namespace: Swift.String?)`:
-    ///
-    ///   - returnValue: ``break`?`
-    ///
-    ///   - goto: ``as`?`
-    ///
-    ///   - if: `explicitPrx?`
-    ///
-    ///   - internal: ``while`?`
-    ///
-    ///   - namespace: `Swift.String?`
     func `in`(context: Ice.Context? = nil) async throws -> (returnValue: `break`?, goto: `as`?, if: explicitPrx?, internal: `while`?, namespace: Swift.String?) {
         return try await _impl._invoke(operation: "in",
                                        mode: .Normal,
@@ -963,20 +848,6 @@ public extension optionalParamsPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: `break`?, goto: `as`?, if: explicitPrx?, internal: `while`?, namespace: Swift.String?)`:
-    ///
-    ///   - returnValue: ``break`?`
-    ///
-    ///   - goto: ``as`?`
-    ///
-    ///   - if: `explicitPrx?`
-    ///
-    ///   - internal: ``while`?`
-    ///
-    ///   - namespace: `Swift.String?`
     func foreach(context: Ice.Context? = nil) async throws -> (returnValue: `break`?, goto: `as`?, if: explicitPrx?, internal: `while`?, namespace: Swift.String?) {
         return try await _impl._invoke(operation: "foreach",
                                        mode: .Normal,
@@ -992,13 +863,6 @@ public extension optionalParamsPrx {
     }
 }
 
-/// implicitPrx overview.
-///
-/// implicitPrx Methods:
-///
-///  - `in`: 
-///
-///  - inAsync: 
 public protocol implicitPrx: Ice.ObjectPrx {}
 
 private final class implicitPrxI: Ice.ObjectPrxI, implicitPrx {
@@ -1086,36 +950,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// implicitPrx overview.
-///
-/// implicitPrx Methods:
-///
-///  - `in`: 
-///
-///  - inAsync: 
 public extension implicitPrx {
-    ///
-    /// - parameter internal: ``break``
-    ///
-    /// - parameter is: `delegate?`
-    ///
-    /// - parameter lock: `explicitPrx?`
-    ///
-    /// - parameter namespace: `casePrx?`
-    ///
-    /// - parameter new: `decimalPrx?`
-    ///
-    /// - parameter null: `delegate?`
-    ///
-    /// - parameter override: `Swift.Int32`
-    ///
-    /// - parameter params: `Swift.Int32`
-    ///
-    /// - parameter private: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: ``as``
     func `in`(internal iceP_internal: `break`, is iceP_is: delegate?, lock iceP_lock: explicitPrx?, namespace iceP_namespace: casePrx?, new iceP_new: decimalPrx?, null iceP_null: delegate?, override iceP_override: Swift.Int32, params iceP_params: Swift.Int32, private iceP_private: Swift.Int32, context: Ice.Context? = nil) async throws -> `as` {
         return try await _impl._invoke(operation: "in",
                                        mode: .Normal,
@@ -1148,13 +983,6 @@ public extension implicitPrx {
     }
 }
 
-/// SystemTestPrx overview.
-///
-/// SystemTestPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public protocol SystemTestPrx: Ice.ObjectPrx {}
 
 private final class SystemTestPrxI: Ice.ObjectPrxI, SystemTestPrx {
@@ -1242,16 +1070,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// SystemTestPrx overview.
-///
-/// SystemTestPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public extension SystemTestPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
@@ -1259,13 +1078,6 @@ public extension SystemTestPrx {
     }
 }
 
-/// TestPrx overview.
-///
-/// TestPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public protocol TestPrx: Ice.ObjectPrx {}
 
 private final class TestPrxI: Ice.ObjectPrxI, TestPrx {
@@ -1353,16 +1165,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestPrx overview.
-///
-/// TestPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public extension TestPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
@@ -1503,12 +1306,6 @@ public struct caseDisp: Ice.Dispatcher {
 }
 
 public protocol `case` {
-    ///
-    /// - parameter checked: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func `catch`(checked: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -1541,8 +1338,6 @@ public struct decimalDisp: Ice.Dispatcher {
 }
 
 public protocol decimal {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func `default`(current: Ice.Current) async throws
 }
 
@@ -1613,64 +1408,12 @@ public struct optionalParamsDisp: Ice.Dispatcher {
 }
 
 public protocol optionalParams {
-    ///
-    /// - parameter goto: ``as`?`
-    ///
-    /// - parameter if: `explicitPrx?`
-    ///
-    /// - parameter internal: ``while`?`
-    ///
-    /// - parameter namespace: `Swift.String?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: ``break`?`
     func `for`(goto: `as`?, if: explicitPrx?, internal: `while`?, namespace: Swift.String?, current: Ice.Current) async throws -> `break`?
 
-    ///
-    /// - parameter goto: ``as`?`
-    ///
-    /// - parameter if: `explicitPrx?`
-    ///
-    /// - parameter internal: ``while`?`
-    ///
-    /// - parameter namespace: `Swift.String?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: ``break`?`
     func `continue`(goto: `as`?, if: explicitPrx?, internal: `while`?, namespace: Swift.String?, current: Ice.Current) async throws -> `break`?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: `break`?, goto: `as`?, if: explicitPrx?, internal: `while`?, namespace: Swift.String?)`:
-    ///
-    ///   - returnValue: ``break`?`
-    ///
-    ///   - goto: ``as`?`
-    ///
-    ///   - if: `explicitPrx?`
-    ///
-    ///   - internal: ``while`?`
-    ///
-    ///   - namespace: `Swift.String?`
     func `in`(current: Ice.Current) async throws -> (returnValue: `break`?, goto: `as`?, if: explicitPrx?, internal: `while`?, namespace: Swift.String?)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: `break`?, goto: `as`?, if: explicitPrx?, internal: `while`?, namespace: Swift.String?)`:
-    ///
-    ///   - returnValue: ``break`?`
-    ///
-    ///   - goto: ``as`?`
-    ///
-    ///   - if: `explicitPrx?`
-    ///
-    ///   - internal: ``while`?`
-    ///
-    ///   - namespace: `Swift.String?`
     func foreach(current: Ice.Current) async throws -> (returnValue: `break`?, goto: `as`?, if: explicitPrx?, internal: `while`?, namespace: Swift.String?)
 }
 
@@ -1703,28 +1446,6 @@ public struct implicitDisp: Ice.Dispatcher {
 }
 
 public protocol implicit {
-    ///
-    /// - parameter internal: ``break``
-    ///
-    /// - parameter is: `delegate?`
-    ///
-    /// - parameter lock: `explicitPrx?`
-    ///
-    /// - parameter namespace: `casePrx?`
-    ///
-    /// - parameter new: `decimalPrx?`
-    ///
-    /// - parameter null: `delegate?`
-    ///
-    /// - parameter override: `Swift.Int32`
-    ///
-    /// - parameter params: `Swift.Int32`
-    ///
-    /// - parameter private: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: ``as``
     func `in`(internal: `break`, is: delegate?, lock: explicitPrx?, namespace: casePrx?, new: decimalPrx?, null: delegate?, override: Swift.Int32, params: Swift.Int32, private: Swift.Int32, current: Ice.Current) async throws -> `as`
 }
 
@@ -1757,8 +1478,6 @@ public struct SystemTestDisp: Ice.Dispatcher {
 }
 
 public protocol SystemTest {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(current: Ice.Current) async throws
 }
 
@@ -1791,16 +1510,9 @@ public struct TestDisp: Ice.Dispatcher {
 }
 
 public protocol Test {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(current: Ice.Current) async throws
 }
 
-/// case overview.
-///
-/// case Methods:
-///
-///  - `catch`: 
 extension `case` {
     public func _iceD_catch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1815,11 +1527,6 @@ extension `case` {
     }
 }
 
-/// decimal overview.
-///
-/// decimal Methods:
-///
-///  - `default`: 
 extension decimal {
     public func _iceD_default(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1829,20 +1536,8 @@ extension decimal {
     }
 }
 
-/// explicit overview.
 extension explicit {}
 
-/// optionalParams overview.
-///
-/// optionalParams Methods:
-///
-///  - `for`: 
-///
-///  - `continue`: 
-///
-///  - `in`: 
-///
-///  - foreach: 
 extension optionalParams {
     public func _iceD_for(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1903,11 +1598,6 @@ extension optionalParams {
     }
 }
 
-/// implicit overview.
-///
-/// implicit Methods:
-///
-///  - `in`: 
 extension implicit {
     public func _iceD_in(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1933,11 +1623,6 @@ extension implicit {
     }
 }
 
-/// SystemTest overview.
-///
-/// SystemTest Methods:
-///
-///  - op: 
 extension SystemTest {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1947,11 +1632,6 @@ extension SystemTest {
     }
 }
 
-/// Test overview.
-///
-/// Test Methods:
-///
-///  - op: 
 extension Test {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

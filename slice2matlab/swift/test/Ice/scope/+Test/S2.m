@@ -1,11 +1,3 @@
-% S2   Summary of S2
-%
-% S2 Properties:
-%   E1
-%   S1
-%   C1
-%   S1Seq
-%   S1Map
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

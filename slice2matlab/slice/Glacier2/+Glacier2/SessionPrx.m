@@ -1,6 +1,6 @@
 % SessionPrx   Summary of SessionPrx
 %
-% A client-visible session object, which is tied to the lifecycle of a Router.
+% A client-visible session object, which is tied to the lifecycle of a {@link Router}.
 %
 % SessionPrx Methods:
 %   destroy - Destroy the session.

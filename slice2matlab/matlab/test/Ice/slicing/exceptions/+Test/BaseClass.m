@@ -1,7 +1,3 @@
-% BaseClass   Summary of BaseClass
-%
-% BaseClass Properties:
-%   bc
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ClientPrivate.ice by slice2matlab version 3.8.0-alpha.0

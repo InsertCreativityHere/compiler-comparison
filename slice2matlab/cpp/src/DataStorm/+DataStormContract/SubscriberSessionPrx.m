@@ -1,10 +1,3 @@
-% SubscriberSessionPrx   Summary of SubscriberSessionPrx
-%
-% SubscriberSessionPrx Methods:
-%   s
-%   sAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,14 +5,6 @@
 classdef SubscriberSessionPrx < DataStormContract.SessionPrx
     methods
         function s(obj, topicId, elementId, sample, varargin)
-            % s
-            %
-            % Parameters:
-            %   topicId (int64)
-            %   elementId (int64)
-            %   sample (DataStormContract.DataSample)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeLong(topicId);
             os_.writeLong(elementId);
@@ -28,16 +13,6 @@ classdef SubscriberSessionPrx < DataStormContract.SessionPrx
             obj.iceInvoke('s', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = sAsync(obj, topicId, elementId, sample, varargin)
-            % sAsync
-            %
-            % Parameters:
-            %   topicId (int64)
-            %   elementId (int64)
-            %   sample (DataStormContract.DataSample)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeLong(topicId);
             os_.writeLong(elementId);

@@ -22,17 +22,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - getProperty: 
-///
-///  - getPropertyAsync: 
-///
-///  - getArgs: 
-///
-///  - getArgsAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -120,24 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - getProperty: 
-///
-///  - getPropertyAsync: 
-///
-///  - getArgs: 
-///
-///  - getArgsAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getProperty(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getProperty",
                                        mode: .Normal,
@@ -151,10 +123,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.StringSeq`
     func getArgs(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invoke(operation: "getArgs",
                                        mode: .Normal,
@@ -197,28 +165,11 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter name: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getProperty(name: Swift.String, current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.StringSeq`
     func getArgs(current: Ice.Current) async throws -> Ice.StringSeq
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - getProperty: 
-///
-///  - getArgs: 
 extension TestIntf {
     public func _iceD_getProperty(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

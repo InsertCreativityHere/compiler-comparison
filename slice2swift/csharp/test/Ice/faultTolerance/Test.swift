@@ -28,25 +28,6 @@ public struct CleanerTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Cleaner"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - abort: 
-///
-///  - abortAsync: 
-///
-///  - idempotentAbort: 
-///
-///  - idempotentAbortAsync: 
-///
-///  - pid: 
-///
-///  - pidAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -134,54 +115,25 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - abort: 
-///
-///  - abortAsync: 
-///
-///  - idempotentAbort: 
-///
-///  - idempotentAbortAsync: 
-///
-///  - pid: 
-///
-///  - pidAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func abort(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "abort",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func idempotentAbort(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "idempotentAbort",
                                        mode: .Idempotent,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func pid(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "pid",
                                        mode: .Idempotent,
@@ -193,13 +145,6 @@ public extension TestIntfPrx {
     }
 }
 
-/// CleanerPrx overview.
-///
-/// CleanerPrx Methods:
-///
-///  - cleanup: 
-///
-///  - cleanupAsync: 
 public protocol CleanerPrx: Ice.ObjectPrx {}
 
 private final class CleanerPrxI: Ice.ObjectPrxI, CleanerPrx {
@@ -287,16 +232,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// CleanerPrx overview.
-///
-/// CleanerPrx Methods:
-///
-///  - cleanup: 
-///
-///  - cleanupAsync: 
 public extension CleanerPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func cleanup(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "cleanup",
                                        mode: .Normal,
@@ -339,22 +275,12 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func abort(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func idempotentAbort(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func pid(current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -387,22 +313,9 @@ public struct CleanerDisp: Ice.Dispatcher {
 }
 
 public protocol Cleaner {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func cleanup(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - shutdown: 
-///
-///  - abort: 
-///
-///  - idempotentAbort: 
-///
-///  - pid: 
 extension TestIntf {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -436,11 +349,6 @@ extension TestIntf {
     }
 }
 
-/// Cleaner overview.
-///
-/// Cleaner Methods:
-///
-///  - cleanup: 
 extension Cleaner {
     public func _iceD_cleanup(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

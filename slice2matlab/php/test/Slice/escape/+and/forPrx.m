@@ -1,10 +1,3 @@
-% forPrx   Summary of forPrx
-%
-% forPrx Methods:
-%   foreach
-%   foreachAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,20 +5,6 @@
 classdef forPrx < Ice.ObjectPrx
     methods
         function result = foreach(obj, if_, global_, include, return_, list, new, static, varargin)
-            % foreach
-            %
-            % Parameters:
-            %   if_ (and.breakPrx)
-            %   global_ (and.echo)
-            %   include (and.functionPrx)
-            %   return_ (and.diePrx)
-            %   list (and.enddeclarePrx)
-            %   new (int32)
-            %   static (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (and.array)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(if_);
             os_.writeValue(global_);
@@ -42,20 +21,6 @@ classdef forPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = foreachAsync(obj, if_, global_, include, return_, list, new, static, varargin)
-            % foreachAsync
-            %
-            % Parameters:
-            %   if_ (and.breakPrx)
-            %   global_ (and.echo)
-            %   include (and.functionPrx)
-            %   return_ (and.diePrx)
-            %   list (and.enddeclarePrx)
-            %   new (int32)
-            %   static (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(if_);
             os_.writeValue(global_);

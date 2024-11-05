@@ -1,10 +1,3 @@
-% RegistryPrx   Summary of RegistryPrx
-%
-% RegistryPrx Methods:
-%   getUserInfo
-%   getUserInfoAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from User.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,14 +5,6 @@
 classdef RegistryPrx < Ice.ObjectPrx
     methods
         function result = getUserInfo(obj, id, varargin)
-            % getUserInfo
-            %
-            % Parameters:
-            %   id (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (User.UserInfo)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
             obj.iceEndWriteParams(os_);
@@ -32,14 +17,6 @@ classdef RegistryPrx < Ice.ObjectPrx
             result = result_h_.value;
         end
         function r_ = getUserInfoAsync(obj, id, varargin)
-            % getUserInfoAsync
-            %
-            % Parameters:
-            %   id (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
             obj.iceEndWriteParams(os_);

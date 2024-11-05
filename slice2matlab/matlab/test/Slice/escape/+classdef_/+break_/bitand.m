@@ -1,38 +1,3 @@
-% bitand   Summary of bitand
-%
-% bitand Properties:
-%   break_
-%   case_
-%   catch_
-%   classdef_
-%   continue_
-%   else_
-%   elseif_
-%   end_
-%   enumeration_
-%   events_
-%   for_
-%   function_
-%   global_
-%   if_
-%   methods_
-%   otherwise_
-%   parfor_
-%   persistent_
-%   properties_
-%   return_
-%   spmd_
-%   switch_
-%   try_
-%   while_
-%   abs_
-%   and_
-%   char_
-%   eq_
-%   length_
-%   size_
-%   xor_
-%   LAST
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

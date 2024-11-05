@@ -52,25 +52,6 @@ public struct HelloTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Hello"
 }
 
-/// HelloPrx overview.
-///
-/// HelloPrx Methods:
-///
-///  - sayHello: 
-///
-///  - sayHelloAsync: 
-///
-///  - add: 
-///
-///  - addAsync: 
-///
-///  - raiseUE: 
-///
-///  - raiseUEAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol HelloPrx: Ice.ObjectPrx {}
 
 private final class HelloPrxI: Ice.ObjectPrxI, HelloPrx {
@@ -158,30 +139,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// HelloPrx overview.
-///
-/// HelloPrx Methods:
-///
-///  - sayHello: 
-///
-///  - sayHelloAsync: 
-///
-///  - add: 
-///
-///  - addAsync: 
-///
-///  - raiseUE: 
-///
-///  - raiseUEAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension HelloPrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sayHello(_ iceP_delay: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sayHello",
                                        mode: .Normal,
@@ -191,14 +149,6 @@ public extension HelloPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter s1: `Swift.Int32`
-    ///
-    /// - parameter s2: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func add(s1 iceP_s1: Swift.Int32, s2 iceP_s2: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "add",
                                        mode: .Normal,
@@ -213,8 +163,6 @@ public extension HelloPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func raiseUE(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "raiseUE",
                                        mode: .Normal,
@@ -228,8 +176,6 @@ public extension HelloPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -272,42 +218,15 @@ public struct HelloDisp: Ice.Dispatcher {
 }
 
 public protocol Hello {
-    ///
-    /// - parameter delay: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sayHello(delay: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter s1: `Swift.Int32`
-    ///
-    /// - parameter s2: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func add(s1: Swift.Int32, s2: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func raiseUE(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Hello overview.
-///
-/// Hello Methods:
-///
-///  - sayHello: 
-///
-///  - add: 
-///
-///  - raiseUE: 
-///
-///  - shutdown: 
 extension Hello {
     public func _iceD_sayHello(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

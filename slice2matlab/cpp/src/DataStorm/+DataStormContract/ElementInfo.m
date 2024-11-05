@@ -1,9 +1,3 @@
-% ElementInfo   Summary of ElementInfo
-%
-% ElementInfo Properties:
-%   id - The key or filter id.
-%   name - The filter name.
-%   value - The key or filter value.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0

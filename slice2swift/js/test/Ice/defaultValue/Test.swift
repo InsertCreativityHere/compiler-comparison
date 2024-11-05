@@ -17,11 +17,8 @@ import Foundation
 import Ice
 
 public enum Color: Swift.UInt8 {
-    /// red
     case red = 0
-    /// green
     case green = 1
-    /// blue
     case blue = 2
     public init() {
         self = .red
@@ -77,11 +74,8 @@ public extension Ice.OutputStream {
 }
 
 public enum NestedColor: Swift.UInt8 {
-    /// red
     case red = 0
-    /// green
     case green = 1
-    /// blue
     case blue = 2
     public init() {
         self = .red

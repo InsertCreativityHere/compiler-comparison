@@ -17,11 +17,8 @@ import Foundation
 import Ice
 
 public enum MyEnum: Swift.UInt8 {
-    /// enum1
     case enum1 = 0
-    /// enum2
     case enum2 = 1
-    /// enum3
     case enum3 = 2
     public init() {
         self = .enum1
@@ -2293,7 +2290,6 @@ public struct MyInterfaceTraits: Ice.SliceTraits {
     public static let staticId = "::Test::MyInterface"
 }
 
-/// MyInterfacePrx overview.
 public protocol MyInterfacePrx: Ice.ObjectPrx {}
 
 private final class MyInterfacePrxI: Ice.ObjectPrxI, MyInterfacePrx {
@@ -2381,7 +2377,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyInterfacePrx overview.
 public extension MyInterfacePrx {}
 
 /// :nodoc:
@@ -2556,5 +2551,4 @@ public struct MyInterfaceDisp: Ice.Dispatcher {
 
 public protocol MyInterface {}
 
-/// MyInterface overview.
 extension MyInterface {}

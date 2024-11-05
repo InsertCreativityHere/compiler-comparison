@@ -1,10 +1,3 @@
-% friendPrx   Summary of friendPrx
-%
-% friendPrx Methods:
-%   goto
-%   gotoAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,26 +5,6 @@
 classdef friendPrx < Ice.ObjectPrx
     methods
         function result = goto(obj, if_, d, inline, private, mutable, namespace, new, not, operator, or, protected, public, register, varargin)
-            % goto
-            %
-            % Parameters:
-            %   if_ (and.continue_)
-            %   d (and.guard)
-            %   inline (and.defer)
-            %   private (and.switch_)
-            %   mutable (and.doPrx)
-            %   namespace (and.breakPrx)
-            %   new (and.funcPrx)
-            %   not (and.switch_)
-            %   operator (and.doPrx)
-            %   or (int32)
-            %   protected (int32)
-            %   public (int32)
-            %   register (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (and.guard)
-            
             os_ = obj.iceStartWriteParams([]);
             and.continue_.ice_write(os_, if_);
             and.guard.ice_write(os_, d);
@@ -54,26 +27,6 @@ classdef friendPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = gotoAsync(obj, if_, d, inline, private, mutable, namespace, new, not, operator, or, protected, public, register, varargin)
-            % gotoAsync
-            %
-            % Parameters:
-            %   if_ (and.continue_)
-            %   d (and.guard)
-            %   inline (and.defer)
-            %   private (and.switch_)
-            %   mutable (and.doPrx)
-            %   namespace (and.breakPrx)
-            %   new (and.funcPrx)
-            %   not (and.switch_)
-            %   operator (and.doPrx)
-            %   or (int32)
-            %   protected (int32)
-            %   public (int32)
-            %   register (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             and.continue_.ice_write(os_, if_);
             and.guard.ice_write(os_, d);

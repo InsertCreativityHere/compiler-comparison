@@ -1,7 +1,3 @@
-% S5   Summary of S5
-%
-% S5 Properties:
-%   c1dict
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalTest.ice by slice2matlab version 3.8.0-alpha.0

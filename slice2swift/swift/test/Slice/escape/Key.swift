@@ -17,9 +17,7 @@ import Foundation
 import Ice
 
 public enum `continue`: Swift.UInt8 {
-    /// `let`
     case `let` = 0
-    /// `var`
     case `var` = 1
     public init() {
         self = .`let`
@@ -451,13 +449,6 @@ public let `while`: Swift.Int32 = 0
 public let `import`: Swift.Int32 = 0
 
 
-/// breakPrx overview.
-///
-/// breakPrx Methods:
-///
-///  - `case`: 
-///
-///  - caseAsync: 
 public protocol breakPrx: Ice.ObjectPrx {}
 
 private final class breakPrxI: Ice.ObjectPrxI, breakPrx {
@@ -545,20 +536,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// breakPrx overview.
-///
-/// breakPrx Methods:
-///
-///  - `case`: 
-///
-///  - caseAsync: 
 public extension breakPrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func `case`(_ iceP_catch: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "case",
                                        mode: .Normal,
@@ -573,13 +551,6 @@ public extension breakPrx {
     }
 }
 
-/// funcPrx overview.
-///
-/// funcPrx Methods:
-///
-///  - `public`: 
-///
-///  - publicAsync: 
 public protocol funcPrx: Ice.ObjectPrx {}
 
 private final class funcPrxI: Ice.ObjectPrxI, funcPrx {
@@ -667,16 +638,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// funcPrx overview.
-///
-/// funcPrx Methods:
-///
-///  - `public`: 
-///
-///  - publicAsync: 
 public extension funcPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func `public`(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "public",
                                        mode: .Normal,
@@ -684,7 +646,6 @@ public extension funcPrx {
     }
 }
 
-/// doPrx overview.
 public protocol doPrx: funcPrx, breakPrx {}
 
 private final class doPrxI: Ice.ObjectPrxI, doPrx {
@@ -772,16 +733,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// doPrx overview.
 public extension doPrx {}
 
-/// friendPrx overview.
-///
-/// friendPrx Methods:
-///
-///  - goto: 
-///
-///  - gotoAsync: 
 public protocol friendPrx: Ice.ObjectPrx {}
 
 private final class friendPrxI: Ice.ObjectPrxI, friendPrx {
@@ -869,44 +822,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// friendPrx overview.
-///
-/// friendPrx Methods:
-///
-///  - goto: 
-///
-///  - gotoAsync: 
 public extension friendPrx {
-    ///
-    /// - parameter if: ``continue``
-    ///
-    /// - parameter d: ``guard``
-    ///
-    /// - parameter inline: ``defer``
-    ///
-    /// - parameter private: ``switch`?`
-    ///
-    /// - parameter mutable: `doPrx?`
-    ///
-    /// - parameter namespace: `breakPrx?`
-    ///
-    /// - parameter new: `funcPrx?`
-    ///
-    /// - parameter not: ``switch`?`
-    ///
-    /// - parameter operator: `doPrx?`
-    ///
-    /// - parameter or: `Swift.Int32`
-    ///
-    /// - parameter protected: `Swift.Int32`
-    ///
-    /// - parameter public: `Swift.Int32`
-    ///
-    /// - parameter register: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: ``guard``
     func goto(if iceP_if: `continue`, d iceP_d: `guard`, inline iceP_inline: `defer`, private iceP_private: `switch`?, mutable iceP_mutable: doPrx?, namespace iceP_namespace: breakPrx?, new iceP_new: funcPrx?, not iceP_not: `switch`?, operator iceP_operator: doPrx?, or iceP_or: Swift.Int32, protected iceP_protected: Swift.Int32, public iceP_public: Swift.Int32, register iceP_register: Swift.Int32, context: Ice.Context? = nil) async throws -> `guard` {
         return try await _impl._invoke(operation: "goto",
                                        mode: .Normal,
@@ -1020,12 +936,6 @@ public struct breakDisp: Ice.Dispatcher {
 }
 
 public protocol `break` {
-    ///
-    /// - parameter catch: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func `case`(catch: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -1058,8 +968,6 @@ public struct funcDisp: Ice.Dispatcher {
 }
 
 public protocol `func` {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func `public`(current: Ice.Current) async throws
 }
 
@@ -1124,44 +1032,9 @@ public struct friendDisp: Ice.Dispatcher {
 }
 
 public protocol friend {
-    ///
-    /// - parameter if: ``continue``
-    ///
-    /// - parameter d: ``guard``
-    ///
-    /// - parameter inline: ``defer``
-    ///
-    /// - parameter private: ``switch`?`
-    ///
-    /// - parameter mutable: `doPrx?`
-    ///
-    /// - parameter namespace: `breakPrx?`
-    ///
-    /// - parameter new: `funcPrx?`
-    ///
-    /// - parameter not: ``switch`?`
-    ///
-    /// - parameter operator: `doPrx?`
-    ///
-    /// - parameter or: `Swift.Int32`
-    ///
-    /// - parameter protected: `Swift.Int32`
-    ///
-    /// - parameter public: `Swift.Int32`
-    ///
-    /// - parameter register: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: ``guard``
     func goto(if: `continue`, d: `guard`, inline: `defer`, private: `switch`?, mutable: doPrx?, namespace: breakPrx?, new: funcPrx?, not: `switch`?, operator: doPrx?, or: Swift.Int32, protected: Swift.Int32, public: Swift.Int32, register: Swift.Int32, current: Ice.Current) async throws -> `guard`
 }
 
-/// break overview.
-///
-/// break Methods:
-///
-///  - `case`: 
 extension `break` {
     public func _iceD_case(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1176,11 +1049,6 @@ extension `break` {
     }
 }
 
-/// func overview.
-///
-/// func Methods:
-///
-///  - `public`: 
 extension `func` {
     public func _iceD_public(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1190,14 +1058,8 @@ extension `func` {
     }
 }
 
-/// do overview.
 extension `do` {}
 
-/// friend overview.
-///
-/// friend Methods:
-///
-///  - goto: 
 extension friend {
     public func _iceD_goto(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

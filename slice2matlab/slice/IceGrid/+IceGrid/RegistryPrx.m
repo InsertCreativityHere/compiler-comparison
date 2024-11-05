@@ -197,15 +197,13 @@ classdef RegistryPrx < Ice.ObjectPrx
         end
         function result = getSessionTimeout(obj, varargin)
             % getSessionTimeout   Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-            % send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
+            % send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
             % a session alive in the IceGrid registry.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
             % Returns (int32) - The session timeout (in seconds).
-            %
-            % Deprecated
             
             is_ = obj.iceInvoke('getSessionTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -214,15 +212,13 @@ classdef RegistryPrx < Ice.ObjectPrx
         end
         function r_ = getSessionTimeoutAsync(obj, varargin)
             % getSessionTimeoutAsync   Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-            % send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
+            % send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
             % a session alive in the IceGrid registry.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            %
-            % Deprecated
             
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();

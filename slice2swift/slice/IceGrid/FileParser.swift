@@ -64,8 +64,8 @@ public struct FileParserTraits: Ice.SliceTraits {
     public static let staticId = "::IceGrid::FileParser"
 }
 
-/// icegridadmin provides a FileParser object to transform XML files into
-/// ApplicationDescriptor objects.
+/// icegridadmin provides a {@link FileParser} object to transform XML files into
+/// {@link ApplicationDescriptor} objects.
 ///
 /// FileParserPrx Methods:
 ///
@@ -159,8 +159,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// icegridadmin provides a FileParser object to transform XML files into
-/// ApplicationDescriptor objects.
+/// icegridadmin provides a {@link FileParser} object to transform XML files into
+/// {@link ApplicationDescriptor} objects.
 ///
 /// FileParserPrx Methods:
 ///
@@ -232,8 +232,8 @@ public struct FileParserDisp: Ice.Dispatcher {
     }
 }
 
-/// icegridadmin provides a FileParser object to transform XML files into
-/// ApplicationDescriptor objects.
+/// icegridadmin provides a {@link FileParser} object to transform XML files into
+/// {@link ApplicationDescriptor} objects.
 public protocol FileParser {
     /// Parse a file.
     ///
@@ -251,8 +251,8 @@ public protocol FileParser {
     func parse(xmlFile: Swift.String, adminProxy: AdminPrx?, current: Ice.Current) async throws -> ApplicationDescriptor
 }
 
-/// icegridadmin provides a FileParser object to transform XML files into
-/// ApplicationDescriptor objects.
+/// icegridadmin provides a {@link FileParser} object to transform XML files into
+/// {@link ApplicationDescriptor} objects.
 ///
 /// FileParser Methods:
 ///

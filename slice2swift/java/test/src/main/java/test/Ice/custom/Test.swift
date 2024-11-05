@@ -296,11 +296,8 @@ public typealias FloatBuffer = [Swift.Float]
 public typealias DoubleBuffer = [Swift.Double]
 
 public enum E: Swift.UInt8 {
-    /// E1
     case E1 = 0
-    /// E2
     case E2 = 1
-    /// E3
     case E3 = 2
     public init() {
         self = .E1
@@ -752,181 +749,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - opASeq: 
-///
-///  - opASeqAsync: 
-///
-///  - opAArray: 
-///
-///  - opAArrayAsync: 
-///
-///  - opAList: 
-///
-///  - opAListAsync: 
-///
-///  - opBoolSeq: 
-///
-///  - opBoolSeqAsync: 
-///
-///  - opByteSeq: 
-///
-///  - opByteSeqAsync: 
-///
-///  - opShortSeq: 
-///
-///  - opShortSeqAsync: 
-///
-///  - opIntSeq: 
-///
-///  - opIntSeqAsync: 
-///
-///  - opLongSeq: 
-///
-///  - opLongSeqAsync: 
-///
-///  - opFloatSeq: 
-///
-///  - opFloatSeqAsync: 
-///
-///  - opDoubleSeq: 
-///
-///  - opDoubleSeqAsync: 
-///
-///  - opStringSeq: 
-///
-///  - opStringSeqAsync: 
-///
-///  - opESeq: 
-///
-///  - opESeqAsync: 
-///
-///  - opSSeq: 
-///
-///  - opSSeqAsync: 
-///
-///  - opDSeq: 
-///
-///  - opDSeqAsync: 
-///
-///  - opStringSeqSeq: 
-///
-///  - opStringSeqSeqAsync: 
-///
-///  - opByteBufferSeq: 
-///
-///  - opByteBufferSeqAsync: 
-///
-///  - opShortBufferSeq: 
-///
-///  - opShortBufferSeqAsync: 
-///
-///  - opIntBufferSeq: 
-///
-///  - opIntBufferSeqAsync: 
-///
-///  - opLongBufferSeq: 
-///
-///  - opLongBufferSeqAsync: 
-///
-///  - opFloatBufferSeq: 
-///
-///  - opFloatBufferSeqAsync: 
-///
-///  - opDoubleBufferSeq: 
-///
-///  - opDoubleBufferSeqAsync: 
-///
-///  - opOptASeq: 
-///
-///  - opOptASeqAsync: 
-///
-///  - opOptAArray: 
-///
-///  - opOptAArrayAsync: 
-///
-///  - opOptAList: 
-///
-///  - opOptAListAsync: 
-///
-///  - opOptBoolSeq: 
-///
-///  - opOptBoolSeqAsync: 
-///
-///  - opOptByteSeq: 
-///
-///  - opOptByteSeqAsync: 
-///
-///  - opOptShortSeq: 
-///
-///  - opOptShortSeqAsync: 
-///
-///  - opOptIntSeq: 
-///
-///  - opOptIntSeqAsync: 
-///
-///  - opOptLongSeq: 
-///
-///  - opOptLongSeqAsync: 
-///
-///  - opOptFloatSeq: 
-///
-///  - opOptFloatSeqAsync: 
-///
-///  - opOptDoubleSeq: 
-///
-///  - opOptDoubleSeqAsync: 
-///
-///  - opOptStringSeq: 
-///
-///  - opOptStringSeqAsync: 
-///
-///  - opOptESeq: 
-///
-///  - opOptESeqAsync: 
-///
-///  - opOptSSeq: 
-///
-///  - opOptSSeqAsync: 
-///
-///  - opOptDSeq: 
-///
-///  - opOptDSeqAsync: 
-///
-///  - opOptStringSeqSeq: 
-///
-///  - opOptStringSeqSeqAsync: 
-///
-///  - opOptByteBufferSeq: 
-///
-///  - opOptByteBufferSeqAsync: 
-///
-///  - opOptShortBufferSeq: 
-///
-///  - opOptShortBufferSeqAsync: 
-///
-///  - opOptIntBufferSeq: 
-///
-///  - opOptIntBufferSeqAsync: 
-///
-///  - opOptLongBufferSeq: 
-///
-///  - opOptLongBufferSeqAsync: 
-///
-///  - opOptFloatBufferSeq: 
-///
-///  - opOptFloatBufferSeqAsync: 
-///
-///  - opOptDoubleBufferSeq: 
-///
-///  - opOptDoubleBufferSeqAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -1014,192 +836,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - opASeq: 
-///
-///  - opASeqAsync: 
-///
-///  - opAArray: 
-///
-///  - opAArrayAsync: 
-///
-///  - opAList: 
-///
-///  - opAListAsync: 
-///
-///  - opBoolSeq: 
-///
-///  - opBoolSeqAsync: 
-///
-///  - opByteSeq: 
-///
-///  - opByteSeqAsync: 
-///
-///  - opShortSeq: 
-///
-///  - opShortSeqAsync: 
-///
-///  - opIntSeq: 
-///
-///  - opIntSeqAsync: 
-///
-///  - opLongSeq: 
-///
-///  - opLongSeqAsync: 
-///
-///  - opFloatSeq: 
-///
-///  - opFloatSeqAsync: 
-///
-///  - opDoubleSeq: 
-///
-///  - opDoubleSeqAsync: 
-///
-///  - opStringSeq: 
-///
-///  - opStringSeqAsync: 
-///
-///  - opESeq: 
-///
-///  - opESeqAsync: 
-///
-///  - opSSeq: 
-///
-///  - opSSeqAsync: 
-///
-///  - opDSeq: 
-///
-///  - opDSeqAsync: 
-///
-///  - opStringSeqSeq: 
-///
-///  - opStringSeqSeqAsync: 
-///
-///  - opByteBufferSeq: 
-///
-///  - opByteBufferSeqAsync: 
-///
-///  - opShortBufferSeq: 
-///
-///  - opShortBufferSeqAsync: 
-///
-///  - opIntBufferSeq: 
-///
-///  - opIntBufferSeqAsync: 
-///
-///  - opLongBufferSeq: 
-///
-///  - opLongBufferSeqAsync: 
-///
-///  - opFloatBufferSeq: 
-///
-///  - opFloatBufferSeqAsync: 
-///
-///  - opDoubleBufferSeq: 
-///
-///  - opDoubleBufferSeqAsync: 
-///
-///  - opOptASeq: 
-///
-///  - opOptASeqAsync: 
-///
-///  - opOptAArray: 
-///
-///  - opOptAArrayAsync: 
-///
-///  - opOptAList: 
-///
-///  - opOptAListAsync: 
-///
-///  - opOptBoolSeq: 
-///
-///  - opOptBoolSeqAsync: 
-///
-///  - opOptByteSeq: 
-///
-///  - opOptByteSeqAsync: 
-///
-///  - opOptShortSeq: 
-///
-///  - opOptShortSeqAsync: 
-///
-///  - opOptIntSeq: 
-///
-///  - opOptIntSeqAsync: 
-///
-///  - opOptLongSeq: 
-///
-///  - opOptLongSeqAsync: 
-///
-///  - opOptFloatSeq: 
-///
-///  - opOptFloatSeqAsync: 
-///
-///  - opOptDoubleSeq: 
-///
-///  - opOptDoubleSeqAsync: 
-///
-///  - opOptStringSeq: 
-///
-///  - opOptStringSeqAsync: 
-///
-///  - opOptESeq: 
-///
-///  - opOptESeqAsync: 
-///
-///  - opOptSSeq: 
-///
-///  - opOptSSeqAsync: 
-///
-///  - opOptDSeq: 
-///
-///  - opOptDSeqAsync: 
-///
-///  - opOptStringSeqSeq: 
-///
-///  - opOptStringSeqSeqAsync: 
-///
-///  - opOptByteBufferSeq: 
-///
-///  - opOptByteBufferSeqAsync: 
-///
-///  - opOptShortBufferSeq: 
-///
-///  - opOptShortBufferSeqAsync: 
-///
-///  - opOptIntBufferSeq: 
-///
-///  - opOptIntBufferSeqAsync: 
-///
-///  - opOptLongBufferSeq: 
-///
-///  - opOptLongBufferSeqAsync: 
-///
-///  - opOptFloatBufferSeq: 
-///
-///  - opOptFloatBufferSeqAsync: 
-///
-///  - opOptDoubleBufferSeq: 
-///
-///  - opOptDoubleBufferSeqAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter _: `ASeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ASeq, outSeq: ASeq)`:
-    ///
-    ///   - returnValue: `ASeq`
-    ///
-    ///   - outSeq: `ASeq`
     func opASeq(_ iceP_inSeq: ASeq, context: Ice.Context? = nil) async throws -> (returnValue: ASeq, outSeq: ASeq) {
         return try await _impl._invoke(operation: "opASeq",
                                        mode: .Normal,
@@ -1214,16 +851,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AArray`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AArray, outSeq: AArray)`:
-    ///
-    ///   - returnValue: `AArray`
-    ///
-    ///   - outSeq: `AArray`
     func opAArray(_ iceP_inSeq: AArray, context: Ice.Context? = nil) async throws -> (returnValue: AArray, outSeq: AArray) {
         return try await _impl._invoke(operation: "opAArray",
                                        mode: .Normal,
@@ -1238,16 +865,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AList, outSeq: AList)`:
-    ///
-    ///   - returnValue: `AList`
-    ///
-    ///   - outSeq: `AList`
     func opAList(_ iceP_inSeq: AList, context: Ice.Context? = nil) async throws -> (returnValue: AList, outSeq: AList) {
         return try await _impl._invoke(operation: "opAList",
                                        mode: .Normal,
@@ -1262,16 +879,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `BoolSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outSeq: `BoolSeq`
     func opBoolSeq(_ iceP_inSeq: BoolSeq, context: Ice.Context? = nil) async throws -> (returnValue: BoolSeq, outSeq: BoolSeq) {
         return try await _impl._invoke(operation: "opBoolSeq",
                                        mode: .Normal,
@@ -1286,16 +893,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)`:
-    ///
-    ///   - returnValue: `ByteSeq`
-    ///
-    ///   - outSeq: `ByteSeq`
     func opByteSeq(_ iceP_inSeq: ByteSeq, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq, outSeq: ByteSeq) {
         return try await _impl._invoke(operation: "opByteSeq",
                                        mode: .Normal,
@@ -1310,16 +907,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ShortSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortSeq, outSeq: ShortSeq)`:
-    ///
-    ///   - returnValue: `ShortSeq`
-    ///
-    ///   - outSeq: `ShortSeq`
     func opShortSeq(_ iceP_inSeq: ShortSeq, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq, outSeq: ShortSeq) {
         return try await _impl._invoke(operation: "opShortSeq",
                                        mode: .Normal,
@@ -1334,16 +921,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `IntSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntSeq, outSeq: IntSeq)`:
-    ///
-    ///   - returnValue: `IntSeq`
-    ///
-    ///   - outSeq: `IntSeq`
     func opIntSeq(_ iceP_inSeq: IntSeq, context: Ice.Context? = nil) async throws -> (returnValue: IntSeq, outSeq: IntSeq) {
         return try await _impl._invoke(operation: "opIntSeq",
                                        mode: .Normal,
@@ -1358,16 +935,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LongSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongSeq, outSeq: LongSeq)`:
-    ///
-    ///   - returnValue: `LongSeq`
-    ///
-    ///   - outSeq: `LongSeq`
     func opLongSeq(_ iceP_inSeq: LongSeq, context: Ice.Context? = nil) async throws -> (returnValue: LongSeq, outSeq: LongSeq) {
         return try await _impl._invoke(operation: "opLongSeq",
                                        mode: .Normal,
@@ -1382,16 +949,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `FloatSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: FloatSeq, outSeq: FloatSeq)`:
-    ///
-    ///   - returnValue: `FloatSeq`
-    ///
-    ///   - outSeq: `FloatSeq`
     func opFloatSeq(_ iceP_inSeq: FloatSeq, context: Ice.Context? = nil) async throws -> (returnValue: FloatSeq, outSeq: FloatSeq) {
         return try await _impl._invoke(operation: "opFloatSeq",
                                        mode: .Normal,
@@ -1406,16 +963,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `DoubleSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleSeq, outSeq: DoubleSeq)`:
-    ///
-    ///   - returnValue: `DoubleSeq`
-    ///
-    ///   - outSeq: `DoubleSeq`
     func opDoubleSeq(_ iceP_inSeq: DoubleSeq, context: Ice.Context? = nil) async throws -> (returnValue: DoubleSeq, outSeq: DoubleSeq) {
         return try await _impl._invoke(operation: "opDoubleSeq",
                                        mode: .Normal,
@@ -1430,16 +977,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSeq, outSeq: StringSeq)`:
-    ///
-    ///   - returnValue: `StringSeq`
-    ///
-    ///   - outSeq: `StringSeq`
     func opStringSeq(_ iceP_inSeq: StringSeq, context: Ice.Context? = nil) async throws -> (returnValue: StringSeq, outSeq: StringSeq) {
         return try await _impl._invoke(operation: "opStringSeq",
                                        mode: .Normal,
@@ -1454,16 +991,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ESeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ESeq, outSeq: ESeq)`:
-    ///
-    ///   - returnValue: `ESeq`
-    ///
-    ///   - outSeq: `ESeq`
     func opESeq(_ iceP_inSeq: ESeq, context: Ice.Context? = nil) async throws -> (returnValue: ESeq, outSeq: ESeq) {
         return try await _impl._invoke(operation: "opESeq",
                                        mode: .Normal,
@@ -1478,16 +1005,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SSeq, outSeq: SSeq)`:
-    ///
-    ///   - returnValue: `SSeq`
-    ///
-    ///   - outSeq: `SSeq`
     func opSSeq(_ iceP_inSeq: SSeq, context: Ice.Context? = nil) async throws -> (returnValue: SSeq, outSeq: SSeq) {
         return try await _impl._invoke(operation: "opSSeq",
                                        mode: .Normal,
@@ -1502,16 +1019,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `DSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DSeq, outSeq: DSeq)`:
-    ///
-    ///   - returnValue: `DSeq`
-    ///
-    ///   - outSeq: `DSeq`
     func opDSeq(_ iceP_inSeq: DSeq, context: Ice.Context? = nil) async throws -> (returnValue: DSeq, outSeq: DSeq) {
         return try await _impl._invoke(operation: "opDSeq",
                                        mode: .Normal,
@@ -1526,16 +1033,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringSeqSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSeqSeq, outSeq: StringSeqSeq)`:
-    ///
-    ///   - returnValue: `StringSeqSeq`
-    ///
-    ///   - outSeq: `StringSeqSeq`
     func opStringSeqSeq(_ iceP_inSeq: StringSeqSeq, context: Ice.Context? = nil) async throws -> (returnValue: StringSeqSeq, outSeq: StringSeqSeq) {
         return try await _impl._invoke(operation: "opStringSeqSeq",
                                        mode: .Normal,
@@ -1550,16 +1047,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteBuffer, outSeq: ByteBuffer)`:
-    ///
-    ///   - returnValue: `ByteBuffer`
-    ///
-    ///   - outSeq: `ByteBuffer`
     func opByteBufferSeq(_ iceP_inSeq: ByteBuffer, context: Ice.Context? = nil) async throws -> (returnValue: ByteBuffer, outSeq: ByteBuffer) {
         return try await _impl._invoke(operation: "opByteBufferSeq",
                                        mode: .Normal,
@@ -1574,16 +1061,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ShortBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortBuffer, outSeq: ShortBuffer)`:
-    ///
-    ///   - returnValue: `ShortBuffer`
-    ///
-    ///   - outSeq: `ShortBuffer`
     func opShortBufferSeq(_ iceP_inSeq: ShortBuffer, context: Ice.Context? = nil) async throws -> (returnValue: ShortBuffer, outSeq: ShortBuffer) {
         return try await _impl._invoke(operation: "opShortBufferSeq",
                                        mode: .Normal,
@@ -1598,16 +1075,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `IntBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntBuffer, outSeq: IntBuffer)`:
-    ///
-    ///   - returnValue: `IntBuffer`
-    ///
-    ///   - outSeq: `IntBuffer`
     func opIntBufferSeq(_ iceP_inSeq: IntBuffer, context: Ice.Context? = nil) async throws -> (returnValue: IntBuffer, outSeq: IntBuffer) {
         return try await _impl._invoke(operation: "opIntBufferSeq",
                                        mode: .Normal,
@@ -1622,16 +1089,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LongBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongBuffer, outSeq: LongBuffer)`:
-    ///
-    ///   - returnValue: `LongBuffer`
-    ///
-    ///   - outSeq: `LongBuffer`
     func opLongBufferSeq(_ iceP_inSeq: LongBuffer, context: Ice.Context? = nil) async throws -> (returnValue: LongBuffer, outSeq: LongBuffer) {
         return try await _impl._invoke(operation: "opLongBufferSeq",
                                        mode: .Normal,
@@ -1646,16 +1103,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `FloatBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: FloatBuffer, outSeq: FloatBuffer)`:
-    ///
-    ///   - returnValue: `FloatBuffer`
-    ///
-    ///   - outSeq: `FloatBuffer`
     func opFloatBufferSeq(_ iceP_inSeq: FloatBuffer, context: Ice.Context? = nil) async throws -> (returnValue: FloatBuffer, outSeq: FloatBuffer) {
         return try await _impl._invoke(operation: "opFloatBufferSeq",
                                        mode: .Normal,
@@ -1670,16 +1117,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `DoubleBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleBuffer, outSeq: DoubleBuffer)`:
-    ///
-    ///   - returnValue: `DoubleBuffer`
-    ///
-    ///   - outSeq: `DoubleBuffer`
     func opDoubleBufferSeq(_ iceP_inSeq: DoubleBuffer, context: Ice.Context? = nil) async throws -> (returnValue: DoubleBuffer, outSeq: DoubleBuffer) {
         return try await _impl._invoke(operation: "opDoubleBufferSeq",
                                        mode: .Normal,
@@ -1694,16 +1131,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ASeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ASeq?, outSeq: ASeq?)`:
-    ///
-    ///   - returnValue: `ASeq?`
-    ///
-    ///   - outSeq: `ASeq?`
     func opOptASeq(_ iceP_inSeq: ASeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ASeq?, outSeq: ASeq?) {
         return try await _impl._invoke(operation: "opOptASeq",
                                        mode: .Normal,
@@ -1718,16 +1145,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AArray?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AArray?, outSeq: AArray?)`:
-    ///
-    ///   - returnValue: `AArray?`
-    ///
-    ///   - outSeq: `AArray?`
     func opOptAArray(_ iceP_inSeq: AArray? = nil, context: Ice.Context? = nil) async throws -> (returnValue: AArray?, outSeq: AArray?) {
         return try await _impl._invoke(operation: "opOptAArray",
                                        mode: .Normal,
@@ -1742,16 +1159,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `AList?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AList?, outSeq: AList?)`:
-    ///
-    ///   - returnValue: `AList?`
-    ///
-    ///   - outSeq: `AList?`
     func opOptAList(_ iceP_inSeq: AList? = nil, context: Ice.Context? = nil) async throws -> (returnValue: AList?, outSeq: AList?) {
         return try await _impl._invoke(operation: "opOptAList",
                                        mode: .Normal,
@@ -1766,16 +1173,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `BoolSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolSeq?, outSeq: BoolSeq?)`:
-    ///
-    ///   - returnValue: `BoolSeq?`
-    ///
-    ///   - outSeq: `BoolSeq?`
     func opOptBoolSeq(_ iceP_inSeq: BoolSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: BoolSeq?, outSeq: BoolSeq?) {
         return try await _impl._invoke(operation: "opOptBoolSeq",
                                        mode: .Normal,
@@ -1790,16 +1187,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteSeq?, outSeq: ByteSeq?)`:
-    ///
-    ///   - returnValue: `ByteSeq?`
-    ///
-    ///   - outSeq: `ByteSeq?`
     func opOptByteSeq(_ iceP_inSeq: ByteSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq?, outSeq: ByteSeq?) {
         return try await _impl._invoke(operation: "opOptByteSeq",
                                        mode: .Normal,
@@ -1814,16 +1201,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ShortSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortSeq?, outSeq: ShortSeq?)`:
-    ///
-    ///   - returnValue: `ShortSeq?`
-    ///
-    ///   - outSeq: `ShortSeq?`
     func opOptShortSeq(_ iceP_inSeq: ShortSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq?, outSeq: ShortSeq?) {
         return try await _impl._invoke(operation: "opOptShortSeq",
                                        mode: .Normal,
@@ -1838,16 +1215,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `IntSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntSeq?, outSeq: IntSeq?)`:
-    ///
-    ///   - returnValue: `IntSeq?`
-    ///
-    ///   - outSeq: `IntSeq?`
     func opOptIntSeq(_ iceP_inSeq: IntSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: IntSeq?, outSeq: IntSeq?) {
         return try await _impl._invoke(operation: "opOptIntSeq",
                                        mode: .Normal,
@@ -1862,16 +1229,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LongSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongSeq?, outSeq: LongSeq?)`:
-    ///
-    ///   - returnValue: `LongSeq?`
-    ///
-    ///   - outSeq: `LongSeq?`
     func opOptLongSeq(_ iceP_inSeq: LongSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: LongSeq?, outSeq: LongSeq?) {
         return try await _impl._invoke(operation: "opOptLongSeq",
                                        mode: .Normal,
@@ -1886,16 +1243,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `FloatSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: FloatSeq?, outSeq: FloatSeq?)`:
-    ///
-    ///   - returnValue: `FloatSeq?`
-    ///
-    ///   - outSeq: `FloatSeq?`
     func opOptFloatSeq(_ iceP_inSeq: FloatSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: FloatSeq?, outSeq: FloatSeq?) {
         return try await _impl._invoke(operation: "opOptFloatSeq",
                                        mode: .Normal,
@@ -1910,16 +1257,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `DoubleSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleSeq?, outSeq: DoubleSeq?)`:
-    ///
-    ///   - returnValue: `DoubleSeq?`
-    ///
-    ///   - outSeq: `DoubleSeq?`
     func opOptDoubleSeq(_ iceP_inSeq: DoubleSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: DoubleSeq?, outSeq: DoubleSeq?) {
         return try await _impl._invoke(operation: "opOptDoubleSeq",
                                        mode: .Normal,
@@ -1934,16 +1271,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSeq?, outSeq: StringSeq?)`:
-    ///
-    ///   - returnValue: `StringSeq?`
-    ///
-    ///   - outSeq: `StringSeq?`
     func opOptStringSeq(_ iceP_inSeq: StringSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: StringSeq?, outSeq: StringSeq?) {
         return try await _impl._invoke(operation: "opOptStringSeq",
                                        mode: .Normal,
@@ -1958,16 +1285,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ESeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ESeq?, outSeq: ESeq?)`:
-    ///
-    ///   - returnValue: `ESeq?`
-    ///
-    ///   - outSeq: `ESeq?`
     func opOptESeq(_ iceP_inSeq: ESeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ESeq?, outSeq: ESeq?) {
         return try await _impl._invoke(operation: "opOptESeq",
                                        mode: .Normal,
@@ -1982,16 +1299,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SSeq?, outSeq: SSeq?)`:
-    ///
-    ///   - returnValue: `SSeq?`
-    ///
-    ///   - outSeq: `SSeq?`
     func opOptSSeq(_ iceP_inSeq: SSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: SSeq?, outSeq: SSeq?) {
         return try await _impl._invoke(operation: "opOptSSeq",
                                        mode: .Normal,
@@ -2006,16 +1313,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `DSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DSeq?, outSeq: DSeq?)`:
-    ///
-    ///   - returnValue: `DSeq?`
-    ///
-    ///   - outSeq: `DSeq?`
     func opOptDSeq(_ iceP_inSeq: DSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: DSeq?, outSeq: DSeq?) {
         return try await _impl._invoke(operation: "opOptDSeq",
                                        mode: .Normal,
@@ -2030,16 +1327,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringSeqSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSeqSeq?, outSeq: StringSeqSeq?)`:
-    ///
-    ///   - returnValue: `StringSeqSeq?`
-    ///
-    ///   - outSeq: `StringSeqSeq?`
     func opOptStringSeqSeq(_ iceP_inSeq: StringSeqSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: StringSeqSeq?, outSeq: StringSeqSeq?) {
         return try await _impl._invoke(operation: "opOptStringSeqSeq",
                                        mode: .Normal,
@@ -2054,16 +1341,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteBuffer?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteBuffer?, outSeq: ByteBuffer?)`:
-    ///
-    ///   - returnValue: `ByteBuffer?`
-    ///
-    ///   - outSeq: `ByteBuffer?`
     func opOptByteBufferSeq(_ iceP_inSeq: ByteBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ByteBuffer?, outSeq: ByteBuffer?) {
         return try await _impl._invoke(operation: "opOptByteBufferSeq",
                                        mode: .Normal,
@@ -2078,16 +1355,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ShortBuffer?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortBuffer?, outSeq: ShortBuffer?)`:
-    ///
-    ///   - returnValue: `ShortBuffer?`
-    ///
-    ///   - outSeq: `ShortBuffer?`
     func opOptShortBufferSeq(_ iceP_inSeq: ShortBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ShortBuffer?, outSeq: ShortBuffer?) {
         return try await _impl._invoke(operation: "opOptShortBufferSeq",
                                        mode: .Normal,
@@ -2102,16 +1369,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `IntBuffer?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntBuffer?, outSeq: IntBuffer?)`:
-    ///
-    ///   - returnValue: `IntBuffer?`
-    ///
-    ///   - outSeq: `IntBuffer?`
     func opOptIntBufferSeq(_ iceP_inSeq: IntBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: IntBuffer?, outSeq: IntBuffer?) {
         return try await _impl._invoke(operation: "opOptIntBufferSeq",
                                        mode: .Normal,
@@ -2126,16 +1383,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LongBuffer?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongBuffer?, outSeq: LongBuffer?)`:
-    ///
-    ///   - returnValue: `LongBuffer?`
-    ///
-    ///   - outSeq: `LongBuffer?`
     func opOptLongBufferSeq(_ iceP_inSeq: LongBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: LongBuffer?, outSeq: LongBuffer?) {
         return try await _impl._invoke(operation: "opOptLongBufferSeq",
                                        mode: .Normal,
@@ -2150,16 +1397,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `FloatBuffer?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: FloatBuffer?, outSeq: FloatBuffer?)`:
-    ///
-    ///   - returnValue: `FloatBuffer?`
-    ///
-    ///   - outSeq: `FloatBuffer?`
     func opOptFloatBufferSeq(_ iceP_inSeq: FloatBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: FloatBuffer?, outSeq: FloatBuffer?) {
         return try await _impl._invoke(operation: "opOptFloatBufferSeq",
                                        mode: .Normal,
@@ -2174,16 +1411,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `DoubleBuffer?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleBuffer?, outSeq: DoubleBuffer?)`:
-    ///
-    ///   - returnValue: `DoubleBuffer?`
-    ///
-    ///   - outSeq: `DoubleBuffer?`
     func opOptDoubleBufferSeq(_ iceP_inSeq: DoubleBuffer? = nil, context: Ice.Context? = nil) async throws -> (returnValue: DoubleBuffer?, outSeq: DoubleBuffer?) {
         return try await _impl._invoke(operation: "opOptDoubleBufferSeq",
                                        mode: .Normal,
@@ -2198,8 +1425,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -2320,604 +1545,93 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter inSeq: `ASeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ASeq, outSeq: ASeq)`:
-    ///
-    ///   - returnValue: `ASeq`
-    ///
-    ///   - outSeq: `ASeq`
     func opASeq(inSeq: ASeq, current: Ice.Current) async throws -> (returnValue: ASeq, outSeq: ASeq)
 
-    ///
-    /// - parameter inSeq: `AArray`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AArray, outSeq: AArray)`:
-    ///
-    ///   - returnValue: `AArray`
-    ///
-    ///   - outSeq: `AArray`
     func opAArray(inSeq: AArray, current: Ice.Current) async throws -> (returnValue: AArray, outSeq: AArray)
 
-    ///
-    /// - parameter inSeq: `AList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AList, outSeq: AList)`:
-    ///
-    ///   - returnValue: `AList`
-    ///
-    ///   - outSeq: `AList`
     func opAList(inSeq: AList, current: Ice.Current) async throws -> (returnValue: AList, outSeq: AList)
 
-    ///
-    /// - parameter inSeq: `BoolSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outSeq: `BoolSeq`
     func opBoolSeq(inSeq: BoolSeq, current: Ice.Current) async throws -> (returnValue: BoolSeq, outSeq: BoolSeq)
 
-    ///
-    /// - parameter inSeq: `ByteSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)`:
-    ///
-    ///   - returnValue: `ByteSeq`
-    ///
-    ///   - outSeq: `ByteSeq`
     func opByteSeq(inSeq: ByteSeq, current: Ice.Current) async throws -> (returnValue: ByteSeq, outSeq: ByteSeq)
 
-    ///
-    /// - parameter inSeq: `ShortSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortSeq, outSeq: ShortSeq)`:
-    ///
-    ///   - returnValue: `ShortSeq`
-    ///
-    ///   - outSeq: `ShortSeq`
     func opShortSeq(inSeq: ShortSeq, current: Ice.Current) async throws -> (returnValue: ShortSeq, outSeq: ShortSeq)
 
-    ///
-    /// - parameter inSeq: `IntSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: IntSeq, outSeq: IntSeq)`:
-    ///
-    ///   - returnValue: `IntSeq`
-    ///
-    ///   - outSeq: `IntSeq`
     func opIntSeq(inSeq: IntSeq, current: Ice.Current) async throws -> (returnValue: IntSeq, outSeq: IntSeq)
 
-    ///
-    /// - parameter inSeq: `LongSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LongSeq, outSeq: LongSeq)`:
-    ///
-    ///   - returnValue: `LongSeq`
-    ///
-    ///   - outSeq: `LongSeq`
     func opLongSeq(inSeq: LongSeq, current: Ice.Current) async throws -> (returnValue: LongSeq, outSeq: LongSeq)
 
-    ///
-    /// - parameter inSeq: `FloatSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: FloatSeq, outSeq: FloatSeq)`:
-    ///
-    ///   - returnValue: `FloatSeq`
-    ///
-    ///   - outSeq: `FloatSeq`
     func opFloatSeq(inSeq: FloatSeq, current: Ice.Current) async throws -> (returnValue: FloatSeq, outSeq: FloatSeq)
 
-    ///
-    /// - parameter inSeq: `DoubleSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: DoubleSeq, outSeq: DoubleSeq)`:
-    ///
-    ///   - returnValue: `DoubleSeq`
-    ///
-    ///   - outSeq: `DoubleSeq`
     func opDoubleSeq(inSeq: DoubleSeq, current: Ice.Current) async throws -> (returnValue: DoubleSeq, outSeq: DoubleSeq)
 
-    ///
-    /// - parameter inSeq: `StringSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringSeq, outSeq: StringSeq)`:
-    ///
-    ///   - returnValue: `StringSeq`
-    ///
-    ///   - outSeq: `StringSeq`
     func opStringSeq(inSeq: StringSeq, current: Ice.Current) async throws -> (returnValue: StringSeq, outSeq: StringSeq)
 
-    ///
-    /// - parameter inSeq: `ESeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ESeq, outSeq: ESeq)`:
-    ///
-    ///   - returnValue: `ESeq`
-    ///
-    ///   - outSeq: `ESeq`
     func opESeq(inSeq: ESeq, current: Ice.Current) async throws -> (returnValue: ESeq, outSeq: ESeq)
 
-    ///
-    /// - parameter inSeq: `SSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SSeq, outSeq: SSeq)`:
-    ///
-    ///   - returnValue: `SSeq`
-    ///
-    ///   - outSeq: `SSeq`
     func opSSeq(inSeq: SSeq, current: Ice.Current) async throws -> (returnValue: SSeq, outSeq: SSeq)
 
-    ///
-    /// - parameter inSeq: `DSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: DSeq, outSeq: DSeq)`:
-    ///
-    ///   - returnValue: `DSeq`
-    ///
-    ///   - outSeq: `DSeq`
     func opDSeq(inSeq: DSeq, current: Ice.Current) async throws -> (returnValue: DSeq, outSeq: DSeq)
 
-    ///
-    /// - parameter inSeq: `StringSeqSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringSeqSeq, outSeq: StringSeqSeq)`:
-    ///
-    ///   - returnValue: `StringSeqSeq`
-    ///
-    ///   - outSeq: `StringSeqSeq`
     func opStringSeqSeq(inSeq: StringSeqSeq, current: Ice.Current) async throws -> (returnValue: StringSeqSeq, outSeq: StringSeqSeq)
 
-    ///
-    /// - parameter inSeq: `ByteBuffer`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteBuffer, outSeq: ByteBuffer)`:
-    ///
-    ///   - returnValue: `ByteBuffer`
-    ///
-    ///   - outSeq: `ByteBuffer`
     func opByteBufferSeq(inSeq: ByteBuffer, current: Ice.Current) async throws -> (returnValue: ByteBuffer, outSeq: ByteBuffer)
 
-    ///
-    /// - parameter inSeq: `ShortBuffer`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortBuffer, outSeq: ShortBuffer)`:
-    ///
-    ///   - returnValue: `ShortBuffer`
-    ///
-    ///   - outSeq: `ShortBuffer`
     func opShortBufferSeq(inSeq: ShortBuffer, current: Ice.Current) async throws -> (returnValue: ShortBuffer, outSeq: ShortBuffer)
 
-    ///
-    /// - parameter inSeq: `IntBuffer`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: IntBuffer, outSeq: IntBuffer)`:
-    ///
-    ///   - returnValue: `IntBuffer`
-    ///
-    ///   - outSeq: `IntBuffer`
     func opIntBufferSeq(inSeq: IntBuffer, current: Ice.Current) async throws -> (returnValue: IntBuffer, outSeq: IntBuffer)
 
-    ///
-    /// - parameter inSeq: `LongBuffer`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LongBuffer, outSeq: LongBuffer)`:
-    ///
-    ///   - returnValue: `LongBuffer`
-    ///
-    ///   - outSeq: `LongBuffer`
     func opLongBufferSeq(inSeq: LongBuffer, current: Ice.Current) async throws -> (returnValue: LongBuffer, outSeq: LongBuffer)
 
-    ///
-    /// - parameter inSeq: `FloatBuffer`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: FloatBuffer, outSeq: FloatBuffer)`:
-    ///
-    ///   - returnValue: `FloatBuffer`
-    ///
-    ///   - outSeq: `FloatBuffer`
     func opFloatBufferSeq(inSeq: FloatBuffer, current: Ice.Current) async throws -> (returnValue: FloatBuffer, outSeq: FloatBuffer)
 
-    ///
-    /// - parameter inSeq: `DoubleBuffer`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: DoubleBuffer, outSeq: DoubleBuffer)`:
-    ///
-    ///   - returnValue: `DoubleBuffer`
-    ///
-    ///   - outSeq: `DoubleBuffer`
     func opDoubleBufferSeq(inSeq: DoubleBuffer, current: Ice.Current) async throws -> (returnValue: DoubleBuffer, outSeq: DoubleBuffer)
 
-    ///
-    /// - parameter inSeq: `ASeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ASeq?, outSeq: ASeq?)`:
-    ///
-    ///   - returnValue: `ASeq?`
-    ///
-    ///   - outSeq: `ASeq?`
     func opOptASeq(inSeq: ASeq?, current: Ice.Current) async throws -> (returnValue: ASeq?, outSeq: ASeq?)
 
-    ///
-    /// - parameter inSeq: `AArray?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AArray?, outSeq: AArray?)`:
-    ///
-    ///   - returnValue: `AArray?`
-    ///
-    ///   - outSeq: `AArray?`
     func opOptAArray(inSeq: AArray?, current: Ice.Current) async throws -> (returnValue: AArray?, outSeq: AArray?)
 
-    ///
-    /// - parameter inSeq: `AList?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AList?, outSeq: AList?)`:
-    ///
-    ///   - returnValue: `AList?`
-    ///
-    ///   - outSeq: `AList?`
     func opOptAList(inSeq: AList?, current: Ice.Current) async throws -> (returnValue: AList?, outSeq: AList?)
 
-    ///
-    /// - parameter inSeq: `BoolSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BoolSeq?, outSeq: BoolSeq?)`:
-    ///
-    ///   - returnValue: `BoolSeq?`
-    ///
-    ///   - outSeq: `BoolSeq?`
     func opOptBoolSeq(inSeq: BoolSeq?, current: Ice.Current) async throws -> (returnValue: BoolSeq?, outSeq: BoolSeq?)
 
-    ///
-    /// - parameter inSeq: `ByteSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteSeq?, outSeq: ByteSeq?)`:
-    ///
-    ///   - returnValue: `ByteSeq?`
-    ///
-    ///   - outSeq: `ByteSeq?`
     func opOptByteSeq(inSeq: ByteSeq?, current: Ice.Current) async throws -> (returnValue: ByteSeq?, outSeq: ByteSeq?)
 
-    ///
-    /// - parameter inSeq: `ShortSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortSeq?, outSeq: ShortSeq?)`:
-    ///
-    ///   - returnValue: `ShortSeq?`
-    ///
-    ///   - outSeq: `ShortSeq?`
     func opOptShortSeq(inSeq: ShortSeq?, current: Ice.Current) async throws -> (returnValue: ShortSeq?, outSeq: ShortSeq?)
 
-    ///
-    /// - parameter inSeq: `IntSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: IntSeq?, outSeq: IntSeq?)`:
-    ///
-    ///   - returnValue: `IntSeq?`
-    ///
-    ///   - outSeq: `IntSeq?`
     func opOptIntSeq(inSeq: IntSeq?, current: Ice.Current) async throws -> (returnValue: IntSeq?, outSeq: IntSeq?)
 
-    ///
-    /// - parameter inSeq: `LongSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LongSeq?, outSeq: LongSeq?)`:
-    ///
-    ///   - returnValue: `LongSeq?`
-    ///
-    ///   - outSeq: `LongSeq?`
     func opOptLongSeq(inSeq: LongSeq?, current: Ice.Current) async throws -> (returnValue: LongSeq?, outSeq: LongSeq?)
 
-    ///
-    /// - parameter inSeq: `FloatSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: FloatSeq?, outSeq: FloatSeq?)`:
-    ///
-    ///   - returnValue: `FloatSeq?`
-    ///
-    ///   - outSeq: `FloatSeq?`
     func opOptFloatSeq(inSeq: FloatSeq?, current: Ice.Current) async throws -> (returnValue: FloatSeq?, outSeq: FloatSeq?)
 
-    ///
-    /// - parameter inSeq: `DoubleSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: DoubleSeq?, outSeq: DoubleSeq?)`:
-    ///
-    ///   - returnValue: `DoubleSeq?`
-    ///
-    ///   - outSeq: `DoubleSeq?`
     func opOptDoubleSeq(inSeq: DoubleSeq?, current: Ice.Current) async throws -> (returnValue: DoubleSeq?, outSeq: DoubleSeq?)
 
-    ///
-    /// - parameter inSeq: `StringSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringSeq?, outSeq: StringSeq?)`:
-    ///
-    ///   - returnValue: `StringSeq?`
-    ///
-    ///   - outSeq: `StringSeq?`
     func opOptStringSeq(inSeq: StringSeq?, current: Ice.Current) async throws -> (returnValue: StringSeq?, outSeq: StringSeq?)
 
-    ///
-    /// - parameter inSeq: `ESeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ESeq?, outSeq: ESeq?)`:
-    ///
-    ///   - returnValue: `ESeq?`
-    ///
-    ///   - outSeq: `ESeq?`
     func opOptESeq(inSeq: ESeq?, current: Ice.Current) async throws -> (returnValue: ESeq?, outSeq: ESeq?)
 
-    ///
-    /// - parameter inSeq: `SSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SSeq?, outSeq: SSeq?)`:
-    ///
-    ///   - returnValue: `SSeq?`
-    ///
-    ///   - outSeq: `SSeq?`
     func opOptSSeq(inSeq: SSeq?, current: Ice.Current) async throws -> (returnValue: SSeq?, outSeq: SSeq?)
 
-    ///
-    /// - parameter inSeq: `DSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: DSeq?, outSeq: DSeq?)`:
-    ///
-    ///   - returnValue: `DSeq?`
-    ///
-    ///   - outSeq: `DSeq?`
     func opOptDSeq(inSeq: DSeq?, current: Ice.Current) async throws -> (returnValue: DSeq?, outSeq: DSeq?)
 
-    ///
-    /// - parameter inSeq: `StringSeqSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringSeqSeq?, outSeq: StringSeqSeq?)`:
-    ///
-    ///   - returnValue: `StringSeqSeq?`
-    ///
-    ///   - outSeq: `StringSeqSeq?`
     func opOptStringSeqSeq(inSeq: StringSeqSeq?, current: Ice.Current) async throws -> (returnValue: StringSeqSeq?, outSeq: StringSeqSeq?)
 
-    ///
-    /// - parameter inSeq: `ByteBuffer?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteBuffer?, outSeq: ByteBuffer?)`:
-    ///
-    ///   - returnValue: `ByteBuffer?`
-    ///
-    ///   - outSeq: `ByteBuffer?`
     func opOptByteBufferSeq(inSeq: ByteBuffer?, current: Ice.Current) async throws -> (returnValue: ByteBuffer?, outSeq: ByteBuffer?)
 
-    ///
-    /// - parameter inSeq: `ShortBuffer?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortBuffer?, outSeq: ShortBuffer?)`:
-    ///
-    ///   - returnValue: `ShortBuffer?`
-    ///
-    ///   - outSeq: `ShortBuffer?`
     func opOptShortBufferSeq(inSeq: ShortBuffer?, current: Ice.Current) async throws -> (returnValue: ShortBuffer?, outSeq: ShortBuffer?)
 
-    ///
-    /// - parameter inSeq: `IntBuffer?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: IntBuffer?, outSeq: IntBuffer?)`:
-    ///
-    ///   - returnValue: `IntBuffer?`
-    ///
-    ///   - outSeq: `IntBuffer?`
     func opOptIntBufferSeq(inSeq: IntBuffer?, current: Ice.Current) async throws -> (returnValue: IntBuffer?, outSeq: IntBuffer?)
 
-    ///
-    /// - parameter inSeq: `LongBuffer?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LongBuffer?, outSeq: LongBuffer?)`:
-    ///
-    ///   - returnValue: `LongBuffer?`
-    ///
-    ///   - outSeq: `LongBuffer?`
     func opOptLongBufferSeq(inSeq: LongBuffer?, current: Ice.Current) async throws -> (returnValue: LongBuffer?, outSeq: LongBuffer?)
 
-    ///
-    /// - parameter inSeq: `FloatBuffer?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: FloatBuffer?, outSeq: FloatBuffer?)`:
-    ///
-    ///   - returnValue: `FloatBuffer?`
-    ///
-    ///   - outSeq: `FloatBuffer?`
     func opOptFloatBufferSeq(inSeq: FloatBuffer?, current: Ice.Current) async throws -> (returnValue: FloatBuffer?, outSeq: FloatBuffer?)
 
-    ///
-    /// - parameter inSeq: `DoubleBuffer?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: DoubleBuffer?, outSeq: DoubleBuffer?)`:
-    ///
-    ///   - returnValue: `DoubleBuffer?`
-    ///
-    ///   - outSeq: `DoubleBuffer?`
     func opOptDoubleBufferSeq(inSeq: DoubleBuffer?, current: Ice.Current) async throws -> (returnValue: DoubleBuffer?, outSeq: DoubleBuffer?)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - opASeq: 
-///
-///  - opAArray: 
-///
-///  - opAList: 
-///
-///  - opBoolSeq: 
-///
-///  - opByteSeq: 
-///
-///  - opShortSeq: 
-///
-///  - opIntSeq: 
-///
-///  - opLongSeq: 
-///
-///  - opFloatSeq: 
-///
-///  - opDoubleSeq: 
-///
-///  - opStringSeq: 
-///
-///  - opESeq: 
-///
-///  - opSSeq: 
-///
-///  - opDSeq: 
-///
-///  - opStringSeqSeq: 
-///
-///  - opByteBufferSeq: 
-///
-///  - opShortBufferSeq: 
-///
-///  - opIntBufferSeq: 
-///
-///  - opLongBufferSeq: 
-///
-///  - opFloatBufferSeq: 
-///
-///  - opDoubleBufferSeq: 
-///
-///  - opOptASeq: 
-///
-///  - opOptAArray: 
-///
-///  - opOptAList: 
-///
-///  - opOptBoolSeq: 
-///
-///  - opOptByteSeq: 
-///
-///  - opOptShortSeq: 
-///
-///  - opOptIntSeq: 
-///
-///  - opOptLongSeq: 
-///
-///  - opOptFloatSeq: 
-///
-///  - opOptDoubleSeq: 
-///
-///  - opOptStringSeq: 
-///
-///  - opOptESeq: 
-///
-///  - opOptSSeq: 
-///
-///  - opOptDSeq: 
-///
-///  - opOptStringSeqSeq: 
-///
-///  - opOptByteBufferSeq: 
-///
-///  - opOptShortBufferSeq: 
-///
-///  - opOptIntBufferSeq: 
-///
-///  - opOptLongBufferSeq: 
-///
-///  - opOptFloatBufferSeq: 
-///
-///  - opOptDoubleBufferSeq: 
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_opASeq(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

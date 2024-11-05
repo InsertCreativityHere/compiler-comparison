@@ -22,49 +22,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - getAdapterName: 
-///
-///  - getAdapterNameAsync: 
-///
-///  - getConnection: 
-///
-///  - getConnectionAsync: 
-///
-///  - getIdentity: 
-///
-///  - getIdentityAsync: 
-///
-///  - getFacet: 
-///
-///  - getFacetAsync: 
-///
-///  - getOperation: 
-///
-///  - getOperationAsync: 
-///
-///  - getMode: 
-///
-///  - getModeAsync: 
-///
-///  - getContext: 
-///
-///  - getContextAsync: 
-///
-///  - getRequestId: 
-///
-///  - getRequestIdAsync: 
-///
-///  - getEncoding: 
-///
-///  - getEncodingAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -152,54 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - getAdapterName: 
-///
-///  - getAdapterNameAsync: 
-///
-///  - getConnection: 
-///
-///  - getConnectionAsync: 
-///
-///  - getIdentity: 
-///
-///  - getIdentityAsync: 
-///
-///  - getFacet: 
-///
-///  - getFacetAsync: 
-///
-///  - getOperation: 
-///
-///  - getOperationAsync: 
-///
-///  - getMode: 
-///
-///  - getModeAsync: 
-///
-///  - getContext: 
-///
-///  - getContextAsync: 
-///
-///  - getRequestId: 
-///
-///  - getRequestIdAsync: 
-///
-///  - getEncoding: 
-///
-///  - getEncodingAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getAdapterName(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getAdapterName",
                                        mode: .Normal,
@@ -210,10 +120,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getConnection(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getConnection",
                                        mode: .Normal,
@@ -224,10 +130,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.Identity`
     func getIdentity(context: Ice.Context? = nil) async throws -> Ice.Identity {
         return try await _impl._invoke(operation: "getIdentity",
                                        mode: .Normal,
@@ -238,10 +140,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getFacet(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getFacet",
                                        mode: .Normal,
@@ -252,10 +150,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getOperation(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getOperation",
                                        mode: .Normal,
@@ -266,10 +160,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getMode(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getMode",
                                        mode: .Normal,
@@ -280,10 +170,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.Context`
     func getContext(context: Ice.Context? = nil) async throws -> Ice.Context {
         return try await _impl._invoke(operation: "getContext",
                                        mode: .Normal,
@@ -294,10 +180,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func getRequestId(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getRequestId",
                                        mode: .Normal,
@@ -308,10 +190,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getEncoding(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getEncoding",
                                        mode: .Normal,
@@ -322,8 +200,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -378,88 +254,27 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getAdapterName(current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getConnection(current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.Identity`
     func getIdentity(current: Ice.Current) async throws -> Ice.Identity
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getFacet(current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getOperation(current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getMode(current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.Context`
     func getContext(current: Ice.Current) async throws -> Ice.Context
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func getRequestId(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getEncoding(current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - getAdapterName: 
-///
-///  - getConnection: 
-///
-///  - getIdentity: 
-///
-///  - getFacet: 
-///
-///  - getOperation: 
-///
-///  - getMode: 
-///
-///  - getContext: 
-///
-///  - getRequestId: 
-///
-///  - getEncoding: 
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_getAdapterName(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

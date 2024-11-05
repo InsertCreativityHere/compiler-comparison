@@ -22,13 +22,6 @@ public struct ClockTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Clock"
 }
 
-/// ClockPrx overview.
-///
-/// ClockPrx Methods:
-///
-///  - tick: 
-///
-///  - tickAsync: 
 public protocol ClockPrx: Ice.ObjectPrx {}
 
 private final class ClockPrxI: Ice.ObjectPrxI, ClockPrx {
@@ -116,18 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// ClockPrx overview.
-///
-/// ClockPrx Methods:
-///
-///  - tick: 
-///
-///  - tickAsync: 
 public extension ClockPrx {
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func tick(_ iceP_time: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "tick",
                                        mode: .Normal,
@@ -167,18 +149,9 @@ public struct ClockDisp: Ice.Dispatcher {
 }
 
 public protocol Clock {
-    ///
-    /// - parameter time: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func tick(time: Swift.String, current: Ice.Current) async throws
 }
 
-/// Clock overview.
-///
-/// Clock Methods:
-///
-///  - tick: 
 extension Clock {
     public func _iceD_tick(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

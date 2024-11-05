@@ -1,14 +1,3 @@
-% MyObjectPrx   Summary of MyObjectPrx
-%
-% MyObjectPrx Methods:
-%   widen
-%   widenAsync
-%   narrow
-%   narrowAsync
-%   shutdown
-%   shutdownAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -16,14 +5,6 @@
 classdef MyObjectPrx < Ice.ObjectPrx
     methods
         function result = widen(obj, msg, varargin)
-            % widen
-            %
-            % Parameters:
-            %   msg (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (char)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(msg);
             obj.iceEndWriteParams(os_);
@@ -33,14 +14,6 @@ classdef MyObjectPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = widenAsync(obj, msg, varargin)
-            % widenAsync
-            %
-            % Parameters:
-            %   msg (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(msg);
             obj.iceEndWriteParams(os_);
@@ -53,14 +26,6 @@ classdef MyObjectPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('widen', 0, true, os_, 1, @unmarshal, Test.MyObjectPrx.widen_ex_, varargin{:});
         end
         function result = narrow(obj, wmsg, varargin)
-            % narrow
-            %
-            % Parameters:
-            %   wmsg (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (char)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(wmsg);
             obj.iceEndWriteParams(os_);
@@ -70,14 +35,6 @@ classdef MyObjectPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = narrowAsync(obj, wmsg, varargin)
-            % narrowAsync
-            %
-            % Parameters:
-            %   wmsg (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(wmsg);
             obj.iceEndWriteParams(os_);
@@ -90,21 +47,9 @@ classdef MyObjectPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('narrow', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
     end

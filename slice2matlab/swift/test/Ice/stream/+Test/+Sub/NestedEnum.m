@@ -1,9 +1,3 @@
-% NestedEnum   Summary of NestedEnum
-%
-% NestedEnum Properties:
-%   nestedEnum1
-%   nestedEnum2
-%   nestedEnum3
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

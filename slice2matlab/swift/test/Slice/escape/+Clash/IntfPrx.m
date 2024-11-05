@@ -1,32 +1,3 @@
-% IntfPrx   Summary of IntfPrx
-%
-% IntfPrx Methods:
-%   context
-%   contextAsync
-%   current
-%   currentAsync
-%   response
-%   responseAsync
-%   upCast
-%   upCastAsync
-%   typeId
-%   typeIdAsync
-%   del
-%   delAsync
-%   cookie
-%   cookieAsync
-%   sync
-%   syncAsync
-%   inS
-%   inSAsync
-%   istr
-%   istrAsync
-%   op
-%   opAsync
-%   opOut
-%   opOutAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Clash.ice by slice2matlab version 3.8.0-alpha.0
@@ -34,202 +5,66 @@
 classdef IntfPrx < Ice.ObjectPrx
     methods
         function context(obj, varargin)
-            % context
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('context', 0, false, [], false, {}, varargin{:});
         end
         function r_ = contextAsync(obj, varargin)
-            % contextAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('context', 0, false, [], 0, [], {}, varargin{:});
         end
         function current(obj, varargin)
-            % current
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('current', 0, false, [], false, {}, varargin{:});
         end
         function r_ = currentAsync(obj, varargin)
-            % currentAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('current', 0, false, [], 0, [], {}, varargin{:});
         end
         function response(obj, varargin)
-            % response
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('response', 0, false, [], false, {}, varargin{:});
         end
         function r_ = responseAsync(obj, varargin)
-            % responseAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('response', 0, false, [], 0, [], {}, varargin{:});
         end
         function upCast(obj, varargin)
-            % upCast
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('upCast', 0, false, [], false, {}, varargin{:});
         end
         function r_ = upCastAsync(obj, varargin)
-            % upCastAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('upCast', 0, false, [], 0, [], {}, varargin{:});
         end
         function typeId(obj, varargin)
-            % typeId
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('typeId', 0, false, [], false, {}, varargin{:});
         end
         function r_ = typeIdAsync(obj, varargin)
-            % typeIdAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('typeId', 0, false, [], 0, [], {}, varargin{:});
         end
         function del(obj, varargin)
-            % del
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('del', 0, false, [], false, {}, varargin{:});
         end
         function r_ = delAsync(obj, varargin)
-            % delAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('del', 0, false, [], 0, [], {}, varargin{:});
         end
         function cookie(obj, varargin)
-            % cookie
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('cookie', 0, false, [], false, {}, varargin{:});
         end
         function r_ = cookieAsync(obj, varargin)
-            % cookieAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('cookie', 0, false, [], 0, [], {}, varargin{:});
         end
         function sync(obj, varargin)
-            % sync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('sync', 0, false, [], false, {}, varargin{:});
         end
         function r_ = syncAsync(obj, varargin)
-            % syncAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('sync', 0, false, [], 0, [], {}, varargin{:});
         end
         function inS(obj, varargin)
-            % inS
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('inS', 0, false, [], false, {}, varargin{:});
         end
         function r_ = inSAsync(obj, varargin)
-            % inSAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('inS', 0, false, [], 0, [], {}, varargin{:});
         end
         function istr(obj, varargin)
-            % istr
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('istr', 0, false, [], false, {}, varargin{:});
         end
         function r_ = istrAsync(obj, varargin)
-            % istrAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('istr', 0, false, [], 0, [], {}, varargin{:});
         end
         function op(obj, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, varargin)
-            % op
-            %
-            % Parameters:
-            %   context (char)
-            %   current (char)
-            %   response (char)
-            %   ex (char)
-            %   sent (char)
-            %   cookie (char)
-            %   sync (char)
-            %   result (char)
-            %   istr (char)
-            %   ostr (char)
-            %   proxy (char)
-            %   context_ (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(context);
             os_.writeString(current);
@@ -246,24 +81,6 @@ classdef IntfPrx < Ice.ObjectPrx
             obj.iceInvoke('op', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = opAsync(obj, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, varargin)
-            % opAsync
-            %
-            % Parameters:
-            %   context (char)
-            %   current (char)
-            %   response (char)
-            %   ex (char)
-            %   sent (char)
-            %   cookie (char)
-            %   sync (char)
-            %   result (char)
-            %   istr (char)
-            %   ostr (char)
-            %   proxy (char)
-            %   context_ (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(context);
             os_.writeString(current);
@@ -280,24 +97,6 @@ classdef IntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('op', 0, false, os_, 0, [], {}, varargin{:});
         end
         function [context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy] = opOut(obj, varargin)
-            % opOut
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   context (char)
-            %   current (char)
-            %   response (char)
-            %   ex (char)
-            %   sent (char)
-            %   cookie (char)
-            %   sync (char)
-            %   result (char)
-            %   istr (char)
-            %   ostr (char)
-            %   proxy (char)
-            
             is_ = obj.iceInvoke('opOut', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             context = is_.readString();
@@ -314,13 +113,6 @@ classdef IntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opOutAsync(obj, varargin)
-            % opOutAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 context = is_.readString();

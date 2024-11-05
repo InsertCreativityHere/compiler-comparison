@@ -1,10 +1,3 @@
-% SinglePrx   Summary of SinglePrx
-%
-% SinglePrx Methods:
-%   event
-%   eventAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Single.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,26 +5,12 @@
 classdef SinglePrx < Ice.ObjectPrx
     methods
         function event(obj, i, varargin)
-            % event
-            %
-            % Parameters:
-            %   i (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(i);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('event', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = eventAsync(obj, i, varargin)
-            % eventAsync
-            %
-            % Parameters:
-            %   i (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(i);
             obj.iceEndWriteParams(os_);

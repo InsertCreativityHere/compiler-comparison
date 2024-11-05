@@ -1,12 +1,3 @@
-% ServerManagerPrx   Summary of ServerManagerPrx
-%
-% ServerManagerPrx Methods:
-%   startServer
-%   startServerAsync
-%   shutdown
-%   shutdownAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -14,39 +5,15 @@
 classdef ServerManagerPrx < Ice.ObjectPrx
     methods
         function startServer(obj, varargin)
-            % startServer
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('startServer', 0, false, [], false, {}, varargin{:});
         end
         function r_ = startServerAsync(obj, varargin)
-            % startServerAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('startServer', 0, false, [], 0, [], {}, varargin{:});
         end
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
     end

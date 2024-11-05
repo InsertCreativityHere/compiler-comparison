@@ -349,11 +349,8 @@ public struct CSeqHelper {
 }
 
 public enum E1: Swift.UInt8 {
-    /// v1
     case v1 = 0
-    /// v2
     case v2 = 1
-    /// v3
     case v3 = 2
     public init() {
         self = .v1
@@ -1767,57 +1764,6 @@ public struct InnerTestInner2ITraits: Ice.SliceTraits {
     public static let staticId = "::Inner::Test::Inner2::I"
 }
 
-/// IPrx overview.
-///
-/// IPrx Methods:
-///
-///  - opS: 
-///
-///  - opSAsync: 
-///
-///  - opSSeq: 
-///
-///  - opSSeqAsync: 
-///
-///  - opSMap: 
-///
-///  - opSMapAsync: 
-///
-///  - opC: 
-///
-///  - opCAsync: 
-///
-///  - opCSeq: 
-///
-///  - opCSeqAsync: 
-///
-///  - opCMap: 
-///
-///  - opCMapAsync: 
-///
-///  - opE1: 
-///
-///  - opE1Async: 
-///
-///  - opS1: 
-///
-///  - opS1Async: 
-///
-///  - opC1: 
-///
-///  - opC1Async: 
-///
-///  - opS1Seq: 
-///
-///  - opS1SeqAsync: 
-///
-///  - opS1Map: 
-///
-///  - opS1MapAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol IPrx: Ice.ObjectPrx {}
 
 private final class IPrxI: Ice.ObjectPrxI, IPrx {
@@ -1905,68 +1851,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// IPrx overview.
-///
-/// IPrx Methods:
-///
-///  - opS: 
-///
-///  - opSAsync: 
-///
-///  - opSSeq: 
-///
-///  - opSSeqAsync: 
-///
-///  - opSMap: 
-///
-///  - opSMapAsync: 
-///
-///  - opC: 
-///
-///  - opCAsync: 
-///
-///  - opCSeq: 
-///
-///  - opCSeqAsync: 
-///
-///  - opCMap: 
-///
-///  - opCMapAsync: 
-///
-///  - opE1: 
-///
-///  - opE1Async: 
-///
-///  - opS1: 
-///
-///  - opS1Async: 
-///
-///  - opC1: 
-///
-///  - opC1Async: 
-///
-///  - opS1Seq: 
-///
-///  - opS1SeqAsync: 
-///
-///  - opS1Map: 
-///
-///  - opS1MapAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension IPrx {
-    ///
-    /// - parameter _: `S`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: S, s2: S)`:
-    ///
-    ///   - returnValue: `S`
-    ///
-    ///   - s2: `S`
     func opS(_ iceP_s1: S, context: Ice.Context? = nil) async throws -> (returnValue: S, s2: S) {
         return try await _impl._invoke(operation: "opS",
                                        mode: .Normal,
@@ -1981,16 +1866,6 @@ public extension IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SSeq, s2: SSeq)`:
-    ///
-    ///   - returnValue: `SSeq`
-    ///
-    ///   - s2: `SSeq`
     func opSSeq(_ iceP_s1: SSeq, context: Ice.Context? = nil) async throws -> (returnValue: SSeq, s2: SSeq) {
         return try await _impl._invoke(operation: "opSSeq",
                                        mode: .Normal,
@@ -2005,16 +1880,6 @@ public extension IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SMap, s2: SMap)`:
-    ///
-    ///   - returnValue: `SMap`
-    ///
-    ///   - s2: `SMap`
     func opSMap(_ iceP_s1: SMap, context: Ice.Context? = nil) async throws -> (returnValue: SMap, s2: SMap) {
         return try await _impl._invoke(operation: "opSMap",
                                        mode: .Normal,
@@ -2029,16 +1894,6 @@ public extension IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `C?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: C?, c2: C?)`:
-    ///
-    ///   - returnValue: `C?`
-    ///
-    ///   - c2: `C?`
     func opC(_ iceP_c1: C?, context: Ice.Context? = nil) async throws -> (returnValue: C?, c2: C?) {
         return try await _impl._invoke(operation: "opC",
                                        mode: .Normal,
@@ -2057,16 +1912,6 @@ public extension IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `CSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CSeq, s2: CSeq)`:
-    ///
-    ///   - returnValue: `CSeq`
-    ///
-    ///   - s2: `CSeq`
     func opCSeq(_ iceP_s1: CSeq, context: Ice.Context? = nil) async throws -> (returnValue: CSeq, s2: CSeq) {
         return try await _impl._invoke(operation: "opCSeq",
                                        mode: .Normal,
@@ -2083,16 +1928,6 @@ public extension IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `CMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CMap, c2: CMap)`:
-    ///
-    ///   - returnValue: `CMap`
-    ///
-    ///   - c2: `CMap`
     func opCMap(_ iceP_c1: CMap, context: Ice.Context? = nil) async throws -> (returnValue: CMap, c2: CMap) {
         return try await _impl._invoke(operation: "opCMap",
                                        mode: .Normal,
@@ -2109,12 +1944,6 @@ public extension IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `E1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `E1`
     func opE1(_ iceP_E1: E1, context: Ice.Context? = nil) async throws -> E1 {
         return try await _impl._invoke(operation: "opE1",
                                        mode: .Normal,
@@ -2128,12 +1957,6 @@ public extension IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `S1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `S1`
     func opS1(_ iceP_S1: S1, context: Ice.Context? = nil) async throws -> S1 {
         return try await _impl._invoke(operation: "opS1",
                                        mode: .Normal,
@@ -2147,12 +1970,6 @@ public extension IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `C1?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `C1?`
     func opC1(_ iceP_C1: C1?, context: Ice.Context? = nil) async throws -> C1? {
         return try await _impl._invoke(operation: "opC1",
                                        mode: .Normal,
@@ -2169,12 +1986,6 @@ public extension IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `S1Seq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `S1Seq`
     func opS1Seq(_ iceP_S1Seq: S1Seq, context: Ice.Context? = nil) async throws -> S1Seq {
         return try await _impl._invoke(operation: "opS1Seq",
                                        mode: .Normal,
@@ -2188,12 +1999,6 @@ public extension IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `S1Map`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `S1Map`
     func opS1Map(_ iceP_S1Map: S1Map, context: Ice.Context? = nil) async throws -> S1Map {
         return try await _impl._invoke(operation: "opS1Map",
                                        mode: .Normal,
@@ -2207,8 +2012,6 @@ public extension IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -2216,37 +2019,6 @@ public extension IPrx {
     }
 }
 
-/// InnerInner2IPrx overview.
-///
-/// InnerInner2IPrx Methods:
-///
-///  - opS: 
-///
-///  - opSAsync: 
-///
-///  - opSSeq: 
-///
-///  - opSSeqAsync: 
-///
-///  - opSMap: 
-///
-///  - opSMapAsync: 
-///
-///  - opC: 
-///
-///  - opCAsync: 
-///
-///  - opCSeq: 
-///
-///  - opCSeqAsync: 
-///
-///  - opCMap: 
-///
-///  - opCMapAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol InnerInner2IPrx: Ice.ObjectPrx {}
 
 private final class InnerInner2IPrxI: Ice.ObjectPrxI, InnerInner2IPrx {
@@ -2334,48 +2106,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// InnerInner2IPrx overview.
-///
-/// InnerInner2IPrx Methods:
-///
-///  - opS: 
-///
-///  - opSAsync: 
-///
-///  - opSSeq: 
-///
-///  - opSSeqAsync: 
-///
-///  - opSMap: 
-///
-///  - opSMapAsync: 
-///
-///  - opC: 
-///
-///  - opCAsync: 
-///
-///  - opCSeq: 
-///
-///  - opCSeqAsync: 
-///
-///  - opCMap: 
-///
-///  - opCMapAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension InnerInner2IPrx {
-    ///
-    /// - parameter _: `InnerInner2S`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)`:
-    ///
-    ///   - returnValue: `InnerInner2S`
-    ///
-    ///   - s2: `InnerInner2S`
     func opS(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
         return try await _impl._invoke(operation: "opS",
                                        mode: .Normal,
@@ -2390,16 +2121,6 @@ public extension InnerInner2IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `InnerInner2SSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)`:
-    ///
-    ///   - returnValue: `InnerInner2SSeq`
-    ///
-    ///   - s2: `InnerInner2SSeq`
     func opSSeq(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
         return try await _impl._invoke(operation: "opSSeq",
                                        mode: .Normal,
@@ -2414,16 +2135,6 @@ public extension InnerInner2IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `InnerInner2SMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)`:
-    ///
-    ///   - returnValue: `InnerInner2SMap`
-    ///
-    ///   - s2: `InnerInner2SMap`
     func opSMap(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
         return try await _impl._invoke(operation: "opSMap",
                                        mode: .Normal,
@@ -2438,16 +2149,6 @@ public extension InnerInner2IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `InnerInner2C?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)`:
-    ///
-    ///   - returnValue: `InnerInner2C?`
-    ///
-    ///   - c2: `InnerInner2C?`
     func opC(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
         return try await _impl._invoke(operation: "opC",
                                        mode: .Normal,
@@ -2466,16 +2167,6 @@ public extension InnerInner2IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `InnerInner2CSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)`:
-    ///
-    ///   - returnValue: `InnerInner2CSeq`
-    ///
-    ///   - c2: `InnerInner2CSeq`
     func opCSeq(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
         return try await _impl._invoke(operation: "opCSeq",
                                        mode: .Normal,
@@ -2492,16 +2183,6 @@ public extension InnerInner2IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `InnerInner2CMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)`:
-    ///
-    ///   - returnValue: `InnerInner2CMap`
-    ///
-    ///   - c2: `InnerInner2CMap`
     func opCMap(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
         return try await _impl._invoke(operation: "opCMap",
                                        mode: .Normal,
@@ -2518,8 +2199,6 @@ public extension InnerInner2IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -2527,37 +2206,6 @@ public extension InnerInner2IPrx {
     }
 }
 
-/// InnerIPrx overview.
-///
-/// InnerIPrx Methods:
-///
-///  - opS: 
-///
-///  - opSAsync: 
-///
-///  - opSSeq: 
-///
-///  - opSSeqAsync: 
-///
-///  - opSMap: 
-///
-///  - opSMapAsync: 
-///
-///  - opC: 
-///
-///  - opCAsync: 
-///
-///  - opCSeq: 
-///
-///  - opCSeqAsync: 
-///
-///  - opCMap: 
-///
-///  - opCMapAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol InnerIPrx: Ice.ObjectPrx {}
 
 private final class InnerIPrxI: Ice.ObjectPrxI, InnerIPrx {
@@ -2645,48 +2293,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// InnerIPrx overview.
-///
-/// InnerIPrx Methods:
-///
-///  - opS: 
-///
-///  - opSAsync: 
-///
-///  - opSSeq: 
-///
-///  - opSSeqAsync: 
-///
-///  - opSMap: 
-///
-///  - opSMapAsync: 
-///
-///  - opC: 
-///
-///  - opCAsync: 
-///
-///  - opCSeq: 
-///
-///  - opCSeqAsync: 
-///
-///  - opCMap: 
-///
-///  - opCMapAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension InnerIPrx {
-    ///
-    /// - parameter _: `InnerInner2S`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)`:
-    ///
-    ///   - returnValue: `InnerInner2S`
-    ///
-    ///   - s2: `InnerInner2S`
     func opS(_ iceP_s1: InnerInner2S, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S) {
         return try await _impl._invoke(operation: "opS",
                                        mode: .Normal,
@@ -2701,16 +2308,6 @@ public extension InnerIPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `InnerInner2SSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)`:
-    ///
-    ///   - returnValue: `InnerInner2SSeq`
-    ///
-    ///   - s2: `InnerInner2SSeq`
     func opSSeq(_ iceP_s1: InnerInner2SSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq) {
         return try await _impl._invoke(operation: "opSSeq",
                                        mode: .Normal,
@@ -2725,16 +2322,6 @@ public extension InnerIPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `InnerInner2SMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)`:
-    ///
-    ///   - returnValue: `InnerInner2SMap`
-    ///
-    ///   - s2: `InnerInner2SMap`
     func opSMap(_ iceP_s1: InnerInner2SMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap) {
         return try await _impl._invoke(operation: "opSMap",
                                        mode: .Normal,
@@ -2749,16 +2336,6 @@ public extension InnerIPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `InnerInner2C?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)`:
-    ///
-    ///   - returnValue: `InnerInner2C?`
-    ///
-    ///   - c2: `InnerInner2C?`
     func opC(_ iceP_c1: InnerInner2C?, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?) {
         return try await _impl._invoke(operation: "opC",
                                        mode: .Normal,
@@ -2777,16 +2354,6 @@ public extension InnerIPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `InnerInner2CSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)`:
-    ///
-    ///   - returnValue: `InnerInner2CSeq`
-    ///
-    ///   - c2: `InnerInner2CSeq`
     func opCSeq(_ iceP_c1: InnerInner2CSeq, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq) {
         return try await _impl._invoke(operation: "opCSeq",
                                        mode: .Normal,
@@ -2803,16 +2370,6 @@ public extension InnerIPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `InnerInner2CMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)`:
-    ///
-    ///   - returnValue: `InnerInner2CMap`
-    ///
-    ///   - c2: `InnerInner2CMap`
     func opCMap(_ iceP_c1: InnerInner2CMap, context: Ice.Context? = nil) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap) {
         return try await _impl._invoke(operation: "opCMap",
                                        mode: .Normal,
@@ -2829,8 +2386,6 @@ public extension InnerIPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -2838,37 +2393,6 @@ public extension InnerIPrx {
     }
 }
 
-/// InnerTestInner2IPrx overview.
-///
-/// InnerTestInner2IPrx Methods:
-///
-///  - opS: 
-///
-///  - opSAsync: 
-///
-///  - opSSeq: 
-///
-///  - opSSeqAsync: 
-///
-///  - opSMap: 
-///
-///  - opSMapAsync: 
-///
-///  - opC: 
-///
-///  - opCAsync: 
-///
-///  - opCSeq: 
-///
-///  - opCSeqAsync: 
-///
-///  - opCMap: 
-///
-///  - opCMapAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol InnerTestInner2IPrx: Ice.ObjectPrx {}
 
 private final class InnerTestInner2IPrxI: Ice.ObjectPrxI, InnerTestInner2IPrx {
@@ -2956,48 +2480,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// InnerTestInner2IPrx overview.
-///
-/// InnerTestInner2IPrx Methods:
-///
-///  - opS: 
-///
-///  - opSAsync: 
-///
-///  - opSSeq: 
-///
-///  - opSSeqAsync: 
-///
-///  - opSMap: 
-///
-///  - opSMapAsync: 
-///
-///  - opC: 
-///
-///  - opCAsync: 
-///
-///  - opCSeq: 
-///
-///  - opCSeqAsync: 
-///
-///  - opCMap: 
-///
-///  - opCMapAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension InnerTestInner2IPrx {
-    ///
-    /// - parameter _: `S`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: S, s2: S)`:
-    ///
-    ///   - returnValue: `S`
-    ///
-    ///   - s2: `S`
     func opS(_ iceP_s1: S, context: Ice.Context? = nil) async throws -> (returnValue: S, s2: S) {
         return try await _impl._invoke(operation: "opS",
                                        mode: .Normal,
@@ -3012,16 +2495,6 @@ public extension InnerTestInner2IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SSeq, s2: SSeq)`:
-    ///
-    ///   - returnValue: `SSeq`
-    ///
-    ///   - s2: `SSeq`
     func opSSeq(_ iceP_s1: SSeq, context: Ice.Context? = nil) async throws -> (returnValue: SSeq, s2: SSeq) {
         return try await _impl._invoke(operation: "opSSeq",
                                        mode: .Normal,
@@ -3036,16 +2509,6 @@ public extension InnerTestInner2IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `SMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SMap, s2: SMap)`:
-    ///
-    ///   - returnValue: `SMap`
-    ///
-    ///   - s2: `SMap`
     func opSMap(_ iceP_s1: SMap, context: Ice.Context? = nil) async throws -> (returnValue: SMap, s2: SMap) {
         return try await _impl._invoke(operation: "opSMap",
                                        mode: .Normal,
@@ -3060,16 +2523,6 @@ public extension InnerTestInner2IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `C?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: C?, c2: C?)`:
-    ///
-    ///   - returnValue: `C?`
-    ///
-    ///   - c2: `C?`
     func opC(_ iceP_c1: C?, context: Ice.Context? = nil) async throws -> (returnValue: C?, c2: C?) {
         return try await _impl._invoke(operation: "opC",
                                        mode: .Normal,
@@ -3088,16 +2541,6 @@ public extension InnerTestInner2IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `CSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CSeq, c2: CSeq)`:
-    ///
-    ///   - returnValue: `CSeq`
-    ///
-    ///   - c2: `CSeq`
     func opCSeq(_ iceP_c1: CSeq, context: Ice.Context? = nil) async throws -> (returnValue: CSeq, c2: CSeq) {
         return try await _impl._invoke(operation: "opCSeq",
                                        mode: .Normal,
@@ -3114,16 +2557,6 @@ public extension InnerTestInner2IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `CMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CMap, c2: CMap)`:
-    ///
-    ///   - returnValue: `CMap`
-    ///
-    ///   - c2: `CMap`
     func opCMap(_ iceP_c1: CMap, context: Ice.Context? = nil) async throws -> (returnValue: CMap, c2: CMap) {
         return try await _impl._invoke(operation: "opCMap",
                                        mode: .Normal,
@@ -3140,8 +2573,6 @@ public extension InnerTestInner2IPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -3420,120 +2851,28 @@ public struct IDisp: Ice.Dispatcher {
 }
 
 public protocol I {
-    ///
-    /// - parameter s1: `S`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: S, s2: S)`:
-    ///
-    ///   - returnValue: `S`
-    ///
-    ///   - s2: `S`
     func opS(s1: S, current: Ice.Current) async throws -> (returnValue: S, s2: S)
 
-    ///
-    /// - parameter s1: `SSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SSeq, s2: SSeq)`:
-    ///
-    ///   - returnValue: `SSeq`
-    ///
-    ///   - s2: `SSeq`
     func opSSeq(s1: SSeq, current: Ice.Current) async throws -> (returnValue: SSeq, s2: SSeq)
 
-    ///
-    /// - parameter s1: `SMap`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SMap, s2: SMap)`:
-    ///
-    ///   - returnValue: `SMap`
-    ///
-    ///   - s2: `SMap`
     func opSMap(s1: SMap, current: Ice.Current) async throws -> (returnValue: SMap, s2: SMap)
 
-    ///
-    /// - parameter c1: `C?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: C?, c2: C?)`:
-    ///
-    ///   - returnValue: `C?`
-    ///
-    ///   - c2: `C?`
     func opC(c1: C?, current: Ice.Current) async throws -> (returnValue: C?, c2: C?)
 
-    ///
-    /// - parameter s1: `CSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: CSeq, s2: CSeq)`:
-    ///
-    ///   - returnValue: `CSeq`
-    ///
-    ///   - s2: `CSeq`
     func opCSeq(s1: CSeq, current: Ice.Current) async throws -> (returnValue: CSeq, s2: CSeq)
 
-    ///
-    /// - parameter c1: `CMap`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: CMap, c2: CMap)`:
-    ///
-    ///   - returnValue: `CMap`
-    ///
-    ///   - c2: `CMap`
     func opCMap(c1: CMap, current: Ice.Current) async throws -> (returnValue: CMap, c2: CMap)
 
-    ///
-    /// - parameter E1: `E1`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `E1`
     func opE1(E1: E1, current: Ice.Current) async throws -> E1
 
-    ///
-    /// - parameter S1: `S1`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `S1`
     func opS1(S1: S1, current: Ice.Current) async throws -> S1
 
-    ///
-    /// - parameter C1: `C1?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `C1?`
     func opC1(C1: C1?, current: Ice.Current) async throws -> C1?
 
-    ///
-    /// - parameter S1Seq: `S1Seq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `S1Seq`
     func opS1Seq(S1Seq: S1Seq, current: Ice.Current) async throws -> S1Seq
 
-    ///
-    /// - parameter S1Map: `S1Map`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `S1Map`
     func opS1Map(S1Map: S1Map, current: Ice.Current) async throws -> S1Map
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -3578,80 +2917,18 @@ public struct InnerInner2IDisp: Ice.Dispatcher {
 }
 
 public protocol InnerInner2I {
-    ///
-    /// - parameter s1: `InnerInner2S`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)`:
-    ///
-    ///   - returnValue: `InnerInner2S`
-    ///
-    ///   - s2: `InnerInner2S`
     func opS(s1: InnerInner2S, current: Ice.Current) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S)
 
-    ///
-    /// - parameter s1: `InnerInner2SSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)`:
-    ///
-    ///   - returnValue: `InnerInner2SSeq`
-    ///
-    ///   - s2: `InnerInner2SSeq`
     func opSSeq(s1: InnerInner2SSeq, current: Ice.Current) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)
 
-    ///
-    /// - parameter s1: `InnerInner2SMap`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)`:
-    ///
-    ///   - returnValue: `InnerInner2SMap`
-    ///
-    ///   - s2: `InnerInner2SMap`
     func opSMap(s1: InnerInner2SMap, current: Ice.Current) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap)
 
-    ///
-    /// - parameter c1: `InnerInner2C?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)`:
-    ///
-    ///   - returnValue: `InnerInner2C?`
-    ///
-    ///   - c2: `InnerInner2C?`
     func opC(c1: InnerInner2C?, current: Ice.Current) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?)
 
-    ///
-    /// - parameter c1: `InnerInner2CSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)`:
-    ///
-    ///   - returnValue: `InnerInner2CSeq`
-    ///
-    ///   - c2: `InnerInner2CSeq`
     func opCSeq(c1: InnerInner2CSeq, current: Ice.Current) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)
 
-    ///
-    /// - parameter c1: `InnerInner2CMap`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)`:
-    ///
-    ///   - returnValue: `InnerInner2CMap`
-    ///
-    ///   - c2: `InnerInner2CMap`
     func opCMap(c1: InnerInner2CMap, current: Ice.Current) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -3696,80 +2973,18 @@ public struct InnerIDisp: Ice.Dispatcher {
 }
 
 public protocol InnerI {
-    ///
-    /// - parameter s1: `InnerInner2S`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: InnerInner2S, s2: InnerInner2S)`:
-    ///
-    ///   - returnValue: `InnerInner2S`
-    ///
-    ///   - s2: `InnerInner2S`
     func opS(s1: InnerInner2S, current: Ice.Current) async throws -> (returnValue: InnerInner2S, s2: InnerInner2S)
 
-    ///
-    /// - parameter s1: `InnerInner2SSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)`:
-    ///
-    ///   - returnValue: `InnerInner2SSeq`
-    ///
-    ///   - s2: `InnerInner2SSeq`
     func opSSeq(s1: InnerInner2SSeq, current: Ice.Current) async throws -> (returnValue: InnerInner2SSeq, s2: InnerInner2SSeq)
 
-    ///
-    /// - parameter s1: `InnerInner2SMap`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: InnerInner2SMap, s2: InnerInner2SMap)`:
-    ///
-    ///   - returnValue: `InnerInner2SMap`
-    ///
-    ///   - s2: `InnerInner2SMap`
     func opSMap(s1: InnerInner2SMap, current: Ice.Current) async throws -> (returnValue: InnerInner2SMap, s2: InnerInner2SMap)
 
-    ///
-    /// - parameter c1: `InnerInner2C?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: InnerInner2C?, c2: InnerInner2C?)`:
-    ///
-    ///   - returnValue: `InnerInner2C?`
-    ///
-    ///   - c2: `InnerInner2C?`
     func opC(c1: InnerInner2C?, current: Ice.Current) async throws -> (returnValue: InnerInner2C?, c2: InnerInner2C?)
 
-    ///
-    /// - parameter c1: `InnerInner2CSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)`:
-    ///
-    ///   - returnValue: `InnerInner2CSeq`
-    ///
-    ///   - c2: `InnerInner2CSeq`
     func opCSeq(c1: InnerInner2CSeq, current: Ice.Current) async throws -> (returnValue: InnerInner2CSeq, c2: InnerInner2CSeq)
 
-    ///
-    /// - parameter c1: `InnerInner2CMap`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: InnerInner2CMap, c2: InnerInner2CMap)`:
-    ///
-    ///   - returnValue: `InnerInner2CMap`
-    ///
-    ///   - c2: `InnerInner2CMap`
     func opCMap(c1: InnerInner2CMap, current: Ice.Current) async throws -> (returnValue: InnerInner2CMap, c2: InnerInner2CMap)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -3814,110 +3029,21 @@ public struct InnerTestInner2IDisp: Ice.Dispatcher {
 }
 
 public protocol InnerTestInner2I {
-    ///
-    /// - parameter s1: `S`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: S, s2: S)`:
-    ///
-    ///   - returnValue: `S`
-    ///
-    ///   - s2: `S`
     func opS(s1: S, current: Ice.Current) async throws -> (returnValue: S, s2: S)
 
-    ///
-    /// - parameter s1: `SSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SSeq, s2: SSeq)`:
-    ///
-    ///   - returnValue: `SSeq`
-    ///
-    ///   - s2: `SSeq`
     func opSSeq(s1: SSeq, current: Ice.Current) async throws -> (returnValue: SSeq, s2: SSeq)
 
-    ///
-    /// - parameter s1: `SMap`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: SMap, s2: SMap)`:
-    ///
-    ///   - returnValue: `SMap`
-    ///
-    ///   - s2: `SMap`
     func opSMap(s1: SMap, current: Ice.Current) async throws -> (returnValue: SMap, s2: SMap)
 
-    ///
-    /// - parameter c1: `C?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: C?, c2: C?)`:
-    ///
-    ///   - returnValue: `C?`
-    ///
-    ///   - c2: `C?`
     func opC(c1: C?, current: Ice.Current) async throws -> (returnValue: C?, c2: C?)
 
-    ///
-    /// - parameter c1: `CSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: CSeq, c2: CSeq)`:
-    ///
-    ///   - returnValue: `CSeq`
-    ///
-    ///   - c2: `CSeq`
     func opCSeq(c1: CSeq, current: Ice.Current) async throws -> (returnValue: CSeq, c2: CSeq)
 
-    ///
-    /// - parameter c1: `CMap`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: CMap, c2: CMap)`:
-    ///
-    ///   - returnValue: `CMap`
-    ///
-    ///   - c2: `CMap`
     func opCMap(c1: CMap, current: Ice.Current) async throws -> (returnValue: CMap, c2: CMap)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// I overview.
-///
-/// I Methods:
-///
-///  - opS: 
-///
-///  - opSSeq: 
-///
-///  - opSMap: 
-///
-///  - opC: 
-///
-///  - opCSeq: 
-///
-///  - opCMap: 
-///
-///  - opE1: 
-///
-///  - opS1: 
-///
-///  - opC1: 
-///
-///  - opS1Seq: 
-///
-///  - opS1Map: 
-///
-///  - shutdown: 
 extension I {
     public func _iceD_opS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -4075,23 +3201,6 @@ extension I {
     }
 }
 
-/// InnerInner2I overview.
-///
-/// InnerInner2I Methods:
-///
-///  - opS: 
-///
-///  - opSSeq: 
-///
-///  - opSMap: 
-///
-///  - opC: 
-///
-///  - opCSeq: 
-///
-///  - opCMap: 
-///
-///  - shutdown: 
 extension InnerInner2I {
     public func _iceD_opS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -4186,23 +3295,6 @@ extension InnerInner2I {
     }
 }
 
-/// InnerI overview.
-///
-/// InnerI Methods:
-///
-///  - opS: 
-///
-///  - opSSeq: 
-///
-///  - opSMap: 
-///
-///  - opC: 
-///
-///  - opCSeq: 
-///
-///  - opCMap: 
-///
-///  - shutdown: 
 extension InnerI {
     public func _iceD_opS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -4297,23 +3389,6 @@ extension InnerI {
     }
 }
 
-/// InnerTestInner2I overview.
-///
-/// InnerTestInner2I Methods:
-///
-///  - opS: 
-///
-///  - opSSeq: 
-///
-///  - opSMap: 
-///
-///  - opC: 
-///
-///  - opCSeq: 
-///
-///  - opCMap: 
-///
-///  - shutdown: 
 extension InnerTestInner2I {
     public func _iceD_opS(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

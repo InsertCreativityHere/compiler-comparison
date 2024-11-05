@@ -17,7 +17,6 @@ import Foundation
 import Ice
 
 public enum assert: Swift.UInt8 {
-    /// `break`
     case `break` = 0
     public init() {
         self = .`break`
@@ -380,7 +379,6 @@ public let lambda: Swift.Int32 = 0
 
 
 public enum EnumNone: Swift.UInt8 {
-    /// None
     case None = 0
     public init() {
         self = .None
@@ -435,13 +433,6 @@ public extension Ice.OutputStream {
     }
 }
 
-/// delPrx overview.
-///
-/// delPrx Methods:
-///
-///  - elif: 
-///
-///  - elifAsync: 
 public protocol delPrx: Ice.ObjectPrx {}
 
 private final class delPrxI: Ice.ObjectPrxI, delPrx {
@@ -529,20 +520,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// delPrx overview.
-///
-/// delPrx Methods:
-///
-///  - elif: 
-///
-///  - elifAsync: 
 public extension delPrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func elif(_ iceP_else: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "elif",
                                        mode: .Normal,
@@ -557,13 +535,6 @@ public extension delPrx {
     }
 }
 
-/// execPrx overview.
-///
-/// execPrx Methods:
-///
-///  - finally: 
-///
-///  - finallyAsync: 
 public protocol execPrx: Ice.ObjectPrx {}
 
 private final class execPrxI: Ice.ObjectPrxI, execPrx {
@@ -651,16 +622,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// execPrx overview.
-///
-/// execPrx Methods:
-///
-///  - finally: 
-///
-///  - finallyAsync: 
 public extension execPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func finally(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "finally",
                                        mode: .Normal,
@@ -668,7 +630,6 @@ public extension execPrx {
     }
 }
 
-/// ifPrx overview.
 public protocol ifPrx: execPrx, delPrx {}
 
 private final class ifPrxI: Ice.ObjectPrxI, ifPrx {
@@ -756,16 +717,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// ifPrx overview.
 public extension ifPrx {}
 
-/// printPrx overview.
-///
-/// printPrx Methods:
-///
-///  - raise: 
-///
-///  - raiseAsync: 
 public protocol printPrx: Ice.ObjectPrx {}
 
 private final class printPrxI: Ice.ObjectPrxI, printPrx {
@@ -853,30 +806,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// printPrx overview.
-///
-/// printPrx Methods:
-///
-///  - raise: 
-///
-///  - raiseAsync: 
 public extension printPrx {
-    ///
-    /// - parameter else: ``continue``
-    ///
-    /// - parameter return: ``for`?`
-    ///
-    /// - parameter while: `delPrx?`
-    ///
-    /// - parameter yield: `execPrx?`
-    ///
-    /// - parameter or: `ifPrx?`
-    ///
-    /// - parameter global: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `assert`
     func raise(else iceP_else: `continue`, return iceP_return: `for`?, while iceP_while: delPrx?, yield iceP_yield: execPrx?, or iceP_or: ifPrx?, global iceP_global: Swift.Int32, context: Ice.Context? = nil) async throws -> assert {
         return try await _impl._invoke(operation: "raise",
                                        mode: .Normal,
@@ -981,12 +911,6 @@ public struct delDisp: Ice.Dispatcher {
 }
 
 public protocol del {
-    ///
-    /// - parameter else: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func elif(else: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -1019,8 +943,6 @@ public struct execDisp: Ice.Dispatcher {
 }
 
 public protocol exec {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func finally(current: Ice.Current) async throws
 }
 
@@ -1085,30 +1007,9 @@ public struct printDisp: Ice.Dispatcher {
 }
 
 public protocol print {
-    ///
-    /// - parameter else: ``continue``
-    ///
-    /// - parameter return: ``for`?`
-    ///
-    /// - parameter while: `delPrx?`
-    ///
-    /// - parameter yield: `execPrx?`
-    ///
-    /// - parameter or: `ifPrx?`
-    ///
-    /// - parameter global: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `assert`
     func raise(else: `continue`, return: `for`?, while: delPrx?, yield: execPrx?, or: ifPrx?, global: Swift.Int32, current: Ice.Current) async throws -> assert
 }
 
-/// del overview.
-///
-/// del Methods:
-///
-///  - elif: 
 extension del {
     public func _iceD_elif(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1123,11 +1024,6 @@ extension del {
     }
 }
 
-/// exec overview.
-///
-/// exec Methods:
-///
-///  - finally: 
 extension exec {
     public func _iceD_finally(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1137,14 +1033,8 @@ extension exec {
     }
 }
 
-/// if overview.
 extension `if` {}
 
-/// print overview.
-///
-/// print Methods:
-///
-///  - raise: 
 extension print {
     public func _iceD_raise(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

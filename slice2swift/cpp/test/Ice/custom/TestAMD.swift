@@ -1803,11 +1803,8 @@ public struct StringStringDictSeqListHelper {
 }
 
 public enum E: Swift.UInt8 {
-    /// E1
     case E1 = 0
-    /// E2
     case E2 = 1
-    /// E3
     case E3 = 2
     public init() {
         self = .E1
@@ -3165,7 +3162,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// DPrx overview.
 public protocol DPrx: Ice.ObjectPrx {}
 
 private final class DPrxI: Ice.ObjectPrxI, DPrx {
@@ -3253,136 +3249,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// DPrx overview.
 public extension DPrx {}
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - opShortArray: 
-///
-///  - opShortArrayAsync: 
-///
-///  - opDoubleArray: 
-///
-///  - opDoubleArrayAsync: 
-///
-///  - opBoolArray: 
-///
-///  - opBoolArrayAsync: 
-///
-///  - opByteArray: 
-///
-///  - opByteArrayAsync: 
-///
-///  - opVariableArray: 
-///
-///  - opVariableArrayAsync: 
-///
-///  - opBoolSeq: 
-///
-///  - opBoolSeqAsync: 
-///
-///  - opBoolList: 
-///
-///  - opBoolListAsync: 
-///
-///  - opByteSeq: 
-///
-///  - opByteSeqAsync: 
-///
-///  - opByteList: 
-///
-///  - opByteListAsync: 
-///
-///  - opMyByteSeq: 
-///
-///  - opMyByteSeqAsync: 
-///
-///  - opStringSeq: 
-///
-///  - opStringSeqAsync: 
-///
-///  - opStringList: 
-///
-///  - opStringListAsync: 
-///
-///  - opFixedSeq: 
-///
-///  - opFixedSeqAsync: 
-///
-///  - opFixedList: 
-///
-///  - opFixedListAsync: 
-///
-///  - opVariableSeq: 
-///
-///  - opVariableSeqAsync: 
-///
-///  - opVariableList: 
-///
-///  - opVariableListAsync: 
-///
-///  - opStringStringDictSeq: 
-///
-///  - opStringStringDictSeqAsync: 
-///
-///  - opStringStringDictList: 
-///
-///  - opStringStringDictListAsync: 
-///
-///  - opESeq: 
-///
-///  - opESeqAsync: 
-///
-///  - opEList: 
-///
-///  - opEListAsync: 
-///
-///  - opDPrxSeq: 
-///
-///  - opDPrxSeqAsync: 
-///
-///  - opDPrxList: 
-///
-///  - opDPrxListAsync: 
-///
-///  - opCSeq: 
-///
-///  - opCSeqAsync: 
-///
-///  - opCList: 
-///
-///  - opCListAsync: 
-///
-///  - opOutArrayByteSeq: 
-///
-///  - opOutArrayByteSeqAsync: 
-///
-///  - opIntStringDict: 
-///
-///  - opIntStringDictAsync: 
-///
-///  - opVarDict: 
-///
-///  - opVarDictAsync: 
-///
-///  - opShortBuffer: 
-///
-///  - opShortBufferAsync: 
-///
-///  - opBoolBuffer: 
-///
-///  - opBoolBufferAsync: 
-///
-///  - opBufferStruct: 
-///
-///  - opBufferStructAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -3470,144 +3338,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - opShortArray: 
-///
-///  - opShortArrayAsync: 
-///
-///  - opDoubleArray: 
-///
-///  - opDoubleArrayAsync: 
-///
-///  - opBoolArray: 
-///
-///  - opBoolArrayAsync: 
-///
-///  - opByteArray: 
-///
-///  - opByteArrayAsync: 
-///
-///  - opVariableArray: 
-///
-///  - opVariableArrayAsync: 
-///
-///  - opBoolSeq: 
-///
-///  - opBoolSeqAsync: 
-///
-///  - opBoolList: 
-///
-///  - opBoolListAsync: 
-///
-///  - opByteSeq: 
-///
-///  - opByteSeqAsync: 
-///
-///  - opByteList: 
-///
-///  - opByteListAsync: 
-///
-///  - opMyByteSeq: 
-///
-///  - opMyByteSeqAsync: 
-///
-///  - opStringSeq: 
-///
-///  - opStringSeqAsync: 
-///
-///  - opStringList: 
-///
-///  - opStringListAsync: 
-///
-///  - opFixedSeq: 
-///
-///  - opFixedSeqAsync: 
-///
-///  - opFixedList: 
-///
-///  - opFixedListAsync: 
-///
-///  - opVariableSeq: 
-///
-///  - opVariableSeqAsync: 
-///
-///  - opVariableList: 
-///
-///  - opVariableListAsync: 
-///
-///  - opStringStringDictSeq: 
-///
-///  - opStringStringDictSeqAsync: 
-///
-///  - opStringStringDictList: 
-///
-///  - opStringStringDictListAsync: 
-///
-///  - opESeq: 
-///
-///  - opESeqAsync: 
-///
-///  - opEList: 
-///
-///  - opEListAsync: 
-///
-///  - opDPrxSeq: 
-///
-///  - opDPrxSeqAsync: 
-///
-///  - opDPrxList: 
-///
-///  - opDPrxListAsync: 
-///
-///  - opCSeq: 
-///
-///  - opCSeqAsync: 
-///
-///  - opCList: 
-///
-///  - opCListAsync: 
-///
-///  - opOutArrayByteSeq: 
-///
-///  - opOutArrayByteSeqAsync: 
-///
-///  - opIntStringDict: 
-///
-///  - opIntStringDictAsync: 
-///
-///  - opVarDict: 
-///
-///  - opVarDictAsync: 
-///
-///  - opShortBuffer: 
-///
-///  - opShortBufferAsync: 
-///
-///  - opBoolBuffer: 
-///
-///  - opBoolBufferAsync: 
-///
-///  - opBufferStruct: 
-///
-///  - opBufferStructAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter _: `ShortSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortSeq, outSeq: ShortSeq)`:
-    ///
-    ///   - returnValue: `ShortSeq`
-    ///
-    ///   - outSeq: `ShortSeq`
     func opShortArray(_ iceP_inSeq: ShortSeq, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq, outSeq: ShortSeq) {
         return try await _impl._invoke(operation: "opShortArray",
                                        mode: .Normal,
@@ -3622,18 +3353,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter padding: `Swift.Bool`
-    ///
-    /// - parameter inSeq: `DoubleSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleSeq, outSeq: DoubleSeq)`:
-    ///
-    ///   - returnValue: `DoubleSeq`
-    ///
-    ///   - outSeq: `DoubleSeq`
     func opDoubleArray(padding iceP_padding: Swift.Bool, inSeq iceP_inSeq: DoubleSeq, context: Ice.Context? = nil) async throws -> (returnValue: DoubleSeq, outSeq: DoubleSeq) {
         return try await _impl._invoke(operation: "opDoubleArray",
                                        mode: .Normal,
@@ -3649,16 +3368,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `BoolSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outSeq: `BoolSeq`
     func opBoolArray(_ iceP_inSeq: BoolSeq, context: Ice.Context? = nil) async throws -> (returnValue: BoolSeq, outSeq: BoolSeq) {
         return try await _impl._invoke(operation: "opBoolArray",
                                        mode: .Normal,
@@ -3673,16 +3382,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteList, outSeq: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - outSeq: `ByteList`
     func opByteArray(_ iceP_inSeq: ByteList, context: Ice.Context? = nil) async throws -> (returnValue: ByteList, outSeq: ByteList) {
         return try await _impl._invoke(operation: "opByteArray",
                                        mode: .Normal,
@@ -3697,16 +3396,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `VariableList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: VariableList, outSeq: VariableList)`:
-    ///
-    ///   - returnValue: `VariableList`
-    ///
-    ///   - outSeq: `VariableList`
     func opVariableArray(_ iceP_inSeq: VariableList, context: Ice.Context? = nil) async throws -> (returnValue: VariableList, outSeq: VariableList) {
         return try await _impl._invoke(operation: "opVariableArray",
                                        mode: .Normal,
@@ -3721,16 +3410,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `BoolSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outSeq: `BoolSeq`
     func opBoolSeq(_ iceP_inSeq: BoolSeq, context: Ice.Context? = nil) async throws -> (returnValue: BoolSeq, outSeq: BoolSeq) {
         return try await _impl._invoke(operation: "opBoolSeq",
                                        mode: .Normal,
@@ -3745,16 +3424,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `BoolList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolList, outSeq: BoolList)`:
-    ///
-    ///   - returnValue: `BoolList`
-    ///
-    ///   - outSeq: `BoolList`
     func opBoolList(_ iceP_inSeq: BoolList, context: Ice.Context? = nil) async throws -> (returnValue: BoolList, outSeq: BoolList) {
         return try await _impl._invoke(operation: "opBoolList",
                                        mode: .Normal,
@@ -3769,16 +3438,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)`:
-    ///
-    ///   - returnValue: `ByteSeq`
-    ///
-    ///   - outSeq: `ByteSeq`
     func opByteSeq(_ iceP_inSeq: ByteSeq, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq, outSeq: ByteSeq) {
         return try await _impl._invoke(operation: "opByteSeq",
                                        mode: .Normal,
@@ -3793,16 +3452,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteList, outSeq: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - outSeq: `ByteList`
     func opByteList(_ iceP_inSeq: ByteList, context: Ice.Context? = nil) async throws -> (returnValue: ByteList, outSeq: ByteList) {
         return try await _impl._invoke(operation: "opByteList",
                                        mode: .Normal,
@@ -3817,16 +3466,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)`:
-    ///
-    ///   - returnValue: `ByteSeq`
-    ///
-    ///   - outSeq: `ByteSeq`
     func opMyByteSeq(_ iceP_inSeq: ByteSeq, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq, outSeq: ByteSeq) {
         return try await _impl._invoke(operation: "opMyByteSeq",
                                        mode: .Normal,
@@ -3841,16 +3480,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSeq, outSeq: StringSeq)`:
-    ///
-    ///   - returnValue: `StringSeq`
-    ///
-    ///   - outSeq: `StringSeq`
     func opStringSeq(_ iceP_inSeq: StringSeq, context: Ice.Context? = nil) async throws -> (returnValue: StringSeq, outSeq: StringSeq) {
         return try await _impl._invoke(operation: "opStringSeq",
                                        mode: .Normal,
@@ -3865,16 +3494,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringList, outSeq: StringList)`:
-    ///
-    ///   - returnValue: `StringList`
-    ///
-    ///   - outSeq: `StringList`
     func opStringList(_ iceP_inSeq: StringList, context: Ice.Context? = nil) async throws -> (returnValue: StringList, outSeq: StringList) {
         return try await _impl._invoke(operation: "opStringList",
                                        mode: .Normal,
@@ -3889,16 +3508,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `FixedSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: FixedSeq, outSeq: FixedSeq)`:
-    ///
-    ///   - returnValue: `FixedSeq`
-    ///
-    ///   - outSeq: `FixedSeq`
     func opFixedSeq(_ iceP_inSeq: FixedSeq, context: Ice.Context? = nil) async throws -> (returnValue: FixedSeq, outSeq: FixedSeq) {
         return try await _impl._invoke(operation: "opFixedSeq",
                                        mode: .Normal,
@@ -3913,16 +3522,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `FixedList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: FixedList, outSeq: FixedList)`:
-    ///
-    ///   - returnValue: `FixedList`
-    ///
-    ///   - outSeq: `FixedList`
     func opFixedList(_ iceP_inSeq: FixedList, context: Ice.Context? = nil) async throws -> (returnValue: FixedList, outSeq: FixedList) {
         return try await _impl._invoke(operation: "opFixedList",
                                        mode: .Normal,
@@ -3937,16 +3536,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `VariableSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: VariableSeq, outSeq: VariableSeq)`:
-    ///
-    ///   - returnValue: `VariableSeq`
-    ///
-    ///   - outSeq: `VariableSeq`
     func opVariableSeq(_ iceP_inSeq: VariableSeq, context: Ice.Context? = nil) async throws -> (returnValue: VariableSeq, outSeq: VariableSeq) {
         return try await _impl._invoke(operation: "opVariableSeq",
                                        mode: .Normal,
@@ -3961,16 +3550,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `VariableList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: VariableList, outSeq: VariableList)`:
-    ///
-    ///   - returnValue: `VariableList`
-    ///
-    ///   - outSeq: `VariableList`
     func opVariableList(_ iceP_inSeq: VariableList, context: Ice.Context? = nil) async throws -> (returnValue: VariableList, outSeq: VariableList) {
         return try await _impl._invoke(operation: "opVariableList",
                                        mode: .Normal,
@@ -3985,16 +3564,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringStringDictSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringStringDictSeq, outSeq: StringStringDictSeq)`:
-    ///
-    ///   - returnValue: `StringStringDictSeq`
-    ///
-    ///   - outSeq: `StringStringDictSeq`
     func opStringStringDictSeq(_ iceP_inSeq: StringStringDictSeq, context: Ice.Context? = nil) async throws -> (returnValue: StringStringDictSeq, outSeq: StringStringDictSeq) {
         return try await _impl._invoke(operation: "opStringStringDictSeq",
                                        mode: .Normal,
@@ -4009,16 +3578,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringStringDictList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringStringDictList, outSeq: StringStringDictList)`:
-    ///
-    ///   - returnValue: `StringStringDictList`
-    ///
-    ///   - outSeq: `StringStringDictList`
     func opStringStringDictList(_ iceP_inSeq: StringStringDictList, context: Ice.Context? = nil) async throws -> (returnValue: StringStringDictList, outSeq: StringStringDictList) {
         return try await _impl._invoke(operation: "opStringStringDictList",
                                        mode: .Normal,
@@ -4033,16 +3592,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ESeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ESeq, outSeq: ESeq)`:
-    ///
-    ///   - returnValue: `ESeq`
-    ///
-    ///   - outSeq: `ESeq`
     func opESeq(_ iceP_inSeq: ESeq, context: Ice.Context? = nil) async throws -> (returnValue: ESeq, outSeq: ESeq) {
         return try await _impl._invoke(operation: "opESeq",
                                        mode: .Normal,
@@ -4057,16 +3606,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `EList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: EList, outSeq: EList)`:
-    ///
-    ///   - returnValue: `EList`
-    ///
-    ///   - outSeq: `EList`
     func opEList(_ iceP_inSeq: EList, context: Ice.Context? = nil) async throws -> (returnValue: EList, outSeq: EList) {
         return try await _impl._invoke(operation: "opEList",
                                        mode: .Normal,
@@ -4081,16 +3620,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `DPrxSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DPrxSeq, outSeq: DPrxSeq)`:
-    ///
-    ///   - returnValue: `DPrxSeq`
-    ///
-    ///   - outSeq: `DPrxSeq`
     func opDPrxSeq(_ iceP_inSeq: DPrxSeq, context: Ice.Context? = nil) async throws -> (returnValue: DPrxSeq, outSeq: DPrxSeq) {
         return try await _impl._invoke(operation: "opDPrxSeq",
                                        mode: .Normal,
@@ -4105,16 +3634,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `DPrxList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DPrxList, outSeq: DPrxList)`:
-    ///
-    ///   - returnValue: `DPrxList`
-    ///
-    ///   - outSeq: `DPrxList`
     func opDPrxList(_ iceP_inSeq: DPrxList, context: Ice.Context? = nil) async throws -> (returnValue: DPrxList, outSeq: DPrxList) {
         return try await _impl._invoke(operation: "opDPrxList",
                                        mode: .Normal,
@@ -4129,16 +3648,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `CSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CSeq, outSeq: CSeq)`:
-    ///
-    ///   - returnValue: `CSeq`
-    ///
-    ///   - outSeq: `CSeq`
     func opCSeq(_ iceP_inSeq: CSeq, context: Ice.Context? = nil) async throws -> (returnValue: CSeq, outSeq: CSeq) {
         return try await _impl._invoke(operation: "opCSeq",
                                        mode: .Normal,
@@ -4155,16 +3664,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `CList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: CList, outSeq: CList)`:
-    ///
-    ///   - returnValue: `CList`
-    ///
-    ///   - outSeq: `CList`
     func opCList(_ iceP_inSeq: CList, context: Ice.Context? = nil) async throws -> (returnValue: CList, outSeq: CList) {
         return try await _impl._invoke(operation: "opCList",
                                        mode: .Normal,
@@ -4181,12 +3680,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ByteSeq`
     func opOutArrayByteSeq(_ iceP_org: ByteSeq, context: Ice.Context? = nil) async throws -> ByteSeq {
         return try await _impl._invoke(operation: "opOutArrayByteSeq",
                                        mode: .Normal,
@@ -4200,16 +3693,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `IntStringDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntStringDict, odict: IntStringDict)`:
-    ///
-    ///   - returnValue: `IntStringDict`
-    ///
-    ///   - odict: `IntStringDict`
     func opIntStringDict(_ iceP_idict: IntStringDict, context: Ice.Context? = nil) async throws -> (returnValue: IntStringDict, odict: IntStringDict) {
         return try await _impl._invoke(operation: "opIntStringDict",
                                        mode: .Normal,
@@ -4224,16 +3707,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringIntDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongLongDict, odict: StringIntDict)`:
-    ///
-    ///   - returnValue: `LongLongDict`
-    ///
-    ///   - odict: `StringIntDict`
     func opVarDict(_ iceP_idict: StringIntDict, context: Ice.Context? = nil) async throws -> (returnValue: LongLongDict, odict: StringIntDict) {
         return try await _impl._invoke(operation: "opVarDict",
                                        mode: .Normal,
@@ -4248,16 +3721,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ShortBuffer`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortBuffer, outS: ShortBuffer)`:
-    ///
-    ///   - returnValue: `ShortBuffer`
-    ///
-    ///   - outS: `ShortBuffer`
     func opShortBuffer(_ iceP_inS: ShortBuffer, context: Ice.Context? = nil) async throws -> (returnValue: ShortBuffer, outS: ShortBuffer) {
         return try await _impl._invoke(operation: "opShortBuffer",
                                        mode: .Normal,
@@ -4272,16 +3735,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `BoolSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolSeq, outS: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outS: `BoolSeq`
     func opBoolBuffer(_ iceP_inS: BoolSeq, context: Ice.Context? = nil) async throws -> (returnValue: BoolSeq, outS: BoolSeq) {
         return try await _impl._invoke(operation: "opBoolBuffer",
                                        mode: .Normal,
@@ -4296,12 +3749,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `BufferStruct`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BufferStruct`
     func opBufferStruct(_ iceP_s: BufferStruct, context: Ice.Context? = nil) async throws -> BufferStruct {
         return try await _impl._invoke(operation: "opBufferStruct",
                                        mode: .Normal,
@@ -4315,8 +3762,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -4511,433 +3956,71 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter inSeq: `ShortSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortSeq, outSeq: ShortSeq)`:
-    ///
-    ///   - returnValue: `ShortSeq`
-    ///
-    ///   - outSeq: `ShortSeq`
     func opShortArray(inSeq: ShortSeq, current: Ice.Current) async throws -> (returnValue: ShortSeq, outSeq: ShortSeq)
 
-    ///
-    /// - parameter padding: `Swift.Bool`
-    ///
-    /// - parameter inSeq: `DoubleSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: DoubleSeq, outSeq: DoubleSeq)`:
-    ///
-    ///   - returnValue: `DoubleSeq`
-    ///
-    ///   - outSeq: `DoubleSeq`
     func opDoubleArray(padding: Swift.Bool, inSeq: DoubleSeq, current: Ice.Current) async throws -> (returnValue: DoubleSeq, outSeq: DoubleSeq)
 
-    ///
-    /// - parameter inSeq: `BoolSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outSeq: `BoolSeq`
     func opBoolArray(inSeq: BoolSeq, current: Ice.Current) async throws -> (returnValue: BoolSeq, outSeq: BoolSeq)
 
-    ///
-    /// - parameter inSeq: `ByteList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteList, outSeq: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - outSeq: `ByteList`
     func opByteArray(inSeq: ByteList, current: Ice.Current) async throws -> (returnValue: ByteList, outSeq: ByteList)
 
-    ///
-    /// - parameter inSeq: `VariableList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: VariableList, outSeq: VariableList)`:
-    ///
-    ///   - returnValue: `VariableList`
-    ///
-    ///   - outSeq: `VariableList`
     func opVariableArray(inSeq: VariableList, current: Ice.Current) async throws -> (returnValue: VariableList, outSeq: VariableList)
 
-    ///
-    /// - parameter inSeq: `BoolSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outSeq: `BoolSeq`
     func opBoolSeq(inSeq: BoolSeq, current: Ice.Current) async throws -> (returnValue: BoolSeq, outSeq: BoolSeq)
 
-    ///
-    /// - parameter inSeq: `BoolList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BoolList, outSeq: BoolList)`:
-    ///
-    ///   - returnValue: `BoolList`
-    ///
-    ///   - outSeq: `BoolList`
     func opBoolList(inSeq: BoolList, current: Ice.Current) async throws -> (returnValue: BoolList, outSeq: BoolList)
 
-    ///
-    /// - parameter inSeq: `ByteSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)`:
-    ///
-    ///   - returnValue: `ByteSeq`
-    ///
-    ///   - outSeq: `ByteSeq`
     func opByteSeq(inSeq: ByteSeq, current: Ice.Current) async throws -> (returnValue: ByteSeq, outSeq: ByteSeq)
 
-    ///
-    /// - parameter inSeq: `ByteList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteList, outSeq: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - outSeq: `ByteList`
     func opByteList(inSeq: ByteList, current: Ice.Current) async throws -> (returnValue: ByteList, outSeq: ByteList)
 
-    ///
-    /// - parameter inSeq: `ByteSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteSeq, outSeq: ByteSeq)`:
-    ///
-    ///   - returnValue: `ByteSeq`
-    ///
-    ///   - outSeq: `ByteSeq`
     func opMyByteSeq(inSeq: ByteSeq, current: Ice.Current) async throws -> (returnValue: ByteSeq, outSeq: ByteSeq)
 
-    ///
-    /// - parameter inSeq: `StringSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringSeq, outSeq: StringSeq)`:
-    ///
-    ///   - returnValue: `StringSeq`
-    ///
-    ///   - outSeq: `StringSeq`
     func opStringSeq(inSeq: StringSeq, current: Ice.Current) async throws -> (returnValue: StringSeq, outSeq: StringSeq)
 
-    ///
-    /// - parameter inSeq: `StringList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringList, outSeq: StringList)`:
-    ///
-    ///   - returnValue: `StringList`
-    ///
-    ///   - outSeq: `StringList`
     func opStringList(inSeq: StringList, current: Ice.Current) async throws -> (returnValue: StringList, outSeq: StringList)
 
-    ///
-    /// - parameter inSeq: `FixedSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: FixedSeq, outSeq: FixedSeq)`:
-    ///
-    ///   - returnValue: `FixedSeq`
-    ///
-    ///   - outSeq: `FixedSeq`
     func opFixedSeq(inSeq: FixedSeq, current: Ice.Current) async throws -> (returnValue: FixedSeq, outSeq: FixedSeq)
 
-    ///
-    /// - parameter inSeq: `FixedList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: FixedList, outSeq: FixedList)`:
-    ///
-    ///   - returnValue: `FixedList`
-    ///
-    ///   - outSeq: `FixedList`
     func opFixedList(inSeq: FixedList, current: Ice.Current) async throws -> (returnValue: FixedList, outSeq: FixedList)
 
-    ///
-    /// - parameter inSeq: `VariableSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: VariableSeq, outSeq: VariableSeq)`:
-    ///
-    ///   - returnValue: `VariableSeq`
-    ///
-    ///   - outSeq: `VariableSeq`
     func opVariableSeq(inSeq: VariableSeq, current: Ice.Current) async throws -> (returnValue: VariableSeq, outSeq: VariableSeq)
 
-    ///
-    /// - parameter inSeq: `VariableList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: VariableList, outSeq: VariableList)`:
-    ///
-    ///   - returnValue: `VariableList`
-    ///
-    ///   - outSeq: `VariableList`
     func opVariableList(inSeq: VariableList, current: Ice.Current) async throws -> (returnValue: VariableList, outSeq: VariableList)
 
-    ///
-    /// - parameter inSeq: `StringStringDictSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringStringDictSeq, outSeq: StringStringDictSeq)`:
-    ///
-    ///   - returnValue: `StringStringDictSeq`
-    ///
-    ///   - outSeq: `StringStringDictSeq`
     func opStringStringDictSeq(inSeq: StringStringDictSeq, current: Ice.Current) async throws -> (returnValue: StringStringDictSeq, outSeq: StringStringDictSeq)
 
-    ///
-    /// - parameter inSeq: `StringStringDictList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringStringDictList, outSeq: StringStringDictList)`:
-    ///
-    ///   - returnValue: `StringStringDictList`
-    ///
-    ///   - outSeq: `StringStringDictList`
     func opStringStringDictList(inSeq: StringStringDictList, current: Ice.Current) async throws -> (returnValue: StringStringDictList, outSeq: StringStringDictList)
 
-    ///
-    /// - parameter inSeq: `ESeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ESeq, outSeq: ESeq)`:
-    ///
-    ///   - returnValue: `ESeq`
-    ///
-    ///   - outSeq: `ESeq`
     func opESeq(inSeq: ESeq, current: Ice.Current) async throws -> (returnValue: ESeq, outSeq: ESeq)
 
-    ///
-    /// - parameter inSeq: `EList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: EList, outSeq: EList)`:
-    ///
-    ///   - returnValue: `EList`
-    ///
-    ///   - outSeq: `EList`
     func opEList(inSeq: EList, current: Ice.Current) async throws -> (returnValue: EList, outSeq: EList)
 
-    ///
-    /// - parameter inSeq: `DPrxSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: DPrxSeq, outSeq: DPrxSeq)`:
-    ///
-    ///   - returnValue: `DPrxSeq`
-    ///
-    ///   - outSeq: `DPrxSeq`
     func opDPrxSeq(inSeq: DPrxSeq, current: Ice.Current) async throws -> (returnValue: DPrxSeq, outSeq: DPrxSeq)
 
-    ///
-    /// - parameter inSeq: `DPrxList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: DPrxList, outSeq: DPrxList)`:
-    ///
-    ///   - returnValue: `DPrxList`
-    ///
-    ///   - outSeq: `DPrxList`
     func opDPrxList(inSeq: DPrxList, current: Ice.Current) async throws -> (returnValue: DPrxList, outSeq: DPrxList)
 
-    ///
-    /// - parameter inSeq: `CSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: CSeq, outSeq: CSeq)`:
-    ///
-    ///   - returnValue: `CSeq`
-    ///
-    ///   - outSeq: `CSeq`
     func opCSeq(inSeq: CSeq, current: Ice.Current) async throws -> (returnValue: CSeq, outSeq: CSeq)
 
-    ///
-    /// - parameter inSeq: `CList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: CList, outSeq: CList)`:
-    ///
-    ///   - returnValue: `CList`
-    ///
-    ///   - outSeq: `CList`
     func opCList(inSeq: CList, current: Ice.Current) async throws -> (returnValue: CList, outSeq: CList)
 
-    ///
-    /// - parameter org: `ByteSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ByteSeq`
     func opOutArrayByteSeq(org: ByteSeq, current: Ice.Current) async throws -> ByteSeq
 
-    ///
-    /// - parameter idict: `IntStringDict`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: IntStringDict, odict: IntStringDict)`:
-    ///
-    ///   - returnValue: `IntStringDict`
-    ///
-    ///   - odict: `IntStringDict`
     func opIntStringDict(idict: IntStringDict, current: Ice.Current) async throws -> (returnValue: IntStringDict, odict: IntStringDict)
 
-    ///
-    /// - parameter idict: `StringIntDict`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LongLongDict, odict: StringIntDict)`:
-    ///
-    ///   - returnValue: `LongLongDict`
-    ///
-    ///   - odict: `StringIntDict`
     func opVarDict(idict: StringIntDict, current: Ice.Current) async throws -> (returnValue: LongLongDict, odict: StringIntDict)
 
-    ///
-    /// - parameter inS: `ShortBuffer`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortBuffer, outS: ShortBuffer)`:
-    ///
-    ///   - returnValue: `ShortBuffer`
-    ///
-    ///   - outS: `ShortBuffer`
     func opShortBuffer(inS: ShortBuffer, current: Ice.Current) async throws -> (returnValue: ShortBuffer, outS: ShortBuffer)
 
-    ///
-    /// - parameter inS: `BoolSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BoolSeq, outS: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outS: `BoolSeq`
     func opBoolBuffer(inS: BoolSeq, current: Ice.Current) async throws -> (returnValue: BoolSeq, outS: BoolSeq)
 
-    ///
-    /// - parameter s: `BufferStruct`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `BufferStruct`
     func opBufferStruct(s: BufferStruct, current: Ice.Current) async throws -> BufferStruct
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// D overview.
 extension D {}
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - opShortArray: 
-///
-///  - opDoubleArray: 
-///
-///  - opBoolArray: 
-///
-///  - opByteArray: 
-///
-///  - opVariableArray: 
-///
-///  - opBoolSeq: 
-///
-///  - opBoolList: 
-///
-///  - opByteSeq: 
-///
-///  - opByteList: 
-///
-///  - opMyByteSeq: 
-///
-///  - opStringSeq: 
-///
-///  - opStringList: 
-///
-///  - opFixedSeq: 
-///
-///  - opFixedList: 
-///
-///  - opVariableSeq: 
-///
-///  - opVariableList: 
-///
-///  - opStringStringDictSeq: 
-///
-///  - opStringStringDictList: 
-///
-///  - opESeq: 
-///
-///  - opEList: 
-///
-///  - opDPrxSeq: 
-///
-///  - opDPrxList: 
-///
-///  - opCSeq: 
-///
-///  - opCList: 
-///
-///  - opOutArrayByteSeq: 
-///
-///  - opIntStringDict: 
-///
-///  - opVarDict: 
-///
-///  - opShortBuffer: 
-///
-///  - opBoolBuffer: 
-///
-///  - opBufferStruct: 
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_opShortArray(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

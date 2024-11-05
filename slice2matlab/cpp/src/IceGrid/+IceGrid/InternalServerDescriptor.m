@@ -1,25 +1,3 @@
-% InternalServerDescriptor   Summary of InternalServerDescriptor
-%
-% InternalServerDescriptor Properties:
-%   id - The server ID.
-%   application - The server application
-%   uuid - The application uuid.
-%   revision - The application revision.
-%   sessionId - The id of the session which allocated the server.
-%   exe - The server executable.
-%   pwd - The server working directory.
-%   user - The user ID to use to run the server.
-%   activation - The server activation mode.
-%   activationTimeout - The server activation timeout.
-%   deactivationTimeout - The server deactivation timeout.
-%   processRegistered - Specifies if a process object is registered.
-%   options - The server command line options.
-%   envs - The server environment variables.
-%   logs - The path of the server logs.
-%   adapters - The indirect object adapters.
-%   dbEnvs
-%   properties_ - The configuration files of the server.
-%   services - IceBox service names
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0

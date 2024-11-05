@@ -22,13 +22,6 @@ public struct MyObjectTraits: Ice.SliceTraits {
     public static let staticId = "::Test::MyObject"
 }
 
-/// MyObjectPrx overview.
-///
-/// MyObjectPrx Methods:
-///
-///  - getName: 
-///
-///  - getNameAsync: 
 public protocol MyObjectPrx: Ice.ObjectPrx {}
 
 private final class MyObjectPrxI: Ice.ObjectPrxI, MyObjectPrx {
@@ -116,18 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyObjectPrx overview.
-///
-/// MyObjectPrx Methods:
-///
-///  - getName: 
-///
-///  - getNameAsync: 
 public extension MyObjectPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getName(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getName",
                                        mode: .Normal,
@@ -168,18 +150,9 @@ public struct MyObjectDisp: Ice.Dispatcher {
 }
 
 public protocol MyObject {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getName(current: Ice.Current) async throws -> Swift.String
 }
 
-/// MyObject overview.
-///
-/// MyObject Methods:
-///
-///  - getName: 
 extension MyObject {
     public func _iceD_getName(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

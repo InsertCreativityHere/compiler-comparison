@@ -48,7 +48,7 @@ public class ThreadMetrics extends Metrics
 
     /**
      * The number of threads which are currently performing other activities. These are all other that are not
-     * counted with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
+     * counted with {@link #inUseForUser}} or {@link #inUseForIO}}, such as DNS lookups, garbage collection).
      **/
     public int inUseForOther;
 
@@ -69,7 +69,7 @@ public class ThreadMetrics extends Metrics
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8888604275610611818L;
+    private static final long serialVersionUID = -1087277482496165823L;
 
     /** @hidden */
     @Override

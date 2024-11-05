@@ -70,13 +70,6 @@ public struct OuterInnerTestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Outer::Inner::TestIntf"
 }
 
-/// PingReplyPrx overview.
-///
-/// PingReplyPrx Methods:
-///
-///  - reply: 
-///
-///  - replyAsync: 
 public protocol PingReplyPrx: Ice.ObjectPrx {}
 
 private final class PingReplyPrxI: Ice.ObjectPrxI, PingReplyPrx {
@@ -164,16 +157,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// PingReplyPrx overview.
-///
-/// PingReplyPrx Methods:
-///
-///  - reply: 
-///
-///  - replyAsync: 
 public extension PingReplyPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func reply(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "reply",
                                        mode: .Normal,
@@ -181,85 +165,6 @@ public extension PingReplyPrx {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - opWithPayload: 
-///
-///  - opWithPayloadAsync: 
-///
-///  - opWithResult: 
-///
-///  - opWithResultAsync: 
-///
-///  - opWithUE: 
-///
-///  - opWithUEAsync: 
-///
-///  - opBatch: 
-///
-///  - opBatchAsync: 
-///
-///  - opBatchCount: 
-///
-///  - opBatchCountAsync: 
-///
-///  - waitForBatch: 
-///
-///  - waitForBatchAsync: 
-///
-///  - closeConnection: 
-///
-///  - closeConnectionAsync: 
-///
-///  - abortConnection: 
-///
-///  - abortConnectionAsync: 
-///
-///  - sleep: 
-///
-///  - sleepAsync: 
-///
-///  - startDispatch: 
-///
-///  - startDispatchAsync: 
-///
-///  - finishDispatch: 
-///
-///  - finishDispatchAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - supportsFunctionalTests: 
-///
-///  - supportsFunctionalTestsAsync: 
-///
-///  - supportsBackPressureTests: 
-///
-///  - supportsBackPressureTestsAsync: 
-///
-///  - opAsyncDispatch: 
-///
-///  - opAsyncDispatchAsync: 
-///
-///  - opWithResultAsyncDispatch: 
-///
-///  - opWithResultAsyncDispatchAsync: 
-///
-///  - opWithUEAsyncDispatch: 
-///
-///  - opWithUEAsyncDispatchAsync: 
-///
-///  - pingBiDir: 
-///
-///  - pingBiDirAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -347,98 +252,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - opWithPayload: 
-///
-///  - opWithPayloadAsync: 
-///
-///  - opWithResult: 
-///
-///  - opWithResultAsync: 
-///
-///  - opWithUE: 
-///
-///  - opWithUEAsync: 
-///
-///  - opBatch: 
-///
-///  - opBatchAsync: 
-///
-///  - opBatchCount: 
-///
-///  - opBatchCountAsync: 
-///
-///  - waitForBatch: 
-///
-///  - waitForBatchAsync: 
-///
-///  - closeConnection: 
-///
-///  - closeConnectionAsync: 
-///
-///  - abortConnection: 
-///
-///  - abortConnectionAsync: 
-///
-///  - sleep: 
-///
-///  - sleepAsync: 
-///
-///  - startDispatch: 
-///
-///  - startDispatchAsync: 
-///
-///  - finishDispatch: 
-///
-///  - finishDispatchAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - supportsFunctionalTests: 
-///
-///  - supportsFunctionalTestsAsync: 
-///
-///  - supportsBackPressureTests: 
-///
-///  - supportsBackPressureTestsAsync: 
-///
-///  - opAsyncDispatch: 
-///
-///  - opAsyncDispatchAsync: 
-///
-///  - opWithResultAsyncDispatch: 
-///
-///  - opWithResultAsyncDispatchAsync: 
-///
-///  - opWithUEAsyncDispatch: 
-///
-///  - opWithUEAsyncDispatchAsync: 
-///
-///  - pingBiDir: 
-///
-///  - pingBiDirAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Ice.ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opWithPayload(_ iceP_seq: Ice.ByteSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opWithPayload",
                                        mode: .Normal,
@@ -448,10 +268,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func opWithResult(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "opWithResult",
                                        mode: .Normal,
@@ -462,8 +278,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opWithUE(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opWithUE",
                                        mode: .Normal,
@@ -477,18 +291,12 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opBatch",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func opBatchCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "opBatchCount",
                                        mode: .Normal,
@@ -499,12 +307,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
     func waitForBatch(_ iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "waitForBatch",
                                        mode: .Normal,
@@ -518,26 +320,18 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func closeConnection(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "closeConnection",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func abortConnection(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "abortConnection",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sleep(_ iceP_ms: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sleep",
                                        mode: .Normal,
@@ -547,34 +341,24 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func startDispatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "startDispatch",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func finishDispatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "finishDispatch",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsFunctionalTests(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "supportsFunctionalTests",
                                        mode: .Normal,
@@ -585,10 +369,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsBackPressureTests(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "supportsBackPressureTests",
                                        mode: .Normal,
@@ -599,18 +379,12 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opAsyncDispatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opAsyncDispatch",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func opWithResultAsyncDispatch(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "opWithResultAsyncDispatch",
                                        mode: .Normal,
@@ -621,8 +395,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opWithUEAsyncDispatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opWithUEAsyncDispatch",
                                        mode: .Normal,
@@ -636,10 +408,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `PingReplyPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func pingBiDir(_ iceP_reply: PingReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "pingBiDir",
                                        mode: .Normal,
@@ -650,17 +418,6 @@ public extension TestIntfPrx {
     }
 }
 
-/// TestIntfControllerPrx overview.
-///
-/// TestIntfControllerPrx Methods:
-///
-///  - holdAdapter: 
-///
-///  - holdAdapterAsync: 
-///
-///  - resumeAdapter: 
-///
-///  - resumeAdapterAsync: 
 public protocol TestIntfControllerPrx: Ice.ObjectPrx {}
 
 private final class TestIntfControllerPrxI: Ice.ObjectPrxI, TestIntfControllerPrx {
@@ -748,28 +505,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfControllerPrx overview.
-///
-/// TestIntfControllerPrx Methods:
-///
-///  - holdAdapter: 
-///
-///  - holdAdapterAsync: 
-///
-///  - resumeAdapter: 
-///
-///  - resumeAdapterAsync: 
 public extension TestIntfControllerPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func holdAdapter(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "holdAdapter",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func resumeAdapter(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "resumeAdapter",
                                        mode: .Normal,
@@ -777,13 +519,6 @@ public extension TestIntfControllerPrx {
     }
 }
 
-/// OuterInnerTestIntfPrx overview.
-///
-/// OuterInnerTestIntfPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public protocol OuterInnerTestIntfPrx: Ice.ObjectPrx {}
 
 private final class OuterInnerTestIntfPrxI: Ice.ObjectPrxI, OuterInnerTestIntfPrx {
@@ -871,24 +606,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// OuterInnerTestIntfPrx overview.
-///
-/// OuterInnerTestIntfPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public extension OuterInnerTestIntfPrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.Int32, j: Swift.Int32)`:
-    ///
-    ///   - returnValue: `Swift.Int32`
-    ///
-    ///   - j: `Swift.Int32`
     func op(_ iceP_i: Swift.Int32, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Int32, j: Swift.Int32) {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
@@ -933,8 +651,6 @@ public struct PingReplyDisp: Ice.Dispatcher {
 }
 
 public protocol PingReply {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func reply(current: Ice.Current) async throws
 }
 
@@ -1003,100 +719,42 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(current: Ice.Current) async throws
 
-    ///
-    /// - parameter seq: `Ice.ByteSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opWithPayload(seq: Ice.ByteSeq, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func opWithResult(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opWithUE(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opBatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func opBatchCount(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter count: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
     func waitForBatch(count: Swift.Int32, current: Ice.Current) async throws -> Swift.Bool
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func closeConnection(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func abortConnection(current: Ice.Current) async throws
 
-    ///
-    /// - parameter ms: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sleep(ms: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func startDispatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func finishDispatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsFunctionalTests(current: Ice.Current) async throws -> Swift.Bool
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsBackPressureTests(current: Ice.Current) async throws -> Swift.Bool
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opAsyncDispatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func opWithResultAsyncDispatch(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opWithUEAsyncDispatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter reply: `PingReplyPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func pingBiDir(reply: PingReplyPrx?, current: Ice.Current) async throws
 }
 
@@ -1131,12 +789,8 @@ public struct TestIntfControllerDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntfController {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func holdAdapter(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func resumeAdapter(current: Ice.Current) async throws
 }
 
@@ -1169,24 +823,9 @@ public struct OuterInnerTestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol OuterInnerTestIntf {
-    ///
-    /// - parameter i: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.Int32, j: Swift.Int32)`:
-    ///
-    ///   - returnValue: `Swift.Int32`
-    ///
-    ///   - j: `Swift.Int32`
     func op(i: Swift.Int32, current: Ice.Current) async throws -> (returnValue: Swift.Int32, j: Swift.Int32)
 }
 
-/// PingReply overview.
-///
-/// PingReply Methods:
-///
-///  - reply: 
 extension PingReply {
     public func _iceD_reply(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1196,47 +835,6 @@ extension PingReply {
     }
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - op: 
-///
-///  - opWithPayload: 
-///
-///  - opWithResult: 
-///
-///  - opWithUE: 
-///
-///  - opBatch: 
-///
-///  - opBatchCount: 
-///
-///  - waitForBatch: 
-///
-///  - closeConnection: 
-///
-///  - abortConnection: 
-///
-///  - sleep: 
-///
-///  - startDispatch: 
-///
-///  - finishDispatch: 
-///
-///  - shutdown: 
-///
-///  - supportsFunctionalTests: 
-///
-///  - supportsBackPressureTests: 
-///
-///  - opAsyncDispatch: 
-///
-///  - opWithResultAsyncDispatch: 
-///
-///  - opWithUEAsyncDispatch: 
-///
-///  - pingBiDir: 
 extension TestIntf {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1398,13 +996,6 @@ extension TestIntf {
     }
 }
 
-/// TestIntfController overview.
-///
-/// TestIntfController Methods:
-///
-///  - holdAdapter: 
-///
-///  - resumeAdapter: 
 extension TestIntfController {
     public func _iceD_holdAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1421,11 +1012,6 @@ extension TestIntfController {
     }
 }
 
-/// OuterInnerTestIntf overview.
-///
-/// OuterInnerTestIntf Methods:
-///
-///  - op: 
 extension OuterInnerTestIntf {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

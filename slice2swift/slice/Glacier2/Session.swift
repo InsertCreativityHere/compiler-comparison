@@ -94,7 +94,7 @@ public struct SSLSessionManagerTraits: Ice.SliceTraits {
     public static let staticId = "::Glacier2::SSLSessionManager"
 }
 
-/// A client-visible session object, which is tied to the lifecycle of a Router.
+/// A client-visible session object, which is tied to the lifecycle of a {@link Router}.
 ///
 /// SessionPrx Methods:
 ///
@@ -188,7 +188,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// A client-visible session object, which is tied to the lifecycle of a Router.
+/// A client-visible session object, which is tied to the lifecycle of a {@link Router}.
 ///
 /// SessionPrx Methods:
 ///
@@ -207,7 +207,7 @@ public extension SessionPrx {
 }
 
 /// An object for managing the set of identity constraints for specific parts of object identity on a
-/// Session.
+/// {@link Session}.
 ///
 /// StringSetPrx Methods:
 ///
@@ -310,7 +310,7 @@ public extension Ice.InputStream {
 }
 
 /// An object for managing the set of identity constraints for specific parts of object identity on a
-/// Session.
+/// {@link Session}.
 ///
 /// StringSetPrx Methods:
 ///
@@ -371,7 +371,7 @@ public extension StringSetPrx {
     }
 }
 
-/// An object for managing the set of object identity constraints on a Session.
+/// An object for managing the set of object identity constraints on a {@link Session}.
 ///
 /// IdentitySetPrx Methods:
 ///
@@ -473,7 +473,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// An object for managing the set of object identity constraints on a Session.
+/// An object for managing the set of object identity constraints on a {@link Session}.
 ///
 /// IdentitySetPrx Methods:
 ///
@@ -535,7 +535,7 @@ public extension IdentitySetPrx {
     }
 }
 
-/// An administrative session control object, which is tied to the lifecycle of a Session.
+/// An administrative session control object, which is tied to the lifecycle of a {@link Session}.
 ///
 /// SessionControlPrx Methods:
 ///
@@ -645,7 +645,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// An administrative session control object, which is tied to the lifecycle of a Session.
+/// An administrative session control object, which is tied to the lifecycle of a {@link Session}.
 ///
 /// SessionControlPrx Methods:
 ///
@@ -739,8 +739,8 @@ public extension SessionControlPrx {
     }
 }
 
-/// The session manager for username/password authenticated users that is responsible for managing Session
-/// objects. New session objects are created by the Router object calling on an application-provided
+/// The session manager for username/password authenticated users that is responsible for managing {@link Session}
+/// objects. New session objects are created by the {@link Router} object calling on an application-provided
 /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
 /// the client.
 ///
@@ -836,8 +836,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// The session manager for username/password authenticated users that is responsible for managing Session
-/// objects. New session objects are created by the Router object calling on an application-provided
+/// The session manager for username/password authenticated users that is responsible for managing {@link Session}
+/// objects. New session objects are created by the {@link Router} object calling on an application-provided
 /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
 /// the client.
 ///
@@ -848,7 +848,7 @@ public extension Ice.InputStream {
 ///  - createAsync: Create a new session.
 public extension SessionManagerPrx {
     /// Create a new session. The implementation must return a non-null proxy or raise
-    /// CannotCreateSessionException if the session cannot be created.
+    /// {@link CannotCreateSessionException} if the session cannot be created.
     ///
     /// - parameter userId: `Swift.String` The user id for the session.
     ///
@@ -884,8 +884,8 @@ public extension SessionManagerPrx {
     }
 }
 
-/// The session manager for SSL authenticated users that is responsible for managing Session objects. New
-/// session objects are created by the Router object calling on an application-provided session manager. If
+/// The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
+/// session objects are created by the {@link Router} object calling on an application-provided session manager. If
 /// no session manager is provided by the application, no client-visible sessions are passed to the client.
 ///
 /// SSLSessionManagerPrx Methods:
@@ -980,8 +980,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// The session manager for SSL authenticated users that is responsible for managing Session objects. New
-/// session objects are created by the Router object calling on an application-provided session manager. If
+/// The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
+/// session objects are created by the {@link Router} object calling on an application-provided session manager. If
 /// no session manager is provided by the application, no client-visible sessions are passed to the client.
 ///
 /// SSLSessionManagerPrx Methods:
@@ -1053,7 +1053,7 @@ public struct SessionDisp: Ice.Dispatcher {
     }
 }
 
-/// A client-visible session object, which is tied to the lifecycle of a Router.
+/// A client-visible session object, which is tied to the lifecycle of a {@link Router}.
 public protocol Session {
     /// Destroy the session. This is called automatically when the router is destroyed.
     ///
@@ -1094,7 +1094,7 @@ public struct StringSetDisp: Ice.Dispatcher {
 }
 
 /// An object for managing the set of identity constraints for specific parts of object identity on a
-/// Session.
+/// {@link Session}.
 public protocol StringSet {
     /// Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
     /// removed.
@@ -1151,7 +1151,7 @@ public struct IdentitySetDisp: Ice.Dispatcher {
     }
 }
 
-/// An object for managing the set of object identity constraints on a Session.
+/// An object for managing the set of object identity constraints on a {@link Session}.
 public protocol IdentitySet {
     /// Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
     /// implicitly removed.
@@ -1213,7 +1213,7 @@ public struct SessionControlDisp: Ice.Dispatcher {
     }
 }
 
-/// An administrative session control object, which is tied to the lifecycle of a Session.
+/// An administrative session control object, which is tied to the lifecycle of a {@link Session}.
 public protocol SessionControl {
     /// Access the object that manages the allowable categories for object identities for this session.
     ///
@@ -1277,13 +1277,13 @@ public struct SessionManagerDisp: Ice.Dispatcher {
     }
 }
 
-/// The session manager for username/password authenticated users that is responsible for managing Session
-/// objects. New session objects are created by the Router object calling on an application-provided
+/// The session manager for username/password authenticated users that is responsible for managing {@link Session}
+/// objects. New session objects are created by the {@link Router} object calling on an application-provided
 /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
 /// the client.
 public protocol SessionManager {
     /// Create a new session. The implementation must return a non-null proxy or raise
-    /// CannotCreateSessionException if the session cannot be created.
+    /// {@link CannotCreateSessionException} if the session cannot be created.
     ///
     /// - parameter userId: `Swift.String` The user id for the session.
     ///
@@ -1328,8 +1328,8 @@ public struct SSLSessionManagerDisp: Ice.Dispatcher {
     }
 }
 
-/// The session manager for SSL authenticated users that is responsible for managing Session objects. New
-/// session objects are created by the Router object calling on an application-provided session manager. If
+/// The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
+/// session objects are created by the {@link Router} object calling on an application-provided session manager. If
 /// no session manager is provided by the application, no client-visible sessions are passed to the client.
 public protocol SSLSessionManager {
     /// Create a new session.
@@ -1348,7 +1348,7 @@ public protocol SSLSessionManager {
     func create(info: SSLInfo, control: SessionControlPrx?, current: Ice.Current) async throws -> SessionPrx?
 }
 
-/// A client-visible session object, which is tied to the lifecycle of a Router.
+/// A client-visible session object, which is tied to the lifecycle of a {@link Router}.
 ///
 /// Session Methods:
 ///
@@ -1363,7 +1363,7 @@ extension Session {
 }
 
 /// An object for managing the set of identity constraints for specific parts of object identity on a
-/// Session.
+/// {@link Session}.
 ///
 /// StringSet Methods:
 ///
@@ -1402,7 +1402,7 @@ extension StringSet {
     }
 }
 
-/// An object for managing the set of object identity constraints on a Session.
+/// An object for managing the set of object identity constraints on a {@link Session}.
 ///
 /// IdentitySet Methods:
 ///
@@ -1441,7 +1441,7 @@ extension IdentitySet {
     }
 }
 
-/// An administrative session control object, which is tied to the lifecycle of a Session.
+/// An administrative session control object, which is tied to the lifecycle of a {@link Session}.
 ///
 /// SessionControl Methods:
 ///
@@ -1503,8 +1503,8 @@ extension SessionControl {
     }
 }
 
-/// The session manager for username/password authenticated users that is responsible for managing Session
-/// objects. New session objects are created by the Router object calling on an application-provided
+/// The session manager for username/password authenticated users that is responsible for managing {@link Session}
+/// objects. New session objects are created by the {@link Router} object calling on an application-provided
 /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
 /// the client.
 ///
@@ -1526,8 +1526,8 @@ extension SessionManager {
     }
 }
 
-/// The session manager for SSL authenticated users that is responsible for managing Session objects. New
-/// session objects are created by the Router object calling on an application-provided session manager. If
+/// The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
+/// session objects are created by the {@link Router} object calling on an application-provided session manager. If
 /// no session manager is provided by the application, no client-visible sessions are passed to the client.
 ///
 /// SSLSessionManager Methods:

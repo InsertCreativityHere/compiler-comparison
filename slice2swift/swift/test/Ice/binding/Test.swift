@@ -34,13 +34,6 @@ public struct RemoteCommunicatorTraits: Ice.SliceTraits {
     public static let staticId = "::Test::RemoteCommunicator"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - getAdapterName: 
-///
-///  - getAdapterNameAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -128,18 +121,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - getAdapterName: 
-///
-///  - getAdapterNameAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getAdapterName(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getAdapterName",
                                        mode: .Normal,
@@ -151,17 +133,6 @@ public extension TestIntfPrx {
     }
 }
 
-/// RemoteObjectAdapterPrx overview.
-///
-/// RemoteObjectAdapterPrx Methods:
-///
-///  - getTestIntf: 
-///
-///  - getTestIntfAsync: 
-///
-///  - deactivate: 
-///
-///  - deactivateAsync: 
 public protocol RemoteObjectAdapterPrx: Ice.ObjectPrx {}
 
 private final class RemoteObjectAdapterPrxI: Ice.ObjectPrxI, RemoteObjectAdapterPrx {
@@ -249,22 +220,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// RemoteObjectAdapterPrx overview.
-///
-/// RemoteObjectAdapterPrx Methods:
-///
-///  - getTestIntf: 
-///
-///  - getTestIntfAsync: 
-///
-///  - deactivate: 
-///
-///  - deactivateAsync: 
 public extension RemoteObjectAdapterPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `TestIntfPrx?`
     func getTestIntf(context: Ice.Context? = nil) async throws -> TestIntfPrx? {
         return try await _impl._invoke(operation: "getTestIntf",
                                        mode: .Normal,
@@ -275,8 +231,6 @@ public extension RemoteObjectAdapterPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func deactivate(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "deactivate",
                                        mode: .Normal,
@@ -284,21 +238,6 @@ public extension RemoteObjectAdapterPrx {
     }
 }
 
-/// RemoteCommunicatorPrx overview.
-///
-/// RemoteCommunicatorPrx Methods:
-///
-///  - createObjectAdapter: 
-///
-///  - createObjectAdapterAsync: 
-///
-///  - deactivateObjectAdapter: 
-///
-///  - deactivateObjectAdapterAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol RemoteCommunicatorPrx: Ice.ObjectPrx {}
 
 private final class RemoteCommunicatorPrxI: Ice.ObjectPrxI, RemoteCommunicatorPrx {
@@ -386,30 +325,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// RemoteCommunicatorPrx overview.
-///
-/// RemoteCommunicatorPrx Methods:
-///
-///  - createObjectAdapter: 
-///
-///  - createObjectAdapterAsync: 
-///
-///  - deactivateObjectAdapter: 
-///
-///  - deactivateObjectAdapterAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension RemoteCommunicatorPrx {
-    ///
-    /// - parameter name: `Swift.String`
-    ///
-    /// - parameter endpoints: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `RemoteObjectAdapterPrx?`
     func createObjectAdapter(name iceP_name: Swift.String, endpoints iceP_endpoints: Swift.String, context: Ice.Context? = nil) async throws -> RemoteObjectAdapterPrx? {
         return try await _impl._invoke(operation: "createObjectAdapter",
                                        mode: .Normal,
@@ -424,10 +340,6 @@ public extension RemoteCommunicatorPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `RemoteObjectAdapterPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func deactivateObjectAdapter(_ iceP_adapter: RemoteObjectAdapterPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "deactivateObjectAdapter",
                                        mode: .Normal,
@@ -437,8 +349,6 @@ public extension RemoteCommunicatorPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -475,10 +385,6 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getAdapterName(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -513,14 +419,8 @@ public struct RemoteObjectAdapterDisp: Ice.Dispatcher {
 }
 
 public protocol RemoteObjectAdapter {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `TestIntfPrx?`
     func getTestIntf(current: Ice.Current) async throws -> TestIntfPrx?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func deactivate(current: Ice.Current) async throws
 }
 
@@ -557,32 +457,13 @@ public struct RemoteCommunicatorDisp: Ice.Dispatcher {
 }
 
 public protocol RemoteCommunicator {
-    ///
-    /// - parameter name: `Swift.String`
-    ///
-    /// - parameter endpoints: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `RemoteObjectAdapterPrx?`
     func createObjectAdapter(name: Swift.String, endpoints: Swift.String, current: Ice.Current) async throws -> RemoteObjectAdapterPrx?
 
-    ///
-    /// - parameter adapter: `RemoteObjectAdapterPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func deactivateObjectAdapter(adapter: RemoteObjectAdapterPrx?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - getAdapterName: 
 extension TestIntf {
     public func _iceD_getAdapterName(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -595,13 +476,6 @@ extension TestIntf {
     }
 }
 
-/// RemoteObjectAdapter overview.
-///
-/// RemoteObjectAdapter Methods:
-///
-///  - getTestIntf: 
-///
-///  - deactivate: 
 extension RemoteObjectAdapter {
     public func _iceD_getTestIntf(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -621,15 +495,6 @@ extension RemoteObjectAdapter {
     }
 }
 
-/// RemoteCommunicator overview.
-///
-/// RemoteCommunicator Methods:
-///
-///  - createObjectAdapter: 
-///
-///  - deactivateObjectAdapter: 
-///
-///  - shutdown: 
 extension RemoteCommunicator {
     public func _iceD_createObjectAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

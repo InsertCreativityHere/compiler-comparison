@@ -1,10 +1,3 @@
-% funcPrx   Summary of funcPrx
-%
-% funcPrx Methods:
-%   public
-%   publicAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,21 +5,9 @@
 classdef funcPrx < Ice.ObjectPrx
     methods
         function public(obj, varargin)
-            % public
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('public', 0, false, [], false, {}, varargin{:});
         end
         function r_ = publicAsync(obj, varargin)
-            % publicAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('public', 0, false, [], 0, [], {}, varargin{:});
         end
     end

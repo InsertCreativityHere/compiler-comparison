@@ -391,153 +391,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - SBaseAsObject: 
-///
-///  - SBaseAsObjectAsync: 
-///
-///  - SBaseAsSBase: 
-///
-///  - SBaseAsSBaseAsync: 
-///
-///  - SBSKnownDerivedAsSBase: 
-///
-///  - SBSKnownDerivedAsSBaseAsync: 
-///
-///  - SBSKnownDerivedAsSBSKnownDerived: 
-///
-///  - SBSKnownDerivedAsSBSKnownDerivedAsync: 
-///
-///  - SBSUnknownDerivedAsSBase: 
-///
-///  - SBSUnknownDerivedAsSBaseAsync: 
-///
-///  - SBSUnknownDerivedAsSBaseCompact: 
-///
-///  - SBSUnknownDerivedAsSBaseCompactAsync: 
-///
-///  - SUnknownAsObject: 
-///
-///  - SUnknownAsObjectAsync: 
-///
-///  - checkSUnknown: 
-///
-///  - checkSUnknownAsync: 
-///
-///  - oneElementCycle: 
-///
-///  - oneElementCycleAsync: 
-///
-///  - twoElementCycle: 
-///
-///  - twoElementCycleAsync: 
-///
-///  - D1AsB: 
-///
-///  - D1AsBAsync: 
-///
-///  - D1AsD1: 
-///
-///  - D1AsD1Async: 
-///
-///  - D2AsB: 
-///
-///  - D2AsBAsync: 
-///
-///  - paramTest1: 
-///
-///  - paramTest1Async: 
-///
-///  - paramTest2: 
-///
-///  - paramTest2Async: 
-///
-///  - paramTest3: 
-///
-///  - paramTest3Async: 
-///
-///  - paramTest4: 
-///
-///  - paramTest4Async: 
-///
-///  - returnTest1: 
-///
-///  - returnTest1Async: 
-///
-///  - returnTest2: 
-///
-///  - returnTest2Async: 
-///
-///  - returnTest3: 
-///
-///  - returnTest3Async: 
-///
-///  - sequenceTest: 
-///
-///  - sequenceTestAsync: 
-///
-///  - dictionaryTest: 
-///
-///  - dictionaryTestAsync: 
-///
-///  - exchangePBase: 
-///
-///  - exchangePBaseAsync: 
-///
-///  - PBSUnknownAsPreserved: 
-///
-///  - PBSUnknownAsPreservedAsync: 
-///
-///  - checkPBSUnknown: 
-///
-///  - checkPBSUnknownAsync: 
-///
-///  - PBSUnknownAsPreservedWithGraph: 
-///
-///  - PBSUnknownAsPreservedWithGraphAsync: 
-///
-///  - checkPBSUnknownWithGraph: 
-///
-///  - checkPBSUnknownWithGraphAsync: 
-///
-///  - PBSUnknown2AsPreservedWithGraph: 
-///
-///  - PBSUnknown2AsPreservedWithGraphAsync: 
-///
-///  - checkPBSUnknown2WithGraph: 
-///
-///  - checkPBSUnknown2WithGraphAsync: 
-///
-///  - exchangePNode: 
-///
-///  - exchangePNodeAsync: 
-///
-///  - throwBaseAsBase: 
-///
-///  - throwBaseAsBaseAsync: 
-///
-///  - throwDerivedAsBase: 
-///
-///  - throwDerivedAsBaseAsync: 
-///
-///  - throwDerivedAsDerived: 
-///
-///  - throwDerivedAsDerivedAsync: 
-///
-///  - throwUnknownDerivedAsBase: 
-///
-///  - throwUnknownDerivedAsBaseAsync: 
-///
-///  - useForward: Use of forward-declared class to verify that code is generated correctly.
-///
-///  - useForwardAsync: Use of forward-declared class to verify that code is generated correctly.
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -625,158 +478,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - SBaseAsObject: 
-///
-///  - SBaseAsObjectAsync: 
-///
-///  - SBaseAsSBase: 
-///
-///  - SBaseAsSBaseAsync: 
-///
-///  - SBSKnownDerivedAsSBase: 
-///
-///  - SBSKnownDerivedAsSBaseAsync: 
-///
-///  - SBSKnownDerivedAsSBSKnownDerived: 
-///
-///  - SBSKnownDerivedAsSBSKnownDerivedAsync: 
-///
-///  - SBSUnknownDerivedAsSBase: 
-///
-///  - SBSUnknownDerivedAsSBaseAsync: 
-///
-///  - SBSUnknownDerivedAsSBaseCompact: 
-///
-///  - SBSUnknownDerivedAsSBaseCompactAsync: 
-///
-///  - SUnknownAsObject: 
-///
-///  - SUnknownAsObjectAsync: 
-///
-///  - checkSUnknown: 
-///
-///  - checkSUnknownAsync: 
-///
-///  - oneElementCycle: 
-///
-///  - oneElementCycleAsync: 
-///
-///  - twoElementCycle: 
-///
-///  - twoElementCycleAsync: 
-///
-///  - D1AsB: 
-///
-///  - D1AsBAsync: 
-///
-///  - D1AsD1: 
-///
-///  - D1AsD1Async: 
-///
-///  - D2AsB: 
-///
-///  - D2AsBAsync: 
-///
-///  - paramTest1: 
-///
-///  - paramTest1Async: 
-///
-///  - paramTest2: 
-///
-///  - paramTest2Async: 
-///
-///  - paramTest3: 
-///
-///  - paramTest3Async: 
-///
-///  - paramTest4: 
-///
-///  - paramTest4Async: 
-///
-///  - returnTest1: 
-///
-///  - returnTest1Async: 
-///
-///  - returnTest2: 
-///
-///  - returnTest2Async: 
-///
-///  - returnTest3: 
-///
-///  - returnTest3Async: 
-///
-///  - sequenceTest: 
-///
-///  - sequenceTestAsync: 
-///
-///  - dictionaryTest: 
-///
-///  - dictionaryTestAsync: 
-///
-///  - exchangePBase: 
-///
-///  - exchangePBaseAsync: 
-///
-///  - PBSUnknownAsPreserved: 
-///
-///  - PBSUnknownAsPreservedAsync: 
-///
-///  - checkPBSUnknown: 
-///
-///  - checkPBSUnknownAsync: 
-///
-///  - PBSUnknownAsPreservedWithGraph: 
-///
-///  - PBSUnknownAsPreservedWithGraphAsync: 
-///
-///  - checkPBSUnknownWithGraph: 
-///
-///  - checkPBSUnknownWithGraphAsync: 
-///
-///  - PBSUnknown2AsPreservedWithGraph: 
-///
-///  - PBSUnknown2AsPreservedWithGraphAsync: 
-///
-///  - checkPBSUnknown2WithGraph: 
-///
-///  - checkPBSUnknown2WithGraphAsync: 
-///
-///  - exchangePNode: 
-///
-///  - exchangePNodeAsync: 
-///
-///  - throwBaseAsBase: 
-///
-///  - throwBaseAsBaseAsync: 
-///
-///  - throwDerivedAsBase: 
-///
-///  - throwDerivedAsBaseAsync: 
-///
-///  - throwDerivedAsDerived: 
-///
-///  - throwDerivedAsDerivedAsync: 
-///
-///  - throwUnknownDerivedAsBase: 
-///
-///  - throwUnknownDerivedAsBaseAsync: 
-///
-///  - useForward: Use of forward-declared class to verify that code is generated correctly.
-///
-///  - useForwardAsync: Use of forward-declared class to verify that code is generated correctly.
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.Value?`
     func SBaseAsObject(context: Ice.Context? = nil) async throws -> Ice.Value? {
         return try await _impl._invoke(operation: "SBaseAsObject",
                                        mode: .Normal,
@@ -790,10 +492,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SBase?`
     func SBaseAsSBase(context: Ice.Context? = nil) async throws -> SBase? {
         return try await _impl._invoke(operation: "SBaseAsSBase",
                                        mode: .Normal,
@@ -807,10 +505,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SBase?`
     func SBSKnownDerivedAsSBase(context: Ice.Context? = nil) async throws -> SBase? {
         return try await _impl._invoke(operation: "SBSKnownDerivedAsSBase",
                                        mode: .Normal,
@@ -824,10 +518,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SBSKnownDerived?`
     func SBSKnownDerivedAsSBSKnownDerived(context: Ice.Context? = nil) async throws -> SBSKnownDerived? {
         return try await _impl._invoke(operation: "SBSKnownDerivedAsSBSKnownDerived",
                                        mode: .Normal,
@@ -841,10 +531,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SBase?`
     func SBSUnknownDerivedAsSBase(context: Ice.Context? = nil) async throws -> SBase? {
         return try await _impl._invoke(operation: "SBSUnknownDerivedAsSBase",
                                        mode: .Normal,
@@ -858,10 +544,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SBase?`
     func SBSUnknownDerivedAsSBaseCompact(context: Ice.Context? = nil) async throws -> SBase? {
         return try await _impl._invoke(operation: "SBSUnknownDerivedAsSBaseCompact",
                                        mode: .Normal,
@@ -875,10 +557,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.Value?`
     func SUnknownAsObject(context: Ice.Context? = nil) async throws -> Ice.Value? {
         return try await _impl._invoke(operation: "SUnknownAsObject",
                                        mode: .Normal,
@@ -892,10 +570,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Ice.Value?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func checkSUnknown(_ iceP_o: Ice.Value?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "checkSUnknown",
                                        mode: .Normal,
@@ -907,10 +581,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?`
     func oneElementCycle(context: Ice.Context? = nil) async throws -> B? {
         return try await _impl._invoke(operation: "oneElementCycle",
                                        mode: .Normal,
@@ -924,10 +594,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?`
     func twoElementCycle(context: Ice.Context? = nil) async throws -> B? {
         return try await _impl._invoke(operation: "twoElementCycle",
                                        mode: .Normal,
@@ -941,10 +607,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?`
     func D1AsB(context: Ice.Context? = nil) async throws -> B? {
         return try await _impl._invoke(operation: "D1AsB",
                                        mode: .Normal,
@@ -958,10 +620,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `D1?`
     func D1AsD1(context: Ice.Context? = nil) async throws -> D1? {
         return try await _impl._invoke(operation: "D1AsD1",
                                        mode: .Normal,
@@ -975,10 +633,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?`
     func D2AsB(context: Ice.Context? = nil) async throws -> B? {
         return try await _impl._invoke(operation: "D2AsB",
                                        mode: .Normal,
@@ -992,14 +646,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(p1: B?, p2: B?)`:
-    ///
-    ///   - p1: `B?`
-    ///
-    ///   - p2: `B?`
     func paramTest1(context: Ice.Context? = nil) async throws -> (p1: B?, p2: B?) {
         return try await _impl._invoke(operation: "paramTest1",
                                        mode: .Normal,
@@ -1015,14 +661,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(p2: B?, p1: B?)`:
-    ///
-    ///   - p2: `B?`
-    ///
-    ///   - p1: `B?`
     func paramTest2(context: Ice.Context? = nil) async throws -> (p2: B?, p1: B?) {
         return try await _impl._invoke(operation: "paramTest2",
                                        mode: .Normal,
@@ -1038,16 +676,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: B?, p1: B?, p2: B?)`:
-    ///
-    ///   - returnValue: `B?`
-    ///
-    ///   - p1: `B?`
-    ///
-    ///   - p2: `B?`
     func paramTest3(context: Ice.Context? = nil) async throws -> (returnValue: B?, p1: B?, p2: B?) {
         return try await _impl._invoke(operation: "paramTest3",
                                        mode: .Normal,
@@ -1065,14 +693,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: B?, p: B?)`:
-    ///
-    ///   - returnValue: `B?`
-    ///
-    ///   - p: `B?`
     func paramTest4(context: Ice.Context? = nil) async throws -> (returnValue: B?, p: B?) {
         return try await _impl._invoke(operation: "paramTest4",
                                        mode: .Normal,
@@ -1088,16 +708,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: B?, p1: B?, p2: B?)`:
-    ///
-    ///   - returnValue: `B?`
-    ///
-    ///   - p1: `B?`
-    ///
-    ///   - p2: `B?`
     func returnTest1(context: Ice.Context? = nil) async throws -> (returnValue: B?, p1: B?, p2: B?) {
         return try await _impl._invoke(operation: "returnTest1",
                                        mode: .Normal,
@@ -1115,16 +725,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: B?, p2: B?, p1: B?)`:
-    ///
-    ///   - returnValue: `B?`
-    ///
-    ///   - p2: `B?`
-    ///
-    ///   - p1: `B?`
     func returnTest2(context: Ice.Context? = nil) async throws -> (returnValue: B?, p2: B?, p1: B?) {
         return try await _impl._invoke(operation: "returnTest2",
                                        mode: .Normal,
@@ -1142,14 +742,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `B?`
-    ///
-    /// - parameter p2: `B?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?`
     func returnTest3(p1 iceP_p1: B?, p2 iceP_p2: B?, context: Ice.Context? = nil) async throws -> B? {
         return try await _impl._invoke(operation: "returnTest3",
                                        mode: .Normal,
@@ -1168,14 +760,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `SS1?`
-    ///
-    /// - parameter p2: `SS2?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SS3`
     func sequenceTest(p1 iceP_p1: SS1?, p2 iceP_p2: SS2?, context: Ice.Context? = nil) async throws -> SS3 {
         return try await _impl._invoke(operation: "sequenceTest",
                                        mode: .Normal,
@@ -1193,16 +777,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `BDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BDict, bout: BDict)`:
-    ///
-    ///   - returnValue: `BDict`
-    ///
-    ///   - bout: `BDict`
     func dictionaryTest(_ iceP_bin: BDict, context: Ice.Context? = nil) async throws -> (returnValue: BDict, bout: BDict) {
         return try await _impl._invoke(operation: "dictionaryTest",
                                        mode: .Normal,
@@ -1220,12 +794,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `PBase?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `PBase?`
     func exchangePBase(_ iceP_pb: PBase?, context: Ice.Context? = nil) async throws -> PBase? {
         return try await _impl._invoke(operation: "exchangePBase",
                                        mode: .Normal,
@@ -1243,10 +811,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Preserved?`
     func PBSUnknownAsPreserved(context: Ice.Context? = nil) async throws -> Preserved? {
         return try await _impl._invoke(operation: "PBSUnknownAsPreserved",
                                        mode: .Normal,
@@ -1260,10 +824,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Preserved?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func checkPBSUnknown(_ iceP_p: Preserved?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "checkPBSUnknown",
                                        mode: .Normal,
@@ -1275,10 +835,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Preserved?`
     func PBSUnknownAsPreservedWithGraph(context: Ice.Context? = nil) async throws -> Preserved? {
         return try await _impl._invoke(operation: "PBSUnknownAsPreservedWithGraph",
                                        mode: .Normal,
@@ -1292,10 +848,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Preserved?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func checkPBSUnknownWithGraph(_ iceP_p: Preserved?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "checkPBSUnknownWithGraph",
                                        mode: .Normal,
@@ -1307,10 +859,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Preserved?`
     func PBSUnknown2AsPreservedWithGraph(context: Ice.Context? = nil) async throws -> Preserved? {
         return try await _impl._invoke(operation: "PBSUnknown2AsPreservedWithGraph",
                                        mode: .Normal,
@@ -1324,10 +872,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Preserved?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func checkPBSUnknown2WithGraph(_ iceP_p: Preserved?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "checkPBSUnknown2WithGraph",
                                        mode: .Normal,
@@ -1339,12 +883,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `PNode?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `PNode?`
     func exchangePNode(_ iceP_pn: PNode?, context: Ice.Context? = nil) async throws -> PNode? {
         return try await _impl._invoke(operation: "exchangePNode",
                                        mode: .Normal,
@@ -1362,8 +900,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwBaseAsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwBaseAsBase",
                                        mode: .Normal,
@@ -1378,8 +914,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwDerivedAsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwDerivedAsBase",
                                        mode: .Normal,
@@ -1394,8 +928,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwDerivedAsDerived(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwDerivedAsDerived",
                                        mode: .Normal,
@@ -1410,8 +942,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwUnknownDerivedAsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwUnknownDerivedAsBase",
                                        mode: .Normal,
@@ -1444,8 +974,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -2112,248 +1640,72 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.Value?`
     func SBaseAsObject(current: Ice.Current) async throws -> Ice.Value?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `SBase?`
     func SBaseAsSBase(current: Ice.Current) async throws -> SBase?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `SBase?`
     func SBSKnownDerivedAsSBase(current: Ice.Current) async throws -> SBase?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `SBSKnownDerived?`
     func SBSKnownDerivedAsSBSKnownDerived(current: Ice.Current) async throws -> SBSKnownDerived?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `SBase?`
     func SBSUnknownDerivedAsSBase(current: Ice.Current) async throws -> SBase?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `SBase?`
     func SBSUnknownDerivedAsSBaseCompact(current: Ice.Current) async throws -> SBase?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.Value?`
     func SUnknownAsObject(current: Ice.Current) async throws -> Ice.Value?
 
-    ///
-    /// - parameter o: `Ice.Value?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func checkSUnknown(o: Ice.Value?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `B?`
     func oneElementCycle(current: Ice.Current) async throws -> B?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `B?`
     func twoElementCycle(current: Ice.Current) async throws -> B?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `B?`
     func D1AsB(current: Ice.Current) async throws -> B?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `D1?`
     func D1AsD1(current: Ice.Current) async throws -> D1?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `B?`
     func D2AsB(current: Ice.Current) async throws -> B?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(p1: B?, p2: B?)`:
-    ///
-    ///   - p1: `B?`
-    ///
-    ///   - p2: `B?`
     func paramTest1(current: Ice.Current) async throws -> (p1: B?, p2: B?)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(p2: B?, p1: B?)`:
-    ///
-    ///   - p2: `B?`
-    ///
-    ///   - p1: `B?`
     func paramTest2(current: Ice.Current) async throws -> (p2: B?, p1: B?)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: B?, p1: B?, p2: B?)`:
-    ///
-    ///   - returnValue: `B?`
-    ///
-    ///   - p1: `B?`
-    ///
-    ///   - p2: `B?`
     func paramTest3(current: Ice.Current) async throws -> (returnValue: B?, p1: B?, p2: B?)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: B?, p: B?)`:
-    ///
-    ///   - returnValue: `B?`
-    ///
-    ///   - p: `B?`
     func paramTest4(current: Ice.Current) async throws -> (returnValue: B?, p: B?)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: B?, p1: B?, p2: B?)`:
-    ///
-    ///   - returnValue: `B?`
-    ///
-    ///   - p1: `B?`
-    ///
-    ///   - p2: `B?`
     func returnTest1(current: Ice.Current) async throws -> (returnValue: B?, p1: B?, p2: B?)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: B?, p2: B?, p1: B?)`:
-    ///
-    ///   - returnValue: `B?`
-    ///
-    ///   - p2: `B?`
-    ///
-    ///   - p1: `B?`
     func returnTest2(current: Ice.Current) async throws -> (returnValue: B?, p2: B?, p1: B?)
 
-    ///
-    /// - parameter p1: `B?`
-    ///
-    /// - parameter p2: `B?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `B?`
     func returnTest3(p1: B?, p2: B?, current: Ice.Current) async throws -> B?
 
-    ///
-    /// - parameter p1: `SS1?`
-    ///
-    /// - parameter p2: `SS2?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `SS3`
     func sequenceTest(p1: SS1?, p2: SS2?, current: Ice.Current) async throws -> SS3
 
-    ///
-    /// - parameter bin: `BDict`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BDict, bout: BDict)`:
-    ///
-    ///   - returnValue: `BDict`
-    ///
-    ///   - bout: `BDict`
     func dictionaryTest(bin: BDict, current: Ice.Current) async throws -> (returnValue: BDict, bout: BDict)
 
-    ///
-    /// - parameter pb: `PBase?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PBase?`
     func exchangePBase(pb: PBase?, current: Ice.Current) async throws -> PBase?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Preserved?`
     func PBSUnknownAsPreserved(current: Ice.Current) async throws -> Preserved?
 
-    ///
-    /// - parameter p: `Preserved?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func checkPBSUnknown(p: Preserved?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Preserved?`
     func PBSUnknownAsPreservedWithGraph(current: Ice.Current) async throws -> Preserved?
 
-    ///
-    /// - parameter p: `Preserved?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func checkPBSUnknownWithGraph(p: Preserved?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Preserved?`
     func PBSUnknown2AsPreservedWithGraph(current: Ice.Current) async throws -> Preserved?
 
-    ///
-    /// - parameter p: `Preserved?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func checkPBSUnknown2WithGraph(p: Preserved?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter pn: `PNode?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PNode?`
     func exchangePNode(pn: PNode?, current: Ice.Current) async throws -> PNode?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwBaseAsBase(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwDerivedAsBase(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwDerivedAsDerived(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwUnknownDerivedAsBase(current: Ice.Current) async throws
 
     /// Use of forward-declared class to verify that code is generated correctly.
@@ -2363,86 +1715,9 @@ public protocol TestIntf {
     /// - returns: `Forward?`
     func useForward(current: Ice.Current) async throws -> Forward?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - SBaseAsObject: 
-///
-///  - SBaseAsSBase: 
-///
-///  - SBSKnownDerivedAsSBase: 
-///
-///  - SBSKnownDerivedAsSBSKnownDerived: 
-///
-///  - SBSUnknownDerivedAsSBase: 
-///
-///  - SBSUnknownDerivedAsSBaseCompact: 
-///
-///  - SUnknownAsObject: 
-///
-///  - checkSUnknown: 
-///
-///  - oneElementCycle: 
-///
-///  - twoElementCycle: 
-///
-///  - D1AsB: 
-///
-///  - D1AsD1: 
-///
-///  - D2AsB: 
-///
-///  - paramTest1: 
-///
-///  - paramTest2: 
-///
-///  - paramTest3: 
-///
-///  - paramTest4: 
-///
-///  - returnTest1: 
-///
-///  - returnTest2: 
-///
-///  - returnTest3: 
-///
-///  - sequenceTest: 
-///
-///  - dictionaryTest: 
-///
-///  - exchangePBase: 
-///
-///  - PBSUnknownAsPreserved: 
-///
-///  - checkPBSUnknown: 
-///
-///  - PBSUnknownAsPreservedWithGraph: 
-///
-///  - checkPBSUnknownWithGraph: 
-///
-///  - PBSUnknown2AsPreservedWithGraph: 
-///
-///  - checkPBSUnknown2WithGraph: 
-///
-///  - exchangePNode: 
-///
-///  - throwBaseAsBase: 
-///
-///  - throwDerivedAsBase: 
-///
-///  - throwDerivedAsDerived: 
-///
-///  - throwUnknownDerivedAsBase: 
-///
-///  - useForward: Use of forward-declared class to verify that code is generated correctly.
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_SBaseAsObject(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

@@ -1,20 +1,3 @@
-% CallbackPrx   Summary of CallbackPrx
-%
-% CallbackPrx Methods:
-%   initiateCallback
-%   initiateCallbackAsync
-%   initiateCallbackEx
-%   initiateCallbackExAsync
-%   initiateConcurrentCallback
-%   initiateConcurrentCallbackAsync
-%   initiateWaitCallback
-%   initiateWaitCallbackAsync
-%   initiateCallbackWithPayload
-%   initiateCallbackWithPayloadAsync
-%   shutdown
-%   shutdownAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Callback.ice by slice2matlab version 3.8.0-alpha.0
@@ -22,67 +5,30 @@
 classdef CallbackPrx < Ice.ObjectPrx
     methods
         function initiateCallback(obj, proxy, varargin)
-            % initiateCallback
-            %
-            % Parameters:
-            %   proxy (Test.CallbackReceiverPrx)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('initiateCallback', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = initiateCallbackAsync(obj, proxy, varargin)
-            % initiateCallbackAsync
-            %
-            % Parameters:
-            %   proxy (Test.CallbackReceiverPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('initiateCallback', 0, false, os_, 0, [], {}, varargin{:});
         end
         function initiateCallbackEx(obj, proxy, varargin)
-            % initiateCallbackEx
-            %
-            % Parameters:
-            %   proxy (Test.CallbackReceiverPrx)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('initiateCallbackEx', 0, true, os_, false, Test.CallbackPrx.initiateCallbackEx_ex_, varargin{:});
         end
         function r_ = initiateCallbackExAsync(obj, proxy, varargin)
-            % initiateCallbackExAsync
-            %
-            % Parameters:
-            %   proxy (Test.CallbackReceiverPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('initiateCallbackEx', 0, true, os_, 0, [], Test.CallbackPrx.initiateCallbackEx_ex_, varargin{:});
         end
         function result = initiateConcurrentCallback(obj, number, proxy, varargin)
-            % initiateConcurrentCallback
-            %
-            % Parameters:
-            %   number (int32)
-            %   proxy (Test.CallbackReceiverPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(number);
             os_.writeProxy(proxy);
@@ -93,15 +39,6 @@ classdef CallbackPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = initiateConcurrentCallbackAsync(obj, number, proxy, varargin)
-            % initiateConcurrentCallbackAsync
-            %
-            % Parameters:
-            %   number (int32)
-            %   proxy (Test.CallbackReceiverPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(number);
             os_.writeProxy(proxy);
@@ -115,73 +52,33 @@ classdef CallbackPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('initiateConcurrentCallback', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function initiateWaitCallback(obj, proxy, varargin)
-            % initiateWaitCallback
-            %
-            % Parameters:
-            %   proxy (Test.CallbackReceiverPrx)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('initiateWaitCallback', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = initiateWaitCallbackAsync(obj, proxy, varargin)
-            % initiateWaitCallbackAsync
-            %
-            % Parameters:
-            %   proxy (Test.CallbackReceiverPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('initiateWaitCallback', 0, false, os_, 0, [], {}, varargin{:});
         end
         function initiateCallbackWithPayload(obj, proxy, varargin)
-            % initiateCallbackWithPayload
-            %
-            % Parameters:
-            %   proxy (Test.CallbackReceiverPrx)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('initiateCallbackWithPayload', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = initiateCallbackWithPayloadAsync(obj, proxy, varargin)
-            % initiateCallbackWithPayloadAsync
-            %
-            % Parameters:
-            %   proxy (Test.CallbackReceiverPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('initiateCallbackWithPayload', 0, false, os_, 0, [], {}, varargin{:});
         end
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
     end

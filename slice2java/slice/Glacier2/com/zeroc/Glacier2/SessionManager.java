@@ -16,8 +16,8 @@
 package com.zeroc.Glacier2;
 
 /**
- * The session manager for username/password authenticated users that is responsible for managing {@link Session}
- * objects. New session objects are created by the {@link Router} object calling on an application-provided
+ * The session manager for username/password authenticated users that is responsible for managing {@link Session}}
+ * objects. New session objects are created by the {@link Router}} object calling on an application-provided
  * session manager. If no session manager is provided by the application, no client-visible sessions are passed to
  * the client.
  *
@@ -28,7 +28,7 @@ public interface SessionManager extends com.zeroc.Ice.Object
 {
     /**
      * Create a new session. The implementation must return a non-null proxy or raise
-     * {@link CannotCreateSessionException} if the session cannot be created.
+     * {@link CannotCreateSessionException}} if the session cannot be created.
      * @param userId The user id for the session.
      * @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
      * are not configured.

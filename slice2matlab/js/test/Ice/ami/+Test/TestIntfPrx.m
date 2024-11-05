@@ -1,38 +1,3 @@
-% TestIntfPrx   Summary of TestIntfPrx
-%
-% TestIntfPrx Methods:
-%   op
-%   opAsync
-%   opWithPayload
-%   opWithPayloadAsync
-%   opWithResult
-%   opWithResultAsync
-%   opWithUE
-%   opWithUEAsync
-%   opBatch
-%   opBatchAsync
-%   opBatchCount
-%   opBatchCountAsync
-%   waitForBatch
-%   waitForBatchAsync
-%   closeConnection
-%   closeConnectionAsync
-%   abortConnection
-%   abortConnectionAsync
-%   sleep
-%   sleepAsync
-%   startDispatch
-%   startDispatchAsync
-%   finishDispatch
-%   finishDispatchAsync
-%   shutdown
-%   shutdownAsync
-%   supportsFunctionalTests
-%   supportsFunctionalTestsAsync
-%   pingBiDir
-%   pingBiDirAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -40,70 +5,30 @@
 classdef TestIntfPrx < Ice.ObjectPrx
     methods
         function op(obj, varargin)
-            % op
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('op', 0, false, [], false, {}, varargin{:});
         end
         function r_ = opAsync(obj, varargin)
-            % opAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('op', 0, false, [], 0, [], {}, varargin{:});
         end
         function opWithPayload(obj, seq, varargin)
-            % opWithPayload
-            %
-            % Parameters:
-            %   seq (Ice.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(seq);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('opWithPayload', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = opWithPayloadAsync(obj, seq, varargin)
-            % opWithPayloadAsync
-            %
-            % Parameters:
-            %   seq (Ice.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(seq);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('opWithPayload', 0, false, os_, 0, [], {}, varargin{:});
         end
         function result = opWithResult(obj, varargin)
-            % opWithResult
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
             is_ = obj.iceInvoke('opWithResult', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
         end
         function r_ = opWithResultAsync(obj, varargin)
-            % opWithResultAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = is_.readInt();
@@ -113,62 +38,24 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opWithResult', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function opWithUE(obj, varargin)
-            % opWithUE
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('opWithUE', 0, true, [], false, Test.TestIntfPrx.opWithUE_ex_, varargin{:});
         end
         function r_ = opWithUEAsync(obj, varargin)
-            % opWithUEAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('opWithUE', 0, true, [], 0, [], Test.TestIntfPrx.opWithUE_ex_, varargin{:});
         end
         function opBatch(obj, varargin)
-            % opBatch
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('opBatch', 0, false, [], false, {}, varargin{:});
         end
         function r_ = opBatchAsync(obj, varargin)
-            % opBatchAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('opBatch', 0, false, [], 0, [], {}, varargin{:});
         end
         function result = opBatchCount(obj, varargin)
-            % opBatchCount
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
             is_ = obj.iceInvoke('opBatchCount', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
         end
         function r_ = opBatchCountAsync(obj, varargin)
-            % opBatchCountAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = is_.readInt();
@@ -178,14 +65,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opBatchCount', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = waitForBatch(obj, count, varargin)
-            % waitForBatch
-            %
-            % Parameters:
-            %   count (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (logical)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(count);
             obj.iceEndWriteParams(os_);
@@ -195,14 +74,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = waitForBatchAsync(obj, count, varargin)
-            % waitForBatchAsync
-            %
-            % Parameters:
-            %   count (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(count);
             obj.iceEndWriteParams(os_);
@@ -215,142 +86,54 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('waitForBatch', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function closeConnection(obj, varargin)
-            % closeConnection
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('closeConnection', 0, false, [], false, {}, varargin{:});
         end
         function r_ = closeConnectionAsync(obj, varargin)
-            % closeConnectionAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('closeConnection', 0, false, [], 0, [], {}, varargin{:});
         end
         function abortConnection(obj, varargin)
-            % abortConnection
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('abortConnection', 0, false, [], false, {}, varargin{:});
         end
         function r_ = abortConnectionAsync(obj, varargin)
-            % abortConnectionAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('abortConnection', 0, false, [], 0, [], {}, varargin{:});
         end
         function sleep(obj, ms, varargin)
-            % sleep
-            %
-            % Parameters:
-            %   ms (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(ms);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('sleep', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = sleepAsync(obj, ms, varargin)
-            % sleepAsync
-            %
-            % Parameters:
-            %   ms (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(ms);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('sleep', 0, false, os_, 0, [], {}, varargin{:});
         end
         function startDispatch(obj, varargin)
-            % startDispatch
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('startDispatch', 0, false, [], false, {}, varargin{:});
         end
         function r_ = startDispatchAsync(obj, varargin)
-            % startDispatchAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('startDispatch', 0, false, [], 0, [], {}, varargin{:});
         end
         function finishDispatch(obj, varargin)
-            % finishDispatch
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('finishDispatch', 0, false, [], false, {}, varargin{:});
         end
         function r_ = finishDispatchAsync(obj, varargin)
-            % finishDispatchAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('finishDispatch', 0, false, [], 0, [], {}, varargin{:});
         end
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
         function result = supportsFunctionalTests(obj, varargin)
-            % supportsFunctionalTests
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (logical)
-            
             is_ = obj.iceInvoke('supportsFunctionalTests', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readBool();
             is_.endEncapsulation();
         end
         function r_ = supportsFunctionalTestsAsync(obj, varargin)
-            % supportsFunctionalTestsAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = is_.readBool();
@@ -360,26 +143,12 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('supportsFunctionalTests', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function pingBiDir(obj, reply, varargin)
-            % pingBiDir
-            %
-            % Parameters:
-            %   reply (Test.PingReplyPrx)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(reply);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('pingBiDir', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = pingBiDirAsync(obj, reply, varargin)
-            % pingBiDirAsync
-            %
-            % Parameters:
-            %   reply (Test.PingReplyPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(reply);
             obj.iceEndWriteParams(os_);

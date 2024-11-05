@@ -1,7 +1,3 @@
-% WstringStruct   Summary of WstringStruct
-%
-% WstringStruct Properties:
-%   s
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from WstringAMD.ice by slice2matlab version 3.8.0-alpha.0

@@ -1,8 +1,3 @@
-% D1   Summary of D1
-%
-% D1 Properties:
-%   sd1
-%   pd1
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ClientPrivate.ice by slice2matlab version 3.8.0-alpha.0

@@ -101,21 +101,6 @@ public struct PingableTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Pingable"
 }
 
-/// ServerPrx overview.
-///
-/// ServerPrx Methods:
-///
-///  - noCert: 
-///
-///  - noCertAsync: 
-///
-///  - checkCert: 
-///
-///  - checkCertAsync: 
-///
-///  - checkCipher: 
-///
-///  - checkCipherAsync: 
 public protocol ServerPrx: Ice.ObjectPrx {}
 
 private final class ServerPrxI: Ice.ObjectPrxI, ServerPrx {
@@ -203,36 +188,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// ServerPrx overview.
-///
-/// ServerPrx Methods:
-///
-///  - noCert: 
-///
-///  - noCertAsync: 
-///
-///  - checkCert: 
-///
-///  - checkCertAsync: 
-///
-///  - checkCipher: 
-///
-///  - checkCipherAsync: 
 public extension ServerPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func noCert(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "noCert",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter subjectDN: `Swift.String`
-    ///
-    /// - parameter issuerDN: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func checkCert(subjectDN iceP_subjectDN: Swift.String, issuerDN iceP_issuerDN: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "checkCert",
                                        mode: .Normal,
@@ -243,10 +205,6 @@ public extension ServerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func checkCipher(_ iceP_cipher: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "checkCipher",
                                        mode: .Normal,
@@ -257,21 +215,6 @@ public extension ServerPrx {
     }
 }
 
-/// ServerFactoryPrx overview.
-///
-/// ServerFactoryPrx Methods:
-///
-///  - createServer: 
-///
-///  - createServerAsync: 
-///
-///  - destroyServer: 
-///
-///  - destroyServerAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol ServerFactoryPrx: Ice.ObjectPrx {}
 
 private final class ServerFactoryPrxI: Ice.ObjectPrxI, ServerFactoryPrx {
@@ -359,28 +302,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// ServerFactoryPrx overview.
-///
-/// ServerFactoryPrx Methods:
-///
-///  - createServer: 
-///
-///  - createServerAsync: 
-///
-///  - destroyServer: 
-///
-///  - destroyServerAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension ServerFactoryPrx {
-    ///
-    /// - parameter _: `Properties`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ServerPrx?`
     func createServer(_ iceP_props: Properties, context: Ice.Context? = nil) async throws -> ServerPrx? {
         return try await _impl._invoke(operation: "createServer",
                                        mode: .Normal,
@@ -394,10 +316,6 @@ public extension ServerFactoryPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ServerPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func destroyServer(_ iceP_srv: ServerPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroyServer",
                                        mode: .Normal,
@@ -407,8 +325,6 @@ public extension ServerFactoryPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -416,13 +332,6 @@ public extension ServerFactoryPrx {
     }
 }
 
-/// PingablePrx overview.
-///
-/// PingablePrx Methods:
-///
-///  - ping: 
-///
-///  - pingAsync: 
 public protocol PingablePrx: Ice.ObjectPrx {}
 
 private final class PingablePrxI: Ice.ObjectPrxI, PingablePrx {
@@ -510,16 +419,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// PingablePrx overview.
-///
-/// PingablePrx Methods:
-///
-///  - ping: 
-///
-///  - pingAsync: 
 public extension PingablePrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func ping(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "ping",
                                        mode: .Normal,
@@ -560,22 +460,10 @@ public struct ServerDisp: Ice.Dispatcher {
 }
 
 public protocol Server {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func noCert(current: Ice.Current) async throws
 
-    ///
-    /// - parameter subjectDN: `Swift.String`
-    ///
-    /// - parameter issuerDN: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func checkCert(subjectDN: Swift.String, issuerDN: Swift.String, current: Ice.Current) async throws
 
-    ///
-    /// - parameter cipher: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func checkCipher(cipher: Swift.String, current: Ice.Current) async throws
 }
 
@@ -612,22 +500,10 @@ public struct ServerFactoryDisp: Ice.Dispatcher {
 }
 
 public protocol ServerFactory {
-    ///
-    /// - parameter props: `Properties`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ServerPrx?`
     func createServer(props: Properties, current: Ice.Current) async throws -> ServerPrx?
 
-    ///
-    /// - parameter srv: `ServerPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func destroyServer(srv: ServerPrx?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -660,20 +536,9 @@ public struct PingableDisp: Ice.Dispatcher {
 }
 
 public protocol Pingable {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func ping(current: Ice.Current) async throws
 }
 
-/// Server overview.
-///
-/// Server Methods:
-///
-///  - noCert: 
-///
-///  - checkCert: 
-///
-///  - checkCipher: 
 extension Server {
     public func _iceD_noCert(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -702,15 +567,6 @@ extension Server {
     }
 }
 
-/// ServerFactory overview.
-///
-/// ServerFactory Methods:
-///
-///  - createServer: 
-///
-///  - destroyServer: 
-///
-///  - shutdown: 
 extension ServerFactory {
     public func _iceD_createServer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -741,11 +597,6 @@ extension ServerFactory {
     }
 }
 
-/// Pingable overview.
-///
-/// Pingable Methods:
-///
-///  - ping: 
 extension Pingable {
     public func _iceD_ping(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

@@ -94,61 +94,6 @@ public struct EchoTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Echo"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - requestFailedException: 
-///
-///  - requestFailedExceptionAsync: 
-///
-///  - unknownUserException: 
-///
-///  - unknownUserExceptionAsync: 
-///
-///  - unknownLocalException: 
-///
-///  - unknownLocalExceptionAsync: 
-///
-///  - unknownException: 
-///
-///  - unknownExceptionAsync: 
-///
-///  - localException: 
-///
-///  - localExceptionAsync: 
-///
-///  - userException: 
-///
-///  - userExceptionAsync: 
-///
-///  - jsException: 
-///
-///  - jsExceptionAsync: 
-///
-///  - unknownExceptionWithServantException: 
-///
-///  - unknownExceptionWithServantExceptionAsync: 
-///
-///  - impossibleException: 
-///
-///  - impossibleExceptionAsync: 
-///
-///  - intfUserException: 
-///
-///  - intfUserExceptionAsync: 
-///
-///  - asyncResponse: 
-///
-///  - asyncResponseAsync: 
-///
-///  - asyncException: 
-///
-///  - asyncExceptionAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -236,132 +181,55 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - requestFailedException: 
-///
-///  - requestFailedExceptionAsync: 
-///
-///  - unknownUserException: 
-///
-///  - unknownUserExceptionAsync: 
-///
-///  - unknownLocalException: 
-///
-///  - unknownLocalExceptionAsync: 
-///
-///  - unknownException: 
-///
-///  - unknownExceptionAsync: 
-///
-///  - localException: 
-///
-///  - localExceptionAsync: 
-///
-///  - userException: 
-///
-///  - userExceptionAsync: 
-///
-///  - jsException: 
-///
-///  - jsExceptionAsync: 
-///
-///  - unknownExceptionWithServantException: 
-///
-///  - unknownExceptionWithServantExceptionAsync: 
-///
-///  - impossibleException: 
-///
-///  - impossibleExceptionAsync: 
-///
-///  - intfUserException: 
-///
-///  - intfUserExceptionAsync: 
-///
-///  - asyncResponse: 
-///
-///  - asyncResponseAsync: 
-///
-///  - asyncException: 
-///
-///  - asyncExceptionAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func requestFailedException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "requestFailedException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func unknownUserException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "unknownUserException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func unknownLocalException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "unknownLocalException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func unknownException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "unknownException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func localException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "localException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func userException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "userException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func jsException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "jsException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func unknownExceptionWithServantException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "unknownExceptionWithServantException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func impossibleException(_ iceP_throw: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "impossibleException",
                                        mode: .Normal,
@@ -382,12 +250,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func intfUserException(_ iceP_throw: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "intfUserException",
                                        mode: .Normal,
@@ -410,8 +272,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func asyncResponse(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "asyncResponse",
                                        mode: .Normal,
@@ -427,8 +287,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func asyncException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "asyncException",
                                        mode: .Normal,
@@ -444,8 +302,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -453,13 +309,6 @@ public extension TestIntfPrx {
     }
 }
 
-/// TestActivationPrx overview.
-///
-/// TestActivationPrx Methods:
-///
-///  - activateServantLocator: 
-///
-///  - activateServantLocatorAsync: 
 public protocol TestActivationPrx: Ice.ObjectPrx {}
 
 private final class TestActivationPrxI: Ice.ObjectPrxI, TestActivationPrx {
@@ -547,18 +396,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestActivationPrx overview.
-///
-/// TestActivationPrx Methods:
-///
-///  - activateServantLocator: 
-///
-///  - activateServantLocatorAsync: 
 public extension TestActivationPrx {
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func activateServantLocator(_ iceP_activate: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "activateServantLocator",
                                        mode: .Normal,
@@ -569,25 +407,6 @@ public extension TestActivationPrx {
     }
 }
 
-/// EchoPrx overview.
-///
-/// EchoPrx Methods:
-///
-///  - setConnection: 
-///
-///  - setConnectionAsync: 
-///
-///  - startBatch: 
-///
-///  - startBatchAsync: 
-///
-///  - flushBatch: 
-///
-///  - flushBatchAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol EchoPrx: Ice.ObjectPrx {}
 
 private final class EchoPrxI: Ice.ObjectPrxI, EchoPrx {
@@ -675,52 +494,25 @@ public extension Ice.InputStream {
     }
 }
 
-/// EchoPrx overview.
-///
-/// EchoPrx Methods:
-///
-///  - setConnection: 
-///
-///  - setConnectionAsync: 
-///
-///  - startBatch: 
-///
-///  - startBatchAsync: 
-///
-///  - flushBatch: 
-///
-///  - flushBatchAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension EchoPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func setConnection(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setConnection",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func startBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "startBatch",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func flushBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "flushBatch",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -781,64 +573,30 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func requestFailedException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func unknownUserException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func unknownLocalException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func unknownException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func localException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func userException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func jsException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func unknownExceptionWithServantException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter throw: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func impossibleException(throw: Swift.Bool, current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter throw: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func intfUserException(throw: Swift.Bool, current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func asyncResponse(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func asyncException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -871,10 +629,6 @@ public struct TestActivationDisp: Ice.Dispatcher {
 }
 
 public protocol TestActivation {
-    ///
-    /// - parameter activate: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func activateServantLocator(activate: Swift.Bool, current: Ice.Current) async throws
 }
 
@@ -913,52 +667,15 @@ public struct EchoDisp: Ice.Dispatcher {
 }
 
 public protocol Echo {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setConnection(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func startBatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func flushBatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - requestFailedException: 
-///
-///  - unknownUserException: 
-///
-///  - unknownLocalException: 
-///
-///  - unknownException: 
-///
-///  - localException: 
-///
-///  - userException: 
-///
-///  - jsException: 
-///
-///  - unknownExceptionWithServantException: 
-///
-///  - impossibleException: 
-///
-///  - intfUserException: 
-///
-///  - asyncResponse: 
-///
-///  - asyncException: 
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_requestFailedException(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1062,11 +779,6 @@ extension TestIntf {
     }
 }
 
-/// TestActivation overview.
-///
-/// TestActivation Methods:
-///
-///  - activateServantLocator: 
 extension TestActivation {
     public func _iceD_activateServantLocator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1078,17 +790,6 @@ extension TestActivation {
     }
 }
 
-/// Echo overview.
-///
-/// Echo Methods:
-///
-///  - setConnection: 
-///
-///  - startBatch: 
-///
-///  - flushBatch: 
-///
-///  - shutdown: 
 extension Echo {
     public func _iceD_setConnection(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

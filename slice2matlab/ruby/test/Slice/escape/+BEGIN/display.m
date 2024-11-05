@@ -1,10 +1,3 @@
-% display   Summary of display
-%
-% display Properties:
-%   when
-%   do
-%   dup
-%   else_
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0

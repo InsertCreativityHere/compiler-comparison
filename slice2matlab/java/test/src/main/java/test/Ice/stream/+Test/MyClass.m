@@ -1,21 +1,3 @@
-% MyClass   Summary of MyClass
-%
-% MyClass Properties:
-%   c
-%   prx
-%   o
-%   s
-%   seq1
-%   seq2
-%   seq3
-%   seq4
-%   seq5
-%   seq6
-%   seq7
-%   seq8
-%   seq9
-%   seq10
-%   d
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

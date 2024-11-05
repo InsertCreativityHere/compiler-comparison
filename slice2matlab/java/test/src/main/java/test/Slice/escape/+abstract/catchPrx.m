@@ -1,10 +1,3 @@
-% catchPrx   Summary of catchPrx
-%
-% catchPrx Methods:
-%   checkedCast_
-%   checkedCastAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,14 +5,6 @@
 classdef catchPrx < Ice.ObjectPrx
     methods
         function continue_ = checkedCast_(obj, clone, varargin)
-            % checkedCast_
-            %
-            % Parameters:
-            %   clone (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(clone);
             obj.iceEndWriteParams(os_);
@@ -29,14 +14,6 @@ classdef catchPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = checkedCastAsync(obj, clone, varargin)
-            % checkedCastAsync
-            %
-            % Parameters:
-            %   clone (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(clone);
             obj.iceEndWriteParams(os_);

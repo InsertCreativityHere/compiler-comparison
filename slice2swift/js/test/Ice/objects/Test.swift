@@ -989,133 +989,6 @@ public struct EchoTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Echo"
 }
 
-/// InitialPrx overview.
-///
-/// InitialPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - getB1: 
-///
-///  - getB1Async: 
-///
-///  - getB2: 
-///
-///  - getB2Async: 
-///
-///  - getC: 
-///
-///  - getCAsync: 
-///
-///  - getD: 
-///
-///  - getDAsync: 
-///
-///  - getE: 
-///
-///  - getEAsync: 
-///
-///  - getF: 
-///
-///  - getFAsync: 
-///
-///  - setRecursive: 
-///
-///  - setRecursiveAsync: 
-///
-///  - setCycle: 
-///
-///  - setCycleAsync: 
-///
-///  - acceptsClassCycles: 
-///
-///  - acceptsClassCyclesAsync: 
-///
-///  - getMB: 
-///
-///  - getMBAsync: 
-///
-///  - getAMDMB: 
-///
-///  - getAMDMBAsync: 
-///
-///  - getAll: 
-///
-///  - getAllAsync: 
-///
-///  - getK: 
-///
-///  - getKAsync: 
-///
-///  - opValue: 
-///
-///  - opValueAsync: 
-///
-///  - opValueSeq: 
-///
-///  - opValueSeqAsync: 
-///
-///  - opValueMap: 
-///
-///  - opValueMapAsync: 
-///
-///  - getD1: 
-///
-///  - getD1Async: 
-///
-///  - throwEDerived: 
-///
-///  - throwEDerivedAsync: 
-///
-///  - setG: 
-///
-///  - setGAsync: 
-///
-///  - opBaseSeq: 
-///
-///  - opBaseSeqAsync: 
-///
-///  - getCompact: 
-///
-///  - getCompactAsync: 
-///
-///  - getInnerA: 
-///
-///  - getInnerAAsync: 
-///
-///  - getInnerSubA: 
-///
-///  - getInnerSubAAsync: 
-///
-///  - throwInnerEx: 
-///
-///  - throwInnerExAsync: 
-///
-///  - throwInnerSubEx: 
-///
-///  - throwInnerSubExAsync: 
-///
-///  - opM: 
-///
-///  - opMAsync: 
-///
-///  - opF1: 
-///
-///  - opF1Async: 
-///
-///  - opF2: 
-///
-///  - opF2Async: 
-///
-///  - opF3: 
-///
-///  - opF3Async: 
-///
-///  - hasF3: 
-///
-///  - hasF3Async: 
 public protocol InitialPrx: Ice.ObjectPrx {}
 
 private final class InitialPrxI: Ice.ObjectPrxI, InitialPrx {
@@ -1203,146 +1076,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// InitialPrx overview.
-///
-/// InitialPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - getB1: 
-///
-///  - getB1Async: 
-///
-///  - getB2: 
-///
-///  - getB2Async: 
-///
-///  - getC: 
-///
-///  - getCAsync: 
-///
-///  - getD: 
-///
-///  - getDAsync: 
-///
-///  - getE: 
-///
-///  - getEAsync: 
-///
-///  - getF: 
-///
-///  - getFAsync: 
-///
-///  - setRecursive: 
-///
-///  - setRecursiveAsync: 
-///
-///  - setCycle: 
-///
-///  - setCycleAsync: 
-///
-///  - acceptsClassCycles: 
-///
-///  - acceptsClassCyclesAsync: 
-///
-///  - getMB: 
-///
-///  - getMBAsync: 
-///
-///  - getAMDMB: 
-///
-///  - getAMDMBAsync: 
-///
-///  - getAll: 
-///
-///  - getAllAsync: 
-///
-///  - getK: 
-///
-///  - getKAsync: 
-///
-///  - opValue: 
-///
-///  - opValueAsync: 
-///
-///  - opValueSeq: 
-///
-///  - opValueSeqAsync: 
-///
-///  - opValueMap: 
-///
-///  - opValueMapAsync: 
-///
-///  - getD1: 
-///
-///  - getD1Async: 
-///
-///  - throwEDerived: 
-///
-///  - throwEDerivedAsync: 
-///
-///  - setG: 
-///
-///  - setGAsync: 
-///
-///  - opBaseSeq: 
-///
-///  - opBaseSeqAsync: 
-///
-///  - getCompact: 
-///
-///  - getCompactAsync: 
-///
-///  - getInnerA: 
-///
-///  - getInnerAAsync: 
-///
-///  - getInnerSubA: 
-///
-///  - getInnerSubAAsync: 
-///
-///  - throwInnerEx: 
-///
-///  - throwInnerExAsync: 
-///
-///  - throwInnerSubEx: 
-///
-///  - throwInnerSubExAsync: 
-///
-///  - opM: 
-///
-///  - opMAsync: 
-///
-///  - opF1: 
-///
-///  - opF1Async: 
-///
-///  - opF2: 
-///
-///  - opF2Async: 
-///
-///  - opF3: 
-///
-///  - opF3Async: 
-///
-///  - hasF3: 
-///
-///  - hasF3Async: 
 public extension InitialPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?`
     func getB1(context: Ice.Context? = nil) async throws -> B? {
         return try await _impl._invoke(operation: "getB1",
                                        mode: .Normal,
@@ -1355,10 +1095,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?`
     func getB2(context: Ice.Context? = nil) async throws -> B? {
         return try await _impl._invoke(operation: "getB2",
                                        mode: .Normal,
@@ -1371,10 +1107,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `C?`
     func getC(context: Ice.Context? = nil) async throws -> C? {
         return try await _impl._invoke(operation: "getC",
                                        mode: .Normal,
@@ -1387,10 +1119,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `D?`
     func getD(context: Ice.Context? = nil) async throws -> D? {
         return try await _impl._invoke(operation: "getD",
                                        mode: .Normal,
@@ -1403,10 +1131,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `E?`
     func getE(context: Ice.Context? = nil) async throws -> E? {
         return try await _impl._invoke(operation: "getE",
                                        mode: .Normal,
@@ -1419,10 +1143,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `F?`
     func getF(context: Ice.Context? = nil) async throws -> F? {
         return try await _impl._invoke(operation: "getF",
                                        mode: .Normal,
@@ -1435,10 +1155,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Recursive?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func setRecursive(_ iceP_p: Recursive?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setRecursive",
                                        mode: .Normal,
@@ -1449,10 +1165,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Recursive?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func setCycle(_ iceP_r: Recursive?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setCycle",
                                        mode: .Normal,
@@ -1463,10 +1175,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
     func acceptsClassCycles(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "acceptsClassCycles",
                                        mode: .Normal,
@@ -1477,10 +1185,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?`
     func getMB(context: Ice.Context? = nil) async throws -> B? {
         return try await _impl._invoke(operation: "getMB",
                                        mode: .Normal,
@@ -1493,10 +1197,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `B?`
     func getAMDMB(context: Ice.Context? = nil) async throws -> B? {
         return try await _impl._invoke(operation: "getAMDMB",
                                        mode: .Normal,
@@ -1509,18 +1209,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(b1: B?, b2: B?, theC: C?, theD: D?)`:
-    ///
-    ///   - b1: `B?`
-    ///
-    ///   - b2: `B?`
-    ///
-    ///   - theC: `C?`
-    ///
-    ///   - theD: `D?`
     func getAll(context: Ice.Context? = nil) async throws -> (b1: B?, b2: B?, theC: C?, theD: D?) {
         return try await _impl._invoke(operation: "getAll",
                                        mode: .Normal,
@@ -1539,10 +1227,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `K?`
     func getK(context: Ice.Context? = nil) async throws -> K? {
         return try await _impl._invoke(operation: "getK",
                                        mode: .Normal,
@@ -1555,16 +1239,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Ice.Value?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Ice.Value?, v2: Ice.Value?)`:
-    ///
-    ///   - returnValue: `Ice.Value?`
-    ///
-    ///   - v2: `Ice.Value?`
     func opValue(_ iceP_v1: Ice.Value?, context: Ice.Context? = nil) async throws -> (returnValue: Ice.Value?, v2: Ice.Value?) {
         return try await _impl._invoke(operation: "opValue",
                                        mode: .Normal,
@@ -1583,16 +1257,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ValueSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ValueSeq, v2: ValueSeq)`:
-    ///
-    ///   - returnValue: `ValueSeq`
-    ///
-    ///   - v2: `ValueSeq`
     func opValueSeq(_ iceP_v1: ValueSeq, context: Ice.Context? = nil) async throws -> (returnValue: ValueSeq, v2: ValueSeq) {
         return try await _impl._invoke(operation: "opValueSeq",
                                        mode: .Normal,
@@ -1609,16 +1273,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ValueMap`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ValueMap, v2: ValueMap)`:
-    ///
-    ///   - returnValue: `ValueMap`
-    ///
-    ///   - v2: `ValueMap`
     func opValueMap(_ iceP_v1: ValueMap, context: Ice.Context? = nil) async throws -> (returnValue: ValueMap, v2: ValueMap) {
         return try await _impl._invoke(operation: "opValueMap",
                                        mode: .Normal,
@@ -1635,12 +1289,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `D1?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `D1?`
     func getD1(_ iceP_d1: D1?, context: Ice.Context? = nil) async throws -> D1? {
         return try await _impl._invoke(operation: "getD1",
                                        mode: .Normal,
@@ -1657,8 +1305,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwEDerived(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwEDerived",
                                        mode: .Normal,
@@ -1672,10 +1318,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `G?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func setG(_ iceP_theG: G?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setG",
                                        mode: .Normal,
@@ -1686,16 +1328,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `BaseSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BaseSeq, outSeq: BaseSeq)`:
-    ///
-    ///   - returnValue: `BaseSeq`
-    ///
-    ///   - outSeq: `BaseSeq`
     func opBaseSeq(_ iceP_inSeq: BaseSeq, context: Ice.Context? = nil) async throws -> (returnValue: BaseSeq, outSeq: BaseSeq) {
         return try await _impl._invoke(operation: "opBaseSeq",
                                        mode: .Normal,
@@ -1712,10 +1344,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Compact?`
     func getCompact(context: Ice.Context? = nil) async throws -> Compact? {
         return try await _impl._invoke(operation: "getCompact",
                                        mode: .Normal,
@@ -1728,10 +1356,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `InnerA?`
     func getInnerA(context: Ice.Context? = nil) async throws -> InnerA? {
         return try await _impl._invoke(operation: "getInnerA",
                                        mode: .Normal,
@@ -1744,10 +1368,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `InnerSubA?`
     func getInnerSubA(context: Ice.Context? = nil) async throws -> InnerSubA? {
         return try await _impl._invoke(operation: "getInnerSubA",
                                        mode: .Normal,
@@ -1760,8 +1380,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwInnerEx(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwInnerEx",
                                        mode: .Normal,
@@ -1775,8 +1393,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwInnerSubEx(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwInnerSubEx",
                                        mode: .Normal,
@@ -1790,16 +1406,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `M?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: M?, v2: M?)`:
-    ///
-    ///   - returnValue: `M?`
-    ///
-    ///   - v2: `M?`
     func opM(_ iceP_v1: M?, context: Ice.Context? = nil) async throws -> (returnValue: M?, v2: M?) {
         return try await _impl._invoke(operation: "opM",
                                        mode: .Normal,
@@ -1818,16 +1424,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `F1?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: F1?, f12: F1?)`:
-    ///
-    ///   - returnValue: `F1?`
-    ///
-    ///   - f12: `F1?`
     func opF1(_ iceP_f11: F1?, context: Ice.Context? = nil) async throws -> (returnValue: F1?, f12: F1?) {
         return try await _impl._invoke(operation: "opF1",
                                        mode: .Normal,
@@ -1846,16 +1442,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `F2Prx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: F2Prx?, f22: F2Prx?)`:
-    ///
-    ///   - returnValue: `F2Prx?`
-    ///
-    ///   - f22: `F2Prx?`
     func opF2(_ iceP_f21: F2Prx?, context: Ice.Context? = nil) async throws -> (returnValue: F2Prx?, f22: F2Prx?) {
         return try await _impl._invoke(operation: "opF2",
                                        mode: .Normal,
@@ -1870,16 +1456,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `F3?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: F3?, f32: F3?)`:
-    ///
-    ///   - returnValue: `F3?`
-    ///
-    ///   - f32: `F3?`
     func opF3(_ iceP_f31: F3?, context: Ice.Context? = nil) async throws -> (returnValue: F3?, f32: F3?) {
         return try await _impl._invoke(operation: "opF3",
                                        mode: .Normal,
@@ -1898,10 +1474,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
     func hasF3(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "hasF3",
                                        mode: .Normal,
@@ -1913,13 +1485,6 @@ public extension InitialPrx {
     }
 }
 
-/// UnexpectedObjectExceptionTestPrx overview.
-///
-/// UnexpectedObjectExceptionTestPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public protocol UnexpectedObjectExceptionTestPrx: Ice.ObjectPrx {}
 
 private final class UnexpectedObjectExceptionTestPrxI: Ice.ObjectPrxI, UnexpectedObjectExceptionTestPrx {
@@ -2007,18 +1572,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// UnexpectedObjectExceptionTestPrx overview.
-///
-/// UnexpectedObjectExceptionTestPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public extension UnexpectedObjectExceptionTestPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Empty?`
     func op(context: Ice.Context? = nil) async throws -> Empty? {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
@@ -2032,17 +1586,6 @@ public extension UnexpectedObjectExceptionTestPrx {
     }
 }
 
-/// EchoPrx overview.
-///
-/// EchoPrx Methods:
-///
-///  - setConnection: 
-///
-///  - setConnectionAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol EchoPrx: Ice.ObjectPrx {}
 
 private final class EchoPrxI: Ice.ObjectPrxI, EchoPrx {
@@ -2130,28 +1673,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// EchoPrx overview.
-///
-/// EchoPrx Methods:
-///
-///  - setConnection: 
-///
-///  - setConnectionAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension EchoPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func setConnection(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setConnection",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -3248,240 +2776,66 @@ public struct InitialDisp: Ice.Dispatcher {
 }
 
 public protocol Initial {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `B?`
     func getB1(current: Ice.Current) async throws -> B?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `B?`
     func getB2(current: Ice.Current) async throws -> B?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `C?`
     func getC(current: Ice.Current) async throws -> C?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `D?`
     func getD(current: Ice.Current) async throws -> D?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `E?`
     func getE(current: Ice.Current) async throws -> E?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `F?`
     func getF(current: Ice.Current) async throws -> F?
 
-    ///
-    /// - parameter p: `Recursive?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setRecursive(p: Recursive?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter r: `Recursive?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setCycle(r: Recursive?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
     func acceptsClassCycles(current: Ice.Current) async throws -> Swift.Bool
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `B?`
     func getMB(current: Ice.Current) async throws -> B?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `B?`
     func getAMDMB(current: Ice.Current) async throws -> B?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(b1: B?, b2: B?, theC: C?, theD: D?)`:
-    ///
-    ///   - b1: `B?`
-    ///
-    ///   - b2: `B?`
-    ///
-    ///   - theC: `C?`
-    ///
-    ///   - theD: `D?`
     func getAll(current: Ice.Current) async throws -> (b1: B?, b2: B?, theC: C?, theD: D?)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `K?`
     func getK(current: Ice.Current) async throws -> K?
 
-    ///
-    /// - parameter v1: `Ice.Value?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Ice.Value?, v2: Ice.Value?)`:
-    ///
-    ///   - returnValue: `Ice.Value?`
-    ///
-    ///   - v2: `Ice.Value?`
     func opValue(v1: Ice.Value?, current: Ice.Current) async throws -> (returnValue: Ice.Value?, v2: Ice.Value?)
 
-    ///
-    /// - parameter v1: `ValueSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ValueSeq, v2: ValueSeq)`:
-    ///
-    ///   - returnValue: `ValueSeq`
-    ///
-    ///   - v2: `ValueSeq`
     func opValueSeq(v1: ValueSeq, current: Ice.Current) async throws -> (returnValue: ValueSeq, v2: ValueSeq)
 
-    ///
-    /// - parameter v1: `ValueMap`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ValueMap, v2: ValueMap)`:
-    ///
-    ///   - returnValue: `ValueMap`
-    ///
-    ///   - v2: `ValueMap`
     func opValueMap(v1: ValueMap, current: Ice.Current) async throws -> (returnValue: ValueMap, v2: ValueMap)
 
-    ///
-    /// - parameter d1: `D1?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `D1?`
     func getD1(d1: D1?, current: Ice.Current) async throws -> D1?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwEDerived(current: Ice.Current) async throws
 
-    ///
-    /// - parameter theG: `G?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setG(theG: G?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter inSeq: `BaseSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BaseSeq, outSeq: BaseSeq)`:
-    ///
-    ///   - returnValue: `BaseSeq`
-    ///
-    ///   - outSeq: `BaseSeq`
     func opBaseSeq(inSeq: BaseSeq, current: Ice.Current) async throws -> (returnValue: BaseSeq, outSeq: BaseSeq)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Compact?`
     func getCompact(current: Ice.Current) async throws -> Compact?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `InnerA?`
     func getInnerA(current: Ice.Current) async throws -> InnerA?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `InnerSubA?`
     func getInnerSubA(current: Ice.Current) async throws -> InnerSubA?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwInnerEx(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwInnerSubEx(current: Ice.Current) async throws
 
-    ///
-    /// - parameter v1: `M?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: M?, v2: M?)`:
-    ///
-    ///   - returnValue: `M?`
-    ///
-    ///   - v2: `M?`
     func opM(v1: M?, current: Ice.Current) async throws -> (returnValue: M?, v2: M?)
 
-    ///
-    /// - parameter f11: `F1?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: F1?, f12: F1?)`:
-    ///
-    ///   - returnValue: `F1?`
-    ///
-    ///   - f12: `F1?`
     func opF1(f11: F1?, current: Ice.Current) async throws -> (returnValue: F1?, f12: F1?)
 
-    ///
-    /// - parameter f21: `F2Prx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: F2Prx?, f22: F2Prx?)`:
-    ///
-    ///   - returnValue: `F2Prx?`
-    ///
-    ///   - f22: `F2Prx?`
     func opF2(f21: F2Prx?, current: Ice.Current) async throws -> (returnValue: F2Prx?, f22: F2Prx?)
 
-    ///
-    /// - parameter f31: `F3?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: F3?, f32: F3?)`:
-    ///
-    ///   - returnValue: `F3?`
-    ///
-    ///   - f32: `F3?`
     func opF3(f31: F3?, current: Ice.Current) async throws -> (returnValue: F3?, f32: F3?)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
     func hasF3(current: Ice.Current) async throws -> Swift.Bool
 }
 
@@ -3514,10 +2868,6 @@ public struct UnexpectedObjectExceptionTestDisp: Ice.Dispatcher {
 }
 
 public protocol UnexpectedObjectExceptionTest {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Empty?`
     func op(current: Ice.Current) async throws -> Empty?
 }
 
@@ -3552,80 +2902,11 @@ public struct EchoDisp: Ice.Dispatcher {
 }
 
 public protocol Echo {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setConnection(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Initial overview.
-///
-/// Initial Methods:
-///
-///  - shutdown: 
-///
-///  - getB1: 
-///
-///  - getB2: 
-///
-///  - getC: 
-///
-///  - getD: 
-///
-///  - getE: 
-///
-///  - getF: 
-///
-///  - setRecursive: 
-///
-///  - setCycle: 
-///
-///  - acceptsClassCycles: 
-///
-///  - getMB: 
-///
-///  - getAMDMB: 
-///
-///  - getAll: 
-///
-///  - getK: 
-///
-///  - opValue: 
-///
-///  - opValueSeq: 
-///
-///  - opValueMap: 
-///
-///  - getD1: 
-///
-///  - throwEDerived: 
-///
-///  - setG: 
-///
-///  - opBaseSeq: 
-///
-///  - getCompact: 
-///
-///  - getInnerA: 
-///
-///  - getInnerSubA: 
-///
-///  - throwInnerEx: 
-///
-///  - throwInnerSubEx: 
-///
-///  - opM: 
-///
-///  - opF1: 
-///
-///  - opF2: 
-///
-///  - opF3: 
-///
-///  - hasF3: 
 extension Initial {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -3992,11 +3273,6 @@ extension Initial {
     }
 }
 
-/// UnexpectedObjectExceptionTest overview.
-///
-/// UnexpectedObjectExceptionTest Methods:
-///
-///  - op: 
 extension UnexpectedObjectExceptionTest {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -4010,13 +3286,6 @@ extension UnexpectedObjectExceptionTest {
     }
 }
 
-/// Echo overview.
-///
-/// Echo Methods:
-///
-///  - setConnection: 
-///
-///  - shutdown: 
 extension Echo {
     public func _iceD_setConnection(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

@@ -1,11 +1,3 @@
-% OptionOverrides   Summary of OptionOverrides
-%
-% OptionOverrides Properties:
-%   protocol
-%   mx
-%   serialize
-%   compress
-%   ipv6
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Controller.ice by slice2matlab version 3.8.0-alpha.0

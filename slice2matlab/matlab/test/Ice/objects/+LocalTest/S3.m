@@ -1,7 +1,3 @@
-% S3   Summary of S3
-%
-% S3 Properties:
-%   c1seq
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalTest.ice by slice2matlab version 3.8.0-alpha.0

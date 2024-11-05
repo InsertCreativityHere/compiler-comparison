@@ -22,13 +22,6 @@ public struct Interface2Traits: Ice.SliceTraits {
     public static let staticId = "::Test::Interface2"
 }
 
-/// Interface2Prx overview.
-///
-/// Interface2Prx Methods:
-///
-///  - method: 
-///
-///  - methodAsync: 
 public protocol Interface2Prx: Ice.ObjectPrx {}
 
 private final class Interface2PrxI: Ice.ObjectPrxI, Interface2Prx {
@@ -116,16 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// Interface2Prx overview.
-///
-/// Interface2Prx Methods:
-///
-///  - method: 
-///
-///  - methodAsync: 
 public extension Interface2Prx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func method(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "method",
                                        mode: .Normal,
@@ -162,16 +146,9 @@ public struct Interface2Disp: Ice.Dispatcher {
 }
 
 public protocol Interface2 {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func method(current: Ice.Current) async throws
 }
 
-/// Interface2 overview.
-///
-/// Interface2 Methods:
-///
-///  - method: 
 extension Interface2 {
     public func _iceD_method(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

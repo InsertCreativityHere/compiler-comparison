@@ -22,17 +22,6 @@ public struct PriorityTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Priority"
 }
 
-/// PriorityPrx overview.
-///
-/// PriorityPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - getPriority: 
-///
-///  - getPriorityAsync: 
 public protocol PriorityPrx: Ice.ObjectPrx {}
 
 private final class PriorityPrxI: Ice.ObjectPrxI, PriorityPrx {
@@ -120,30 +109,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// PriorityPrx overview.
-///
-/// PriorityPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - getPriority: 
-///
-///  - getPriorityAsync: 
 public extension PriorityPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func getPriority(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getPriority",
                                        mode: .Normal,
@@ -186,24 +158,11 @@ public struct PriorityDisp: Ice.Dispatcher {
 }
 
 public protocol Priority {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func getPriority(current: Ice.Current) async throws -> Swift.Int32
 }
 
-/// Priority overview.
-///
-/// Priority Methods:
-///
-///  - shutdown: 
-///
-///  - getPriority: 
 extension Priority {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

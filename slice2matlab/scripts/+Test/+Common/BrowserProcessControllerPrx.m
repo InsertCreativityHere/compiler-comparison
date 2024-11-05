@@ -1,10 +1,3 @@
-% BrowserProcessControllerPrx   Summary of BrowserProcessControllerPrx
-%
-% BrowserProcessControllerPrx Methods:
-%   redirect
-%   redirectAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Controller.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,26 +5,12 @@
 classdef BrowserProcessControllerPrx < Test.Common.ProcessControllerPrx
     methods
         function redirect(obj, url, varargin)
-            % redirect
-            %
-            % Parameters:
-            %   url (char)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(url);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('redirect', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = redirectAsync(obj, url, varargin)
-            % redirectAsync
-            %
-            % Parameters:
-            %   url (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(url);
             obj.iceEndWriteParams(os_);

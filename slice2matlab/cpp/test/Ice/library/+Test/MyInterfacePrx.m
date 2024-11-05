@@ -1,10 +1,3 @@
-% MyInterfacePrx   Summary of MyInterfacePrx
-%
-% MyInterfacePrx Methods:
-%   op
-%   opAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,26 +5,12 @@
 classdef MyInterfacePrx < Ice.ObjectPrx
     methods
         function op(obj, throwIt, varargin)
-            % op
-            %
-            % Parameters:
-            %   throwIt (logical)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBool(throwIt);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('op', 0, true, os_, false, Test.MyInterfacePrx.op_ex_, varargin{:});
         end
         function r_ = opAsync(obj, throwIt, varargin)
-            % opAsync
-            %
-            % Parameters:
-            %   throwIt (logical)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBool(throwIt);
             obj.iceEndWriteParams(os_);

@@ -1,14 +1,3 @@
-% ProcessPrx   Summary of ProcessPrx
-%
-% ProcessPrx Methods:
-%   waitReady
-%   waitReadyAsync
-%   waitSuccess
-%   waitSuccessAsync
-%   terminate
-%   terminateAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Controller.ice by slice2matlab version 3.8.0-alpha.0
@@ -16,40 +5,18 @@
 classdef ProcessPrx < Ice.ObjectPrx
     methods
         function waitReady(obj, timeout, varargin)
-            % waitReady
-            %
-            % Parameters:
-            %   timeout (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(timeout);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('waitReady', 0, true, os_, false, Test.Common.ProcessPrx.waitReady_ex_, varargin{:});
         end
         function r_ = waitReadyAsync(obj, timeout, varargin)
-            % waitReadyAsync
-            %
-            % Parameters:
-            %   timeout (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(timeout);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('waitReady', 0, true, os_, 0, [], Test.Common.ProcessPrx.waitReady_ex_, varargin{:});
         end
         function result = waitSuccess(obj, timeout, varargin)
-            % waitSuccess
-            %
-            % Parameters:
-            %   timeout (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(timeout);
             obj.iceEndWriteParams(os_);
@@ -59,14 +26,6 @@ classdef ProcessPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = waitSuccessAsync(obj, timeout, varargin)
-            % waitSuccessAsync
-            %
-            % Parameters:
-            %   timeout (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(timeout);
             obj.iceEndWriteParams(os_);
@@ -79,26 +38,12 @@ classdef ProcessPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('waitSuccess', 0, true, os_, 1, @unmarshal, Test.Common.ProcessPrx.waitSuccess_ex_, varargin{:});
         end
         function result = terminate(obj, varargin)
-            % terminate
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (char)
-            
             is_ = obj.iceInvoke('terminate', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readString();
             is_.endEncapsulation();
         end
         function r_ = terminateAsync(obj, varargin)
-            % terminateAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = is_.readString();

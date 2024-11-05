@@ -1,10 +1,3 @@
-% EventPrx   Summary of EventPrx
-%
-% EventPrx Methods:
-%   pub
-%   pubAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Event.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,26 +5,12 @@
 classdef EventPrx < Ice.ObjectPrx
     methods
         function pub(obj, data, varargin)
-            % pub
-            %
-            % Parameters:
-            %   data (char)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(data);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('pub', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = pubAsync(obj, data, varargin)
-            % pubAsync
-            %
-            % Parameters:
-            %   data (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(data);
             obj.iceEndWriteParams(os_);

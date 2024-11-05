@@ -52,41 +52,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - callOpOn: 
-///
-///  - callOpOnAsync: 
-///
-///  - throwUserException1: 
-///
-///  - throwUserException1Async: 
-///
-///  - throwUserException2: 
-///
-///  - throwUserException2Async: 
-///
-///  - throwUnhandledException1: 
-///
-///  - throwUnhandledException1Async: 
-///
-///  - throwUnhandledException2: 
-///
-///  - throwUnhandledException2Async: 
-///
-///  - sleep: 
-///
-///  - sleepAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -174,46 +139,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - callOpOn: 
-///
-///  - callOpOnAsync: 
-///
-///  - throwUserException1: 
-///
-///  - throwUserException1Async: 
-///
-///  - throwUserException2: 
-///
-///  - throwUserException2Async: 
-///
-///  - throwUnhandledException1: 
-///
-///  - throwUnhandledException1Async: 
-///
-///  - throwUnhandledException2: 
-///
-///  - throwUnhandledException2Async: 
-///
-///  - sleep: 
-///
-///  - sleepAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func op(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
@@ -224,12 +150,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `TestIntfPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func callOpOn(_ iceP_proxy: TestIntfPrx?, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "callOpOn",
                                        mode: .Normal,
@@ -243,8 +163,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwUserException1(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwUserException1",
                                        mode: .Normal,
@@ -258,8 +176,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwUserException2(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwUserException2",
                                        mode: .Normal,
@@ -273,26 +189,18 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwUnhandledException1(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwUnhandledException1",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwUnhandledException2(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwUnhandledException2",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sleep(_ iceP_ms: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sleep",
                                        mode: .Normal,
@@ -302,8 +210,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -354,66 +260,23 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func op(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter proxy: `TestIntfPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func callOpOn(proxy: TestIntfPrx?, current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwUserException1(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwUserException2(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwUnhandledException1(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwUnhandledException2(current: Ice.Current) async throws
 
-    ///
-    /// - parameter ms: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sleep(ms: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - op: 
-///
-///  - callOpOn: 
-///
-///  - throwUserException1: 
-///
-///  - throwUserException2: 
-///
-///  - throwUnhandledException1: 
-///
-///  - throwUnhandledException2: 
-///
-///  - sleep: 
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

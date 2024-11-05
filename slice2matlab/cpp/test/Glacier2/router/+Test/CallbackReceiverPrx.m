@@ -1,18 +1,3 @@
-% CallbackReceiverPrx   Summary of CallbackReceiverPrx
-%
-% CallbackReceiverPrx Methods:
-%   callback
-%   callbackAsync
-%   callbackEx
-%   callbackExAsync
-%   concurrentCallback
-%   concurrentCallbackAsync
-%   waitCallback
-%   waitCallbackAsync
-%   callbackWithPayload
-%   callbackWithPayloadAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Callback.ice by slice2matlab version 3.8.0-alpha.0
@@ -20,50 +5,18 @@
 classdef CallbackReceiverPrx < Ice.ObjectPrx
     methods
         function callback(obj, varargin)
-            % callback
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('callback', 0, false, [], false, {}, varargin{:});
         end
         function r_ = callbackAsync(obj, varargin)
-            % callbackAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('callback', 0, false, [], 0, [], {}, varargin{:});
         end
         function callbackEx(obj, varargin)
-            % callbackEx
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('callbackEx', 0, true, [], false, Test.CallbackReceiverPrx.callbackEx_ex_, varargin{:});
         end
         function r_ = callbackExAsync(obj, varargin)
-            % callbackExAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('callbackEx', 0, true, [], 0, [], Test.CallbackReceiverPrx.callbackEx_ex_, varargin{:});
         end
         function result = concurrentCallback(obj, number, varargin)
-            % concurrentCallback
-            %
-            % Parameters:
-            %   number (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(number);
             obj.iceEndWriteParams(os_);
@@ -73,14 +26,6 @@ classdef CallbackReceiverPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = concurrentCallbackAsync(obj, number, varargin)
-            % concurrentCallbackAsync
-            %
-            % Parameters:
-            %   number (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(number);
             obj.iceEndWriteParams(os_);
@@ -93,44 +38,18 @@ classdef CallbackReceiverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('concurrentCallback', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function waitCallback(obj, varargin)
-            % waitCallback
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('waitCallback', 0, false, [], false, {}, varargin{:});
         end
         function r_ = waitCallbackAsync(obj, varargin)
-            % waitCallbackAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('waitCallback', 0, false, [], 0, [], {}, varargin{:});
         end
         function callbackWithPayload(obj, payload, varargin)
-            % callbackWithPayload
-            %
-            % Parameters:
-            %   payload (Ice.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(payload);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('callbackWithPayload', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = callbackWithPayloadAsync(obj, payload, varargin)
-            % callbackWithPayloadAsync
-            %
-            % Parameters:
-            %   payload (Ice.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(payload);
             obj.iceEndWriteParams(os_);

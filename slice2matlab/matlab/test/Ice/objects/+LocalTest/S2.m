@@ -1,7 +1,3 @@
-% S2   Summary of S2
-%
-% S2 Properties:
-%   s1
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalTest.ice by slice2matlab version 3.8.0-alpha.0

@@ -1,14 +1,3 @@
-% C   Summary of C
-%
-% C Properties:
-%   b1
-%   b2
-%   b3
-%   b4
-%   s1
-%   s2
-%   s3
-%   s4
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

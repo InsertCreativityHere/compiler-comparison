@@ -1,14 +1,3 @@
-% ReplicaObserverPrx   Summary of ReplicaObserverPrx
-%
-% ReplicaObserverPrx Methods:
-%   replicaInit - Initialization of the replica observer.
-%   replicaInitAsync - Initialization of the replica observer.
-%   replicaAdded - Notification that a replica has been added.
-%   replicaAddedAsync - Notification that a replica has been added.
-%   replicaRemoved - Notification that a replica has been removed.
-%   replicaRemovedAsync - Notification that a replica has been removed.
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0

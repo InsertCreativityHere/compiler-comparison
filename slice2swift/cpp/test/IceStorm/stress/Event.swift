@@ -22,13 +22,6 @@ public struct EventTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Event"
 }
 
-/// EventPrx overview.
-///
-/// EventPrx Methods:
-///
-///  - pub: 
-///
-///  - pubAsync: 
 public protocol EventPrx: Ice.ObjectPrx {}
 
 private final class EventPrxI: Ice.ObjectPrxI, EventPrx {
@@ -116,18 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// EventPrx overview.
-///
-/// EventPrx Methods:
-///
-///  - pub: 
-///
-///  - pubAsync: 
 public extension EventPrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func pub(_ iceP_counter: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "pub",
                                        mode: .Normal,
@@ -167,18 +149,9 @@ public struct EventDisp: Ice.Dispatcher {
 }
 
 public protocol Event {
-    ///
-    /// - parameter counter: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func pub(counter: Swift.Int32, current: Ice.Current) async throws
 }
 
-/// Event overview.
-///
-/// Event Methods:
-///
-///  - pub: 
 extension Event {
     public func _iceD_pub(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

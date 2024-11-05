@@ -28,21 +28,6 @@ public struct ResponderTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Responder"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - resetMaxConcurrentDispatches: 
-///
-///  - resetMaxConcurrentDispatchesAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -130,34 +115,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - resetMaxConcurrentDispatches: 
-///
-///  - resetMaxConcurrentDispatchesAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func resetMaxConcurrentDispatches(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "resetMaxConcurrentDispatches",
                                        mode: .Normal,
@@ -168,8 +132,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -177,21 +139,6 @@ public extension TestIntfPrx {
     }
 }
 
-/// ResponderPrx overview.
-///
-/// ResponderPrx Methods:
-///
-///  - start: 
-///
-///  - startAsync: 
-///
-///  - stop: 
-///
-///  - stopAsync: 
-///
-///  - pendingResponseCount: 
-///
-///  - pendingResponseCountAsync: 
 public protocol ResponderPrx: Ice.ObjectPrx {}
 
 private final class ResponderPrxI: Ice.ObjectPrxI, ResponderPrx {
@@ -279,42 +226,19 @@ public extension Ice.InputStream {
     }
 }
 
-/// ResponderPrx overview.
-///
-/// ResponderPrx Methods:
-///
-///  - start: 
-///
-///  - startAsync: 
-///
-///  - stop: 
-///
-///  - stopAsync: 
-///
-///  - pendingResponseCount: 
-///
-///  - pendingResponseCountAsync: 
 public extension ResponderPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func start(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "start",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func stop(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "stop",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func pendingResponseCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "pendingResponseCount",
                                        mode: .Normal,
@@ -359,18 +283,10 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func resetMaxConcurrentDispatches(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -407,30 +323,13 @@ public struct ResponderDisp: Ice.Dispatcher {
 }
 
 public protocol Responder {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func start(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func stop(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func pendingResponseCount(current: Ice.Current) async throws -> Swift.Int32
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - op: 
-///
-///  - resetMaxConcurrentDispatches: 
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -457,15 +356,6 @@ extension TestIntf {
     }
 }
 
-/// Responder overview.
-///
-/// Responder Methods:
-///
-///  - start: 
-///
-///  - stop: 
-///
-///  - pendingResponseCount: 
 extension Responder {
     public func _iceD_start(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

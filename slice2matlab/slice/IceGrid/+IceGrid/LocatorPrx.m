@@ -1,6 +1,6 @@
 % LocatorPrx   Summary of LocatorPrx
 %
-% The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
+% The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
 % registry.
 %
 % LocatorPrx Methods:

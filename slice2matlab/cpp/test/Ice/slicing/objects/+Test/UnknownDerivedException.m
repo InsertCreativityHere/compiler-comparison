@@ -1,8 +1,3 @@
-% UnknownDerivedException   Summary of UnknownDerivedException
-%
-% UnknownDerivedException Properties:
-%   sude
-%   pd2
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ServerPrivate.ice by slice2matlab version 3.8.0-alpha.0

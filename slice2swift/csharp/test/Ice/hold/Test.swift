@@ -22,29 +22,6 @@ public struct HoldTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Hold"
 }
 
-/// HoldPrx overview.
-///
-/// HoldPrx Methods:
-///
-///  - putOnHold: Puts the adapter on hold, and optionally reactivates it.
-///
-///  - putOnHoldAsync: Puts the adapter on hold, and optionally reactivates it.
-///
-///  - waitForHold: Starts a background task that calls waitForHold and activate on the adapter.
-///
-///  - waitForHoldAsync: Starts a background task that calls waitForHold and activate on the adapter.
-///
-///  - setOneway: Saves value as the last value.
-///
-///  - setOnewayAsync: Saves value as the last value.
-///
-///  - `set`: Saves value as the last value after a delay.
-///
-///  - setAsync: Saves value as the last value after a delay.
-///
-///  - shutdown: Shuts down the server.
-///
-///  - shutdownAsync: Shuts down the server.
 public protocol HoldPrx: Ice.ObjectPrx {}
 
 private final class HoldPrxI: Ice.ObjectPrxI, HoldPrx {
@@ -132,29 +109,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// HoldPrx overview.
-///
-/// HoldPrx Methods:
-///
-///  - putOnHold: Puts the adapter on hold, and optionally reactivates it.
-///
-///  - putOnHoldAsync: Puts the adapter on hold, and optionally reactivates it.
-///
-///  - waitForHold: Starts a background task that calls waitForHold and activate on the adapter.
-///
-///  - waitForHoldAsync: Starts a background task that calls waitForHold and activate on the adapter.
-///
-///  - setOneway: Saves value as the last value.
-///
-///  - setOnewayAsync: Saves value as the last value.
-///
-///  - `set`: Saves value as the last value after a delay.
-///
-///  - setAsync: Saves value as the last value after a delay.
-///
-///  - shutdown: Shuts down the server.
-///
-///  - shutdownAsync: Shuts down the server.
 public extension HoldPrx {
     /// Puts the adapter on hold, and optionally reactivates it.
     ///
@@ -308,19 +262,6 @@ public protocol Hold {
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Hold overview.
-///
-/// Hold Methods:
-///
-///  - putOnHold: Puts the adapter on hold, and optionally reactivates it.
-///
-///  - waitForHold: Starts a background task that calls waitForHold and activate on the adapter.
-///
-///  - setOneway: Saves value as the last value.
-///
-///  - `set`: Saves value as the last value after a delay.
-///
-///  - shutdown: Shuts down the server.
 extension Hold {
     public func _iceD_putOnHold(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

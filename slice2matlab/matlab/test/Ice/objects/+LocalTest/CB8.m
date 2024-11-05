@@ -1,9 +1,3 @@
-% CB8   Summary of CB8
-%
-% CB8 Properties:
-%   s1
-%   c1seq
-%   s1dict
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalTest.ice by slice2matlab version 3.8.0-alpha.0

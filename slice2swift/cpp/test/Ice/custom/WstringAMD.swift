@@ -366,21 +366,6 @@ public struct WstringClassTraits: Ice.SliceTraits {
     public static let staticId = "::Test2::WstringClass"
 }
 
-/// WstringClassPrx overview.
-///
-/// WstringClassPrx Methods:
-///
-///  - opString: 
-///
-///  - opStringAsync: 
-///
-///  - opStruct: 
-///
-///  - opStructAsync: 
-///
-///  - throwExcept: 
-///
-///  - throwExceptAsync: 
 public protocol WstringClassPrx: Ice.ObjectPrx {}
 
 private final class WstringClassPrxI: Ice.ObjectPrxI, WstringClassPrx {
@@ -468,32 +453,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// WstringClassPrx overview.
-///
-/// WstringClassPrx Methods:
-///
-///  - opString: 
-///
-///  - opStringAsync: 
-///
-///  - opStruct: 
-///
-///  - opStructAsync: 
-///
-///  - throwExcept: 
-///
-///  - throwExceptAsync: 
 public extension WstringClassPrx {
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.String, s2: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.String`
-    ///
-    ///   - s2: `Swift.String`
     func opString(_ iceP_s1: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: Swift.String, s2: Swift.String) {
         return try await _impl._invoke(operation: "opString",
                                        mode: .Normal,
@@ -508,16 +468,6 @@ public extension WstringClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `WstringStruct`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: WstringStruct, s2: WstringStruct)`:
-    ///
-    ///   - returnValue: `WstringStruct`
-    ///
-    ///   - s2: `WstringStruct`
     func opStruct(_ iceP_s1: WstringStruct, context: Ice.Context? = nil) async throws -> (returnValue: WstringStruct, s2: WstringStruct) {
         return try await _impl._invoke(operation: "opStruct",
                                        mode: .Normal,
@@ -532,10 +482,6 @@ public extension WstringClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwExcept(_ iceP_reason: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwExcept",
                                        mode: .Normal,
@@ -553,21 +499,6 @@ public extension WstringClassPrx {
     }
 }
 
-/// WstringClassPrx overview.
-///
-/// WstringClassPrx Methods:
-///
-///  - opString: 
-///
-///  - opStringAsync: 
-///
-///  - opStruct: 
-///
-///  - opStructAsync: 
-///
-///  - throwExcept: 
-///
-///  - throwExceptAsync: 
 public protocol WstringClassPrx: Ice.ObjectPrx {}
 
 private final class WstringClassPrxI: Ice.ObjectPrxI, WstringClassPrx {
@@ -655,32 +586,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// WstringClassPrx overview.
-///
-/// WstringClassPrx Methods:
-///
-///  - opString: 
-///
-///  - opStringAsync: 
-///
-///  - opStruct: 
-///
-///  - opStructAsync: 
-///
-///  - throwExcept: 
-///
-///  - throwExceptAsync: 
 public extension WstringClassPrx {
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.String, s2: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.String`
-    ///
-    ///   - s2: `Swift.String`
     func opString(_ iceP_s1: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: Swift.String, s2: Swift.String) {
         return try await _impl._invoke(operation: "opString",
                                        mode: .Normal,
@@ -695,16 +601,6 @@ public extension WstringClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `WstringStruct`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: WstringStruct, s2: WstringStruct)`:
-    ///
-    ///   - returnValue: `WstringStruct`
-    ///
-    ///   - s2: `WstringStruct`
     func opStruct(_ iceP_s1: WstringStruct, context: Ice.Context? = nil) async throws -> (returnValue: WstringStruct, s2: WstringStruct) {
         return try await _impl._invoke(operation: "opStruct",
                                        mode: .Normal,
@@ -719,10 +615,6 @@ public extension WstringClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwExcept(_ iceP_reason: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwExcept",
                                        mode: .Normal,
@@ -773,34 +665,10 @@ public struct WstringClassDisp: Ice.Dispatcher {
 }
 
 public protocol WstringClass {
-    ///
-    /// - parameter s1: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.String, s2: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.String`
-    ///
-    ///   - s2: `Swift.String`
     func opString(s1: Swift.String, current: Ice.Current) async throws -> (returnValue: Swift.String, s2: Swift.String)
 
-    ///
-    /// - parameter s1: `WstringStruct`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: WstringStruct, s2: WstringStruct)`:
-    ///
-    ///   - returnValue: `WstringStruct`
-    ///
-    ///   - s2: `WstringStruct`
     func opStruct(s1: WstringStruct, current: Ice.Current) async throws -> (returnValue: WstringStruct, s2: WstringStruct)
 
-    ///
-    /// - parameter reason: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwExcept(reason: Swift.String, current: Ice.Current) async throws
 }
 
@@ -837,46 +705,13 @@ public struct WstringClassDisp: Ice.Dispatcher {
 }
 
 public protocol WstringClass {
-    ///
-    /// - parameter s1: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.String, s2: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.String`
-    ///
-    ///   - s2: `Swift.String`
     func opString(s1: Swift.String, current: Ice.Current) async throws -> (returnValue: Swift.String, s2: Swift.String)
 
-    ///
-    /// - parameter s1: `WstringStruct`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: WstringStruct, s2: WstringStruct)`:
-    ///
-    ///   - returnValue: `WstringStruct`
-    ///
-    ///   - s2: `WstringStruct`
     func opStruct(s1: WstringStruct, current: Ice.Current) async throws -> (returnValue: WstringStruct, s2: WstringStruct)
 
-    ///
-    /// - parameter reason: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwExcept(reason: Swift.String, current: Ice.Current) async throws
 }
 
-/// WstringClass overview.
-///
-/// WstringClass Methods:
-///
-///  - opString: 
-///
-///  - opStruct: 
-///
-///  - throwExcept: 
 extension WstringClass {
     public func _iceD_opString(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -914,15 +749,6 @@ extension WstringClass {
     }
 }
 
-/// WstringClass overview.
-///
-/// WstringClass Methods:
-///
-///  - opString: 
-///
-///  - opStruct: 
-///
-///  - throwExcept: 
 extension WstringClass {
     public func _iceD_opString(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

@@ -62,13 +62,6 @@ public struct MyInterfaceTraits: Ice.SliceTraits {
     public static let staticId = "::Test::MyInterface"
 }
 
-/// MyInterfacePrx overview.
-///
-/// MyInterfacePrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public protocol MyInterfacePrx: Ice.ObjectPrx {}
 
 private final class MyInterfacePrxI: Ice.ObjectPrxI, MyInterfacePrx {
@@ -156,18 +149,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyInterfacePrx overview.
-///
-/// MyInterfacePrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public extension MyInterfacePrx {
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(_ iceP_throwIt: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
@@ -214,18 +196,9 @@ public struct MyInterfaceDisp: Ice.Dispatcher {
 }
 
 public protocol MyInterface {
-    ///
-    /// - parameter throwIt: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(throwIt: Swift.Bool, current: Ice.Current) async throws
 }
 
-/// MyInterface overview.
-///
-/// MyInterface Methods:
-///
-///  - op: 
 extension MyInterface {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

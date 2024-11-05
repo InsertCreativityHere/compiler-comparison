@@ -22,13 +22,6 @@ public struct RegistryTraits: Ice.SliceTraits {
     public static let staticId = "::User::Registry"
 }
 
-/// RegistryPrx overview.
-///
-/// RegistryPrx Methods:
-///
-///  - getUserInfo: 
-///
-///  - getUserInfoAsync: 
 public protocol RegistryPrx: Ice.ObjectPrx {}
 
 private final class RegistryPrxI: Ice.ObjectPrxI, RegistryPrx {
@@ -116,20 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// RegistryPrx overview.
-///
-/// RegistryPrx Methods:
-///
-///  - getUserInfo: 
-///
-///  - getUserInfoAsync: 
 public extension RegistryPrx {
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `UserInfo?`
     func getUserInfo(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> UserInfo? {
         return try await _impl._invoke(operation: "getUserInfo",
                                        mode: .Normal,
@@ -212,20 +192,9 @@ public struct RegistryDisp: Ice.Dispatcher {
 }
 
 public protocol Registry {
-    ///
-    /// - parameter id: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `UserInfo?`
     func getUserInfo(id: Swift.String, current: Ice.Current) async throws -> UserInfo?
 }
 
-/// Registry overview.
-///
-/// Registry Methods:
-///
-///  - getUserInfo: 
 extension Registry {
     public func _iceD_getUserInfo(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

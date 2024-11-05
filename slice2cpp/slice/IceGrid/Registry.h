@@ -444,7 +444,7 @@ public:
 
     /**
      * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+     * send heartbeats (using ACM) or call {@link Session#keepAlive}} (resp. {@link AdminSession#keepAlive}}) to keep
      * a session alive in the IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The session timeout (in seconds).
@@ -453,7 +453,7 @@ public:
 
     /**
      * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+     * send heartbeats (using ACM) or call {@link Session#keepAlive}} (resp. {@link AdminSession#keepAlive}}) to keep
      * a session alive in the IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -462,7 +462,7 @@ public:
 
     /**
      * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+     * send heartbeats (using ACM) or call {@link Session#keepAlive}} (resp. {@link AdminSession#keepAlive}}) to keep
      * a session alive in the IceGrid registry.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -521,7 +521,7 @@ protected:
 };
 
 /**
- * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+ * The IceGrid locator interface provides access to the {@link Query}} and {@link Registry}} object of the IceGrid
  * registry.
  * @see Query
  * @see Registry
@@ -828,7 +828,7 @@ public:
 
     /**
      * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+     * send heartbeats (using ACM) or call {@link Session#keepAlive}} (resp. {@link AdminSession#keepAlive}}) to keep
      * a session alive in the IceGrid registry.
      * @param current The Current object for the invocation.
      * @return The session timeout (in seconds).
@@ -846,7 +846,7 @@ public:
 using RegistryPtr = ::std::shared_ptr<Registry>;
 
 /**
- * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+ * The IceGrid locator interface provides access to the {@link Query}} and {@link Registry}} object of the IceGrid
  * registry.
  * @see Query
  * @see Registry

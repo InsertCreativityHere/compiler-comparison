@@ -1,10 +1,3 @@
-% extendPrx   Summary of extendPrx
-%
-% extendPrx Methods:
-%   for_
-%   forAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,19 +5,6 @@
 classdef extendPrx < Ice.ObjectPrx
     methods
         function result = for_(obj, freeze, hash, if_, inspect, method, methods_, varargin)
-            % for_
-            %
-            % Parameters:
-            %   freeze (BEGIN.display)
-            %   hash (BEGIN.elsifPrx)
-            %   if_ (BEGIN.breakPrx)
-            %   inspect (BEGIN.display)
-            %   method (BEGIN.elsifPrx)
-            %   methods_ (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (BEGIN.END)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(freeze);
             os_.writeProxy(hash);
@@ -40,19 +20,6 @@ classdef extendPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = forAsync(obj, freeze, hash, if_, inspect, method, methods_, varargin)
-            % forAsync
-            %
-            % Parameters:
-            %   freeze (BEGIN.display)
-            %   hash (BEGIN.elsifPrx)
-            %   if_ (BEGIN.breakPrx)
-            %   inspect (BEGIN.display)
-            %   method (BEGIN.elsifPrx)
-            %   methods_ (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(freeze);
             os_.writeProxy(hash);

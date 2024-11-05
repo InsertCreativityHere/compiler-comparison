@@ -1,8 +1,3 @@
-% continue_   Summary of continue_
-%
-% continue_ Properties:
-%   let
-%   var
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0

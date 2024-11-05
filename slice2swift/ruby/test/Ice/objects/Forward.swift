@@ -22,13 +22,6 @@ public struct F2Traits: Ice.SliceTraits {
     public static let staticId = "::Test::F2"
 }
 
-/// F2Prx overview.
-///
-/// F2Prx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public protocol F2Prx: Ice.ObjectPrx {}
 
 private final class F2PrxI: Ice.ObjectPrxI, F2Prx {
@@ -116,16 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// F2Prx overview.
-///
-/// F2Prx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public extension F2Prx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
@@ -202,16 +186,9 @@ public struct F2Disp: Ice.Dispatcher {
 }
 
 public protocol F2 {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(current: Ice.Current) async throws
 }
 
-/// F2 overview.
-///
-/// F2 Methods:
-///
-///  - op: 
 extension F2 {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

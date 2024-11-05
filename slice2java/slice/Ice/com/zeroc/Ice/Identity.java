@@ -16,8 +16,8 @@
 package com.zeroc.Ice;
 
 /**
- * The identity of an Ice object. In a proxy, an empty {@link Identity#name} denotes a nil proxy. An identity with
- * an empty {@link Identity#name} and a non-empty {@link Identity#category} is illegal. You cannot add a servant
+ * The identity of an Ice object. In a proxy, an empty {@link Identity#name}} denotes a nil proxy. An identity with
+ * an empty {@link Identity#name}} and a non-empty {@link Identity#category}} is illegal. You cannot add a servant
  * with an empty name to the Active Servant Map.
  *
  * @see ServantLocator
@@ -171,5 +171,5 @@ public class Identity implements java.lang.Cloneable,
     private static final Identity _nullMarshalValue = new Identity();
 
     /** @hidden */
-    private static final long serialVersionUID = 1187743146909483749L;
+    private static final long serialVersionUID = 6562365828997363941L;
 }

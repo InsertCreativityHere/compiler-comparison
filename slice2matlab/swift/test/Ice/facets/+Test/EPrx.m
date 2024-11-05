@@ -1,10 +1,3 @@
-% EPrx   Summary of EPrx
-%
-% EPrx Methods:
-%   callE
-%   callEAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,26 +5,12 @@
 classdef EPrx < Ice.ObjectPrx
     methods
         function result = callE(obj, varargin)
-            % callE
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (char)
-            
             is_ = obj.iceInvoke('callE', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readString();
             is_.endEncapsulation();
         end
         function r_ = callEAsync(obj, varargin)
-            % callEAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = is_.readString();

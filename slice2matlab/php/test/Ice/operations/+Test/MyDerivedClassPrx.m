@@ -1,14 +1,3 @@
-% MyDerivedClassPrx   Summary of MyDerivedClassPrx
-%
-% MyDerivedClassPrx Methods:
-%   opDerived
-%   opDerivedAsync
-%   opMyStruct1
-%   opMyStruct1Async
-%   opMyClass1
-%   opMyClass1Async
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -16,32 +5,12 @@
 classdef MyDerivedClassPrx < Test.MyClassPrx
     methods
         function opDerived(obj, varargin)
-            % opDerived
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('opDerived', 0, false, [], false, {}, varargin{:});
         end
         function r_ = opDerivedAsync(obj, varargin)
-            % opDerivedAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('opDerived', 0, false, [], 0, [], {}, varargin{:});
         end
         function result = opMyStruct1(obj, s, varargin)
-            % opMyStruct1
-            %
-            % Parameters:
-            %   s (Test.MyStruct1)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.MyStruct1)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.MyStruct1.ice_write(os_, s);
             obj.iceEndWriteParams(os_);
@@ -51,14 +20,6 @@ classdef MyDerivedClassPrx < Test.MyClassPrx
             is_.endEncapsulation();
         end
         function r_ = opMyStruct1Async(obj, s, varargin)
-            % opMyStruct1Async
-            %
-            % Parameters:
-            %   s (Test.MyStruct1)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.MyStruct1.ice_write(os_, s);
             obj.iceEndWriteParams(os_);
@@ -71,14 +32,6 @@ classdef MyDerivedClassPrx < Test.MyClassPrx
             r_ = obj.iceInvokeAsync('opMyStruct1', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = opMyClass1(obj, c, varargin)
-            % opMyClass1
-            %
-            % Parameters:
-            %   c (Test.MyClass1)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.MyClass1)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(c);
             os_.writePendingValues();
@@ -92,14 +45,6 @@ classdef MyDerivedClassPrx < Test.MyClassPrx
             result = result_h_.value;
         end
         function r_ = opMyClass1Async(obj, c, varargin)
-            % opMyClass1Async
-            %
-            % Parameters:
-            %   c (Test.MyClass1)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(c);
             os_.writePendingValues();

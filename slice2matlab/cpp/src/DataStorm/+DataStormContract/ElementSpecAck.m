@@ -1,12 +1,3 @@
-% ElementSpecAck   Summary of ElementSpecAck
-%
-% ElementSpecAck Properties:
-%   elements - The readers or writers associated with the key or filter.
-%   id - The id of the key or filter.
-%   name - The name of the filter.
-%   value - The key or filter value.
-%   peerId - The id of the key or filter on the peer.
-%   peerName - The name of the filter on the peer.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0

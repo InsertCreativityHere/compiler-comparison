@@ -1,10 +1,3 @@
-% delPrx   Summary of delPrx
-%
-% delPrx Methods:
-%   elif
-%   elifAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,14 +5,6 @@
 classdef delPrx < Ice.ObjectPrx
     methods
         function except = elif(obj, else_, varargin)
-            % elif
-            %
-            % Parameters:
-            %   else_ (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(else_);
             obj.iceEndWriteParams(os_);
@@ -29,14 +14,6 @@ classdef delPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = elifAsync(obj, else_, varargin)
-            % elifAsync
-            %
-            % Parameters:
-            %   else_ (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(else_);
             obj.iceEndWriteParams(os_);

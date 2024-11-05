@@ -1,13 +1,3 @@
-% QueryInfo   Summary of QueryInfo
-%
-% QueryInfo Properties:
-%   id - The node id.
-%   coord - The nodes coordinator.
-%   group - The nodes group name.
-%   replica - The replica the node is managing.
-%   state - The node state.
-%   up - The sequence of nodes in this nodes group.
-%   max - The highest priority node that this node has seen.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Election.ice by slice2matlab version 3.8.0-alpha.0

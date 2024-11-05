@@ -22,13 +22,6 @@ public struct ControllerTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Controller"
 }
 
-/// ControllerPrx overview.
-///
-/// ControllerPrx Methods:
-///
-///  - stop: 
-///
-///  - stopAsync: 
 public protocol ControllerPrx: Ice.ObjectPrx {}
 
 private final class ControllerPrxI: Ice.ObjectPrxI, ControllerPrx {
@@ -116,16 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// ControllerPrx overview.
-///
-/// ControllerPrx Methods:
-///
-///  - stop: 
-///
-///  - stopAsync: 
 public extension ControllerPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func stop(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "stop",
                                        mode: .Normal,
@@ -162,16 +146,9 @@ public struct ControllerDisp: Ice.Dispatcher {
 }
 
 public protocol Controller {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func stop(current: Ice.Current) async throws
 }
 
-/// Controller overview.
-///
-/// Controller Methods:
-///
-///  - stop: 
 extension Controller {
     public func _iceD_stop(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

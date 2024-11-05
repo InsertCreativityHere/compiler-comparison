@@ -22,17 +22,6 @@ public struct Initial2Traits: Ice.SliceTraits {
     public static let staticId = "::Test::Initial2"
 }
 
-/// Initial2Prx overview.
-///
-/// Initial2Prx Methods:
-///
-///  - opClassAndUnknownOptional: 
-///
-///  - opClassAndUnknownOptionalAsync: 
-///
-///  - opVoid: 
-///
-///  - opVoidAsync: 
 public protocol Initial2Prx: Ice.ObjectPrx {}
 
 private final class Initial2PrxI: Ice.ObjectPrxI, Initial2Prx {
@@ -120,24 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// Initial2Prx overview.
-///
-/// Initial2Prx Methods:
-///
-///  - opClassAndUnknownOptional: 
-///
-///  - opClassAndUnknownOptionalAsync: 
-///
-///  - opVoid: 
-///
-///  - opVoidAsync: 
 public extension Initial2Prx {
-    ///
-    /// - parameter p: `A?`
-    ///
-    /// - parameter ovs: `VarStruct?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opClassAndUnknownOptional(p iceP_p: A?, ovs iceP_ovs: VarStruct? = nil, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opClassAndUnknownOptional",
                                        mode: .Normal,
@@ -149,12 +121,6 @@ public extension Initial2Prx {
                                        context: context)
     }
 
-    ///
-    /// - parameter a: `Swift.Int32?`
-    ///
-    /// - parameter v: `Swift.String?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opVoid(a iceP_a: Swift.Int32? = nil, v iceP_v: Swift.String? = nil, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opVoid",
                                        mode: .Normal,
@@ -197,30 +163,11 @@ public struct Initial2Disp: Ice.Dispatcher {
 }
 
 public protocol Initial2 {
-    ///
-    /// - parameter p: `A?`
-    ///
-    /// - parameter ovs: `VarStruct?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opClassAndUnknownOptional(p: A?, ovs: VarStruct?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter a: `Swift.Int32?`
-    ///
-    /// - parameter v: `Swift.String?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opVoid(a: Swift.Int32?, v: Swift.String?, current: Ice.Current) async throws
 }
 
-/// Initial2 overview.
-///
-/// Initial2 Methods:
-///
-///  - opClassAndUnknownOptional: 
-///
-///  - opVoid: 
 extension Initial2 {
     public func _iceD_opClassAndUnknownOptional(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

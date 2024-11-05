@@ -70,7 +70,6 @@ public struct HTraits: Ice.SliceTraits {
     public static let staticId = "::Test::H"
 }
 
-/// EmptyPrx overview.
 public protocol EmptyPrx: Ice.ObjectPrx {}
 
 private final class EmptyPrxI: Ice.ObjectPrxI, EmptyPrx {
@@ -158,16 +157,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// EmptyPrx overview.
 public extension EmptyPrx {}
 
-/// APrx overview.
-///
-/// APrx Methods:
-///
-///  - callA: 
-///
-///  - callAAsync: 
 public protocol APrx: Ice.ObjectPrx {}
 
 private final class APrxI: Ice.ObjectPrxI, APrx {
@@ -255,18 +246,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// APrx overview.
-///
-/// APrx Methods:
-///
-///  - callA: 
-///
-///  - callAAsync: 
 public extension APrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func callA(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "callA",
                                        mode: .Normal,
@@ -278,13 +258,6 @@ public extension APrx {
     }
 }
 
-/// BPrx overview.
-///
-/// BPrx Methods:
-///
-///  - callB: 
-///
-///  - callBAsync: 
 public protocol BPrx: APrx {}
 
 private final class BPrxI: Ice.ObjectPrxI, BPrx {
@@ -372,18 +345,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// BPrx overview.
-///
-/// BPrx Methods:
-///
-///  - callB: 
-///
-///  - callBAsync: 
 public extension BPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func callB(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "callB",
                                        mode: .Normal,
@@ -395,13 +357,6 @@ public extension BPrx {
     }
 }
 
-/// CPrx overview.
-///
-/// CPrx Methods:
-///
-///  - callC: 
-///
-///  - callCAsync: 
 public protocol CPrx: APrx {}
 
 private final class CPrxI: Ice.ObjectPrxI, CPrx {
@@ -489,18 +444,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// CPrx overview.
-///
-/// CPrx Methods:
-///
-///  - callC: 
-///
-///  - callCAsync: 
 public extension CPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func callC(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "callC",
                                        mode: .Normal,
@@ -512,13 +456,6 @@ public extension CPrx {
     }
 }
 
-/// DPrx overview.
-///
-/// DPrx Methods:
-///
-///  - callD: 
-///
-///  - callDAsync: 
 public protocol DPrx: BPrx, CPrx {}
 
 private final class DPrxI: Ice.ObjectPrxI, DPrx {
@@ -606,18 +543,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// DPrx overview.
-///
-/// DPrx Methods:
-///
-///  - callD: 
-///
-///  - callDAsync: 
 public extension DPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func callD(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "callD",
                                        mode: .Normal,
@@ -629,13 +555,6 @@ public extension DPrx {
     }
 }
 
-/// EPrx overview.
-///
-/// EPrx Methods:
-///
-///  - callE: 
-///
-///  - callEAsync: 
 public protocol EPrx: Ice.ObjectPrx {}
 
 private final class EPrxI: Ice.ObjectPrxI, EPrx {
@@ -723,18 +642,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// EPrx overview.
-///
-/// EPrx Methods:
-///
-///  - callE: 
-///
-///  - callEAsync: 
 public extension EPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func callE(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "callE",
                                        mode: .Normal,
@@ -746,13 +654,6 @@ public extension EPrx {
     }
 }
 
-/// FPrx overview.
-///
-/// FPrx Methods:
-///
-///  - callF: 
-///
-///  - callFAsync: 
 public protocol FPrx: EPrx {}
 
 private final class FPrxI: Ice.ObjectPrxI, FPrx {
@@ -840,18 +741,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// FPrx overview.
-///
-/// FPrx Methods:
-///
-///  - callF: 
-///
-///  - callFAsync: 
 public extension FPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func callF(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "callF",
                                        mode: .Normal,
@@ -863,17 +753,6 @@ public extension FPrx {
     }
 }
 
-/// GPrx overview.
-///
-/// GPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - callG: 
-///
-///  - callGAsync: 
 public protocol GPrx: Ice.ObjectPrx {}
 
 private final class GPrxI: Ice.ObjectPrxI, GPrx {
@@ -961,30 +840,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// GPrx overview.
-///
-/// GPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - callG: 
-///
-///  - callGAsync: 
 public extension GPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func callG(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "callG",
                                        mode: .Normal,
@@ -996,13 +858,6 @@ public extension GPrx {
     }
 }
 
-/// HPrx overview.
-///
-/// HPrx Methods:
-///
-///  - callH: 
-///
-///  - callHAsync: 
 public protocol HPrx: GPrx {}
 
 private final class HPrxI: Ice.ObjectPrxI, HPrx {
@@ -1090,18 +945,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// HPrx overview.
-///
-/// HPrx Methods:
-///
-///  - callH: 
-///
-///  - callHAsync: 
 public extension HPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func callH(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "callH",
                                        mode: .Normal,
@@ -1170,10 +1014,6 @@ public struct ADisp: Ice.Dispatcher {
 }
 
 public protocol A {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func callA(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1208,10 +1048,6 @@ public struct BDisp: Ice.Dispatcher {
 }
 
 public protocol B: A {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func callB(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1246,10 +1082,6 @@ public struct CDisp: Ice.Dispatcher {
 }
 
 public protocol C: A {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func callC(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1288,10 +1120,6 @@ public struct DDisp: Ice.Dispatcher {
 }
 
 public protocol D: B, C {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func callD(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1324,10 +1152,6 @@ public struct EDisp: Ice.Dispatcher {
 }
 
 public protocol E {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func callE(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1362,10 +1186,6 @@ public struct FDisp: Ice.Dispatcher {
 }
 
 public protocol F: E {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func callF(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1400,14 +1220,8 @@ public struct GDisp: Ice.Dispatcher {
 }
 
 public protocol G {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func callG(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -1444,21 +1258,11 @@ public struct HDisp: Ice.Dispatcher {
 }
 
 public protocol H: G {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func callH(current: Ice.Current) async throws -> Swift.String
 }
 
-/// Empty overview.
 extension Empty {}
 
-/// A overview.
-///
-/// A Methods:
-///
-///  - callA: 
 extension A {
     public func _iceD_callA(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1471,11 +1275,6 @@ extension A {
     }
 }
 
-/// B overview.
-///
-/// B Methods:
-///
-///  - callB: 
 extension B {
     public func _iceD_callB(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1488,11 +1287,6 @@ extension B {
     }
 }
 
-/// C overview.
-///
-/// C Methods:
-///
-///  - callC: 
 extension C {
     public func _iceD_callC(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1505,11 +1299,6 @@ extension C {
     }
 }
 
-/// D overview.
-///
-/// D Methods:
-///
-///  - callD: 
 extension D {
     public func _iceD_callD(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1522,11 +1311,6 @@ extension D {
     }
 }
 
-/// E overview.
-///
-/// E Methods:
-///
-///  - callE: 
 extension E {
     public func _iceD_callE(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1539,11 +1323,6 @@ extension E {
     }
 }
 
-/// F overview.
-///
-/// F Methods:
-///
-///  - callF: 
 extension F {
     public func _iceD_callF(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1556,13 +1335,6 @@ extension F {
     }
 }
 
-/// G overview.
-///
-/// G Methods:
-///
-///  - shutdown: 
-///
-///  - callG: 
 extension G {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1582,11 +1354,6 @@ extension G {
     }
 }
 
-/// H overview.
-///
-/// H Methods:
-///
-///  - callH: 
 extension H {
     public func _iceD_callH(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

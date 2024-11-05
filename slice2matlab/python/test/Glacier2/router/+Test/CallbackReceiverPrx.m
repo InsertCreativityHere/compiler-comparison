@@ -1,12 +1,3 @@
-% CallbackReceiverPrx   Summary of CallbackReceiverPrx
-%
-% CallbackReceiverPrx Methods:
-%   callback
-%   callbackAsync
-%   callbackEx
-%   callbackExAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Callback.ice by slice2matlab version 3.8.0-alpha.0
@@ -14,39 +5,15 @@
 classdef CallbackReceiverPrx < Ice.ObjectPrx
     methods
         function callback(obj, varargin)
-            % callback
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('callback', 0, false, [], false, {}, varargin{:});
         end
         function r_ = callbackAsync(obj, varargin)
-            % callbackAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('callback', 0, false, [], 0, [], {}, varargin{:});
         end
         function callbackEx(obj, varargin)
-            % callbackEx
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('callbackEx', 0, true, [], false, Test.CallbackReceiverPrx.callbackEx_ex_, varargin{:});
         end
         function r_ = callbackExAsync(obj, varargin)
-            % callbackExAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('callbackEx', 0, true, [], 0, [], Test.CallbackReceiverPrx.callbackEx_ex_, varargin{:});
         end
     end

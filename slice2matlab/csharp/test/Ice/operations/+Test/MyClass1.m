@@ -1,9 +1,3 @@
-% MyClass1   Summary of MyClass1
-%
-% MyClass1 Properties:
-%   tesT
-%   myClass
-%   myClass1
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

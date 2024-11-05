@@ -12,14 +12,22 @@
 % Generated from Election.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef NodeState < uint8
-    enumeration
+    enumeration% NodeStateInactive   Summary of NodeStateInactive
+        %
         % The node is inactive and awaiting an election.
-        NodeStateInactive (0)
+        
+        NodeStateInactive (0)% NodeStateElection   Summary of NodeStateElection
+        %
         % The node is electing a leader.
-        NodeStateElection (1)
+        
+        NodeStateElection (1)% NodeStateReorganization   Summary of NodeStateReorganization
+        %
         % The replica group is reorganizing.
-        NodeStateReorganization (2)
+        
+        NodeStateReorganization (2)% NodeStateNormal   Summary of NodeStateNormal
+        %
         % The replica group is active & replicating.
+        
         NodeStateNormal (3)
     end
     methods(Static)

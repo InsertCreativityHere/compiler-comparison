@@ -1,10 +1,3 @@
-% TestFacetPrx   Summary of TestFacetPrx
-%
-% TestFacetPrx Methods:
-%   getChanges
-%   getChangesAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,26 +5,12 @@
 classdef TestFacetPrx < Ice.ObjectPrx
     methods
         function result = getChanges(obj, varargin)
-            % getChanges
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (containers.Map)
-            
             is_ = obj.iceInvoke('getChanges', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = Ice.PropertyDict.read(is_);
             is_.endEncapsulation();
         end
         function r_ = getChangesAsync(obj, varargin)
-            % getChangesAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = Ice.PropertyDict.read(is_);

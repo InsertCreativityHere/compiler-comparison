@@ -22,25 +22,6 @@ public struct RetryTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Retry"
 }
 
-/// RetryPrx overview.
-///
-/// RetryPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - opIdempotent: 
-///
-///  - opIdempotentAsync: 
-///
-///  - opNotIdempotent: 
-///
-///  - opNotIdempotentAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol RetryPrx: Ice.ObjectPrx {}
 
 private final class RetryPrxI: Ice.ObjectPrxI, RetryPrx {
@@ -128,30 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// RetryPrx overview.
-///
-/// RetryPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - opIdempotent: 
-///
-///  - opIdempotentAsync: 
-///
-///  - opNotIdempotent: 
-///
-///  - opNotIdempotentAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension RetryPrx {
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(_ iceP_kill: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
@@ -161,12 +119,6 @@ public extension RetryPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func opIdempotent(_ iceP_c: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "opIdempotent",
                                        mode: .Idempotent,
@@ -180,16 +132,12 @@ public extension RetryPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opNotIdempotent(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opNotIdempotent",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Idempotent,
@@ -232,40 +180,15 @@ public struct RetryDisp: Ice.Dispatcher {
 }
 
 public protocol Retry {
-    ///
-    /// - parameter kill: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(kill: Swift.Bool, current: Ice.Current) async throws
 
-    ///
-    /// - parameter c: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func opIdempotent(c: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opNotIdempotent(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Retry overview.
-///
-/// Retry Methods:
-///
-///  - op: 
-///
-///  - opIdempotent: 
-///
-///  - opNotIdempotent: 
-///
-///  - shutdown: 
 extension Retry {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

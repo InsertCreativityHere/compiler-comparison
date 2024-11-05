@@ -207,13 +207,13 @@ public struct TopicManagerSyncTraits: Ice.SliceTraits {
 
 /// The node state.
 public enum NodeState: Swift.UInt8 {
-    /// NodeStateInactive The node is inactive and awaiting an election.
+    /// The node is inactive and awaiting an election.
     case NodeStateInactive = 0
-    /// NodeStateElection The node is electing a leader.
+    /// The node is electing a leader.
     case NodeStateElection = 1
-    /// NodeStateReorganization The replica group is reorganizing.
+    /// The replica group is reorganizing.
     case NodeStateReorganization = 2
-    /// NodeStateNormal The replica group is active & replicating.
+    /// The replica group is active & replicating.
     case NodeStateNormal = 3
     public init() {
         self = .NodeStateInactive

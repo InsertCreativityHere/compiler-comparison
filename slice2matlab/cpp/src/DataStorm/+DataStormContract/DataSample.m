@@ -1,13 +1,3 @@
-% DataSample   Summary of DataSample
-%
-% DataSample Properties:
-%   id - The sample id.
-%   keyId - The key id.
-%   keyValue - The key value if the key ID <= 0.
-%   timestamp - The timestamp of the sample (write time).
-%   tag - The update tag if the sample event is PartialUpdate.
-%   event - The sample event.
-%   value - The value of the sample.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0

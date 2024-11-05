@@ -18,11 +18,8 @@ import Ice
 import Test
 
 public enum MyEnum: Swift.UInt8 {
-    /// enum1
     case enum1 = 0
-    /// enum2
     case enum2 = 1
-    /// enum3
     case enum3 = 2
     public init() {
         self = .enum1
@@ -2766,289 +2763,6 @@ public struct MyDerivedClassTraits: Ice.SliceTraits {
     public static let staticId = "::Test2::MyDerivedClass"
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - supportsCompress: 
-///
-///  - supportsCompressAsync: 
-///
-///  - opVoid: 
-///
-///  - opVoidAsync: 
-///
-///  - opByte: 
-///
-///  - opByteAsync: 
-///
-///  - opBool: 
-///
-///  - opBoolAsync: 
-///
-///  - opShortIntLong: 
-///
-///  - opShortIntLongAsync: 
-///
-///  - opFloatDouble: 
-///
-///  - opFloatDoubleAsync: 
-///
-///  - opString: 
-///
-///  - opStringAsync: 
-///
-///  - opMyEnum: 
-///
-///  - opMyEnumAsync: 
-///
-///  - opMyClass: 
-///
-///  - opMyClassAsync: 
-///
-///  - opStruct: 
-///
-///  - opStructAsync: 
-///
-///  - opByteS: 
-///
-///  - opByteSAsync: 
-///
-///  - opBoolS: 
-///
-///  - opBoolSAsync: 
-///
-///  - opShortIntLongS: 
-///
-///  - opShortIntLongSAsync: 
-///
-///  - opFloatDoubleS: 
-///
-///  - opFloatDoubleSAsync: 
-///
-///  - opStringS: 
-///
-///  - opStringSAsync: 
-///
-///  - opByteSS: 
-///
-///  - opByteSSAsync: 
-///
-///  - opBoolSS: 
-///
-///  - opBoolSSAsync: 
-///
-///  - opShortIntLongSS: 
-///
-///  - opShortIntLongSSAsync: 
-///
-///  - opFloatDoubleSS: 
-///
-///  - opFloatDoubleSSAsync: 
-///
-///  - opStringSS: 
-///
-///  - opStringSSAsync: 
-///
-///  - opStringSSS: 
-///
-///  - opStringSSSAsync: 
-///
-///  - opByteBoolD: 
-///
-///  - opByteBoolDAsync: 
-///
-///  - opShortIntD: 
-///
-///  - opShortIntDAsync: 
-///
-///  - opLongFloatD: 
-///
-///  - opLongFloatDAsync: 
-///
-///  - opStringStringD: 
-///
-///  - opStringStringDAsync: 
-///
-///  - opStringMyEnumD: 
-///
-///  - opStringMyEnumDAsync: 
-///
-///  - opMyEnumStringD: 
-///
-///  - opMyEnumStringDAsync: 
-///
-///  - opMyStructMyEnumD: 
-///
-///  - opMyStructMyEnumDAsync: 
-///
-///  - opByteBoolDS: 
-///
-///  - opByteBoolDSAsync: 
-///
-///  - opShortIntDS: 
-///
-///  - opShortIntDSAsync: 
-///
-///  - opLongFloatDS: 
-///
-///  - opLongFloatDSAsync: 
-///
-///  - opStringStringDS: 
-///
-///  - opStringStringDSAsync: 
-///
-///  - opStringMyEnumDS: 
-///
-///  - opStringMyEnumDSAsync: 
-///
-///  - opMyEnumStringDS: 
-///
-///  - opMyEnumStringDSAsync: 
-///
-///  - opMyStructMyEnumDS: 
-///
-///  - opMyStructMyEnumDSAsync: 
-///
-///  - opByteByteSD: 
-///
-///  - opByteByteSDAsync: 
-///
-///  - opBoolBoolSD: 
-///
-///  - opBoolBoolSDAsync: 
-///
-///  - opShortShortSD: 
-///
-///  - opShortShortSDAsync: 
-///
-///  - opIntIntSD: 
-///
-///  - opIntIntSDAsync: 
-///
-///  - opLongLongSD: 
-///
-///  - opLongLongSDAsync: 
-///
-///  - opStringFloatSD: 
-///
-///  - opStringFloatSDAsync: 
-///
-///  - opStringDoubleSD: 
-///
-///  - opStringDoubleSDAsync: 
-///
-///  - opStringStringSD: 
-///
-///  - opStringStringSDAsync: 
-///
-///  - opMyEnumMyEnumSD: 
-///
-///  - opMyEnumMyEnumSDAsync: 
-///
-///  - opIntS: 
-///
-///  - opIntSAsync: 
-///
-///  - opByteSOneway: 
-///
-///  - opByteSOnewayAsync: 
-///
-///  - opByteSOnewayCallCount: 
-///
-///  - opByteSOnewayCallCountAsync: 
-///
-///  - opContext: 
-///
-///  - opContextAsync: 
-///
-///  - opDoubleMarshaling: 
-///
-///  - opDoubleMarshalingAsync: 
-///
-///  - opIdempotent: 
-///
-///  - opIdempotentAsync: 
-///
-///  - opByte1: 
-///
-///  - opByte1Async: 
-///
-///  - opShort1: 
-///
-///  - opShort1Async: 
-///
-///  - opInt1: 
-///
-///  - opInt1Async: 
-///
-///  - opLong1: 
-///
-///  - opLong1Async: 
-///
-///  - opFloat1: 
-///
-///  - opFloat1Async: 
-///
-///  - opDouble1: 
-///
-///  - opDouble1Async: 
-///
-///  - opString1: 
-///
-///  - opString1Async: 
-///
-///  - opStringS1: 
-///
-///  - opStringS1Async: 
-///
-///  - opByteBoolD1: 
-///
-///  - opByteBoolD1Async: 
-///
-///  - opStringS2: 
-///
-///  - opStringS2Async: 
-///
-///  - opByteBoolD2: 
-///
-///  - opByteBoolD2Async: 
-///
-///  - opStringLiterals: 
-///
-///  - opStringLiteralsAsync: 
-///
-///  - opWStringLiterals: 
-///
-///  - opWStringLiteralsAsync: 
-///
-///  - opMStruct1: 
-///
-///  - opMStruct1Async: 
-///
-///  - opMStruct2: 
-///
-///  - opMStruct2Async: 
-///
-///  - opMSeq1: 
-///
-///  - opMSeq1Async: 
-///
-///  - opMSeq2: 
-///
-///  - opMSeq2Async: 
-///
-///  - opMDict1: 
-///
-///  - opMDict1Async: 
-///
-///  - opMDict2: 
-///
-///  - opMDict2Async: 
 public protocol MyClassPrx: Ice.ObjectPrx {}
 
 private final class MyClassPrxI: Ice.ObjectPrxI, MyClassPrx {
@@ -3136,302 +2850,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyClassPrx overview.
-///
-/// MyClassPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - supportsCompress: 
-///
-///  - supportsCompressAsync: 
-///
-///  - opVoid: 
-///
-///  - opVoidAsync: 
-///
-///  - opByte: 
-///
-///  - opByteAsync: 
-///
-///  - opBool: 
-///
-///  - opBoolAsync: 
-///
-///  - opShortIntLong: 
-///
-///  - opShortIntLongAsync: 
-///
-///  - opFloatDouble: 
-///
-///  - opFloatDoubleAsync: 
-///
-///  - opString: 
-///
-///  - opStringAsync: 
-///
-///  - opMyEnum: 
-///
-///  - opMyEnumAsync: 
-///
-///  - opMyClass: 
-///
-///  - opMyClassAsync: 
-///
-///  - opStruct: 
-///
-///  - opStructAsync: 
-///
-///  - opByteS: 
-///
-///  - opByteSAsync: 
-///
-///  - opBoolS: 
-///
-///  - opBoolSAsync: 
-///
-///  - opShortIntLongS: 
-///
-///  - opShortIntLongSAsync: 
-///
-///  - opFloatDoubleS: 
-///
-///  - opFloatDoubleSAsync: 
-///
-///  - opStringS: 
-///
-///  - opStringSAsync: 
-///
-///  - opByteSS: 
-///
-///  - opByteSSAsync: 
-///
-///  - opBoolSS: 
-///
-///  - opBoolSSAsync: 
-///
-///  - opShortIntLongSS: 
-///
-///  - opShortIntLongSSAsync: 
-///
-///  - opFloatDoubleSS: 
-///
-///  - opFloatDoubleSSAsync: 
-///
-///  - opStringSS: 
-///
-///  - opStringSSAsync: 
-///
-///  - opStringSSS: 
-///
-///  - opStringSSSAsync: 
-///
-///  - opByteBoolD: 
-///
-///  - opByteBoolDAsync: 
-///
-///  - opShortIntD: 
-///
-///  - opShortIntDAsync: 
-///
-///  - opLongFloatD: 
-///
-///  - opLongFloatDAsync: 
-///
-///  - opStringStringD: 
-///
-///  - opStringStringDAsync: 
-///
-///  - opStringMyEnumD: 
-///
-///  - opStringMyEnumDAsync: 
-///
-///  - opMyEnumStringD: 
-///
-///  - opMyEnumStringDAsync: 
-///
-///  - opMyStructMyEnumD: 
-///
-///  - opMyStructMyEnumDAsync: 
-///
-///  - opByteBoolDS: 
-///
-///  - opByteBoolDSAsync: 
-///
-///  - opShortIntDS: 
-///
-///  - opShortIntDSAsync: 
-///
-///  - opLongFloatDS: 
-///
-///  - opLongFloatDSAsync: 
-///
-///  - opStringStringDS: 
-///
-///  - opStringStringDSAsync: 
-///
-///  - opStringMyEnumDS: 
-///
-///  - opStringMyEnumDSAsync: 
-///
-///  - opMyEnumStringDS: 
-///
-///  - opMyEnumStringDSAsync: 
-///
-///  - opMyStructMyEnumDS: 
-///
-///  - opMyStructMyEnumDSAsync: 
-///
-///  - opByteByteSD: 
-///
-///  - opByteByteSDAsync: 
-///
-///  - opBoolBoolSD: 
-///
-///  - opBoolBoolSDAsync: 
-///
-///  - opShortShortSD: 
-///
-///  - opShortShortSDAsync: 
-///
-///  - opIntIntSD: 
-///
-///  - opIntIntSDAsync: 
-///
-///  - opLongLongSD: 
-///
-///  - opLongLongSDAsync: 
-///
-///  - opStringFloatSD: 
-///
-///  - opStringFloatSDAsync: 
-///
-///  - opStringDoubleSD: 
-///
-///  - opStringDoubleSDAsync: 
-///
-///  - opStringStringSD: 
-///
-///  - opStringStringSDAsync: 
-///
-///  - opMyEnumMyEnumSD: 
-///
-///  - opMyEnumMyEnumSDAsync: 
-///
-///  - opIntS: 
-///
-///  - opIntSAsync: 
-///
-///  - opByteSOneway: 
-///
-///  - opByteSOnewayAsync: 
-///
-///  - opByteSOnewayCallCount: 
-///
-///  - opByteSOnewayCallCountAsync: 
-///
-///  - opContext: 
-///
-///  - opContextAsync: 
-///
-///  - opDoubleMarshaling: 
-///
-///  - opDoubleMarshalingAsync: 
-///
-///  - opIdempotent: 
-///
-///  - opIdempotentAsync: 
-///
-///  - opByte1: 
-///
-///  - opByte1Async: 
-///
-///  - opShort1: 
-///
-///  - opShort1Async: 
-///
-///  - opInt1: 
-///
-///  - opInt1Async: 
-///
-///  - opLong1: 
-///
-///  - opLong1Async: 
-///
-///  - opFloat1: 
-///
-///  - opFloat1Async: 
-///
-///  - opDouble1: 
-///
-///  - opDouble1Async: 
-///
-///  - opString1: 
-///
-///  - opString1Async: 
-///
-///  - opStringS1: 
-///
-///  - opStringS1Async: 
-///
-///  - opByteBoolD1: 
-///
-///  - opByteBoolD1Async: 
-///
-///  - opStringS2: 
-///
-///  - opStringS2Async: 
-///
-///  - opByteBoolD2: 
-///
-///  - opByteBoolD2Async: 
-///
-///  - opStringLiterals: 
-///
-///  - opStringLiteralsAsync: 
-///
-///  - opWStringLiterals: 
-///
-///  - opWStringLiteralsAsync: 
-///
-///  - opMStruct1: 
-///
-///  - opMStruct1Async: 
-///
-///  - opMStruct2: 
-///
-///  - opMStruct2Async: 
-///
-///  - opMSeq1: 
-///
-///  - opMSeq1Async: 
-///
-///  - opMSeq2: 
-///
-///  - opMSeq2Async: 
-///
-///  - opMDict1: 
-///
-///  - opMDict1Async: 
-///
-///  - opMDict2: 
-///
-///  - opMDict2Async: 
 public extension MyClassPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsCompress(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "supportsCompress",
                                        mode: .Normal,
@@ -3442,26 +2867,12 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opVoid(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opVoid",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `Swift.UInt8`
-    ///
-    /// - parameter p2: `Swift.UInt8`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.UInt8, p3: Swift.UInt8)`:
-    ///
-    ///   - returnValue: `Swift.UInt8`
-    ///
-    ///   - p3: `Swift.UInt8`
     func opByte(p1 iceP_p1: Swift.UInt8, p2 iceP_p2: Swift.UInt8, context: Ice.Context? = nil) async throws -> (returnValue: Swift.UInt8, p3: Swift.UInt8) {
         return try await _impl._invoke(operation: "opByte",
                                        mode: .Normal,
@@ -3477,18 +2888,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `Swift.Bool`
-    ///
-    /// - parameter p2: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.Bool, p3: Swift.Bool)`:
-    ///
-    ///   - returnValue: `Swift.Bool`
-    ///
-    ///   - p3: `Swift.Bool`
     func opBool(p1 iceP_p1: Swift.Bool, p2 iceP_p2: Swift.Bool, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, p3: Swift.Bool) {
         return try await _impl._invoke(operation: "opBool",
                                        mode: .Normal,
@@ -3504,24 +2903,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `Swift.Int16`
-    ///
-    /// - parameter p2: `Swift.Int32`
-    ///
-    /// - parameter p3: `Swift.Int64`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.Int64, p4: Swift.Int16, p5: Swift.Int32, p6: Swift.Int64)`:
-    ///
-    ///   - returnValue: `Swift.Int64`
-    ///
-    ///   - p4: `Swift.Int16`
-    ///
-    ///   - p5: `Swift.Int32`
-    ///
-    ///   - p6: `Swift.Int64`
     func opShortIntLong(p1 iceP_p1: Swift.Int16, p2 iceP_p2: Swift.Int32, p3 iceP_p3: Swift.Int64, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Int64, p4: Swift.Int16, p5: Swift.Int32, p6: Swift.Int64) {
         return try await _impl._invoke(operation: "opShortIntLong",
                                        mode: .Normal,
@@ -3540,20 +2921,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `Swift.Float`
-    ///
-    /// - parameter p2: `Swift.Double`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.Double, p3: Swift.Float, p4: Swift.Double)`:
-    ///
-    ///   - returnValue: `Swift.Double`
-    ///
-    ///   - p3: `Swift.Float`
-    ///
-    ///   - p4: `Swift.Double`
     func opFloatDouble(p1 iceP_p1: Swift.Float, p2 iceP_p2: Swift.Double, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Double, p3: Swift.Float, p4: Swift.Double) {
         return try await _impl._invoke(operation: "opFloatDouble",
                                        mode: .Normal,
@@ -3570,18 +2937,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `Swift.String`
-    ///
-    /// - parameter p2: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.String, p3: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.String`
-    ///
-    ///   - p3: `Swift.String`
     func opString(p1 iceP_p1: Swift.String, p2 iceP_p2: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: Swift.String, p3: Swift.String) {
         return try await _impl._invoke(operation: "opString",
                                        mode: .Normal,
@@ -3597,16 +2952,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `MyEnum`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: MyEnum, p2: MyEnum)`:
-    ///
-    ///   - returnValue: `MyEnum`
-    ///
-    ///   - p2: `MyEnum`
     func opMyEnum(_ iceP_p1: MyEnum, context: Ice.Context? = nil) async throws -> (returnValue: MyEnum, p2: MyEnum) {
         return try await _impl._invoke(operation: "opMyEnum",
                                        mode: .Normal,
@@ -3621,18 +2966,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `MyClassPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: MyClassPrx?, p2: MyClassPrx?, p3: MyClassPrx?)`:
-    ///
-    ///   - returnValue: `MyClassPrx?`
-    ///
-    ///   - p2: `MyClassPrx?`
-    ///
-    ///   - p3: `MyClassPrx?`
     func opMyClass(_ iceP_p1: MyClassPrx?, context: Ice.Context? = nil) async throws -> (returnValue: MyClassPrx?, p2: MyClassPrx?, p3: MyClassPrx?) {
         return try await _impl._invoke(operation: "opMyClass",
                                        mode: .Normal,
@@ -3648,18 +2981,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `Structure`
-    ///
-    /// - parameter p2: `Structure`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Structure, p3: Structure)`:
-    ///
-    ///   - returnValue: `Structure`
-    ///
-    ///   - p3: `Structure`
     func opStruct(p1 iceP_p1: Structure, p2 iceP_p2: Structure, context: Ice.Context? = nil) async throws -> (returnValue: Structure, p3: Structure) {
         return try await _impl._invoke(operation: "opStruct",
                                        mode: .Normal,
@@ -3675,18 +2996,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `ByteS`
-    ///
-    /// - parameter p2: `ByteS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteS, p3: ByteS)`:
-    ///
-    ///   - returnValue: `ByteS`
-    ///
-    ///   - p3: `ByteS`
     func opByteS(p1 iceP_p1: ByteS, p2 iceP_p2: ByteS, context: Ice.Context? = nil) async throws -> (returnValue: ByteS, p3: ByteS) {
         return try await _impl._invoke(operation: "opByteS",
                                        mode: .Normal,
@@ -3702,18 +3011,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `BoolS`
-    ///
-    /// - parameter p2: `BoolS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolS, p3: BoolS)`:
-    ///
-    ///   - returnValue: `BoolS`
-    ///
-    ///   - p3: `BoolS`
     func opBoolS(p1 iceP_p1: BoolS, p2 iceP_p2: BoolS, context: Ice.Context? = nil) async throws -> (returnValue: BoolS, p3: BoolS) {
         return try await _impl._invoke(operation: "opBoolS",
                                        mode: .Normal,
@@ -3729,24 +3026,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `ShortS`
-    ///
-    /// - parameter p2: `IntS`
-    ///
-    /// - parameter p3: `LongS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongS, p4: ShortS, p5: IntS, p6: LongS)`:
-    ///
-    ///   - returnValue: `LongS`
-    ///
-    ///   - p4: `ShortS`
-    ///
-    ///   - p5: `IntS`
-    ///
-    ///   - p6: `LongS`
     func opShortIntLongS(p1 iceP_p1: ShortS, p2 iceP_p2: IntS, p3 iceP_p3: LongS, context: Ice.Context? = nil) async throws -> (returnValue: LongS, p4: ShortS, p5: IntS, p6: LongS) {
         return try await _impl._invoke(operation: "opShortIntLongS",
                                        mode: .Normal,
@@ -3765,20 +3044,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `FloatS`
-    ///
-    /// - parameter p2: `DoubleS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleS, p3: FloatS, p4: DoubleS)`:
-    ///
-    ///   - returnValue: `DoubleS`
-    ///
-    ///   - p3: `FloatS`
-    ///
-    ///   - p4: `DoubleS`
     func opFloatDoubleS(p1 iceP_p1: FloatS, p2 iceP_p2: DoubleS, context: Ice.Context? = nil) async throws -> (returnValue: DoubleS, p3: FloatS, p4: DoubleS) {
         return try await _impl._invoke(operation: "opFloatDoubleS",
                                        mode: .Normal,
@@ -3795,18 +3060,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `StringS`
-    ///
-    /// - parameter p2: `StringS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringS, p3: StringS)`:
-    ///
-    ///   - returnValue: `StringS`
-    ///
-    ///   - p3: `StringS`
     func opStringS(p1 iceP_p1: StringS, p2 iceP_p2: StringS, context: Ice.Context? = nil) async throws -> (returnValue: StringS, p3: StringS) {
         return try await _impl._invoke(operation: "opStringS",
                                        mode: .Normal,
@@ -3822,18 +3075,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `ByteSS`
-    ///
-    /// - parameter p2: `ByteSS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteSS, p3: ByteSS)`:
-    ///
-    ///   - returnValue: `ByteSS`
-    ///
-    ///   - p3: `ByteSS`
     func opByteSS(p1 iceP_p1: ByteSS, p2 iceP_p2: ByteSS, context: Ice.Context? = nil) async throws -> (returnValue: ByteSS, p3: ByteSS) {
         return try await _impl._invoke(operation: "opByteSS",
                                        mode: .Normal,
@@ -3849,18 +3090,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `BoolSS`
-    ///
-    /// - parameter p2: `BoolSS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolSS, p3: BoolSS)`:
-    ///
-    ///   - returnValue: `BoolSS`
-    ///
-    ///   - p3: `BoolSS`
     func opBoolSS(p1 iceP_p1: BoolSS, p2 iceP_p2: BoolSS, context: Ice.Context? = nil) async throws -> (returnValue: BoolSS, p3: BoolSS) {
         return try await _impl._invoke(operation: "opBoolSS",
                                        mode: .Normal,
@@ -3876,24 +3105,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `ShortSS`
-    ///
-    /// - parameter p2: `IntSS`
-    ///
-    /// - parameter p3: `LongSS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongSS, p4: ShortSS, p5: IntSS, p6: LongSS)`:
-    ///
-    ///   - returnValue: `LongSS`
-    ///
-    ///   - p4: `ShortSS`
-    ///
-    ///   - p5: `IntSS`
-    ///
-    ///   - p6: `LongSS`
     func opShortIntLongSS(p1 iceP_p1: ShortSS, p2 iceP_p2: IntSS, p3 iceP_p3: LongSS, context: Ice.Context? = nil) async throws -> (returnValue: LongSS, p4: ShortSS, p5: IntSS, p6: LongSS) {
         return try await _impl._invoke(operation: "opShortIntLongSS",
                                        mode: .Normal,
@@ -3912,20 +3123,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `FloatSS`
-    ///
-    /// - parameter p2: `DoubleSS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleSS, p3: FloatSS, p4: DoubleSS)`:
-    ///
-    ///   - returnValue: `DoubleSS`
-    ///
-    ///   - p3: `FloatSS`
-    ///
-    ///   - p4: `DoubleSS`
     func opFloatDoubleSS(p1 iceP_p1: FloatSS, p2 iceP_p2: DoubleSS, context: Ice.Context? = nil) async throws -> (returnValue: DoubleSS, p3: FloatSS, p4: DoubleSS) {
         return try await _impl._invoke(operation: "opFloatDoubleSS",
                                        mode: .Normal,
@@ -3942,18 +3139,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `StringSS`
-    ///
-    /// - parameter p2: `StringSS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSS, p3: StringSS)`:
-    ///
-    ///   - returnValue: `StringSS`
-    ///
-    ///   - p3: `StringSS`
     func opStringSS(p1 iceP_p1: StringSS, p2 iceP_p2: StringSS, context: Ice.Context? = nil) async throws -> (returnValue: StringSS, p3: StringSS) {
         return try await _impl._invoke(operation: "opStringSS",
                                        mode: .Normal,
@@ -3969,18 +3154,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `StringSSS`
-    ///
-    /// - parameter p2: `StringSSS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSSS, p3: StringSSS)`:
-    ///
-    ///   - returnValue: `StringSSS`
-    ///
-    ///   - p3: `StringSSS`
     func opStringSSS(p1 iceP_p1: StringSSS, p2 iceP_p2: StringSSS, context: Ice.Context? = nil) async throws -> (returnValue: StringSSS, p3: StringSSS) {
         return try await _impl._invoke(operation: "opStringSSS",
                                        mode: .Normal,
@@ -3996,18 +3169,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `ByteBoolD`
-    ///
-    /// - parameter p2: `ByteBoolD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteBoolD, p3: ByteBoolD)`:
-    ///
-    ///   - returnValue: `ByteBoolD`
-    ///
-    ///   - p3: `ByteBoolD`
     func opByteBoolD(p1 iceP_p1: ByteBoolD, p2 iceP_p2: ByteBoolD, context: Ice.Context? = nil) async throws -> (returnValue: ByteBoolD, p3: ByteBoolD) {
         return try await _impl._invoke(operation: "opByteBoolD",
                                        mode: .Normal,
@@ -4023,18 +3184,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `ShortIntD`
-    ///
-    /// - parameter p2: `ShortIntD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortIntD, p3: ShortIntD)`:
-    ///
-    ///   - returnValue: `ShortIntD`
-    ///
-    ///   - p3: `ShortIntD`
     func opShortIntD(p1 iceP_p1: ShortIntD, p2 iceP_p2: ShortIntD, context: Ice.Context? = nil) async throws -> (returnValue: ShortIntD, p3: ShortIntD) {
         return try await _impl._invoke(operation: "opShortIntD",
                                        mode: .Normal,
@@ -4050,18 +3199,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `LongFloatD`
-    ///
-    /// - parameter p2: `LongFloatD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongFloatD, p3: LongFloatD)`:
-    ///
-    ///   - returnValue: `LongFloatD`
-    ///
-    ///   - p3: `LongFloatD`
     func opLongFloatD(p1 iceP_p1: LongFloatD, p2 iceP_p2: LongFloatD, context: Ice.Context? = nil) async throws -> (returnValue: LongFloatD, p3: LongFloatD) {
         return try await _impl._invoke(operation: "opLongFloatD",
                                        mode: .Normal,
@@ -4077,18 +3214,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `StringStringD`
-    ///
-    /// - parameter p2: `StringStringD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringStringD, p3: StringStringD)`:
-    ///
-    ///   - returnValue: `StringStringD`
-    ///
-    ///   - p3: `StringStringD`
     func opStringStringD(p1 iceP_p1: StringStringD, p2 iceP_p2: StringStringD, context: Ice.Context? = nil) async throws -> (returnValue: StringStringD, p3: StringStringD) {
         return try await _impl._invoke(operation: "opStringStringD",
                                        mode: .Normal,
@@ -4104,18 +3229,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `StringMyEnumD`
-    ///
-    /// - parameter p2: `StringMyEnumD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringMyEnumD, p3: StringMyEnumD)`:
-    ///
-    ///   - returnValue: `StringMyEnumD`
-    ///
-    ///   - p3: `StringMyEnumD`
     func opStringMyEnumD(p1 iceP_p1: StringMyEnumD, p2 iceP_p2: StringMyEnumD, context: Ice.Context? = nil) async throws -> (returnValue: StringMyEnumD, p3: StringMyEnumD) {
         return try await _impl._invoke(operation: "opStringMyEnumD",
                                        mode: .Normal,
@@ -4131,18 +3244,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `MyEnumStringD`
-    ///
-    /// - parameter p2: `MyEnumStringD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: MyEnumStringD, p3: MyEnumStringD)`:
-    ///
-    ///   - returnValue: `MyEnumStringD`
-    ///
-    ///   - p3: `MyEnumStringD`
     func opMyEnumStringD(p1 iceP_p1: MyEnumStringD, p2 iceP_p2: MyEnumStringD, context: Ice.Context? = nil) async throws -> (returnValue: MyEnumStringD, p3: MyEnumStringD) {
         return try await _impl._invoke(operation: "opMyEnumStringD",
                                        mode: .Normal,
@@ -4158,18 +3259,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `MyStructMyEnumD`
-    ///
-    /// - parameter p2: `MyStructMyEnumD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: MyStructMyEnumD, p3: MyStructMyEnumD)`:
-    ///
-    ///   - returnValue: `MyStructMyEnumD`
-    ///
-    ///   - p3: `MyStructMyEnumD`
     func opMyStructMyEnumD(p1 iceP_p1: MyStructMyEnumD, p2 iceP_p2: MyStructMyEnumD, context: Ice.Context? = nil) async throws -> (returnValue: MyStructMyEnumD, p3: MyStructMyEnumD) {
         return try await _impl._invoke(operation: "opMyStructMyEnumD",
                                        mode: .Normal,
@@ -4185,18 +3274,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `ByteBoolDS`
-    ///
-    /// - parameter p2: `ByteBoolDS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteBoolDS, p3: ByteBoolDS)`:
-    ///
-    ///   - returnValue: `ByteBoolDS`
-    ///
-    ///   - p3: `ByteBoolDS`
     func opByteBoolDS(p1 iceP_p1: ByteBoolDS, p2 iceP_p2: ByteBoolDS, context: Ice.Context? = nil) async throws -> (returnValue: ByteBoolDS, p3: ByteBoolDS) {
         return try await _impl._invoke(operation: "opByteBoolDS",
                                        mode: .Normal,
@@ -4212,18 +3289,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `ShortIntDS`
-    ///
-    /// - parameter p2: `ShortIntDS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortIntDS, p3: ShortIntDS)`:
-    ///
-    ///   - returnValue: `ShortIntDS`
-    ///
-    ///   - p3: `ShortIntDS`
     func opShortIntDS(p1 iceP_p1: ShortIntDS, p2 iceP_p2: ShortIntDS, context: Ice.Context? = nil) async throws -> (returnValue: ShortIntDS, p3: ShortIntDS) {
         return try await _impl._invoke(operation: "opShortIntDS",
                                        mode: .Normal,
@@ -4239,18 +3304,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `LongFloatDS`
-    ///
-    /// - parameter p2: `LongFloatDS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongFloatDS, p3: LongFloatDS)`:
-    ///
-    ///   - returnValue: `LongFloatDS`
-    ///
-    ///   - p3: `LongFloatDS`
     func opLongFloatDS(p1 iceP_p1: LongFloatDS, p2 iceP_p2: LongFloatDS, context: Ice.Context? = nil) async throws -> (returnValue: LongFloatDS, p3: LongFloatDS) {
         return try await _impl._invoke(operation: "opLongFloatDS",
                                        mode: .Normal,
@@ -4266,18 +3319,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `StringStringDS`
-    ///
-    /// - parameter p2: `StringStringDS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringStringDS, p3: StringStringDS)`:
-    ///
-    ///   - returnValue: `StringStringDS`
-    ///
-    ///   - p3: `StringStringDS`
     func opStringStringDS(p1 iceP_p1: StringStringDS, p2 iceP_p2: StringStringDS, context: Ice.Context? = nil) async throws -> (returnValue: StringStringDS, p3: StringStringDS) {
         return try await _impl._invoke(operation: "opStringStringDS",
                                        mode: .Normal,
@@ -4293,18 +3334,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `StringMyEnumDS`
-    ///
-    /// - parameter p2: `StringMyEnumDS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringMyEnumDS, p3: StringMyEnumDS)`:
-    ///
-    ///   - returnValue: `StringMyEnumDS`
-    ///
-    ///   - p3: `StringMyEnumDS`
     func opStringMyEnumDS(p1 iceP_p1: StringMyEnumDS, p2 iceP_p2: StringMyEnumDS, context: Ice.Context? = nil) async throws -> (returnValue: StringMyEnumDS, p3: StringMyEnumDS) {
         return try await _impl._invoke(operation: "opStringMyEnumDS",
                                        mode: .Normal,
@@ -4320,18 +3349,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `MyEnumStringDS`
-    ///
-    /// - parameter p2: `MyEnumStringDS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: MyEnumStringDS, p3: MyEnumStringDS)`:
-    ///
-    ///   - returnValue: `MyEnumStringDS`
-    ///
-    ///   - p3: `MyEnumStringDS`
     func opMyEnumStringDS(p1 iceP_p1: MyEnumStringDS, p2 iceP_p2: MyEnumStringDS, context: Ice.Context? = nil) async throws -> (returnValue: MyEnumStringDS, p3: MyEnumStringDS) {
         return try await _impl._invoke(operation: "opMyEnumStringDS",
                                        mode: .Normal,
@@ -4347,18 +3364,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `MyStructMyEnumDS`
-    ///
-    /// - parameter p2: `MyStructMyEnumDS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: MyStructMyEnumDS, p3: MyStructMyEnumDS)`:
-    ///
-    ///   - returnValue: `MyStructMyEnumDS`
-    ///
-    ///   - p3: `MyStructMyEnumDS`
     func opMyStructMyEnumDS(p1 iceP_p1: MyStructMyEnumDS, p2 iceP_p2: MyStructMyEnumDS, context: Ice.Context? = nil) async throws -> (returnValue: MyStructMyEnumDS, p3: MyStructMyEnumDS) {
         return try await _impl._invoke(operation: "opMyStructMyEnumDS",
                                        mode: .Normal,
@@ -4374,18 +3379,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `ByteByteSD`
-    ///
-    /// - parameter p2: `ByteByteSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteByteSD, p3: ByteByteSD)`:
-    ///
-    ///   - returnValue: `ByteByteSD`
-    ///
-    ///   - p3: `ByteByteSD`
     func opByteByteSD(p1 iceP_p1: ByteByteSD, p2 iceP_p2: ByteByteSD, context: Ice.Context? = nil) async throws -> (returnValue: ByteByteSD, p3: ByteByteSD) {
         return try await _impl._invoke(operation: "opByteByteSD",
                                        mode: .Normal,
@@ -4401,18 +3394,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `BoolBoolSD`
-    ///
-    /// - parameter p2: `BoolBoolSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolBoolSD, p3: BoolBoolSD)`:
-    ///
-    ///   - returnValue: `BoolBoolSD`
-    ///
-    ///   - p3: `BoolBoolSD`
     func opBoolBoolSD(p1 iceP_p1: BoolBoolSD, p2 iceP_p2: BoolBoolSD, context: Ice.Context? = nil) async throws -> (returnValue: BoolBoolSD, p3: BoolBoolSD) {
         return try await _impl._invoke(operation: "opBoolBoolSD",
                                        mode: .Normal,
@@ -4428,18 +3409,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `ShortShortSD`
-    ///
-    /// - parameter p2: `ShortShortSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortShortSD, p3: ShortShortSD)`:
-    ///
-    ///   - returnValue: `ShortShortSD`
-    ///
-    ///   - p3: `ShortShortSD`
     func opShortShortSD(p1 iceP_p1: ShortShortSD, p2 iceP_p2: ShortShortSD, context: Ice.Context? = nil) async throws -> (returnValue: ShortShortSD, p3: ShortShortSD) {
         return try await _impl._invoke(operation: "opShortShortSD",
                                        mode: .Normal,
@@ -4455,18 +3424,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `IntIntSD`
-    ///
-    /// - parameter p2: `IntIntSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntIntSD, p3: IntIntSD)`:
-    ///
-    ///   - returnValue: `IntIntSD`
-    ///
-    ///   - p3: `IntIntSD`
     func opIntIntSD(p1 iceP_p1: IntIntSD, p2 iceP_p2: IntIntSD, context: Ice.Context? = nil) async throws -> (returnValue: IntIntSD, p3: IntIntSD) {
         return try await _impl._invoke(operation: "opIntIntSD",
                                        mode: .Normal,
@@ -4482,18 +3439,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `LongLongSD`
-    ///
-    /// - parameter p2: `LongLongSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongLongSD, p3: LongLongSD)`:
-    ///
-    ///   - returnValue: `LongLongSD`
-    ///
-    ///   - p3: `LongLongSD`
     func opLongLongSD(p1 iceP_p1: LongLongSD, p2 iceP_p2: LongLongSD, context: Ice.Context? = nil) async throws -> (returnValue: LongLongSD, p3: LongLongSD) {
         return try await _impl._invoke(operation: "opLongLongSD",
                                        mode: .Normal,
@@ -4509,18 +3454,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `StringFloatSD`
-    ///
-    /// - parameter p2: `StringFloatSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringFloatSD, p3: StringFloatSD)`:
-    ///
-    ///   - returnValue: `StringFloatSD`
-    ///
-    ///   - p3: `StringFloatSD`
     func opStringFloatSD(p1 iceP_p1: StringFloatSD, p2 iceP_p2: StringFloatSD, context: Ice.Context? = nil) async throws -> (returnValue: StringFloatSD, p3: StringFloatSD) {
         return try await _impl._invoke(operation: "opStringFloatSD",
                                        mode: .Normal,
@@ -4536,18 +3469,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `StringDoubleSD`
-    ///
-    /// - parameter p2: `StringDoubleSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringDoubleSD, p3: StringDoubleSD)`:
-    ///
-    ///   - returnValue: `StringDoubleSD`
-    ///
-    ///   - p3: `StringDoubleSD`
     func opStringDoubleSD(p1 iceP_p1: StringDoubleSD, p2 iceP_p2: StringDoubleSD, context: Ice.Context? = nil) async throws -> (returnValue: StringDoubleSD, p3: StringDoubleSD) {
         return try await _impl._invoke(operation: "opStringDoubleSD",
                                        mode: .Normal,
@@ -4563,18 +3484,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `StringStringSD`
-    ///
-    /// - parameter p2: `StringStringSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringStringSD, p3: StringStringSD)`:
-    ///
-    ///   - returnValue: `StringStringSD`
-    ///
-    ///   - p3: `StringStringSD`
     func opStringStringSD(p1 iceP_p1: StringStringSD, p2 iceP_p2: StringStringSD, context: Ice.Context? = nil) async throws -> (returnValue: StringStringSD, p3: StringStringSD) {
         return try await _impl._invoke(operation: "opStringStringSD",
                                        mode: .Normal,
@@ -4590,18 +3499,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `MyEnumMyEnumSD`
-    ///
-    /// - parameter p2: `MyEnumMyEnumSD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: MyEnumMyEnumSD, p3: MyEnumMyEnumSD)`:
-    ///
-    ///   - returnValue: `MyEnumMyEnumSD`
-    ///
-    ///   - p3: `MyEnumMyEnumSD`
     func opMyEnumMyEnumSD(p1 iceP_p1: MyEnumMyEnumSD, p2 iceP_p2: MyEnumMyEnumSD, context: Ice.Context? = nil) async throws -> (returnValue: MyEnumMyEnumSD, p3: MyEnumMyEnumSD) {
         return try await _impl._invoke(operation: "opMyEnumMyEnumSD",
                                        mode: .Normal,
@@ -4617,12 +3514,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `IntS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `IntS`
     func opIntS(_ iceP_s: IntS, context: Ice.Context? = nil) async throws -> IntS {
         return try await _impl._invoke(operation: "opIntS",
                                        mode: .Normal,
@@ -4636,10 +3527,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opByteSOneway(_ iceP_s: ByteS, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opByteSOneway",
                                        mode: .Normal,
@@ -4649,10 +3536,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func opByteSOnewayCallCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "opByteSOnewayCallCount",
                                        mode: .Normal,
@@ -4663,10 +3546,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.Context`
     func opContext(context: Ice.Context? = nil) async throws -> Ice.Context {
         return try await _impl._invoke(operation: "opContext",
                                        mode: .Normal,
@@ -4677,12 +3556,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter p1: `Swift.Double`
-    ///
-    /// - parameter p2: `DoubleS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opDoubleMarshaling(p1 iceP_p1: Swift.Double, p2 iceP_p2: DoubleS, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opDoubleMarshaling",
                                        mode: .Normal,
@@ -4693,20 +3566,12 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opIdempotent(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opIdempotent",
                                        mode: .Idempotent,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.UInt8`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.UInt8`
     func opByte1(_ iceP_opByte1: Swift.UInt8, context: Ice.Context? = nil) async throws -> Swift.UInt8 {
         return try await _impl._invoke(operation: "opByte1",
                                        mode: .Normal,
@@ -4720,12 +3585,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int16`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int16`
     func opShort1(_ iceP_opShort1: Swift.Int16, context: Ice.Context? = nil) async throws -> Swift.Int16 {
         return try await _impl._invoke(operation: "opShort1",
                                        mode: .Normal,
@@ -4739,12 +3598,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func opInt1(_ iceP_opInt1: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "opInt1",
                                        mode: .Normal,
@@ -4758,12 +3611,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int64`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int64`
     func opLong1(_ iceP_opLong1: Swift.Int64, context: Ice.Context? = nil) async throws -> Swift.Int64 {
         return try await _impl._invoke(operation: "opLong1",
                                        mode: .Normal,
@@ -4777,12 +3624,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Float`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Float`
     func opFloat1(_ iceP_opFloat1: Swift.Float, context: Ice.Context? = nil) async throws -> Swift.Float {
         return try await _impl._invoke(operation: "opFloat1",
                                        mode: .Normal,
@@ -4796,12 +3637,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Double`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Double`
     func opDouble1(_ iceP_opDouble1: Swift.Double, context: Ice.Context? = nil) async throws -> Swift.Double {
         return try await _impl._invoke(operation: "opDouble1",
                                        mode: .Normal,
@@ -4815,12 +3650,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func opString1(_ iceP_opString1: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "opString1",
                                        mode: .Normal,
@@ -4834,12 +3663,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `StringS`
     func opStringS1(_ iceP_opStringS1: StringS, context: Ice.Context? = nil) async throws -> StringS {
         return try await _impl._invoke(operation: "opStringS1",
                                        mode: .Normal,
@@ -4853,12 +3676,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteBoolD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ByteBoolD`
     func opByteBoolD1(_ iceP_opByteBoolD1: ByteBoolD, context: Ice.Context? = nil) async throws -> ByteBoolD {
         return try await _impl._invoke(operation: "opByteBoolD1",
                                        mode: .Normal,
@@ -4872,12 +3689,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `StringS`
     func opStringS2(_ iceP_stringS: StringS, context: Ice.Context? = nil) async throws -> StringS {
         return try await _impl._invoke(operation: "opStringS2",
                                        mode: .Normal,
@@ -4891,12 +3702,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteBoolD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ByteBoolD`
     func opByteBoolD2(_ iceP_byteBoolD: ByteBoolD, context: Ice.Context? = nil) async throws -> ByteBoolD {
         return try await _impl._invoke(operation: "opByteBoolD2",
                                        mode: .Normal,
@@ -4910,10 +3715,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `StringS`
     func opStringLiterals(context: Ice.Context? = nil) async throws -> StringS {
         return try await _impl._invoke(operation: "opStringLiterals",
                                        mode: .Normal,
@@ -4924,10 +3725,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `StringS`
     func opWStringLiterals(context: Ice.Context? = nil) async throws -> StringS {
         return try await _impl._invoke(operation: "opWStringLiterals",
                                        mode: .Normal,
@@ -4938,10 +3735,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Structure`
     func opMStruct1(context: Ice.Context? = nil) async throws -> Structure {
         return try await _impl._invoke(operation: "opMStruct1",
                                        mode: .Normal,
@@ -4952,16 +3745,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Structure`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Structure, p2: Structure)`:
-    ///
-    ///   - returnValue: `Structure`
-    ///
-    ///   - p2: `Structure`
     func opMStruct2(_ iceP_p1: Structure, context: Ice.Context? = nil) async throws -> (returnValue: Structure, p2: Structure) {
         return try await _impl._invoke(operation: "opMStruct2",
                                        mode: .Normal,
@@ -4976,10 +3759,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `StringS`
     func opMSeq1(context: Ice.Context? = nil) async throws -> StringS {
         return try await _impl._invoke(operation: "opMSeq1",
                                        mode: .Normal,
@@ -4990,16 +3769,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringS`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringS, p2: StringS)`:
-    ///
-    ///   - returnValue: `StringS`
-    ///
-    ///   - p2: `StringS`
     func opMSeq2(_ iceP_p1: StringS, context: Ice.Context? = nil) async throws -> (returnValue: StringS, p2: StringS) {
         return try await _impl._invoke(operation: "opMSeq2",
                                        mode: .Normal,
@@ -5014,10 +3783,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `StringStringD`
     func opMDict1(context: Ice.Context? = nil) async throws -> StringStringD {
         return try await _impl._invoke(operation: "opMDict1",
                                        mode: .Normal,
@@ -5028,16 +3793,6 @@ public extension MyClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringStringD`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringStringD, p2: StringStringD)`:
-    ///
-    ///   - returnValue: `StringStringD`
-    ///
-    ///   - p2: `StringStringD`
     func opMDict2(_ iceP_p1: StringStringD, context: Ice.Context? = nil) async throws -> (returnValue: StringStringD, p2: StringStringD) {
         return try await _impl._invoke(operation: "opMDict2",
                                        mode: .Normal,
@@ -5053,21 +3808,6 @@ public extension MyClassPrx {
     }
 }
 
-/// MyDerivedClassPrx overview.
-///
-/// MyDerivedClassPrx Methods:
-///
-///  - opDerived: 
-///
-///  - opDerivedAsync: 
-///
-///  - opMyClass1: 
-///
-///  - opMyClass1Async: 
-///
-///  - opMyStruct1: 
-///
-///  - opMyStruct1Async: 
 public protocol MyDerivedClassPrx: MyClassPrx {}
 
 private final class MyDerivedClassPrxI: Ice.ObjectPrxI, MyDerivedClassPrx {
@@ -5155,36 +3895,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyDerivedClassPrx overview.
-///
-/// MyDerivedClassPrx Methods:
-///
-///  - opDerived: 
-///
-///  - opDerivedAsync: 
-///
-///  - opMyClass1: 
-///
-///  - opMyClass1Async: 
-///
-///  - opMyStruct1: 
-///
-///  - opMyStruct1Async: 
 public extension MyDerivedClassPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opDerived(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opDerived",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `MyClass1?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MyClass1?`
     func opMyClass1(_ iceP_opMyClass1: MyClass1?, context: Ice.Context? = nil) async throws -> MyClass1? {
         return try await _impl._invoke(operation: "opMyClass1",
                                        mode: .Normal,
@@ -5201,12 +3918,6 @@ public extension MyDerivedClassPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `MyStruct1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MyStruct1`
     func opMyStruct1(_ iceP_opMyStruct1: MyStruct1, context: Ice.Context? = nil) async throws -> MyStruct1 {
         return try await _impl._invoke(operation: "opMyStruct1",
                                        mode: .Normal,
@@ -5529,820 +4240,144 @@ public struct MyClassDisp: Ice.Dispatcher {
 }
 
 public protocol MyClass {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsCompress(current: Ice.Current) async throws -> Swift.Bool
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opVoid(current: Ice.Current) async throws
 
-    ///
-    /// - parameter p1: `Swift.UInt8`
-    ///
-    /// - parameter p2: `Swift.UInt8`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.UInt8, p3: Swift.UInt8)`:
-    ///
-    ///   - returnValue: `Swift.UInt8`
-    ///
-    ///   - p3: `Swift.UInt8`
     func opByte(p1: Swift.UInt8, p2: Swift.UInt8, current: Ice.Current) async throws -> (returnValue: Swift.UInt8, p3: Swift.UInt8)
 
-    ///
-    /// - parameter p1: `Swift.Bool`
-    ///
-    /// - parameter p2: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.Bool, p3: Swift.Bool)`:
-    ///
-    ///   - returnValue: `Swift.Bool`
-    ///
-    ///   - p3: `Swift.Bool`
     func opBool(p1: Swift.Bool, p2: Swift.Bool, current: Ice.Current) async throws -> (returnValue: Swift.Bool, p3: Swift.Bool)
 
-    ///
-    /// - parameter p1: `Swift.Int16`
-    ///
-    /// - parameter p2: `Swift.Int32`
-    ///
-    /// - parameter p3: `Swift.Int64`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.Int64, p4: Swift.Int16, p5: Swift.Int32, p6: Swift.Int64)`:
-    ///
-    ///   - returnValue: `Swift.Int64`
-    ///
-    ///   - p4: `Swift.Int16`
-    ///
-    ///   - p5: `Swift.Int32`
-    ///
-    ///   - p6: `Swift.Int64`
     func opShortIntLong(p1: Swift.Int16, p2: Swift.Int32, p3: Swift.Int64, current: Ice.Current) async throws -> (returnValue: Swift.Int64, p4: Swift.Int16, p5: Swift.Int32, p6: Swift.Int64)
 
-    ///
-    /// - parameter p1: `Swift.Float`
-    ///
-    /// - parameter p2: `Swift.Double`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.Double, p3: Swift.Float, p4: Swift.Double)`:
-    ///
-    ///   - returnValue: `Swift.Double`
-    ///
-    ///   - p3: `Swift.Float`
-    ///
-    ///   - p4: `Swift.Double`
     func opFloatDouble(p1: Swift.Float, p2: Swift.Double, current: Ice.Current) async throws -> (returnValue: Swift.Double, p3: Swift.Float, p4: Swift.Double)
 
-    ///
-    /// - parameter p1: `Swift.String`
-    ///
-    /// - parameter p2: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.String, p3: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.String`
-    ///
-    ///   - p3: `Swift.String`
     func opString(p1: Swift.String, p2: Swift.String, current: Ice.Current) async throws -> (returnValue: Swift.String, p3: Swift.String)
 
-    ///
-    /// - parameter p1: `MyEnum`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: MyEnum, p2: MyEnum)`:
-    ///
-    ///   - returnValue: `MyEnum`
-    ///
-    ///   - p2: `MyEnum`
     func opMyEnum(p1: MyEnum, current: Ice.Current) async throws -> (returnValue: MyEnum, p2: MyEnum)
 
-    ///
-    /// - parameter p1: `MyClassPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: MyClassPrx?, p2: MyClassPrx?, p3: MyClassPrx?)`:
-    ///
-    ///   - returnValue: `MyClassPrx?`
-    ///
-    ///   - p2: `MyClassPrx?`
-    ///
-    ///   - p3: `MyClassPrx?`
     func opMyClass(p1: MyClassPrx?, current: Ice.Current) async throws -> (returnValue: MyClassPrx?, p2: MyClassPrx?, p3: MyClassPrx?)
 
-    ///
-    /// - parameter p1: `Structure`
-    ///
-    /// - parameter p2: `Structure`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Structure, p3: Structure)`:
-    ///
-    ///   - returnValue: `Structure`
-    ///
-    ///   - p3: `Structure`
     func opStruct(p1: Structure, p2: Structure, current: Ice.Current) async throws -> (returnValue: Structure, p3: Structure)
 
-    ///
-    /// - parameter p1: `ByteS`
-    ///
-    /// - parameter p2: `ByteS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteS, p3: ByteS)`:
-    ///
-    ///   - returnValue: `ByteS`
-    ///
-    ///   - p3: `ByteS`
     func opByteS(p1: ByteS, p2: ByteS, current: Ice.Current) async throws -> (returnValue: ByteS, p3: ByteS)
 
-    ///
-    /// - parameter p1: `BoolS`
-    ///
-    /// - parameter p2: `BoolS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BoolS, p3: BoolS)`:
-    ///
-    ///   - returnValue: `BoolS`
-    ///
-    ///   - p3: `BoolS`
     func opBoolS(p1: BoolS, p2: BoolS, current: Ice.Current) async throws -> (returnValue: BoolS, p3: BoolS)
 
-    ///
-    /// - parameter p1: `ShortS`
-    ///
-    /// - parameter p2: `IntS`
-    ///
-    /// - parameter p3: `LongS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LongS, p4: ShortS, p5: IntS, p6: LongS)`:
-    ///
-    ///   - returnValue: `LongS`
-    ///
-    ///   - p4: `ShortS`
-    ///
-    ///   - p5: `IntS`
-    ///
-    ///   - p6: `LongS`
     func opShortIntLongS(p1: ShortS, p2: IntS, p3: LongS, current: Ice.Current) async throws -> (returnValue: LongS, p4: ShortS, p5: IntS, p6: LongS)
 
-    ///
-    /// - parameter p1: `FloatS`
-    ///
-    /// - parameter p2: `DoubleS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: DoubleS, p3: FloatS, p4: DoubleS)`:
-    ///
-    ///   - returnValue: `DoubleS`
-    ///
-    ///   - p3: `FloatS`
-    ///
-    ///   - p4: `DoubleS`
     func opFloatDoubleS(p1: FloatS, p2: DoubleS, current: Ice.Current) async throws -> (returnValue: DoubleS, p3: FloatS, p4: DoubleS)
 
-    ///
-    /// - parameter p1: `StringS`
-    ///
-    /// - parameter p2: `StringS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringS, p3: StringS)`:
-    ///
-    ///   - returnValue: `StringS`
-    ///
-    ///   - p3: `StringS`
     func opStringS(p1: StringS, p2: StringS, current: Ice.Current) async throws -> (returnValue: StringS, p3: StringS)
 
-    ///
-    /// - parameter p1: `ByteSS`
-    ///
-    /// - parameter p2: `ByteSS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteSS, p3: ByteSS)`:
-    ///
-    ///   - returnValue: `ByteSS`
-    ///
-    ///   - p3: `ByteSS`
     func opByteSS(p1: ByteSS, p2: ByteSS, current: Ice.Current) async throws -> (returnValue: ByteSS, p3: ByteSS)
 
-    ///
-    /// - parameter p1: `BoolSS`
-    ///
-    /// - parameter p2: `BoolSS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BoolSS, p3: BoolSS)`:
-    ///
-    ///   - returnValue: `BoolSS`
-    ///
-    ///   - p3: `BoolSS`
     func opBoolSS(p1: BoolSS, p2: BoolSS, current: Ice.Current) async throws -> (returnValue: BoolSS, p3: BoolSS)
 
-    ///
-    /// - parameter p1: `ShortSS`
-    ///
-    /// - parameter p2: `IntSS`
-    ///
-    /// - parameter p3: `LongSS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LongSS, p4: ShortSS, p5: IntSS, p6: LongSS)`:
-    ///
-    ///   - returnValue: `LongSS`
-    ///
-    ///   - p4: `ShortSS`
-    ///
-    ///   - p5: `IntSS`
-    ///
-    ///   - p6: `LongSS`
     func opShortIntLongSS(p1: ShortSS, p2: IntSS, p3: LongSS, current: Ice.Current) async throws -> (returnValue: LongSS, p4: ShortSS, p5: IntSS, p6: LongSS)
 
-    ///
-    /// - parameter p1: `FloatSS`
-    ///
-    /// - parameter p2: `DoubleSS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: DoubleSS, p3: FloatSS, p4: DoubleSS)`:
-    ///
-    ///   - returnValue: `DoubleSS`
-    ///
-    ///   - p3: `FloatSS`
-    ///
-    ///   - p4: `DoubleSS`
     func opFloatDoubleSS(p1: FloatSS, p2: DoubleSS, current: Ice.Current) async throws -> (returnValue: DoubleSS, p3: FloatSS, p4: DoubleSS)
 
-    ///
-    /// - parameter p1: `StringSS`
-    ///
-    /// - parameter p2: `StringSS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringSS, p3: StringSS)`:
-    ///
-    ///   - returnValue: `StringSS`
-    ///
-    ///   - p3: `StringSS`
     func opStringSS(p1: StringSS, p2: StringSS, current: Ice.Current) async throws -> (returnValue: StringSS, p3: StringSS)
 
-    ///
-    /// - parameter p1: `StringSSS`
-    ///
-    /// - parameter p2: `StringSSS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringSSS, p3: StringSSS)`:
-    ///
-    ///   - returnValue: `StringSSS`
-    ///
-    ///   - p3: `StringSSS`
     func opStringSSS(p1: StringSSS, p2: StringSSS, current: Ice.Current) async throws -> (returnValue: StringSSS, p3: StringSSS)
 
-    ///
-    /// - parameter p1: `ByteBoolD`
-    ///
-    /// - parameter p2: `ByteBoolD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteBoolD, p3: ByteBoolD)`:
-    ///
-    ///   - returnValue: `ByteBoolD`
-    ///
-    ///   - p3: `ByteBoolD`
     func opByteBoolD(p1: ByteBoolD, p2: ByteBoolD, current: Ice.Current) async throws -> (returnValue: ByteBoolD, p3: ByteBoolD)
 
-    ///
-    /// - parameter p1: `ShortIntD`
-    ///
-    /// - parameter p2: `ShortIntD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortIntD, p3: ShortIntD)`:
-    ///
-    ///   - returnValue: `ShortIntD`
-    ///
-    ///   - p3: `ShortIntD`
     func opShortIntD(p1: ShortIntD, p2: ShortIntD, current: Ice.Current) async throws -> (returnValue: ShortIntD, p3: ShortIntD)
 
-    ///
-    /// - parameter p1: `LongFloatD`
-    ///
-    /// - parameter p2: `LongFloatD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LongFloatD, p3: LongFloatD)`:
-    ///
-    ///   - returnValue: `LongFloatD`
-    ///
-    ///   - p3: `LongFloatD`
     func opLongFloatD(p1: LongFloatD, p2: LongFloatD, current: Ice.Current) async throws -> (returnValue: LongFloatD, p3: LongFloatD)
 
-    ///
-    /// - parameter p1: `StringStringD`
-    ///
-    /// - parameter p2: `StringStringD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringStringD, p3: StringStringD)`:
-    ///
-    ///   - returnValue: `StringStringD`
-    ///
-    ///   - p3: `StringStringD`
     func opStringStringD(p1: StringStringD, p2: StringStringD, current: Ice.Current) async throws -> (returnValue: StringStringD, p3: StringStringD)
 
-    ///
-    /// - parameter p1: `StringMyEnumD`
-    ///
-    /// - parameter p2: `StringMyEnumD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringMyEnumD, p3: StringMyEnumD)`:
-    ///
-    ///   - returnValue: `StringMyEnumD`
-    ///
-    ///   - p3: `StringMyEnumD`
     func opStringMyEnumD(p1: StringMyEnumD, p2: StringMyEnumD, current: Ice.Current) async throws -> (returnValue: StringMyEnumD, p3: StringMyEnumD)
 
-    ///
-    /// - parameter p1: `MyEnumStringD`
-    ///
-    /// - parameter p2: `MyEnumStringD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: MyEnumStringD, p3: MyEnumStringD)`:
-    ///
-    ///   - returnValue: `MyEnumStringD`
-    ///
-    ///   - p3: `MyEnumStringD`
     func opMyEnumStringD(p1: MyEnumStringD, p2: MyEnumStringD, current: Ice.Current) async throws -> (returnValue: MyEnumStringD, p3: MyEnumStringD)
 
-    ///
-    /// - parameter p1: `MyStructMyEnumD`
-    ///
-    /// - parameter p2: `MyStructMyEnumD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: MyStructMyEnumD, p3: MyStructMyEnumD)`:
-    ///
-    ///   - returnValue: `MyStructMyEnumD`
-    ///
-    ///   - p3: `MyStructMyEnumD`
     func opMyStructMyEnumD(p1: MyStructMyEnumD, p2: MyStructMyEnumD, current: Ice.Current) async throws -> (returnValue: MyStructMyEnumD, p3: MyStructMyEnumD)
 
-    ///
-    /// - parameter p1: `ByteBoolDS`
-    ///
-    /// - parameter p2: `ByteBoolDS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteBoolDS, p3: ByteBoolDS)`:
-    ///
-    ///   - returnValue: `ByteBoolDS`
-    ///
-    ///   - p3: `ByteBoolDS`
     func opByteBoolDS(p1: ByteBoolDS, p2: ByteBoolDS, current: Ice.Current) async throws -> (returnValue: ByteBoolDS, p3: ByteBoolDS)
 
-    ///
-    /// - parameter p1: `ShortIntDS`
-    ///
-    /// - parameter p2: `ShortIntDS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortIntDS, p3: ShortIntDS)`:
-    ///
-    ///   - returnValue: `ShortIntDS`
-    ///
-    ///   - p3: `ShortIntDS`
     func opShortIntDS(p1: ShortIntDS, p2: ShortIntDS, current: Ice.Current) async throws -> (returnValue: ShortIntDS, p3: ShortIntDS)
 
-    ///
-    /// - parameter p1: `LongFloatDS`
-    ///
-    /// - parameter p2: `LongFloatDS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LongFloatDS, p3: LongFloatDS)`:
-    ///
-    ///   - returnValue: `LongFloatDS`
-    ///
-    ///   - p3: `LongFloatDS`
     func opLongFloatDS(p1: LongFloatDS, p2: LongFloatDS, current: Ice.Current) async throws -> (returnValue: LongFloatDS, p3: LongFloatDS)
 
-    ///
-    /// - parameter p1: `StringStringDS`
-    ///
-    /// - parameter p2: `StringStringDS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringStringDS, p3: StringStringDS)`:
-    ///
-    ///   - returnValue: `StringStringDS`
-    ///
-    ///   - p3: `StringStringDS`
     func opStringStringDS(p1: StringStringDS, p2: StringStringDS, current: Ice.Current) async throws -> (returnValue: StringStringDS, p3: StringStringDS)
 
-    ///
-    /// - parameter p1: `StringMyEnumDS`
-    ///
-    /// - parameter p2: `StringMyEnumDS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringMyEnumDS, p3: StringMyEnumDS)`:
-    ///
-    ///   - returnValue: `StringMyEnumDS`
-    ///
-    ///   - p3: `StringMyEnumDS`
     func opStringMyEnumDS(p1: StringMyEnumDS, p2: StringMyEnumDS, current: Ice.Current) async throws -> (returnValue: StringMyEnumDS, p3: StringMyEnumDS)
 
-    ///
-    /// - parameter p1: `MyEnumStringDS`
-    ///
-    /// - parameter p2: `MyEnumStringDS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: MyEnumStringDS, p3: MyEnumStringDS)`:
-    ///
-    ///   - returnValue: `MyEnumStringDS`
-    ///
-    ///   - p3: `MyEnumStringDS`
     func opMyEnumStringDS(p1: MyEnumStringDS, p2: MyEnumStringDS, current: Ice.Current) async throws -> (returnValue: MyEnumStringDS, p3: MyEnumStringDS)
 
-    ///
-    /// - parameter p1: `MyStructMyEnumDS`
-    ///
-    /// - parameter p2: `MyStructMyEnumDS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: MyStructMyEnumDS, p3: MyStructMyEnumDS)`:
-    ///
-    ///   - returnValue: `MyStructMyEnumDS`
-    ///
-    ///   - p3: `MyStructMyEnumDS`
     func opMyStructMyEnumDS(p1: MyStructMyEnumDS, p2: MyStructMyEnumDS, current: Ice.Current) async throws -> (returnValue: MyStructMyEnumDS, p3: MyStructMyEnumDS)
 
-    ///
-    /// - parameter p1: `ByteByteSD`
-    ///
-    /// - parameter p2: `ByteByteSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteByteSD, p3: ByteByteSD)`:
-    ///
-    ///   - returnValue: `ByteByteSD`
-    ///
-    ///   - p3: `ByteByteSD`
     func opByteByteSD(p1: ByteByteSD, p2: ByteByteSD, current: Ice.Current) async throws -> (returnValue: ByteByteSD, p3: ByteByteSD)
 
-    ///
-    /// - parameter p1: `BoolBoolSD`
-    ///
-    /// - parameter p2: `BoolBoolSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BoolBoolSD, p3: BoolBoolSD)`:
-    ///
-    ///   - returnValue: `BoolBoolSD`
-    ///
-    ///   - p3: `BoolBoolSD`
     func opBoolBoolSD(p1: BoolBoolSD, p2: BoolBoolSD, current: Ice.Current) async throws -> (returnValue: BoolBoolSD, p3: BoolBoolSD)
 
-    ///
-    /// - parameter p1: `ShortShortSD`
-    ///
-    /// - parameter p2: `ShortShortSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortShortSD, p3: ShortShortSD)`:
-    ///
-    ///   - returnValue: `ShortShortSD`
-    ///
-    ///   - p3: `ShortShortSD`
     func opShortShortSD(p1: ShortShortSD, p2: ShortShortSD, current: Ice.Current) async throws -> (returnValue: ShortShortSD, p3: ShortShortSD)
 
-    ///
-    /// - parameter p1: `IntIntSD`
-    ///
-    /// - parameter p2: `IntIntSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: IntIntSD, p3: IntIntSD)`:
-    ///
-    ///   - returnValue: `IntIntSD`
-    ///
-    ///   - p3: `IntIntSD`
     func opIntIntSD(p1: IntIntSD, p2: IntIntSD, current: Ice.Current) async throws -> (returnValue: IntIntSD, p3: IntIntSD)
 
-    ///
-    /// - parameter p1: `LongLongSD`
-    ///
-    /// - parameter p2: `LongLongSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LongLongSD, p3: LongLongSD)`:
-    ///
-    ///   - returnValue: `LongLongSD`
-    ///
-    ///   - p3: `LongLongSD`
     func opLongLongSD(p1: LongLongSD, p2: LongLongSD, current: Ice.Current) async throws -> (returnValue: LongLongSD, p3: LongLongSD)
 
-    ///
-    /// - parameter p1: `StringFloatSD`
-    ///
-    /// - parameter p2: `StringFloatSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringFloatSD, p3: StringFloatSD)`:
-    ///
-    ///   - returnValue: `StringFloatSD`
-    ///
-    ///   - p3: `StringFloatSD`
     func opStringFloatSD(p1: StringFloatSD, p2: StringFloatSD, current: Ice.Current) async throws -> (returnValue: StringFloatSD, p3: StringFloatSD)
 
-    ///
-    /// - parameter p1: `StringDoubleSD`
-    ///
-    /// - parameter p2: `StringDoubleSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringDoubleSD, p3: StringDoubleSD)`:
-    ///
-    ///   - returnValue: `StringDoubleSD`
-    ///
-    ///   - p3: `StringDoubleSD`
     func opStringDoubleSD(p1: StringDoubleSD, p2: StringDoubleSD, current: Ice.Current) async throws -> (returnValue: StringDoubleSD, p3: StringDoubleSD)
 
-    ///
-    /// - parameter p1: `StringStringSD`
-    ///
-    /// - parameter p2: `StringStringSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringStringSD, p3: StringStringSD)`:
-    ///
-    ///   - returnValue: `StringStringSD`
-    ///
-    ///   - p3: `StringStringSD`
     func opStringStringSD(p1: StringStringSD, p2: StringStringSD, current: Ice.Current) async throws -> (returnValue: StringStringSD, p3: StringStringSD)
 
-    ///
-    /// - parameter p1: `MyEnumMyEnumSD`
-    ///
-    /// - parameter p2: `MyEnumMyEnumSD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: MyEnumMyEnumSD, p3: MyEnumMyEnumSD)`:
-    ///
-    ///   - returnValue: `MyEnumMyEnumSD`
-    ///
-    ///   - p3: `MyEnumMyEnumSD`
     func opMyEnumMyEnumSD(p1: MyEnumMyEnumSD, p2: MyEnumMyEnumSD, current: Ice.Current) async throws -> (returnValue: MyEnumMyEnumSD, p3: MyEnumMyEnumSD)
 
-    ///
-    /// - parameter s: `IntS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `IntS`
     func opIntS(s: IntS, current: Ice.Current) async throws -> IntS
 
-    ///
-    /// - parameter s: `ByteS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opByteSOneway(s: ByteS, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func opByteSOnewayCallCount(current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.Context`
     func opContext(current: Ice.Current) async throws -> Ice.Context
 
-    ///
-    /// - parameter p1: `Swift.Double`
-    ///
-    /// - parameter p2: `DoubleS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opDoubleMarshaling(p1: Swift.Double, p2: DoubleS, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opIdempotent(current: Ice.Current) async throws
 
-    ///
-    /// - parameter opByte1: `Swift.UInt8`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.UInt8`
     func opByte1(opByte1: Swift.UInt8, current: Ice.Current) async throws -> Swift.UInt8
 
-    ///
-    /// - parameter opShort1: `Swift.Int16`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int16`
     func opShort1(opShort1: Swift.Int16, current: Ice.Current) async throws -> Swift.Int16
 
-    ///
-    /// - parameter opInt1: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func opInt1(opInt1: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
-    ///
-    /// - parameter opLong1: `Swift.Int64`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int64`
     func opLong1(opLong1: Swift.Int64, current: Ice.Current) async throws -> Swift.Int64
 
-    ///
-    /// - parameter opFloat1: `Swift.Float`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Float`
     func opFloat1(opFloat1: Swift.Float, current: Ice.Current) async throws -> Swift.Float
 
-    ///
-    /// - parameter opDouble1: `Swift.Double`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Double`
     func opDouble1(opDouble1: Swift.Double, current: Ice.Current) async throws -> Swift.Double
 
-    ///
-    /// - parameter opString1: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func opString1(opString1: Swift.String, current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter opStringS1: `StringS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `StringS`
     func opStringS1(opStringS1: StringS, current: Ice.Current) async throws -> StringS
 
-    ///
-    /// - parameter opByteBoolD1: `ByteBoolD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ByteBoolD`
     func opByteBoolD1(opByteBoolD1: ByteBoolD, current: Ice.Current) async throws -> ByteBoolD
 
-    ///
-    /// - parameter stringS: `StringS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `StringS`
     func opStringS2(stringS: StringS, current: Ice.Current) async throws -> StringS
 
-    ///
-    /// - parameter byteBoolD: `ByteBoolD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ByteBoolD`
     func opByteBoolD2(byteBoolD: ByteBoolD, current: Ice.Current) async throws -> ByteBoolD
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `StringS`
     func opStringLiterals(current: Ice.Current) async throws -> StringS
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `StringS`
     func opWStringLiterals(current: Ice.Current) async throws -> StringS
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Structure`
     func opMStruct1(current: Ice.Current) async throws -> Structure
 
-    ///
-    /// - parameter p1: `Structure`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Structure, p2: Structure)`:
-    ///
-    ///   - returnValue: `Structure`
-    ///
-    ///   - p2: `Structure`
     func opMStruct2(p1: Structure, current: Ice.Current) async throws -> (returnValue: Structure, p2: Structure)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `StringS`
     func opMSeq1(current: Ice.Current) async throws -> StringS
 
-    ///
-    /// - parameter p1: `StringS`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringS, p2: StringS)`:
-    ///
-    ///   - returnValue: `StringS`
-    ///
-    ///   - p2: `StringS`
     func opMSeq2(p1: StringS, current: Ice.Current) async throws -> (returnValue: StringS, p2: StringS)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `StringStringD`
     func opMDict1(current: Ice.Current) async throws -> StringStringD
 
-    ///
-    /// - parameter p1: `StringStringD`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringStringD, p2: StringStringD)`:
-    ///
-    ///   - returnValue: `StringStringD`
-    ///
-    ///   - p2: `StringStringD`
     func opMDict2(p1: StringStringD, current: Ice.Current) async throws -> (returnValue: StringStringD, p2: StringStringD)
 }
 
@@ -6519,24 +4554,10 @@ public struct MyDerivedClassDisp: Ice.Dispatcher {
 }
 
 public protocol MyDerivedClass: MyClass {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opDerived(current: Ice.Current) async throws
 
-    ///
-    /// - parameter opMyClass1: `MyClass1?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MyClass1?`
     func opMyClass1(opMyClass1: MyClass1?, current: Ice.Current) async throws -> MyClass1?
 
-    ///
-    /// - parameter opMyStruct1: `MyStruct1`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MyStruct1`
     func opMyStruct1(opMyStruct1: MyStruct1, current: Ice.Current) async throws -> MyStruct1
 }
 
@@ -6710,149 +4731,6 @@ public struct MyDerivedClassDisp: Ice.Dispatcher {
 /// a different module (ICE-7639).
 public protocol MyDerivedClass: Test.MyClass {}
 
-/// MyClass overview.
-///
-/// MyClass Methods:
-///
-///  - shutdown: 
-///
-///  - supportsCompress: 
-///
-///  - opVoid: 
-///
-///  - opByte: 
-///
-///  - opBool: 
-///
-///  - opShortIntLong: 
-///
-///  - opFloatDouble: 
-///
-///  - opString: 
-///
-///  - opMyEnum: 
-///
-///  - opMyClass: 
-///
-///  - opStruct: 
-///
-///  - opByteS: 
-///
-///  - opBoolS: 
-///
-///  - opShortIntLongS: 
-///
-///  - opFloatDoubleS: 
-///
-///  - opStringS: 
-///
-///  - opByteSS: 
-///
-///  - opBoolSS: 
-///
-///  - opShortIntLongSS: 
-///
-///  - opFloatDoubleSS: 
-///
-///  - opStringSS: 
-///
-///  - opStringSSS: 
-///
-///  - opByteBoolD: 
-///
-///  - opShortIntD: 
-///
-///  - opLongFloatD: 
-///
-///  - opStringStringD: 
-///
-///  - opStringMyEnumD: 
-///
-///  - opMyEnumStringD: 
-///
-///  - opMyStructMyEnumD: 
-///
-///  - opByteBoolDS: 
-///
-///  - opShortIntDS: 
-///
-///  - opLongFloatDS: 
-///
-///  - opStringStringDS: 
-///
-///  - opStringMyEnumDS: 
-///
-///  - opMyEnumStringDS: 
-///
-///  - opMyStructMyEnumDS: 
-///
-///  - opByteByteSD: 
-///
-///  - opBoolBoolSD: 
-///
-///  - opShortShortSD: 
-///
-///  - opIntIntSD: 
-///
-///  - opLongLongSD: 
-///
-///  - opStringFloatSD: 
-///
-///  - opStringDoubleSD: 
-///
-///  - opStringStringSD: 
-///
-///  - opMyEnumMyEnumSD: 
-///
-///  - opIntS: 
-///
-///  - opByteSOneway: 
-///
-///  - opByteSOnewayCallCount: 
-///
-///  - opContext: 
-///
-///  - opDoubleMarshaling: 
-///
-///  - opIdempotent: 
-///
-///  - opByte1: 
-///
-///  - opShort1: 
-///
-///  - opInt1: 
-///
-///  - opLong1: 
-///
-///  - opFloat1: 
-///
-///  - opDouble1: 
-///
-///  - opString1: 
-///
-///  - opStringS1: 
-///
-///  - opByteBoolD1: 
-///
-///  - opStringS2: 
-///
-///  - opByteBoolD2: 
-///
-///  - opStringLiterals: 
-///
-///  - opWStringLiterals: 
-///
-///  - opMStruct1: 
-///
-///  - opMStruct2: 
-///
-///  - opMSeq1: 
-///
-///  - opMSeq2: 
-///
-///  - opMDict1: 
-///
-///  - opMDict2: 
 extension MyClass {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -7757,15 +5635,6 @@ extension MyClass {
     }
 }
 
-/// MyDerivedClass overview.
-///
-/// MyDerivedClass Methods:
-///
-///  - opDerived: 
-///
-///  - opMyClass1: 
-///
-///  - opMyStruct1: 
 extension MyDerivedClass {
     public func _iceD_opDerived(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

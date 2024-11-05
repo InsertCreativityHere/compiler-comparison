@@ -11,12 +11,18 @@
 % Generated from Registry.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef LoadSample < uint8
-    enumeration
+    enumeration% LoadSample1   Summary of LoadSample1
+        %
         % Sample every minute.
-        LoadSample1 (0)
+        
+        LoadSample1 (0)% LoadSample5   Summary of LoadSample5
+        %
         % Sample every five minutes.
-        LoadSample5 (1)
+        
+        LoadSample5 (1)% LoadSample15   Summary of LoadSample15
+        %
         % Sample every fifteen minutes.
+        
         LoadSample15 (2)
     end
     methods(Static)

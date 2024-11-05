@@ -1,16 +1,3 @@
-% TestCasePrx   Summary of TestCasePrx
-%
-% TestCasePrx Methods:
-%   startServerSide
-%   startServerSideAsync
-%   stopServerSide
-%   stopServerSideAsync
-%   runClientSide
-%   runClientSideAsync
-%   destroy
-%   destroyAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Controller.ice by slice2matlab version 3.8.0-alpha.0
@@ -18,14 +5,6 @@
 classdef TestCasePrx < Ice.ObjectPrx
     methods
         function result = startServerSide(obj, config, varargin)
-            % startServerSide
-            %
-            % Parameters:
-            %   config (Test.Common.Config)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (char)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(config);
             os_.writePendingValues();
@@ -36,14 +15,6 @@ classdef TestCasePrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = startServerSideAsync(obj, config, varargin)
-            % startServerSideAsync
-            %
-            % Parameters:
-            %   config (Test.Common.Config)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(config);
             os_.writePendingValues();
@@ -57,14 +28,6 @@ classdef TestCasePrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('startServerSide', 0, true, os_, 1, @unmarshal, Test.Common.TestCasePrx.startServerSide_ex_, varargin{:});
         end
         function result = stopServerSide(obj, success, varargin)
-            % stopServerSide
-            %
-            % Parameters:
-            %   success (logical)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (char)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBool(success);
             obj.iceEndWriteParams(os_);
@@ -74,14 +37,6 @@ classdef TestCasePrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = stopServerSideAsync(obj, success, varargin)
-            % stopServerSideAsync
-            %
-            % Parameters:
-            %   success (logical)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBool(success);
             obj.iceEndWriteParams(os_);
@@ -94,15 +49,6 @@ classdef TestCasePrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('stopServerSide', 0, true, os_, 1, @unmarshal, Test.Common.TestCasePrx.stopServerSide_ex_, varargin{:});
         end
         function result = runClientSide(obj, host, config, varargin)
-            % runClientSide
-            %
-            % Parameters:
-            %   host (char)
-            %   config (Test.Common.Config)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (char)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(host);
             os_.writeValue(config);
@@ -114,15 +60,6 @@ classdef TestCasePrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = runClientSideAsync(obj, host, config, varargin)
-            % runClientSideAsync
-            %
-            % Parameters:
-            %   host (char)
-            %   config (Test.Common.Config)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(host);
             os_.writeValue(config);
@@ -137,21 +74,9 @@ classdef TestCasePrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('runClientSide', 0, true, os_, 1, @unmarshal, Test.Common.TestCasePrx.runClientSide_ex_, varargin{:});
         end
         function destroy(obj, varargin)
-            % destroy
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('destroy', 0, false, [], false, {}, varargin{:});
         end
         function r_ = destroyAsync(obj, varargin)
-            % destroyAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('destroy', 0, false, [], 0, [], {}, varargin{:});
         end
     end

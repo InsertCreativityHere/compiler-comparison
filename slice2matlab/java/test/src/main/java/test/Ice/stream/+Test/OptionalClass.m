@@ -1,19 +1,3 @@
-% OptionalClass   Summary of OptionalClass
-%
-% OptionalClass Properties:
-%   bo
-%   by
-%   sh
-%   i
-%   s
-%   enumS4
-%   byteBoolD6
-%   shortIntD7
-%   enum8
-%   intSeq12
-%   byteSeq13
-%   stringSeq14
-%   p15
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

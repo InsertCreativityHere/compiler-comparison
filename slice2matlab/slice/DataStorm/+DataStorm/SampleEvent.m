@@ -14,14 +14,22 @@
 % Generated from Sample.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef SampleEvent < uint8
-    enumeration
+    enumeration% Add   Summary of Add
+        %
         % The element has been added.
-        Add (0)
+        
+        Add (0)% Update   Summary of Update
+        %
         % The element has been updated.
-        Update (1)
+        
+        Update (1)% PartialUpdate   Summary of PartialUpdate
+        %
         % The element has been partially updated.
-        PartialUpdate (2)
+        
+        PartialUpdate (2)% Remove   Summary of Remove
+        %
         % The element has been removed.
+        
         Remove (3)
     end
     methods(Static)

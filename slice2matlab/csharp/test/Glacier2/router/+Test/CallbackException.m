@@ -1,8 +1,3 @@
-% CallbackException   Summary of CallbackException
-%
-% CallbackException Properties:
-%   someValue
-%   someString
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Callback.ice by slice2matlab version 3.8.0-alpha.0

@@ -1,14 +1,3 @@
-% InitialPrx   Summary of InitialPrx
-%
-% InitialPrx Methods:
-%   getConcreteClass
-%   getConcreteClassAsync
-%   throwException
-%   throwExceptionAsync
-%   shutdown
-%   shutdownAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -16,13 +5,6 @@
 classdef InitialPrx < Ice.ObjectPrx
     methods
         function result = getConcreteClass(obj, varargin)
-            % getConcreteClass
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.ConcreteClass)
-            
             is_ = obj.iceInvoke('getConcreteClass', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result_h_ = IceInternal.ValueHolder();
@@ -32,13 +14,6 @@ classdef InitialPrx < Ice.ObjectPrx
             result = result_h_.value;
         end
         function r_ = getConcreteClassAsync(obj, varargin)
-            % getConcreteClassAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = IceInternal.ValueHolder();
@@ -50,39 +25,15 @@ classdef InitialPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getConcreteClass', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function throwException(obj, varargin)
-            % throwException
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('throwException', 0, true, [], false, Test.InitialPrx.throwException_ex_, varargin{:});
         end
         function r_ = throwExceptionAsync(obj, varargin)
-            % throwExceptionAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('throwException', 0, true, [], 0, [], Test.InitialPrx.throwException_ex_, varargin{:});
         end
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
     end

@@ -72,17 +72,6 @@ public struct CallbackTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Callback"
 }
 
-/// CallbackReceiverPrx overview.
-///
-/// CallbackReceiverPrx Methods:
-///
-///  - callback: 
-///
-///  - callbackAsync: 
-///
-///  - callbackEx: 
-///
-///  - callbackExAsync: 
 public protocol CallbackReceiverPrx: Ice.ObjectPrx {}
 
 private final class CallbackReceiverPrxI: Ice.ObjectPrxI, CallbackReceiverPrx {
@@ -170,28 +159,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// CallbackReceiverPrx overview.
-///
-/// CallbackReceiverPrx Methods:
-///
-///  - callback: 
-///
-///  - callbackAsync: 
-///
-///  - callbackEx: 
-///
-///  - callbackExAsync: 
 public extension CallbackReceiverPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func callback(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "callback",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func callbackEx(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "callbackEx",
                                        mode: .Normal,
@@ -206,21 +180,6 @@ public extension CallbackReceiverPrx {
     }
 }
 
-/// CallbackPrx overview.
-///
-/// CallbackPrx Methods:
-///
-///  - initiateCallback: 
-///
-///  - initiateCallbackAsync: 
-///
-///  - initiateCallbackEx: 
-///
-///  - initiateCallbackExAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol CallbackPrx: Ice.ObjectPrx {}
 
 private final class CallbackPrxI: Ice.ObjectPrxI, CallbackPrx {
@@ -308,26 +267,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// CallbackPrx overview.
-///
-/// CallbackPrx Methods:
-///
-///  - initiateCallback: 
-///
-///  - initiateCallbackAsync: 
-///
-///  - initiateCallbackEx: 
-///
-///  - initiateCallbackExAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension CallbackPrx {
-    ///
-    /// - parameter _: `CallbackReceiverPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func initiateCallback(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "initiateCallback",
                                        mode: .Normal,
@@ -337,10 +277,6 @@ public extension CallbackPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `CallbackReceiverPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func initiateCallbackEx(_ iceP_proxy: CallbackReceiverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "initiateCallbackEx",
                                        mode: .Normal,
@@ -357,8 +293,6 @@ public extension CallbackPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -397,12 +331,8 @@ public struct CallbackReceiverDisp: Ice.Dispatcher {
 }
 
 public protocol CallbackReceiver {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func callback(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func callbackEx(current: Ice.Current) async throws
 }
 
@@ -439,30 +369,13 @@ public struct CallbackDisp: Ice.Dispatcher {
 }
 
 public protocol Callback {
-    ///
-    /// - parameter proxy: `CallbackReceiverPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func initiateCallback(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter proxy: `CallbackReceiverPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func initiateCallbackEx(proxy: CallbackReceiverPrx?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// CallbackReceiver overview.
-///
-/// CallbackReceiver Methods:
-///
-///  - callback: 
-///
-///  - callbackEx: 
 extension CallbackReceiver {
     public func _iceD_callback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -479,15 +392,6 @@ extension CallbackReceiver {
     }
 }
 
-/// Callback overview.
-///
-/// Callback Methods:
-///
-///  - initiateCallback: 
-///
-///  - initiateCallbackEx: 
-///
-///  - shutdown: 
 extension Callback {
     public func _iceD_initiateCallback(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

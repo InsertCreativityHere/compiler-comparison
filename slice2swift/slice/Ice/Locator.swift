@@ -189,7 +189,7 @@ public struct LocatorFinderTraits: SliceTraits {
 }
 
 /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
-/// servers to get the locator registry proxy. The Locator interface is intended to be used
+/// servers to get the locator registry proxy. The {@link Locator} interface is intended to be used
 /// by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
 /// of this interface directly.
 ///
@@ -294,7 +294,7 @@ public extension InputStream {
 }
 
 /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
-/// servers to get the locator registry proxy. The Locator interface is intended to be used
+/// servers to get the locator registry proxy. The {@link Locator} interface is intended to be used
 /// by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
 /// of this interface directly.
 ///
@@ -392,7 +392,7 @@ public extension LocatorPrx {
 }
 
 /// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
-/// locator.  The LocatorRegistry interface is intended to be used by Ice internals and by
+/// locator.  The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
 /// locator implementations. Regular user code should not attempt to use any functionality of this interface
 /// directly.
 ///
@@ -497,7 +497,7 @@ public extension InputStream {
 }
 
 /// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
-/// locator.  The LocatorRegistry interface is intended to be used by Ice internals and by
+/// locator.  The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
 /// locator implementations. Regular user code should not attempt to use any functionality of this interface
 /// directly.
 ///
@@ -776,7 +776,7 @@ public struct LocatorDisp: Ice.Dispatcher {
 }
 
 /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
-/// servers to get the locator registry proxy. The Locator interface is intended to be used
+/// servers to get the locator registry proxy. The {@link Locator} interface is intended to be used
 /// by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
 /// of this interface directly.
 public protocol Locator {
@@ -848,7 +848,7 @@ public struct LocatorRegistryDisp: Ice.Dispatcher {
 }
 
 /// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
-/// locator.  The LocatorRegistry interface is intended to be used by Ice internals and by
+/// locator.  The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
 /// locator implementations. Regular user code should not attempt to use any functionality of this interface
 /// directly.
 public protocol LocatorRegistry {
@@ -947,7 +947,7 @@ public protocol LocatorFinder {
 }
 
 /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
-/// servers to get the locator registry proxy. The Locator interface is intended to be used
+/// servers to get the locator registry proxy. The {@link Locator} interface is intended to be used
 /// by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
 /// of this interface directly.
 ///
@@ -995,7 +995,7 @@ extension Locator {
 }
 
 /// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
-/// locator.  The LocatorRegistry interface is intended to be used by Ice internals and by
+/// locator.  The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
 /// locator implementations. Regular user code should not attempt to use any functionality of this interface
 /// directly.
 ///

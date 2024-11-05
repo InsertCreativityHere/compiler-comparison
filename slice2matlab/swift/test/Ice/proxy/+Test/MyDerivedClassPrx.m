@@ -1,10 +1,3 @@
-% MyDerivedClassPrx   Summary of MyDerivedClassPrx
-%
-% MyDerivedClassPrx Methods:
-%   echo
-%   echoAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,14 +5,6 @@
 classdef MyDerivedClassPrx < Test.MyClassPrx
     methods
         function result = echo(obj_, obj, varargin)
-            % echo
-            %
-            % Parameters:
-            %   obj (Ice.ObjectPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.ObjectPrx)
-            
             os_ = obj_.iceStartWriteParams([]);
             os_.writeProxy(obj);
             obj_.iceEndWriteParams(os_);
@@ -29,14 +14,6 @@ classdef MyDerivedClassPrx < Test.MyClassPrx
             is_.endEncapsulation();
         end
         function r_ = echoAsync(obj_, obj, varargin)
-            % echoAsync
-            %
-            % Parameters:
-            %   obj (Ice.ObjectPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj_.iceStartWriteParams([]);
             os_.writeProxy(obj);
             obj_.iceEndWriteParams(os_);

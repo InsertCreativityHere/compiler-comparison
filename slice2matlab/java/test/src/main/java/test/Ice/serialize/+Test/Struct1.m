@@ -1,16 +1,3 @@
-% Struct1   Summary of Struct1
-%
-% Struct1 Properties:
-%   bo
-%   by
-%   sh
-%   i
-%   l
-%   f
-%   d
-%   str
-%   e
-%   p
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

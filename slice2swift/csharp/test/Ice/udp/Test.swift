@@ -30,13 +30,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// PingReplyPrx overview.
-///
-/// PingReplyPrx Methods:
-///
-///  - reply: 
-///
-///  - replyAsync: 
 public protocol PingReplyPrx: Ice.ObjectPrx {}
 
 private final class PingReplyPrxI: Ice.ObjectPrxI, PingReplyPrx {
@@ -124,16 +117,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// PingReplyPrx overview.
-///
-/// PingReplyPrx Methods:
-///
-///  - reply: 
-///
-///  - replyAsync: 
 public extension PingReplyPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func reply(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "reply",
                                        mode: .Normal,
@@ -141,25 +125,6 @@ public extension PingReplyPrx {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - ping: 
-///
-///  - pingAsync: 
-///
-///  - sendByteSeq: 
-///
-///  - sendByteSeqAsync: 
-///
-///  - pingBiDir: 
-///
-///  - pingBiDirAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -247,30 +212,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - ping: 
-///
-///  - pingAsync: 
-///
-///  - sendByteSeq: 
-///
-///  - sendByteSeqAsync: 
-///
-///  - pingBiDir: 
-///
-///  - pingBiDirAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter _: `PingReplyPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func ping(_ iceP_reply: PingReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "ping",
                                        mode: .Normal,
@@ -280,12 +222,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter seq: `ByteSeq`
-    ///
-    /// - parameter reply: `PingReplyPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sendByteSeq(seq iceP_seq: ByteSeq, reply iceP_reply: PingReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sendByteSeq",
                                        mode: .Normal,
@@ -296,10 +232,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Ice.Identity`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func pingBiDir(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "pingBiDir",
                                        mode: .Normal,
@@ -309,8 +241,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -347,8 +277,6 @@ public struct PingReplyDisp: Ice.Dispatcher {
 }
 
 public protocol PingReply {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func reply(current: Ice.Current) async throws
 }
 
@@ -387,36 +315,15 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter reply: `PingReplyPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func ping(reply: PingReplyPrx?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter seq: `ByteSeq`
-    ///
-    /// - parameter reply: `PingReplyPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sendByteSeq(seq: ByteSeq, reply: PingReplyPrx?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter id: `Ice.Identity`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func pingBiDir(id: Ice.Identity, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// PingReply overview.
-///
-/// PingReply Methods:
-///
-///  - reply: 
 extension PingReply {
     public func _iceD_reply(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -426,17 +333,6 @@ extension PingReply {
     }
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - ping: 
-///
-///  - sendByteSeq: 
-///
-///  - pingBiDir: 
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_ping(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

@@ -1,21 +1,3 @@
-% Cls   Summary of Cls
-%
-% Cls Properties:
-%   s
-%   context
-%   current
-%   response
-%   upCast
-%   typeId
-%   del
-%   cookie
-%   ex
-%   result
-%   istr
-%   ostr
-%   inS
-%   in
-%   proxy
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Clash.ice by slice2matlab version 3.8.0-alpha.0

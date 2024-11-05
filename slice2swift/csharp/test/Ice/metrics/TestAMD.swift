@@ -60,45 +60,6 @@ public struct ControllerTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Controller"
 }
 
-/// MetricsPrx overview.
-///
-/// MetricsPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - fail: 
-///
-///  - failAsync: 
-///
-///  - opWithUserException: 
-///
-///  - opWithUserExceptionAsync: 
-///
-///  - opWithRequestFailedException: 
-///
-///  - opWithRequestFailedExceptionAsync: 
-///
-///  - opWithLocalException: 
-///
-///  - opWithLocalExceptionAsync: 
-///
-///  - opWithUnknownException: 
-///
-///  - opWithUnknownExceptionAsync: 
-///
-///  - opByteS: 
-///
-///  - opByteSAsync: 
-///
-///  - getAdmin: 
-///
-///  - getAdminAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol MetricsPrx: Ice.ObjectPrx {}
 
 private final class MetricsPrxI: Ice.ObjectPrxI, MetricsPrx {
@@ -186,64 +147,19 @@ public extension Ice.InputStream {
     }
 }
 
-/// MetricsPrx overview.
-///
-/// MetricsPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - fail: 
-///
-///  - failAsync: 
-///
-///  - opWithUserException: 
-///
-///  - opWithUserExceptionAsync: 
-///
-///  - opWithRequestFailedException: 
-///
-///  - opWithRequestFailedExceptionAsync: 
-///
-///  - opWithLocalException: 
-///
-///  - opWithLocalExceptionAsync: 
-///
-///  - opWithUnknownException: 
-///
-///  - opWithUnknownExceptionAsync: 
-///
-///  - opByteS: 
-///
-///  - opByteSAsync: 
-///
-///  - getAdmin: 
-///
-///  - getAdminAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension MetricsPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func fail(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "fail",
                                        mode: .Idempotent,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opWithUserException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opWithUserException",
                                        mode: .Normal,
@@ -257,34 +173,24 @@ public extension MetricsPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opWithRequestFailedException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opWithRequestFailedException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opWithLocalException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opWithLocalException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opWithUnknownException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opWithUnknownException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opByteS(_ iceP_bs: ByteSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opByteS",
                                        mode: .Normal,
@@ -294,10 +200,6 @@ public extension MetricsPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?`
     func getAdmin(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "getAdmin",
                                        mode: .Normal,
@@ -308,8 +210,6 @@ public extension MetricsPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -317,17 +217,6 @@ public extension MetricsPrx {
     }
 }
 
-/// ControllerPrx overview.
-///
-/// ControllerPrx Methods:
-///
-///  - hold: 
-///
-///  - holdAsync: 
-///
-///  - resume: 
-///
-///  - resumeAsync: 
 public protocol ControllerPrx: Ice.ObjectPrx {}
 
 private final class ControllerPrxI: Ice.ObjectPrxI, ControllerPrx {
@@ -415,28 +304,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// ControllerPrx overview.
-///
-/// ControllerPrx Methods:
-///
-///  - hold: 
-///
-///  - holdAsync: 
-///
-///  - resume: 
-///
-///  - resumeAsync: 
 public extension ControllerPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func hold(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "hold",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func resume(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "resume",
                                        mode: .Normal,
@@ -489,44 +363,22 @@ public struct MetricsDisp: Ice.Dispatcher {
 }
 
 public protocol Metrics {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func fail(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opWithUserException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opWithRequestFailedException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opWithLocalException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opWithUnknownException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter bs: `ByteSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opByteS(bs: ByteSeq, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.ObjectPrx?`
     func getAdmin(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -561,36 +413,11 @@ public struct ControllerDisp: Ice.Dispatcher {
 }
 
 public protocol Controller {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func hold(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func resume(current: Ice.Current) async throws
 }
 
-/// Metrics overview.
-///
-/// Metrics Methods:
-///
-///  - op: 
-///
-///  - fail: 
-///
-///  - opWithUserException: 
-///
-///  - opWithRequestFailedException: 
-///
-///  - opWithLocalException: 
-///
-///  - opWithUnknownException: 
-///
-///  - opByteS: 
-///
-///  - getAdmin: 
-///
-///  - shutdown: 
 extension Metrics {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -661,13 +488,6 @@ extension Metrics {
     }
 }
 
-/// Controller overview.
-///
-/// Controller Methods:
-///
-///  - hold: 
-///
-///  - resume: 
 extension Controller {
     public func _iceD_hold(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

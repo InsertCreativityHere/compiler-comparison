@@ -24,49 +24,6 @@ public struct InitialTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Initial"
 }
 
-/// InitialPrx overview.
-///
-/// InitialPrx Methods:
-///
-///  - getNoNamespaceC2AsC1: 
-///
-///  - getNoNamespaceC2AsC1Async: 
-///
-///  - getNoNamespaceC2AsC2: 
-///
-///  - getNoNamespaceC2AsC2Async: 
-///
-///  - throwNoNamespaceE2AsE1: 
-///
-///  - throwNoNamespaceE2AsE1Async: 
-///
-///  - throwNoNamespaceE2AsE2: 
-///
-///  - throwNoNamespaceE2AsE2Async: 
-///
-///  - throwNoNamespaceNotify: 
-///
-///  - throwNoNamespaceNotifyAsync: 
-///
-///  - getWithNamespaceC2AsC1: 
-///
-///  - getWithNamespaceC2AsC1Async: 
-///
-///  - getWithNamespaceC2AsC2: 
-///
-///  - getWithNamespaceC2AsC2Async: 
-///
-///  - throwWithNamespaceE2AsE1: 
-///
-///  - throwWithNamespaceE2AsE1Async: 
-///
-///  - throwWithNamespaceE2AsE2: 
-///
-///  - throwWithNamespaceE2AsE2Async: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol InitialPrx: Ice.ObjectPrx {}
 
 private final class InitialPrxI: Ice.ObjectPrxI, InitialPrx {
@@ -154,54 +111,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// InitialPrx overview.
-///
-/// InitialPrx Methods:
-///
-///  - getNoNamespaceC2AsC1: 
-///
-///  - getNoNamespaceC2AsC1Async: 
-///
-///  - getNoNamespaceC2AsC2: 
-///
-///  - getNoNamespaceC2AsC2Async: 
-///
-///  - throwNoNamespaceE2AsE1: 
-///
-///  - throwNoNamespaceE2AsE1Async: 
-///
-///  - throwNoNamespaceE2AsE2: 
-///
-///  - throwNoNamespaceE2AsE2Async: 
-///
-///  - throwNoNamespaceNotify: 
-///
-///  - throwNoNamespaceNotifyAsync: 
-///
-///  - getWithNamespaceC2AsC1: 
-///
-///  - getWithNamespaceC2AsC1Async: 
-///
-///  - getWithNamespaceC2AsC2: 
-///
-///  - getWithNamespaceC2AsC2Async: 
-///
-///  - throwWithNamespaceE2AsE1: 
-///
-///  - throwWithNamespaceE2AsE1Async: 
-///
-///  - throwWithNamespaceE2AsE2: 
-///
-///  - throwWithNamespaceE2AsE2Async: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension InitialPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NoNamespace.C1?`
     func getNoNamespaceC2AsC1(context: Ice.Context? = nil) async throws -> NoNamespace.C1? {
         return try await _impl._invoke(operation: "getNoNamespaceC2AsC1",
                                        mode: .Normal,
@@ -214,10 +124,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NoNamespace.C2?`
     func getNoNamespaceC2AsC2(context: Ice.Context? = nil) async throws -> NoNamespace.C2? {
         return try await _impl._invoke(operation: "getNoNamespaceC2AsC2",
                                        mode: .Normal,
@@ -230,8 +136,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwNoNamespaceE2AsE1(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwNoNamespaceE2AsE1",
                                        mode: .Normal,
@@ -245,8 +149,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwNoNamespaceE2AsE2(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwNoNamespaceE2AsE2",
                                        mode: .Normal,
@@ -260,8 +162,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwNoNamespaceNotify(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwNoNamespaceNotify",
                                        mode: .Normal,
@@ -275,10 +175,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `WithNamespace.C1?`
     func getWithNamespaceC2AsC1(context: Ice.Context? = nil) async throws -> WithNamespace.C1? {
         return try await _impl._invoke(operation: "getWithNamespaceC2AsC1",
                                        mode: .Normal,
@@ -291,10 +187,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `WithNamespace.C2?`
     func getWithNamespaceC2AsC2(context: Ice.Context? = nil) async throws -> WithNamespace.C2? {
         return try await _impl._invoke(operation: "getWithNamespaceC2AsC2",
                                        mode: .Normal,
@@ -307,8 +199,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwWithNamespaceE2AsE1(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwWithNamespaceE2AsE1",
                                        mode: .Normal,
@@ -322,8 +212,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwWithNamespaceE2AsE2(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwWithNamespaceE2AsE2",
                                        mode: .Normal,
@@ -337,8 +225,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -393,78 +279,27 @@ public struct InitialDisp: Ice.Dispatcher {
 }
 
 public protocol Initial {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `NoNamespace.C1?`
     func getNoNamespaceC2AsC1(current: Ice.Current) async throws -> NoNamespace.C1?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `NoNamespace.C2?`
     func getNoNamespaceC2AsC2(current: Ice.Current) async throws -> NoNamespace.C2?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwNoNamespaceE2AsE1(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwNoNamespaceE2AsE2(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwNoNamespaceNotify(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `WithNamespace.C1?`
     func getWithNamespaceC2AsC1(current: Ice.Current) async throws -> WithNamespace.C1?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `WithNamespace.C2?`
     func getWithNamespaceC2AsC2(current: Ice.Current) async throws -> WithNamespace.C2?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwWithNamespaceE2AsE1(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwWithNamespaceE2AsE2(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Initial overview.
-///
-/// Initial Methods:
-///
-///  - getNoNamespaceC2AsC1: 
-///
-///  - getNoNamespaceC2AsC2: 
-///
-///  - throwNoNamespaceE2AsE1: 
-///
-///  - throwNoNamespaceE2AsE2: 
-///
-///  - throwNoNamespaceNotify: 
-///
-///  - getWithNamespaceC2AsC1: 
-///
-///  - getWithNamespaceC2AsC2: 
-///
-///  - throwWithNamespaceE2AsE1: 
-///
-///  - throwWithNamespaceE2AsE2: 
-///
-///  - shutdown: 
 extension Initial {
     public func _iceD_getNoNamespaceC2AsC1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

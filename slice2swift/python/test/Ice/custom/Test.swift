@@ -148,109 +148,6 @@ public struct CustomTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Custom"
 }
 
-/// CustomPrx overview.
-///
-/// CustomPrx Methods:
-///
-///  - opByteString1: 
-///
-///  - opByteString1Async: 
-///
-///  - opByteString2: 
-///
-///  - opByteString2Async: 
-///
-///  - opByteList1: 
-///
-///  - opByteList1Async: 
-///
-///  - opByteList2: 
-///
-///  - opByteList2Async: 
-///
-///  - opStringList1: 
-///
-///  - opStringList1Async: 
-///
-///  - opStringList2: 
-///
-///  - opStringList2Async: 
-///
-///  - opStringTuple1: 
-///
-///  - opStringTuple1Async: 
-///
-///  - opStringTuple2: 
-///
-///  - opStringTuple2Async: 
-///
-///  - sendS: 
-///
-///  - sendSAsync: 
-///
-///  - sendC: 
-///
-///  - sendCAsync: 
-///
-///  - opBoolSeq: 
-///
-///  - opBoolSeqAsync: 
-///
-///  - opByteSeq: 
-///
-///  - opByteSeqAsync: 
-///
-///  - opShortSeq: 
-///
-///  - opShortSeqAsync: 
-///
-///  - opIntSeq: 
-///
-///  - opIntSeqAsync: 
-///
-///  - opLongSeq: 
-///
-///  - opLongSeqAsync: 
-///
-///  - opFloatSeq: 
-///
-///  - opFloatSeqAsync: 
-///
-///  - opDoubleSeq: 
-///
-///  - opDoubleSeqAsync: 
-///
-///  - opBogusArrayNotExistsFactory: 
-///
-///  - opBogusArrayNotExistsFactoryAsync: 
-///
-///  - opBogusArrayThrowFactory: 
-///
-///  - opBogusArrayThrowFactoryAsync: 
-///
-///  - opBogusArrayType: 
-///
-///  - opBogusArrayTypeAsync: 
-///
-///  - opBogusArrayNoneFactory: 
-///
-///  - opBogusArrayNoneFactoryAsync: 
-///
-///  - opBogusArraySignatureFactory: 
-///
-///  - opBogusArraySignatureFactoryAsync: 
-///
-///  - opBogusArrayNoCallableFactory: 
-///
-///  - opBogusArrayNoCallableFactoryAsync: 
-///
-///  - opD: 
-///
-///  - opDAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol CustomPrx: Ice.ObjectPrx {}
 
 private final class CustomPrxI: Ice.ObjectPrxI, CustomPrx {
@@ -338,120 +235,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// CustomPrx overview.
-///
-/// CustomPrx Methods:
-///
-///  - opByteString1: 
-///
-///  - opByteString1Async: 
-///
-///  - opByteString2: 
-///
-///  - opByteString2Async: 
-///
-///  - opByteList1: 
-///
-///  - opByteList1Async: 
-///
-///  - opByteList2: 
-///
-///  - opByteList2Async: 
-///
-///  - opStringList1: 
-///
-///  - opStringList1Async: 
-///
-///  - opStringList2: 
-///
-///  - opStringList2Async: 
-///
-///  - opStringTuple1: 
-///
-///  - opStringTuple1Async: 
-///
-///  - opStringTuple2: 
-///
-///  - opStringTuple2Async: 
-///
-///  - sendS: 
-///
-///  - sendSAsync: 
-///
-///  - sendC: 
-///
-///  - sendCAsync: 
-///
-///  - opBoolSeq: 
-///
-///  - opBoolSeqAsync: 
-///
-///  - opByteSeq: 
-///
-///  - opByteSeqAsync: 
-///
-///  - opShortSeq: 
-///
-///  - opShortSeqAsync: 
-///
-///  - opIntSeq: 
-///
-///  - opIntSeqAsync: 
-///
-///  - opLongSeq: 
-///
-///  - opLongSeqAsync: 
-///
-///  - opFloatSeq: 
-///
-///  - opFloatSeqAsync: 
-///
-///  - opDoubleSeq: 
-///
-///  - opDoubleSeqAsync: 
-///
-///  - opBogusArrayNotExistsFactory: 
-///
-///  - opBogusArrayNotExistsFactoryAsync: 
-///
-///  - opBogusArrayThrowFactory: 
-///
-///  - opBogusArrayThrowFactoryAsync: 
-///
-///  - opBogusArrayType: 
-///
-///  - opBogusArrayTypeAsync: 
-///
-///  - opBogusArrayNoneFactory: 
-///
-///  - opBogusArrayNoneFactoryAsync: 
-///
-///  - opBogusArraySignatureFactory: 
-///
-///  - opBogusArraySignatureFactoryAsync: 
-///
-///  - opBogusArrayNoCallableFactory: 
-///
-///  - opBogusArrayNoCallableFactoryAsync: 
-///
-///  - opD: 
-///
-///  - opDAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension CustomPrx {
-    ///
-    /// - parameter _: `ByteString`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteString, b2: ByteString)`:
-    ///
-    ///   - returnValue: `ByteString`
-    ///
-    ///   - b2: `ByteString`
     func opByteString1(_ iceP_b1: ByteString, context: Ice.Context? = nil) async throws -> (returnValue: ByteString, b2: ByteString) {
         return try await _impl._invoke(operation: "opByteString1",
                                        mode: .Normal,
@@ -466,16 +250,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteString`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteString, b2: ByteString)`:
-    ///
-    ///   - returnValue: `ByteString`
-    ///
-    ///   - b2: `ByteString`
     func opByteString2(_ iceP_b1: ByteString, context: Ice.Context? = nil) async throws -> (returnValue: ByteString, b2: ByteString) {
         return try await _impl._invoke(operation: "opByteString2",
                                        mode: .Normal,
@@ -490,16 +264,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteList, b2: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - b2: `ByteList`
     func opByteList1(_ iceP_b1: ByteList, context: Ice.Context? = nil) async throws -> (returnValue: ByteList, b2: ByteList) {
         return try await _impl._invoke(operation: "opByteList1",
                                        mode: .Normal,
@@ -514,16 +278,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteList, b2: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - b2: `ByteList`
     func opByteList2(_ iceP_b1: ByteList, context: Ice.Context? = nil) async throws -> (returnValue: ByteList, b2: ByteList) {
         return try await _impl._invoke(operation: "opByteList2",
                                        mode: .Normal,
@@ -538,16 +292,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringList, s2: StringList)`:
-    ///
-    ///   - returnValue: `StringList`
-    ///
-    ///   - s2: `StringList`
     func opStringList1(_ iceP_s1: StringList, context: Ice.Context? = nil) async throws -> (returnValue: StringList, s2: StringList) {
         return try await _impl._invoke(operation: "opStringList1",
                                        mode: .Normal,
@@ -562,16 +306,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringList, s2: StringList)`:
-    ///
-    ///   - returnValue: `StringList`
-    ///
-    ///   - s2: `StringList`
     func opStringList2(_ iceP_s1: StringList, context: Ice.Context? = nil) async throws -> (returnValue: StringList, s2: StringList) {
         return try await _impl._invoke(operation: "opStringList2",
                                        mode: .Normal,
@@ -586,16 +320,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringTuple`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringTuple, s2: StringTuple)`:
-    ///
-    ///   - returnValue: `StringTuple`
-    ///
-    ///   - s2: `StringTuple`
     func opStringTuple1(_ iceP_s1: StringTuple, context: Ice.Context? = nil) async throws -> (returnValue: StringTuple, s2: StringTuple) {
         return try await _impl._invoke(operation: "opStringTuple1",
                                        mode: .Normal,
@@ -610,16 +334,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringTuple`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringTuple, s2: StringTuple)`:
-    ///
-    ///   - returnValue: `StringTuple`
-    ///
-    ///   - s2: `StringTuple`
     func opStringTuple2(_ iceP_s1: StringTuple, context: Ice.Context? = nil) async throws -> (returnValue: StringTuple, s2: StringTuple) {
         return try await _impl._invoke(operation: "opStringTuple2",
                                        mode: .Normal,
@@ -634,10 +348,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `S`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sendS(_ iceP_val: S, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sendS",
                                        mode: .Normal,
@@ -647,10 +357,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `C?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sendC(_ iceP_val: C?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sendC",
                                        mode: .Normal,
@@ -661,16 +367,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `BoolSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolSeq1, v2: BoolSeq2)`:
-    ///
-    ///   - returnValue: `BoolSeq1`
-    ///
-    ///   - v2: `BoolSeq2`
     func opBoolSeq(_ iceP_v1: BoolSeq1, context: Ice.Context? = nil) async throws -> (returnValue: BoolSeq1, v2: BoolSeq2) {
         return try await _impl._invoke(operation: "opBoolSeq",
                                        mode: .Normal,
@@ -685,16 +381,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteSeq1, v2: ByteSeq2)`:
-    ///
-    ///   - returnValue: `ByteSeq1`
-    ///
-    ///   - v2: `ByteSeq2`
     func opByteSeq(_ iceP_v1: ByteSeq1, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq1, v2: ByteSeq2) {
         return try await _impl._invoke(operation: "opByteSeq",
                                        mode: .Normal,
@@ -709,16 +395,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ShortSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortSeq1, v2: ShortSeq2)`:
-    ///
-    ///   - returnValue: `ShortSeq1`
-    ///
-    ///   - v2: `ShortSeq2`
     func opShortSeq(_ iceP_v1: ShortSeq1, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq1, v2: ShortSeq2) {
         return try await _impl._invoke(operation: "opShortSeq",
                                        mode: .Normal,
@@ -733,16 +409,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `IntSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntSeq1, v2: IntSeq2)`:
-    ///
-    ///   - returnValue: `IntSeq1`
-    ///
-    ///   - v2: `IntSeq2`
     func opIntSeq(_ iceP_v1: IntSeq1, context: Ice.Context? = nil) async throws -> (returnValue: IntSeq1, v2: IntSeq2) {
         return try await _impl._invoke(operation: "opIntSeq",
                                        mode: .Normal,
@@ -757,16 +423,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `LongSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LongSeq1, v2: LongSeq2)`:
-    ///
-    ///   - returnValue: `LongSeq1`
-    ///
-    ///   - v2: `LongSeq2`
     func opLongSeq(_ iceP_v1: LongSeq1, context: Ice.Context? = nil) async throws -> (returnValue: LongSeq1, v2: LongSeq2) {
         return try await _impl._invoke(operation: "opLongSeq",
                                        mode: .Normal,
@@ -781,16 +437,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `FloatSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: FloatSeq1, v2: FloatSeq2)`:
-    ///
-    ///   - returnValue: `FloatSeq1`
-    ///
-    ///   - v2: `FloatSeq2`
     func opFloatSeq(_ iceP_v1: FloatSeq1, context: Ice.Context? = nil) async throws -> (returnValue: FloatSeq1, v2: FloatSeq2) {
         return try await _impl._invoke(operation: "opFloatSeq",
                                        mode: .Normal,
@@ -805,16 +451,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `DoubleSeq1`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: DoubleSeq1, v2: DoubleSeq2)`:
-    ///
-    ///   - returnValue: `DoubleSeq1`
-    ///
-    ///   - v2: `DoubleSeq2`
     func opDoubleSeq(_ iceP_v1: DoubleSeq1, context: Ice.Context? = nil) async throws -> (returnValue: DoubleSeq1, v2: DoubleSeq2) {
         return try await _impl._invoke(operation: "opDoubleSeq",
                                        mode: .Normal,
@@ -829,10 +465,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BoolSeq1`
     func opBogusArrayNotExistsFactory(context: Ice.Context? = nil) async throws -> BoolSeq1 {
         return try await _impl._invoke(operation: "opBogusArrayNotExistsFactory",
                                        mode: .Normal,
@@ -843,10 +475,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BoolSeq1`
     func opBogusArrayThrowFactory(context: Ice.Context? = nil) async throws -> BoolSeq1 {
         return try await _impl._invoke(operation: "opBogusArrayThrowFactory",
                                        mode: .Normal,
@@ -857,10 +485,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BoolSeq1`
     func opBogusArrayType(context: Ice.Context? = nil) async throws -> BoolSeq1 {
         return try await _impl._invoke(operation: "opBogusArrayType",
                                        mode: .Normal,
@@ -871,10 +495,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BoolSeq1`
     func opBogusArrayNoneFactory(context: Ice.Context? = nil) async throws -> BoolSeq1 {
         return try await _impl._invoke(operation: "opBogusArrayNoneFactory",
                                        mode: .Normal,
@@ -885,10 +505,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BoolSeq1`
     func opBogusArraySignatureFactory(context: Ice.Context? = nil) async throws -> BoolSeq1 {
         return try await _impl._invoke(operation: "opBogusArraySignatureFactory",
                                        mode: .Normal,
@@ -899,10 +515,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BoolSeq1`
     func opBogusArrayNoCallableFactory(context: Ice.Context? = nil) async throws -> BoolSeq1 {
         return try await _impl._invoke(operation: "opBogusArrayNoCallableFactory",
                                        mode: .Normal,
@@ -913,12 +525,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `D?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `D?`
     func opD(_ iceP_d: D?, context: Ice.Context? = nil) async throws -> D? {
         return try await _impl._invoke(operation: "opD",
                                        mode: .Normal,
@@ -935,8 +541,6 @@ public extension CustomPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -1153,300 +757,57 @@ public struct CustomDisp: Ice.Dispatcher {
 }
 
 public protocol Custom {
-    ///
-    /// - parameter b1: `ByteString`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteString, b2: ByteString)`:
-    ///
-    ///   - returnValue: `ByteString`
-    ///
-    ///   - b2: `ByteString`
     func opByteString1(b1: ByteString, current: Ice.Current) async throws -> (returnValue: ByteString, b2: ByteString)
 
-    ///
-    /// - parameter b1: `ByteString`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteString, b2: ByteString)`:
-    ///
-    ///   - returnValue: `ByteString`
-    ///
-    ///   - b2: `ByteString`
     func opByteString2(b1: ByteString, current: Ice.Current) async throws -> (returnValue: ByteString, b2: ByteString)
 
-    ///
-    /// - parameter b1: `ByteList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteList, b2: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - b2: `ByteList`
     func opByteList1(b1: ByteList, current: Ice.Current) async throws -> (returnValue: ByteList, b2: ByteList)
 
-    ///
-    /// - parameter b1: `ByteList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteList, b2: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - b2: `ByteList`
     func opByteList2(b1: ByteList, current: Ice.Current) async throws -> (returnValue: ByteList, b2: ByteList)
 
-    ///
-    /// - parameter s1: `StringList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringList, s2: StringList)`:
-    ///
-    ///   - returnValue: `StringList`
-    ///
-    ///   - s2: `StringList`
     func opStringList1(s1: StringList, current: Ice.Current) async throws -> (returnValue: StringList, s2: StringList)
 
-    ///
-    /// - parameter s1: `StringList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringList, s2: StringList)`:
-    ///
-    ///   - returnValue: `StringList`
-    ///
-    ///   - s2: `StringList`
     func opStringList2(s1: StringList, current: Ice.Current) async throws -> (returnValue: StringList, s2: StringList)
 
-    ///
-    /// - parameter s1: `StringTuple`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringTuple, s2: StringTuple)`:
-    ///
-    ///   - returnValue: `StringTuple`
-    ///
-    ///   - s2: `StringTuple`
     func opStringTuple1(s1: StringTuple, current: Ice.Current) async throws -> (returnValue: StringTuple, s2: StringTuple)
 
-    ///
-    /// - parameter s1: `StringTuple`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringTuple, s2: StringTuple)`:
-    ///
-    ///   - returnValue: `StringTuple`
-    ///
-    ///   - s2: `StringTuple`
     func opStringTuple2(s1: StringTuple, current: Ice.Current) async throws -> (returnValue: StringTuple, s2: StringTuple)
 
-    ///
-    /// - parameter val: `S`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sendS(val: S, current: Ice.Current) async throws
 
-    ///
-    /// - parameter val: `C?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sendC(val: C?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter v1: `BoolSeq1`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BoolSeq1, v2: BoolSeq2)`:
-    ///
-    ///   - returnValue: `BoolSeq1`
-    ///
-    ///   - v2: `BoolSeq2`
     func opBoolSeq(v1: BoolSeq1, current: Ice.Current) async throws -> (returnValue: BoolSeq1, v2: BoolSeq2)
 
-    ///
-    /// - parameter v1: `ByteSeq1`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteSeq1, v2: ByteSeq2)`:
-    ///
-    ///   - returnValue: `ByteSeq1`
-    ///
-    ///   - v2: `ByteSeq2`
     func opByteSeq(v1: ByteSeq1, current: Ice.Current) async throws -> (returnValue: ByteSeq1, v2: ByteSeq2)
 
-    ///
-    /// - parameter v1: `ShortSeq1`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortSeq1, v2: ShortSeq2)`:
-    ///
-    ///   - returnValue: `ShortSeq1`
-    ///
-    ///   - v2: `ShortSeq2`
     func opShortSeq(v1: ShortSeq1, current: Ice.Current) async throws -> (returnValue: ShortSeq1, v2: ShortSeq2)
 
-    ///
-    /// - parameter v1: `IntSeq1`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: IntSeq1, v2: IntSeq2)`:
-    ///
-    ///   - returnValue: `IntSeq1`
-    ///
-    ///   - v2: `IntSeq2`
     func opIntSeq(v1: IntSeq1, current: Ice.Current) async throws -> (returnValue: IntSeq1, v2: IntSeq2)
 
-    ///
-    /// - parameter v1: `LongSeq1`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LongSeq1, v2: LongSeq2)`:
-    ///
-    ///   - returnValue: `LongSeq1`
-    ///
-    ///   - v2: `LongSeq2`
     func opLongSeq(v1: LongSeq1, current: Ice.Current) async throws -> (returnValue: LongSeq1, v2: LongSeq2)
 
-    ///
-    /// - parameter v1: `FloatSeq1`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: FloatSeq1, v2: FloatSeq2)`:
-    ///
-    ///   - returnValue: `FloatSeq1`
-    ///
-    ///   - v2: `FloatSeq2`
     func opFloatSeq(v1: FloatSeq1, current: Ice.Current) async throws -> (returnValue: FloatSeq1, v2: FloatSeq2)
 
-    ///
-    /// - parameter v1: `DoubleSeq1`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: DoubleSeq1, v2: DoubleSeq2)`:
-    ///
-    ///   - returnValue: `DoubleSeq1`
-    ///
-    ///   - v2: `DoubleSeq2`
     func opDoubleSeq(v1: DoubleSeq1, current: Ice.Current) async throws -> (returnValue: DoubleSeq1, v2: DoubleSeq2)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `BoolSeq1`
     func opBogusArrayNotExistsFactory(current: Ice.Current) async throws -> BoolSeq1
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `BoolSeq1`
     func opBogusArrayThrowFactory(current: Ice.Current) async throws -> BoolSeq1
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `BoolSeq1`
     func opBogusArrayType(current: Ice.Current) async throws -> BoolSeq1
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `BoolSeq1`
     func opBogusArrayNoneFactory(current: Ice.Current) async throws -> BoolSeq1
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `BoolSeq1`
     func opBogusArraySignatureFactory(current: Ice.Current) async throws -> BoolSeq1
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `BoolSeq1`
     func opBogusArrayNoCallableFactory(current: Ice.Current) async throws -> BoolSeq1
 
-    ///
-    /// - parameter d: `D?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `D?`
     func opD(d: D?, current: Ice.Current) async throws -> D?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Custom overview.
-///
-/// Custom Methods:
-///
-///  - opByteString1: 
-///
-///  - opByteString2: 
-///
-///  - opByteList1: 
-///
-///  - opByteList2: 
-///
-///  - opStringList1: 
-///
-///  - opStringList2: 
-///
-///  - opStringTuple1: 
-///
-///  - opStringTuple2: 
-///
-///  - sendS: 
-///
-///  - sendC: 
-///
-///  - opBoolSeq: 
-///
-///  - opByteSeq: 
-///
-///  - opShortSeq: 
-///
-///  - opIntSeq: 
-///
-///  - opLongSeq: 
-///
-///  - opFloatSeq: 
-///
-///  - opDoubleSeq: 
-///
-///  - opBogusArrayNotExistsFactory: 
-///
-///  - opBogusArrayThrowFactory: 
-///
-///  - opBogusArrayType: 
-///
-///  - opBogusArrayNoneFactory: 
-///
-///  - opBogusArraySignatureFactory: 
-///
-///  - opBogusArrayNoCallableFactory: 
-///
-///  - opD: 
-///
-///  - shutdown: 
 extension Custom {
     public func _iceD_opByteString1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

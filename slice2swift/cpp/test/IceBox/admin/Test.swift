@@ -22,13 +22,6 @@ public struct TestFacetTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestFacet"
 }
 
-/// TestFacetPrx overview.
-///
-/// TestFacetPrx Methods:
-///
-///  - getChanges: 
-///
-///  - getChangesAsync: 
 public protocol TestFacetPrx: Ice.ObjectPrx {}
 
 private final class TestFacetPrxI: Ice.ObjectPrxI, TestFacetPrx {
@@ -116,18 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestFacetPrx overview.
-///
-/// TestFacetPrx Methods:
-///
-///  - getChanges: 
-///
-///  - getChangesAsync: 
 public extension TestFacetPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.PropertyDict`
     func getChanges(context: Ice.Context? = nil) async throws -> Ice.PropertyDict {
         return try await _impl._invoke(operation: "getChanges",
                                        mode: .Normal,
@@ -168,18 +150,9 @@ public struct TestFacetDisp: Ice.Dispatcher {
 }
 
 public protocol TestFacet {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.PropertyDict`
     func getChanges(current: Ice.Current) async throws -> Ice.PropertyDict
 }
 
-/// TestFacet overview.
-///
-/// TestFacet Methods:
-///
-///  - getChanges: 
 extension TestFacet {
     public func _iceD_getChanges(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

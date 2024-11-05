@@ -1,17 +1,3 @@
-% ShortEnum   Summary of ShortEnum
-%
-% ShortEnum Properties:
-%   senum1
-%   senum2
-%   senum3
-%   senum4
-%   senum5
-%   senum6
-%   senum7
-%   senum8
-%   senum9
-%   senum10
-%   senum11
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

@@ -221,8 +221,8 @@ public extension RouterPrx {
                                        context: context)
     }
 
-    /// Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
-    /// Session object is returned to the client. Otherwise, null is returned and only an internal session
+    /// Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
+    /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
     /// (i.e., not visible to the client) is created.
     /// If a session proxy is returned, it must be configured to route through the router that created it. This will
     /// happen automatically if the router is configured as the client's default router at the time the session
@@ -234,7 +234,7 @@ public extension RouterPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `SessionPrx?` - A proxy for the newly created session, or null if no SessionManager has been installed.
+    /// - returns: `SessionPrx?` - A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
     ///
     /// - throws:
     ///
@@ -266,8 +266,8 @@ public extension RouterPrx {
     }
 
     /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
-    /// have been associated with the connection. If a SessionManager has been installed, a proxy to a
-    /// Session object is returned to the client. Otherwise, null is returned and only an internal session
+    /// have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+    /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
     /// (i.e., not visible to the client) is created.
     /// If a session proxy is returned, it must be configured to route through the router that created it. This will
     /// happen automatically if the router is configured as the client's default router at the time the session
@@ -275,7 +275,7 @@ public extension RouterPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `SessionPrx?` - A proxy for the newly created session, or null if no SessionManager has been installed.
+    /// - returns: `SessionPrx?` - A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
     ///
     /// - throws:
     ///
@@ -431,8 +431,8 @@ public protocol Router: Ice.Router {
     /// - returns: `Swift.String` - The category.
     func getCategoryForClient(current: Ice.Current) async throws -> Swift.String
 
-    /// Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
-    /// Session object is returned to the client. Otherwise, null is returned and only an internal session
+    /// Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
+    /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
     /// (i.e., not visible to the client) is created.
     /// If a session proxy is returned, it must be configured to route through the router that created it. This will
     /// happen automatically if the router is configured as the client's default router at the time the session
@@ -444,7 +444,7 @@ public protocol Router: Ice.Router {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SessionPrx?` - A proxy for the newly created session, or null if no SessionManager has been installed.
+    /// - returns: `SessionPrx?` - A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
     ///
     /// - throws:
     ///
@@ -455,8 +455,8 @@ public protocol Router: Ice.Router {
     func createSession(userId: Swift.String, password: Swift.String, current: Ice.Current) async throws -> SessionPrx?
 
     /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
-    /// have been associated with the connection. If a SessionManager has been installed, a proxy to a
-    /// Session object is returned to the client. Otherwise, null is returned and only an internal session
+    /// have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+    /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
     /// (i.e., not visible to the client) is created.
     /// If a session proxy is returned, it must be configured to route through the router that created it. This will
     /// happen automatically if the router is configured as the client's default router at the time the session
@@ -464,7 +464,7 @@ public protocol Router: Ice.Router {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SessionPrx?` - A proxy for the newly created session, or null if no SessionManager has been installed.
+    /// - returns: `SessionPrx?` - A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
     ///
     /// - throws:
     ///

@@ -150,57 +150,6 @@ open class Ex: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// IntfPrx overview.
-///
-/// IntfPrx Methods:
-///
-///  - context: 
-///
-///  - contextAsync: 
-///
-///  - current: 
-///
-///  - currentAsync: 
-///
-///  - response: 
-///
-///  - responseAsync: 
-///
-///  - typeId: 
-///
-///  - typeIdAsync: 
-///
-///  - del: 
-///
-///  - delAsync: 
-///
-///  - cookie: 
-///
-///  - cookieAsync: 
-///
-///  - sync: 
-///
-///  - syncAsync: 
-///
-///  - inS: 
-///
-///  - inSAsync: 
-///
-///  - istr: 
-///
-///  - istrAsync: 
-///
-///  - obj: 
-///
-///  - objAsync: 
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - opOut: 
-///
-///  - opOutAsync: 
 public protocol IntfPrx: Ice.ObjectPrx {}
 
 private final class IntfPrxI: Ice.ObjectPrxI, IntfPrx {
@@ -288,164 +237,67 @@ public extension Ice.InputStream {
     }
 }
 
-/// IntfPrx overview.
-///
-/// IntfPrx Methods:
-///
-///  - context: 
-///
-///  - contextAsync: 
-///
-///  - current: 
-///
-///  - currentAsync: 
-///
-///  - response: 
-///
-///  - responseAsync: 
-///
-///  - typeId: 
-///
-///  - typeIdAsync: 
-///
-///  - del: 
-///
-///  - delAsync: 
-///
-///  - cookie: 
-///
-///  - cookieAsync: 
-///
-///  - sync: 
-///
-///  - syncAsync: 
-///
-///  - inS: 
-///
-///  - inSAsync: 
-///
-///  - istr: 
-///
-///  - istrAsync: 
-///
-///  - obj: 
-///
-///  - objAsync: 
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - opOut: 
-///
-///  - opOutAsync: 
 public extension IntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func context(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "context",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func current(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "current",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func response(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "response",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func typeId(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "typeId",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func del(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "del",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func cookie(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "cookie",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sync(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sync",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func inS(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "inS",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func istr(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "istr",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func obj(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "obj",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Swift.String`
-    ///
-    /// - parameter current: `Swift.String`
-    ///
-    /// - parameter response: `Swift.String`
-    ///
-    /// - parameter ex: `Swift.String`
-    ///
-    /// - parameter sent: `Swift.String`
-    ///
-    /// - parameter cookie: `Swift.String`
-    ///
-    /// - parameter sync: `Swift.String`
-    ///
-    /// - parameter result: `Swift.String`
-    ///
-    /// - parameter istr: `Swift.String`
-    ///
-    /// - parameter ostr: `Swift.String`
-    ///
-    /// - parameter proxy: `Swift.String?`
-    ///
-    /// - parameter obj: `Swift.Int32?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(context iceP_context: Swift.String, current iceP_current: Swift.String, response iceP_response: Swift.String, ex iceP_ex: Swift.String, sent iceP_sent: Swift.String, cookie iceP_cookie: Swift.String, sync iceP_sync: Swift.String, result iceP_result: Swift.String, istr iceP_istr: Swift.String, ostr iceP_ostr: Swift.String, proxy iceP_proxy: Swift.String? = nil, obj iceP_obj: Swift.Int32? = nil, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
@@ -466,34 +318,6 @@ public extension IntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?)`:
-    ///
-    ///   - context: `Swift.String`
-    ///
-    ///   - current: `Swift.String`
-    ///
-    ///   - response: `Swift.String`
-    ///
-    ///   - ex: `Swift.String`
-    ///
-    ///   - sent: `Swift.String`
-    ///
-    ///   - cookie: `Swift.String`
-    ///
-    ///   - sync: `Swift.String`
-    ///
-    ///   - result: `Swift.String`
-    ///
-    ///   - istr: `Swift.String`
-    ///
-    ///   - ostr: `Swift.String`
-    ///
-    ///   - proxy: `Swift.String?`
-    ///
-    ///   - obj: `Swift.Int32?`
     func opOut(context: Ice.Context? = nil) async throws -> (context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?) {
         return try await _impl._invoke(operation: "opOut",
                                        mode: .Normal,
@@ -671,132 +495,31 @@ public struct IntfDisp: Ice.Dispatcher {
 }
 
 public protocol Intf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func context(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func current(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func response(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func typeId(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func del(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func cookie(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sync(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func inS(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func istr(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func obj(current: Ice.Current) async throws
 
-    ///
-    /// - parameter context: `Swift.String`
-    ///
-    /// - parameter current: `Swift.String`
-    ///
-    /// - parameter response: `Swift.String`
-    ///
-    /// - parameter ex: `Swift.String`
-    ///
-    /// - parameter sent: `Swift.String`
-    ///
-    /// - parameter cookie: `Swift.String`
-    ///
-    /// - parameter sync: `Swift.String`
-    ///
-    /// - parameter result: `Swift.String`
-    ///
-    /// - parameter istr: `Swift.String`
-    ///
-    /// - parameter ostr: `Swift.String`
-    ///
-    /// - parameter proxy: `Swift.String?`
-    ///
-    /// - parameter obj: `Swift.Int32?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?)`:
-    ///
-    ///   - context: `Swift.String`
-    ///
-    ///   - current: `Swift.String`
-    ///
-    ///   - response: `Swift.String`
-    ///
-    ///   - ex: `Swift.String`
-    ///
-    ///   - sent: `Swift.String`
-    ///
-    ///   - cookie: `Swift.String`
-    ///
-    ///   - sync: `Swift.String`
-    ///
-    ///   - result: `Swift.String`
-    ///
-    ///   - istr: `Swift.String`
-    ///
-    ///   - ostr: `Swift.String`
-    ///
-    ///   - proxy: `Swift.String?`
-    ///
-    ///   - obj: `Swift.Int32?`
     func opOut(current: Ice.Current) async throws -> (context: Swift.String, current: Swift.String, response: Swift.String, ex: Swift.String, sent: Swift.String, cookie: Swift.String, sync: Swift.String, result: Swift.String, istr: Swift.String, ostr: Swift.String, proxy: Swift.String?, obj: Swift.Int32?)
 }
 
-/// Intf overview.
-///
-/// Intf Methods:
-///
-///  - context: 
-///
-///  - current: 
-///
-///  - response: 
-///
-///  - typeId: 
-///
-///  - del: 
-///
-///  - cookie: 
-///
-///  - sync: 
-///
-///  - inS: 
-///
-///  - istr: 
-///
-///  - obj: 
-///
-///  - op: 
-///
-///  - opOut: 
 extension Intf {
     public func _iceD_context(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

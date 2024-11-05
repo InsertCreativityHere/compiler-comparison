@@ -30,21 +30,6 @@ public struct ControllerTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Controller"
 }
 
-/// TimeoutPrx overview.
-///
-/// TimeoutPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - sendData: 
-///
-///  - sendDataAsync: 
-///
-///  - sleep: 
-///
-///  - sleepAsync: 
 public protocol TimeoutPrx: Ice.ObjectPrx {}
 
 private final class TimeoutPrxI: Ice.ObjectPrxI, TimeoutPrx {
@@ -132,34 +117,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// TimeoutPrx overview.
-///
-/// TimeoutPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - sendData: 
-///
-///  - sendDataAsync: 
-///
-///  - sleep: 
-///
-///  - sleepAsync: 
 public extension TimeoutPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sendData(_ iceP_seq: ByteSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sendData",
                                        mode: .Normal,
@@ -169,10 +133,6 @@ public extension TimeoutPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sleep(_ iceP_to: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sleep",
                                        mode: .Normal,
@@ -183,21 +143,6 @@ public extension TimeoutPrx {
     }
 }
 
-/// ControllerPrx overview.
-///
-/// ControllerPrx Methods:
-///
-///  - holdAdapter: 
-///
-///  - holdAdapterAsync: 
-///
-///  - resumeAdapter: 
-///
-///  - resumeAdapterAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol ControllerPrx: Ice.ObjectPrx {}
 
 private final class ControllerPrxI: Ice.ObjectPrxI, ControllerPrx {
@@ -285,26 +230,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// ControllerPrx overview.
-///
-/// ControllerPrx Methods:
-///
-///  - holdAdapter: 
-///
-///  - holdAdapterAsync: 
-///
-///  - resumeAdapter: 
-///
-///  - resumeAdapterAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension ControllerPrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func holdAdapter(_ iceP_to: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "holdAdapter",
                                        mode: .Normal,
@@ -314,16 +240,12 @@ public extension ControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func resumeAdapter(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "resumeAdapter",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -364,20 +286,10 @@ public struct TimeoutDisp: Ice.Dispatcher {
 }
 
 public protocol Timeout {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(current: Ice.Current) async throws
 
-    ///
-    /// - parameter seq: `ByteSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sendData(seq: ByteSeq, current: Ice.Current) async throws
 
-    ///
-    /// - parameter to: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sleep(to: Swift.Int32, current: Ice.Current) async throws
 }
 
@@ -414,30 +326,13 @@ public struct ControllerDisp: Ice.Dispatcher {
 }
 
 public protocol Controller {
-    ///
-    /// - parameter to: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func holdAdapter(to: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func resumeAdapter(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Timeout overview.
-///
-/// Timeout Methods:
-///
-///  - op: 
-///
-///  - sendData: 
-///
-///  - sleep: 
 extension Timeout {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -465,15 +360,6 @@ extension Timeout {
     }
 }
 
-/// Controller overview.
-///
-/// Controller Methods:
-///
-///  - holdAdapter: 
-///
-///  - resumeAdapter: 
-///
-///  - shutdown: 
 extension Controller {
     public func _iceD_holdAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

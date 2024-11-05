@@ -52,21 +52,6 @@ public struct MyObjectTraits: Ice.SliceTraits {
     public static let staticId = "::Test::MyObject"
 }
 
-/// MyObjectPrx overview.
-///
-/// MyObjectPrx Methods:
-///
-///  - widen: 
-///
-///  - widenAsync: 
-///
-///  - narrow: 
-///
-///  - narrowAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol MyObjectPrx: Ice.ObjectPrx {}
 
 private final class MyObjectPrxI: Ice.ObjectPrxI, MyObjectPrx {
@@ -154,28 +139,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyObjectPrx overview.
-///
-/// MyObjectPrx Methods:
-///
-///  - widen: 
-///
-///  - widenAsync: 
-///
-///  - narrow: 
-///
-///  - narrowAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension MyObjectPrx {
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func widen(_ iceP_msg: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "widen",
                                        mode: .Normal,
@@ -196,12 +160,6 @@ public extension MyObjectPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func narrow(_ iceP_wmsg: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "narrow",
                                        mode: .Normal,
@@ -215,8 +173,6 @@ public extension MyObjectPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -257,36 +213,13 @@ public struct MyObjectDisp: Ice.Dispatcher {
 }
 
 public protocol MyObject {
-    ///
-    /// - parameter msg: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func widen(msg: Swift.String, current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter wmsg: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func narrow(wmsg: Swift.String, current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// MyObject overview.
-///
-/// MyObject Methods:
-///
-///  - widen: 
-///
-///  - narrow: 
-///
-///  - shutdown: 
 extension MyObject {
     public func _iceD_widen(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

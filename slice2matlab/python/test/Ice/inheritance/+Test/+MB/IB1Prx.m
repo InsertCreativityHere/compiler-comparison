@@ -1,10 +1,3 @@
-% IB1Prx   Summary of IB1Prx
-%
-% IB1Prx Methods:
-%   ib1op
-%   ib1opAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,14 +5,6 @@
 classdef IB1Prx < Test.MA.IAPrx
     methods
         function result = ib1op(obj, p, varargin)
-            % ib1op
-            %
-            % Parameters:
-            %   p (Test.MB.IB1Prx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.MB.IB1Prx)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(p);
             obj.iceEndWriteParams(os_);
@@ -29,14 +14,6 @@ classdef IB1Prx < Test.MA.IAPrx
             is_.endEncapsulation();
         end
         function r_ = ib1opAsync(obj, p, varargin)
-            % ib1opAsync
-            %
-            % Parameters:
-            %   p (Test.MB.IB1Prx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(p);
             obj.iceEndWriteParams(os_);

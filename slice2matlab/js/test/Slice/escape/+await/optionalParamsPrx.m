@@ -1,16 +1,3 @@
-% optionalParamsPrx   Summary of optionalParamsPrx
-%
-% optionalParamsPrx Methods:
-%   for_
-%   forAsync
-%   continue_
-%   continueAsync
-%   in
-%   inAsync
-%   foreach
-%   foreachAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0
@@ -18,18 +5,6 @@
 classdef optionalParamsPrx < Ice.ObjectPrx
     methods
         function result = for_(obj, goto, if_, internal, namespace, null, varargin)
-            % for_
-            %
-            % Parameters:
-            %   goto (await.var)
-            %   if_ (await.explicitPrx)
-            %   internal (containers.Map)
-            %   namespace (char)
-            %   null (await.explicitPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (await.break_)
-            
             os_ = obj.iceStartWriteParams([]);
             await.var.ice_writeOpt(os_, 2, goto);
             os_.writeProxyOpt(3, if_);
@@ -43,18 +18,6 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = forAsync(obj, goto, if_, internal, namespace, null, varargin)
-            % forAsync
-            %
-            % Parameters:
-            %   goto (await.var)
-            %   if_ (await.explicitPrx)
-            %   internal (containers.Map)
-            %   namespace (char)
-            %   null (await.explicitPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             await.var.ice_writeOpt(os_, 2, goto);
             os_.writeProxyOpt(3, if_);
@@ -71,18 +34,6 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('for', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = continue_(obj, goto, if_, internal, namespace, null, varargin)
-            % continue_
-            %
-            % Parameters:
-            %   goto (await.var)
-            %   if_ (await.explicitPrx)
-            %   internal (containers.Map)
-            %   namespace (char)
-            %   null (await.explicitPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (await.break_)
-            
             os_ = obj.iceStartWriteParams([]);
             await.var.ice_writeOpt(os_, 2, goto);
             os_.writeProxyOpt(3, if_);
@@ -96,18 +47,6 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = continueAsync(obj, goto, if_, internal, namespace, null, varargin)
-            % continueAsync
-            %
-            % Parameters:
-            %   goto (await.var)
-            %   if_ (await.explicitPrx)
-            %   internal (containers.Map)
-            %   namespace (char)
-            %   null (await.explicitPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             await.var.ice_writeOpt(os_, 2, goto);
             os_.writeProxyOpt(3, if_);
@@ -124,19 +63,6 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('continue', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function [result, goto, if_, internal, namespace, null] = in(obj, varargin)
-            % in
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (await.break_)
-            %   goto (await.var)
-            %   if_ (await.explicitPrx)
-            %   internal (containers.Map)
-            %   namespace (char)
-            %   null (await.explicitPrx)
-            
             is_ = obj.iceInvoke('in', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = await.break_.ice_readOpt(is_, 1);
@@ -148,13 +74,6 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = inAsync(obj, varargin)
-            % inAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = await.break_.ice_readOpt(is_, 1);
@@ -174,19 +93,6 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('in', 0, true, [], 6, @unmarshal, {}, varargin{:});
         end
         function [result, goto, if_, internal, namespace, null] = foreach(obj, varargin)
-            % foreach
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (await.break_)
-            %   goto (await.var)
-            %   if_ (await.explicitPrx)
-            %   internal (containers.Map)
-            %   namespace (char)
-            %   null (await.explicitPrx)
-            
             is_ = obj.iceInvoke('foreach', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = await.break_.ice_readOpt(is_, 1);
@@ -198,13 +104,6 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = foreachAsync(obj, varargin)
-            % foreachAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = await.break_.ice_readOpt(is_, 1);

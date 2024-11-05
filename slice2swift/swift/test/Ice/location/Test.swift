@@ -46,13 +46,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// TestLocatorRegistryPrx overview.
-///
-/// TestLocatorRegistryPrx Methods:
-///
-///  - addObject: 
-///
-///  - addObjectAsync: 
 public protocol TestLocatorRegistryPrx: Ice.LocatorRegistryPrx {}
 
 private final class TestLocatorRegistryPrxI: Ice.ObjectPrxI, TestLocatorRegistryPrx {
@@ -140,18 +133,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestLocatorRegistryPrx overview.
-///
-/// TestLocatorRegistryPrx Methods:
-///
-///  - addObject: 
-///
-///  - addObjectAsync: 
 public extension TestLocatorRegistryPrx {
-    ///
-    /// - parameter _: `Ice.ObjectPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func addObject(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "addObject",
                                        mode: .Normal,
@@ -162,13 +144,6 @@ public extension TestLocatorRegistryPrx {
     }
 }
 
-/// TestLocatorPrx overview.
-///
-/// TestLocatorPrx Methods:
-///
-///  - getRequestCount: 
-///
-///  - getRequestCountAsync: 
 public protocol TestLocatorPrx: Ice.LocatorPrx {}
 
 private final class TestLocatorPrxI: Ice.ObjectPrxI, TestLocatorPrx {
@@ -256,18 +231,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestLocatorPrx overview.
-///
-/// TestLocatorPrx Methods:
-///
-///  - getRequestCount: 
-///
-///  - getRequestCountAsync: 
 public extension TestLocatorPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func getRequestCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getRequestCount",
                                        mode: .Idempotent,
@@ -279,17 +243,6 @@ public extension TestLocatorPrx {
     }
 }
 
-/// ServerManagerPrx overview.
-///
-/// ServerManagerPrx Methods:
-///
-///  - startServer: 
-///
-///  - startServerAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol ServerManagerPrx: Ice.ObjectPrx {}
 
 private final class ServerManagerPrxI: Ice.ObjectPrxI, ServerManagerPrx {
@@ -377,28 +330,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// ServerManagerPrx overview.
-///
-/// ServerManagerPrx Methods:
-///
-///  - startServer: 
-///
-///  - startServerAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension ServerManagerPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func startServer(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "startServer",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -406,13 +344,6 @@ public extension ServerManagerPrx {
     }
 }
 
-/// HelloPrx overview.
-///
-/// HelloPrx Methods:
-///
-///  - sayHello: 
-///
-///  - sayHelloAsync: 
 public protocol HelloPrx: Ice.ObjectPrx {}
 
 private final class HelloPrxI: Ice.ObjectPrxI, HelloPrx {
@@ -500,16 +431,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// HelloPrx overview.
-///
-/// HelloPrx Methods:
-///
-///  - sayHello: 
-///
-///  - sayHelloAsync: 
 public extension HelloPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sayHello(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sayHello",
                                        mode: .Normal,
@@ -517,25 +439,6 @@ public extension HelloPrx {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - getHello: 
-///
-///  - getHelloAsync: 
-///
-///  - getReplicatedHello: 
-///
-///  - getReplicatedHelloAsync: 
-///
-///  - migrateHello: 
-///
-///  - migrateHelloAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -623,38 +526,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - getHello: 
-///
-///  - getHelloAsync: 
-///
-///  - getReplicatedHello: 
-///
-///  - getReplicatedHelloAsync: 
-///
-///  - migrateHello: 
-///
-///  - migrateHelloAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `HelloPrx?`
     func getHello(context: Ice.Context? = nil) async throws -> HelloPrx? {
         return try await _impl._invoke(operation: "getHello",
                                        mode: .Normal,
@@ -665,10 +543,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `HelloPrx?`
     func getReplicatedHello(context: Ice.Context? = nil) async throws -> HelloPrx? {
         return try await _impl._invoke(operation: "getReplicatedHello",
                                        mode: .Normal,
@@ -679,8 +553,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func migrateHello(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "migrateHello",
                                        mode: .Normal,
@@ -723,10 +595,6 @@ public struct TestLocatorRegistryDisp: Ice.Dispatcher {
 }
 
 public protocol TestLocatorRegistry: Ice.LocatorRegistry {
-    ///
-    /// - parameter obj: `Ice.ObjectPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func addObject(obj: Ice.ObjectPrx?, current: Ice.Current) async throws
 }
 
@@ -765,10 +633,6 @@ public struct TestLocatorDisp: Ice.Dispatcher {
 }
 
 public protocol TestLocator: Ice.Locator {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func getRequestCount(current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -803,12 +667,8 @@ public struct ServerManagerDisp: Ice.Dispatcher {
 }
 
 public protocol ServerManager {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func startServer(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -841,8 +701,6 @@ public struct HelloDisp: Ice.Dispatcher {
 }
 
 public protocol Hello {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sayHello(current: Ice.Current) async throws
 }
 
@@ -881,32 +739,15 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `HelloPrx?`
     func getHello(current: Ice.Current) async throws -> HelloPrx?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `HelloPrx?`
     func getReplicatedHello(current: Ice.Current) async throws -> HelloPrx?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func migrateHello(current: Ice.Current) async throws
 }
 
-/// TestLocatorRegistry overview.
-///
-/// TestLocatorRegistry Methods:
-///
-///  - addObject: 
 extension TestLocatorRegistry {
     public func _iceD_addObject(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -918,11 +759,6 @@ extension TestLocatorRegistry {
     }
 }
 
-/// TestLocator overview.
-///
-/// TestLocator Methods:
-///
-///  - getRequestCount: 
 extension TestLocator {
     public func _iceD_getRequestCount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -935,13 +771,6 @@ extension TestLocator {
     }
 }
 
-/// ServerManager overview.
-///
-/// ServerManager Methods:
-///
-///  - startServer: 
-///
-///  - shutdown: 
 extension ServerManager {
     public func _iceD_startServer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -958,11 +787,6 @@ extension ServerManager {
     }
 }
 
-/// Hello overview.
-///
-/// Hello Methods:
-///
-///  - sayHello: 
 extension Hello {
     public func _iceD_sayHello(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -972,17 +796,6 @@ extension Hello {
     }
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - shutdown: 
-///
-///  - getHello: 
-///
-///  - getReplicatedHello: 
-///
-///  - migrateHello: 
 extension TestIntf {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

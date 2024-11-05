@@ -1,18 +1,3 @@
-% IntEnum   Summary of IntEnum
-%
-% IntEnum Properties:
-%   ienum1
-%   ienum2
-%   ienum3
-%   ienum4
-%   ienum5
-%   ienum6
-%   ienum7
-%   ienum8
-%   ienum9
-%   ienum10
-%   ienum11
-%   ienum12
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

@@ -24,11 +24,8 @@ public struct BackendTraits: Ice.SliceTraits {
 }
 
 public enum StateCode: Swift.UInt8 {
-    /// Initial
     case Initial = 0
-    /// Running
     case Running = 1
-    /// Finished
     case Finished = 2
     public init() {
         self = .Initial
@@ -175,17 +172,6 @@ public struct TestSessionTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestSession"
 }
 
-/// BackendPrx overview.
-///
-/// BackendPrx Methods:
-///
-///  - check: 
-///
-///  - checkAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol BackendPrx: Ice.ObjectPrx {}
 
 private final class BackendPrxI: Ice.ObjectPrxI, BackendPrx {
@@ -273,28 +259,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// BackendPrx overview.
-///
-/// BackendPrx Methods:
-///
-///  - check: 
-///
-///  - checkAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension BackendPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func check(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "check",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -310,13 +281,13 @@ public extension BackendPrx {
 ///
 /// TestControllerPrx Methods:
 ///
-///  - step: 
+///  - step
 ///
-///  - stepAsync: 
+///  - stepAsync
 ///
-///  - shutdown: 
+///  - shutdown
 ///
-///  - shutdownAsync: 
+///  - shutdownAsync
 public protocol TestControllerPrx: Ice.ObjectPrx {}
 
 private final class TestControllerPrxI: Ice.ObjectPrxI, TestControllerPrx {
@@ -412,22 +383,14 @@ public extension Ice.InputStream {
 ///
 /// TestControllerPrx Methods:
 ///
-///  - step: 
+///  - step
 ///
-///  - stepAsync: 
+///  - stepAsync
 ///
-///  - shutdown: 
+///  - shutdown
 ///
-///  - shutdownAsync: 
+///  - shutdownAsync
 public extension TestControllerPrx {
-    ///
-    /// - parameter currentSession: `Glacier2.SessionPrx?`
-    ///
-    /// - parameter currentState: `TestToken`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `TestToken`
     func step(currentSession iceP_currentSession: Glacier2.SessionPrx?, currentState iceP_currentState: TestToken, context: Ice.Context? = nil) async throws -> TestToken {
         return try await _impl._invoke(operation: "step",
                                        mode: .Normal,
@@ -442,8 +405,6 @@ public extension TestControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -451,13 +412,6 @@ public extension TestControllerPrx {
     }
 }
 
-/// TestSessionPrx overview.
-///
-/// TestSessionPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestSessionPrx: Glacier2.SessionPrx {}
 
 private final class TestSessionPrxI: Ice.ObjectPrxI, TestSessionPrx {
@@ -545,16 +499,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestSessionPrx overview.
-///
-/// TestSessionPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestSessionPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -593,12 +538,8 @@ public struct BackendDisp: Ice.Dispatcher {
 }
 
 public protocol Backend {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func check(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -638,18 +579,8 @@ public struct TestControllerDisp: Ice.Dispatcher {
 /// controller will manage the configuration of the system and return a
 /// flag indicating whether the next call is meant to succeed or not.
 public protocol TestController {
-    ///
-    /// - parameter currentSession: `Glacier2.SessionPrx?`
-    ///
-    /// - parameter currentState: `TestToken`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `TestToken`
     func step(currentSession: Glacier2.SessionPrx?, currentState: TestToken, current: Ice.Current) async throws -> TestToken
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -684,18 +615,9 @@ public struct TestSessionDisp: Ice.Dispatcher {
 }
 
 public protocol TestSession: Glacier2.Session {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Backend overview.
-///
-/// Backend Methods:
-///
-///  - check: 
-///
-///  - shutdown: 
 extension Backend {
     public func _iceD_check(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -720,9 +642,9 @@ extension Backend {
 ///
 /// TestController Methods:
 ///
-///  - step: 
+///  - step
 ///
-///  - shutdown: 
+///  - shutdown
 extension TestController {
     public func _iceD_step(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -745,11 +667,6 @@ extension TestController {
     }
 }
 
-/// TestSession overview.
-///
-/// TestSession Methods:
-///
-///  - shutdown: 
 extension TestSession {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

@@ -1,12 +1,3 @@
-% TestIntfPrx   Summary of TestIntfPrx
-%
-% TestIntfPrx Methods:
-%   opDerived
-%   opDerivedAsync
-%   throwDerived
-%   throwDerivedAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -14,13 +5,6 @@
 classdef TestIntfPrx < Ice.ObjectPrx
     methods
         function result = opDerived(obj, varargin)
-            % opDerived
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.Base)
-            
             is_ = obj.iceInvoke('opDerived', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result_h_ = IceInternal.ValueHolder();
@@ -30,13 +14,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             result = result_h_.value;
         end
         function r_ = opDerivedAsync(obj, varargin)
-            % opDerivedAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = IceInternal.ValueHolder();
@@ -48,21 +25,9 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opDerived', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function throwDerived(obj, varargin)
-            % throwDerived
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('throwDerived', 0, true, [], false, Test.TestIntfPrx.throwDerived_ex_, varargin{:});
         end
         function r_ = throwDerivedAsync(obj, varargin)
-            % throwDerivedAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('throwDerived', 0, true, [], 0, [], Test.TestIntfPrx.throwDerived_ex_, varargin{:});
         end
     end

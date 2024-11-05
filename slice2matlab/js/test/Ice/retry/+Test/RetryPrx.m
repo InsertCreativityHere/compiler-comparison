@@ -1,16 +1,3 @@
-% RetryPrx   Summary of RetryPrx
-%
-% RetryPrx Methods:
-%   op
-%   opAsync
-%   opIdempotent
-%   opIdempotentAsync
-%   opNotIdempotent
-%   opNotIdempotentAsync
-%   shutdown
-%   shutdownAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -18,40 +5,18 @@
 classdef RetryPrx < Ice.ObjectPrx
     methods
         function op(obj, kill, varargin)
-            % op
-            %
-            % Parameters:
-            %   kill (logical)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBool(kill);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('op', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = opAsync(obj, kill, varargin)
-            % opAsync
-            %
-            % Parameters:
-            %   kill (logical)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBool(kill);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('op', 0, false, os_, 0, [], {}, varargin{:});
         end
         function result = opIdempotent(obj, c, varargin)
-            % opIdempotent
-            %
-            % Parameters:
-            %   c (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(c);
             obj.iceEndWriteParams(os_);
@@ -61,14 +26,6 @@ classdef RetryPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opIdempotentAsync(obj, c, varargin)
-            % opIdempotentAsync
-            %
-            % Parameters:
-            %   c (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(c);
             obj.iceEndWriteParams(os_);
@@ -81,39 +38,15 @@ classdef RetryPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opIdempotent', 2, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function opNotIdempotent(obj, varargin)
-            % opNotIdempotent
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('opNotIdempotent', 0, false, [], false, {}, varargin{:});
         end
         function r_ = opNotIdempotentAsync(obj, varargin)
-            % opNotIdempotentAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('opNotIdempotent', 0, false, [], 0, [], {}, varargin{:});
         end
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 2, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 2, false, [], 0, [], {}, varargin{:});
         end
     end

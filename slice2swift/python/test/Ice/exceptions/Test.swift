@@ -249,7 +249,6 @@ public struct WrongOperationTraits: Ice.SliceTraits {
     public static let staticId = "::Test::WrongOperation"
 }
 
-/// EmptyPrx overview.
 public protocol EmptyPrx: Ice.ObjectPrx {}
 
 private final class EmptyPrxI: Ice.ObjectPrxI, EmptyPrx {
@@ -337,104 +336,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// EmptyPrx overview.
 public extension EmptyPrx {}
 
-/// ThrowerPrx overview.
-///
-/// ThrowerPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - supportsUndeclaredExceptions: 
-///
-///  - supportsUndeclaredExceptionsAsync: 
-///
-///  - supportsAssertException: 
-///
-///  - supportsAssertExceptionAsync: 
-///
-///  - throwAasA: 
-///
-///  - throwAasAAsync: 
-///
-///  - throwAorDasAorD: 
-///
-///  - throwAorDasAorDAsync: 
-///
-///  - throwBasA: 
-///
-///  - throwBasAAsync: 
-///
-///  - throwCasA: 
-///
-///  - throwCasAAsync: 
-///
-///  - throwBasB: 
-///
-///  - throwBasBAsync: 
-///
-///  - throwCasB: 
-///
-///  - throwCasBAsync: 
-///
-///  - throwCasC: 
-///
-///  - throwCasCAsync: 
-///
-///  - throwModA: 
-///
-///  - throwModAAsync: 
-///
-///  - throwUndeclaredA: 
-///
-///  - throwUndeclaredAAsync: 
-///
-///  - throwUndeclaredB: 
-///
-///  - throwUndeclaredBAsync: 
-///
-///  - throwUndeclaredC: 
-///
-///  - throwUndeclaredCAsync: 
-///
-///  - throwLocalException: 
-///
-///  - throwLocalExceptionAsync: 
-///
-///  - throwNonIceException: 
-///
-///  - throwNonIceExceptionAsync: 
-///
-///  - throwAssertException: 
-///
-///  - throwAssertExceptionAsync: 
-///
-///  - throwMemoryLimitException: 
-///
-///  - throwMemoryLimitExceptionAsync: 
-///
-///  - throwLocalExceptionIdempotent: 
-///
-///  - throwLocalExceptionIdempotentAsync: 
-///
-///  - throwAfterResponse: 
-///
-///  - throwAfterResponseAsync: 
-///
-///  - throwAfterException: 
-///
-///  - throwAfterExceptionAsync: 
-///
-///  - throwMarshalException: 
-///
-///  - throwMarshalExceptionAsync: 
-///
-///  - throwRequestFailedException: 
-///
-///  - throwRequestFailedExceptionAsync: 
 public protocol ThrowerPrx: Ice.ObjectPrx {}
 
 private final class ThrowerPrxI: Ice.ObjectPrxI, ThrowerPrx {
@@ -522,114 +425,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// ThrowerPrx overview.
-///
-/// ThrowerPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - supportsUndeclaredExceptions: 
-///
-///  - supportsUndeclaredExceptionsAsync: 
-///
-///  - supportsAssertException: 
-///
-///  - supportsAssertExceptionAsync: 
-///
-///  - throwAasA: 
-///
-///  - throwAasAAsync: 
-///
-///  - throwAorDasAorD: 
-///
-///  - throwAorDasAorDAsync: 
-///
-///  - throwBasA: 
-///
-///  - throwBasAAsync: 
-///
-///  - throwCasA: 
-///
-///  - throwCasAAsync: 
-///
-///  - throwBasB: 
-///
-///  - throwBasBAsync: 
-///
-///  - throwCasB: 
-///
-///  - throwCasBAsync: 
-///
-///  - throwCasC: 
-///
-///  - throwCasCAsync: 
-///
-///  - throwModA: 
-///
-///  - throwModAAsync: 
-///
-///  - throwUndeclaredA: 
-///
-///  - throwUndeclaredAAsync: 
-///
-///  - throwUndeclaredB: 
-///
-///  - throwUndeclaredBAsync: 
-///
-///  - throwUndeclaredC: 
-///
-///  - throwUndeclaredCAsync: 
-///
-///  - throwLocalException: 
-///
-///  - throwLocalExceptionAsync: 
-///
-///  - throwNonIceException: 
-///
-///  - throwNonIceExceptionAsync: 
-///
-///  - throwAssertException: 
-///
-///  - throwAssertExceptionAsync: 
-///
-///  - throwMemoryLimitException: 
-///
-///  - throwMemoryLimitExceptionAsync: 
-///
-///  - throwLocalExceptionIdempotent: 
-///
-///  - throwLocalExceptionIdempotentAsync: 
-///
-///  - throwAfterResponse: 
-///
-///  - throwAfterResponseAsync: 
-///
-///  - throwAfterException: 
-///
-///  - throwAfterExceptionAsync: 
-///
-///  - throwMarshalException: 
-///
-///  - throwMarshalExceptionAsync: 
-///
-///  - throwRequestFailedException: 
-///
-///  - throwRequestFailedExceptionAsync: 
 public extension ThrowerPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsUndeclaredExceptions(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "supportsUndeclaredExceptions",
                                        mode: .Normal,
@@ -640,10 +442,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsAssertException(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "supportsAssertException",
                                        mode: .Normal,
@@ -654,10 +452,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwAasA(_ iceP_a: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwAasA",
                                        mode: .Normal,
@@ -674,10 +468,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwAorDasAorD(_ iceP_a: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwAorDasAorD",
                                        mode: .Normal,
@@ -696,12 +486,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwBasA(a iceP_a: Swift.Int32, b iceP_b: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwBasA",
                                        mode: .Normal,
@@ -719,14 +503,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter c: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwCasA(a iceP_a: Swift.Int32, b iceP_b: Swift.Int32, c iceP_c: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwCasA",
                                        mode: .Normal,
@@ -745,12 +521,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwBasB(a iceP_a: Swift.Int32, b iceP_b: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwBasB",
                                        mode: .Normal,
@@ -768,14 +538,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter c: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwCasB(a iceP_a: Swift.Int32, b iceP_b: Swift.Int32, c iceP_c: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwCasB",
                                        mode: .Normal,
@@ -794,14 +556,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter c: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwCasC(a iceP_a: Swift.Int32, b iceP_b: Swift.Int32, c iceP_c: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwCasC",
                                        mode: .Normal,
@@ -820,12 +574,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter a2: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwModA(a iceP_a: Swift.Int32, a2 iceP_a2: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwModA",
                                        mode: .Normal,
@@ -843,10 +591,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwUndeclaredA(_ iceP_a: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwUndeclaredA",
                                        mode: .Normal,
@@ -856,12 +600,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwUndeclaredB(a iceP_a: Swift.Int32, b iceP_b: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwUndeclaredB",
                                        mode: .Normal,
@@ -872,14 +610,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter c: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwUndeclaredC(a iceP_a: Swift.Int32, b iceP_b: Swift.Int32, c iceP_c: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwUndeclaredC",
                                        mode: .Normal,
@@ -891,36 +621,24 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwLocalException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwLocalException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwNonIceException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwNonIceException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwAssertException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwAssertException",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Ice.ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ByteSeq`
     func throwMemoryLimitException(_ iceP_seq: Ice.ByteSeq, context: Ice.Context? = nil) async throws -> Ice.ByteSeq {
         return try await _impl._invoke(operation: "throwMemoryLimitException",
                                        mode: .Normal,
@@ -934,24 +652,18 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwLocalExceptionIdempotent(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwLocalExceptionIdempotent",
                                        mode: .Idempotent,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwAfterResponse(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwAfterResponse",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwAfterException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwAfterException",
                                        mode: .Normal,
@@ -965,14 +677,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.Int32, p: Swift.Int32)`:
-    ///
-    ///   - returnValue: `Swift.Int32`
-    ///
-    ///   - p: `Swift.Int32`
     func throwMarshalException(context: Ice.Context? = nil) async throws -> (returnValue: Swift.Int32, p: Swift.Int32) {
         return try await _impl._invoke(operation: "throwMarshalException",
                                        mode: .Normal,
@@ -984,16 +688,6 @@ public extension ThrowerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter type: `Swift.String`
-    ///
-    /// - parameter id: `Ice.Identity`
-    ///
-    /// - parameter facet: `Swift.String`
-    ///
-    /// - parameter operation: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwRequestFailedException(type iceP_type: Swift.String, id iceP_id: Ice.Identity, facet iceP_facet: Swift.String, operation iceP_operation: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwRequestFailedException",
                                        mode: .Normal,
@@ -1007,13 +701,6 @@ public extension ThrowerPrx {
     }
 }
 
-/// WrongOperationPrx overview.
-///
-/// WrongOperationPrx Methods:
-///
-///  - noSuchOperation: 
-///
-///  - noSuchOperationAsync: 
 public protocol WrongOperationPrx: Ice.ObjectPrx {}
 
 private final class WrongOperationPrxI: Ice.ObjectPrxI, WrongOperationPrx {
@@ -1101,16 +788,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// WrongOperationPrx overview.
-///
-/// WrongOperationPrx Methods:
-///
-///  - noSuchOperation: 
-///
-///  - noSuchOperationAsync: 
 public extension WrongOperationPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func noSuchOperation(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "noSuchOperation",
                                        mode: .Normal,
@@ -1219,164 +897,50 @@ public struct ThrowerDisp: Ice.Dispatcher {
 }
 
 public protocol Thrower {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsUndeclaredExceptions(current: Ice.Current) async throws -> Swift.Bool
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsAssertException(current: Ice.Current) async throws -> Swift.Bool
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwAasA(a: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwAorDasAorD(a: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwBasA(a: Swift.Int32, b: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter c: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwCasA(a: Swift.Int32, b: Swift.Int32, c: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwBasB(a: Swift.Int32, b: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter c: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwCasB(a: Swift.Int32, b: Swift.Int32, c: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter c: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwCasC(a: Swift.Int32, b: Swift.Int32, c: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter a2: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwModA(a: Swift.Int32, a2: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwUndeclaredA(a: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwUndeclaredB(a: Swift.Int32, b: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter a: `Swift.Int32`
-    ///
-    /// - parameter b: `Swift.Int32`
-    ///
-    /// - parameter c: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwUndeclaredC(a: Swift.Int32, b: Swift.Int32, c: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwLocalException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwNonIceException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwAssertException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter seq: `Ice.ByteSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.ByteSeq`
     func throwMemoryLimitException(seq: Ice.ByteSeq, current: Ice.Current) async throws -> Ice.ByteSeq
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwLocalExceptionIdempotent(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwAfterResponse(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwAfterException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.Int32, p: Swift.Int32)`:
-    ///
-    ///   - returnValue: `Swift.Int32`
-    ///
-    ///   - p: `Swift.Int32`
     func throwMarshalException(current: Ice.Current) async throws -> (returnValue: Swift.Int32, p: Swift.Int32)
 
-    ///
-    /// - parameter type: `Swift.String`
-    ///
-    /// - parameter id: `Ice.Identity`
-    ///
-    /// - parameter facet: `Swift.String`
-    ///
-    /// - parameter operation: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwRequestFailedException(type: Swift.String, id: Ice.Identity, facet: Swift.String, operation: Swift.String, current: Ice.Current) async throws
 }
 
@@ -1409,63 +973,11 @@ public struct WrongOperationDisp: Ice.Dispatcher {
 }
 
 public protocol WrongOperation {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func noSuchOperation(current: Ice.Current) async throws
 }
 
-/// Empty overview.
 extension Empty {}
 
-/// Thrower overview.
-///
-/// Thrower Methods:
-///
-///  - shutdown: 
-///
-///  - supportsUndeclaredExceptions: 
-///
-///  - supportsAssertException: 
-///
-///  - throwAasA: 
-///
-///  - throwAorDasAorD: 
-///
-///  - throwBasA: 
-///
-///  - throwCasA: 
-///
-///  - throwBasB: 
-///
-///  - throwCasB: 
-///
-///  - throwCasC: 
-///
-///  - throwModA: 
-///
-///  - throwUndeclaredA: 
-///
-///  - throwUndeclaredB: 
-///
-///  - throwUndeclaredC: 
-///
-///  - throwLocalException: 
-///
-///  - throwNonIceException: 
-///
-///  - throwAssertException: 
-///
-///  - throwMemoryLimitException: 
-///
-///  - throwLocalExceptionIdempotent: 
-///
-///  - throwAfterResponse: 
-///
-///  - throwAfterException: 
-///
-///  - throwMarshalException: 
-///
-///  - throwRequestFailedException: 
 extension Thrower {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1683,11 +1195,6 @@ extension Thrower {
     }
 }
 
-/// WrongOperation overview.
-///
-/// WrongOperation Methods:
-///
-///  - noSuchOperation: 
 extension WrongOperation {
     public func _iceD_noSuchOperation(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

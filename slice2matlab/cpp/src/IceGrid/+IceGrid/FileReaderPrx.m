@@ -1,12 +1,3 @@
-% FileReaderPrx   Summary of FileReaderPrx
-%
-% FileReaderPrx Methods:
-%   getOffsetFromEnd - Count the number of given lines from the end of the file and return the file offset.
-%   getOffsetFromEndAsync - Count the number of given lines from the end of the file and return the file offset.
-%   read - Read lines (or size bytes) at the specified position from the given file.
-%   readAsync - Read lines (or size bytes) at the specified position from the given file.
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0

@@ -1,14 +1,3 @@
-% EchoPrx   Summary of EchoPrx
-%
-% EchoPrx Methods:
-%   startBatch
-%   startBatchAsync
-%   flushBatch
-%   flushBatchAsync
-%   shutdown
-%   shutdownAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -16,57 +5,21 @@
 classdef EchoPrx < Ice.ObjectPrx
     methods
         function startBatch(obj, varargin)
-            % startBatch
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('startBatch', 0, false, [], false, {}, varargin{:});
         end
         function r_ = startBatchAsync(obj, varargin)
-            % startBatchAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('startBatch', 0, false, [], 0, [], {}, varargin{:});
         end
         function flushBatch(obj, varargin)
-            % flushBatch
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('flushBatch', 0, false, [], false, {}, varargin{:});
         end
         function r_ = flushBatchAsync(obj, varargin)
-            % flushBatchAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('flushBatch', 0, false, [], 0, [], {}, varargin{:});
         end
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
     end

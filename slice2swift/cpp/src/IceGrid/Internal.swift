@@ -626,15 +626,10 @@ open class ReplicaActiveException: Ice.UserException, @unchecked Sendable {
 }
 
 public enum TopicName: Swift.UInt8 {
-    /// RegistryObserver
     case RegistryObserver = 0
-    /// NodeObserver
     case NodeObserver = 1
-    /// ApplicationObserver
     case ApplicationObserver = 2
-    /// AdapterObserver
     case AdapterObserver = 3
-    /// ObjectObserver
     case ObjectObserver = 4
     public init() {
         self = .RegistryObserver
@@ -774,21 +769,6 @@ public struct InternalRegistryTraits: Ice.SliceTraits {
     public static let staticId = "::IceGrid::InternalRegistry"
 }
 
-/// AdapterPrx overview.
-///
-/// AdapterPrx Methods:
-///
-///  - activate: Activate this adapter.
-///
-///  - activateAsync: Activate this adapter.
-///
-///  - getDirectProxy: Get the adapter direct proxy.
-///
-///  - getDirectProxyAsync: Get the adapter direct proxy.
-///
-///  - setDirectProxy: Set the direct proxy for this adapter.
-///
-///  - setDirectProxyAsync: Set the direct proxy for this adapter.
 public protocol AdapterPrx: Ice.ObjectPrx {}
 
 private final class AdapterPrxI: Ice.ObjectPrxI, AdapterPrx {
@@ -876,21 +856,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// AdapterPrx overview.
-///
-/// AdapterPrx Methods:
-///
-///  - activate: Activate this adapter.
-///
-///  - activateAsync: Activate this adapter.
-///
-///  - getDirectProxy: Get the adapter direct proxy.
-///
-///  - getDirectProxyAsync: Get the adapter direct proxy.
-///
-///  - setDirectProxy: Set the direct proxy for this adapter.
-///
-///  - setDirectProxyAsync: Set the direct proxy for this adapter.
 public extension AdapterPrx {
     /// Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
     /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
@@ -959,17 +924,6 @@ public extension AdapterPrx {
     }
 }
 
-/// FileReaderPrx overview.
-///
-/// FileReaderPrx Methods:
-///
-///  - getOffsetFromEnd: Count the number of given lines from the end of the file and return the file offset.
-///
-///  - getOffsetFromEndAsync: Count the number of given lines from the end of the file and return the file offset.
-///
-///  - read: Read lines (or size bytes) at the specified position from the given file.
-///
-///  - readAsync: Read lines (or size bytes) at the specified position from the given file.
 public protocol FileReaderPrx: Ice.ObjectPrx {}
 
 private final class FileReaderPrxI: Ice.ObjectPrxI, FileReaderPrx {
@@ -1057,17 +1011,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// FileReaderPrx overview.
-///
-/// FileReaderPrx Methods:
-///
-///  - getOffsetFromEnd: Count the number of given lines from the end of the file and return the file offset.
-///
-///  - getOffsetFromEndAsync: Count the number of given lines from the end of the file and return the file offset.
-///
-///  - read: Read lines (or size bytes) at the specified position from the given file.
-///
-///  - readAsync: Read lines (or size bytes) at the specified position from the given file.
 public extension FileReaderPrx {
     /// Count the number of given lines from the end of the file and return the file offset.
     ///
@@ -1141,49 +1084,6 @@ public extension FileReaderPrx {
     }
 }
 
-/// ServerPrx overview.
-///
-/// ServerPrx Methods:
-///
-///  - start: Start the server.
-///
-///  - startAsync: Start the server.
-///
-///  - stop: Stop the server.
-///
-///  - stopAsync: Stop the server.
-///
-///  - checkUpdate: Check if the given server can be loaded on this node.
-///
-///  - checkUpdateAsync: Check if the given server can be loaded on this node.
-///
-///  - setEnabled: Enable or disable the server.
-///
-///  - setEnabledAsync: Enable or disable the server.
-///
-///  - isEnabled: Check if the server is enabled.
-///
-///  - isEnabledAsync: Check if the server is enabled.
-///
-///  - sendSignal: Send signal to the server
-///
-///  - sendSignalAsync: Send signal to the server
-///
-///  - writeMessage: Write message on servers' stdout or stderr.
-///
-///  - writeMessageAsync: Write message on servers' stdout or stderr.
-///
-///  - getState: Return the server state.
-///
-///  - getStateAsync: Return the server state.
-///
-///  - getPid: Get the server pid.
-///
-///  - getPidAsync: Get the server pid.
-///
-///  - setProcess: Set the process proxy.
-///
-///  - setProcessAsync: Set the process proxy.
 public protocol ServerPrx: FileReaderPrx {}
 
 private final class ServerPrxI: Ice.ObjectPrxI, ServerPrx {
@@ -1271,49 +1171,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// ServerPrx overview.
-///
-/// ServerPrx Methods:
-///
-///  - start: Start the server.
-///
-///  - startAsync: Start the server.
-///
-///  - stop: Stop the server.
-///
-///  - stopAsync: Stop the server.
-///
-///  - checkUpdate: Check if the given server can be loaded on this node.
-///
-///  - checkUpdateAsync: Check if the given server can be loaded on this node.
-///
-///  - setEnabled: Enable or disable the server.
-///
-///  - setEnabledAsync: Enable or disable the server.
-///
-///  - isEnabled: Check if the server is enabled.
-///
-///  - isEnabledAsync: Check if the server is enabled.
-///
-///  - sendSignal: Send signal to the server
-///
-///  - sendSignalAsync: Send signal to the server
-///
-///  - writeMessage: Write message on servers' stdout or stderr.
-///
-///  - writeMessageAsync: Write message on servers' stdout or stderr.
-///
-///  - getState: Return the server state.
-///
-///  - getStateAsync: Return the server state.
-///
-///  - getPid: Get the server pid.
-///
-///  - getPidAsync: Get the server pid.
-///
-///  - setProcess: Set the process proxy.
-///
-///  - setProcessAsync: Set the process proxy.
 public extension ServerPrx {
     /// Start the server.
     ///
@@ -1496,21 +1353,6 @@ public extension ServerPrx {
     }
 }
 
-/// ReplicaObserverPrx overview.
-///
-/// ReplicaObserverPrx Methods:
-///
-///  - replicaInit: Initialization of the replica observer.
-///
-///  - replicaInitAsync: Initialization of the replica observer.
-///
-///  - replicaAdded: Notification that a replica has been added.
-///
-///  - replicaAddedAsync: Notification that a replica has been added.
-///
-///  - replicaRemoved: Notification that a replica has been removed.
-///
-///  - replicaRemovedAsync: Notification that a replica has been removed.
 public protocol ReplicaObserverPrx: Ice.ObjectPrx {}
 
 private final class ReplicaObserverPrxI: Ice.ObjectPrxI, ReplicaObserverPrx {
@@ -1598,21 +1440,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// ReplicaObserverPrx overview.
-///
-/// ReplicaObserverPrx Methods:
-///
-///  - replicaInit: Initialization of the replica observer.
-///
-///  - replicaInitAsync: Initialization of the replica observer.
-///
-///  - replicaAdded: Notification that a replica has been added.
-///
-///  - replicaAddedAsync: Notification that a replica has been added.
-///
-///  - replicaRemoved: Notification that a replica has been removed.
-///
-///  - replicaRemovedAsync: Notification that a replica has been removed.
 public extension ReplicaObserverPrx {
     /// Initialization of the replica observer.
     ///
@@ -1657,49 +1484,6 @@ public extension ReplicaObserverPrx {
     }
 }
 
-/// NodePrx overview.
-///
-/// NodePrx Methods:
-///
-///  - loadServer: Load the given server.
-///
-///  - loadServerAsync: Load the given server.
-///
-///  - loadServerWithoutRestart: Load the given server and ensure the server won't be restarted.
-///
-///  - loadServerWithoutRestartAsync: Load the given server and ensure the server won't be restarted.
-///
-///  - destroyServer: Destroy the given server.
-///
-///  - destroyServerAsync: Destroy the given server.
-///
-///  - destroyServerWithoutRestart: Destroy the server if it's not active.
-///
-///  - destroyServerWithoutRestartAsync: Destroy the server if it's not active.
-///
-///  - registerWithReplica: Establish a session to the given replica, this method only returns once the registration was attempted (unlike replicaAdded below).
-///
-///  - registerWithReplicaAsync: Establish a session to the given replica, this method only returns once the registration was attempted (unlike replicaAdded below).
-///
-///  - getName: Get the node name.
-///
-///  - getNameAsync: Get the node name.
-///
-///  - getHostname: Get the node hostname.
-///
-///  - getHostnameAsync: Get the node hostname.
-///
-///  - getLoad: Get the node load.
-///
-///  - getLoadAsync: Get the node load.
-///
-///  - getProcessorSocketCount: Get the number of processor sockets for the machine where this node is running.
-///
-///  - getProcessorSocketCountAsync: Get the number of processor sockets for the machine where this node is running.
-///
-///  - shutdown: Shutdown the node.
-///
-///  - shutdownAsync: Shutdown the node.
 public protocol NodePrx: FileReaderPrx, ReplicaObserverPrx {}
 
 private final class NodePrxI: Ice.ObjectPrxI, NodePrx {
@@ -1787,49 +1571,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// NodePrx overview.
-///
-/// NodePrx Methods:
-///
-///  - loadServer: Load the given server.
-///
-///  - loadServerAsync: Load the given server.
-///
-///  - loadServerWithoutRestart: Load the given server and ensure the server won't be restarted.
-///
-///  - loadServerWithoutRestartAsync: Load the given server and ensure the server won't be restarted.
-///
-///  - destroyServer: Destroy the given server.
-///
-///  - destroyServerAsync: Destroy the given server.
-///
-///  - destroyServerWithoutRestart: Destroy the server if it's not active.
-///
-///  - destroyServerWithoutRestartAsync: Destroy the server if it's not active.
-///
-///  - registerWithReplica: Establish a session to the given replica, this method only returns once the registration was attempted (unlike replicaAdded below).
-///
-///  - registerWithReplicaAsync: Establish a session to the given replica, this method only returns once the registration was attempted (unlike replicaAdded below).
-///
-///  - getName: Get the node name.
-///
-///  - getNameAsync: Get the node name.
-///
-///  - getHostname: Get the node hostname.
-///
-///  - getHostnameAsync: Get the node hostname.
-///
-///  - getLoad: Get the node load.
-///
-///  - getLoadAsync: Get the node load.
-///
-///  - getProcessorSocketCount: Get the number of processor sockets for the machine where this node is running.
-///
-///  - getProcessorSocketCountAsync: Get the number of processor sockets for the machine where this node is running.
-///
-///  - shutdown: Shutdown the node.
-///
-///  - shutdownAsync: Shutdown the node.
 public extension NodePrx {
     /// Load the given server. If the server resources weren't already created (database environment directories,
     /// property files, etc), they will be created. The returned proxy is never null.
@@ -2063,41 +1804,6 @@ public extension NodePrx {
     }
 }
 
-/// NodeSessionPrx overview.
-///
-/// NodeSessionPrx Methods:
-///
-///  - keepAlive: The node call this method to keep the session alive.
-///
-///  - keepAliveAsync: The node call this method to keep the session alive.
-///
-///  - setReplicaObserver: Set the replica observer.
-///
-///  - setReplicaObserverAsync: Set the replica observer.
-///
-///  - getTimeout: Return the node session timeout.
-///
-///  - getTimeoutAsync: Return the node session timeout.
-///
-///  - getObserver: Return the node observer.
-///
-///  - getObserverAsync: Return the node observer.
-///
-///  - loadServers: Ask the registry to load the servers on the node.
-///
-///  - loadServersAsync: Ask the registry to load the servers on the node.
-///
-///  - getServers: Get the name of the servers deployed on the node.
-///
-///  - getServersAsync: Get the name of the servers deployed on the node.
-///
-///  - waitForApplicationUpdate: Wait for the application update to complete (the application is completely updated once all the registry replicas have been updated).
-///
-///  - waitForApplicationUpdateAsync: Wait for the application update to complete (the application is completely updated once all the registry replicas have been updated).
-///
-///  - destroy: Destroy the session.
-///
-///  - destroyAsync: Destroy the session.
 public protocol NodeSessionPrx: Ice.ObjectPrx {}
 
 private final class NodeSessionPrxI: Ice.ObjectPrxI, NodeSessionPrx {
@@ -2185,41 +1891,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// NodeSessionPrx overview.
-///
-/// NodeSessionPrx Methods:
-///
-///  - keepAlive: The node call this method to keep the session alive.
-///
-///  - keepAliveAsync: The node call this method to keep the session alive.
-///
-///  - setReplicaObserver: Set the replica observer.
-///
-///  - setReplicaObserverAsync: Set the replica observer.
-///
-///  - getTimeout: Return the node session timeout.
-///
-///  - getTimeoutAsync: Return the node session timeout.
-///
-///  - getObserver: Return the node observer.
-///
-///  - getObserverAsync: Return the node observer.
-///
-///  - loadServers: Ask the registry to load the servers on the node.
-///
-///  - loadServersAsync: Ask the registry to load the servers on the node.
-///
-///  - getServers: Get the name of the servers deployed on the node.
-///
-///  - getServersAsync: Get the name of the servers deployed on the node.
-///
-///  - waitForApplicationUpdate: Wait for the application update to complete (the application is completely updated once all the registry replicas have been updated).
-///
-///  - waitForApplicationUpdateAsync: Wait for the application update to complete (the application is completely updated once all the registry replicas have been updated).
-///
-///  - destroy: Destroy the session.
-///
-///  - destroyAsync: Destroy the session.
 public extension NodeSessionPrx {
     /// The node call this method to keep the session alive.
     ///
@@ -2333,7 +2004,6 @@ public extension NodeSessionPrx {
     }
 }
 
-/// DatabaseObserverPrx overview.
 public protocol DatabaseObserverPrx: ApplicationObserverPrx, ObjectObserverPrx, AdapterObserverPrx {}
 
 private final class DatabaseObserverPrxI: Ice.ObjectPrxI, DatabaseObserverPrx {
@@ -2421,44 +2091,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// DatabaseObserverPrx overview.
 public extension DatabaseObserverPrx {}
 
-/// ReplicaSessionPrx overview.
-///
-/// ReplicaSessionPrx Methods:
-///
-///  - keepAlive: The replica call this method to keep the session alive.
-///
-///  - keepAliveAsync: The replica call this method to keep the session alive.
-///
-///  - getTimeout: Return the replica session timeout.
-///
-///  - getTimeoutAsync: Return the replica session timeout.
-///
-///  - setDatabaseObserver: Set the database observer.
-///
-///  - setDatabaseObserverAsync: Set the database observer.
-///
-///  - setEndpoints: This method sets the endpoints of the replica.
-///
-///  - setEndpointsAsync: This method sets the endpoints of the replica.
-///
-///  - registerWellKnownObjects: Registers the replica well-known objects with the master.
-///
-///  - registerWellKnownObjectsAsync: Registers the replica well-known objects with the master.
-///
-///  - setAdapterDirectProxy: Set the adapter direct proxy of the given adapter in the master.
-///
-///  - setAdapterDirectProxyAsync: Set the adapter direct proxy of the given adapter in the master.
-///
-///  - receivedUpdate: Notify the master that an update was received.
-///
-///  - receivedUpdateAsync: Notify the master that an update was received.
-///
-///  - destroy: Destroy the session.
-///
-///  - destroyAsync: Destroy the session.
 public protocol ReplicaSessionPrx: Ice.ObjectPrx {}
 
 private final class ReplicaSessionPrxI: Ice.ObjectPrxI, ReplicaSessionPrx {
@@ -2546,41 +2180,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// ReplicaSessionPrx overview.
-///
-/// ReplicaSessionPrx Methods:
-///
-///  - keepAlive: The replica call this method to keep the session alive.
-///
-///  - keepAliveAsync: The replica call this method to keep the session alive.
-///
-///  - getTimeout: Return the replica session timeout.
-///
-///  - getTimeoutAsync: Return the replica session timeout.
-///
-///  - setDatabaseObserver: Set the database observer.
-///
-///  - setDatabaseObserverAsync: Set the database observer.
-///
-///  - setEndpoints: This method sets the endpoints of the replica.
-///
-///  - setEndpointsAsync: This method sets the endpoints of the replica.
-///
-///  - registerWellKnownObjects: Registers the replica well-known objects with the master.
-///
-///  - registerWellKnownObjectsAsync: Registers the replica well-known objects with the master.
-///
-///  - setAdapterDirectProxy: Set the adapter direct proxy of the given adapter in the master.
-///
-///  - setAdapterDirectProxyAsync: Set the adapter direct proxy of the given adapter in the master.
-///
-///  - receivedUpdate: Notify the master that an update was received.
-///
-///  - receivedUpdateAsync: Notify the master that an update was received.
-///
-///  - destroy: Destroy the session.
-///
-///  - destroyAsync: Destroy the session.
 public extension ReplicaSessionPrx {
     /// The replica call this method to keep the session alive.
     ///
@@ -2623,9 +2222,9 @@ public extension ReplicaSessionPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as ObserverAlreadyRegisteredException {
-                                               throw error
                                            } catch let error as DeploymentException {
+                                               throw error
+                                           } catch let error as ObserverAlreadyRegisteredException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -2722,45 +2321,6 @@ public extension ReplicaSessionPrx {
     }
 }
 
-/// InternalRegistryPrx overview.
-///
-/// InternalRegistryPrx Methods:
-///
-///  - registerNode: Register a node with the registry.
-///
-///  - registerNodeAsync: Register a node with the registry.
-///
-///  - registerReplica: Register a replica with the registry.
-///
-///  - registerReplicaAsync: Register a replica with the registry.
-///
-///  - registerWithReplica: Create a session with the given registry replica.
-///
-///  - registerWithReplicaAsync: Create a session with the given registry replica.
-///
-///  - getNodes: Return the proxies of all the nodes known by this registry.
-///
-///  - getNodesAsync: Return the proxies of all the nodes known by this registry.
-///
-///  - getReplicas: Return the proxies of all the registry replicas known by this registry.
-///
-///  - getReplicasAsync: Return the proxies of all the registry replicas known by this registry.
-///
-///  - getApplications: Return applications, adapters, objects from this replica.
-///
-///  - getApplicationsAsync: Return applications, adapters, objects from this replica.
-///
-///  - getAdapters: 
-///
-///  - getAdaptersAsync: 
-///
-///  - getObjects: 
-///
-///  - getObjectsAsync: 
-///
-///  - shutdown: Shutdown this registry.
-///
-///  - shutdownAsync: Shutdown this registry.
 public protocol InternalRegistryPrx: FileReaderPrx {}
 
 private final class InternalRegistryPrxI: Ice.ObjectPrxI, InternalRegistryPrx {
@@ -2848,45 +2408,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// InternalRegistryPrx overview.
-///
-/// InternalRegistryPrx Methods:
-///
-///  - registerNode: Register a node with the registry.
-///
-///  - registerNodeAsync: Register a node with the registry.
-///
-///  - registerReplica: Register a replica with the registry.
-///
-///  - registerReplicaAsync: Register a replica with the registry.
-///
-///  - registerWithReplica: Create a session with the given registry replica.
-///
-///  - registerWithReplicaAsync: Create a session with the given registry replica.
-///
-///  - getNodes: Return the proxies of all the nodes known by this registry.
-///
-///  - getNodesAsync: Return the proxies of all the nodes known by this registry.
-///
-///  - getReplicas: Return the proxies of all the registry replicas known by this registry.
-///
-///  - getReplicasAsync: Return the proxies of all the registry replicas known by this registry.
-///
-///  - getApplications: Return applications, adapters, objects from this replica.
-///
-///  - getApplicationsAsync: Return applications, adapters, objects from this replica.
-///
-///  - getAdapters: 
-///
-///  - getAdaptersAsync: 
-///
-///  - getObjects: 
-///
-///  - getObjectsAsync: 
-///
-///  - shutdown: Shutdown this registry.
-///
-///  - shutdownAsync: Shutdown this registry.
 public extension InternalRegistryPrx {
     /// Register a node with the registry. If a node with the same name is already registered,
     /// registerNode overrides the existing registration only when the previously
@@ -2921,9 +2442,9 @@ public extension InternalRegistryPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as PermissionDeniedException {
-                                               throw error
                                            } catch let error as NodeActiveException {
+                                               throw error
+                                           } catch let error as PermissionDeniedException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -2960,9 +2481,9 @@ public extension InternalRegistryPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as PermissionDeniedException {
-                                               throw error
                                            } catch let error as ReplicaActiveException {
+                                               throw error
+                                           } catch let error as PermissionDeniedException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -3035,14 +2556,6 @@ public extension InternalRegistryPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: AdapterInfoSeq, serial: Swift.Int64)`:
-    ///
-    ///   - returnValue: `AdapterInfoSeq`
-    ///
-    ///   - serial: `Swift.Int64`
     func getAdapters(context: Ice.Context? = nil) async throws -> (returnValue: AdapterInfoSeq, serial: Swift.Int64) {
         return try await _impl._invoke(operation: "getAdapters",
                                        mode: .Idempotent,
@@ -3054,14 +2567,6 @@ public extension InternalRegistryPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ObjectInfoSeq, serial: Swift.Int64)`:
-    ///
-    ///   - returnValue: `ObjectInfoSeq`
-    ///
-    ///   - serial: `Swift.Int64`
     func getObjects(context: Ice.Context? = nil) async throws -> (returnValue: ObjectInfoSeq, serial: Swift.Int64) {
         return try await _impl._invoke(operation: "getObjects",
                                        mode: .Idempotent,
@@ -4291,24 +3796,8 @@ public protocol InternalRegistry: FileReader {
     ///   - serial: `Swift.Int64`
     func getApplications(current: Ice.Current) async throws -> (returnValue: ApplicationInfoSeq, serial: Swift.Int64)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: AdapterInfoSeq, serial: Swift.Int64)`:
-    ///
-    ///   - returnValue: `AdapterInfoSeq`
-    ///
-    ///   - serial: `Swift.Int64`
     func getAdapters(current: Ice.Current) async throws -> (returnValue: AdapterInfoSeq, serial: Swift.Int64)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ObjectInfoSeq, serial: Swift.Int64)`:
-    ///
-    ///   - returnValue: `ObjectInfoSeq`
-    ///
-    ///   - serial: `Swift.Int64`
     func getObjects(current: Ice.Current) async throws -> (returnValue: ObjectInfoSeq, serial: Swift.Int64)
 
     /// Shutdown this registry.
@@ -4317,15 +3806,6 @@ public protocol InternalRegistry: FileReader {
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Adapter overview.
-///
-/// Adapter Methods:
-///
-///  - activate: Activate this adapter.
-///
-///  - getDirectProxy: Get the adapter direct proxy.
-///
-///  - setDirectProxy: Set the direct proxy for this adapter.
 extension Adapter {
     public func _iceD_activate(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -4357,13 +3837,6 @@ extension Adapter {
     }
 }
 
-/// FileReader overview.
-///
-/// FileReader Methods:
-///
-///  - getOffsetFromEnd: Count the number of given lines from the end of the file and return the file offset.
-///
-///  - read: Read lines (or size bytes) at the specified position from the given file.
 extension FileReader {
     public func _iceD_getOffsetFromEnd(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -4395,29 +3868,6 @@ extension FileReader {
     }
 }
 
-/// Server overview.
-///
-/// Server Methods:
-///
-///  - start: Start the server.
-///
-///  - stop: Stop the server.
-///
-///  - checkUpdate: Check if the given server can be loaded on this node.
-///
-///  - setEnabled: Enable or disable the server.
-///
-///  - isEnabled: Check if the server is enabled.
-///
-///  - sendSignal: Send signal to the server
-///
-///  - writeMessage: Write message on servers' stdout or stderr.
-///
-///  - getState: Return the server state.
-///
-///  - getPid: Get the server pid.
-///
-///  - setProcess: Set the process proxy.
 extension Server {
     public func _iceD_start(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -4516,15 +3966,6 @@ extension Server {
     }
 }
 
-/// ReplicaObserver overview.
-///
-/// ReplicaObserver Methods:
-///
-///  - replicaInit: Initialization of the replica observer.
-///
-///  - replicaAdded: Notification that a replica has been added.
-///
-///  - replicaRemoved: Notification that a replica has been removed.
 extension ReplicaObserver {
     public func _iceD_replicaInit(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -4554,29 +3995,6 @@ extension ReplicaObserver {
     }
 }
 
-/// Node overview.
-///
-/// Node Methods:
-///
-///  - loadServer: Load the given server.
-///
-///  - loadServerWithoutRestart: Load the given server and ensure the server won't be restarted.
-///
-///  - destroyServer: Destroy the given server.
-///
-///  - destroyServerWithoutRestart: Destroy the server if it's not active.
-///
-///  - registerWithReplica: Establish a session to the given replica, this method only returns once the registration was attempted (unlike replicaAdded below).
-///
-///  - getName: Get the node name.
-///
-///  - getHostname: Get the node hostname.
-///
-///  - getLoad: Get the node load.
-///
-///  - getProcessorSocketCount: Get the number of processor sockets for the machine where this node is running.
-///
-///  - shutdown: Shutdown the node.
 extension Node {
     public func _iceD_loadServer(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -4695,25 +4113,6 @@ extension Node {
     }
 }
 
-/// NodeSession overview.
-///
-/// NodeSession Methods:
-///
-///  - keepAlive: The node call this method to keep the session alive.
-///
-///  - setReplicaObserver: Set the replica observer.
-///
-///  - getTimeout: Return the node session timeout.
-///
-///  - getObserver: Return the node observer.
-///
-///  - loadServers: Ask the registry to load the servers on the node.
-///
-///  - getServers: Get the name of the servers deployed on the node.
-///
-///  - waitForApplicationUpdate: Wait for the application update to complete (the application is completely updated once all the registry replicas have been updated).
-///
-///  - destroy: Destroy the session.
 extension NodeSession {
     public func _iceD_keepAlive(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -4788,28 +4187,8 @@ extension NodeSession {
     }
 }
 
-/// DatabaseObserver overview.
 extension DatabaseObserver {}
 
-/// ReplicaSession overview.
-///
-/// ReplicaSession Methods:
-///
-///  - keepAlive: The replica call this method to keep the session alive.
-///
-///  - getTimeout: Return the replica session timeout.
-///
-///  - setDatabaseObserver: Set the database observer.
-///
-///  - setEndpoints: This method sets the endpoints of the replica.
-///
-///  - registerWellKnownObjects: Registers the replica well-known objects with the master.
-///
-///  - setAdapterDirectProxy: Set the adapter direct proxy of the given adapter in the master.
-///
-///  - receivedUpdate: Notify the master that an update was received.
-///
-///  - destroy: Destroy the session.
 extension ReplicaSession {
     public func _iceD_keepAlive(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -4886,27 +4265,6 @@ extension ReplicaSession {
     }
 }
 
-/// InternalRegistry overview.
-///
-/// InternalRegistry Methods:
-///
-///  - registerNode: Register a node with the registry.
-///
-///  - registerReplica: Register a replica with the registry.
-///
-///  - registerWithReplica: Create a session with the given registry replica.
-///
-///  - getNodes: Return the proxies of all the nodes known by this registry.
-///
-///  - getReplicas: Return the proxies of all the registry replicas known by this registry.
-///
-///  - getApplications: Return applications, adapters, objects from this replica.
-///
-///  - getAdapters: 
-///
-///  - getObjects: 
-///
-///  - shutdown: Shutdown this registry.
 extension InternalRegistry {
     public func _iceD_registerNode(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

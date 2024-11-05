@@ -22,13 +22,6 @@ public struct BackendTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Backend"
 }
 
-/// BackendPrx overview.
-///
-/// BackendPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol BackendPrx: Ice.ObjectPrx {}
 
 private final class BackendPrxI: Ice.ObjectPrxI, BackendPrx {
@@ -116,16 +109,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// BackendPrx overview.
-///
-/// BackendPrx Methods:
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension BackendPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -162,16 +146,9 @@ public struct BackendDisp: Ice.Dispatcher {
 }
 
 public protocol Backend {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Backend overview.
-///
-/// Backend Methods:
-///
-///  - shutdown: 
 extension Backend {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

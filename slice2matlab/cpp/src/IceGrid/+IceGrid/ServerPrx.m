@@ -1,28 +1,3 @@
-% ServerPrx   Summary of ServerPrx
-%
-% ServerPrx Methods:
-%   start - Start the server.
-%   startAsync - Start the server.
-%   stop - Stop the server.
-%   stopAsync - Stop the server.
-%   checkUpdate - Check if the given server can be loaded on this node.
-%   checkUpdateAsync - Check if the given server can be loaded on this node.
-%   setEnabled - Enable or disable the server.
-%   setEnabledAsync - Enable or disable the server.
-%   isEnabled - Check if the server is enabled.
-%   isEnabledAsync - Check if the server is enabled.
-%   sendSignal - Send signal to the server
-%   sendSignalAsync - Send signal to the server
-%   writeMessage - Write message on servers' stdout or stderr.
-%   writeMessageAsync - Write message on servers' stdout or stderr.
-%   getState - Return the server state.
-%   getStateAsync - Return the server state.
-%   getPid - Get the server pid.
-%   getPidAsync - Get the server pid.
-%   setProcess - Set the process proxy.
-%   setProcessAsync - Set the process proxy.
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0

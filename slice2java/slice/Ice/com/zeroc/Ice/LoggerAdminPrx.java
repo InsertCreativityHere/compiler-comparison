@@ -17,7 +17,7 @@ package com.zeroc.Ice;
 
 /**
  * The interface of the admin object that allows an Ice application the attach its
- * {@link RemoteLogger} to the {@link RemoteLogger} of this admin object's Ice communicator.
+ * {@link RemoteLogger}} to the {@link RemoteLogger}} of this admin object's Ice communicator.
  **/
 public interface LoggerAdminPrx extends com.zeroc.Ice.ObjectPrx
 {

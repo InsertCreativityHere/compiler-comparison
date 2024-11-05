@@ -1,14 +1,3 @@
-% RemoteCommunicatorPrx   Summary of RemoteCommunicatorPrx
-%
-% RemoteCommunicatorPrx Methods:
-%   createObjectAdapter
-%   createObjectAdapterAsync
-%   deactivateObjectAdapter
-%   deactivateObjectAdapterAsync
-%   shutdown
-%   shutdownAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -16,15 +5,6 @@
 classdef RemoteCommunicatorPrx < Ice.ObjectPrx
     methods
         function result = createObjectAdapter(obj, name, endpoints, varargin)
-            % createObjectAdapter
-            %
-            % Parameters:
-            %   name (char)
-            %   endpoints (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.RemoteObjectAdapterPrx)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             os_.writeString(endpoints);
@@ -35,15 +15,6 @@ classdef RemoteCommunicatorPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = createObjectAdapterAsync(obj, name, endpoints, varargin)
-            % createObjectAdapterAsync
-            %
-            % Parameters:
-            %   name (char)
-            %   endpoints (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             os_.writeString(endpoints);
@@ -57,47 +28,21 @@ classdef RemoteCommunicatorPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('createObjectAdapter', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function deactivateObjectAdapter(obj, adapter, varargin)
-            % deactivateObjectAdapter
-            %
-            % Parameters:
-            %   adapter (Test.RemoteObjectAdapterPrx)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(adapter);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('deactivateObjectAdapter', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = deactivateObjectAdapterAsync(obj, adapter, varargin)
-            % deactivateObjectAdapterAsync
-            %
-            % Parameters:
-            %   adapter (Test.RemoteObjectAdapterPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(adapter);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('deactivateObjectAdapter', 0, false, os_, 0, [], {}, varargin{:});
         end
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
     end

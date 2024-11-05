@@ -17,7 +17,6 @@ import Foundation
 import Ice
 
 public enum array: Swift.UInt8 {
-    /// `as`
     case `as` = 0
     public init() {
         self = .`as`
@@ -421,13 +420,6 @@ public let print: Swift.Int32 = 0
 public let require_once: Swift.Int32 = 0
 
 
-/// breakPrx overview.
-///
-/// breakPrx Methods:
-///
-///  - `case`: 
-///
-///  - caseAsync: 
 public protocol breakPrx: Ice.ObjectPrx {}
 
 private final class breakPrxI: Ice.ObjectPrxI, breakPrx {
@@ -515,20 +507,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// breakPrx overview.
-///
-/// breakPrx Methods:
-///
-///  - `case`: 
-///
-///  - caseAsync: 
 public extension breakPrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func `case`(_ iceP_catch: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "case",
                                        mode: .Normal,
@@ -543,13 +522,6 @@ public extension breakPrx {
     }
 }
 
-/// functionPrx overview.
-///
-/// functionPrx Methods:
-///
-///  - `continue`: 
-///
-///  - continueAsync: 
 public protocol functionPrx: Ice.ObjectPrx {}
 
 private final class functionPrxI: Ice.ObjectPrxI, functionPrx {
@@ -637,20 +609,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// functionPrx overview.
-///
-/// functionPrx Methods:
-///
-///  - `continue`: 
-///
-///  - continueAsync: 
 public extension functionPrx {
-    ///
-    /// - parameter declare: `Swift.Int32`
-    ///
-    /// - parameter default: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func `continue`(declare iceP_declare: Swift.Int32, default iceP_default: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "continue",
                                        mode: .Normal,
@@ -662,13 +621,6 @@ public extension functionPrx {
     }
 }
 
-/// diePrx overview.
-///
-/// diePrx Methods:
-///
-///  - `do`: 
-///
-///  - doAsync: 
 public protocol diePrx: Ice.ObjectPrx {}
 
 private final class diePrxI: Ice.ObjectPrxI, diePrx {
@@ -756,16 +708,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// diePrx overview.
-///
-/// diePrx Methods:
-///
-///  - `do`: 
-///
-///  - doAsync: 
 public extension diePrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func `do`(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "do",
                                        mode: .Normal,
@@ -773,7 +716,6 @@ public extension diePrx {
     }
 }
 
-/// enddeclarePrx overview.
 public protocol enddeclarePrx: diePrx, functionPrx {}
 
 private final class enddeclarePrxI: Ice.ObjectPrxI, enddeclarePrx {
@@ -861,16 +803,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// enddeclarePrx overview.
 public extension enddeclarePrx {}
 
-/// forPrx overview.
-///
-/// forPrx Methods:
-///
-///  - foreach: 
-///
-///  - foreachAsync: 
 public protocol forPrx: Ice.ObjectPrx {}
 
 private final class forPrxI: Ice.ObjectPrxI, forPrx {
@@ -958,32 +892,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// forPrx overview.
-///
-/// forPrx Methods:
-///
-///  - foreach: 
-///
-///  - foreachAsync: 
 public extension forPrx {
-    ///
-    /// - parameter if: `breakPrx?`
-    ///
-    /// - parameter global: `echo?`
-    ///
-    /// - parameter include: `functionPrx?`
-    ///
-    /// - parameter return: `diePrx?`
-    ///
-    /// - parameter list: `enddeclarePrx?`
-    ///
-    /// - parameter new: `Swift.Int32`
-    ///
-    /// - parameter static: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `array`
     func foreach(if iceP_if: breakPrx?, global iceP_global: echo?, include iceP_include: functionPrx?, return iceP_return: diePrx?, list iceP_list: enddeclarePrx?, new iceP_new: Swift.Int32, static iceP_static: Swift.Int32, context: Ice.Context? = nil) async throws -> array {
         return try await _impl._invoke(operation: "foreach",
                                        mode: .Normal,
@@ -1004,9 +913,9 @@ public extension forPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as endwhile {
-                                               throw error
                                            } catch let error as endif {
+                                               throw error
+                                           } catch let error as endwhile {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -1095,12 +1004,6 @@ public struct breakDisp: Ice.Dispatcher {
 }
 
 public protocol `break` {
-    ///
-    /// - parameter catch: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func `case`(catch: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -1133,12 +1036,6 @@ public struct functionDisp: Ice.Dispatcher {
 }
 
 public protocol function {
-    ///
-    /// - parameter declare: `Swift.Int32`
-    ///
-    /// - parameter default: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func `continue`(declare: Swift.Int32, default: Swift.Int32, current: Ice.Current) async throws
 }
 
@@ -1171,8 +1068,6 @@ public struct dieDisp: Ice.Dispatcher {
 }
 
 public protocol die {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func `do`(current: Ice.Current) async throws
 }
 
@@ -1237,32 +1132,9 @@ public struct forDisp: Ice.Dispatcher {
 }
 
 public protocol `for` {
-    ///
-    /// - parameter if: `breakPrx?`
-    ///
-    /// - parameter global: `echo?`
-    ///
-    /// - parameter include: `functionPrx?`
-    ///
-    /// - parameter return: `diePrx?`
-    ///
-    /// - parameter list: `enddeclarePrx?`
-    ///
-    /// - parameter new: `Swift.Int32`
-    ///
-    /// - parameter static: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `array`
     func foreach(if: breakPrx?, global: echo?, include: functionPrx?, return: diePrx?, list: enddeclarePrx?, new: Swift.Int32, static: Swift.Int32, current: Ice.Current) async throws -> array
 }
 
-/// break overview.
-///
-/// break Methods:
-///
-///  - `case`: 
 extension `break` {
     public func _iceD_case(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1277,11 +1149,6 @@ extension `break` {
     }
 }
 
-/// function overview.
-///
-/// function Methods:
-///
-///  - `continue`: 
 extension function {
     public func _iceD_continue(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1294,11 +1161,6 @@ extension function {
     }
 }
 
-/// die overview.
-///
-/// die Methods:
-///
-///  - `do`: 
 extension die {
     public func _iceD_do(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1308,14 +1170,8 @@ extension die {
     }
 }
 
-/// enddeclare overview.
 extension enddeclare {}
 
-/// for overview.
-///
-/// for Methods:
-///
-///  - foreach: 
 extension `for` {
     public func _iceD_foreach(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

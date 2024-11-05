@@ -1,28 +1,3 @@
-% NodePrx   Summary of NodePrx
-%
-% NodePrx Methods:
-%   loadServer - Load the given server.
-%   loadServerAsync - Load the given server.
-%   loadServerWithoutRestart - Load the given server and ensure the server won't be restarted.
-%   loadServerWithoutRestartAsync - Load the given server and ensure the server won't be restarted.
-%   destroyServer - Destroy the given server.
-%   destroyServerAsync - Destroy the given server.
-%   destroyServerWithoutRestart - Destroy the server if it's not active.
-%   destroyServerWithoutRestartAsync - Destroy the server if it's not active.
-%   registerWithReplica - Establish a session to the given replica, this method only returns once the registration was attempted (unlike replicaAdded below).
-%   registerWithReplicaAsync - Establish a session to the given replica, this method only returns once the registration was attempted (unlike replicaAdded below).
-%   getName - Get the node name.
-%   getNameAsync - Get the node name.
-%   getHostname - Get the node hostname.
-%   getHostnameAsync - Get the node hostname.
-%   getLoad - Get the node load.
-%   getLoadAsync - Get the node load.
-%   getProcessorSocketCount - Get the number of processor sockets for the machine where this node is running.
-%   getProcessorSocketCountAsync - Get the number of processor sockets for the machine where this node is running.
-%   shutdown - Shutdown the node.
-%   shutdownAsync - Shutdown the node.
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0

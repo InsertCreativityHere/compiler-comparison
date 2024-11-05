@@ -150,7 +150,7 @@ public extension OutputStream {
     }
 }
 
-/// A sequence of MetricsFailures.
+/// A sequence of {@link MetricsFailures}.
 public typealias MXMetricsFailuresSeq = [MXMetricsFailures]
 
 /// Helper class to read and write `MXMetricsFailuresSeq` sequence values from
@@ -802,7 +802,7 @@ open class MXThreadMetrics: MXMetrics {
     /// The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
     public var inUseForUser: Swift.Int32 = 0
     /// The number of threads which are currently performing other activities. These are all other that are not
-    /// counted with inUseForUser or inUseForIO, such as DNS lookups, garbage collection).
+    /// counted with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
     public var inUseForOther: Swift.Int32 = 0
 
     public required init() {
@@ -912,7 +912,7 @@ public extension ClassResolver {
 
 /// Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
 /// collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
-/// embedded within InvocationMetrics.
+/// embedded within {@link InvocationMetrics}.
 open class MXChildInvocationMetrics: MXMetrics {
     /// The size of the invocation. This corresponds to the size of the marshaled input parameters.
     public var size: Swift.Int64 = 0
@@ -966,7 +966,7 @@ public extension ClassResolver {
 }
 
 /// Provides information on invocations that are collocated. Collocated metrics are embedded within
-/// InvocationMetrics.
+/// {@link InvocationMetrics}.
 open class MXCollocatedMetrics: MXChildInvocationMetrics {
     /// Returns the Slice type ID of the interface supported by this object.
     ///
@@ -1000,7 +1000,7 @@ public extension ClassResolver {
 }
 
 /// Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
-/// within InvocationMetrics.
+/// within {@link InvocationMetrics}.
 open class MXRemoteMetrics: MXChildInvocationMetrics {
     /// Returns the Slice type ID of the interface supported by this object.
     ///

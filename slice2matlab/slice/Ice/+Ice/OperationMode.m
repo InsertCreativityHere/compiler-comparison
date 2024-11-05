@@ -11,20 +11,26 @@
 % Generated from OperationMode.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef OperationMode < uint8
-    enumeration
+    enumeration% Normal   Summary of Normal
+        %
         % Ordinary operations have Normal mode. These operations modify object state; invoking such an
         % operation twice in a row has different semantics than invoking it once. The Ice run time guarantees that it
         % will not violate at-most-once semantics for Normal operations.
-        Normal (0)
+        
+        Normal (0)% Nonmutating   Summary of Nonmutating
+        %
         % Operations that are nonmutating must not modify object state.
         % The Ice run-time no longer makes a distinction between nonmutating operations and idempotent operations.
         % Use the idempotent keyword instead.
-        Nonmutating (1)
+        
+        Nonmutating (1)% Idempotent   Summary of Idempotent
+        %
         % Operations that use the Slice idempotent keyword can modify object state, but invoking an
         % operation twice in a row must result in the same object state as invoking it once. For example,
         % x = 1 is an idempotent statement, whereas x += 1 is not. In addition, the Ice
         % run time will attempt to transparently recover from certain run-time errors by re-issuing a failed request
         % and propagate the failure to the application only if the second attempt fails.
+        
         Idempotent (2)
     end
     methods(Static)

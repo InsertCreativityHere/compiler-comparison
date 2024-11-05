@@ -1,10 +1,3 @@
-% TopicSpec   Summary of TopicSpec
-%
-% TopicSpec Properties:
-%   id - The id of the topic.
-%   name - The name of the topic.
-%   elements - The topic keys or filters.
-%   tags - The topic update tags.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0

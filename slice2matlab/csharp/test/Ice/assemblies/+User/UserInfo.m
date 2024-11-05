@@ -1,4 +1,3 @@
-% UserInfo   Summary of UserInfo
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from User.ice by slice2matlab version 3.8.0-alpha.0

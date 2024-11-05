@@ -1,8 +1,3 @@
-% DataSamples   Summary of DataSamples
-%
-% DataSamples Properties:
-%   id - The id of the writer or reader.
-%   samples - The samples.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0

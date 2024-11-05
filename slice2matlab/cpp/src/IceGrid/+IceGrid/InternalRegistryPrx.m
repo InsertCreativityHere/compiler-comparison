@@ -1,26 +1,3 @@
-% InternalRegistryPrx   Summary of InternalRegistryPrx
-%
-% InternalRegistryPrx Methods:
-%   registerNode - Register a node with the registry.
-%   registerNodeAsync - Register a node with the registry.
-%   registerReplica - Register a replica with the registry.
-%   registerReplicaAsync - Register a replica with the registry.
-%   registerWithReplica - Create a session with the given registry replica.
-%   registerWithReplicaAsync - Create a session with the given registry replica.
-%   getNodes - Return the proxies of all the nodes known by this registry.
-%   getNodesAsync - Return the proxies of all the nodes known by this registry.
-%   getReplicas - Return the proxies of all the registry replicas known by this registry.
-%   getReplicasAsync - Return the proxies of all the registry replicas known by this registry.
-%   getApplications - Return applications, adapters, objects from this replica.
-%   getApplicationsAsync - Return applications, adapters, objects from this replica.
-%   getAdapters
-%   getAdaptersAsync
-%   getObjects
-%   getObjectsAsync
-%   shutdown - Shutdown this registry.
-%   shutdownAsync - Shutdown this registry.
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0
@@ -261,15 +238,6 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             r_ = obj.iceInvokeAsync('getApplications', 2, true, [], 2, @unmarshal, {}, varargin{:});
         end
         function [result, serial] = getAdapters(obj, varargin)
-            % getAdapters
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (IceGrid.AdapterInfoSeq)
-            %   serial (int64)
-            
             is_ = obj.iceInvoke('getAdapters', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             serial = is_.readLong();
@@ -277,13 +245,6 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             is_.endEncapsulation();
         end
         function r_ = getAdaptersAsync(obj, varargin)
-            % getAdaptersAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 serial = is_.readLong();
@@ -295,15 +256,6 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             r_ = obj.iceInvokeAsync('getAdapters', 2, true, [], 2, @unmarshal, {}, varargin{:});
         end
         function [result, serial] = getObjects(obj, varargin)
-            % getObjects
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (IceGrid.ObjectInfoSeq)
-            %   serial (int64)
-            
             is_ = obj.iceInvoke('getObjects', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             serial = is_.readLong();
@@ -311,13 +263,6 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             is_.endEncapsulation();
         end
         function r_ = getObjectsAsync(obj, varargin)
-            % getObjectsAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 serial = is_.readLong();

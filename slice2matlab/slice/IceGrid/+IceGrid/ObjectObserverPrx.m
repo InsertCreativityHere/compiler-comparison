@@ -5,12 +5,12 @@
 % ObjectObserverPrx Methods:
 %   objectInit - objectInit is called after the registration of an observer to indicate the state of the registry.
 %   objectInitAsync - objectInit is called after the registration of an observer to indicate the state of the registry.
-%   objectAdded - The objectAdded operation is called to notify an observer when an object was added to the Admin interface.
-%   objectAddedAsync - The objectAdded operation is called to notify an observer when an object was added to the Admin interface.
-%   objectUpdated - objectUpdated is called to notify an observer when an object registered with the Admin interface was updated.
-%   objectUpdatedAsync - objectUpdated is called to notify an observer when an object registered with the Admin interface was updated.
-%   objectRemoved - objectRemoved is called to notify an observer when an object registered with the Admin interface was removed.
-%   objectRemovedAsync - objectRemoved is called to notify an observer when an object registered with the Admin interface was removed.
+%   objectAdded - The objectAdded operation is called to notify an observer when an object was added to the {@link Admin} interface.
+%   objectAddedAsync - The objectAdded operation is called to notify an observer when an object was added to the {@link Admin} interface.
+%   objectUpdated - objectUpdated is called to notify an observer when an object registered with the {@link Admin} interface was updated.
+%   objectUpdatedAsync - objectUpdated is called to notify an observer when an object registered with the {@link Admin} interface was updated.
+%   objectRemoved - objectRemoved is called to notify an observer when an object registered with the {@link Admin} interface was removed.
+%   objectRemovedAsync - objectRemoved is called to notify an observer when an object registered with the {@link Admin} interface was removed.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -24,7 +24,7 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             % registry.
             %
             % Parameters:
-            %   objects (IceGrid.ObjectInfoSeq) - The objects registered with the Admin interface (not through the deployment
+            %   objects (IceGrid.ObjectInfoSeq) - The objects registered with the {@link Admin} interface (not through the deployment
             %     mechanism).
             %   context (containers.Map) - Optional request context.
             
@@ -38,7 +38,7 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             % registry.
             %
             % Parameters:
-            %   objects (IceGrid.ObjectInfoSeq) - The objects registered with the Admin interface (not through the deployment
+            %   objects (IceGrid.ObjectInfoSeq) - The objects registered with the {@link Admin} interface (not through the deployment
             %     mechanism).
             %   context (containers.Map) - Optional request context.
             %
@@ -51,7 +51,7 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
         end
         function objectAdded(obj, info, varargin)
             % objectAdded   The objectAdded operation is called to notify an observer when an object was added to the
-            % Admin interface.
+            % {@link Admin} interface.
             %
             % Parameters:
             %   info (IceGrid.ObjectInfo) - The details of the added object.
@@ -64,7 +64,7 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
         end
         function r_ = objectAddedAsync(obj, info, varargin)
             % objectAddedAsync   The objectAdded operation is called to notify an observer when an object was added to the
-            % Admin interface.
+            % {@link Admin} interface.
             %
             % Parameters:
             %   info (IceGrid.ObjectInfo) - The details of the added object.
@@ -78,7 +78,7 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('objectAdded', 0, false, os_, 0, [], {}, varargin{:});
         end
         function objectUpdated(obj, info, varargin)
-            % objectUpdated   objectUpdated is called to notify an observer when an object registered with the Admin
+            % objectUpdated   objectUpdated is called to notify an observer when an object registered with the {@link Admin}
             % interface was updated.
             %
             % Parameters:
@@ -91,7 +91,7 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('objectUpdated', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = objectUpdatedAsync(obj, info, varargin)
-            % objectUpdatedAsync   objectUpdated is called to notify an observer when an object registered with the Admin
+            % objectUpdatedAsync   objectUpdated is called to notify an observer when an object registered with the {@link Admin}
             % interface was updated.
             %
             % Parameters:
@@ -106,7 +106,7 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('objectUpdated', 0, false, os_, 0, [], {}, varargin{:});
         end
         function objectRemoved(obj, id, varargin)
-            % objectRemoved   objectRemoved is called to notify an observer when an object registered with the Admin
+            % objectRemoved   objectRemoved is called to notify an observer when an object registered with the {@link Admin}
             % interface was removed.
             %
             % Parameters:
@@ -119,7 +119,7 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('objectRemoved', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = objectRemovedAsync(obj, id, varargin)
-            % objectRemovedAsync   objectRemoved is called to notify an observer when an object registered with the Admin
+            % objectRemovedAsync   objectRemoved is called to notify an observer when an object registered with the {@link Admin}
             % interface was removed.
             %
             % Parameters:

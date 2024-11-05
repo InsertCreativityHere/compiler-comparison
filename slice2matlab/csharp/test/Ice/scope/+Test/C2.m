@@ -1,9 +1,3 @@
-% C2   Summary of C2
-%
-% C2 Properties:
-%   E1
-%   S1
-%   C1
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

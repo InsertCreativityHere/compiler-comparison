@@ -17,7 +17,7 @@ package com.zeroc.IceGrid;
 
 /**
  * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
- * sessions are created either via the {@link Registry} object or via the registry admin
+ * sessions are created either via the {@link Registry}} object or via the registry admin
  * <code>SessionManager</code> object.
  *
  * @see Registry

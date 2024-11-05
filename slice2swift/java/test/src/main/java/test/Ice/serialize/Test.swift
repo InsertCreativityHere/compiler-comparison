@@ -17,11 +17,8 @@ import Foundation
 import Ice
 
 public enum MyEnum: Swift.UInt8 {
-    /// enum1
     case enum1 = 0
-    /// enum2
     case enum2 = 1
-    /// enum3
     case enum3 = 2
     public init() {
         self = .enum1
@@ -635,25 +632,6 @@ public struct InitialTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Initial"
 }
 
-/// InitialPrx overview.
-///
-/// InitialPrx Methods:
-///
-///  - getStruct1: 
-///
-///  - getStruct1Async: 
-///
-///  - getBase: 
-///
-///  - getBaseAsync: 
-///
-///  - getEx: 
-///
-///  - getExAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol InitialPrx: Ice.ObjectPrx {}
 
 private final class InitialPrxI: Ice.ObjectPrxI, InitialPrx {
@@ -741,30 +719,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// InitialPrx overview.
-///
-/// InitialPrx Methods:
-///
-///  - getStruct1: 
-///
-///  - getStruct1Async: 
-///
-///  - getBase: 
-///
-///  - getBaseAsync: 
-///
-///  - getEx: 
-///
-///  - getExAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension InitialPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ByteS`
     func getStruct1(context: Ice.Context? = nil) async throws -> ByteS {
         return try await _impl._invoke(operation: "getStruct1",
                                        mode: .Normal,
@@ -775,10 +730,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ByteS`
     func getBase(context: Ice.Context? = nil) async throws -> ByteS {
         return try await _impl._invoke(operation: "getBase",
                                        mode: .Normal,
@@ -789,10 +740,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ByteS`
     func getEx(context: Ice.Context? = nil) async throws -> ByteS {
         return try await _impl._invoke(operation: "getEx",
                                        mode: .Normal,
@@ -803,8 +750,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -972,40 +917,15 @@ public struct InitialDisp: Ice.Dispatcher {
 }
 
 public protocol Initial {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ByteS`
     func getStruct1(current: Ice.Current) async throws -> ByteS
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ByteS`
     func getBase(current: Ice.Current) async throws -> ByteS
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ByteS`
     func getEx(current: Ice.Current) async throws -> ByteS
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Initial overview.
-///
-/// Initial Methods:
-///
-///  - getStruct1: 
-///
-///  - getBase: 
-///
-///  - getEx: 
-///
-///  - shutdown: 
 extension Initial {
     public func _iceD_getStruct1(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

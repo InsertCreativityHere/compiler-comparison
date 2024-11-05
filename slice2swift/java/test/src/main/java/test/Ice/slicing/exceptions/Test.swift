@@ -287,65 +287,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - baseAsBase: 
-///
-///  - baseAsBaseAsync: 
-///
-///  - unknownDerivedAsBase: 
-///
-///  - unknownDerivedAsBaseAsync: 
-///
-///  - knownDerivedAsBase: 
-///
-///  - knownDerivedAsBaseAsync: 
-///
-///  - knownDerivedAsKnownDerived: 
-///
-///  - knownDerivedAsKnownDerivedAsync: 
-///
-///  - unknownIntermediateAsBase: 
-///
-///  - unknownIntermediateAsBaseAsync: 
-///
-///  - knownIntermediateAsBase: 
-///
-///  - knownIntermediateAsBaseAsync: 
-///
-///  - knownMostDerivedAsBase: 
-///
-///  - knownMostDerivedAsBaseAsync: 
-///
-///  - knownIntermediateAsKnownIntermediate: 
-///
-///  - knownIntermediateAsKnownIntermediateAsync: 
-///
-///  - knownMostDerivedAsKnownIntermediate: 
-///
-///  - knownMostDerivedAsKnownIntermediateAsync: 
-///
-///  - knownMostDerivedAsKnownMostDerived: 
-///
-///  - knownMostDerivedAsKnownMostDerivedAsync: 
-///
-///  - unknownMostDerived1AsBase: 
-///
-///  - unknownMostDerived1AsBaseAsync: 
-///
-///  - unknownMostDerived1AsKnownIntermediate: 
-///
-///  - unknownMostDerived1AsKnownIntermediateAsync: 
-///
-///  - unknownMostDerived2AsBase: 
-///
-///  - unknownMostDerived2AsBaseAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -433,68 +374,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - baseAsBase: 
-///
-///  - baseAsBaseAsync: 
-///
-///  - unknownDerivedAsBase: 
-///
-///  - unknownDerivedAsBaseAsync: 
-///
-///  - knownDerivedAsBase: 
-///
-///  - knownDerivedAsBaseAsync: 
-///
-///  - knownDerivedAsKnownDerived: 
-///
-///  - knownDerivedAsKnownDerivedAsync: 
-///
-///  - unknownIntermediateAsBase: 
-///
-///  - unknownIntermediateAsBaseAsync: 
-///
-///  - knownIntermediateAsBase: 
-///
-///  - knownIntermediateAsBaseAsync: 
-///
-///  - knownMostDerivedAsBase: 
-///
-///  - knownMostDerivedAsBaseAsync: 
-///
-///  - knownIntermediateAsKnownIntermediate: 
-///
-///  - knownIntermediateAsKnownIntermediateAsync: 
-///
-///  - knownMostDerivedAsKnownIntermediate: 
-///
-///  - knownMostDerivedAsKnownIntermediateAsync: 
-///
-///  - knownMostDerivedAsKnownMostDerived: 
-///
-///  - knownMostDerivedAsKnownMostDerivedAsync: 
-///
-///  - unknownMostDerived1AsBase: 
-///
-///  - unknownMostDerived1AsBaseAsync: 
-///
-///  - unknownMostDerived1AsKnownIntermediate: 
-///
-///  - unknownMostDerived1AsKnownIntermediateAsync: 
-///
-///  - unknownMostDerived2AsBase: 
-///
-///  - unknownMostDerived2AsBaseAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func baseAsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "baseAsBase",
                                        mode: .Normal,
@@ -509,8 +389,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func unknownDerivedAsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "unknownDerivedAsBase",
                                        mode: .Normal,
@@ -525,8 +403,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func knownDerivedAsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "knownDerivedAsBase",
                                        mode: .Normal,
@@ -541,8 +417,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func knownDerivedAsKnownDerived(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "knownDerivedAsKnownDerived",
                                        mode: .Normal,
@@ -557,8 +431,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func unknownIntermediateAsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "unknownIntermediateAsBase",
                                        mode: .Normal,
@@ -573,8 +445,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func knownIntermediateAsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "knownIntermediateAsBase",
                                        mode: .Normal,
@@ -589,8 +459,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func knownMostDerivedAsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "knownMostDerivedAsBase",
                                        mode: .Normal,
@@ -605,8 +473,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func knownIntermediateAsKnownIntermediate(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "knownIntermediateAsKnownIntermediate",
                                        mode: .Normal,
@@ -621,8 +487,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func knownMostDerivedAsKnownIntermediate(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "knownMostDerivedAsKnownIntermediate",
                                        mode: .Normal,
@@ -637,8 +501,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func knownMostDerivedAsKnownMostDerived(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "knownMostDerivedAsKnownMostDerived",
                                        mode: .Normal,
@@ -653,8 +515,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func unknownMostDerived1AsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "unknownMostDerived1AsBase",
                                        mode: .Normal,
@@ -669,8 +529,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func unknownMostDerived1AsKnownIntermediate(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "unknownMostDerived1AsKnownIntermediate",
                                        mode: .Normal,
@@ -685,8 +543,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func unknownMostDerived2AsBase(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "unknownMostDerived2AsBase",
                                        mode: .Normal,
@@ -701,8 +557,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -766,94 +620,35 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func baseAsBase(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func unknownDerivedAsBase(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func knownDerivedAsBase(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func knownDerivedAsKnownDerived(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func unknownIntermediateAsBase(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func knownIntermediateAsBase(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func knownMostDerivedAsBase(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func knownIntermediateAsKnownIntermediate(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func knownMostDerivedAsKnownIntermediate(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func knownMostDerivedAsKnownMostDerived(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func unknownMostDerived1AsBase(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func unknownMostDerived1AsKnownIntermediate(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func unknownMostDerived2AsBase(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - baseAsBase: 
-///
-///  - unknownDerivedAsBase: 
-///
-///  - knownDerivedAsBase: 
-///
-///  - knownDerivedAsKnownDerived: 
-///
-///  - unknownIntermediateAsBase: 
-///
-///  - knownIntermediateAsBase: 
-///
-///  - knownMostDerivedAsBase: 
-///
-///  - knownIntermediateAsKnownIntermediate: 
-///
-///  - knownMostDerivedAsKnownIntermediate: 
-///
-///  - knownMostDerivedAsKnownMostDerived: 
-///
-///  - unknownMostDerived1AsBase: 
-///
-///  - unknownMostDerived1AsKnownIntermediate: 
-///
-///  - unknownMostDerived2AsBase: 
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_baseAsBase(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

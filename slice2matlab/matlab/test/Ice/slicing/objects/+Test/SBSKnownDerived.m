@@ -1,7 +1,3 @@
-% SBSKnownDerived   Summary of SBSKnownDerived
-%
-% SBSKnownDerived Properties:
-%   sbskd
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ClientPrivate.ice by slice2matlab version 3.8.0-alpha.0

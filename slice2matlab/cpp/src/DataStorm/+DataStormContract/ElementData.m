@@ -1,9 +1,3 @@
-% ElementData   Summary of ElementData
-%
-% ElementData Properties:
-%   id - The id of the writer or reader.
-%   config - The config of the writer or reader.
-%   lastIds - The lastIds received by the reader.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0

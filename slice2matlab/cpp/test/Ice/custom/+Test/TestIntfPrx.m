@@ -1,74 +1,3 @@
-% TestIntfPrx   Summary of TestIntfPrx
-%
-% TestIntfPrx Methods:
-%   opShortArray
-%   opShortArrayAsync
-%   opDoubleArray
-%   opDoubleArrayAsync
-%   opBoolArray
-%   opBoolArrayAsync
-%   opByteArray
-%   opByteArrayAsync
-%   opVariableArray
-%   opVariableArrayAsync
-%   opBoolSeq
-%   opBoolSeqAsync
-%   opBoolList
-%   opBoolListAsync
-%   opBoolDequeList
-%   opBoolDequeListAsync
-%   opBoolDequeListArray
-%   opBoolDequeListArrayAsync
-%   opByteSeq
-%   opByteSeqAsync
-%   opByteList
-%   opByteListAsync
-%   opMyByteSeq
-%   opMyByteSeqAsync
-%   opStringSeq
-%   opStringSeqAsync
-%   opStringList
-%   opStringListAsync
-%   opFixedSeq
-%   opFixedSeqAsync
-%   opFixedList
-%   opFixedListAsync
-%   opVariableSeq
-%   opVariableSeqAsync
-%   opVariableList
-%   opVariableListAsync
-%   opStringStringDictSeq
-%   opStringStringDictSeqAsync
-%   opStringStringDictList
-%   opStringStringDictListAsync
-%   opESeq
-%   opESeqAsync
-%   opEList
-%   opEListAsync
-%   opDPrxSeq
-%   opDPrxSeqAsync
-%   opDPrxList
-%   opDPrxListAsync
-%   opCSeq
-%   opCSeqAsync
-%   opCList
-%   opCListAsync
-%   opOutArrayByteSeq
-%   opOutArrayByteSeqAsync
-%   opIntStringDict
-%   opIntStringDictAsync
-%   opVarDict
-%   opVarDictAsync
-%   opShortBuffer
-%   opShortBufferAsync
-%   opBoolBuffer
-%   opBoolBufferAsync
-%   opBufferStruct
-%   opBufferStructAsync
-%   shutdown
-%   shutdownAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -76,16 +5,6 @@
 classdef TestIntfPrx < Ice.ObjectPrx
     methods
         function [result, outSeq] = opShortArray(obj, inSeq, varargin)
-            % opShortArray
-            %
-            % Parameters:
-            %   inSeq (Test.ShortSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.ShortSeq)
-            %   outSeq (Test.ShortSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeShortSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -96,14 +15,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opShortArrayAsync(obj, inSeq, varargin)
-            % opShortArrayAsync
-            %
-            % Parameters:
-            %   inSeq (Test.ShortSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeShortSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -118,17 +29,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opShortArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opDoubleArray(obj, padding, inSeq, varargin)
-            % opDoubleArray
-            %
-            % Parameters:
-            %   padding (logical)
-            %   inSeq (Test.DoubleSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.DoubleSeq)
-            %   outSeq (Test.DoubleSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBool(padding);
             os_.writeDoubleSeq(inSeq);
@@ -140,15 +40,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opDoubleArrayAsync(obj, padding, inSeq, varargin)
-            % opDoubleArrayAsync
-            %
-            % Parameters:
-            %   padding (logical)
-            %   inSeq (Test.DoubleSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBool(padding);
             os_.writeDoubleSeq(inSeq);
@@ -164,16 +55,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opDoubleArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opBoolArray(obj, inSeq, varargin)
-            % opBoolArray
-            %
-            % Parameters:
-            %   inSeq (Test.BoolSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.BoolSeq)
-            %   outSeq (Test.BoolSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBoolSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -184,14 +65,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opBoolArrayAsync(obj, inSeq, varargin)
-            % opBoolArrayAsync
-            %
-            % Parameters:
-            %   inSeq (Test.BoolSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBoolSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -206,16 +79,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opBoolArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opByteArray(obj, inSeq, varargin)
-            % opByteArray
-            %
-            % Parameters:
-            %   inSeq (Test.ByteList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.ByteList)
-            %   outSeq (Test.ByteList)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -226,14 +89,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opByteArrayAsync(obj, inSeq, varargin)
-            % opByteArrayAsync
-            %
-            % Parameters:
-            %   inSeq (Test.ByteList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -248,16 +103,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opByteArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opVariableArray(obj, inSeq, varargin)
-            % opVariableArray
-            %
-            % Parameters:
-            %   inSeq (Test.VariableList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.VariableList)
-            %   outSeq (Test.VariableList)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.VariableList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -268,14 +113,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opVariableArrayAsync(obj, inSeq, varargin)
-            % opVariableArrayAsync
-            %
-            % Parameters:
-            %   inSeq (Test.VariableList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.VariableList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -290,16 +127,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opVariableArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opBoolSeq(obj, inSeq, varargin)
-            % opBoolSeq
-            %
-            % Parameters:
-            %   inSeq (Test.BoolSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.BoolSeq)
-            %   outSeq (Test.BoolSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBoolSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -310,14 +137,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opBoolSeqAsync(obj, inSeq, varargin)
-            % opBoolSeqAsync
-            %
-            % Parameters:
-            %   inSeq (Test.BoolSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBoolSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -332,16 +151,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opBoolSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opBoolList(obj, inSeq, varargin)
-            % opBoolList
-            %
-            % Parameters:
-            %   inSeq (Test.BoolList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.BoolList)
-            %   outSeq (Test.BoolList)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBoolSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -352,14 +161,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opBoolListAsync(obj, inSeq, varargin)
-            % opBoolListAsync
-            %
-            % Parameters:
-            %   inSeq (Test.BoolList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBoolSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -374,16 +175,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opBoolList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opBoolDequeList(obj, inSeq, varargin)
-            % opBoolDequeList
-            %
-            % Parameters:
-            %   inSeq (Test.BoolDequeList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.BoolDequeList)
-            %   outSeq (Test.BoolDequeList)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.BoolDequeList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -394,14 +185,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opBoolDequeListAsync(obj, inSeq, varargin)
-            % opBoolDequeListAsync
-            %
-            % Parameters:
-            %   inSeq (Test.BoolDequeList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.BoolDequeList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -416,16 +199,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opBoolDequeList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opBoolDequeListArray(obj, inSeq, varargin)
-            % opBoolDequeListArray
-            %
-            % Parameters:
-            %   inSeq (Test.BoolDequeList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.BoolDequeList)
-            %   outSeq (Test.BoolDequeList)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.BoolDequeList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -436,14 +209,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opBoolDequeListArrayAsync(obj, inSeq, varargin)
-            % opBoolDequeListArrayAsync
-            %
-            % Parameters:
-            %   inSeq (Test.BoolDequeList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.BoolDequeList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -458,16 +223,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opBoolDequeListArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opByteSeq(obj, inSeq, varargin)
-            % opByteSeq
-            %
-            % Parameters:
-            %   inSeq (Test.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.ByteSeq)
-            %   outSeq (Test.ByteSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -478,14 +233,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opByteSeqAsync(obj, inSeq, varargin)
-            % opByteSeqAsync
-            %
-            % Parameters:
-            %   inSeq (Test.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -500,16 +247,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opByteSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opByteList(obj, inSeq, varargin)
-            % opByteList
-            %
-            % Parameters:
-            %   inSeq (Test.ByteList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.ByteList)
-            %   outSeq (Test.ByteList)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -520,14 +257,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opByteListAsync(obj, inSeq, varargin)
-            % opByteListAsync
-            %
-            % Parameters:
-            %   inSeq (Test.ByteList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -542,16 +271,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opByteList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opMyByteSeq(obj, inSeq, varargin)
-            % opMyByteSeq
-            %
-            % Parameters:
-            %   inSeq (Test.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.ByteSeq)
-            %   outSeq (Test.ByteSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -562,14 +281,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opMyByteSeqAsync(obj, inSeq, varargin)
-            % opMyByteSeqAsync
-            %
-            % Parameters:
-            %   inSeq (Test.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -584,16 +295,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opMyByteSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opStringSeq(obj, inSeq, varargin)
-            % opStringSeq
-            %
-            % Parameters:
-            %   inSeq (Test.StringSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.StringSeq)
-            %   outSeq (Test.StringSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeStringSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -604,14 +305,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opStringSeqAsync(obj, inSeq, varargin)
-            % opStringSeqAsync
-            %
-            % Parameters:
-            %   inSeq (Test.StringSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeStringSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -626,16 +319,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opStringSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opStringList(obj, inSeq, varargin)
-            % opStringList
-            %
-            % Parameters:
-            %   inSeq (Test.StringList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.StringList)
-            %   outSeq (Test.StringList)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeStringSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -646,14 +329,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opStringListAsync(obj, inSeq, varargin)
-            % opStringListAsync
-            %
-            % Parameters:
-            %   inSeq (Test.StringList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeStringSeq(inSeq);
             obj.iceEndWriteParams(os_);
@@ -668,16 +343,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opStringList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opFixedSeq(obj, inSeq, varargin)
-            % opFixedSeq
-            %
-            % Parameters:
-            %   inSeq (Test.FixedSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.FixedSeq)
-            %   outSeq (Test.FixedSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.FixedSeq.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -688,14 +353,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opFixedSeqAsync(obj, inSeq, varargin)
-            % opFixedSeqAsync
-            %
-            % Parameters:
-            %   inSeq (Test.FixedSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.FixedSeq.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -710,16 +367,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opFixedSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opFixedList(obj, inSeq, varargin)
-            % opFixedList
-            %
-            % Parameters:
-            %   inSeq (Test.FixedList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.FixedList)
-            %   outSeq (Test.FixedList)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.FixedList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -730,14 +377,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opFixedListAsync(obj, inSeq, varargin)
-            % opFixedListAsync
-            %
-            % Parameters:
-            %   inSeq (Test.FixedList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.FixedList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -752,16 +391,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opFixedList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opVariableSeq(obj, inSeq, varargin)
-            % opVariableSeq
-            %
-            % Parameters:
-            %   inSeq (Test.VariableSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.VariableSeq)
-            %   outSeq (Test.VariableSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.VariableSeq.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -772,14 +401,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opVariableSeqAsync(obj, inSeq, varargin)
-            % opVariableSeqAsync
-            %
-            % Parameters:
-            %   inSeq (Test.VariableSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.VariableSeq.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -794,16 +415,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opVariableSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opVariableList(obj, inSeq, varargin)
-            % opVariableList
-            %
-            % Parameters:
-            %   inSeq (Test.VariableList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.VariableList)
-            %   outSeq (Test.VariableList)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.VariableList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -814,14 +425,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opVariableListAsync(obj, inSeq, varargin)
-            % opVariableListAsync
-            %
-            % Parameters:
-            %   inSeq (Test.VariableList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.VariableList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -836,16 +439,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opVariableList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opStringStringDictSeq(obj, inSeq, varargin)
-            % opStringStringDictSeq
-            %
-            % Parameters:
-            %   inSeq (Test.StringStringDictSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.StringStringDictSeq)
-            %   outSeq (Test.StringStringDictSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.StringStringDictSeq.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -856,14 +449,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opStringStringDictSeqAsync(obj, inSeq, varargin)
-            % opStringStringDictSeqAsync
-            %
-            % Parameters:
-            %   inSeq (Test.StringStringDictSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.StringStringDictSeq.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -878,16 +463,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opStringStringDictSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opStringStringDictList(obj, inSeq, varargin)
-            % opStringStringDictList
-            %
-            % Parameters:
-            %   inSeq (Test.StringStringDictList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.StringStringDictList)
-            %   outSeq (Test.StringStringDictList)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.StringStringDictList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -898,14 +473,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opStringStringDictListAsync(obj, inSeq, varargin)
-            % opStringStringDictListAsync
-            %
-            % Parameters:
-            %   inSeq (Test.StringStringDictList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.StringStringDictList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -920,16 +487,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opStringStringDictList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opESeq(obj, inSeq, varargin)
-            % opESeq
-            %
-            % Parameters:
-            %   inSeq (Test.ESeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.ESeq)
-            %   outSeq (Test.ESeq)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.ESeq.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -940,14 +497,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opESeqAsync(obj, inSeq, varargin)
-            % opESeqAsync
-            %
-            % Parameters:
-            %   inSeq (Test.ESeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.ESeq.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -962,16 +511,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opESeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opEList(obj, inSeq, varargin)
-            % opEList
-            %
-            % Parameters:
-            %   inSeq (Test.EList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.EList)
-            %   outSeq (Test.EList)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.EList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -982,14 +521,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opEListAsync(obj, inSeq, varargin)
-            % opEListAsync
-            %
-            % Parameters:
-            %   inSeq (Test.EList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.EList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -1004,16 +535,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opEList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opDPrxSeq(obj, inSeq, varargin)
-            % opDPrxSeq
-            %
-            % Parameters:
-            %   inSeq (Test.DPrxSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.DPrxSeq)
-            %   outSeq (Test.DPrxSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.DPrxSeq.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -1024,14 +545,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opDPrxSeqAsync(obj, inSeq, varargin)
-            % opDPrxSeqAsync
-            %
-            % Parameters:
-            %   inSeq (Test.DPrxSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.DPrxSeq.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -1046,16 +559,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opDPrxSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opDPrxList(obj, inSeq, varargin)
-            % opDPrxList
-            %
-            % Parameters:
-            %   inSeq (Test.DPrxList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.DPrxList)
-            %   outSeq (Test.DPrxList)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.DPrxList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -1066,14 +569,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opDPrxListAsync(obj, inSeq, varargin)
-            % opDPrxListAsync
-            %
-            % Parameters:
-            %   inSeq (Test.DPrxList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.DPrxList.write(os_, inSeq);
             obj.iceEndWriteParams(os_);
@@ -1088,16 +583,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opDPrxList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opCSeq(obj, inSeq, varargin)
-            % opCSeq
-            %
-            % Parameters:
-            %   inSeq (Test.CSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.CSeq)
-            %   outSeq (Test.CSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.CSeq.write(os_, inSeq);
             os_.writePendingValues();
@@ -1112,14 +597,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             result = Test.CSeq.convert(result);
         end
         function r_ = opCSeqAsync(obj, inSeq, varargin)
-            % opCSeqAsync
-            %
-            % Parameters:
-            %   inSeq (Test.CSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.CSeq.write(os_, inSeq);
             os_.writePendingValues();
@@ -1136,16 +613,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opCSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opCList(obj, inSeq, varargin)
-            % opCList
-            %
-            % Parameters:
-            %   inSeq (Test.CList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.CList)
-            %   outSeq (Test.CList)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.CList.write(os_, inSeq);
             os_.writePendingValues();
@@ -1160,14 +627,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             result = Test.CList.convert(result);
         end
         function r_ = opCListAsync(obj, inSeq, varargin)
-            % opCListAsync
-            %
-            % Parameters:
-            %   inSeq (Test.CList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.CList.write(os_, inSeq);
             os_.writePendingValues();
@@ -1184,14 +643,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opCList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function copy = opOutArrayByteSeq(obj, org, varargin)
-            % opOutArrayByteSeq
-            %
-            % Parameters:
-            %   org (Test.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.ByteSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(org);
             obj.iceEndWriteParams(os_);
@@ -1201,14 +652,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opOutArrayByteSeqAsync(obj, org, varargin)
-            % opOutArrayByteSeqAsync
-            %
-            % Parameters:
-            %   org (Test.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeByteSeq(org);
             obj.iceEndWriteParams(os_);
@@ -1221,16 +664,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opOutArrayByteSeq', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function [result, odict] = opIntStringDict(obj, idict, varargin)
-            % opIntStringDict
-            %
-            % Parameters:
-            %   idict (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (containers.Map)
-            %   odict (containers.Map)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.IntStringDict.write(os_, idict);
             obj.iceEndWriteParams(os_);
@@ -1241,14 +674,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opIntStringDictAsync(obj, idict, varargin)
-            % opIntStringDictAsync
-            %
-            % Parameters:
-            %   idict (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.IntStringDict.write(os_, idict);
             obj.iceEndWriteParams(os_);
@@ -1263,16 +688,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opIntStringDict', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, odict] = opVarDict(obj, idict, varargin)
-            % opVarDict
-            %
-            % Parameters:
-            %   idict (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (containers.Map)
-            %   odict (containers.Map)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.StringIntDict.write(os_, idict);
             obj.iceEndWriteParams(os_);
@@ -1283,14 +698,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opVarDictAsync(obj, idict, varargin)
-            % opVarDictAsync
-            %
-            % Parameters:
-            %   idict (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.StringIntDict.write(os_, idict);
             obj.iceEndWriteParams(os_);
@@ -1305,16 +712,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opVarDict', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outS] = opShortBuffer(obj, inS, varargin)
-            % opShortBuffer
-            %
-            % Parameters:
-            %   inS (Test.ShortBuffer)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.ShortBuffer)
-            %   outS (Test.ShortBuffer)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeShortSeq(inS);
             obj.iceEndWriteParams(os_);
@@ -1325,14 +722,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opShortBufferAsync(obj, inS, varargin)
-            % opShortBufferAsync
-            %
-            % Parameters:
-            %   inS (Test.ShortBuffer)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeShortSeq(inS);
             obj.iceEndWriteParams(os_);
@@ -1347,16 +736,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opShortBuffer', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outS] = opBoolBuffer(obj, inS, varargin)
-            % opBoolBuffer
-            %
-            % Parameters:
-            %   inS (Test.BoolSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.BoolSeq)
-            %   outS (Test.BoolSeq)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBoolSeq(inS);
             obj.iceEndWriteParams(os_);
@@ -1367,14 +746,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opBoolBufferAsync(obj, inS, varargin)
-            % opBoolBufferAsync
-            %
-            % Parameters:
-            %   inS (Test.BoolSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeBoolSeq(inS);
             obj.iceEndWriteParams(os_);
@@ -1389,14 +760,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opBoolBuffer', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function result = opBufferStruct(obj, s, varargin)
-            % opBufferStruct
-            %
-            % Parameters:
-            %   s (Test.BufferStruct)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.BufferStruct)
-            
             os_ = obj.iceStartWriteParams([]);
             Test.BufferStruct.ice_write(os_, s);
             obj.iceEndWriteParams(os_);
@@ -1406,14 +769,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = opBufferStructAsync(obj, s, varargin)
-            % opBufferStructAsync
-            %
-            % Parameters:
-            %   s (Test.BufferStruct)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             Test.BufferStruct.ice_write(os_, s);
             obj.iceEndWriteParams(os_);
@@ -1426,21 +781,9 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('opBufferStruct', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
     end

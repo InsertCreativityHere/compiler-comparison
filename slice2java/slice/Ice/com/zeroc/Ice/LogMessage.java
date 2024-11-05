@@ -22,12 +22,12 @@ public class LogMessage implements java.lang.Cloneable,
                                    java.io.Serializable
 {
     /**
-     * The type of message sent to the {@link RemoteLogger}.
+     * The type of message sent to the {@link RemoteLogger}}.
      **/
     public LogMessageType type;
 
     /**
-     * The date and time when the {@link RemoteLogger} received this message, expressed as the number of microseconds
+     * The date and time when the {@link RemoteLogger}} received this message, expressed as the number of microseconds
      * since the Unix Epoch (00:00:00 UTC on 1 January 1970)
      **/
     public long timestamp;
@@ -197,5 +197,5 @@ public class LogMessage implements java.lang.Cloneable,
     private static final LogMessage _nullMarshalValue = new LogMessage();
 
     /** @hidden */
-    private static final long serialVersionUID = -5581752891294383210L;
+    private static final long serialVersionUID = 8577575517356880997L;
 }

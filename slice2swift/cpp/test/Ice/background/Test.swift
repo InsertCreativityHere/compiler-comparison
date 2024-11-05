@@ -28,21 +28,6 @@ public struct BackgroundControllerTraits: Ice.SliceTraits {
     public static let staticId = "::Test::BackgroundController"
 }
 
-/// BackgroundPrx overview.
-///
-/// BackgroundPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - opWithPayload: 
-///
-///  - opWithPayloadAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol BackgroundPrx: Ice.ObjectPrx {}
 
 private final class BackgroundPrxI: Ice.ObjectPrxI, BackgroundPrx {
@@ -130,34 +115,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// BackgroundPrx overview.
-///
-/// BackgroundPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - opWithPayload: 
-///
-///  - opWithPayloadAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension BackgroundPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Ice.ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opWithPayload(_ iceP_seq: Ice.ByteSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opWithPayload",
                                        mode: .Normal,
@@ -167,8 +131,6 @@ public extension BackgroundPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -176,53 +138,6 @@ public extension BackgroundPrx {
     }
 }
 
-/// BackgroundControllerPrx overview.
-///
-/// BackgroundControllerPrx Methods:
-///
-///  - pauseCall: 
-///
-///  - pauseCallAsync: 
-///
-///  - resumeCall: 
-///
-///  - resumeCallAsync: 
-///
-///  - holdAdapter: 
-///
-///  - holdAdapterAsync: 
-///
-///  - resumeAdapter: 
-///
-///  - resumeAdapterAsync: 
-///
-///  - initializeSocketOperation: 
-///
-///  - initializeSocketOperationAsync: 
-///
-///  - initializeException: 
-///
-///  - initializeExceptionAsync: 
-///
-///  - readReady: 
-///
-///  - readReadyAsync: 
-///
-///  - readException: 
-///
-///  - readExceptionAsync: 
-///
-///  - writeReady: 
-///
-///  - writeReadyAsync: 
-///
-///  - writeException: 
-///
-///  - writeExceptionAsync: 
-///
-///  - buffered: 
-///
-///  - bufferedAsync: 
 public protocol BackgroundControllerPrx: Ice.ObjectPrx {}
 
 private final class BackgroundControllerPrxI: Ice.ObjectPrxI, BackgroundControllerPrx {
@@ -310,58 +225,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// BackgroundControllerPrx overview.
-///
-/// BackgroundControllerPrx Methods:
-///
-///  - pauseCall: 
-///
-///  - pauseCallAsync: 
-///
-///  - resumeCall: 
-///
-///  - resumeCallAsync: 
-///
-///  - holdAdapter: 
-///
-///  - holdAdapterAsync: 
-///
-///  - resumeAdapter: 
-///
-///  - resumeAdapterAsync: 
-///
-///  - initializeSocketOperation: 
-///
-///  - initializeSocketOperationAsync: 
-///
-///  - initializeException: 
-///
-///  - initializeExceptionAsync: 
-///
-///  - readReady: 
-///
-///  - readReadyAsync: 
-///
-///  - readException: 
-///
-///  - readExceptionAsync: 
-///
-///  - writeReady: 
-///
-///  - writeReadyAsync: 
-///
-///  - writeException: 
-///
-///  - writeExceptionAsync: 
-///
-///  - buffered: 
-///
-///  - bufferedAsync: 
 public extension BackgroundControllerPrx {
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func pauseCall(_ iceP_call: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "pauseCall",
                                        mode: .Normal,
@@ -371,10 +235,6 @@ public extension BackgroundControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func resumeCall(_ iceP_call: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "resumeCall",
                                        mode: .Normal,
@@ -384,26 +244,18 @@ public extension BackgroundControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func holdAdapter(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "holdAdapter",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func resumeAdapter(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "resumeAdapter",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func initializeSocketOperation(_ iceP_status: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "initializeSocketOperation",
                                        mode: .Normal,
@@ -413,10 +265,6 @@ public extension BackgroundControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func initializeException(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "initializeException",
                                        mode: .Normal,
@@ -426,10 +274,6 @@ public extension BackgroundControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func readReady(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "readReady",
                                        mode: .Normal,
@@ -439,10 +283,6 @@ public extension BackgroundControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func readException(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "readException",
                                        mode: .Normal,
@@ -452,10 +292,6 @@ public extension BackgroundControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func writeReady(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "writeReady",
                                        mode: .Normal,
@@ -465,10 +301,6 @@ public extension BackgroundControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func writeException(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "writeException",
                                        mode: .Normal,
@@ -478,10 +310,6 @@ public extension BackgroundControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func buffered(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "buffered",
                                        mode: .Normal,
@@ -525,18 +353,10 @@ public struct BackgroundDisp: Ice.Dispatcher {
 }
 
 public protocol Background {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(current: Ice.Current) async throws
 
-    ///
-    /// - parameter seq: `Ice.ByteSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opWithPayload(seq: Ice.ByteSeq, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -589,78 +409,29 @@ public struct BackgroundControllerDisp: Ice.Dispatcher {
 }
 
 public protocol BackgroundController {
-    ///
-    /// - parameter call: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func pauseCall(call: Swift.String, current: Ice.Current) async throws
 
-    ///
-    /// - parameter call: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func resumeCall(call: Swift.String, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func holdAdapter(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func resumeAdapter(current: Ice.Current) async throws
 
-    ///
-    /// - parameter status: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func initializeSocketOperation(status: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter enable: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func initializeException(enable: Swift.Bool, current: Ice.Current) async throws
 
-    ///
-    /// - parameter enable: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func readReady(enable: Swift.Bool, current: Ice.Current) async throws
 
-    ///
-    /// - parameter enable: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func readException(enable: Swift.Bool, current: Ice.Current) async throws
 
-    ///
-    /// - parameter enable: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func writeReady(enable: Swift.Bool, current: Ice.Current) async throws
 
-    ///
-    /// - parameter enable: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func writeException(enable: Swift.Bool, current: Ice.Current) async throws
 
-    ///
-    /// - parameter enable: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func buffered(enable: Swift.Bool, current: Ice.Current) async throws
 }
 
-/// Background overview.
-///
-/// Background Methods:
-///
-///  - op: 
-///
-///  - opWithPayload: 
-///
-///  - shutdown: 
 extension Background {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -686,31 +457,6 @@ extension Background {
     }
 }
 
-/// BackgroundController overview.
-///
-/// BackgroundController Methods:
-///
-///  - pauseCall: 
-///
-///  - resumeCall: 
-///
-///  - holdAdapter: 
-///
-///  - resumeAdapter: 
-///
-///  - initializeSocketOperation: 
-///
-///  - initializeException: 
-///
-///  - readReady: 
-///
-///  - readException: 
-///
-///  - writeReady: 
-///
-///  - writeException: 
-///
-///  - buffered: 
 extension BackgroundController {
     public func _iceD_pauseCall(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

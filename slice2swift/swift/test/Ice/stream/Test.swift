@@ -17,11 +17,8 @@ import Foundation
 import Ice
 
 public enum MyEnum: Swift.UInt8 {
-    /// enum1
     case enum1 = 0
-    /// enum2
     case enum2 = 1
-    /// enum3
     case enum3 = 2
     public init() {
         self = .enum1
@@ -1485,11 +1482,8 @@ open class MyException: Ice.UserException, @unchecked Sendable {
 }
 
 public enum SubNestedEnum: Swift.UInt8 {
-    /// nestedEnum1
     case nestedEnum1 = 0
-    /// nestedEnum2
     case nestedEnum2 = 1
-    /// nestedEnum3
     case nestedEnum3 = 2
     public init() {
         self = .nestedEnum1
@@ -1677,11 +1671,8 @@ open class SubNestedException: Ice.UserException, @unchecked Sendable {
 }
 
 public enum Test2Sub2NestedEnum2: Swift.UInt8 {
-    /// nestedEnum4
     case nestedEnum4 = 0
-    /// nestedEnum5
     case nestedEnum5 = 1
-    /// nestedEnum6
     case nestedEnum6 = 2
     public init() {
         self = .nestedEnum4
@@ -1868,7 +1859,6 @@ open class Test2Sub2NestedException2: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// MyInterfacePrx overview.
 public protocol MyInterfacePrx: Ice.ObjectPrx {}
 
 private final class MyInterfacePrxI: Ice.ObjectPrxI, MyInterfacePrx {
@@ -1956,7 +1946,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyInterfacePrx overview.
 public extension MyInterfacePrx {}
 
 /// :nodoc:
@@ -2131,5 +2120,4 @@ public struct MyInterfaceDisp: Ice.Dispatcher {
 
 public protocol MyInterface {}
 
-/// MyInterface overview.
 extension MyInterface {}

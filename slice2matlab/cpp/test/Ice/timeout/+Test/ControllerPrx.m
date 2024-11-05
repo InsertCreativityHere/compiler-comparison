@@ -1,14 +1,3 @@
-% ControllerPrx   Summary of ControllerPrx
-%
-% ControllerPrx Methods:
-%   holdAdapter
-%   holdAdapterAsync
-%   resumeAdapter
-%   resumeAdapterAsync
-%   shutdown
-%   shutdownAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -16,65 +5,27 @@
 classdef ControllerPrx < Ice.ObjectPrx
     methods
         function holdAdapter(obj, to, varargin)
-            % holdAdapter
-            %
-            % Parameters:
-            %   to (int32)
-            %   context (containers.Map) - Optional request context.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(to);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('holdAdapter', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = holdAdapterAsync(obj, to, varargin)
-            % holdAdapterAsync
-            %
-            % Parameters:
-            %   to (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(to);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('holdAdapter', 0, false, os_, 0, [], {}, varargin{:});
         end
         function resumeAdapter(obj, varargin)
-            % resumeAdapter
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('resumeAdapter', 0, false, [], false, {}, varargin{:});
         end
         function r_ = resumeAdapterAsync(obj, varargin)
-            % resumeAdapterAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('resumeAdapter', 0, false, [], 0, [], {}, varargin{:});
         end
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
     end

@@ -1,12 +1,3 @@
-% ControllerPrx   Summary of ControllerPrx
-%
-% ControllerPrx Methods:
-%   hold
-%   holdAsync
-%   resume
-%   resumeAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -14,39 +5,15 @@
 classdef ControllerPrx < Ice.ObjectPrx
     methods
         function hold(obj, varargin)
-            % hold
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('hold', 0, false, [], false, {}, varargin{:});
         end
         function r_ = holdAsync(obj, varargin)
-            % holdAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('hold', 0, false, [], 0, [], {}, varargin{:});
         end
         function resume(obj, varargin)
-            % resume
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('resume', 0, false, [], false, {}, varargin{:});
         end
         function r_ = resumeAsync(obj, varargin)
-            % resumeAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('resume', 0, false, [], 0, [], {}, varargin{:});
         end
     end

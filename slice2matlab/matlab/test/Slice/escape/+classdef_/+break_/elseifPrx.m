@@ -1,16 +1,3 @@
-% elseifPrx   Summary of elseifPrx
-%
-% elseifPrx Methods:
-%   events_
-%   eventsAsync
-%   function_
-%   functionAsync
-%   delete_
-%   deleteAsync
-%   checkedCast_
-%   checkedCastAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -18,75 +5,27 @@
 classdef elseifPrx < Ice.ObjectPrx
     methods
         function events_(obj, varargin)
-            % events_
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('events', 0, false, [], false, {}, varargin{:});
         end
         function r_ = eventsAsync(obj, varargin)
-            % eventsAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('events', 0, false, [], 0, [], {}, varargin{:});
         end
         function function_(obj, varargin)
-            % function_
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('function', 0, false, [], false, {}, varargin{:});
         end
         function r_ = functionAsync(obj, varargin)
-            % functionAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('function', 0, false, [], 0, [], {}, varargin{:});
         end
         function delete_(obj, varargin)
-            % delete_
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('delete', 0, false, [], false, {}, varargin{:});
         end
         function r_ = deleteAsync(obj, varargin)
-            % deleteAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('delete', 0, false, [], 0, [], {}, varargin{:});
         end
         function checkedCast_(obj, varargin)
-            % checkedCast_
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('checkedCast', 0, false, [], false, {}, varargin{:});
         end
         function r_ = checkedCastAsync(obj, varargin)
-            % checkedCastAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('checkedCast', 0, false, [], 0, [], {}, varargin{:});
         end
     end

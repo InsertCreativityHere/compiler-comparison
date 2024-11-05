@@ -1,9 +1,3 @@
-% delegate   Summary of delegate
-%
-% delegate Properties:
-%   if_
-%   else_
-%   event
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0

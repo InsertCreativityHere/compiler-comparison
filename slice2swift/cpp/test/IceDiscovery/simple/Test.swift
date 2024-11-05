@@ -28,13 +28,6 @@ public struct ControllerTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Controller"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - getAdapterId: 
-///
-///  - getAdapterIdAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -122,18 +115,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - getAdapterId: 
-///
-///  - getAdapterIdAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getAdapterId(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getAdapterId",
                                        mode: .Normal,
@@ -145,29 +127,6 @@ public extension TestIntfPrx {
     }
 }
 
-/// ControllerPrx overview.
-///
-/// ControllerPrx Methods:
-///
-///  - activateObjectAdapter: 
-///
-///  - activateObjectAdapterAsync: 
-///
-///  - deactivateObjectAdapter: 
-///
-///  - deactivateObjectAdapterAsync: 
-///
-///  - addObject: 
-///
-///  - addObjectAsync: 
-///
-///  - removeObject: 
-///
-///  - removeObjectAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol ControllerPrx: Ice.ObjectPrx {}
 
 private final class ControllerPrxI: Ice.ObjectPrxI, ControllerPrx {
@@ -255,38 +214,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// ControllerPrx overview.
-///
-/// ControllerPrx Methods:
-///
-///  - activateObjectAdapter: 
-///
-///  - activateObjectAdapterAsync: 
-///
-///  - deactivateObjectAdapter: 
-///
-///  - deactivateObjectAdapterAsync: 
-///
-///  - addObject: 
-///
-///  - addObjectAsync: 
-///
-///  - removeObject: 
-///
-///  - removeObjectAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension ControllerPrx {
-    ///
-    /// - parameter name: `Swift.String`
-    ///
-    /// - parameter adapterId: `Swift.String`
-    ///
-    /// - parameter replicaGroupId: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func activateObjectAdapter(name iceP_name: Swift.String, adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "activateObjectAdapter",
                                        mode: .Normal,
@@ -298,10 +226,6 @@ public extension ControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func deactivateObjectAdapter(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "deactivateObjectAdapter",
                                        mode: .Normal,
@@ -311,12 +235,6 @@ public extension ControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter oaName: `Swift.String`
-    ///
-    /// - parameter id: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func addObject(oaName iceP_oaName: Swift.String, id iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "addObject",
                                        mode: .Normal,
@@ -327,12 +245,6 @@ public extension ControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter oaName: `Swift.String`
-    ///
-    /// - parameter id: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func removeObject(oaName iceP_oaName: Swift.String, id iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "removeObject",
                                        mode: .Normal,
@@ -343,8 +255,6 @@ public extension ControllerPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -381,10 +291,6 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getAdapterId(current: Ice.Current) async throws -> Swift.String
 }
 
@@ -425,48 +331,17 @@ public struct ControllerDisp: Ice.Dispatcher {
 }
 
 public protocol Controller {
-    ///
-    /// - parameter name: `Swift.String`
-    ///
-    /// - parameter adapterId: `Swift.String`
-    ///
-    /// - parameter replicaGroupId: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func activateObjectAdapter(name: Swift.String, adapterId: Swift.String, replicaGroupId: Swift.String, current: Ice.Current) async throws
 
-    ///
-    /// - parameter name: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func deactivateObjectAdapter(name: Swift.String, current: Ice.Current) async throws
 
-    ///
-    /// - parameter oaName: `Swift.String`
-    ///
-    /// - parameter id: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func addObject(oaName: Swift.String, id: Swift.String, current: Ice.Current) async throws
 
-    ///
-    /// - parameter oaName: `Swift.String`
-    ///
-    /// - parameter id: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func removeObject(oaName: Swift.String, id: Swift.String, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - getAdapterId: 
 extension TestIntf {
     public func _iceD_getAdapterId(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -479,19 +354,6 @@ extension TestIntf {
     }
 }
 
-/// Controller overview.
-///
-/// Controller Methods:
-///
-///  - activateObjectAdapter: 
-///
-///  - deactivateObjectAdapter: 
-///
-///  - addObject: 
-///
-///  - removeObject: 
-///
-///  - shutdown: 
 extension Controller {
     public func _iceD_activateObjectAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

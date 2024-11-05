@@ -1,24 +1,3 @@
-% ReplicaSessionPrx   Summary of ReplicaSessionPrx
-%
-% ReplicaSessionPrx Methods:
-%   keepAlive - The replica call this method to keep the session alive.
-%   keepAliveAsync - The replica call this method to keep the session alive.
-%   getTimeout - Return the replica session timeout.
-%   getTimeoutAsync - Return the replica session timeout.
-%   setDatabaseObserver - Set the database observer.
-%   setDatabaseObserverAsync - Set the database observer.
-%   setEndpoints - This method sets the endpoints of the replica.
-%   setEndpointsAsync - This method sets the endpoints of the replica.
-%   registerWellKnownObjects - Registers the replica well-known objects with the master.
-%   registerWellKnownObjectsAsync - Registers the replica well-known objects with the master.
-%   setAdapterDirectProxy - Set the adapter direct proxy of the given adapter in the master.
-%   setAdapterDirectProxyAsync - Set the adapter direct proxy of the given adapter in the master.
-%   receivedUpdate - Notify the master that an update was received.
-%   receivedUpdateAsync - Notify the master that an update was received.
-%   destroy - Destroy the session.
-%   destroyAsync - Destroy the session.
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0

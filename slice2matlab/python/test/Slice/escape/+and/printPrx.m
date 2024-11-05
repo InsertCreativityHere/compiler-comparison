@@ -1,10 +1,3 @@
-% printPrx   Summary of printPrx
-%
-% printPrx Methods:
-%   raise
-%   raiseAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,19 +5,6 @@
 classdef printPrx < Ice.ObjectPrx
     methods
         function result = raise(obj, else_, return_, while_, yield, or, global_, varargin)
-            % raise
-            %
-            % Parameters:
-            %   else_ (and.continue_)
-            %   return_ (and.for_)
-            %   while_ (and.delPrx)
-            %   yield (and.execPrx)
-            %   or (and.ifPrx)
-            %   global_ (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (and.assert)
-            
             os_ = obj.iceStartWriteParams([]);
             and.continue_.ice_write(os_, else_);
             os_.writeValue(return_);
@@ -40,19 +20,6 @@ classdef printPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = raiseAsync(obj, else_, return_, while_, yield, or, global_, varargin)
-            % raiseAsync
-            %
-            % Parameters:
-            %   else_ (and.continue_)
-            %   return_ (and.for_)
-            %   while_ (and.delPrx)
-            %   yield (and.execPrx)
-            %   or (and.ifPrx)
-            %   global_ (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             and.continue_.ice_write(os_, else_);
             os_.writeValue(return_);

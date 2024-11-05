@@ -1,10 +1,3 @@
-% execPrx   Summary of execPrx
-%
-% execPrx Methods:
-%   finally
-%   finallyAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,21 +5,9 @@
 classdef execPrx < Ice.ObjectPrx
     methods
         function finally(obj, varargin)
-            % finally
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('finally', 0, false, [], false, {}, varargin{:});
         end
         function r_ = finallyAsync(obj, varargin)
-            % finallyAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('finally', 0, false, [], 0, [], {}, varargin{:});
         end
     end

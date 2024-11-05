@@ -1,16 +1,3 @@
-% TestIntfPrx   Summary of TestIntfPrx
-%
-% TestIntfPrx Methods:
-%   shutdown
-%   shutdownAsync
-%   getHello
-%   getHelloAsync
-%   getReplicatedHello
-%   getReplicatedHelloAsync
-%   migrateHello
-%   migrateHelloAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -18,44 +5,18 @@
 classdef TestIntfPrx < Ice.ObjectPrx
     methods
         function shutdown(obj, varargin)
-            % shutdown
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('shutdown', 0, false, [], false, {}, varargin{:});
         end
         function r_ = shutdownAsync(obj, varargin)
-            % shutdownAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
         end
         function result = getHello(obj, varargin)
-            % getHello
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.HelloPrx)
-            
             is_ = obj.iceInvoke('getHello', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = Test.HelloPrx.ice_read(is_);
             is_.endEncapsulation();
         end
         function r_ = getHelloAsync(obj, varargin)
-            % getHelloAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = Test.HelloPrx.ice_read(is_);
@@ -65,26 +26,12 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getHello', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getReplicatedHello(obj, varargin)
-            % getReplicatedHello
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.HelloPrx)
-            
             is_ = obj.iceInvoke('getReplicatedHello', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = Test.HelloPrx.ice_read(is_);
             is_.endEncapsulation();
         end
         function r_ = getReplicatedHelloAsync(obj, varargin)
-            % getReplicatedHelloAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = Test.HelloPrx.ice_read(is_);
@@ -94,21 +41,9 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getReplicatedHello', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function migrateHello(obj, varargin)
-            % migrateHello
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
             obj.iceInvoke('migrateHello', 0, false, [], false, {}, varargin{:});
         end
         function r_ = migrateHelloAsync(obj, varargin)
-            % migrateHelloAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             r_ = obj.iceInvokeAsync('migrateHello', 0, false, [], 0, [], {}, varargin{:});
         end
     end

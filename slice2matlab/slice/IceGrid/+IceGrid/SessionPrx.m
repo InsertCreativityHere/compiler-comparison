@@ -1,7 +1,7 @@
 % SessionPrx   Summary of SessionPrx
 %
 % A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-% via the Registry object or via the registry client SessionManager object.
+% via the {@link Registry} object or via the registry client SessionManager object.
 %
 % SessionPrx Methods:
 %   keepAlive - Keep the session alive.
@@ -30,8 +30,6 @@ classdef SessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
-            %
-            % Deprecated
             
             obj.iceInvoke('keepAlive', 2, false, [], false, {}, varargin{:});
         end
@@ -43,8 +41,6 @@ classdef SessionPrx < Glacier2.SessionPrx
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            %
-            % Deprecated
             
             r_ = obj.iceInvokeAsync('keepAlive', 2, false, [], 0, [], {}, varargin{:});
         end

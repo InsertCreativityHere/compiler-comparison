@@ -1,8 +1,3 @@
-% SUnknown   Summary of SUnknown
-%
-% SUnknown Properties:
-%   su
-%   cycle
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ServerPrivate.ice by slice2matlab version 3.8.0-alpha.0

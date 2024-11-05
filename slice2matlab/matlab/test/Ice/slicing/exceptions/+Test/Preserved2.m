@@ -1,7 +1,3 @@
-% Preserved2   Summary of Preserved2
-%
-% Preserved2 Properties:
-%   p2
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ClientPrivate.ice by slice2matlab version 3.8.0-alpha.0

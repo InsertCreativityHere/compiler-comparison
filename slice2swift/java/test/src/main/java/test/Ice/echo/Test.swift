@@ -22,21 +22,6 @@ public struct EchoTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Echo"
 }
 
-/// EchoPrx overview.
-///
-/// EchoPrx Methods:
-///
-///  - startBatch: 
-///
-///  - startBatchAsync: 
-///
-///  - flushBatch: 
-///
-///  - flushBatchAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol EchoPrx: Ice.ObjectPrx {}
 
 private final class EchoPrxI: Ice.ObjectPrxI, EchoPrx {
@@ -124,40 +109,19 @@ public extension Ice.InputStream {
     }
 }
 
-/// EchoPrx overview.
-///
-/// EchoPrx Methods:
-///
-///  - startBatch: 
-///
-///  - startBatchAsync: 
-///
-///  - flushBatch: 
-///
-///  - flushBatchAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension EchoPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func startBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "startBatch",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func flushBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "flushBatch",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -198,28 +162,13 @@ public struct EchoDisp: Ice.Dispatcher {
 }
 
 public protocol Echo {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func startBatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func flushBatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Echo overview.
-///
-/// Echo Methods:
-///
-///  - startBatch: 
-///
-///  - flushBatch: 
-///
-///  - shutdown: 
 extension Echo {
     public func _iceD_startBatch(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

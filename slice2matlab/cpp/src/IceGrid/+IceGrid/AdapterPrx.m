@@ -1,14 +1,3 @@
-% AdapterPrx   Summary of AdapterPrx
-%
-% AdapterPrx Methods:
-%   activate - Activate this adapter.
-%   activateAsync - Activate this adapter.
-%   getDirectProxy - Get the adapter direct proxy.
-%   getDirectProxyAsync - Get the adapter direct proxy.
-%   setDirectProxy - Set the direct proxy for this adapter.
-%   setDirectProxyAsync - Set the direct proxy for this adapter.
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0

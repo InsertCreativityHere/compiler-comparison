@@ -1,10 +1,3 @@
-% breakPrx   Summary of breakPrx
-%
-% breakPrx Methods:
-%   case_
-%   caseAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Key.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,14 +5,6 @@
 classdef breakPrx < Ice.ObjectPrx
     methods
         function try_ = case_(obj, catch_, varargin)
-            % case_
-            %
-            % Parameters:
-            %   catch_ (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (int32)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(catch_);
             obj.iceEndWriteParams(os_);
@@ -29,14 +14,6 @@ classdef breakPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = caseAsync(obj, catch_, varargin)
-            % caseAsync
-            %
-            % Parameters:
-            %   catch_ (int32)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(catch_);
             obj.iceEndWriteParams(os_);

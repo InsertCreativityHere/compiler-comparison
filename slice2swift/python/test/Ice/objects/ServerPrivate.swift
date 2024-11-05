@@ -390,13 +390,6 @@ public struct DTwoMembersHelper {
     }
 }
 
-/// UnexpectedObjectExceptionTestPrx overview.
-///
-/// UnexpectedObjectExceptionTestPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public protocol UnexpectedObjectExceptionTestPrx: Ice.ObjectPrx {}
 
 private final class UnexpectedObjectExceptionTestPrxI: Ice.ObjectPrxI, UnexpectedObjectExceptionTestPrx {
@@ -484,18 +477,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// UnexpectedObjectExceptionTestPrx overview.
-///
-/// UnexpectedObjectExceptionTestPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
 public extension UnexpectedObjectExceptionTestPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `AlsoEmpty?`
     func op(context: Ice.Context? = nil) async throws -> AlsoEmpty? {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
@@ -682,18 +664,9 @@ public struct UnexpectedObjectExceptionTestDisp: Ice.Dispatcher {
 }
 
 public protocol UnexpectedObjectExceptionTest {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `AlsoEmpty?`
     func op(current: Ice.Current) async throws -> AlsoEmpty?
 }
 
-/// UnexpectedObjectExceptionTest overview.
-///
-/// UnexpectedObjectExceptionTest Methods:
-///
-///  - op: 
 extension UnexpectedObjectExceptionTest {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

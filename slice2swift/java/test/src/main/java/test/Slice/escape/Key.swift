@@ -17,7 +17,6 @@ import Foundation
 import Ice
 
 public enum assert: Swift.UInt8 {
-    /// boolean
     case boolean = 0
     public init() {
         self = .boolean
@@ -401,13 +400,6 @@ public let finally: Swift.Int32 = 0
 public let getClass: Swift.Int32 = 0
 
 
-/// catchPrx overview.
-///
-/// catchPrx Methods:
-///
-///  - checkedCast: 
-///
-///  - checkedCastAsync: 
 public protocol catchPrx: Ice.ObjectPrx {}
 
 private final class catchPrxI: Ice.ObjectPrxI, catchPrx {
@@ -495,20 +487,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// catchPrx overview.
-///
-/// catchPrx Methods:
-///
-///  - checkedCast: 
-///
-///  - checkedCastAsync: 
 public extension catchPrx {
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
     func checkedCast(_ iceP_clone: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "checkedCast",
                                        mode: .Normal,
@@ -523,13 +502,6 @@ public extension catchPrx {
     }
 }
 
-/// defaultPrx overview.
-///
-/// defaultPrx Methods:
-///
-///  - `do`: 
-///
-///  - doAsync: 
 public protocol defaultPrx: Ice.ObjectPrx {}
 
 private final class defaultPrxI: Ice.ObjectPrxI, defaultPrx {
@@ -617,16 +589,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// defaultPrx overview.
-///
-/// defaultPrx Methods:
-///
-///  - `do`: 
-///
-///  - doAsync: 
 public extension defaultPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func `do`(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "do",
                                        mode: .Normal,
@@ -634,7 +597,6 @@ public extension defaultPrx {
     }
 }
 
-/// finalizePrx overview.
 public protocol finalizePrx: defaultPrx, catchPrx {}
 
 private final class finalizePrxI: Ice.ObjectPrxI, finalizePrx {
@@ -722,16 +684,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// finalizePrx overview.
 public extension finalizePrx {}
 
-/// newPrx overview.
-///
-/// newPrx Methods:
-///
-///  - notify: 
-///
-///  - notifyAsync: 
 public protocol newPrx: Ice.ObjectPrx {}
 
 private final class newPrxI: Ice.ObjectPrxI, newPrx {
@@ -819,34 +773,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// newPrx overview.
-///
-/// newPrx Methods:
-///
-///  - notify: 
-///
-///  - notifyAsync: 
 public extension newPrx {
-    ///
-    /// - parameter notifyAll: ``break``
-    ///
-    /// - parameter null: ``else`?`
-    ///
-    /// - parameter package: `finalizePrx?`
-    ///
-    /// - parameter public: `catchPrx?`
-    ///
-    /// - parameter return: `defaultPrx?`
-    ///
-    /// - parameter static: `Swift.Int32`
-    ///
-    /// - parameter strictfp: `Swift.Int32`
-    ///
-    /// - parameter super: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `assert`
     func notify(notifyAll iceP_notifyAll: `break`, null iceP_null: `else`?, package iceP_package: finalizePrx?, public iceP_public: catchPrx?, return iceP_return: defaultPrx?, static iceP_static: Swift.Int32, strictfp iceP_strictfp: Swift.Int32, super iceP_super: Swift.Int32, context: Ice.Context? = nil) async throws -> assert {
         return try await _impl._invoke(operation: "notify",
                                        mode: .Normal,
@@ -955,12 +882,6 @@ public struct catchDisp: Ice.Dispatcher {
 }
 
 public protocol `catch` {
-    ///
-    /// - parameter clone: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
     func checkedCast(clone: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 }
 
@@ -993,8 +914,6 @@ public struct defaultDisp: Ice.Dispatcher {
 }
 
 public protocol `default` {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func `do`(current: Ice.Current) async throws
 }
 
@@ -1059,34 +978,9 @@ public struct newDisp: Ice.Dispatcher {
 }
 
 public protocol new {
-    ///
-    /// - parameter notifyAll: ``break``
-    ///
-    /// - parameter null: ``else`?`
-    ///
-    /// - parameter package: `finalizePrx?`
-    ///
-    /// - parameter public: `catchPrx?`
-    ///
-    /// - parameter return: `defaultPrx?`
-    ///
-    /// - parameter static: `Swift.Int32`
-    ///
-    /// - parameter strictfp: `Swift.Int32`
-    ///
-    /// - parameter super: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `assert`
     func notify(notifyAll: `break`, null: `else`?, package: finalizePrx?, public: catchPrx?, return: defaultPrx?, static: Swift.Int32, strictfp: Swift.Int32, super: Swift.Int32, current: Ice.Current) async throws -> assert
 }
 
-/// catch overview.
-///
-/// catch Methods:
-///
-///  - checkedCast: 
 extension `catch` {
     public func _iceD_checkedCast(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1101,11 +995,6 @@ extension `catch` {
     }
 }
 
-/// default overview.
-///
-/// default Methods:
-///
-///  - `do`: 
 extension `default` {
     public func _iceD_do(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -1115,14 +1004,8 @@ extension `default` {
     }
 }
 
-/// finalize overview.
 extension finalize {}
 
-/// new overview.
-///
-/// new Methods:
-///
-///  - notify: 
 extension new {
     public func _iceD_notify(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

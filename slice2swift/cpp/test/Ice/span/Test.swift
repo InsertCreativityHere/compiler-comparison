@@ -28,37 +28,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - opByteSpan: 
-///
-///  - opByteSpanAsync: 
-///
-///  - opShortSpan: 
-///
-///  - opShortSpanAsync: 
-///
-///  - opStringSpan: 
-///
-///  - opStringSpanAsync: 
-///
-///  - opOptionalByteSpan: 
-///
-///  - opOptionalByteSpanAsync: 
-///
-///  - opOptionalShortSpan: 
-///
-///  - opOptionalShortSpanAsync: 
-///
-///  - opOptionalStringSpan: 
-///
-///  - opOptionalStringSpanAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -146,48 +115,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - opByteSpan: 
-///
-///  - opByteSpanAsync: 
-///
-///  - opShortSpan: 
-///
-///  - opShortSpanAsync: 
-///
-///  - opStringSpan: 
-///
-///  - opStringSpanAsync: 
-///
-///  - opOptionalByteSpan: 
-///
-///  - opOptionalByteSpanAsync: 
-///
-///  - opOptionalShortSpan: 
-///
-///  - opOptionalShortSpanAsync: 
-///
-///  - opOptionalStringSpan: 
-///
-///  - opOptionalStringSpanAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter _: `ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteSeq, dataOut: ByteSeq)`:
-    ///
-    ///   - returnValue: `ByteSeq`
-    ///
-    ///   - dataOut: `ByteSeq`
     func opByteSpan(_ iceP_dataIn: ByteSeq, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq, dataOut: ByteSeq) {
         return try await _impl._invoke(operation: "opByteSpan",
                                        mode: .Normal,
@@ -202,16 +130,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ShortSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortSeq, dataOut: ShortSeq)`:
-    ///
-    ///   - returnValue: `ShortSeq`
-    ///
-    ///   - dataOut: `ShortSeq`
     func opShortSpan(_ iceP_dataIn: ShortSeq, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq, dataOut: ShortSeq) {
         return try await _impl._invoke(operation: "opShortSpan",
                                        mode: .Normal,
@@ -226,16 +144,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSeq, dataOut: StringSeq)`:
-    ///
-    ///   - returnValue: `StringSeq`
-    ///
-    ///   - dataOut: `StringSeq`
     func opStringSpan(_ iceP_dataIn: StringSeq, context: Ice.Context? = nil) async throws -> (returnValue: StringSeq, dataOut: StringSeq) {
         return try await _impl._invoke(operation: "opStringSpan",
                                        mode: .Normal,
@@ -250,16 +158,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ByteSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteSeq?, dataOut: ByteSeq?)`:
-    ///
-    ///   - returnValue: `ByteSeq?`
-    ///
-    ///   - dataOut: `ByteSeq?`
     func opOptionalByteSpan(_ iceP_dataIn: ByteSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ByteSeq?, dataOut: ByteSeq?) {
         return try await _impl._invoke(operation: "opOptionalByteSpan",
                                        mode: .Normal,
@@ -274,16 +172,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `ShortSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ShortSeq?, dataOut: ShortSeq?)`:
-    ///
-    ///   - returnValue: `ShortSeq?`
-    ///
-    ///   - dataOut: `ShortSeq?`
     func opOptionalShortSpan(_ iceP_dataIn: ShortSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: ShortSeq?, dataOut: ShortSeq?) {
         return try await _impl._invoke(operation: "opOptionalShortSpan",
                                        mode: .Normal,
@@ -298,16 +186,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `StringSeq?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: StringSeq?, dataOut: StringSeq?)`:
-    ///
-    ///   - returnValue: `StringSeq?`
-    ///
-    ///   - dataOut: `StringSeq?`
     func opOptionalStringSpan(_ iceP_dataIn: StringSeq? = nil, context: Ice.Context? = nil) async throws -> (returnValue: StringSeq?, dataOut: StringSeq?) {
         return try await _impl._invoke(operation: "opOptionalStringSpan",
                                        mode: .Normal,
@@ -322,8 +200,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -372,100 +248,21 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter dataIn: `ByteSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteSeq, dataOut: ByteSeq)`:
-    ///
-    ///   - returnValue: `ByteSeq`
-    ///
-    ///   - dataOut: `ByteSeq`
     func opByteSpan(dataIn: ByteSeq, current: Ice.Current) async throws -> (returnValue: ByteSeq, dataOut: ByteSeq)
 
-    ///
-    /// - parameter dataIn: `ShortSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortSeq, dataOut: ShortSeq)`:
-    ///
-    ///   - returnValue: `ShortSeq`
-    ///
-    ///   - dataOut: `ShortSeq`
     func opShortSpan(dataIn: ShortSeq, current: Ice.Current) async throws -> (returnValue: ShortSeq, dataOut: ShortSeq)
 
-    ///
-    /// - parameter dataIn: `StringSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringSeq, dataOut: StringSeq)`:
-    ///
-    ///   - returnValue: `StringSeq`
-    ///
-    ///   - dataOut: `StringSeq`
     func opStringSpan(dataIn: StringSeq, current: Ice.Current) async throws -> (returnValue: StringSeq, dataOut: StringSeq)
 
-    ///
-    /// - parameter dataIn: `ByteSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteSeq?, dataOut: ByteSeq?)`:
-    ///
-    ///   - returnValue: `ByteSeq?`
-    ///
-    ///   - dataOut: `ByteSeq?`
     func opOptionalByteSpan(dataIn: ByteSeq?, current: Ice.Current) async throws -> (returnValue: ByteSeq?, dataOut: ByteSeq?)
 
-    ///
-    /// - parameter dataIn: `ShortSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ShortSeq?, dataOut: ShortSeq?)`:
-    ///
-    ///   - returnValue: `ShortSeq?`
-    ///
-    ///   - dataOut: `ShortSeq?`
     func opOptionalShortSpan(dataIn: ShortSeq?, current: Ice.Current) async throws -> (returnValue: ShortSeq?, dataOut: ShortSeq?)
 
-    ///
-    /// - parameter dataIn: `StringSeq?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: StringSeq?, dataOut: StringSeq?)`:
-    ///
-    ///   - returnValue: `StringSeq?`
-    ///
-    ///   - dataOut: `StringSeq?`
     func opOptionalStringSpan(dataIn: StringSeq?, current: Ice.Current) async throws -> (returnValue: StringSeq?, dataOut: StringSeq?)
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - opByteSpan: 
-///
-///  - opShortSpan: 
-///
-///  - opStringSpan: 
-///
-///  - opOptionalByteSpan: 
-///
-///  - opOptionalShortSpan: 
-///
-///  - opOptionalStringSpan: 
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_opByteSpan(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

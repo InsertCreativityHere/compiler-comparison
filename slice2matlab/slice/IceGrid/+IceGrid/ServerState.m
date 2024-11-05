@@ -15,21 +15,35 @@
 % Generated from Admin.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ServerState < uint8
-    enumeration
+    enumeration% Inactive   Summary of Inactive
+        %
         % The server is not running.
-        Inactive (0)
+        
+        Inactive (0)% Activating   Summary of Activating
+        %
         % The server is being activated and will change to the active state when the registered server object adapters
         % are activated or to the activation timed out state if the activation timeout expires.
-        Activating (1)
+        
+        Activating (1)% ActivationTimedOut   Summary of ActivationTimedOut
+        %
         % The activation timed out state indicates that the server activation timed out.
-        ActivationTimedOut (2)
+        
+        ActivationTimedOut (2)% Active   Summary of Active
+        %
         % The server is running.
-        Active (3)
+        
+        Active (3)% Deactivating   Summary of Deactivating
+        %
         % The server is being deactivated.
-        Deactivating (4)
+        
+        Deactivating (4)% Destroying   Summary of Destroying
+        %
         % The server is being destroyed.
-        Destroying (5)
+        
+        Destroying (5)% Destroyed   Summary of Destroyed
+        %
         % The server is destroyed.
+        
         Destroyed (6)
     end
     methods(Static)

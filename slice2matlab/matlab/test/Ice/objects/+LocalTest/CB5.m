@@ -1,7 +1,3 @@
-% CB5   Summary of CB5
-%
-% CB5 Properties:
-%   s1dict
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalTest.ice by slice2matlab version 3.8.0-alpha.0

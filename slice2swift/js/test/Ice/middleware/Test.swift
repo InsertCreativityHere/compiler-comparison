@@ -28,29 +28,6 @@ public struct MyObjectTraits: Ice.SliceTraits {
     public static let staticId = "::Test::MyObject"
 }
 
-/// EchoPrx overview.
-///
-/// EchoPrx Methods:
-///
-///  - setConnection: 
-///
-///  - setConnectionAsync: 
-///
-///  - startBatch: 
-///
-///  - startBatchAsync: 
-///
-///  - flushBatch: 
-///
-///  - flushBatchAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - supportsCompress: 
-///
-///  - supportsCompressAsync: 
 public protocol EchoPrx: Ice.ObjectPrx {}
 
 private final class EchoPrxI: Ice.ObjectPrxI, EchoPrx {
@@ -138,66 +115,31 @@ public extension Ice.InputStream {
     }
 }
 
-/// EchoPrx overview.
-///
-/// EchoPrx Methods:
-///
-///  - setConnection: 
-///
-///  - setConnectionAsync: 
-///
-///  - startBatch: 
-///
-///  - startBatchAsync: 
-///
-///  - flushBatch: 
-///
-///  - flushBatchAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
-///
-///  - supportsCompress: 
-///
-///  - supportsCompressAsync: 
 public extension EchoPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func setConnection(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setConnection",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func startBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "startBatch",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func flushBatch(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "flushBatch",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsCompress(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "supportsCompress",
                                        mode: .Normal,
@@ -209,17 +151,6 @@ public extension EchoPrx {
     }
 }
 
-/// MyObjectPrx overview.
-///
-/// MyObjectPrx Methods:
-///
-///  - getName: 
-///
-///  - getNameAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol MyObjectPrx: Ice.ObjectPrx {}
 
 private final class MyObjectPrxI: Ice.ObjectPrxI, MyObjectPrx {
@@ -307,22 +238,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// MyObjectPrx overview.
-///
-/// MyObjectPrx Methods:
-///
-///  - getName: 
-///
-///  - getNameAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension MyObjectPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
     func getName(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getName",
                                        mode: .Normal,
@@ -333,8 +249,6 @@ public extension MyObjectPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -379,26 +293,14 @@ public struct EchoDisp: Ice.Dispatcher {
 }
 
 public protocol Echo {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setConnection(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func startBatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func flushBatch(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsCompress(current: Ice.Current) async throws -> Swift.Bool
 }
 
@@ -433,30 +335,11 @@ public struct MyObjectDisp: Ice.Dispatcher {
 }
 
 public protocol MyObject {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
     func getName(current: Ice.Current) async throws -> Swift.String
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Echo overview.
-///
-/// Echo Methods:
-///
-///  - setConnection: 
-///
-///  - startBatch: 
-///
-///  - flushBatch: 
-///
-///  - shutdown: 
-///
-///  - supportsCompress: 
 extension Echo {
     public func _iceD_setConnection(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -497,13 +380,6 @@ extension Echo {
     }
 }
 
-/// MyObject overview.
-///
-/// MyObject Methods:
-///
-///  - getName: 
-///
-///  - shutdown: 
 extension MyObject {
     public func _iceD_getName(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

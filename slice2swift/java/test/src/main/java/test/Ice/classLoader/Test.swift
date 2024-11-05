@@ -52,21 +52,6 @@ public struct InitialTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Initial"
 }
 
-/// InitialPrx overview.
-///
-/// InitialPrx Methods:
-///
-///  - getConcreteClass: 
-///
-///  - getConcreteClassAsync: 
-///
-///  - throwException: 
-///
-///  - throwExceptionAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol InitialPrx: Ice.ObjectPrx {}
 
 private final class InitialPrxI: Ice.ObjectPrxI, InitialPrx {
@@ -154,26 +139,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// InitialPrx overview.
-///
-/// InitialPrx Methods:
-///
-///  - getConcreteClass: 
-///
-///  - getConcreteClassAsync: 
-///
-///  - throwException: 
-///
-///  - throwExceptionAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension InitialPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ConcreteClass?`
     func getConcreteClass(context: Ice.Context? = nil) async throws -> ConcreteClass? {
         return try await _impl._invoke(operation: "getConcreteClass",
                                        mode: .Normal,
@@ -186,8 +152,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func throwException(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "throwException",
                                        mode: .Normal,
@@ -201,8 +165,6 @@ public extension InitialPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -283,30 +245,13 @@ public struct InitialDisp: Ice.Dispatcher {
 }
 
 public protocol Initial {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ConcreteClass?`
     func getConcreteClass(current: Ice.Current) async throws -> ConcreteClass?
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwException(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
-/// Initial overview.
-///
-/// Initial Methods:
-///
-///  - getConcreteClass: 
-///
-///  - throwException: 
-///
-///  - shutdown: 
 extension Initial {
     public func _iceD_getConcreteClass(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

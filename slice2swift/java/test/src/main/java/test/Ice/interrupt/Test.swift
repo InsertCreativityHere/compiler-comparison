@@ -88,29 +88,6 @@ public struct TestIntfControllerTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntfController"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - opIdempotent: 
-///
-///  - opIdempotentAsync: 
-///
-///  - sleep: 
-///
-///  - sleepAsync: 
-///
-///  - opWithPayload: 
-///
-///  - opWithPayloadAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -198,50 +175,19 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-///
-///  - opIdempotent: 
-///
-///  - opIdempotentAsync: 
-///
-///  - sleep: 
-///
-///  - sleepAsync: 
-///
-///  - opWithPayload: 
-///
-///  - opWithPayloadAsync: 
-///
-///  - shutdown: 
-///
-///  - shutdownAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func op(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "op",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opIdempotent(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opIdempotent",
                                        mode: .Idempotent,
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func sleep(_ iceP_to: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sleep",
                                        mode: .Normal,
@@ -258,10 +204,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter _: `Ice.ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func opWithPayload(_ iceP_seq: Ice.ByteSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "opWithPayload",
                                        mode: .Normal,
@@ -271,8 +213,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -280,21 +220,6 @@ public extension TestIntfPrx {
     }
 }
 
-/// TestIntfControllerPrx overview.
-///
-/// TestIntfControllerPrx Methods:
-///
-///  - holdAdapter: 
-///
-///  - holdAdapterAsync: 
-///
-///  - resumeAdapter: 
-///
-///  - resumeAdapterAsync: 
-///
-///  - interrupt: 
-///
-///  - interruptAsync: 
 public protocol TestIntfControllerPrx: Ice.ObjectPrx {}
 
 private final class TestIntfControllerPrxI: Ice.ObjectPrxI, TestIntfControllerPrx {
@@ -382,40 +307,19 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfControllerPrx overview.
-///
-/// TestIntfControllerPrx Methods:
-///
-///  - holdAdapter: 
-///
-///  - holdAdapterAsync: 
-///
-///  - resumeAdapter: 
-///
-///  - resumeAdapterAsync: 
-///
-///  - interrupt: 
-///
-///  - interruptAsync: 
 public extension TestIntfControllerPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func holdAdapter(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "holdAdapter",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func resumeAdapter(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "resumeAdapter",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func interrupt(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "interrupt",
                                        mode: .Normal,
@@ -467,28 +371,14 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func op(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opIdempotent(current: Ice.Current) async throws
 
-    ///
-    /// - parameter to: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func sleep(to: Swift.Int32, current: Ice.Current) async throws
 
-    ///
-    /// - parameter seq: `Ice.ByteSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func opWithPayload(seq: Ice.ByteSeq, current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -525,32 +415,13 @@ public struct TestIntfControllerDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntfController {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func holdAdapter(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func resumeAdapter(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func interrupt(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - op: 
-///
-///  - opIdempotent: 
-///
-///  - sleep: 
-///
-///  - opWithPayload: 
-///
-///  - shutdown: 
 extension TestIntf {
     public func _iceD_op(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -592,15 +463,6 @@ extension TestIntf {
     }
 }
 
-/// TestIntfController overview.
-///
-/// TestIntfController Methods:
-///
-///  - holdAdapter: 
-///
-///  - resumeAdapter: 
-///
-///  - interrupt: 
 extension TestIntfController {
     public func _iceD_holdAdapter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

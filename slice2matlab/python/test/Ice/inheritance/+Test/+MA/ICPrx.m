@@ -1,10 +1,3 @@
-% ICPrx   Summary of ICPrx
-%
-% ICPrx Methods:
-%   icop
-%   icopAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -12,14 +5,6 @@
 classdef ICPrx < Test.MB.IB1Prx & Test.MB.IB2Prx
     methods
         function result = icop(obj, p, varargin)
-            % icop
-            %
-            % Parameters:
-            %   p (Test.MA.ICPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.MA.ICPrx)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(p);
             obj.iceEndWriteParams(os_);
@@ -29,14 +14,6 @@ classdef ICPrx < Test.MB.IB1Prx & Test.MB.IB2Prx
             is_.endEncapsulation();
         end
         function r_ = icopAsync(obj, p, varargin)
-            % icopAsync
-            %
-            % Parameters:
-            %   p (Test.MA.ICPrx)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(p);
             obj.iceEndWriteParams(os_);

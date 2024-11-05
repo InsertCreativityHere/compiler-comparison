@@ -1,7 +1,7 @@
 % AdminSessionPrx   Summary of AdminSessionPrx
 %
 % Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-% sessions are created either via the Registry object or via the registry admin
+% sessions are created either via the {@link Registry} object or via the registry admin
 % SessionManager object.
 %
 % AdminSessionPrx Methods:
@@ -51,8 +51,6 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
-            %
-            % Deprecated
             
             obj.iceInvoke('keepAlive', 2, false, [], false, {}, varargin{:});
         end
@@ -64,8 +62,6 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            %
-            % Deprecated
             
             r_ = obj.iceInvokeAsync('keepAlive', 2, false, [], 0, [], {}, varargin{:});
         end

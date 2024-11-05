@@ -1,7 +1,3 @@
-% KnownIntermediate   Summary of KnownIntermediate
-%
-% KnownIntermediate Properties:
-%   ki
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from ServerPrivate.ice by slice2matlab version 3.8.0-alpha.0

@@ -1,11 +1,3 @@
-% AllData   Summary of AllData
-%
-% AllData Properties:
-%   applications
-%   adapters
-%   objects
-%   internalObjects
-%   serials
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from DBTypes.ice by slice2matlab version 3.8.0-alpha.0

@@ -1,12 +1,3 @@
-% ProcessControllerPrx   Summary of ProcessControllerPrx
-%
-% ProcessControllerPrx Methods:
-%   start
-%   startAsync
-%   getHost
-%   getHostAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Controller.ice by slice2matlab version 3.8.0-alpha.0
@@ -14,16 +5,6 @@
 classdef ProcessControllerPrx < Ice.ObjectPrx
     methods
         function result = start(obj, testsuite, exe, args, varargin)
-            % start
-            %
-            % Parameters:
-            %   testsuite (char)
-            %   exe (char)
-            %   args (Test.Common.StringSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.Common.ProcessPrx)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(testsuite);
             os_.writeString(exe);
@@ -35,16 +16,6 @@ classdef ProcessControllerPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = startAsync(obj, testsuite, exe, args, varargin)
-            % startAsync
-            %
-            % Parameters:
-            %   testsuite (char)
-            %   exe (char)
-            %   args (Test.Common.StringSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(testsuite);
             os_.writeString(exe);
@@ -59,15 +30,6 @@ classdef ProcessControllerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('start', 0, true, os_, 1, @unmarshal, Test.Common.ProcessControllerPrx.start_ex_, varargin{:});
         end
         function result = getHost(obj, protocol, ipv6, varargin)
-            % getHost
-            %
-            % Parameters:
-            %   protocol (char)
-            %   ipv6 (logical)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (char)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(protocol);
             os_.writeBool(ipv6);
@@ -78,15 +40,6 @@ classdef ProcessControllerPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getHostAsync(obj, protocol, ipv6, varargin)
-            % getHostAsync
-            %
-            % Parameters:
-            %   protocol (char)
-            %   ipv6 (logical)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(protocol);
             os_.writeBool(ipv6);

@@ -24,7 +24,7 @@ public struct SessionTraits: Ice.SliceTraits {
 }
 
 /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-/// via the Registry object or via the registry client SessionManager object.
+/// via the {@link Registry} object or via the registry client SessionManager object.
 ///
 /// SessionPrx Methods:
 ///
@@ -135,7 +135,7 @@ public extension Ice.InputStream {
 }
 
 /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-/// via the Registry object or via the registry client SessionManager object.
+/// via the {@link Registry} object or via the registry client SessionManager object.
 ///
 /// SessionPrx Methods:
 ///
@@ -161,8 +161,6 @@ public extension Ice.InputStream {
 public extension SessionPrx {
     /// Keep the session alive.
     /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
-    ///
-    ///  ## Deprecated
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func keepAlive(context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -328,12 +326,10 @@ public struct SessionDisp: Ice.Dispatcher {
 }
 
 /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-/// via the Registry object or via the registry client SessionManager object.
+/// via the {@link Registry} object or via the registry client SessionManager object.
 public protocol Session: Glacier2.Session {
     /// Keep the session alive.
     /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
-    ///
-    ///  ## Deprecated
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func keepAlive(current: Ice.Current) async throws
@@ -396,7 +392,7 @@ public protocol Session: Glacier2.Session {
 }
 
 /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-/// via the Registry object or via the registry client SessionManager object.
+/// via the {@link Registry} object or via the registry client SessionManager object.
 ///
 /// Session Methods:
 ///

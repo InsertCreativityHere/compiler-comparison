@@ -1,12 +1,3 @@
-% TestIntfPrx   Summary of TestIntfPrx
-%
-% TestIntfPrx Methods:
-%   getProperty
-%   getPropertyAsync
-%   getArgs
-%   getArgsAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
@@ -14,14 +5,6 @@
 classdef TestIntfPrx < Ice.ObjectPrx
     methods
         function result = getProperty(obj, name, varargin)
-            % getProperty
-            %
-            % Parameters:
-            %   name (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (char)
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
@@ -31,14 +14,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getPropertyAsync(obj, name, varargin)
-            % getPropertyAsync
-            %
-            % Parameters:
-            %   name (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
             obj.iceEndWriteParams(os_);
@@ -51,26 +26,12 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getProperty', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = getArgs(obj, varargin)
-            % getArgs
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.StringSeq)
-            
             is_ = obj.iceInvoke('getArgs', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readStringSeq();
             is_.endEncapsulation();
         end
         function r_ = getArgsAsync(obj, varargin)
-            % getArgsAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 result = is_.readStringSeq();

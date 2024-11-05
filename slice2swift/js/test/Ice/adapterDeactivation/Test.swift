@@ -22,17 +22,6 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - transient: 
-///
-///  - transientAsync: 
-///
-///  - deactivate: 
-///
-///  - deactivateAsync: 
 public protocol TestIntfPrx: Ice.ObjectPrx {}
 
 private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
@@ -120,28 +109,13 @@ public extension Ice.InputStream {
     }
 }
 
-/// TestIntfPrx overview.
-///
-/// TestIntfPrx Methods:
-///
-///  - transient: 
-///
-///  - transientAsync: 
-///
-///  - deactivate: 
-///
-///  - deactivateAsync: 
 public extension TestIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func transient(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "transient",
                                        mode: .Normal,
                                        context: context)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
     func deactivate(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "deactivate",
                                        mode: .Normal,
@@ -180,22 +154,11 @@ public struct TestIntfDisp: Ice.Dispatcher {
 }
 
 public protocol TestIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func transient(current: Ice.Current) async throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func deactivate(current: Ice.Current) async throws
 }
 
-/// TestIntf overview.
-///
-/// TestIntf Methods:
-///
-///  - transient: 
-///
-///  - deactivate: 
 extension TestIntf {
     public func _iceD_transient(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
