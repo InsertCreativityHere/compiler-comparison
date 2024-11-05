@@ -56,5 +56,5 @@ public class KnownDerived extends Base
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3485214586226783713L;
+    private static final long serialVersionUID = 3485209975674884572L;
 }
