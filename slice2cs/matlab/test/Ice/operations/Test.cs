@@ -13420,8 +13420,6 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, Ice.Current current);
 
-        public abstract int[] opIntS(int[] s, Ice.Current current);
-
         public abstract void opByteSOneway(byte[] s, Ice.Current current);
 
         public abstract int opByteSOnewayCallCount(Ice.Current current);
@@ -13467,6 +13465,8 @@ namespace Test
         public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+        public abstract int[] opIntS(int[] s, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -13650,8 +13650,6 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p3, Ice.Current current);
 
-        public abstract int[] opIntS(int[] s, Ice.Current current);
-
         public abstract void opByteSOneway(byte[] s, Ice.Current current);
 
         public abstract int opByteSOnewayCallCount(Ice.Current current);
@@ -13697,6 +13695,8 @@ namespace Test2
         public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+        public abstract int[] opIntS(int[] s, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
