@@ -6511,9 +6511,9 @@ namespace IceGrid
 
         public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, Ice.Current current);
 
-        public abstract void objectUpdated(ObjectInfo info, Ice.Current current);
+        public abstract void adapterInit(AdapterInfo[] adpts, Ice.Current current);
 
-        public abstract void objectRemoved(global::Ice.Identity id, Ice.Current current);
+        public abstract void adapterAdded(AdapterInfo info, Ice.Current current);
 
         public abstract void adapterUpdated(AdapterInfo info, Ice.Current current);
 
@@ -6523,9 +6523,9 @@ namespace IceGrid
 
         public abstract void objectAdded(ObjectInfo info, Ice.Current current);
 
-        public abstract void adapterInit(AdapterInfo[] adpts, Ice.Current current);
+        public abstract void objectUpdated(ObjectInfo info, Ice.Current current);
 
-        public abstract void adapterAdded(AdapterInfo info, Ice.Current current);
+        public abstract void objectRemoved(global::Ice.Identity id, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
