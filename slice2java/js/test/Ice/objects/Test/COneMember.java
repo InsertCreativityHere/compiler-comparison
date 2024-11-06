@@ -45,7 +45,7 @@ public class COneMember extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3050969842662676597L;
+    private static final long serialVersionUID = 3050969079623501505L;
 
     /** @hidden */
     @Override

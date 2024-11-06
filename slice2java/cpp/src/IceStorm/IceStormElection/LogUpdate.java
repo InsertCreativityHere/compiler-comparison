@@ -157,5 +157,5 @@ public class LogUpdate implements java.lang.Cloneable,
     private static final LogUpdate _nullMarshalValue = new LogUpdate();
 
     /** @hidden */
-    private static final long serialVersionUID = -1613126822497551708L;
+    private static final long serialVersionUID = 7858570328285031076L;
 }
