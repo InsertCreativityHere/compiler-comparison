@@ -48,7 +48,7 @@ public class CTwoMembers extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 6168589158845387419L;
+    private static final long serialVersionUID = -1570921850578495077L;
 
     /** @hidden */
     @Override
