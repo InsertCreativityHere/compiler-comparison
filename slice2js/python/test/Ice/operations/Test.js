@@ -548,7 +548,6 @@ const iceC_Test2_MyDerivedClass_ids = [
 /**
  * Makes sure that proxy operations are correctly generated when extending an interface from
  * a different module (ICE-7639).
- *
  **/
 Test2.MyDerivedClass = class extends Ice.Object
 {
@@ -563,7 +562,6 @@ Test2.MyDerivedClass = class extends Ice.Object
 /**
  * Makes sure that proxy operations are correctly generated when extending an interface from
  * a different module (ICE-7639).
- *
  **/
 Test2.MyDerivedClassPrx = class extends Ice.ObjectPrx
 {

@@ -100,7 +100,6 @@ const iceC_Test_TestController_ids = [
  * various backend references, it calls step on the controller. The
  * controller will manage the configuration of the system and return a
  * flag indicating whether the next call is meant to succeed or not.
- *
  **/
 Test.TestController = class extends Ice.Object
 {
@@ -112,7 +111,6 @@ Test.TestController = class extends Ice.Object
  * various backend references, it calls step on the controller. The
  * controller will manage the configuration of the system and return a
  * flag indicating whether the next call is meant to succeed or not.
- *
  **/
 Test.TestControllerPrx = class extends Ice.ObjectPrx
 {

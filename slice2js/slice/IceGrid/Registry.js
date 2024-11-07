@@ -150,7 +150,7 @@ const iceC_IceGrid_Locator_ids = [
 ];
 
 /**
- * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+ * The IceGrid locator interface provides access to the {@link Query}} and {@link Registry}} object of the IceGrid
  * registry.
  * @see Query
  * @see Registry
@@ -166,7 +166,7 @@ IceGrid.Locator = class extends Ice.Object
 };
 
 /**
- * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+ * The IceGrid locator interface provides access to the {@link Query}} and {@link Registry}} object of the IceGrid
  * registry.
  * @see Query
  * @see Registry

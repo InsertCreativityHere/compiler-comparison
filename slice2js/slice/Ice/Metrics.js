@@ -269,7 +269,7 @@ Ice.TypeRegistry.declareValueType("IceMX.DispatchMetrics", IceMX.DispatchMetrics
 /**
  * Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
  * collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
- * embedded within {@link InvocationMetrics}.
+ * embedded within {@link InvocationMetrics}}.
  **/
 IceMX.ChildInvocationMetrics = class extends IceMX.Metrics
 {
@@ -298,7 +298,7 @@ Ice.TypeRegistry.declareValueType("IceMX.ChildInvocationMetrics", IceMX.ChildInv
 
 /**
  * Provides information on invocations that are collocated. Collocated metrics are embedded within
- * {@link InvocationMetrics}.
+ * {@link InvocationMetrics}}.
  **/
 IceMX.CollocatedMetrics = class extends IceMX.ChildInvocationMetrics
 {
@@ -313,7 +313,7 @@ Ice.TypeRegistry.declareValueType("IceMX.CollocatedMetrics", IceMX.CollocatedMet
 
 /**
  * Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
- * within {@link InvocationMetrics}.
+ * within {@link InvocationMetrics}}.
  **/
 IceMX.RemoteMetrics = class extends IceMX.ChildInvocationMetrics
 {
