@@ -61,7 +61,7 @@ public class TopicMetrics extends com.zeroc.Ice.IceMX.Metrics
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -6453728123746214175L;
+    private static final long serialVersionUID = 2142483268611121249L;
 
     /** @hidden */
     @Override
