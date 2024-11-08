@@ -161,5 +161,5 @@ public class NodeInfo implements java.lang.Cloneable,
     private static final NodeInfo _nullMarshalValue = new NodeInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 459133444310867712L;
+    private static final long serialVersionUID = 4319703959091877344L;
 }

@@ -197,5 +197,5 @@ public class LogMessage implements java.lang.Cloneable,
     private static final LogMessage _nullMarshalValue = new LogMessage();
 
     /** @hidden */
-    private static final long serialVersionUID = 7196895396666592845L;
+    private static final long serialVersionUID = 2058155190877462373L;
 }
