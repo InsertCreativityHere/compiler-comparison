@@ -59,5 +59,5 @@ public class ObserverInconsistencyException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 938918858713117420L;
+    private static final long serialVersionUID = 938912397523096963L;
 }
