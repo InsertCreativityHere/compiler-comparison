@@ -5924,11 +5924,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -5980,11 +5980,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -6503,13 +6503,13 @@ namespace IceGrid
 
     public abstract class DatabaseObserverDisp_ : Ice.ObjectImpl, DatabaseObserver
     {
-        public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, Ice.Current current);
-
         public abstract void applicationInit(int serial, ApplicationInfo[] applications, Ice.Current current);
 
         public abstract void applicationAdded(int serial, ApplicationInfo desc, Ice.Current current);
 
         public abstract void applicationRemoved(int serial, string name, Ice.Current current);
+
+        public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, Ice.Current current);
 
         public abstract void adapterInit(AdapterInfo[] adpts, Ice.Current current);
 
