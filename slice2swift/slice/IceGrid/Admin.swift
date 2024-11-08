@@ -2031,11 +2031,11 @@ public extension AdminPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
                                            } catch let error as DeploymentException {
                                                throw error
                                            } catch let error as AccessDeniedException {
-                                               throw error
-                                           } catch let error as ApplicationNotExistException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -2066,11 +2066,11 @@ public extension AdminPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
                                            } catch let error as DeploymentException {
                                                throw error
                                            } catch let error as AccessDeniedException {
-                                               throw error
-                                           } catch let error as ApplicationNotExistException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -2104,11 +2104,11 @@ public extension AdminPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
                                            } catch let error as DeploymentException {
                                                throw error
                                            } catch let error as AccessDeniedException {
-                                               throw error
-                                           } catch let error as ApplicationNotExistException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -2141,11 +2141,11 @@ public extension AdminPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
                                            } catch let error as DeploymentException {
                                                throw error
                                            } catch let error as AccessDeniedException {
-                                               throw error
-                                           } catch let error as ApplicationNotExistException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -2175,11 +2175,11 @@ public extension AdminPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
                                            } catch let error as DeploymentException {
                                                throw error
                                            } catch let error as AccessDeniedException {
-                                               throw error
-                                           } catch let error as ApplicationNotExistException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -2215,11 +2215,11 @@ public extension AdminPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
+                                           } catch let error as ApplicationNotExistException {
+                                               throw error
                                            } catch let error as DeploymentException {
                                                throw error
                                            } catch let error as AccessDeniedException {
-                                               throw error
-                                           } catch let error as ApplicationNotExistException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
