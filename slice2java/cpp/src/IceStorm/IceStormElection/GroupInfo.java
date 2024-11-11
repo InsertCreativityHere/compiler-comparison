@@ -161,5 +161,5 @@ public class GroupInfo implements java.lang.Cloneable,
     private static final GroupInfo _nullMarshalValue = new GroupInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 4853432173575891911L;
+    private static final long serialVersionUID = -8862118718828783969L;
 }

@@ -1421,9 +1421,9 @@ namespace Test
     {
         public abstract string callD(Ice.Current current);
 
-        public abstract string callA(Ice.Current current);
-
         public abstract string callB(Ice.Current current);
+
+        public abstract string callA(Ice.Current current);
 
         public abstract string callC(Ice.Current current);
 
@@ -1516,9 +1516,9 @@ namespace Test
     {
         public abstract string callH(Ice.Current current);
 
-        public abstract void shutdown(Ice.Current current);
-
         public abstract string callG(Ice.Current current);
+
+        public abstract void shutdown(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
