@@ -61,7 +61,7 @@ public class ServiceDescriptor extends CommunicatorDescriptor
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -7160284803943446823L;
+    private static final long serialVersionUID = -2381253717298025671L;
 
     /** @hidden */
     @Override
