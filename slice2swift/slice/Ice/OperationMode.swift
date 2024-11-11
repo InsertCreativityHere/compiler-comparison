@@ -40,7 +40,7 @@ public enum OperationMode: Swift.UInt8 {
 public extension InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `OperationMode` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> OperationMode {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 2)
         guard let val = OperationMode(rawValue: rawValue) else {
@@ -51,9 +51,9 @@ public extension InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `OperationMode` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> OperationMode? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -66,16 +66,15 @@ public extension InputStream {
 public extension OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `OperationMode` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: OperationMode) {
         write(enum: v.rawValue, maxValue: 2)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `OperationMode` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: OperationMode?) {
         guard let v = value else {
             return

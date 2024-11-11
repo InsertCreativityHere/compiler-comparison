@@ -61,9 +61,7 @@ open class MXSessionMetrics: Ice.MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceMX::SessionMetrics" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

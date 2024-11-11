@@ -1,7 +1,7 @@
 % LocatorRegistryPrx   Summary of LocatorRegistryPrx
 %
 % The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
-% locator.  The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+% locator.  The LocatorRegistry interface is intended to be used by Ice internals and by
 % locator implementations. Regular user code should not attempt to use any functionality of this interface
 % directly.
 %

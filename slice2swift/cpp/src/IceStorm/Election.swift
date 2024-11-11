@@ -36,7 +36,7 @@ public struct TopicContent {
 public extension Ice.InputStream {
     /// Read a `TopicContent` structured value from the stream.
     ///
-    /// - returns: `TopicContent` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> TopicContent {
         var v = TopicContent()
         v.id = try self.read()
@@ -46,9 +46,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `TopicContent?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `TopicContent?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> TopicContent? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -62,7 +62,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `TopicContent` structured value to the stream.
     ///
-    /// - parameter _: `TopicContent` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: TopicContent) {
         self.write(v.id)
         IceStorm.SubscriberRecordSeqHelper.write(to: self, value: v.records)
@@ -70,9 +70,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `TopicContent?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `TopicContent?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: TopicContent?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -92,9 +91,9 @@ public typealias TopicContentSeq = [TopicContent]
 public struct TopicContentSeqHelper {
     /// Read a `TopicContentSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `TopicContentSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> TopicContentSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 3)
         var v = TopicContentSeq()
@@ -105,13 +104,13 @@ public struct TopicContentSeqHelper {
         }
         return v
     }
+
     /// Read an optional `TopicContentSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `TopicContentSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> TopicContentSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -120,11 +119,10 @@ public struct TopicContentSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `TopicContentSeq` sequence to the stream.
+    /// Write a `TopicContentSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `TopicContentSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: TopicContentSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -132,13 +130,12 @@ public struct TopicContentSeqHelper {
         }
     }
 
-    /// Wite an optional `TopicContentSeq?` sequence to the stream.
+    /// Write an optional `TopicContentSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `TopicContentSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: TopicContentSeq?) {
         guard let val = v else {
             return
@@ -175,9 +172,7 @@ open class ObserverInconsistencyException: Ice.UserException, @unchecked Sendabl
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceStormElection::ObserverInconsistencyException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -193,13 +188,13 @@ open class ObserverInconsistencyException: Ice.UserException, @unchecked Sendabl
     }
 }
 
-/// Traits for Slice interface`ReplicaObserver`.
+/// Traits for Slice interface `ReplicaObserver`.
 public struct ReplicaObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStormElection::ReplicaObserver"]
     public static let staticId = "::IceStormElection::ReplicaObserver"
 }
 
-/// Traits for Slice interface`TopicManagerSync`.
+/// Traits for Slice interface `TopicManagerSync`.
 public struct TopicManagerSyncTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStormElection::TopicManagerSync"]
     public static let staticId = "::IceStormElection::TopicManagerSync"
@@ -224,7 +219,7 @@ public enum NodeState: Swift.UInt8 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `NodeState` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> NodeState {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 3)
         guard let val = NodeState(rawValue: rawValue) else {
@@ -235,9 +230,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `NodeState` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> NodeState? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -250,16 +245,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `NodeState` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: NodeState) {
         write(enum: v.rawValue, maxValue: 3)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `NodeState` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: NodeState?) {
         guard let v = value else {
             return
@@ -287,7 +281,7 @@ public struct NodeInfo {
 public extension Ice.InputStream {
     /// Read a `NodeInfo` structured value from the stream.
     ///
-    /// - returns: `NodeInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> NodeInfo {
         var v = NodeInfo()
         v.id = try self.read()
@@ -297,9 +291,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `NodeInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `NodeInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> NodeInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -313,7 +307,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `NodeInfo` structured value to the stream.
     ///
-    /// - parameter _: `NodeInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: NodeInfo) {
         self.write(v.id)
         self.write(v.n)
@@ -321,9 +315,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `NodeInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `NodeInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: NodeInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -343,9 +336,9 @@ public typealias NodeInfoSeq = [NodeInfo]
 public struct NodeInfoSeqHelper {
     /// Read a `NodeInfoSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `NodeInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> NodeInfoSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 6)
         var v = NodeInfoSeq()
@@ -356,13 +349,13 @@ public struct NodeInfoSeqHelper {
         }
         return v
     }
+
     /// Read an optional `NodeInfoSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `NodeInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> NodeInfoSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -371,11 +364,10 @@ public struct NodeInfoSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `NodeInfoSeq` sequence to the stream.
+    /// Write a `NodeInfoSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `NodeInfoSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: NodeInfoSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -383,13 +375,12 @@ public struct NodeInfoSeqHelper {
         }
     }
 
-    /// Wite an optional `NodeInfoSeq?` sequence to the stream.
+    /// Write an optional `NodeInfoSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `NodeInfoSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: NodeInfoSeq?) {
         guard let val = v else {
             return
@@ -421,7 +412,7 @@ public struct GroupInfo: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `GroupInfo` structured value from the stream.
     ///
-    /// - returns: `GroupInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> GroupInfo {
         var v = GroupInfo()
         v.id = try self.read()
@@ -431,9 +422,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `GroupInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `GroupInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> GroupInfo? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -447,7 +438,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `GroupInfo` structured value to the stream.
     ///
-    /// - parameter _: `GroupInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: GroupInfo) {
         self.write(v.id)
         self.write(v.llu)
@@ -455,9 +446,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `GroupInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `GroupInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: GroupInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {
@@ -476,9 +466,9 @@ public typealias GroupInfoSeq = [GroupInfo]
 public struct GroupInfoSeqHelper {
     /// Read a `GroupInfoSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `GroupInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> GroupInfoSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 20)
         var v = GroupInfoSeq()
@@ -489,13 +479,13 @@ public struct GroupInfoSeqHelper {
         }
         return v
     }
+
     /// Read an optional `GroupInfoSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `GroupInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> GroupInfoSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -504,11 +494,10 @@ public struct GroupInfoSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `GroupInfoSeq` sequence to the stream.
+    /// Write a `GroupInfoSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `GroupInfoSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: GroupInfoSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -516,13 +505,12 @@ public struct GroupInfoSeqHelper {
         }
     }
 
-    /// Wite an optional `GroupInfoSeq?` sequence to the stream.
+    /// Write an optional `GroupInfoSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `GroupInfoSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: GroupInfoSeq?) {
         guard let val = v else {
             return
@@ -566,7 +554,7 @@ public struct QueryInfo {
 public extension Ice.InputStream {
     /// Read a `QueryInfo` structured value from the stream.
     ///
-    /// - returns: `QueryInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> QueryInfo {
         var v = QueryInfo()
         v.id = try self.read()
@@ -581,9 +569,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `QueryInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `QueryInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> QueryInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -597,7 +585,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `QueryInfo` structured value to the stream.
     ///
-    /// - parameter _: `QueryInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: QueryInfo) {
         self.write(v.id)
         self.write(v.coord)
@@ -610,9 +598,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `QueryInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `QueryInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: QueryInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -624,7 +611,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface`Node`.
+/// Traits for Slice interface `Node`.
 public struct NodeTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStormElection::Node"]
     public static let staticId = "::IceStormElection::Node"
@@ -633,25 +620,15 @@ public struct NodeTraits: Ice.SliceTraits {
 /// The replica observer.
 ///
 /// ReplicaObserverPrx Methods:
-///
 ///  - `init`: Initialize the observer.
-///
 ///  - initAsync: Initialize the observer.
-///
 ///  - createTopic: Create the topic with the given name.
-///
 ///  - createTopicAsync: Create the topic with the given name.
-///
 ///  - destroyTopic: Destroy the topic with the given name.
-///
 ///  - destroyTopicAsync: Destroy the topic with the given name.
-///
 ///  - addSubscriber: Add a subscriber to a topic.
-///
 ///  - addSubscriberAsync: Add a subscriber to a topic.
-///
 ///  - removeSubscriber: Remove a subscriber from a topic.
-///
 ///  - removeSubscriberAsync: Remove a subscriber from a topic.
 public protocol ReplicaObserverPrx: Ice.ObjectPrx {}
 
@@ -667,7 +644,9 @@ private final class ReplicaObserverPrxI: Ice.ObjectPrxI, ReplicaObserverPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ReplicaObserverPrx.Protocol) throws -> ReplicaObserverPrx {
     try communicator.makeProxyImpl(proxyString) as ReplicaObserverPrxI
@@ -679,62 +658,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `ReplicaObserverPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `ReplicaObserverPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: ReplicaObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ReplicaObserverPrx? {
     return try await ReplicaObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ReplicaObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `ReplicaObserverPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `ReplicaObserverPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: ReplicaObserverPrx.Protocol, facet: Swift.String? = nil) -> ReplicaObserverPrx {
     return ReplicaObserverPrxI.uncheckedCast(prx: prx, facet: facet) as ReplicaObserverPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `ReplicaObserverPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ReplicaObserverPrx.Protocol) -> Swift.String {
     return ReplicaObserverTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `ReplicaObserverPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `ReplicaObserverPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `ReplicaObserverPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: ReplicaObserverPrx.Protocol) throws -> ReplicaObserverPrx? {
         return try read() as ReplicaObserverPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `ReplicaObserverPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `ReplicaObserverPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: ReplicaObserverPrx.Protocol) throws -> ReplicaObserverPrx? {
         return try read(tag: tag) as ReplicaObserverPrxI?
     }
@@ -743,38 +717,26 @@ public extension Ice.InputStream {
 /// The replica observer.
 ///
 /// ReplicaObserverPrx Methods:
-///
 ///  - `init`: Initialize the observer.
-///
 ///  - initAsync: Initialize the observer.
-///
 ///  - createTopic: Create the topic with the given name.
-///
 ///  - createTopicAsync: Create the topic with the given name.
-///
 ///  - destroyTopic: Destroy the topic with the given name.
-///
 ///  - destroyTopicAsync: Destroy the topic with the given name.
-///
 ///  - addSubscriber: Add a subscriber to a topic.
-///
 ///  - addSubscriberAsync: Add a subscriber to a topic.
-///
 ///  - removeSubscriber: Remove a subscriber from a topic.
-///
 ///  - removeSubscriberAsync: Remove a subscriber from a topic.
 public extension ReplicaObserverPrx {
     /// Initialize the observer.
     ///
-    /// - parameter llu: `LogUpdate` The last log update seen by the master.
+    /// - Parameters:
+    ///   - iceP_llu: The last log update seen by the master.
+    ///   - iceP_content: The topic content.
+    ///   - context: Optional request context.
     ///
-    /// - parameter content: `TopicContentSeq` The topic content.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an
+    /// - Throws:
+    ///   - ObserverInconsistencyException Raised if an
     ///     inconsisency was detected.
     func `init`(llu iceP_llu: LogUpdate, content iceP_content: TopicContentSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "init",
@@ -795,15 +757,13 @@ public extension ReplicaObserverPrx {
 
     /// Create the topic with the given name.
     ///
-    /// - parameter llu: `LogUpdate` The log update token.
+    /// - Parameters:
+    ///   - iceP_llu: The log update token.
+    ///   - iceP_name: The topic name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter name: `Swift.String` The topic name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an
+    /// - Throws:
+    ///   - ObserverInconsistencyException Raised if an
     ///     inconsisency was detected.
     func createTopic(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "createTopic",
@@ -824,15 +784,13 @@ public extension ReplicaObserverPrx {
 
     /// Destroy the topic with the given name.
     ///
-    /// - parameter llu: `LogUpdate` The log update token.
+    /// - Parameters:
+    ///   - iceP_llu: The log update token.
+    ///   - iceP_name: The topic name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter name: `Swift.String` The topic name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an
+    /// - Throws:
+    ///   - ObserverInconsistencyException Raised if an
     ///     inconsisency was detected.
     func destroyTopic(llu iceP_llu: LogUpdate, name iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroyTopic",
@@ -853,17 +811,14 @@ public extension ReplicaObserverPrx {
 
     /// Add a subscriber to a topic.
     ///
-    /// - parameter llu: `LogUpdate` The log update token.
+    /// - Parameters:
+    ///   - iceP_llu: The log update token.
+    ///   - iceP_topic: The topic name to which to add the subscriber.
+    ///   - iceP_record: The subscriber information.
+    ///   - context: Optional request context.
     ///
-    /// - parameter topic: `Swift.String` The topic name to which to add the subscriber.
-    ///
-    /// - parameter record: `IceStorm.SubscriberRecord` The subscriber information.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an
+    /// - Throws:
+    ///   - ObserverInconsistencyException Raised if an
     ///     inconsisency was detected.
     func addSubscriber(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, record iceP_record: IceStorm.SubscriberRecord, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "addSubscriber",
@@ -885,17 +840,14 @@ public extension ReplicaObserverPrx {
 
     /// Remove a subscriber from a topic.
     ///
-    /// - parameter llu: `LogUpdate` The log update token.
+    /// - Parameters:
+    ///   - iceP_llu: The log update token.
+    ///   - iceP_topic
+    ///   - iceP_subscribers: The identities of the subscribers to remove.
+    ///   - context: Optional request context.
     ///
-    /// - parameter topic: `Swift.String`
-    ///
-    /// - parameter subscribers: `Ice.IdentitySeq` The identities of the subscribers to remove.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an inconsisency was detected.
+    /// - Throws:
+    ///   - ObserverInconsistencyException Raised if an inconsisency was detected.
     func removeSubscriber(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, subscribers iceP_subscribers: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "removeSubscriber",
                                        mode: .Normal,
@@ -918,9 +870,7 @@ public extension ReplicaObserverPrx {
 /// Interface used to sync topics.
 ///
 /// TopicManagerSyncPrx Methods:
-///
 ///  - getContent: Retrieve the topic content.
-///
 ///  - getContentAsync: Retrieve the topic content.
 public protocol TopicManagerSyncPrx: Ice.ObjectPrx {}
 
@@ -936,7 +886,9 @@ private final class TopicManagerSyncPrxI: Ice.ObjectPrxI, TopicManagerSyncPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TopicManagerSyncPrx.Protocol) throws -> TopicManagerSyncPrx {
     try communicator.makeProxyImpl(proxyString) as TopicManagerSyncPrxI
@@ -948,62 +900,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `TopicManagerSyncPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `TopicManagerSyncPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: TopicManagerSyncPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TopicManagerSyncPrx? {
     return try await TopicManagerSyncPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicManagerSyncPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `TopicManagerSyncPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `TopicManagerSyncPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: TopicManagerSyncPrx.Protocol, facet: Swift.String? = nil) -> TopicManagerSyncPrx {
     return TopicManagerSyncPrxI.uncheckedCast(prx: prx, facet: facet) as TopicManagerSyncPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `TopicManagerSyncPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TopicManagerSyncPrx.Protocol) -> Swift.String {
     return TopicManagerSyncTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `TopicManagerSyncPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `TopicManagerSyncPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `TopicManagerSyncPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: TopicManagerSyncPrx.Protocol) throws -> TopicManagerSyncPrx? {
         return try read() as TopicManagerSyncPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `TopicManagerSyncPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `TopicManagerSyncPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: TopicManagerSyncPrx.Protocol) throws -> TopicManagerSyncPrx? {
         return try read(tag: tag) as TopicManagerSyncPrxI?
     }
@@ -1012,20 +959,16 @@ public extension Ice.InputStream {
 /// Interface used to sync topics.
 ///
 /// TopicManagerSyncPrx Methods:
-///
 ///  - getContent: Retrieve the topic content.
-///
 ///  - getContentAsync: Retrieve the topic content.
 public extension TopicManagerSyncPrx {
     /// Retrieve the topic content.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `(llu: LogUpdate, content: TopicContentSeq)`:
-    ///
-    ///   - llu: `LogUpdate` - The last log update token.
-    ///
-    ///   - content: `TopicContentSeq` - The topic content.
+    /// - Returns:
+    ///   - content: The topic content.
+    ///   - llu: The last log update token.
     func getContent(context: Ice.Context? = nil) async throws -> (llu: LogUpdate, content: TopicContentSeq) {
         return try await _impl._invoke(operation: "getContent",
                                        mode: .Normal,
@@ -1041,37 +984,21 @@ public extension TopicManagerSyncPrx {
 /// A replica node.
 ///
 /// NodePrx Methods:
-///
 ///  - invitation: Invite the node into a group with the given coordinator and group name.
-///
 ///  - invitationAsync: Invite the node into a group with the given coordinator and group name.
-///
 ///  - ready: Call from the group coordinator to a node to inform the node that the replica group is active.
-///
 ///  - readyAsync: Call from the group coordinator to a node to inform the node that the replica group is active.
-///
 ///  - accept: Called to accept an invitation into the given group.
-///
 ///  - acceptAsync: Called to accept an invitation into the given group.
-///
 ///  - areYouCoordinator: Determine if this node is a coordinator.
-///
 ///  - areYouCoordinatorAsync: Determine if this node is a coordinator.
-///
 ///  - areYouThere: Determine if the node is a member of the given group with the given coordinator.
-///
 ///  - areYouThereAsync: Determine if the node is a member of the given group with the given coordinator.
-///
 ///  - sync: Get the sync object for the replica hosted by this node.
-///
 ///  - syncAsync: Get the sync object for the replica hosted by this node.
-///
 ///  - nodes: Get the replication group information.
-///
 ///  - nodesAsync: Get the replication group information.
-///
 ///  - query: Get the query information for the given node.
-///
 ///  - queryAsync: Get the query information for the given node.
 public protocol NodePrx: Ice.ObjectPrx {}
 
@@ -1087,7 +1014,9 @@ private final class NodePrxI: Ice.ObjectPrxI, NodePrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: NodePrx.Protocol) throws -> NodePrx {
     try communicator.makeProxyImpl(proxyString) as NodePrxI
@@ -1099,62 +1028,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `NodePrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `NodePrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: NodePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> NodePrx? {
     return try await NodePrxI.checkedCast(prx: prx, facet: facet, context: context) as NodePrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `NodePrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `NodePrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: NodePrx.Protocol, facet: Swift.String? = nil) -> NodePrx {
     return NodePrxI.uncheckedCast(prx: prx, facet: facet) as NodePrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `NodePrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: NodePrx.Protocol) -> Swift.String {
     return NodeTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `NodePrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `NodePrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `NodePrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: NodePrx.Protocol) throws -> NodePrx? {
         return try read() as NodePrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `NodePrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `NodePrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: NodePrx.Protocol) throws -> NodePrx? {
         return try read(tag: tag) as NodePrxI?
     }
@@ -1163,46 +1087,29 @@ public extension Ice.InputStream {
 /// A replica node.
 ///
 /// NodePrx Methods:
-///
 ///  - invitation: Invite the node into a group with the given coordinator and group name.
-///
 ///  - invitationAsync: Invite the node into a group with the given coordinator and group name.
-///
 ///  - ready: Call from the group coordinator to a node to inform the node that the replica group is active.
-///
 ///  - readyAsync: Call from the group coordinator to a node to inform the node that the replica group is active.
-///
 ///  - accept: Called to accept an invitation into the given group.
-///
 ///  - acceptAsync: Called to accept an invitation into the given group.
-///
 ///  - areYouCoordinator: Determine if this node is a coordinator.
-///
 ///  - areYouCoordinatorAsync: Determine if this node is a coordinator.
-///
 ///  - areYouThere: Determine if the node is a member of the given group with the given coordinator.
-///
 ///  - areYouThereAsync: Determine if the node is a member of the given group with the given coordinator.
-///
 ///  - sync: Get the sync object for the replica hosted by this node.
-///
 ///  - syncAsync: Get the sync object for the replica hosted by this node.
-///
 ///  - nodes: Get the replication group information.
-///
 ///  - nodesAsync: Get the replication group information.
-///
 ///  - query: Get the query information for the given node.
-///
 ///  - queryAsync: Get the query information for the given node.
 public extension NodePrx {
     /// Invite the node into a group with the given coordinator and group name.
     ///
-    /// - parameter j: `Swift.Int32` The group coordinator.
-    ///
-    /// - parameter gn: `Swift.String` The group name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_j: The group coordinator.
+    ///   - iceP_gn: The group name.
+    ///   - context: Optional request context.
     func invitation(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "invitation",
                                        mode: .Normal,
@@ -1215,17 +1122,13 @@ public extension NodePrx {
 
     /// Call from the group coordinator to a node to inform the node that the replica group is active.
     ///
-    /// - parameter j: `Swift.Int32` The group coordinator.
-    ///
-    /// - parameter gn: `Swift.String` The group name.
-    ///
-    /// - parameter coordinator: `Ice.ObjectPrx?` The proxy to the coordinator.
-    ///
-    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
-    ///
-    /// - parameter generation: `Swift.Int64` The current generation count.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_j: The group coordinator.
+    ///   - iceP_gn: The group name.
+    ///   - iceP_coordinator: The proxy to the coordinator.
+    ///   - iceP_max: The highest priority node seen by this replica group.
+    ///   - iceP_generation: The current generation count.
+    ///   - context: Optional request context.
     func ready(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, coordinator iceP_coordinator: Ice.ObjectPrx?, max iceP_max: Swift.Int32, generation iceP_generation: Swift.Int64, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "ready",
                                        mode: .Normal,
@@ -1241,19 +1144,14 @@ public extension NodePrx {
 
     /// Called to accept an invitation into the given group.
     ///
-    /// - parameter j: `Swift.Int32` The id of the node accepting the invitation.
-    ///
-    /// - parameter gn: `Swift.String` The group name.
-    ///
-    /// - parameter forwardedInvites: `Ice.IntSeq` The ids of the nodes to which invitations were forwarded.
-    ///
-    /// - parameter observer: `Ice.ObjectPrx?` The observer.
-    ///
-    /// - parameter llu: `LogUpdate` The last log update for the given node.
-    ///
-    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_j: The id of the node accepting the invitation.
+    ///   - iceP_gn: The group name.
+    ///   - iceP_forwardedInvites: The ids of the nodes to which invitations were forwarded.
+    ///   - iceP_observer: The observer.
+    ///   - iceP_llu: The last log update for the given node.
+    ///   - iceP_max: The highest priority node seen by this replica group.
+    ///   - context: Optional request context.
     func accept(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, forwardedInvites iceP_forwardedInvites: Ice.IntSeq, observer iceP_observer: Ice.ObjectPrx?, llu iceP_llu: LogUpdate, max iceP_max: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "accept",
                                        mode: .Normal,
@@ -1270,9 +1168,9 @@ public extension NodePrx {
 
     /// Determine if this node is a coordinator.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Swift.Bool` - True if the node is a coordinator, false otherwise.
+    /// - Returns: True if the node is a coordinator, false otherwise.
     func areYouCoordinator(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "areYouCoordinator",
                                        mode: .Idempotent,
@@ -1285,13 +1183,12 @@ public extension NodePrx {
 
     /// Determine if the node is a member of the given group with the given coordinator.
     ///
-    /// - parameter gn: `Swift.String` The group name.
+    /// - Parameters:
+    ///   - iceP_gn: The group name.
+    ///   - iceP_j: The group coordinator.
+    ///   - context: Optional request context.
     ///
-    /// - parameter j: `Swift.Int32` The group coordinator.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool` - True if the node is a member, false otherwise.
+    /// - Returns: True if the node is a member, false otherwise.
     func areYouThere(gn iceP_gn: Swift.String, j iceP_j: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "areYouThere",
                                        mode: .Idempotent,
@@ -1308,9 +1205,9 @@ public extension NodePrx {
 
     /// Get the sync object for the replica hosted by this node.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The sync object.
+    /// - Returns: The sync object.
     func sync(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "sync",
                                        mode: .Idempotent,
@@ -1323,9 +1220,9 @@ public extension NodePrx {
 
     /// Get the replication group information.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `NodeInfoSeq` - The set of configured nodes and the associated priority.
+    /// - Returns: The set of configured nodes and the associated priority.
     func nodes(context: Ice.Context? = nil) async throws -> NodeInfoSeq {
         return try await _impl._invoke(operation: "nodes",
                                        mode: .Idempotent,
@@ -1338,9 +1235,9 @@ public extension NodePrx {
 
     /// Get the query information for the given node.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `QueryInfo` - The query information.
+    /// - Returns: The query information.
     func query(context: Ice.Context? = nil) async throws -> QueryInfo {
         return try await _impl._invoke(operation: "query",
                                        mode: .Idempotent,
@@ -1392,75 +1289,63 @@ public struct ReplicaObserverDisp: Ice.Dispatcher {
 public protocol ReplicaObserver {
     /// Initialize the observer.
     ///
-    /// - parameter llu: `LogUpdate` The last log update seen by the master.
+    /// - Parameters:
+    ///   - llu: The last log update seen by the master.
+    ///   - content: The topic content.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter content: `TopicContentSeq` The topic content.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an
+    /// - Throws:
+    ///   - ObserverInconsistencyException Raised if an
     ///     inconsisency was detected.
     func `init`(llu: LogUpdate, content: TopicContentSeq, current: Ice.Current) async throws
 
     /// Create the topic with the given name.
     ///
-    /// - parameter llu: `LogUpdate` The log update token.
+    /// - Parameters:
+    ///   - llu: The log update token.
+    ///   - name: The topic name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter name: `Swift.String` The topic name.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an
+    /// - Throws:
+    ///   - ObserverInconsistencyException Raised if an
     ///     inconsisency was detected.
     func createTopic(llu: LogUpdate, name: Swift.String, current: Ice.Current) async throws
 
     /// Destroy the topic with the given name.
     ///
-    /// - parameter llu: `LogUpdate` The log update token.
+    /// - Parameters:
+    ///   - llu: The log update token.
+    ///   - name: The topic name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter name: `Swift.String` The topic name.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an
+    /// - Throws:
+    ///   - ObserverInconsistencyException Raised if an
     ///     inconsisency was detected.
     func destroyTopic(llu: LogUpdate, name: Swift.String, current: Ice.Current) async throws
 
     /// Add a subscriber to a topic.
     ///
-    /// - parameter llu: `LogUpdate` The log update token.
+    /// - Parameters:
+    ///   - llu: The log update token.
+    ///   - topic: The topic name to which to add the subscriber.
+    ///   - record: The subscriber information.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter topic: `Swift.String` The topic name to which to add the subscriber.
-    ///
-    /// - parameter record: `IceStorm.SubscriberRecord` The subscriber information.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an
+    /// - Throws:
+    ///   - ObserverInconsistencyException Raised if an
     ///     inconsisency was detected.
     func addSubscriber(llu: LogUpdate, topic: Swift.String, record: IceStorm.SubscriberRecord, current: Ice.Current) async throws
 
     /// Remove a subscriber from a topic.
     ///
-    /// - parameter llu: `LogUpdate` The log update token.
+    /// - Parameters:
+    ///   - llu: The log update token.
+    ///   - topic
+    ///   - subscribers: The identities of the subscribers to remove.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter topic: `Swift.String`
-    ///
-    /// - parameter subscribers: `Ice.IdentitySeq` The identities of the subscribers to remove.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverInconsistencyException - Raised if an inconsisency was detected.
+    /// - Throws:
+    ///   - ObserverInconsistencyException Raised if an inconsisency was detected.
     func removeSubscriber(llu: LogUpdate, topic: Swift.String, subscribers: Ice.IdentitySeq, current: Ice.Current) async throws
 }
 
@@ -1496,13 +1381,11 @@ public struct TopicManagerSyncDisp: Ice.Dispatcher {
 public protocol TopicManagerSync {
     /// Retrieve the topic content.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `(llu: LogUpdate, content: TopicContentSeq)`:
-    ///
-    ///   - llu: `LogUpdate` - The last log update token.
-    ///
-    ///   - content: `TopicContentSeq` - The topic content.
+    /// - Returns:
+    ///   - content: The topic content.
+    ///   - llu: The last log update token.
     func getContent(current: Ice.Current) async throws -> (llu: LogUpdate, content: TopicContentSeq)
 }
 
@@ -1552,97 +1435,81 @@ public struct NodeDisp: Ice.Dispatcher {
 public protocol Node {
     /// Invite the node into a group with the given coordinator and group name.
     ///
-    /// - parameter j: `Swift.Int32` The group coordinator.
-    ///
-    /// - parameter gn: `Swift.String` The group name.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - j: The group coordinator.
+    ///   - gn: The group name.
+    ///   - current: The Current object for the dispatch.
     func invitation(j: Swift.Int32, gn: Swift.String, current: Ice.Current) async throws
 
     /// Call from the group coordinator to a node to inform the node that the replica group is active.
     ///
-    /// - parameter j: `Swift.Int32` The group coordinator.
-    ///
-    /// - parameter gn: `Swift.String` The group name.
-    ///
-    /// - parameter coordinator: `Ice.ObjectPrx?` The proxy to the coordinator.
-    ///
-    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
-    ///
-    /// - parameter generation: `Swift.Int64` The current generation count.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - j: The group coordinator.
+    ///   - gn: The group name.
+    ///   - coordinator: The proxy to the coordinator.
+    ///   - max: The highest priority node seen by this replica group.
+    ///   - generation: The current generation count.
+    ///   - current: The Current object for the dispatch.
     func ready(j: Swift.Int32, gn: Swift.String, coordinator: Ice.ObjectPrx?, max: Swift.Int32, generation: Swift.Int64, current: Ice.Current) async throws
 
     /// Called to accept an invitation into the given group.
     ///
-    /// - parameter j: `Swift.Int32` The id of the node accepting the invitation.
-    ///
-    /// - parameter gn: `Swift.String` The group name.
-    ///
-    /// - parameter forwardedInvites: `Ice.IntSeq` The ids of the nodes to which invitations were forwarded.
-    ///
-    /// - parameter observer: `Ice.ObjectPrx?` The observer.
-    ///
-    /// - parameter llu: `LogUpdate` The last log update for the given node.
-    ///
-    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - j: The id of the node accepting the invitation.
+    ///   - gn: The group name.
+    ///   - forwardedInvites: The ids of the nodes to which invitations were forwarded.
+    ///   - observer: The observer.
+    ///   - llu: The last log update for the given node.
+    ///   - max: The highest priority node seen by this replica group.
+    ///   - current: The Current object for the dispatch.
     func accept(j: Swift.Int32, gn: Swift.String, forwardedInvites: Ice.IntSeq, observer: Ice.ObjectPrx?, llu: LogUpdate, max: Swift.Int32, current: Ice.Current) async throws
 
     /// Determine if this node is a coordinator.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Bool` - True if the node is a coordinator, false otherwise.
+    /// - Returns: True if the node is a coordinator, false otherwise.
     func areYouCoordinator(current: Ice.Current) async throws -> Swift.Bool
 
     /// Determine if the node is a member of the given group with the given coordinator.
     ///
-    /// - parameter gn: `Swift.String` The group name.
+    /// - Parameters:
+    ///   - gn: The group name.
+    ///   - j: The group coordinator.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter j: `Swift.Int32` The group coordinator.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool` - True if the node is a member, false otherwise.
+    /// - Returns: True if the node is a member, false otherwise.
     func areYouThere(gn: Swift.String, j: Swift.Int32, current: Ice.Current) async throws -> Swift.Bool
 
     /// Get the sync object for the replica hosted by this node.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The sync object.
+    /// - Returns: The sync object.
     func sync(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Get the replication group information.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `NodeInfoSeq` - The set of configured nodes and the associated priority.
+    /// - Returns: The set of configured nodes and the associated priority.
     func nodes(current: Ice.Current) async throws -> NodeInfoSeq
 
     /// Get the query information for the given node.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `QueryInfo` - The query information.
+    /// - Returns: The query information.
     func query(current: Ice.Current) async throws -> QueryInfo
 }
 
 /// The replica observer.
 ///
 /// ReplicaObserver Methods:
-///
 ///  - `init`: Initialize the observer.
-///
 ///  - createTopic: Create the topic with the given name.
-///
 ///  - destroyTopic: Destroy the topic with the given name.
-///
 ///  - addSubscriber: Add a subscriber to a topic.
-///
 ///  - removeSubscriber: Remove a subscriber from a topic.
 extension ReplicaObserver {
     public func _iceD_init(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1701,7 +1568,6 @@ extension ReplicaObserver {
 /// Interface used to sync topics.
 ///
 /// TopicManagerSync Methods:
-///
 ///  - getContent: Retrieve the topic content.
 extension TopicManagerSync {
     public func _iceD_getContent(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1719,21 +1585,13 @@ extension TopicManagerSync {
 /// A replica node.
 ///
 /// Node Methods:
-///
 ///  - invitation: Invite the node into a group with the given coordinator and group name.
-///
 ///  - ready: Call from the group coordinator to a node to inform the node that the replica group is active.
-///
 ///  - accept: Called to accept an invitation into the given group.
-///
 ///  - areYouCoordinator: Determine if this node is a coordinator.
-///
 ///  - areYouThere: Determine if the node is a member of the given group with the given coordinator.
-///
 ///  - sync: Get the sync object for the replica hosted by this node.
-///
 ///  - nodes: Get the replication group information.
-///
 ///  - query: Get the query information for the given node.
 extension Node {
     public func _iceD_invitation(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

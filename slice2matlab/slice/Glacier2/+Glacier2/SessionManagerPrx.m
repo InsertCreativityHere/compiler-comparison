@@ -1,7 +1,7 @@
 % SessionManagerPrx   Summary of SessionManagerPrx
 %
-% The session manager for username/password authenticated users that is responsible for managing {@link Session}
-% objects. New session objects are created by the {@link Router} object calling on an application-provided
+% The session manager for username/password authenticated users that is responsible for managing Session
+% objects. New session objects are created by the Router object calling on an application-provided
 % session manager. If no session manager is provided by the application, no client-visible sessions are passed to
 % the client.
 %
@@ -20,7 +20,7 @@ classdef SessionManagerPrx < Ice.ObjectPrx
     methods
         function result = create(obj, userId, control, varargin)
             % create   Create a new session. The implementation must return a non-null proxy or raise
-            % {@link CannotCreateSessionException} if the session cannot be created.
+            % CannotCreateSessionException if the session cannot be created.
             %
             % Parameters:
             %   userId (char) - The user id for the session.
@@ -44,7 +44,7 @@ classdef SessionManagerPrx < Ice.ObjectPrx
         end
         function r_ = createAsync(obj, userId, control, varargin)
             % createAsync   Create a new session. The implementation must return a non-null proxy or raise
-            % {@link CannotCreateSessionException} if the session cannot be created.
+            % CannotCreateSessionException if the session cannot be created.
             %
             % Parameters:
             %   userId (char) - The user id for the session.

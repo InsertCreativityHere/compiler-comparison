@@ -58,7 +58,7 @@ public enum breakbitand: Swift.UInt8 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `breakbitand` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> breakbitand {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 31)
         guard let val = breakbitand(rawValue: rawValue) else {
@@ -69,9 +69,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `breakbitand` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> breakbitand? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -84,16 +84,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `breakbitand` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: breakbitand) {
         write(enum: v.rawValue, maxValue: 31)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `breakbitand` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: breakbitand?) {
         guard let v = value else {
             return
@@ -122,7 +121,7 @@ public struct breakbitor: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `breakbitor` structured value from the stream.
     ///
-    /// - returns: `breakbitor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> breakbitor {
         var v = breakbitor()
         v.`case` = try self.read()
@@ -134,9 +133,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `breakbitor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `breakbitor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> breakbitor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -150,7 +149,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `breakbitor` structured value to the stream.
     ///
-    /// - parameter _: `breakbitor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: breakbitor) {
         self.write(v.`case`)
         self.write(v.`continue`)
@@ -160,9 +159,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `breakbitor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `breakbitor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: breakbitor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -181,9 +179,9 @@ public typealias breakparfor = [breakbitor]
 public struct breakparforHelper {
     /// Read a `breakparfor` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `breakparfor` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> breakparfor {
         let sz = try istr.readAndCheckSeqSize(minSize: 13)
         var v = breakparfor()
@@ -194,13 +192,13 @@ public struct breakparforHelper {
         }
         return v
     }
+
     /// Read an optional `breakparfor?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `breakparfor` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> breakparfor? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -209,11 +207,10 @@ public struct breakparforHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `breakparfor` sequence to the stream.
+    /// Write a `breakparfor` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `breakparfor` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: breakparfor) {
         ostr.write(size: v.count)
         for item in v {
@@ -221,13 +218,12 @@ public struct breakparforHelper {
         }
     }
 
-    /// Wite an optional `breakparfor?` sequence to the stream.
+    /// Write an optional `breakparfor?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `breakparfor` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: breakparfor?) {
         guard let val = v else {
             return
@@ -247,9 +243,9 @@ public typealias breakswitch = [Swift.Int32: breakbitor]
 public struct breakswitchHelper {
     /// Read a `breakswitch` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `breakswitch` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> breakswitch {
         let sz = try Swift.Int(istr.readSize())
         var v = breakswitch()
@@ -260,13 +256,13 @@ public struct breakswitchHelper {
         }
         return v
     }
+
     /// Read an optional `breakswitch?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `breakswitch` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> breakswitch? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -275,11 +271,10 @@ public struct breakswitchHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `breakswitch` dictionary to the stream.
+    /// Write a `breakswitch` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `breakswitch` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: breakswitch) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -288,13 +283,12 @@ public struct breakswitchHelper {
         }
     }
 
-    /// Wite an optional `breakswitch?` dictionary to the stream.
+    /// Write an optional `breakswitch?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `breakswitch` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: breakswitch?) {
         guard let val = v else {
             return
@@ -339,9 +333,7 @@ open class breakpersistent: Ice.UserException, @unchecked Sendable {
         self.end = end
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::classdef::break::persistent" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -396,9 +388,7 @@ open class breakglobal: breakpersistent, @unchecked Sendable {
         super.init(identifier: identifier, message: message, stack: stack, cause: cause, type: type, end: end)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::classdef::break::global" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -416,7 +406,7 @@ open class breakglobal: breakpersistent, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`breakelseif`.
+/// Traits for Slice interface `breakelseif`.
 public struct breakelseifTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::classdef::break::elseif"]
     public static let staticId = "::classdef::break::elseif"
@@ -438,7 +428,9 @@ private final class breakelseifPrxI: Ice.ObjectPrxI, breakelseifPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: breakelseifPrx.Protocol) throws -> breakelseifPrx {
     try communicator.makeProxyImpl(proxyString) as breakelseifPrxI
@@ -450,62 +442,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `breakelseifPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `breakelseifPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: breakelseifPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> breakelseifPrx? {
     return try await breakelseifPrxI.checkedCast(prx: prx, facet: facet, context: context) as breakelseifPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `breakelseifPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `breakelseifPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: breakelseifPrx.Protocol, facet: Swift.String? = nil) -> breakelseifPrx {
     return breakelseifPrxI.uncheckedCast(prx: prx, facet: facet) as breakelseifPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `breakelseifPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: breakelseifPrx.Protocol) -> Swift.String {
     return breakelseifTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `breakelseifPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `breakelseifPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `breakelseifPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: breakelseifPrx.Protocol) throws -> breakelseifPrx? {
         return try read() as breakelseifPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `breakelseifPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `breakelseifPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: breakelseifPrx.Protocol) throws -> breakelseifPrx? {
         return try read(tag: tag) as breakelseifPrxI?
     }
@@ -563,9 +550,7 @@ open class breaklogical: Ice.Value {
         self.int64 = int64
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::classdef::break::logical" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -610,9 +595,7 @@ open class breakxor: breaklogical {
         super.init(`else`: `else`, `for`: `for`, int64: int64)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::classdef::break::xor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -654,9 +637,7 @@ open class breaktry: Ice.Value {
         self.delete = delete
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::classdef::break::try" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -705,9 +686,7 @@ open class breakproperties: breaktry {
         super.init(`while`: `while`, delete: delete)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::classdef::break::properties" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

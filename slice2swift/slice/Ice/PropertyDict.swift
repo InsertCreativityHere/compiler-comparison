@@ -24,9 +24,9 @@ public typealias PropertyDict = [Swift.String: Swift.String]
 public struct PropertyDictHelper {
     /// Read a `PropertyDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `PropertyDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: InputStream) throws -> PropertyDict {
         let sz = try Swift.Int(istr.readSize())
         var v = PropertyDict()
@@ -37,13 +37,13 @@ public struct PropertyDictHelper {
         }
         return v
     }
+
     /// Read an optional `PropertyDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `PropertyDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: InputStream, tag: Swift.Int32) throws -> PropertyDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -52,11 +52,10 @@ public struct PropertyDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `PropertyDict` dictionary to the stream.
+    /// Write a `PropertyDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `PropertyDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: OutputStream, value v: PropertyDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -65,13 +64,12 @@ public struct PropertyDictHelper {
         }
     }
 
-    /// Wite an optional `PropertyDict?` dictionary to the stream.
+    /// Write an optional `PropertyDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `PropertyDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: OutputStream, tag: Swift.Int32, value v: PropertyDict?) {
         guard let val = v else {
             return

@@ -30,7 +30,7 @@ public struct StructKey: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `StructKey` structured value from the stream.
     ///
-    /// - returns: `StructKey` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> StructKey {
         var v = StructKey()
         v.value = try self.read()
@@ -39,9 +39,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `StructKey?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `StructKey?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> StructKey? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -55,16 +55,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `StructKey` structured value to the stream.
     ///
-    /// - parameter _: `StructKey` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: StructKey) {
         self.write(v.value)
     }
 
     /// Write an optional `StructKey?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `StructKey?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: StructKey?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {
@@ -97,9 +96,7 @@ open class ClassKey: Ice.Value {
         self.value = value
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::ClassKey" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

@@ -16,31 +16,31 @@
 import Foundation
 import Ice
 
-/// Traits for Slice interface`MAIA`.
+/// Traits for Slice interface `MAIA`.
 public struct MAIATraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MA::IA"]
     public static let staticId = "::Test::MA::IA"
 }
 
-/// Traits for Slice interface`MBIB1`.
+/// Traits for Slice interface `MBIB1`.
 public struct MBIB1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MA::IA", "::Test::MB::IB1"]
     public static let staticId = "::Test::MB::IB1"
 }
 
-/// Traits for Slice interface`MBIB2`.
+/// Traits for Slice interface `MBIB2`.
 public struct MBIB2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MA::IA", "::Test::MB::IB2"]
     public static let staticId = "::Test::MB::IB2"
 }
 
-/// Traits for Slice interface`MAIC`.
+/// Traits for Slice interface `MAIC`.
 public struct MAICTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MA::IA", "::Test::MA::IC", "::Test::MB::IB1", "::Test::MB::IB2"]
     public static let staticId = "::Test::MA::IC"
 }
 
-/// Traits for Slice interface`Initial`.
+/// Traits for Slice interface `Initial`.
 public struct InitialTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Initial"]
     public static let staticId = "::Test::Initial"
@@ -60,7 +60,9 @@ private final class MAIAPrxI: Ice.ObjectPrxI, MAIAPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MAIAPrx.Protocol) throws -> MAIAPrx {
     try communicator.makeProxyImpl(proxyString) as MAIAPrxI
@@ -72,62 +74,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `MAIAPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `MAIAPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: MAIAPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MAIAPrx? {
     return try await MAIAPrxI.checkedCast(prx: prx, facet: facet, context: context) as MAIAPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `MAIAPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `MAIAPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: MAIAPrx.Protocol, facet: Swift.String? = nil) -> MAIAPrx {
     return MAIAPrxI.uncheckedCast(prx: prx, facet: facet) as MAIAPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `MAIAPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MAIAPrx.Protocol) -> Swift.String {
     return MAIATraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `MAIAPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `MAIAPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `MAIAPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: MAIAPrx.Protocol) throws -> MAIAPrx? {
         return try read() as MAIAPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `MAIAPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MAIAPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: MAIAPrx.Protocol) throws -> MAIAPrx? {
         return try read(tag: tag) as MAIAPrxI?
     }
@@ -162,7 +159,9 @@ private final class MBIB1PrxI: Ice.ObjectPrxI, MBIB1Prx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MBIB1Prx.Protocol) throws -> MBIB1Prx {
     try communicator.makeProxyImpl(proxyString) as MBIB1PrxI
@@ -174,62 +173,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `MBIB1Prx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `MBIB1Prx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: MBIB1Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MBIB1Prx? {
     return try await MBIB1PrxI.checkedCast(prx: prx, facet: facet, context: context) as MBIB1PrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `MBIB1Prx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `MBIB1Prx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: MBIB1Prx.Protocol, facet: Swift.String? = nil) -> MBIB1Prx {
     return MBIB1PrxI.uncheckedCast(prx: prx, facet: facet) as MBIB1PrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `MBIB1Prx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MBIB1Prx.Protocol) -> Swift.String {
     return MBIB1Traits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `MBIB1Prx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `MBIB1Prx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `MBIB1Prx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: MBIB1Prx.Protocol) throws -> MBIB1Prx? {
         return try read() as MBIB1PrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `MBIB1Prx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MBIB1Prx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: MBIB1Prx.Protocol) throws -> MBIB1Prx? {
         return try read(tag: tag) as MBIB1PrxI?
     }
@@ -264,7 +258,9 @@ private final class MBIB2PrxI: Ice.ObjectPrxI, MBIB2Prx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MBIB2Prx.Protocol) throws -> MBIB2Prx {
     try communicator.makeProxyImpl(proxyString) as MBIB2PrxI
@@ -276,62 +272,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `MBIB2Prx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `MBIB2Prx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: MBIB2Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MBIB2Prx? {
     return try await MBIB2PrxI.checkedCast(prx: prx, facet: facet, context: context) as MBIB2PrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `MBIB2Prx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `MBIB2Prx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: MBIB2Prx.Protocol, facet: Swift.String? = nil) -> MBIB2Prx {
     return MBIB2PrxI.uncheckedCast(prx: prx, facet: facet) as MBIB2PrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `MBIB2Prx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MBIB2Prx.Protocol) -> Swift.String {
     return MBIB2Traits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `MBIB2Prx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `MBIB2Prx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `MBIB2Prx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: MBIB2Prx.Protocol) throws -> MBIB2Prx? {
         return try read() as MBIB2PrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `MBIB2Prx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MBIB2Prx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: MBIB2Prx.Protocol) throws -> MBIB2Prx? {
         return try read(tag: tag) as MBIB2PrxI?
     }
@@ -366,7 +357,9 @@ private final class MAICPrxI: Ice.ObjectPrxI, MAICPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MAICPrx.Protocol) throws -> MAICPrx {
     try communicator.makeProxyImpl(proxyString) as MAICPrxI
@@ -378,62 +371,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `MAICPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `MAICPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: MAICPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> MAICPrx? {
     return try await MAICPrxI.checkedCast(prx: prx, facet: facet, context: context) as MAICPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `MAICPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `MAICPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: MAICPrx.Protocol, facet: Swift.String? = nil) -> MAICPrx {
     return MAICPrxI.uncheckedCast(prx: prx, facet: facet) as MAICPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `MAICPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MAICPrx.Protocol) -> Swift.String {
     return MAICTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `MAICPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `MAICPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `MAICPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: MAICPrx.Protocol) throws -> MAICPrx? {
         return try read() as MAICPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `MAICPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MAICPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: MAICPrx.Protocol) throws -> MAICPrx? {
         return try read(tag: tag) as MAICPrxI?
     }
@@ -468,7 +456,9 @@ private final class InitialPrxI: Ice.ObjectPrxI, InitialPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: InitialPrx.Protocol) throws -> InitialPrx {
     try communicator.makeProxyImpl(proxyString) as InitialPrxI
@@ -480,62 +470,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `InitialPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `InitialPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: InitialPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> InitialPrx? {
     return try await InitialPrxI.checkedCast(prx: prx, facet: facet, context: context) as InitialPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `InitialPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `InitialPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: InitialPrx.Protocol, facet: Swift.String? = nil) -> InitialPrx {
     return InitialPrxI.uncheckedCast(prx: prx, facet: facet) as InitialPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `InitialPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: InitialPrx.Protocol) -> Swift.String {
     return InitialTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `InitialPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `InitialPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `InitialPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: InitialPrx.Protocol) throws -> InitialPrx? {
         return try read() as InitialPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `InitialPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `InitialPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: InitialPrx.Protocol) throws -> InitialPrx? {
         return try read(tag: tag) as InitialPrxI?
     }

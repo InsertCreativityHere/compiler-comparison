@@ -32,7 +32,7 @@ public enum ClearHistoryPolicy: Swift.UInt8 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `ClearHistoryPolicy` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> ClearHistoryPolicy {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 4)
         guard let val = ClearHistoryPolicy(rawValue: rawValue) else {
@@ -43,9 +43,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ClearHistoryPolicy` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> ClearHistoryPolicy? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -58,16 +58,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `ClearHistoryPolicy` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: ClearHistoryPolicy) {
         write(enum: v.rawValue, maxValue: 4)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `ClearHistoryPolicy` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: ClearHistoryPolicy?) {
         guard let v = value else {
             return
@@ -83,9 +82,9 @@ public typealias LongLongDict = [Swift.Int64: Swift.Int64]
 public struct LongLongDictHelper {
     /// Read a `LongLongDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `LongLongDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> LongLongDict {
         let sz = try Swift.Int(istr.readSize())
         var v = LongLongDict()
@@ -96,13 +95,13 @@ public struct LongLongDictHelper {
         }
         return v
     }
+
     /// Read an optional `LongLongDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `LongLongDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> LongLongDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -111,11 +110,10 @@ public struct LongLongDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `LongLongDict` dictionary to the stream.
+    /// Write a `LongLongDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `LongLongDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: LongLongDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -124,13 +122,12 @@ public struct LongLongDictHelper {
         }
     }
 
-    /// Wite an optional `LongLongDict?` dictionary to the stream.
+    /// Write an optional `LongLongDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `LongLongDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: LongLongDict?) {
         guard let val = v else {
             return
@@ -174,7 +171,7 @@ public struct DataSample {
 public extension Ice.InputStream {
     /// Read a `DataSample` structured value from the stream.
     ///
-    /// - returns: `DataSample` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> DataSample {
         var v = DataSample()
         v.id = try self.read()
@@ -189,9 +186,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `DataSample?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `DataSample?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> DataSample? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -205,7 +202,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `DataSample` structured value to the stream.
     ///
-    /// - parameter _: `DataSample` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: DataSample) {
         self.write(v.id)
         self.write(v.keyId)
@@ -218,9 +215,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `DataSample?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `DataSample?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: DataSample?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -239,9 +235,9 @@ public typealias DataSampleSeq = [DataSample]
 public struct DataSampleSeqHelper {
     /// Read a `DataSampleSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `DataSampleSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> DataSampleSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 35)
         var v = DataSampleSeq()
@@ -252,13 +248,13 @@ public struct DataSampleSeqHelper {
         }
         return v
     }
+
     /// Read an optional `DataSampleSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `DataSampleSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> DataSampleSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -267,11 +263,10 @@ public struct DataSampleSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `DataSampleSeq` sequence to the stream.
+    /// Write a `DataSampleSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `DataSampleSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: DataSampleSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -279,13 +274,12 @@ public struct DataSampleSeqHelper {
         }
     }
 
-    /// Wite an optional `DataSampleSeq?` sequence to the stream.
+    /// Write an optional `DataSampleSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `DataSampleSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: DataSampleSeq?) {
         guard let val = v else {
             return
@@ -316,7 +310,7 @@ public struct DataSamples {
 public extension Ice.InputStream {
     /// Read a `DataSamples` structured value from the stream.
     ///
-    /// - returns: `DataSamples` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> DataSamples {
         var v = DataSamples()
         v.id = try self.read()
@@ -326,9 +320,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `DataSamples?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `DataSamples?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> DataSamples? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -342,7 +336,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `DataSamples` structured value to the stream.
     ///
-    /// - parameter _: `DataSamples` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: DataSamples) {
         self.write(v.id)
         DataSampleSeqHelper.write(to: self, value: v.samples)
@@ -350,9 +344,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `DataSamples?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `DataSamples?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: DataSamples?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -371,9 +364,9 @@ public typealias DataSamplesSeq = [DataSamples]
 public struct DataSamplesSeqHelper {
     /// Read a `DataSamplesSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `DataSamplesSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> DataSamplesSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 9)
         var v = DataSamplesSeq()
@@ -384,13 +377,13 @@ public struct DataSamplesSeqHelper {
         }
         return v
     }
+
     /// Read an optional `DataSamplesSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `DataSamplesSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> DataSamplesSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -399,11 +392,10 @@ public struct DataSamplesSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `DataSamplesSeq` sequence to the stream.
+    /// Write a `DataSamplesSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `DataSamplesSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: DataSamplesSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -411,13 +403,12 @@ public struct DataSamplesSeqHelper {
         }
     }
 
-    /// Wite an optional `DataSamplesSeq?` sequence to the stream.
+    /// Write an optional `DataSamplesSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `DataSamplesSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: DataSamplesSeq?) {
         guard let val = v else {
             return
@@ -451,7 +442,7 @@ public struct ElementInfo {
 public extension Ice.InputStream {
     /// Read a `ElementInfo` structured value from the stream.
     ///
-    /// - returns: `ElementInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ElementInfo {
         var v = ElementInfo()
         v.id = try self.read()
@@ -462,9 +453,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ElementInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ElementInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ElementInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -478,7 +469,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ElementInfo` structured value to the stream.
     ///
-    /// - parameter _: `ElementInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ElementInfo) {
         self.write(v.id)
         self.write(v.name)
@@ -487,9 +478,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ElementInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ElementInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ElementInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -508,9 +498,9 @@ public typealias ElementInfoSeq = [ElementInfo]
 public struct ElementInfoSeqHelper {
     /// Read a `ElementInfoSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ElementInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ElementInfoSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 10)
         var v = ElementInfoSeq()
@@ -521,13 +511,13 @@ public struct ElementInfoSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ElementInfoSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ElementInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ElementInfoSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -536,11 +526,10 @@ public struct ElementInfoSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ElementInfoSeq` sequence to the stream.
+    /// Write a `ElementInfoSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ElementInfoSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ElementInfoSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -548,13 +537,12 @@ public struct ElementInfoSeqHelper {
         }
     }
 
-    /// Wite an optional `ElementInfoSeq?` sequence to the stream.
+    /// Write an optional `ElementInfoSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ElementInfoSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ElementInfoSeq?) {
         guard let val = v else {
             return
@@ -585,7 +573,7 @@ public struct TopicInfo {
 public extension Ice.InputStream {
     /// Read a `TopicInfo` structured value from the stream.
     ///
-    /// - returns: `TopicInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> TopicInfo {
         var v = TopicInfo()
         v.name = try self.read()
@@ -595,9 +583,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `TopicInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `TopicInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> TopicInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -611,7 +599,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `TopicInfo` structured value to the stream.
     ///
-    /// - parameter _: `TopicInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: TopicInfo) {
         self.write(v.name)
         self.write(v.ids)
@@ -619,9 +607,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `TopicInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `TopicInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: TopicInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -640,9 +627,9 @@ public typealias TopicInfoSeq = [TopicInfo]
 public struct TopicInfoSeqHelper {
     /// Read a `TopicInfoSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `TopicInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> TopicInfoSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 2)
         var v = TopicInfoSeq()
@@ -653,13 +640,13 @@ public struct TopicInfoSeqHelper {
         }
         return v
     }
+
     /// Read an optional `TopicInfoSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `TopicInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> TopicInfoSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -668,11 +655,10 @@ public struct TopicInfoSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `TopicInfoSeq` sequence to the stream.
+    /// Write a `TopicInfoSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `TopicInfoSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: TopicInfoSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -680,13 +666,12 @@ public struct TopicInfoSeqHelper {
         }
     }
 
-    /// Wite an optional `TopicInfoSeq?` sequence to the stream.
+    /// Write an optional `TopicInfoSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `TopicInfoSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: TopicInfoSeq?) {
         guard let val = v else {
             return
@@ -723,7 +708,7 @@ public struct TopicSpec {
 public extension Ice.InputStream {
     /// Read a `TopicSpec` structured value from the stream.
     ///
-    /// - returns: `TopicSpec` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> TopicSpec {
         var v = TopicSpec()
         v.id = try self.read()
@@ -735,9 +720,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `TopicSpec?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `TopicSpec?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> TopicSpec? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -751,7 +736,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `TopicSpec` structured value to the stream.
     ///
-    /// - parameter _: `TopicSpec` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: TopicSpec) {
         self.write(v.id)
         self.write(v.name)
@@ -761,9 +746,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `TopicSpec?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `TopicSpec?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: TopicSpec?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -791,7 +775,7 @@ public struct FilterInfo {
 public extension Ice.InputStream {
     /// Read a `FilterInfo` structured value from the stream.
     ///
-    /// - returns: `FilterInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> FilterInfo {
         var v = FilterInfo()
         v.name = try self.read()
@@ -801,9 +785,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `FilterInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `FilterInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> FilterInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -817,7 +801,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `FilterInfo` structured value to the stream.
     ///
-    /// - parameter _: `FilterInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: FilterInfo) {
         self.write(v.name)
         self.write(v.criteria)
@@ -825,9 +809,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `FilterInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `FilterInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: FilterInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -860,7 +843,7 @@ public class ElementData {
 public extension Ice.InputStream {
     /// Read a `ElementData` structured value from the stream.
     ///
-    /// - returns: `ElementData` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ElementData {
         let v = ElementData()
         v.id = try self.read()
@@ -871,9 +854,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ElementData?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ElementData?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ElementData? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -887,7 +870,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ElementData` structured value to the stream.
     ///
-    /// - parameter _: `ElementData` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ElementData) {
         self.write(v.id)
         self.write(v.config)
@@ -896,9 +879,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ElementData?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ElementData?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ElementData?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -917,9 +899,9 @@ public typealias ElementDataSeq = [ElementData]
 public struct ElementDataSeqHelper {
     /// Read a `ElementDataSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ElementDataSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ElementDataSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 10)
         var v = ElementDataSeq()
@@ -930,13 +912,13 @@ public struct ElementDataSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ElementDataSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ElementDataSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ElementDataSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -945,11 +927,10 @@ public struct ElementDataSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ElementDataSeq` sequence to the stream.
+    /// Write a `ElementDataSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ElementDataSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ElementDataSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -957,13 +938,12 @@ public struct ElementDataSeqHelper {
         }
     }
 
-    /// Wite an optional `ElementDataSeq?` sequence to the stream.
+    /// Write an optional `ElementDataSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ElementDataSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ElementDataSeq?) {
         guard let val = v else {
             return
@@ -1006,7 +986,7 @@ public class ElementSpec {
 public extension Ice.InputStream {
     /// Read a `ElementSpec` structured value from the stream.
     ///
-    /// - returns: `ElementSpec` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ElementSpec {
         let v = ElementSpec()
         v.elements = try ElementDataSeqHelper.read(from: self)
@@ -1020,9 +1000,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ElementSpec?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ElementSpec?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ElementSpec? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1036,7 +1016,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ElementSpec` structured value to the stream.
     ///
-    /// - parameter _: `ElementSpec` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ElementSpec) {
         ElementDataSeqHelper.write(to: self, value: v.elements)
         self.write(v.id)
@@ -1048,9 +1028,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ElementSpec?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ElementSpec?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ElementSpec?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1069,9 +1048,9 @@ public typealias ElementSpecSeq = [ElementSpec]
 public struct ElementSpecSeqHelper {
     /// Read a `ElementSpecSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ElementSpecSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ElementSpecSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 20)
         var v = ElementSpecSeq()
@@ -1082,13 +1061,13 @@ public struct ElementSpecSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ElementSpecSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ElementSpecSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ElementSpecSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1097,11 +1076,10 @@ public struct ElementSpecSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ElementSpecSeq` sequence to the stream.
+    /// Write a `ElementSpecSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ElementSpecSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ElementSpecSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1109,13 +1087,12 @@ public struct ElementSpecSeqHelper {
         }
     }
 
-    /// Wite an optional `ElementSpecSeq?` sequence to the stream.
+    /// Write an optional `ElementSpecSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ElementSpecSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ElementSpecSeq?) {
         guard let val = v else {
             return
@@ -1155,7 +1132,7 @@ public class ElementDataAck {
 public extension Ice.InputStream {
     /// Read a `ElementDataAck` structured value from the stream.
     ///
-    /// - returns: `ElementDataAck` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ElementDataAck {
         let v = ElementDataAck()
         v.id = try self.read()
@@ -1168,9 +1145,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ElementDataAck?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ElementDataAck?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ElementDataAck? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1184,7 +1161,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ElementDataAck` structured value to the stream.
     ///
-    /// - parameter _: `ElementDataAck` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ElementDataAck) {
         self.write(v.id)
         self.write(v.config)
@@ -1195,9 +1172,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ElementDataAck?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ElementDataAck?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ElementDataAck?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1216,9 +1192,9 @@ public typealias ElementDataAckSeq = [ElementDataAck]
 public struct ElementDataAckSeqHelper {
     /// Read a `ElementDataAckSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ElementDataAckSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ElementDataAckSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 19)
         var v = ElementDataAckSeq()
@@ -1229,13 +1205,13 @@ public struct ElementDataAckSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ElementDataAckSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ElementDataAckSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ElementDataAckSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1244,11 +1220,10 @@ public struct ElementDataAckSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ElementDataAckSeq` sequence to the stream.
+    /// Write a `ElementDataAckSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ElementDataAckSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ElementDataAckSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1256,13 +1231,12 @@ public struct ElementDataAckSeqHelper {
         }
     }
 
-    /// Wite an optional `ElementDataAckSeq?` sequence to the stream.
+    /// Write an optional `ElementDataAckSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ElementDataAckSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ElementDataAckSeq?) {
         guard let val = v else {
             return
@@ -1305,7 +1279,7 @@ public class ElementSpecAck {
 public extension Ice.InputStream {
     /// Read a `ElementSpecAck` structured value from the stream.
     ///
-    /// - returns: `ElementSpecAck` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ElementSpecAck {
         let v = ElementSpecAck()
         v.elements = try ElementDataAckSeqHelper.read(from: self)
@@ -1319,9 +1293,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ElementSpecAck?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ElementSpecAck?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ElementSpecAck? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1335,7 +1309,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ElementSpecAck` structured value to the stream.
     ///
-    /// - parameter _: `ElementSpecAck` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ElementSpecAck) {
         ElementDataAckSeqHelper.write(to: self, value: v.elements)
         self.write(v.id)
@@ -1347,9 +1321,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ElementSpecAck?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ElementSpecAck?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ElementSpecAck?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1368,9 +1341,9 @@ public typealias ElementSpecAckSeq = [ElementSpecAck]
 public struct ElementSpecAckSeqHelper {
     /// Read a `ElementSpecAckSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ElementSpecAckSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ElementSpecAckSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 20)
         var v = ElementSpecAckSeq()
@@ -1381,13 +1354,13 @@ public struct ElementSpecAckSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ElementSpecAckSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ElementSpecAckSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ElementSpecAckSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1396,11 +1369,10 @@ public struct ElementSpecAckSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ElementSpecAckSeq` sequence to the stream.
+    /// Write a `ElementSpecAckSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ElementSpecAckSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ElementSpecAckSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1408,13 +1380,12 @@ public struct ElementSpecAckSeqHelper {
         }
     }
 
-    /// Wite an optional `ElementSpecAckSeq?` sequence to the stream.
+    /// Write an optional `ElementSpecAckSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ElementSpecAckSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ElementSpecAckSeq?) {
         guard let val = v else {
             return
@@ -1427,31 +1398,31 @@ public struct ElementSpecAckSeqHelper {
     }
 }
 
-/// Traits for Slice interface`Session`.
+/// Traits for Slice interface `Session`.
 public struct SessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::DataStormContract::Session", "::Ice::Object"]
     public static let staticId = "::DataStormContract::Session"
 }
 
-/// Traits for Slice interface`PublisherSession`.
+/// Traits for Slice interface `PublisherSession`.
 public struct PublisherSessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::DataStormContract::PublisherSession", "::DataStormContract::Session", "::Ice::Object"]
     public static let staticId = "::DataStormContract::PublisherSession"
 }
 
-/// Traits for Slice interface`SubscriberSession`.
+/// Traits for Slice interface `SubscriberSession`.
 public struct SubscriberSessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::DataStormContract::Session", "::DataStormContract::SubscriberSession", "::Ice::Object"]
     public static let staticId = "::DataStormContract::SubscriberSession"
 }
 
-/// Traits for Slice interface`Node`.
+/// Traits for Slice interface `Node`.
 public struct NodeTraits: Ice.SliceTraits {
     public static let staticIds = ["::DataStormContract::Node", "::Ice::Object"]
     public static let staticId = "::DataStormContract::Node"
 }
 
-/// Traits for Slice interface`Lookup`.
+/// Traits for Slice interface `Lookup`.
 public struct LookupTraits: Ice.SliceTraits {
     public static let staticIds = ["::DataStormContract::Lookup", "::Ice::Object"]
     public static let staticId = "::DataStormContract::Lookup"
@@ -1471,7 +1442,9 @@ private final class SessionPrxI: Ice.ObjectPrxI, SessionPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SessionPrx.Protocol) throws -> SessionPrx {
     try communicator.makeProxyImpl(proxyString) as SessionPrxI
@@ -1483,62 +1456,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `SessionPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `SessionPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: SessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SessionPrx? {
     return try await SessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `SessionPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `SessionPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: SessionPrx.Protocol, facet: Swift.String? = nil) -> SessionPrx {
     return SessionPrxI.uncheckedCast(prx: prx, facet: facet) as SessionPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `SessionPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SessionPrx.Protocol) -> Swift.String {
     return SessionTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `SessionPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `SessionPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `SessionPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: SessionPrx.Protocol) throws -> SessionPrx? {
         return try read() as SessionPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `SessionPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `SessionPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: SessionPrx.Protocol) throws -> SessionPrx? {
         return try read(tag: tag) as SessionPrxI?
     }
@@ -1668,7 +1636,9 @@ private final class PublisherSessionPrxI: Ice.ObjectPrxI, PublisherSessionPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: PublisherSessionPrx.Protocol) throws -> PublisherSessionPrx {
     try communicator.makeProxyImpl(proxyString) as PublisherSessionPrxI
@@ -1680,62 +1650,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `PublisherSessionPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `PublisherSessionPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: PublisherSessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> PublisherSessionPrx? {
     return try await PublisherSessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as PublisherSessionPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `PublisherSessionPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `PublisherSessionPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: PublisherSessionPrx.Protocol, facet: Swift.String? = nil) -> PublisherSessionPrx {
     return PublisherSessionPrxI.uncheckedCast(prx: prx, facet: facet) as PublisherSessionPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `PublisherSessionPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: PublisherSessionPrx.Protocol) -> Swift.String {
     return PublisherSessionTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `PublisherSessionPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `PublisherSessionPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `PublisherSessionPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: PublisherSessionPrx.Protocol) throws -> PublisherSessionPrx? {
         return try read() as PublisherSessionPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `PublisherSessionPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `PublisherSessionPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: PublisherSessionPrx.Protocol) throws -> PublisherSessionPrx? {
         return try read(tag: tag) as PublisherSessionPrxI?
     }
@@ -1757,7 +1722,9 @@ private final class SubscriberSessionPrxI: Ice.ObjectPrxI, SubscriberSessionPrx 
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SubscriberSessionPrx.Protocol) throws -> SubscriberSessionPrx {
     try communicator.makeProxyImpl(proxyString) as SubscriberSessionPrxI
@@ -1769,62 +1736,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `SubscriberSessionPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `SubscriberSessionPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: SubscriberSessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SubscriberSessionPrx? {
     return try await SubscriberSessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as SubscriberSessionPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `SubscriberSessionPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `SubscriberSessionPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: SubscriberSessionPrx.Protocol, facet: Swift.String? = nil) -> SubscriberSessionPrx {
     return SubscriberSessionPrxI.uncheckedCast(prx: prx, facet: facet) as SubscriberSessionPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `SubscriberSessionPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SubscriberSessionPrx.Protocol) -> Swift.String {
     return SubscriberSessionTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `SubscriberSessionPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `SubscriberSessionPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `SubscriberSessionPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: SubscriberSessionPrx.Protocol) throws -> SubscriberSessionPrx? {
         return try read() as SubscriberSessionPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `SubscriberSessionPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `SubscriberSessionPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: SubscriberSessionPrx.Protocol) throws -> SubscriberSessionPrx? {
         return try read(tag: tag) as SubscriberSessionPrxI?
     }
@@ -1854,17 +1816,11 @@ public extension SubscriberSessionPrx {
 /// publisher node through a SubscriberSession proxy.
 ///
 /// NodePrx Methods:
-///
 ///  - initiateCreateSession: Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
-///
 ///  - initiateCreateSessionAsync: Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
-///
 ///  - createSession: Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
-///
 ///  - createSessionAsync: Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
-///
 ///  - confirmCreateSession: Confirm the creation of a publisher session with a node.
-///
 ///  - confirmCreateSessionAsync: Confirm the creation of a publisher session with a node.
 public protocol NodePrx: Ice.ObjectPrx {}
 
@@ -1880,7 +1836,9 @@ private final class NodePrxI: Ice.ObjectPrxI, NodePrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: NodePrx.Protocol) throws -> NodePrx {
     try communicator.makeProxyImpl(proxyString) as NodePrxI
@@ -1892,62 +1850,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `NodePrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `NodePrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: NodePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> NodePrx? {
     return try await NodePrxI.checkedCast(prx: prx, facet: facet, context: context) as NodePrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `NodePrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `NodePrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: NodePrx.Protocol, facet: Swift.String? = nil) -> NodePrx {
     return NodePrxI.uncheckedCast(prx: prx, facet: facet) as NodePrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `NodePrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: NodePrx.Protocol) -> Swift.String {
     return NodeTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `NodePrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `NodePrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `NodePrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: NodePrx.Protocol) throws -> NodePrx? {
         return try read() as NodePrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `NodePrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `NodePrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: NodePrx.Protocol) throws -> NodePrx? {
         return try read(tag: tag) as NodePrxI?
     }
@@ -1964,25 +1917,19 @@ public extension Ice.InputStream {
 /// publisher node through a SubscriberSession proxy.
 ///
 /// NodePrx Methods:
-///
 ///  - initiateCreateSession: Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
-///
 ///  - initiateCreateSessionAsync: Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
-///
 ///  - createSession: Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
-///
 ///  - createSessionAsync: Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
-///
 ///  - confirmCreateSession: Confirm the creation of a publisher session with a node.
-///
 ///  - confirmCreateSessionAsync: Confirm the creation of a publisher session with a node.
 public extension NodePrx {
     /// Initiate the creation of a publisher session with a node, after
     /// the target node has announced a topic reader for which this node has a corresponding topic writer.
     ///
-    /// - parameter _: `NodePrx?` The publisher node initiating the session. The proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_publisher: The publisher node initiating the session. The proxy is never null.
+    ///   - context: Optional request context.
     func initiateCreateSession(_ iceP_publisher: NodePrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "initiateCreateSession",
                                        mode: .Normal,
@@ -1996,13 +1943,11 @@ public extension NodePrx {
     /// the target node has announced a topic writer for which this node has a corresponding topic reader,
     /// or after the node has called Node::initiateCreateSession.
     ///
-    /// - parameter subscriber: `NodePrx?` The subscriber node initiating the session. The proxy is never null.
-    ///
-    /// - parameter session: `SubscriberSessionPrx?` The subscriber session being created. The proxy is never null.
-    ///
-    /// - parameter fromRelay: `Swift.Bool` Indicates if the session is being created from a relay node.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_subscriber: The subscriber node initiating the session. The proxy is never null.
+    ///   - iceP_session: The subscriber session being created. The proxy is never null.
+    ///   - iceP_fromRelay: Indicates if the session is being created from a relay node.
+    ///   - context: Optional request context.
     func createSession(subscriber iceP_subscriber: NodePrx?, session iceP_session: SubscriberSessionPrx?, fromRelay iceP_fromRelay: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "createSession",
                                        mode: .Normal,
@@ -2016,11 +1961,10 @@ public extension NodePrx {
 
     /// Confirm the creation of a publisher session with a node.
     ///
-    /// - parameter publisher: `NodePrx?` The publisher node confirming the session. The proxy is never null.
-    ///
-    /// - parameter session: `PublisherSessionPrx?` The publisher session being confirmed. The proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_publisher: The publisher node confirming the session. The proxy is never null.
+    ///   - iceP_session: The publisher session being confirmed. The proxy is never null.
+    ///   - context: Optional request context.
     func confirmCreateSession(publisher iceP_publisher: NodePrx?, session iceP_session: PublisherSessionPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "confirmCreateSession",
                                        mode: .Normal,
@@ -2037,21 +1981,13 @@ public extension NodePrx {
 /// Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
 ///
 /// LookupPrx Methods:
-///
 ///  - announceTopicReader: Announce a topic reader.
-///
 ///  - announceTopicReaderAsync: Announce a topic reader.
-///
 ///  - announceTopicWriter: Announce a topic writer.
-///
 ///  - announceTopicWriterAsync: Announce a topic writer.
-///
 ///  - announceTopics: Announce a set of topic readers and writers.
-///
 ///  - announceTopicsAsync: Announce a set of topic readers and writers.
-///
 ///  - createSession: Establish a connection between this node and another node.
-///
 ///  - createSessionAsync: Establish a connection between this node and another node.
 public protocol LookupPrx: Ice.ObjectPrx {}
 
@@ -2067,7 +2003,9 @@ private final class LookupPrxI: Ice.ObjectPrxI, LookupPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LookupPrx.Protocol) throws -> LookupPrx {
     try communicator.makeProxyImpl(proxyString) as LookupPrxI
@@ -2079,62 +2017,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `LookupPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `LookupPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: LookupPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> LookupPrx? {
     return try await LookupPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `LookupPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `LookupPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: LookupPrx.Protocol, facet: Swift.String? = nil) -> LookupPrx {
     return LookupPrxI.uncheckedCast(prx: prx, facet: facet) as LookupPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `LookupPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LookupPrx.Protocol) -> Swift.String {
     return LookupTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `LookupPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `LookupPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `LookupPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: LookupPrx.Protocol) throws -> LookupPrx? {
         return try read() as LookupPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `LookupPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `LookupPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: LookupPrx.Protocol) throws -> LookupPrx? {
         return try read(tag: tag) as LookupPrxI?
     }
@@ -2145,30 +2078,21 @@ public extension Ice.InputStream {
 /// Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
 ///
 /// LookupPrx Methods:
-///
 ///  - announceTopicReader: Announce a topic reader.
-///
 ///  - announceTopicReaderAsync: Announce a topic reader.
-///
 ///  - announceTopicWriter: Announce a topic writer.
-///
 ///  - announceTopicWriterAsync: Announce a topic writer.
-///
 ///  - announceTopics: Announce a set of topic readers and writers.
-///
 ///  - announceTopicsAsync: Announce a set of topic readers and writers.
-///
 ///  - createSession: Establish a connection between this node and another node.
-///
 ///  - createSessionAsync: Establish a connection between this node and another node.
 public extension LookupPrx {
     /// Announce a topic reader.
     ///
-    /// - parameter topic: `Swift.String` The name of the topic.
-    ///
-    /// - parameter node: `NodePrx?` The node reading the topic. The proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_topic: The name of the topic.
+    ///   - iceP_node: The node reading the topic. The proxy is never null.
+    ///   - context: Optional request context.
     func announceTopicReader(topic iceP_topic: Swift.String, node iceP_node: NodePrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "announceTopicReader",
                                        mode: .Idempotent,
@@ -2181,11 +2105,10 @@ public extension LookupPrx {
 
     /// Announce a topic writer.
     ///
-    /// - parameter topic: `Swift.String` The name of the topic.
-    ///
-    /// - parameter node: `NodePrx?` The node writing the topic. The proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_topic: The name of the topic.
+    ///   - iceP_node: The node writing the topic. The proxy is never null.
+    ///   - context: Optional request context.
     func announceTopicWriter(topic iceP_topic: Swift.String, node iceP_node: NodePrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "announceTopicWriter",
                                        mode: .Idempotent,
@@ -2198,13 +2121,11 @@ public extension LookupPrx {
 
     /// Announce a set of topic readers and writers.
     ///
-    /// - parameter readers: `Ice.StringSeq` A sequence of topic names for readers.
-    ///
-    /// - parameter writers: `Ice.StringSeq` A sequence of topic names for writers.
-    ///
-    /// - parameter node: `NodePrx?` The node reading or writing the topics. The proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_readers: A sequence of topic names for readers.
+    ///   - iceP_writers: A sequence of topic names for writers.
+    ///   - iceP_node: The node reading or writing the topics. The proxy is never null.
+    ///   - context: Optional request context.
     func announceTopics(readers iceP_readers: Ice.StringSeq, writers iceP_writers: Ice.StringSeq, node iceP_node: NodePrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "announceTopics",
                                        mode: .Idempotent,
@@ -2218,11 +2139,11 @@ public extension LookupPrx {
 
     /// Establish a connection between this node and another node.
     ///
-    /// - parameter _: `NodePrx?` The node initiating the connection. The proxy is never null.
+    /// - Parameters:
+    ///   - iceP_node: The node initiating the connection. The proxy is never null.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NodePrx?` - A proxy to this node. The proxy is never null.
+    /// - Returns: A proxy to this node. The proxy is never null.
     func createSession(_ iceP_node: NodePrx?, context: Ice.Context? = nil) async throws -> NodePrx? {
         return try await _impl._invoke(operation: "createSession",
                                        mode: .Normal,
@@ -2277,9 +2198,7 @@ open class ElementConfig: Ice.Value {
         self.clearHistory = clearHistory
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::DataStormContract::ElementConfig" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2528,31 +2447,28 @@ public protocol Node {
     /// Initiate the creation of a publisher session with a node, after
     /// the target node has announced a topic reader for which this node has a corresponding topic writer.
     ///
-    /// - parameter publisher: `NodePrx?` The publisher node initiating the session. The proxy is never null.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - publisher: The publisher node initiating the session. The proxy is never null.
+    ///   - current: The Current object for the dispatch.
     func initiateCreateSession(publisher: NodePrx?, current: Ice.Current) async throws
 
     /// Initiate the creation of a subscriber session with a node, after
     /// the target node has announced a topic writer for which this node has a corresponding topic reader,
     /// or after the node has called Node::initiateCreateSession.
     ///
-    /// - parameter subscriber: `NodePrx?` The subscriber node initiating the session. The proxy is never null.
-    ///
-    /// - parameter session: `SubscriberSessionPrx?` The subscriber session being created. The proxy is never null.
-    ///
-    /// - parameter fromRelay: `Swift.Bool` Indicates if the session is being created from a relay node.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - subscriber: The subscriber node initiating the session. The proxy is never null.
+    ///   - session: The subscriber session being created. The proxy is never null.
+    ///   - fromRelay: Indicates if the session is being created from a relay node.
+    ///   - current: The Current object for the dispatch.
     func createSession(subscriber: NodePrx?, session: SubscriberSessionPrx?, fromRelay: Swift.Bool, current: Ice.Current) async throws
 
     /// Confirm the creation of a publisher session with a node.
     ///
-    /// - parameter publisher: `NodePrx?` The publisher node confirming the session. The proxy is never null.
-    ///
-    /// - parameter session: `PublisherSessionPrx?` The publisher session being confirmed. The proxy is never null.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - publisher: The publisher node confirming the session. The proxy is never null.
+    ///   - session: The publisher session being confirmed. The proxy is never null.
+    ///   - current: The Current object for the dispatch.
     func confirmCreateSession(publisher: NodePrx?, session: PublisherSessionPrx?, current: Ice.Current) async throws
 }
 
@@ -2596,40 +2512,36 @@ public struct LookupDisp: Ice.Dispatcher {
 public protocol Lookup {
     /// Announce a topic reader.
     ///
-    /// - parameter topic: `Swift.String` The name of the topic.
-    ///
-    /// - parameter node: `NodePrx?` The node reading the topic. The proxy is never null.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - topic: The name of the topic.
+    ///   - node: The node reading the topic. The proxy is never null.
+    ///   - current: The Current object for the dispatch.
     func announceTopicReader(topic: Swift.String, node: NodePrx?, current: Ice.Current) async throws
 
     /// Announce a topic writer.
     ///
-    /// - parameter topic: `Swift.String` The name of the topic.
-    ///
-    /// - parameter node: `NodePrx?` The node writing the topic. The proxy is never null.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - topic: The name of the topic.
+    ///   - node: The node writing the topic. The proxy is never null.
+    ///   - current: The Current object for the dispatch.
     func announceTopicWriter(topic: Swift.String, node: NodePrx?, current: Ice.Current) async throws
 
     /// Announce a set of topic readers and writers.
     ///
-    /// - parameter readers: `Ice.StringSeq` A sequence of topic names for readers.
-    ///
-    /// - parameter writers: `Ice.StringSeq` A sequence of topic names for writers.
-    ///
-    /// - parameter node: `NodePrx?` The node reading or writing the topics. The proxy is never null.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - readers: A sequence of topic names for readers.
+    ///   - writers: A sequence of topic names for writers.
+    ///   - node: The node reading or writing the topics. The proxy is never null.
+    ///   - current: The Current object for the dispatch.
     func announceTopics(readers: Ice.StringSeq, writers: Ice.StringSeq, node: NodePrx?, current: Ice.Current) async throws
 
     /// Establish a connection between this node and another node.
     ///
-    /// - parameter node: `NodePrx?` The node initiating the connection. The proxy is never null.
+    /// - Parameters:
+    ///   - node: The node initiating the connection. The proxy is never null.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `NodePrx?` - A proxy to this node. The proxy is never null.
+    /// - Returns: A proxy to this node. The proxy is never null.
     func createSession(node: NodePrx?, current: Ice.Current) async throws -> NodePrx?
 }
 
@@ -2770,11 +2682,8 @@ extension SubscriberSession {
 /// publisher node through a SubscriberSession proxy.
 ///
 /// Node Methods:
-///
 ///  - initiateCreateSession: Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
-///
 ///  - createSession: Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
-///
 ///  - confirmCreateSession: Confirm the creation of a publisher session with a node.
 extension Node {
     public func _iceD_initiateCreateSession(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2813,13 +2722,9 @@ extension Node {
 /// Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
 ///
 /// Lookup Methods:
-///
 ///  - announceTopicReader: Announce a topic reader.
-///
 ///  - announceTopicWriter: Announce a topic writer.
-///
 ///  - announceTopics: Announce a set of topic readers and writers.
-///
 ///  - createSession: Establish a connection between this node and another node.
 extension Lookup {
     public func _iceD_announceTopicReader(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

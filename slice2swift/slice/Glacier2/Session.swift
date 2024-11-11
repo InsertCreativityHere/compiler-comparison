@@ -40,9 +40,7 @@ open class CannotCreateSessionException: Ice.UserException, @unchecked Sendable 
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Glacier2::CannotCreateSessionException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -58,48 +56,46 @@ open class CannotCreateSessionException: Ice.UserException, @unchecked Sendable 
     }
 }
 
-/// Traits for Slice interface`Session`.
+/// Traits for Slice interface `Session`.
 public struct SessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::Session", "::Ice::Object"]
     public static let staticId = "::Glacier2::Session"
 }
 
-/// Traits for Slice interface`StringSet`.
+/// Traits for Slice interface `StringSet`.
 public struct StringSetTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::StringSet", "::Ice::Object"]
     public static let staticId = "::Glacier2::StringSet"
 }
 
-/// Traits for Slice interface`IdentitySet`.
+/// Traits for Slice interface `IdentitySet`.
 public struct IdentitySetTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::IdentitySet", "::Ice::Object"]
     public static let staticId = "::Glacier2::IdentitySet"
 }
 
-/// Traits for Slice interface`SessionControl`.
+/// Traits for Slice interface `SessionControl`.
 public struct SessionControlTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::SessionControl", "::Ice::Object"]
     public static let staticId = "::Glacier2::SessionControl"
 }
 
-/// Traits for Slice interface`SessionManager`.
+/// Traits for Slice interface `SessionManager`.
 public struct SessionManagerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::SessionManager", "::Ice::Object"]
     public static let staticId = "::Glacier2::SessionManager"
 }
 
-/// Traits for Slice interface`SSLSessionManager`.
+/// Traits for Slice interface `SSLSessionManager`.
 public struct SSLSessionManagerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::SSLSessionManager", "::Ice::Object"]
     public static let staticId = "::Glacier2::SSLSessionManager"
 }
 
-/// A client-visible session object, which is tied to the lifecycle of a {@link Router}.
+/// A client-visible session object, which is tied to the lifecycle of a `Router`.
 ///
 /// SessionPrx Methods:
-///
 ///  - destroy: Destroy the session.
-///
 ///  - destroyAsync: Destroy the session.
 public protocol SessionPrx: Ice.ObjectPrx {}
 
@@ -115,7 +111,9 @@ private final class SessionPrxI: Ice.ObjectPrxI, SessionPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SessionPrx.Protocol) throws -> SessionPrx {
     try communicator.makeProxyImpl(proxyString) as SessionPrxI
@@ -127,78 +125,71 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `SessionPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `SessionPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: SessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SessionPrx? {
     return try await SessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `SessionPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `SessionPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: SessionPrx.Protocol, facet: Swift.String? = nil) -> SessionPrx {
     return SessionPrxI.uncheckedCast(prx: prx, facet: facet) as SessionPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `SessionPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SessionPrx.Protocol) -> Swift.String {
     return SessionTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `SessionPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `SessionPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `SessionPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: SessionPrx.Protocol) throws -> SessionPrx? {
         return try read() as SessionPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `SessionPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `SessionPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: SessionPrx.Protocol) throws -> SessionPrx? {
         return try read(tag: tag) as SessionPrxI?
     }
 }
 
-/// A client-visible session object, which is tied to the lifecycle of a {@link Router}.
+/// A client-visible session object, which is tied to the lifecycle of a `Router`.
 ///
 /// SessionPrx Methods:
-///
 ///  - destroy: Destroy the session.
-///
 ///  - destroyAsync: Destroy the session.
 public extension SessionPrx {
     /// Destroy the session. This is called automatically when the router is destroyed.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroy",
                                        mode: .Normal,
@@ -207,20 +198,14 @@ public extension SessionPrx {
 }
 
 /// An object for managing the set of identity constraints for specific parts of object identity on a
-/// {@link Session}.
+/// `Session`.
 ///
 /// StringSetPrx Methods:
-///
 ///  - add: Add a sequence of strings to this set of constraints.
-///
 ///  - addAsync: Add a sequence of strings to this set of constraints.
-///
 ///  - remove: Remove a sequence of strings from this set of constraints.
-///
 ///  - removeAsync: Remove a sequence of strings from this set of constraints.
-///
 ///  - `get`: Returns a sequence of strings describing the constraints in this set.
-///
 ///  - getAsync: Returns a sequence of strings describing the constraints in this set.
 public protocol StringSetPrx: Ice.ObjectPrx {}
 
@@ -236,7 +221,9 @@ private final class StringSetPrxI: Ice.ObjectPrxI, StringSetPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: StringSetPrx.Protocol) throws -> StringSetPrx {
     try communicator.makeProxyImpl(proxyString) as StringSetPrxI
@@ -248,90 +235,79 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `StringSetPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `StringSetPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: StringSetPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> StringSetPrx? {
     return try await StringSetPrxI.checkedCast(prx: prx, facet: facet, context: context) as StringSetPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `StringSetPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `StringSetPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: StringSetPrx.Protocol, facet: Swift.String? = nil) -> StringSetPrx {
     return StringSetPrxI.uncheckedCast(prx: prx, facet: facet) as StringSetPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `StringSetPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: StringSetPrx.Protocol) -> Swift.String {
     return StringSetTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `StringSetPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `StringSetPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `StringSetPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: StringSetPrx.Protocol) throws -> StringSetPrx? {
         return try read() as StringSetPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `StringSetPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `StringSetPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: StringSetPrx.Protocol) throws -> StringSetPrx? {
         return try read(tag: tag) as StringSetPrxI?
     }
 }
 
 /// An object for managing the set of identity constraints for specific parts of object identity on a
-/// {@link Session}.
+/// `Session`.
 ///
 /// StringSetPrx Methods:
-///
 ///  - add: Add a sequence of strings to this set of constraints.
-///
 ///  - addAsync: Add a sequence of strings to this set of constraints.
-///
 ///  - remove: Remove a sequence of strings from this set of constraints.
-///
 ///  - removeAsync: Remove a sequence of strings from this set of constraints.
-///
 ///  - `get`: Returns a sequence of strings describing the constraints in this set.
-///
 ///  - getAsync: Returns a sequence of strings describing the constraints in this set.
 public extension StringSetPrx {
     /// Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
     /// removed.
     ///
-    /// - parameter _: `Ice.StringSeq` The sequence of strings to be added.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_additions: The sequence of strings to be added.
+    ///   - context: Optional request context.
     func add(_ iceP_additions: Ice.StringSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "add",
                                        mode: .Idempotent,
@@ -343,9 +319,9 @@ public extension StringSetPrx {
 
     /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
     ///
-    /// - parameter _: `Ice.StringSeq` The sequence of strings to be removed.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_deletions: The sequence of strings to be removed.
+    ///   - context: Optional request context.
     func remove(_ iceP_deletions: Ice.StringSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "remove",
                                        mode: .Idempotent,
@@ -357,9 +333,9 @@ public extension StringSetPrx {
 
     /// Returns a sequence of strings describing the constraints in this set.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Ice.StringSeq` - The sequence of strings for this set.
+    /// - Returns: The sequence of strings for this set.
     func `get`(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invoke(operation: "get",
                                        mode: .Idempotent,
@@ -371,20 +347,14 @@ public extension StringSetPrx {
     }
 }
 
-/// An object for managing the set of object identity constraints on a {@link Session}.
+/// An object for managing the set of object identity constraints on a `Session`.
 ///
 /// IdentitySetPrx Methods:
-///
 ///  - add: Add a sequence of Ice identities to this set of constraints.
-///
 ///  - addAsync: Add a sequence of Ice identities to this set of constraints.
-///
 ///  - remove: Remove a sequence of identities from this set of constraints.
-///
 ///  - removeAsync: Remove a sequence of identities from this set of constraints.
-///
 ///  - `get`: Returns a sequence of identities describing the constraints in this set.
-///
 ///  - getAsync: Returns a sequence of identities describing the constraints in this set.
 public protocol IdentitySetPrx: Ice.ObjectPrx {}
 
@@ -400,7 +370,9 @@ private final class IdentitySetPrxI: Ice.ObjectPrxI, IdentitySetPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: IdentitySetPrx.Protocol) throws -> IdentitySetPrx {
     try communicator.makeProxyImpl(proxyString) as IdentitySetPrxI
@@ -412,89 +384,78 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `IdentitySetPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `IdentitySetPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: IdentitySetPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> IdentitySetPrx? {
     return try await IdentitySetPrxI.checkedCast(prx: prx, facet: facet, context: context) as IdentitySetPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `IdentitySetPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `IdentitySetPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: IdentitySetPrx.Protocol, facet: Swift.String? = nil) -> IdentitySetPrx {
     return IdentitySetPrxI.uncheckedCast(prx: prx, facet: facet) as IdentitySetPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `IdentitySetPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: IdentitySetPrx.Protocol) -> Swift.String {
     return IdentitySetTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `IdentitySetPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `IdentitySetPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `IdentitySetPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: IdentitySetPrx.Protocol) throws -> IdentitySetPrx? {
         return try read() as IdentitySetPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `IdentitySetPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `IdentitySetPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: IdentitySetPrx.Protocol) throws -> IdentitySetPrx? {
         return try read(tag: tag) as IdentitySetPrxI?
     }
 }
 
-/// An object for managing the set of object identity constraints on a {@link Session}.
+/// An object for managing the set of object identity constraints on a `Session`.
 ///
 /// IdentitySetPrx Methods:
-///
 ///  - add: Add a sequence of Ice identities to this set of constraints.
-///
 ///  - addAsync: Add a sequence of Ice identities to this set of constraints.
-///
 ///  - remove: Remove a sequence of identities from this set of constraints.
-///
 ///  - removeAsync: Remove a sequence of identities from this set of constraints.
-///
 ///  - `get`: Returns a sequence of identities describing the constraints in this set.
-///
 ///  - getAsync: Returns a sequence of identities describing the constraints in this set.
 public extension IdentitySetPrx {
     /// Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
     /// implicitly removed.
     ///
-    /// - parameter _: `Ice.IdentitySeq` The sequence of Ice identities to be added.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_additions: The sequence of Ice identities to be added.
+    ///   - context: Optional request context.
     func add(_ iceP_additions: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "add",
                                        mode: .Idempotent,
@@ -507,9 +468,9 @@ public extension IdentitySetPrx {
     /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
     /// found.
     ///
-    /// - parameter _: `Ice.IdentitySeq` The sequence of Ice identities to be removed.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_deletions: The sequence of Ice identities to be removed.
+    ///   - context: Optional request context.
     func remove(_ iceP_deletions: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "remove",
                                        mode: .Idempotent,
@@ -521,9 +482,9 @@ public extension IdentitySetPrx {
 
     /// Returns a sequence of identities describing the constraints in this set.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Ice.IdentitySeq` - The sequence of Ice identities for this set.
+    /// - Returns: The sequence of Ice identities for this set.
     func `get`(context: Ice.Context? = nil) async throws -> Ice.IdentitySeq {
         return try await _impl._invoke(operation: "get",
                                        mode: .Idempotent,
@@ -535,28 +496,18 @@ public extension IdentitySetPrx {
     }
 }
 
-/// An administrative session control object, which is tied to the lifecycle of a {@link Session}.
+/// An administrative session control object, which is tied to the lifecycle of a `Session`.
 ///
 /// SessionControlPrx Methods:
-///
 ///  - categories: Access the object that manages the allowable categories for object identities for this session.
-///
 ///  - categoriesAsync: Access the object that manages the allowable categories for object identities for this session.
-///
 ///  - adapterIds: Access the object that manages the allowable adapter identities for objects for this session.
-///
 ///  - adapterIdsAsync: Access the object that manages the allowable adapter identities for objects for this session.
-///
 ///  - identities: Access the object that manages the allowable object identities for this session.
-///
 ///  - identitiesAsync: Access the object that manages the allowable object identities for this session.
-///
 ///  - getSessionTimeout: Get the session timeout.
-///
 ///  - getSessionTimeoutAsync: Get the session timeout.
-///
 ///  - destroy: Destroy the associated session.
-///
 ///  - destroyAsync: Destroy the associated session.
 public protocol SessionControlPrx: Ice.ObjectPrx {}
 
@@ -572,7 +523,9 @@ private final class SessionControlPrxI: Ice.ObjectPrxI, SessionControlPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SessionControlPrx.Protocol) throws -> SessionControlPrx {
     try communicator.makeProxyImpl(proxyString) as SessionControlPrxI
@@ -584,96 +537,81 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `SessionControlPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `SessionControlPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: SessionControlPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SessionControlPrx? {
     return try await SessionControlPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionControlPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `SessionControlPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `SessionControlPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: SessionControlPrx.Protocol, facet: Swift.String? = nil) -> SessionControlPrx {
     return SessionControlPrxI.uncheckedCast(prx: prx, facet: facet) as SessionControlPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `SessionControlPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SessionControlPrx.Protocol) -> Swift.String {
     return SessionControlTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `SessionControlPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `SessionControlPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `SessionControlPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: SessionControlPrx.Protocol) throws -> SessionControlPrx? {
         return try read() as SessionControlPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `SessionControlPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `SessionControlPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: SessionControlPrx.Protocol) throws -> SessionControlPrx? {
         return try read(tag: tag) as SessionControlPrxI?
     }
 }
 
-/// An administrative session control object, which is tied to the lifecycle of a {@link Session}.
+/// An administrative session control object, which is tied to the lifecycle of a `Session`.
 ///
 /// SessionControlPrx Methods:
-///
 ///  - categories: Access the object that manages the allowable categories for object identities for this session.
-///
 ///  - categoriesAsync: Access the object that manages the allowable categories for object identities for this session.
-///
 ///  - adapterIds: Access the object that manages the allowable adapter identities for objects for this session.
-///
 ///  - adapterIdsAsync: Access the object that manages the allowable adapter identities for objects for this session.
-///
 ///  - identities: Access the object that manages the allowable object identities for this session.
-///
 ///  - identitiesAsync: Access the object that manages the allowable object identities for this session.
-///
 ///  - getSessionTimeout: Get the session timeout.
-///
 ///  - getSessionTimeoutAsync: Get the session timeout.
-///
 ///  - destroy: Destroy the associated session.
-///
 ///  - destroyAsync: Destroy the associated session.
 public extension SessionControlPrx {
     /// Access the object that manages the allowable categories for object identities for this session.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
+    /// - Returns: A StringSet object. The returned proxy is never null.
     func categories(context: Ice.Context? = nil) async throws -> StringSetPrx? {
         return try await _impl._invoke(operation: "categories",
                                        mode: .Normal,
@@ -686,9 +624,9 @@ public extension SessionControlPrx {
 
     /// Access the object that manages the allowable adapter identities for objects for this session.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
+    /// - Returns: A StringSet object. The returned proxy is never null.
     func adapterIds(context: Ice.Context? = nil) async throws -> StringSetPrx? {
         return try await _impl._invoke(operation: "adapterIds",
                                        mode: .Normal,
@@ -701,9 +639,9 @@ public extension SessionControlPrx {
 
     /// Access the object that manages the allowable object identities for this session.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `IdentitySetPrx?` - An IdentitySet object. The returned proxy is never null.
+    /// - Returns: An IdentitySet object. The returned proxy is never null.
     func identities(context: Ice.Context? = nil) async throws -> IdentitySetPrx? {
         return try await _impl._invoke(operation: "identities",
                                        mode: .Normal,
@@ -716,9 +654,9 @@ public extension SessionControlPrx {
 
     /// Get the session timeout.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Swift.Int32` - The timeout.
+    /// - Returns: The timeout.
     func getSessionTimeout(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getSessionTimeout",
                                        mode: .Idempotent,
@@ -731,7 +669,7 @@ public extension SessionControlPrx {
 
     /// Destroy the associated session.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroy",
                                        mode: .Normal,
@@ -739,15 +677,13 @@ public extension SessionControlPrx {
     }
 }
 
-/// The session manager for username/password authenticated users that is responsible for managing {@link Session}
-/// objects. New session objects are created by the {@link Router} object calling on an application-provided
+/// The session manager for username/password authenticated users that is responsible for managing `Session`
+/// objects. New session objects are created by the `Router` object calling on an application-provided
 /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
 /// the client.
 ///
 /// SessionManagerPrx Methods:
-///
 ///  - create: Create a new session.
-///
 ///  - createAsync: Create a new session.
 public protocol SessionManagerPrx: Ice.ObjectPrx {}
 
@@ -763,7 +699,9 @@ private final class SessionManagerPrxI: Ice.ObjectPrxI, SessionManagerPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SessionManagerPrx.Protocol) throws -> SessionManagerPrx {
     try communicator.makeProxyImpl(proxyString) as SessionManagerPrxI
@@ -775,93 +713,84 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `SessionManagerPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `SessionManagerPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: SessionManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SessionManagerPrx? {
     return try await SessionManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionManagerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `SessionManagerPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `SessionManagerPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: SessionManagerPrx.Protocol, facet: Swift.String? = nil) -> SessionManagerPrx {
     return SessionManagerPrxI.uncheckedCast(prx: prx, facet: facet) as SessionManagerPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `SessionManagerPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SessionManagerPrx.Protocol) -> Swift.String {
     return SessionManagerTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `SessionManagerPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `SessionManagerPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `SessionManagerPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: SessionManagerPrx.Protocol) throws -> SessionManagerPrx? {
         return try read() as SessionManagerPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `SessionManagerPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `SessionManagerPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: SessionManagerPrx.Protocol) throws -> SessionManagerPrx? {
         return try read(tag: tag) as SessionManagerPrxI?
     }
 }
 
-/// The session manager for username/password authenticated users that is responsible for managing {@link Session}
-/// objects. New session objects are created by the {@link Router} object calling on an application-provided
+/// The session manager for username/password authenticated users that is responsible for managing `Session`
+/// objects. New session objects are created by the `Router` object calling on an application-provided
 /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
 /// the client.
 ///
 /// SessionManagerPrx Methods:
-///
 ///  - create: Create a new session.
-///
 ///  - createAsync: Create a new session.
 public extension SessionManagerPrx {
     /// Create a new session. The implementation must return a non-null proxy or raise
-    /// {@link CannotCreateSessionException} if the session cannot be created.
+    /// `CannotCreateSessionException` if the session cannot be created.
     ///
-    /// - parameter userId: `Swift.String` The user id for the session.
-    ///
-    /// - parameter control: `SessionControlPrx?` A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+    /// - Parameters:
+    ///   - iceP_userId: The user id for the session.
+    ///   - iceP_control: A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
     /// are not configured.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: A proxy to the newly created session.
     ///
-    /// - returns: `SessionPrx?` - A proxy to the newly created session.
-    ///
-    /// - throws:
-    ///
-    ///   - CannotCreateSessionException - Raised if the session cannot be created.
+    /// - Throws:
+    ///   - CannotCreateSessionException Raised if the session cannot be created.
     func create(userId iceP_userId: Swift.String, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil) async throws -> SessionPrx? {
         return try await _impl._invoke(operation: "create",
                                        mode: .Normal,
@@ -884,14 +813,12 @@ public extension SessionManagerPrx {
     }
 }
 
-/// The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
-/// session objects are created by the {@link Router} object calling on an application-provided session manager. If
+/// The session manager for SSL authenticated users that is responsible for managing `Session` objects. New
+/// session objects are created by the `Router` object calling on an application-provided session manager. If
 /// no session manager is provided by the application, no client-visible sessions are passed to the client.
 ///
 /// SSLSessionManagerPrx Methods:
-///
 ///  - create: Create a new session.
-///
 ///  - createAsync: Create a new session.
 public protocol SSLSessionManagerPrx: Ice.ObjectPrx {}
 
@@ -907,7 +834,9 @@ private final class SSLSessionManagerPrxI: Ice.ObjectPrxI, SSLSessionManagerPrx 
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SSLSessionManagerPrx.Protocol) throws -> SSLSessionManagerPrx {
     try communicator.makeProxyImpl(proxyString) as SSLSessionManagerPrxI
@@ -919,90 +848,81 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `SSLSessionManagerPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `SSLSessionManagerPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: SSLSessionManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SSLSessionManagerPrx? {
     return try await SSLSessionManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as SSLSessionManagerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `SSLSessionManagerPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `SSLSessionManagerPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: SSLSessionManagerPrx.Protocol, facet: Swift.String? = nil) -> SSLSessionManagerPrx {
     return SSLSessionManagerPrxI.uncheckedCast(prx: prx, facet: facet) as SSLSessionManagerPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `SSLSessionManagerPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SSLSessionManagerPrx.Protocol) -> Swift.String {
     return SSLSessionManagerTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `SSLSessionManagerPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `SSLSessionManagerPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `SSLSessionManagerPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: SSLSessionManagerPrx.Protocol) throws -> SSLSessionManagerPrx? {
         return try read() as SSLSessionManagerPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `SSLSessionManagerPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `SSLSessionManagerPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: SSLSessionManagerPrx.Protocol) throws -> SSLSessionManagerPrx? {
         return try read(tag: tag) as SSLSessionManagerPrxI?
     }
 }
 
-/// The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
-/// session objects are created by the {@link Router} object calling on an application-provided session manager. If
+/// The session manager for SSL authenticated users that is responsible for managing `Session` objects. New
+/// session objects are created by the `Router` object calling on an application-provided session manager. If
 /// no session manager is provided by the application, no client-visible sessions are passed to the client.
 ///
 /// SSLSessionManagerPrx Methods:
-///
 ///  - create: Create a new session.
-///
 ///  - createAsync: Create a new session.
 public extension SSLSessionManagerPrx {
     /// Create a new session.
     ///
-    /// - parameter info: `SSLInfo` The SSL info.
+    /// - Parameters:
+    ///   - iceP_info: The SSL info.
+    ///   - iceP_control: A proxy to the session control object.
+    ///   - context: Optional request context.
     ///
-    /// - parameter control: `SessionControlPrx?` A proxy to the session control object.
+    /// - Returns: A proxy to the newly created session.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `SessionPrx?` - A proxy to the newly created session.
-    ///
-    /// - throws:
-    ///
-    ///   - CannotCreateSessionException - Raised if the session cannot be created.
+    /// - Throws:
+    ///   - CannotCreateSessionException Raised if the session cannot be created.
     func create(info iceP_info: SSLInfo, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil) async throws -> SessionPrx? {
         return try await _impl._invoke(operation: "create",
                                        mode: .Normal,
@@ -1053,11 +973,11 @@ public struct SessionDisp: Ice.Dispatcher {
     }
 }
 
-/// A client-visible session object, which is tied to the lifecycle of a {@link Router}.
+/// A client-visible session object, which is tied to the lifecycle of a `Router`.
 public protocol Session {
     /// Destroy the session. This is called automatically when the router is destroyed.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func destroy(current: Ice.Current) async throws
 }
 
@@ -1094,28 +1014,28 @@ public struct StringSetDisp: Ice.Dispatcher {
 }
 
 /// An object for managing the set of identity constraints for specific parts of object identity on a
-/// {@link Session}.
+/// `Session`.
 public protocol StringSet {
     /// Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
     /// removed.
     ///
-    /// - parameter additions: `Ice.StringSeq` The sequence of strings to be added.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - additions: The sequence of strings to be added.
+    ///   - current: The Current object for the dispatch.
     func add(additions: Ice.StringSeq, current: Ice.Current) async throws
 
     /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
     ///
-    /// - parameter deletions: `Ice.StringSeq` The sequence of strings to be removed.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - deletions: The sequence of strings to be removed.
+    ///   - current: The Current object for the dispatch.
     func remove(deletions: Ice.StringSeq, current: Ice.Current) async throws
 
     /// Returns a sequence of strings describing the constraints in this set.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The sequence of strings for this set.
+    /// - Returns: The sequence of strings for this set.
     func `get`(current: Ice.Current) async throws -> Ice.StringSeq
 }
 
@@ -1151,29 +1071,29 @@ public struct IdentitySetDisp: Ice.Dispatcher {
     }
 }
 
-/// An object for managing the set of object identity constraints on a {@link Session}.
+/// An object for managing the set of object identity constraints on a `Session`.
 public protocol IdentitySet {
     /// Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
     /// implicitly removed.
     ///
-    /// - parameter additions: `Ice.IdentitySeq` The sequence of Ice identities to be added.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - additions: The sequence of Ice identities to be added.
+    ///   - current: The Current object for the dispatch.
     func add(additions: Ice.IdentitySeq, current: Ice.Current) async throws
 
     /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
     /// found.
     ///
-    /// - parameter deletions: `Ice.IdentitySeq` The sequence of Ice identities to be removed.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - deletions: The sequence of Ice identities to be removed.
+    ///   - current: The Current object for the dispatch.
     func remove(deletions: Ice.IdentitySeq, current: Ice.Current) async throws
 
     /// Returns a sequence of identities describing the constraints in this set.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Ice.IdentitySeq` - The sequence of Ice identities for this set.
+    /// - Returns: The sequence of Ice identities for this set.
     func `get`(current: Ice.Current) async throws -> Ice.IdentitySeq
 }
 
@@ -1213,39 +1133,39 @@ public struct SessionControlDisp: Ice.Dispatcher {
     }
 }
 
-/// An administrative session control object, which is tied to the lifecycle of a {@link Session}.
+/// An administrative session control object, which is tied to the lifecycle of a `Session`.
 public protocol SessionControl {
     /// Access the object that manages the allowable categories for object identities for this session.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
+    /// - Returns: A StringSet object. The returned proxy is never null.
     func categories(current: Ice.Current) async throws -> StringSetPrx?
 
     /// Access the object that manages the allowable adapter identities for objects for this session.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
+    /// - Returns: A StringSet object. The returned proxy is never null.
     func adapterIds(current: Ice.Current) async throws -> StringSetPrx?
 
     /// Access the object that manages the allowable object identities for this session.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `IdentitySetPrx?` - An IdentitySet object. The returned proxy is never null.
+    /// - Returns: An IdentitySet object. The returned proxy is never null.
     func identities(current: Ice.Current) async throws -> IdentitySetPrx?
 
     /// Get the session timeout.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The timeout.
+    /// - Returns: The timeout.
     func getSessionTimeout(current: Ice.Current) async throws -> Swift.Int32
 
     /// Destroy the associated session.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func destroy(current: Ice.Current) async throws
 }
 
@@ -1277,26 +1197,24 @@ public struct SessionManagerDisp: Ice.Dispatcher {
     }
 }
 
-/// The session manager for username/password authenticated users that is responsible for managing {@link Session}
-/// objects. New session objects are created by the {@link Router} object calling on an application-provided
+/// The session manager for username/password authenticated users that is responsible for managing `Session`
+/// objects. New session objects are created by the `Router` object calling on an application-provided
 /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
 /// the client.
 public protocol SessionManager {
     /// Create a new session. The implementation must return a non-null proxy or raise
-    /// {@link CannotCreateSessionException} if the session cannot be created.
+    /// `CannotCreateSessionException` if the session cannot be created.
     ///
-    /// - parameter userId: `Swift.String` The user id for the session.
-    ///
-    /// - parameter control: `SessionControlPrx?` A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+    /// - Parameters:
+    ///   - userId: The user id for the session.
+    ///   - control: A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
     /// are not configured.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: A proxy to the newly created session.
     ///
-    /// - returns: `SessionPrx?` - A proxy to the newly created session.
-    ///
-    /// - throws:
-    ///
-    ///   - CannotCreateSessionException - Raised if the session cannot be created.
+    /// - Throws:
+    ///   - CannotCreateSessionException Raised if the session cannot be created.
     func create(userId: Swift.String, control: SessionControlPrx?, current: Ice.Current) async throws -> SessionPrx?
 }
 
@@ -1328,30 +1246,27 @@ public struct SSLSessionManagerDisp: Ice.Dispatcher {
     }
 }
 
-/// The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
-/// session objects are created by the {@link Router} object calling on an application-provided session manager. If
+/// The session manager for SSL authenticated users that is responsible for managing `Session` objects. New
+/// session objects are created by the `Router` object calling on an application-provided session manager. If
 /// no session manager is provided by the application, no client-visible sessions are passed to the client.
 public protocol SSLSessionManager {
     /// Create a new session.
     ///
-    /// - parameter info: `SSLInfo` The SSL info.
+    /// - Parameters:
+    ///   - info: The SSL info.
+    ///   - control: A proxy to the session control object.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter control: `SessionControlPrx?` A proxy to the session control object.
+    /// - Returns: A proxy to the newly created session.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `SessionPrx?` - A proxy to the newly created session.
-    ///
-    /// - throws:
-    ///
-    ///   - CannotCreateSessionException - Raised if the session cannot be created.
+    /// - Throws:
+    ///   - CannotCreateSessionException Raised if the session cannot be created.
     func create(info: SSLInfo, control: SessionControlPrx?, current: Ice.Current) async throws -> SessionPrx?
 }
 
-/// A client-visible session object, which is tied to the lifecycle of a {@link Router}.
+/// A client-visible session object, which is tied to the lifecycle of a `Router`.
 ///
 /// Session Methods:
-///
 ///  - destroy: Destroy the session.
 extension Session {
     public func _iceD_destroy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1363,14 +1278,11 @@ extension Session {
 }
 
 /// An object for managing the set of identity constraints for specific parts of object identity on a
-/// {@link Session}.
+/// `Session`.
 ///
 /// StringSet Methods:
-///
 ///  - add: Add a sequence of strings to this set of constraints.
-///
 ///  - remove: Remove a sequence of strings from this set of constraints.
-///
 ///  - `get`: Returns a sequence of strings describing the constraints in this set.
 extension StringSet {
     public func _iceD_add(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1402,14 +1314,11 @@ extension StringSet {
     }
 }
 
-/// An object for managing the set of object identity constraints on a {@link Session}.
+/// An object for managing the set of object identity constraints on a `Session`.
 ///
 /// IdentitySet Methods:
-///
 ///  - add: Add a sequence of Ice identities to this set of constraints.
-///
 ///  - remove: Remove a sequence of identities from this set of constraints.
-///
 ///  - `get`: Returns a sequence of identities describing the constraints in this set.
 extension IdentitySet {
     public func _iceD_add(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1441,18 +1350,13 @@ extension IdentitySet {
     }
 }
 
-/// An administrative session control object, which is tied to the lifecycle of a {@link Session}.
+/// An administrative session control object, which is tied to the lifecycle of a `Session`.
 ///
 /// SessionControl Methods:
-///
 ///  - categories: Access the object that manages the allowable categories for object identities for this session.
-///
 ///  - adapterIds: Access the object that manages the allowable adapter identities for objects for this session.
-///
 ///  - identities: Access the object that manages the allowable object identities for this session.
-///
 ///  - getSessionTimeout: Get the session timeout.
-///
 ///  - destroy: Destroy the associated session.
 extension SessionControl {
     public func _iceD_categories(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1503,13 +1407,12 @@ extension SessionControl {
     }
 }
 
-/// The session manager for username/password authenticated users that is responsible for managing {@link Session}
-/// objects. New session objects are created by the {@link Router} object calling on an application-provided
+/// The session manager for username/password authenticated users that is responsible for managing `Session`
+/// objects. New session objects are created by the `Router` object calling on an application-provided
 /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
 /// the client.
 ///
 /// SessionManager Methods:
-///
 ///  - create: Create a new session.
 extension SessionManager {
     public func _iceD_create(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1526,12 +1429,11 @@ extension SessionManager {
     }
 }
 
-/// The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
-/// session objects are created by the {@link Router} object calling on an application-provided session manager. If
+/// The session manager for SSL authenticated users that is responsible for managing `Session` objects. New
+/// session objects are created by the `Router` object calling on an application-provided session manager. If
 /// no session manager is provided by the application, no client-visible sessions are passed to the client.
 ///
 /// SSLSessionManager Methods:
-///
 ///  - create: Create a new session.
 extension SSLSessionManager {
     public func _iceD_create(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

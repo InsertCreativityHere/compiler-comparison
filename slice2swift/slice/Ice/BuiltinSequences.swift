@@ -47,9 +47,9 @@ public typealias ObjectSeq = [Value?]
 public struct ObjectSeqHelper {
     /// Read a `ObjectSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ObjectSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream) throws -> ObjectSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = ObjectSeq(repeating: nil, count: sz)
@@ -60,13 +60,13 @@ public struct ObjectSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ObjectSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ObjectSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream, tag: Swift.Int32) throws -> ObjectSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -75,11 +75,10 @@ public struct ObjectSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ObjectSeq` sequence to the stream.
+    /// Write a `ObjectSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ObjectSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream, value v: ObjectSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -87,13 +86,12 @@ public struct ObjectSeqHelper {
         }
     }
 
-    /// Wite an optional `ObjectSeq?` sequence to the stream.
+    /// Write an optional `ObjectSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ObjectSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream,  tag: Swift.Int32, value v: ObjectSeq?) {
         guard let val = v else {
             return
@@ -114,9 +112,9 @@ public typealias ObjectProxySeq = [ObjectPrx?]
 public struct ObjectProxySeqHelper {
     /// Read a `ObjectProxySeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ObjectProxySeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream) throws -> ObjectProxySeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 2)
         var v = ObjectProxySeq()
@@ -127,13 +125,13 @@ public struct ObjectProxySeqHelper {
         }
         return v
     }
+
     /// Read an optional `ObjectProxySeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ObjectProxySeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream, tag: Swift.Int32) throws -> ObjectProxySeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -142,11 +140,10 @@ public struct ObjectProxySeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ObjectProxySeq` sequence to the stream.
+    /// Write a `ObjectProxySeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ObjectProxySeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream, value v: ObjectProxySeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -154,13 +151,12 @@ public struct ObjectProxySeqHelper {
         }
     }
 
-    /// Wite an optional `ObjectProxySeq?` sequence to the stream.
+    /// Write an optional `ObjectProxySeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ObjectProxySeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream,  tag: Swift.Int32, value v: ObjectProxySeq?) {
         guard let val = v else {
             return

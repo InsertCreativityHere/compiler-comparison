@@ -15,8 +15,8 @@
 
 import Foundation
 
-/// The identity of an Ice object. In a proxy, an empty {@link Identity#name} denotes a nil proxy. An identity with
-/// an empty {@link Identity#name} and a non-empty {@link Identity#category} is illegal. You cannot add a servant
+/// The identity of an Ice object. In a proxy, an empty `Identity/name` denotes a nil proxy. An identity with
+/// an empty `Identity/name` and a non-empty `Identity/category` is illegal. You cannot add a servant
 /// with an empty name to the Active Servant Map.
 public struct Identity: Swift.Hashable {
     /// The name of the Ice object.
@@ -36,7 +36,7 @@ public struct Identity: Swift.Hashable {
 public extension InputStream {
     /// Read a `Identity` structured value from the stream.
     ///
-    /// - returns: `Identity` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> Identity {
         var v = Identity()
         v.name = try self.read()
@@ -46,9 +46,9 @@ public extension InputStream {
 
     /// Read an optional `Identity?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `Identity?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> Identity? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -62,7 +62,7 @@ public extension InputStream {
 public extension OutputStream {
     /// Write a `Identity` structured value to the stream.
     ///
-    /// - parameter _: `Identity` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: Identity) {
         self.write(v.name)
         self.write(v.category)
@@ -70,9 +70,8 @@ public extension OutputStream {
 
     /// Write an optional `Identity?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `Identity?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: Identity?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -92,9 +91,9 @@ public typealias IdentitySeq = [Identity]
 public struct IdentitySeqHelper {
     /// Read a `IdentitySeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `IdentitySeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream) throws -> IdentitySeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 2)
         var v = IdentitySeq()
@@ -105,13 +104,13 @@ public struct IdentitySeqHelper {
         }
         return v
     }
+
     /// Read an optional `IdentitySeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `IdentitySeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream, tag: Swift.Int32) throws -> IdentitySeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -120,11 +119,10 @@ public struct IdentitySeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `IdentitySeq` sequence to the stream.
+    /// Write a `IdentitySeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `IdentitySeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream, value v: IdentitySeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -132,13 +130,12 @@ public struct IdentitySeqHelper {
         }
     }
 
-    /// Wite an optional `IdentitySeq?` sequence to the stream.
+    /// Write an optional `IdentitySeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `IdentitySeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream,  tag: Swift.Int32, value v: IdentitySeq?) {
         guard let val = v else {
             return

@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// Traits for Slice interface`Clock`.
+/// Traits for Slice interface `Clock`.
 public struct ClockTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Clock"]
     public static let staticId = "::Test::Clock"
@@ -36,7 +36,9 @@ private final class ClockPrxI: Ice.ObjectPrxI, ClockPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ClockPrx.Protocol) throws -> ClockPrx {
     try communicator.makeProxyImpl(proxyString) as ClockPrxI
@@ -48,62 +50,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `ClockPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `ClockPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: ClockPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ClockPrx? {
     return try await ClockPrxI.checkedCast(prx: prx, facet: facet, context: context) as ClockPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `ClockPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `ClockPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: ClockPrx.Protocol, facet: Swift.String? = nil) -> ClockPrx {
     return ClockPrxI.uncheckedCast(prx: prx, facet: facet) as ClockPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `ClockPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ClockPrx.Protocol) -> Swift.String {
     return ClockTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `ClockPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `ClockPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `ClockPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: ClockPrx.Protocol) throws -> ClockPrx? {
         return try read() as ClockPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `ClockPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `ClockPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: ClockPrx.Protocol) throws -> ClockPrx? {
         return try read(tag: tag) as ClockPrxI?
     }

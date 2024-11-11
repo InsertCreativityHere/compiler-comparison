@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// Traits for Slice interface`Hold`.
+/// Traits for Slice interface `Hold`.
 public struct HoldTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Hold"]
     public static let staticId = "::Test::Hold"
@@ -36,7 +36,9 @@ private final class HoldPrxI: Ice.ObjectPrxI, HoldPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: HoldPrx.Protocol) throws -> HoldPrx {
     try communicator.makeProxyImpl(proxyString) as HoldPrxI
@@ -48,62 +50,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `HoldPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `HoldPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: HoldPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> HoldPrx? {
     return try await HoldPrxI.checkedCast(prx: prx, facet: facet, context: context) as HoldPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `HoldPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `HoldPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: HoldPrx.Protocol, facet: Swift.String? = nil) -> HoldPrx {
     return HoldPrxI.uncheckedCast(prx: prx, facet: facet) as HoldPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `HoldPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: HoldPrx.Protocol) -> Swift.String {
     return HoldTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `HoldPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `HoldPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `HoldPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: HoldPrx.Protocol) throws -> HoldPrx? {
         return try read() as HoldPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `HoldPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `HoldPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: HoldPrx.Protocol) throws -> HoldPrx? {
         return try read(tag: tag) as HoldPrxI?
     }
@@ -112,11 +109,11 @@ public extension Ice.InputStream {
 public extension HoldPrx {
     /// Puts the adapter on hold, and optionally reactivates it.
     ///
-    /// - parameter _: `Swift.Int32` When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+    /// - Parameters:
+    ///   - iceP_delay: When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
     /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
     /// milliseconds, puts the adapter on hold and then immediately reactivates it.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    ///   - context: Optional request context.
     func putOnHold(_ iceP_delay: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "putOnHold",
                                        mode: .Normal,
@@ -128,7 +125,7 @@ public extension HoldPrx {
 
     /// Starts a background task that calls waitForHold and activate on the adapter.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func waitForHold(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "waitForHold",
                                        mode: .Normal,
@@ -137,11 +134,10 @@ public extension HoldPrx {
 
     /// Saves value as the last value.
     ///
-    /// - parameter value: `Swift.Int32` The new value.
-    ///
-    /// - parameter expected: `Swift.Int32` The current value as expected by the caller.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_value: The new value.
+    ///   - iceP_expected: The current value as expected by the caller.
+    ///   - context: Optional request context.
     func setOneway(value iceP_value: Swift.Int32, expected iceP_expected: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setOneway",
                                        mode: .Normal,
@@ -154,13 +150,12 @@ public extension HoldPrx {
 
     /// Saves value as the last value after a delay.
     ///
-    /// - parameter value: `Swift.Int32` The new value.
+    /// - Parameters:
+    ///   - iceP_value: The new value.
+    ///   - iceP_delay: The delay in milliseconds.
+    ///   - context: Optional request context.
     ///
-    /// - parameter delay: `Swift.Int32` The delay in milliseconds.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32` - The previous value.
+    /// - Returns: The previous value.
     func `set`(value iceP_value: Swift.Int32, delay iceP_delay: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "set",
                                        mode: .Normal,
@@ -177,7 +172,7 @@ public extension HoldPrx {
 
     /// Shuts down the server.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -224,41 +219,39 @@ public struct HoldDisp: Ice.Dispatcher {
 public protocol Hold {
     /// Puts the adapter on hold, and optionally reactivates it.
     ///
-    /// - parameter delay: `Swift.Int32` When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+    /// - Parameters:
+    ///   - delay: When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
     /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
     /// milliseconds, puts the adapter on hold and then immediately reactivates it.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///   - current: The Current object for the dispatch.
     func putOnHold(delay: Swift.Int32, current: Ice.Current) async throws
 
     /// Starts a background task that calls waitForHold and activate on the adapter.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func waitForHold(current: Ice.Current) async throws
 
     /// Saves value as the last value.
     ///
-    /// - parameter value: `Swift.Int32` The new value.
-    ///
-    /// - parameter expected: `Swift.Int32` The current value as expected by the caller.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - value: The new value.
+    ///   - expected: The current value as expected by the caller.
+    ///   - current: The Current object for the dispatch.
     func setOneway(value: Swift.Int32, expected: Swift.Int32, current: Ice.Current) async throws
 
     /// Saves value as the last value after a delay.
     ///
-    /// - parameter value: `Swift.Int32` The new value.
+    /// - Parameters:
+    ///   - value: The new value.
+    ///   - delay: The delay in milliseconds.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter delay: `Swift.Int32` The delay in milliseconds.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32` - The previous value.
+    /// - Returns: The previous value.
     func `set`(value: Swift.Int32, delay: Swift.Int32, current: Ice.Current) async throws -> Swift.Int32
 
     /// Shuts down the server.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 

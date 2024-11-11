@@ -38,9 +38,7 @@ open class E1: Ice.UserException, @unchecked Sendable {
         self.i = i
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::NoNamespace::E1" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -81,9 +79,7 @@ open class E2: E1, @unchecked Sendable {
         super.init(i: i)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::NoNamespace::E2" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -124,9 +120,7 @@ open class notify: Ice.UserException, @unchecked Sendable {
         self.i = i
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::NoNamespace::notify" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -164,9 +158,7 @@ open class C1: Ice.Value {
         self.i = i
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::NoNamespace::C1" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -207,9 +199,7 @@ open class C2: C1 {
         super.init(i: i)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::NoNamespace::C2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

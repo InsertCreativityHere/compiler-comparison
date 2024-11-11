@@ -24,9 +24,9 @@ public typealias StringLogUpdateDict = [Swift.String: LogUpdate]
 public struct StringLogUpdateDictHelper {
     /// Read a `StringLogUpdateDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `StringLogUpdateDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> StringLogUpdateDict {
         let sz = try Swift.Int(istr.readSize())
         var v = StringLogUpdateDict()
@@ -37,13 +37,13 @@ public struct StringLogUpdateDictHelper {
         }
         return v
     }
+
     /// Read an optional `StringLogUpdateDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `StringLogUpdateDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> StringLogUpdateDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -52,11 +52,10 @@ public struct StringLogUpdateDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `StringLogUpdateDict` dictionary to the stream.
+    /// Write a `StringLogUpdateDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `StringLogUpdateDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: StringLogUpdateDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -65,13 +64,12 @@ public struct StringLogUpdateDictHelper {
         }
     }
 
-    /// Wite an optional `StringLogUpdateDict?` dictionary to the stream.
+    /// Write an optional `StringLogUpdateDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `StringLogUpdateDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: StringLogUpdateDict?) {
         guard let val = v else {
             return
@@ -91,9 +89,9 @@ public typealias SubscriberRecordDict = [SubscriberRecordKey: SubscriberRecord]
 public struct SubscriberRecordDictHelper {
     /// Read a `SubscriberRecordDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `SubscriberRecordDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> SubscriberRecordDict {
         let sz = try Swift.Int(istr.readSize())
         var v = SubscriberRecordDict()
@@ -104,13 +102,13 @@ public struct SubscriberRecordDictHelper {
         }
         return v
     }
+
     /// Read an optional `SubscriberRecordDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `SubscriberRecordDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> SubscriberRecordDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -119,11 +117,10 @@ public struct SubscriberRecordDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `SubscriberRecordDict` dictionary to the stream.
+    /// Write a `SubscriberRecordDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `SubscriberRecordDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: SubscriberRecordDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -132,13 +129,12 @@ public struct SubscriberRecordDictHelper {
         }
     }
 
-    /// Wite an optional `SubscriberRecordDict?` dictionary to the stream.
+    /// Write an optional `SubscriberRecordDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SubscriberRecordDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: SubscriberRecordDict?) {
         guard let val = v else {
             return
@@ -167,7 +163,7 @@ public struct AllData {
 public extension Ice.InputStream {
     /// Read a `AllData` structured value from the stream.
     ///
-    /// - returns: `AllData` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> AllData {
         var v = AllData()
         v.llus = try IceStormElection.StringLogUpdateDictHelper.read(from: self)
@@ -177,9 +173,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `AllData?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `AllData?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> AllData? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -193,7 +189,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `AllData` structured value to the stream.
     ///
-    /// - parameter _: `AllData` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: AllData) {
         IceStormElection.StringLogUpdateDictHelper.write(to: self, value: v.llus)
         SubscriberRecordDictHelper.write(to: self, value: v.subscribers)
@@ -201,9 +197,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `AllData?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `AllData?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: AllData?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {

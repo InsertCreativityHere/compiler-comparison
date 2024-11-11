@@ -32,7 +32,7 @@ public struct ProtocolVersion: Swift.Hashable {
 public extension InputStream {
     /// Read a `ProtocolVersion` structured value from the stream.
     ///
-    /// - returns: `ProtocolVersion` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ProtocolVersion {
         var v = ProtocolVersion()
         v.major = try self.read()
@@ -42,9 +42,9 @@ public extension InputStream {
 
     /// Read an optional `ProtocolVersion?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ProtocolVersion?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ProtocolVersion? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -58,7 +58,7 @@ public extension InputStream {
 public extension OutputStream {
     /// Write a `ProtocolVersion` structured value to the stream.
     ///
-    /// - parameter _: `ProtocolVersion` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ProtocolVersion) {
         self.write(v.major)
         self.write(v.minor)
@@ -66,9 +66,8 @@ public extension OutputStream {
 
     /// Write an optional `ProtocolVersion?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ProtocolVersion?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ProtocolVersion?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {
@@ -96,7 +95,7 @@ public struct EncodingVersion: Swift.Hashable {
 public extension InputStream {
     /// Read a `EncodingVersion` structured value from the stream.
     ///
-    /// - returns: `EncodingVersion` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> EncodingVersion {
         var v = EncodingVersion()
         v.major = try self.read()
@@ -106,9 +105,9 @@ public extension InputStream {
 
     /// Read an optional `EncodingVersion?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `EncodingVersion?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> EncodingVersion? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -122,7 +121,7 @@ public extension InputStream {
 public extension OutputStream {
     /// Write a `EncodingVersion` structured value to the stream.
     ///
-    /// - parameter _: `EncodingVersion` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: EncodingVersion) {
         self.write(v.major)
         self.write(v.minor)
@@ -130,9 +129,8 @@ public extension OutputStream {
 
     /// Write an optional `EncodingVersion?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `EncodingVersion?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: EncodingVersion?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {

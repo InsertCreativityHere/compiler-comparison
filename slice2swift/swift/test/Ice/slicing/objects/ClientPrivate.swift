@@ -43,9 +43,7 @@ open class D3: B {
         super.init(sb: sb, pb: pb)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::D3" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -90,9 +88,7 @@ open class PCUnknown: PBase {
         super.init(pi: pi)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PCUnknown" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -135,9 +131,7 @@ open class PCDerived: PDerived {
         super.init(pi: pi, ps: ps, pb: pb)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PCDerived" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -180,9 +174,7 @@ open class PCDerived2: PCDerived {
         super.init(pi: pi, ps: ps, pb: pb, pbs: pbs)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PCDerived2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -225,9 +217,7 @@ open class PCDerived3: PCDerived2 {
         super.init(pi: pi, ps: ps, pb: pb, pbs: pbs, pcd2: pcd2)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PCDerived3" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -276,9 +266,7 @@ open class CompactPCDerived: CompactPDerived {
         super.init(pi: pi, ps: ps, pb: pb)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::CompactPCDerived" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

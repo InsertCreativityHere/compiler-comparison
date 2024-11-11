@@ -30,9 +30,7 @@ public extension ClassResolver {
 
 /// This exception is raised if an adapter cannot be found.
 open class AdapterNotFoundException: UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Ice::AdapterNotFoundException" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
@@ -61,9 +59,7 @@ public extension ClassResolver {
 
 /// This exception is raised if the replica group provided by the server is invalid.
 open class InvalidReplicaGroupIdException: UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Ice::InvalidReplicaGroupIdException" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
@@ -92,9 +88,7 @@ public extension ClassResolver {
 
 /// This exception is raised if a server tries to set endpoints for an adapter that is already active.
 open class AdapterAlreadyActiveException: UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Ice::AdapterAlreadyActiveException" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
@@ -123,9 +117,7 @@ public extension ClassResolver {
 
 /// This exception is raised if an object cannot be found.
 open class ObjectNotFoundException: UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Ice::ObjectNotFoundException" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
@@ -154,9 +146,7 @@ public extension ClassResolver {
 
 /// This exception is raised if a server cannot be found.
 open class ServerNotFoundException: UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Ice::ServerNotFoundException" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
@@ -170,41 +160,35 @@ open class ServerNotFoundException: UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`Locator`.
+/// Traits for Slice interface `Locator`.
 public struct LocatorTraits: SliceTraits {
     public static let staticIds = ["::Ice::Locator", "::Ice::Object"]
     public static let staticId = "::Ice::Locator"
 }
 
-/// Traits for Slice interface`LocatorRegistry`.
+/// Traits for Slice interface `LocatorRegistry`.
 public struct LocatorRegistryTraits: SliceTraits {
     public static let staticIds = ["::Ice::LocatorRegistry", "::Ice::Object"]
     public static let staticId = "::Ice::LocatorRegistry"
 }
 
-/// Traits for Slice interface`LocatorFinder`.
+/// Traits for Slice interface `LocatorFinder`.
 public struct LocatorFinderTraits: SliceTraits {
     public static let staticIds = ["::Ice::LocatorFinder", "::Ice::Object"]
     public static let staticId = "::Ice::LocatorFinder"
 }
 
 /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
-/// servers to get the locator registry proxy. The {@link Locator} interface is intended to be used
+/// servers to get the locator registry proxy. The `Locator` interface is intended to be used
 /// by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
 /// of this interface directly.
 ///
 /// LocatorPrx Methods:
-///
 ///  - findObjectById: Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to access the object.
-///
 ///  - findObjectByIdAsync: Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to access the object.
-///
 ///  - findAdapterById: Find an adapter by id and return a proxy that contains its endpoints.
-///
 ///  - findAdapterByIdAsync: Find an adapter by id and return a proxy that contains its endpoints.
-///
 ///  - getRegistry: Get the locator registry.
-///
 ///  - getRegistryAsync: Get the locator registry.
 public protocol LocatorPrx: ObjectPrx {}
 
@@ -220,7 +204,9 @@ internal final class LocatorPrxI: ObjectPrxI, LocatorPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LocatorPrx.Protocol) throws -> LocatorPrx {
     try communicator.makeProxyImpl(proxyString) as LocatorPrxI
@@ -232,98 +218,86 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `LocatorPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `LocatorPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: ObjectPrx, type: LocatorPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> LocatorPrx? {
     return try await LocatorPrxI.checkedCast(prx: prx, facet: facet, context: context) as LocatorPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `LocatorPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `LocatorPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: ObjectPrx, type: LocatorPrx.Protocol, facet: Swift.String? = nil) -> LocatorPrx {
     return LocatorPrxI.uncheckedCast(prx: prx, facet: facet) as LocatorPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `LocatorPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LocatorPrx.Protocol) -> Swift.String {
     return LocatorTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `LocatorPrx`.
 public extension InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `LocatorPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `LocatorPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: LocatorPrx.Protocol) throws -> LocatorPrx? {
         return try read() as LocatorPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `LocatorPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `LocatorPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: LocatorPrx.Protocol) throws -> LocatorPrx? {
         return try read(tag: tag) as LocatorPrxI?
     }
 }
 
 /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
-/// servers to get the locator registry proxy. The {@link Locator} interface is intended to be used
+/// servers to get the locator registry proxy. The `Locator` interface is intended to be used
 /// by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
 /// of this interface directly.
 ///
 /// LocatorPrx Methods:
-///
 ///  - findObjectById: Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to access the object.
-///
 ///  - findObjectByIdAsync: Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to access the object.
-///
 ///  - findAdapterById: Find an adapter by id and return a proxy that contains its endpoints.
-///
 ///  - findAdapterByIdAsync: Find an adapter by id and return a proxy that contains its endpoints.
-///
 ///  - getRegistry: Get the locator registry.
-///
 ///  - getRegistryAsync: Get the locator registry.
 public extension LocatorPrx {
     /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
     /// access the object.
     ///
-    /// - parameter _: `Identity` The identity.
+    /// - Parameters:
+    ///   - iceP_id: The identity.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The proxy, or null if the object is not active.
     ///
-    /// - returns: `ObjectPrx?` - The proxy, or null if the object is not active.
-    ///
-    /// - throws:
-    ///
-    ///   - ObjectNotFoundException - Raised if the object cannot be found.
+    /// - Throws:
+    ///   - ObjectNotFoundException Raised if the object cannot be found.
     func findObjectById(_ iceP_id: Identity, context: Context? = nil) async throws -> ObjectPrx? {
         return try await _impl._invoke(operation: "findObjectById",
                                        mode: .Idempotent,
@@ -346,15 +320,14 @@ public extension LocatorPrx {
 
     /// Find an adapter by id and return a proxy that contains its endpoints.
     ///
-    /// - parameter _: `Swift.String` The adapter id.
+    /// - Parameters:
+    ///   - iceP_id: The adapter id.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The adapter proxy, or null if the adapter is not active.
     ///
-    /// - returns: `ObjectPrx?` - The adapter proxy, or null if the adapter is not active.
-    ///
-    /// - throws:
-    ///
-    ///   - AdapterNotFoundException - Raised if the adapter cannot be found.
+    /// - Throws:
+    ///   - AdapterNotFoundException Raised if the adapter cannot be found.
     func findAdapterById(_ iceP_id: Swift.String, context: Context? = nil) async throws -> ObjectPrx? {
         return try await _impl._invoke(operation: "findAdapterById",
                                        mode: .Idempotent,
@@ -377,9 +350,9 @@ public extension LocatorPrx {
 
     /// Get the locator registry.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `LocatorRegistryPrx?` - The locator registry.
+    /// - Returns: The locator registry.
     func getRegistry(context: Context? = nil) async throws -> LocatorRegistryPrx? {
         return try await _impl._invoke(operation: "getRegistry",
                                        mode: .Idempotent,
@@ -392,22 +365,16 @@ public extension LocatorPrx {
 }
 
 /// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
-/// locator.  The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+/// locator.  The `LocatorRegistry` interface is intended to be used by Ice internals and by
 /// locator implementations. Regular user code should not attempt to use any functionality of this interface
 /// directly.
 ///
 /// LocatorRegistryPrx Methods:
-///
 ///  - setAdapterDirectProxy: Set the adapter endpoints with the locator registry.
-///
 ///  - setAdapterDirectProxyAsync: Set the adapter endpoints with the locator registry.
-///
 ///  - setReplicatedAdapterDirectProxy: Set the adapter endpoints with the locator registry.
-///
 ///  - setReplicatedAdapterDirectProxyAsync: Set the adapter endpoints with the locator registry.
-///
 ///  - setServerProcessProxy: Set the process proxy for a server.
-///
 ///  - setServerProcessProxyAsync: Set the process proxy for a server.
 public protocol LocatorRegistryPrx: ObjectPrx {}
 
@@ -423,7 +390,9 @@ internal final class LocatorRegistryPrxI: ObjectPrxI, LocatorRegistryPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LocatorRegistryPrx.Protocol) throws -> LocatorRegistryPrx {
     try communicator.makeProxyImpl(proxyString) as LocatorRegistryPrxI
@@ -435,100 +404,84 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `LocatorRegistryPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `LocatorRegistryPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: ObjectPrx, type: LocatorRegistryPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> LocatorRegistryPrx? {
     return try await LocatorRegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as LocatorRegistryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `LocatorRegistryPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `LocatorRegistryPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: ObjectPrx, type: LocatorRegistryPrx.Protocol, facet: Swift.String? = nil) -> LocatorRegistryPrx {
     return LocatorRegistryPrxI.uncheckedCast(prx: prx, facet: facet) as LocatorRegistryPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `LocatorRegistryPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LocatorRegistryPrx.Protocol) -> Swift.String {
     return LocatorRegistryTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `LocatorRegistryPrx`.
 public extension InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `LocatorRegistryPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `LocatorRegistryPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: LocatorRegistryPrx.Protocol) throws -> LocatorRegistryPrx? {
         return try read() as LocatorRegistryPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `LocatorRegistryPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `LocatorRegistryPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: LocatorRegistryPrx.Protocol) throws -> LocatorRegistryPrx? {
         return try read(tag: tag) as LocatorRegistryPrxI?
     }
 }
 
 /// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
-/// locator.  The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+/// locator.  The `LocatorRegistry` interface is intended to be used by Ice internals and by
 /// locator implementations. Regular user code should not attempt to use any functionality of this interface
 /// directly.
 ///
 /// LocatorRegistryPrx Methods:
-///
 ///  - setAdapterDirectProxy: Set the adapter endpoints with the locator registry.
-///
 ///  - setAdapterDirectProxyAsync: Set the adapter endpoints with the locator registry.
-///
 ///  - setReplicatedAdapterDirectProxy: Set the adapter endpoints with the locator registry.
-///
 ///  - setReplicatedAdapterDirectProxyAsync: Set the adapter endpoints with the locator registry.
-///
 ///  - setServerProcessProxy: Set the process proxy for a server.
-///
 ///  - setServerProcessProxyAsync: Set the process proxy for a server.
 public extension LocatorRegistryPrx {
     /// Set the adapter endpoints with the locator registry.
     ///
-    /// - parameter id: `Swift.String` The adapter id.
-    ///
-    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+    /// - Parameters:
+    ///   - iceP_id: The adapter id.
+    ///   - iceP_proxy: The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
     /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AdapterAlreadyActiveException - Raised if an adapter with the same id is already active.
-    ///
-    ///   - AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
+    /// - Throws: AdapterAlreadyActiveException Raised if an adapter with the same id is already active. AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
     ///     registered adapters to set their active proxy and the adapter is not registered with the locator.
     func setAdapterDirectProxy(id iceP_id: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setAdapterDirectProxy",
@@ -551,23 +504,15 @@ public extension LocatorRegistryPrx {
 
     /// Set the adapter endpoints with the locator registry.
     ///
-    /// - parameter adapterId: `Swift.String` The adapter id.
-    ///
-    /// - parameter replicaGroupId: `Swift.String` The replica group id.
-    ///
-    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+    /// - Parameters:
+    ///   - iceP_adapterId: The adapter id.
+    ///   - iceP_replicaGroupId: The replica group id.
+    ///   - iceP_proxy: The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
     /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AdapterAlreadyActiveException - Raised if an adapter with the same id is already active.
-    ///
-    ///   - AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
-    ///     registered adapters to set their active proxy and the adapter is not registered with the locator.
-    ///
-    ///   - InvalidReplicaGroupIdException - Raised if the given replica group doesn't match the one registered
+    /// - Throws: AdapterAlreadyActiveException Raised if an adapter with the same id is already active. AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+    ///     registered adapters to set their active proxy and the adapter is not registered with the locator. InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered
     ///     with the locator registry for this object adapter.
     func setReplicatedAdapterDirectProxy(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setReplicatedAdapterDirectProxy",
@@ -593,15 +538,13 @@ public extension LocatorRegistryPrx {
 
     /// Set the process proxy for a server.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - iceP_proxy: The process proxy. The proxy is never null.
+    ///   - context: Optional request context.
     ///
-    /// - parameter proxy: `ProcessPrx?` The process proxy. The proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - ServerNotFoundException - Raised if the server cannot be found.
+    /// - Throws:
+    ///   - ServerNotFoundException Raised if the server cannot be found.
     func setServerProcessProxy(id iceP_id: Swift.String, proxy iceP_proxy: ProcessPrx?, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setServerProcessProxy",
                                        mode: .Idempotent,
@@ -625,9 +568,7 @@ public extension LocatorRegistryPrx {
 /// retrieve the locator proxy with just the endpoint information of the service.
 ///
 /// LocatorFinderPrx Methods:
-///
 ///  - getLocator: Get the locator proxy implemented by the process hosting this finder object.
-///
 ///  - getLocatorAsync: Get the locator proxy implemented by the process hosting this finder object.
 public protocol LocatorFinderPrx: ObjectPrx {}
 
@@ -643,7 +584,9 @@ internal final class LocatorFinderPrxI: ObjectPrxI, LocatorFinderPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LocatorFinderPrx.Protocol) throws -> LocatorFinderPrx {
     try communicator.makeProxyImpl(proxyString) as LocatorFinderPrxI
@@ -655,62 +598,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `LocatorFinderPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `LocatorFinderPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: ObjectPrx, type: LocatorFinderPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> LocatorFinderPrx? {
     return try await LocatorFinderPrxI.checkedCast(prx: prx, facet: facet, context: context) as LocatorFinderPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `LocatorFinderPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `LocatorFinderPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: ObjectPrx, type: LocatorFinderPrx.Protocol, facet: Swift.String? = nil) -> LocatorFinderPrx {
     return LocatorFinderPrxI.uncheckedCast(prx: prx, facet: facet) as LocatorFinderPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `LocatorFinderPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LocatorFinderPrx.Protocol) -> Swift.String {
     return LocatorFinderTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `LocatorFinderPrx`.
 public extension InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `LocatorFinderPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `LocatorFinderPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: LocatorFinderPrx.Protocol) throws -> LocatorFinderPrx? {
         return try read() as LocatorFinderPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `LocatorFinderPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `LocatorFinderPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: LocatorFinderPrx.Protocol) throws -> LocatorFinderPrx? {
         return try read(tag: tag) as LocatorFinderPrxI?
     }
@@ -721,17 +659,15 @@ public extension InputStream {
 /// retrieve the locator proxy with just the endpoint information of the service.
 ///
 /// LocatorFinderPrx Methods:
-///
 ///  - getLocator: Get the locator proxy implemented by the process hosting this finder object.
-///
 ///  - getLocatorAsync: Get the locator proxy implemented by the process hosting this finder object.
 public extension LocatorFinderPrx {
     /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
     /// several replicas. This proxy is never null.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `LocatorPrx?` - The locator proxy.
+    /// - Returns: The locator proxy.
     func getLocator(context: Context? = nil) async throws -> LocatorPrx? {
         return try await _impl._invoke(operation: "getLocator",
                                        mode: .Normal,
@@ -776,42 +712,40 @@ public struct LocatorDisp: Ice.Dispatcher {
 }
 
 /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
-/// servers to get the locator registry proxy. The {@link Locator} interface is intended to be used
+/// servers to get the locator registry proxy. The `Locator` interface is intended to be used
 /// by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
 /// of this interface directly.
 public protocol Locator {
     /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
     /// access the object.
     ///
-    /// - parameter id: `Identity` The identity.
+    /// - Parameters:
+    ///   - id: The identity.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The proxy, or null if the object is not active.
     ///
-    /// - returns: `ObjectPrx?` - The proxy, or null if the object is not active.
-    ///
-    /// - throws:
-    ///
-    ///   - ObjectNotFoundException - Raised if the object cannot be found.
+    /// - Throws:
+    ///   - ObjectNotFoundException Raised if the object cannot be found.
     func findObjectById(id: Identity, current: Current) async throws -> ObjectPrx?
 
     /// Find an adapter by id and return a proxy that contains its endpoints.
     ///
-    /// - parameter id: `Swift.String` The adapter id.
+    /// - Parameters:
+    ///   - id: The adapter id.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The adapter proxy, or null if the adapter is not active.
     ///
-    /// - returns: `ObjectPrx?` - The adapter proxy, or null if the adapter is not active.
-    ///
-    /// - throws:
-    ///
-    ///   - AdapterNotFoundException - Raised if the adapter cannot be found.
+    /// - Throws:
+    ///   - AdapterNotFoundException Raised if the adapter cannot be found.
     func findAdapterById(id: Swift.String, current: Current) async throws -> ObjectPrx?
 
     /// Get the locator registry.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `LocatorRegistryPrx?` - The locator registry.
+    /// - Returns: The locator registry.
     func getRegistry(current: Current) async throws -> LocatorRegistryPrx?
 }
 
@@ -848,60 +782,45 @@ public struct LocatorRegistryDisp: Ice.Dispatcher {
 }
 
 /// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
-/// locator.  The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+/// locator.  The `LocatorRegistry` interface is intended to be used by Ice internals and by
 /// locator implementations. Regular user code should not attempt to use any functionality of this interface
 /// directly.
 public protocol LocatorRegistry {
     /// Set the adapter endpoints with the locator registry.
     ///
-    /// - parameter id: `Swift.String` The adapter id.
-    ///
-    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+    /// - Parameters:
+    ///   - id: The adapter id.
+    ///   - proxy: The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
     /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AdapterAlreadyActiveException - Raised if an adapter with the same id is already active.
-    ///
-    ///   - AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
+    /// - Throws: AdapterAlreadyActiveException Raised if an adapter with the same id is already active. AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
     ///     registered adapters to set their active proxy and the adapter is not registered with the locator.
     func setAdapterDirectProxy(id: Swift.String, proxy: ObjectPrx?, current: Current) async throws
 
     /// Set the adapter endpoints with the locator registry.
     ///
-    /// - parameter adapterId: `Swift.String` The adapter id.
-    ///
-    /// - parameter replicaGroupId: `Swift.String` The replica group id.
-    ///
-    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+    /// - Parameters:
+    ///   - adapterId: The adapter id.
+    ///   - replicaGroupId: The replica group id.
+    ///   - proxy: The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
     /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AdapterAlreadyActiveException - Raised if an adapter with the same id is already active.
-    ///
-    ///   - AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
-    ///     registered adapters to set their active proxy and the adapter is not registered with the locator.
-    ///
-    ///   - InvalidReplicaGroupIdException - Raised if the given replica group doesn't match the one registered
+    /// - Throws: AdapterAlreadyActiveException Raised if an adapter with the same id is already active. AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+    ///     registered adapters to set their active proxy and the adapter is not registered with the locator. InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered
     ///     with the locator registry for this object adapter.
     func setReplicatedAdapterDirectProxy(adapterId: Swift.String, replicaGroupId: Swift.String, proxy: ObjectPrx?, current: Current) async throws
 
     /// Set the process proxy for a server.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - proxy: The process proxy. The proxy is never null.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter proxy: `ProcessPrx?` The process proxy. The proxy is never null.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - ServerNotFoundException - Raised if the server cannot be found.
+    /// - Throws:
+    ///   - ServerNotFoundException Raised if the server cannot be found.
     func setServerProcessProxy(id: Swift.String, proxy: ProcessPrx?, current: Current) async throws
 }
 
@@ -940,23 +859,20 @@ public protocol LocatorFinder {
     /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
     /// several replicas. This proxy is never null.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `LocatorPrx?` - The locator proxy.
+    /// - Returns: The locator proxy.
     func getLocator(current: Current) async throws -> LocatorPrx?
 }
 
 /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
-/// servers to get the locator registry proxy. The {@link Locator} interface is intended to be used
+/// servers to get the locator registry proxy. The `Locator` interface is intended to be used
 /// by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
 /// of this interface directly.
 ///
 /// Locator Methods:
-///
 ///  - findObjectById: Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to access the object.
-///
 ///  - findAdapterById: Find an adapter by id and return a proxy that contains its endpoints.
-///
 ///  - getRegistry: Get the locator registry.
 extension Locator {
     public func _iceD_findObjectById(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -995,16 +911,13 @@ extension Locator {
 }
 
 /// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
-/// locator.  The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+/// locator.  The `LocatorRegistry` interface is intended to be used by Ice internals and by
 /// locator implementations. Regular user code should not attempt to use any functionality of this interface
 /// directly.
 ///
 /// LocatorRegistry Methods:
-///
 ///  - setAdapterDirectProxy: Set the adapter endpoints with the locator registry.
-///
 ///  - setReplicatedAdapterDirectProxy: Set the adapter endpoints with the locator registry.
-///
 ///  - setServerProcessProxy: Set the process proxy for a server.
 extension LocatorRegistry {
     public func _iceD_setAdapterDirectProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -1044,7 +957,6 @@ extension LocatorRegistry {
 /// retrieve the locator proxy with just the endpoint information of the service.
 ///
 /// LocatorFinder Methods:
-///
 ///  - getLocator: Get the locator proxy implemented by the process hosting this finder object.
 extension LocatorFinder {
     public func _iceD_getLocator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

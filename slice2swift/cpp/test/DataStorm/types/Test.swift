@@ -34,7 +34,7 @@ public struct StructValue: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `StructValue` structured value from the stream.
     ///
-    /// - returns: `StructValue` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> StructValue {
         var v = StructValue()
         v.firstName = try self.read()
@@ -45,9 +45,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `StructValue?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `StructValue?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> StructValue? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -61,7 +61,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `StructValue` structured value to the stream.
     ///
-    /// - parameter _: `StructValue` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: StructValue) {
         self.write(v.firstName)
         self.write(v.lastName)
@@ -70,9 +70,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `StructValue?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `StructValue?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: StructValue?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -106,9 +105,7 @@ open class Base: Ice.Value {
         self.b = b
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Base" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -149,9 +146,7 @@ open class Extended: Base {
         super.init(b: b)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Extended" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

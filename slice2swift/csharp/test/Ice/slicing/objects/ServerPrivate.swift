@@ -43,9 +43,7 @@ open class UnknownDerivedException: BaseException, @unchecked Sendable {
         super.init(sbe: sbe, pb: pb)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::UnknownDerivedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -90,9 +88,7 @@ open class PSUnknownException: PreservedException, @unchecked Sendable {
         super.init()
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::PSUnknownException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -139,9 +135,7 @@ open class SBSUnknownDerived: SBase {
         super.init(sb: sb)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::SBSUnknownDerived" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -183,9 +177,7 @@ open class SUnknown: Ice.Value {
         self.cycle = cycle
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::SUnknown" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -230,9 +222,7 @@ open class D2: B {
         super.init(sb: sb, pb: pb)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::D2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -279,9 +269,7 @@ open class D4: B {
         super.init(sb: sb, pb: pb)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::D4" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -323,9 +311,7 @@ open class MyClass: Ice.Value {
         self.i = i
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::MyClass" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -370,9 +356,7 @@ open class PSUnknown: Preserved {
         super.init(pi: pi, ps: ps)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PSUnknown" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -419,9 +403,7 @@ open class PSUnknown2: Preserved {
         super.init(pi: pi, ps: ps)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PSUnknown2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

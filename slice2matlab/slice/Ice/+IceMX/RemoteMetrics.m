@@ -1,7 +1,7 @@
 % RemoteMetrics   Summary of RemoteMetrics
 %
 % Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
-% within {@link InvocationMetrics}.
+% within InvocationMetrics.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Metrics.ice by slice2matlab version 3.8.0-alpha.0

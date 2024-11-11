@@ -17,7 +17,7 @@ classdef ThreadMetrics < IceMX.Metrics
         % inUseForUser - The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
         inUseForUser int32
         % inUseForOther - The number of threads which are currently performing other activities. These are all other that are not
-        % counted with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
+        % counted with inUseForUser or inUseForIO, such as DNS lookups, garbage collection).
         inUseForOther int32
     end
     methods

@@ -34,7 +34,7 @@ public struct Stock {
 public extension Ice.InputStream {
     /// Read a `Stock` structured value from the stream.
     ///
-    /// - returns: `Stock` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> Stock {
         var v = Stock()
         v.price = try self.read()
@@ -45,9 +45,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `Stock?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `Stock?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> Stock? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -61,7 +61,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `Stock` structured value to the stream.
     ///
-    /// - parameter _: `Stock` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: Stock) {
         self.write(v.price)
         self.write(v.lastBid)
@@ -70,9 +70,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `Stock?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `Stock?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: Stock?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {

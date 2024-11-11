@@ -42,7 +42,7 @@ public struct EventData {
 public extension Ice.InputStream {
     /// Read a `EventData` structured value from the stream.
     ///
-    /// - returns: `EventData` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> EventData {
         var v = EventData()
         v.op = try self.read()
@@ -54,9 +54,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `EventData?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `EventData?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> EventData? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -70,7 +70,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `EventData` structured value to the stream.
     ///
-    /// - parameter _: `EventData` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: EventData) {
         self.write(v.op)
         self.write(v.mode)
@@ -80,9 +80,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `EventData?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `EventData?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: EventData?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -102,9 +101,9 @@ public typealias EventDataSeq = [EventData]
 public struct EventDataSeqHelper {
     /// Read a `EventDataSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `EventDataSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> EventDataSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 4)
         var v = EventDataSeq()
@@ -115,13 +114,13 @@ public struct EventDataSeqHelper {
         }
         return v
     }
+
     /// Read an optional `EventDataSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `EventDataSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> EventDataSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -130,11 +129,10 @@ public struct EventDataSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `EventDataSeq` sequence to the stream.
+    /// Write a `EventDataSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `EventDataSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: EventDataSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -142,13 +140,12 @@ public struct EventDataSeqHelper {
         }
     }
 
-    /// Wite an optional `EventDataSeq?` sequence to the stream.
+    /// Write an optional `EventDataSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `EventDataSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: EventDataSeq?) {
         guard let val = v else {
             return
@@ -161,7 +158,7 @@ public struct EventDataSeqHelper {
     }
 }
 
-/// Traits for Slice interface`TopicLink`.
+/// Traits for Slice interface `TopicLink`.
 public struct TopicLinkTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStorm::TopicLink"]
     public static let staticId = "::IceStorm::TopicLink"
@@ -182,9 +179,7 @@ public extension Ice.ClassResolver {
 
 /// Thrown if the reap call would block.
 open class ReapWouldBlock: Ice.UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceStorm::ReapWouldBlock" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -198,13 +193,13 @@ open class ReapWouldBlock: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`TopicInternal`.
+/// Traits for Slice interface `TopicInternal`.
 public struct TopicInternalTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStorm::Topic", "::IceStorm::TopicInternal"]
     public static let staticId = "::IceStorm::TopicInternal"
 }
 
-/// Traits for Slice interface`TopicManagerInternal`.
+/// Traits for Slice interface `TopicManagerInternal`.
 public struct TopicManagerInternalTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStorm::TopicManager", "::IceStorm::TopicManagerInternal"]
     public static let staticId = "::IceStorm::TopicManagerInternal"
@@ -213,9 +208,7 @@ public struct TopicManagerInternalTraits: Ice.SliceTraits {
 /// The TopicLink interface. This is used to forward events between federated Topic instances.
 ///
 /// TopicLinkPrx Methods:
-///
 ///  - forward: Forward a sequence of events.
-///
 ///  - forwardAsync: Forward a sequence of events.
 public protocol TopicLinkPrx: Ice.ObjectPrx {}
 
@@ -231,7 +224,9 @@ private final class TopicLinkPrxI: Ice.ObjectPrxI, TopicLinkPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TopicLinkPrx.Protocol) throws -> TopicLinkPrx {
     try communicator.makeProxyImpl(proxyString) as TopicLinkPrxI
@@ -243,62 +238,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `TopicLinkPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `TopicLinkPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: TopicLinkPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TopicLinkPrx? {
     return try await TopicLinkPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicLinkPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `TopicLinkPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `TopicLinkPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: TopicLinkPrx.Protocol, facet: Swift.String? = nil) -> TopicLinkPrx {
     return TopicLinkPrxI.uncheckedCast(prx: prx, facet: facet) as TopicLinkPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `TopicLinkPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TopicLinkPrx.Protocol) -> Swift.String {
     return TopicLinkTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `TopicLinkPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `TopicLinkPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `TopicLinkPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: TopicLinkPrx.Protocol) throws -> TopicLinkPrx? {
         return try read() as TopicLinkPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `TopicLinkPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `TopicLinkPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: TopicLinkPrx.Protocol) throws -> TopicLinkPrx? {
         return try read(tag: tag) as TopicLinkPrxI?
     }
@@ -307,16 +297,14 @@ public extension Ice.InputStream {
 /// The TopicLink interface. This is used to forward events between federated Topic instances.
 ///
 /// TopicLinkPrx Methods:
-///
 ///  - forward: Forward a sequence of events.
-///
 ///  - forwardAsync: Forward a sequence of events.
 public extension TopicLinkPrx {
     /// Forward a sequence of events.
     ///
-    /// - parameter _: `EventDataSeq` The events to forward.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_events: The events to forward.
+    ///   - context: Optional request context.
     func forward(_ iceP_events: EventDataSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "forward",
                                        mode: .Normal,
@@ -330,13 +318,9 @@ public extension TopicLinkPrx {
 /// Internal operations for a topic.
 ///
 /// TopicInternalPrx Methods:
-///
 ///  - getLinkProxy: Retrieve a proxy to the TopicLink interface.
-///
 ///  - getLinkProxyAsync: Retrieve a proxy to the TopicLink interface.
-///
 ///  - reap: Reap the given identities.
-///
 ///  - reapAsync: Reap the given identities.
 public protocol TopicInternalPrx: TopicPrx {}
 
@@ -352,7 +336,9 @@ private final class TopicInternalPrxI: Ice.ObjectPrxI, TopicInternalPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TopicInternalPrx.Protocol) throws -> TopicInternalPrx {
     try communicator.makeProxyImpl(proxyString) as TopicInternalPrxI
@@ -364,62 +350,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `TopicInternalPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `TopicInternalPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: TopicInternalPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TopicInternalPrx? {
     return try await TopicInternalPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicInternalPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `TopicInternalPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `TopicInternalPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: TopicInternalPrx.Protocol, facet: Swift.String? = nil) -> TopicInternalPrx {
     return TopicInternalPrxI.uncheckedCast(prx: prx, facet: facet) as TopicInternalPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `TopicInternalPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TopicInternalPrx.Protocol) -> Swift.String {
     return TopicInternalTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `TopicInternalPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `TopicInternalPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `TopicInternalPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: TopicInternalPrx.Protocol) throws -> TopicInternalPrx? {
         return try read() as TopicInternalPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `TopicInternalPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `TopicInternalPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: TopicInternalPrx.Protocol) throws -> TopicInternalPrx? {
         return try read(tag: tag) as TopicInternalPrxI?
     }
@@ -428,20 +409,16 @@ public extension Ice.InputStream {
 /// Internal operations for a topic.
 ///
 /// TopicInternalPrx Methods:
-///
 ///  - getLinkProxy: Retrieve a proxy to the TopicLink interface.
-///
 ///  - getLinkProxyAsync: Retrieve a proxy to the TopicLink interface.
-///
 ///  - reap: Reap the given identities.
-///
 ///  - reapAsync: Reap the given identities.
 public extension TopicInternalPrx {
     /// Retrieve a proxy to the TopicLink interface.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `TopicLinkPrx?` - The TopicLink for the Topic.
+    /// - Returns: The TopicLink for the Topic.
     func getLinkProxy(context: Ice.Context? = nil) async throws -> TopicLinkPrx? {
         return try await _impl._invoke(operation: "getLinkProxy",
                                        mode: .Idempotent,
@@ -454,13 +431,12 @@ public extension TopicInternalPrx {
 
     /// Reap the given identities.
     ///
-    /// - parameter _: `Ice.IdentitySeq` The sequence of identities.
+    /// - Parameters:
+    ///   - iceP_id: The sequence of identities.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - ReapWouldBlock - Raised if the reap call would block.
+    /// - Throws:
+    ///   - ReapWouldBlock Raised if the reap call would block.
     func reap(_ iceP_id: Ice.IdentitySeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "reap",
                                        mode: .Normal,
@@ -481,9 +457,7 @@ public extension TopicInternalPrx {
 /// Internal operations for a topic manager.
 ///
 /// TopicManagerInternalPrx Methods:
-///
 ///  - getReplicaNode: Return the replica node proxy for this topic manager.
-///
 ///  - getReplicaNodeAsync: Return the replica node proxy for this topic manager.
 public protocol TopicManagerInternalPrx: TopicManagerPrx {}
 
@@ -499,7 +473,9 @@ private final class TopicManagerInternalPrxI: Ice.ObjectPrxI, TopicManagerIntern
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TopicManagerInternalPrx.Protocol) throws -> TopicManagerInternalPrx {
     try communicator.makeProxyImpl(proxyString) as TopicManagerInternalPrxI
@@ -511,62 +487,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `TopicManagerInternalPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `TopicManagerInternalPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: TopicManagerInternalPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TopicManagerInternalPrx? {
     return try await TopicManagerInternalPrxI.checkedCast(prx: prx, facet: facet, context: context) as TopicManagerInternalPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `TopicManagerInternalPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `TopicManagerInternalPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: TopicManagerInternalPrx.Protocol, facet: Swift.String? = nil) -> TopicManagerInternalPrx {
     return TopicManagerInternalPrxI.uncheckedCast(prx: prx, facet: facet) as TopicManagerInternalPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `TopicManagerInternalPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TopicManagerInternalPrx.Protocol) -> Swift.String {
     return TopicManagerInternalTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `TopicManagerInternalPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `TopicManagerInternalPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `TopicManagerInternalPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: TopicManagerInternalPrx.Protocol) throws -> TopicManagerInternalPrx? {
         return try read() as TopicManagerInternalPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `TopicManagerInternalPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `TopicManagerInternalPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: TopicManagerInternalPrx.Protocol) throws -> TopicManagerInternalPrx? {
         return try read(tag: tag) as TopicManagerInternalPrxI?
     }
@@ -575,16 +546,14 @@ public extension Ice.InputStream {
 /// Internal operations for a topic manager.
 ///
 /// TopicManagerInternalPrx Methods:
-///
 ///  - getReplicaNode: Return the replica node proxy for this topic manager.
-///
 ///  - getReplicaNodeAsync: Return the replica node proxy for this topic manager.
 public extension TopicManagerInternalPrx {
     /// Return the replica node proxy for this topic manager.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `IceStormElection.NodePrx?` - The replica proxy, or null if this instance is not replicated.
+    /// - Returns: The replica proxy, or null if this instance is not replicated.
     func getReplicaNode(context: Ice.Context? = nil) async throws -> IceStormElection.NodePrx? {
         return try await _impl._invoke(operation: "getReplicaNode",
                                        mode: .Idempotent,
@@ -628,9 +597,9 @@ public struct TopicLinkDisp: Ice.Dispatcher {
 public protocol TopicLink {
     /// Forward a sequence of events.
     ///
-    /// - parameter events: `EventDataSeq` The events to forward.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - events: The events to forward.
+    ///   - current: The Current object for the dispatch.
     func forward(events: EventDataSeq, current: Ice.Current) async throws
 }
 
@@ -688,20 +657,19 @@ public struct TopicInternalDisp: Ice.Dispatcher {
 public protocol TopicInternal: Topic {
     /// Retrieve a proxy to the TopicLink interface.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `TopicLinkPrx?` - The TopicLink for the Topic.
+    /// - Returns: The TopicLink for the Topic.
     func getLinkProxy(current: Ice.Current) async throws -> TopicLinkPrx?
 
     /// Reap the given identities.
     ///
-    /// - parameter id: `Ice.IdentitySeq` The sequence of identities.
+    /// - Parameters:
+    ///   - id: The sequence of identities.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - ReapWouldBlock - Raised if the reap call would block.
+    /// - Throws:
+    ///   - ReapWouldBlock Raised if the reap call would block.
     func reap(id: Ice.IdentitySeq, current: Ice.Current) async throws
 }
 
@@ -743,16 +711,15 @@ public struct TopicManagerInternalDisp: Ice.Dispatcher {
 public protocol TopicManagerInternal: TopicManager {
     /// Return the replica node proxy for this topic manager.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `IceStormElection.NodePrx?` - The replica proxy, or null if this instance is not replicated.
+    /// - Returns: The replica proxy, or null if this instance is not replicated.
     func getReplicaNode(current: Ice.Current) async throws -> IceStormElection.NodePrx?
 }
 
 /// The TopicLink interface. This is used to forward events between federated Topic instances.
 ///
 /// TopicLink Methods:
-///
 ///  - forward: Forward a sequence of events.
 extension TopicLink {
     public func _iceD_forward(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -768,9 +735,7 @@ extension TopicLink {
 /// Internal operations for a topic.
 ///
 /// TopicInternal Methods:
-///
 ///  - getLinkProxy: Retrieve a proxy to the TopicLink interface.
-///
 ///  - reap: Reap the given identities.
 extension TopicInternal {
     public func _iceD_getLinkProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -796,7 +761,6 @@ extension TopicInternal {
 /// Internal operations for a topic manager.
 ///
 /// TopicManagerInternal Methods:
-///
 ///  - getReplicaNode: Return the replica node proxy for this topic manager.
 extension TopicManagerInternal {
     public func _iceD_getReplicaNode(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

@@ -25,9 +25,9 @@ public typealias WstringWStringDict = [Swift.String: Swift.String]
 public struct WstringWStringDictHelper {
     /// Read a `WstringWStringDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `WstringWStringDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> WstringWStringDict {
         let sz = try Swift.Int(istr.readSize())
         var v = WstringWStringDict()
@@ -38,13 +38,13 @@ public struct WstringWStringDictHelper {
         }
         return v
     }
+
     /// Read an optional `WstringWStringDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `WstringWStringDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> WstringWStringDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -53,11 +53,10 @@ public struct WstringWStringDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `WstringWStringDict` dictionary to the stream.
+    /// Write a `WstringWStringDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `WstringWStringDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: WstringWStringDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -66,13 +65,12 @@ public struct WstringWStringDictHelper {
         }
     }
 
-    /// Wite an optional `WstringWStringDict?` dictionary to the stream.
+    /// Write an optional `WstringWStringDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `WstringWStringDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: WstringWStringDict?) {
         guard let val = v else {
             return
@@ -99,7 +97,7 @@ public struct WstringStruct: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `WstringStruct` structured value from the stream.
     ///
-    /// - returns: `WstringStruct` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> WstringStruct {
         var v = WstringStruct()
         v.s = try self.read()
@@ -108,9 +106,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `WstringStruct?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `WstringStruct?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> WstringStruct? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -124,16 +122,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `WstringStruct` structured value to the stream.
     ///
-    /// - parameter _: `WstringStruct` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: WstringStruct) {
         self.write(v.s)
     }
 
     /// Write an optional `WstringStruct?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `WstringStruct?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: WstringStruct?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -167,9 +164,7 @@ open class WstringException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test1::WstringException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -185,7 +180,7 @@ open class WstringException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`WstringClass`.
+/// Traits for Slice interface `WstringClass`.
 public struct WstringClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test1::WstringClass"]
     public static let staticId = "::Test1::WstringClass"
@@ -200,9 +195,9 @@ public typealias WstringWStringDict = [Swift.String: Swift.String]
 public struct WstringWStringDictHelper {
     /// Read a `WstringWStringDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `WstringWStringDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> WstringWStringDict {
         let sz = try Swift.Int(istr.readSize())
         var v = WstringWStringDict()
@@ -213,13 +208,13 @@ public struct WstringWStringDictHelper {
         }
         return v
     }
+
     /// Read an optional `WstringWStringDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `WstringWStringDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> WstringWStringDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -228,11 +223,10 @@ public struct WstringWStringDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `WstringWStringDict` dictionary to the stream.
+    /// Write a `WstringWStringDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `WstringWStringDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: WstringWStringDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -241,13 +235,12 @@ public struct WstringWStringDictHelper {
         }
     }
 
-    /// Wite an optional `WstringWStringDict?` dictionary to the stream.
+    /// Write an optional `WstringWStringDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `WstringWStringDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: WstringWStringDict?) {
         guard let val = v else {
             return
@@ -274,7 +267,7 @@ public struct WstringStruct: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `WstringStruct` structured value from the stream.
     ///
-    /// - returns: `WstringStruct` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> WstringStruct {
         var v = WstringStruct()
         v.s = try self.read()
@@ -283,9 +276,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `WstringStruct?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `WstringStruct?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> WstringStruct? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -299,16 +292,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `WstringStruct` structured value to the stream.
     ///
-    /// - parameter _: `WstringStruct` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: WstringStruct) {
         self.write(v.s)
     }
 
     /// Write an optional `WstringStruct?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `WstringStruct?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: WstringStruct?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -342,9 +334,7 @@ open class WstringException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test2::WstringException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -360,7 +350,7 @@ open class WstringException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`WstringClass`.
+/// Traits for Slice interface `WstringClass`.
 public struct WstringClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test2::WstringClass"]
     public static let staticId = "::Test2::WstringClass"
@@ -380,7 +370,9 @@ private final class WstringClassPrxI: Ice.ObjectPrxI, WstringClassPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: WstringClassPrx.Protocol) throws -> WstringClassPrx {
     try communicator.makeProxyImpl(proxyString) as WstringClassPrxI
@@ -392,62 +384,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `WstringClassPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `WstringClassPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: WstringClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> WstringClassPrx? {
     return try await WstringClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as WstringClassPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `WstringClassPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `WstringClassPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: WstringClassPrx.Protocol, facet: Swift.String? = nil) -> WstringClassPrx {
     return WstringClassPrxI.uncheckedCast(prx: prx, facet: facet) as WstringClassPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `WstringClassPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: WstringClassPrx.Protocol) -> Swift.String {
     return WstringClassTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `WstringClassPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `WstringClassPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `WstringClassPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: WstringClassPrx.Protocol) throws -> WstringClassPrx? {
         return try read() as WstringClassPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `WstringClassPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `WstringClassPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: WstringClassPrx.Protocol) throws -> WstringClassPrx? {
         return try read(tag: tag) as WstringClassPrxI?
     }
@@ -513,7 +500,9 @@ private final class WstringClassPrxI: Ice.ObjectPrxI, WstringClassPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: WstringClassPrx.Protocol) throws -> WstringClassPrx {
     try communicator.makeProxyImpl(proxyString) as WstringClassPrxI
@@ -525,62 +514,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `WstringClassPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `WstringClassPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: WstringClassPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> WstringClassPrx? {
     return try await WstringClassPrxI.checkedCast(prx: prx, facet: facet, context: context) as WstringClassPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `WstringClassPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `WstringClassPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: WstringClassPrx.Protocol, facet: Swift.String? = nil) -> WstringClassPrx {
     return WstringClassPrxI.uncheckedCast(prx: prx, facet: facet) as WstringClassPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `WstringClassPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: WstringClassPrx.Protocol) -> Swift.String {
     return WstringClassTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `WstringClassPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `WstringClassPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `WstringClassPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: WstringClassPrx.Protocol) throws -> WstringClassPrx? {
         return try read() as WstringClassPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `WstringClassPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `WstringClassPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: WstringClassPrx.Protocol) throws -> WstringClassPrx? {
         return try read(tag: tag) as WstringClassPrxI?
     }

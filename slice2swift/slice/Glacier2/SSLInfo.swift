@@ -47,7 +47,7 @@ public struct SSLInfo {
 public extension Ice.InputStream {
     /// Read a `SSLInfo` structured value from the stream.
     ///
-    /// - returns: `SSLInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> SSLInfo {
         var v = SSLInfo()
         v.remoteHost = try self.read()
@@ -61,9 +61,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `SSLInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `SSLInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> SSLInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -77,7 +77,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `SSLInfo` structured value to the stream.
     ///
-    /// - parameter _: `SSLInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: SSLInfo) {
         self.write(v.remoteHost)
         self.write(v.remotePort)
@@ -89,9 +89,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `SSLInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SSLInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: SSLInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {

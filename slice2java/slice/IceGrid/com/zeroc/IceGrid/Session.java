@@ -17,7 +17,7 @@ package com.zeroc.IceGrid;
 
 /**
  * A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
- * via the {@link Registry}} object or via the registry client <code>SessionManager</code> object.
+ * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
  *
  * @see Registry
  **/

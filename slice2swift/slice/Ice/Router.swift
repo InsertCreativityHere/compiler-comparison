@@ -15,13 +15,13 @@
 
 import Foundation
 
-/// Traits for Slice interface`Router`.
+/// Traits for Slice interface `Router`.
 public struct RouterTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Ice::Router"]
     public static let staticId = "::Ice::Router"
 }
 
-/// Traits for Slice interface`RouterFinder`.
+/// Traits for Slice interface `RouterFinder`.
 public struct RouterFinderTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Ice::RouterFinder"]
     public static let staticId = "::Ice::RouterFinder"
@@ -31,17 +31,11 @@ public struct RouterFinderTraits: SliceTraits {
 /// ice_router on specific proxies.
 ///
 /// RouterPrx Methods:
-///
 ///  - getClientProxy: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router. If a null proxy is returned, the client will forward requests to the router's endpoints.
-///
 ///  - getClientProxyAsync: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router. If a null proxy is returned, the client will forward requests to the router's endpoints.
-///
 ///  - getServerProxy: Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-///
 ///  - getServerProxyAsync: Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-///
 ///  - addProxies: Add new proxy information to the router's routing table.
-///
 ///  - addProxiesAsync: Add new proxy information to the router's routing table.
 public protocol RouterPrx: ObjectPrx {}
 
@@ -57,7 +51,9 @@ internal final class RouterPrxI: ObjectPrxI, RouterPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: RouterPrx.Protocol) throws -> RouterPrx {
     try communicator.makeProxyImpl(proxyString) as RouterPrxI
@@ -69,62 +65,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `RouterPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `RouterPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: ObjectPrx, type: RouterPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> RouterPrx? {
     return try await RouterPrxI.checkedCast(prx: prx, facet: facet, context: context) as RouterPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `RouterPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `RouterPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: ObjectPrx, type: RouterPrx.Protocol, facet: Swift.String? = nil) -> RouterPrx {
     return RouterPrxI.uncheckedCast(prx: prx, facet: facet) as RouterPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `RouterPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: RouterPrx.Protocol) -> Swift.String {
     return RouterTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `RouterPrx`.
 public extension InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `RouterPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `RouterPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: RouterPrx.Protocol) throws -> RouterPrx? {
         return try read() as RouterPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `RouterPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `RouterPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: RouterPrx.Protocol) throws -> RouterPrx? {
         return try read(tag: tag) as RouterPrxI?
     }
@@ -134,29 +125,21 @@ public extension InputStream {
 /// ice_router on specific proxies.
 ///
 /// RouterPrx Methods:
-///
 ///  - getClientProxy: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router. If a null proxy is returned, the client will forward requests to the router's endpoints.
-///
 ///  - getClientProxyAsync: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router. If a null proxy is returned, the client will forward requests to the router's endpoints.
-///
 ///  - getServerProxy: Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-///
 ///  - getServerProxyAsync: Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-///
 ///  - addProxies: Add new proxy information to the router's routing table.
-///
 ///  - addProxiesAsync: Add new proxy information to the router's routing table.
 public extension RouterPrx {
     /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
     /// If a null proxy is returned, the client will forward requests to the router's endpoints.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `(returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?)`:
-    ///
-    ///   - returnValue: `ObjectPrx?` - The router's client proxy.
-    ///
-    ///   - hasRoutingTable: `Swift.Bool?` - Indicates whether or not the router supports a routing table. If it is supported, the
+    /// - Returns:
+    ///   - returnValue: The router's client proxy.
+    ///   - hasRoutingTable: Indicates whether or not the router supports a routing table. If it is supported, the
     /// Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
     /// starting with Ice 3.7.
     /// The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
@@ -173,9 +156,9 @@ public extension RouterPrx {
 
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `ObjectPrx?` - The router's server proxy.
+    /// - Returns: The router's server proxy.
     func getServerProxy(context: Context? = nil) async throws -> ObjectPrx? {
         return try await _impl._invoke(operation: "getServerProxy",
                                        mode: .Idempotent,
@@ -188,11 +171,11 @@ public extension RouterPrx {
 
     /// Add new proxy information to the router's routing table.
     ///
-    /// - parameter _: `ObjectProxySeq` The proxies to add. Adding a null proxy is an error.
+    /// - Parameters:
+    ///   - iceP_proxies: The proxies to add. Adding a null proxy is an error.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ObjectProxySeq` - Proxies discarded by the router. These proxies are all non-null.
+    /// - Returns: Proxies discarded by the router. These proxies are all non-null.
     func addProxies(_ iceP_proxies: ObjectProxySeq, context: Context? = nil) async throws -> ObjectProxySeq {
         return try await _impl._invoke(operation: "addProxies",
                                        mode: .Idempotent,
@@ -212,9 +195,7 @@ public extension RouterPrx {
 /// with just the endpoint information of the service.
 ///
 /// RouterFinderPrx Methods:
-///
 ///  - getRouter: Get the router proxy implemented by the process hosting this finder object.
-///
 ///  - getRouterAsync: Get the router proxy implemented by the process hosting this finder object.
 public protocol RouterFinderPrx: ObjectPrx {}
 
@@ -230,7 +211,9 @@ internal final class RouterFinderPrxI: ObjectPrxI, RouterFinderPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: RouterFinderPrx.Protocol) throws -> RouterFinderPrx {
     try communicator.makeProxyImpl(proxyString) as RouterFinderPrxI
@@ -242,62 +225,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `RouterFinderPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `RouterFinderPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: ObjectPrx, type: RouterFinderPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> RouterFinderPrx? {
     return try await RouterFinderPrxI.checkedCast(prx: prx, facet: facet, context: context) as RouterFinderPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `RouterFinderPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `RouterFinderPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: ObjectPrx, type: RouterFinderPrx.Protocol, facet: Swift.String? = nil) -> RouterFinderPrx {
     return RouterFinderPrxI.uncheckedCast(prx: prx, facet: facet) as RouterFinderPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `RouterFinderPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: RouterFinderPrx.Protocol) -> Swift.String {
     return RouterFinderTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `RouterFinderPrx`.
 public extension InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `RouterFinderPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `RouterFinderPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: RouterFinderPrx.Protocol) throws -> RouterFinderPrx? {
         return try read() as RouterFinderPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `RouterFinderPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `RouterFinderPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: RouterFinderPrx.Protocol) throws -> RouterFinderPrx? {
         return try read(tag: tag) as RouterFinderPrxI?
     }
@@ -308,17 +286,15 @@ public extension InputStream {
 /// with just the endpoint information of the service.
 ///
 /// RouterFinderPrx Methods:
-///
 ///  - getRouter: Get the router proxy implemented by the process hosting this finder object.
-///
 ///  - getRouterAsync: Get the router proxy implemented by the process hosting this finder object.
 public extension RouterFinderPrx {
     /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
     /// replicas. This proxy is never null.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `RouterPrx?` - The router proxy.
+    /// - Returns: The router proxy.
     func getRouter(context: Context? = nil) async throws -> RouterPrx? {
         return try await _impl._invoke(operation: "getRouter",
                                        mode: .Normal,
@@ -368,13 +344,11 @@ public protocol Router {
     /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
     /// If a null proxy is returned, the client will forward requests to the router's endpoints.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?)`:
-    ///
-    ///   - returnValue: `ObjectPrx?` - The router's client proxy.
-    ///
-    ///   - hasRoutingTable: `Swift.Bool?` - Indicates whether or not the router supports a routing table. If it is supported, the
+    /// - Returns:
+    ///   - returnValue: The router's client proxy.
+    ///   - hasRoutingTable: Indicates whether or not the router supports a routing table. If it is supported, the
     /// Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
     /// starting with Ice 3.7.
     /// The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
@@ -382,18 +356,18 @@ public protocol Router {
 
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `ObjectPrx?` - The router's server proxy.
+    /// - Returns: The router's server proxy.
     func getServerProxy(current: Current) async throws -> ObjectPrx?
 
     /// Add new proxy information to the router's routing table.
     ///
-    /// - parameter proxies: `ObjectProxySeq` The proxies to add. Adding a null proxy is an error.
+    /// - Parameters:
+    ///   - proxies: The proxies to add. Adding a null proxy is an error.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ObjectProxySeq` - Proxies discarded by the router. These proxies are all non-null.
+    /// - Returns: Proxies discarded by the router. These proxies are all non-null.
     func addProxies(proxies: ObjectProxySeq, current: Current) async throws -> ObjectProxySeq
 }
 
@@ -432,9 +406,9 @@ public protocol RouterFinder {
     /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
     /// replicas. This proxy is never null.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `RouterPrx?` - The router proxy.
+    /// - Returns: The router proxy.
     func getRouter(current: Current) async throws -> RouterPrx?
 }
 
@@ -442,11 +416,8 @@ public protocol RouterFinder {
 /// ice_router on specific proxies.
 ///
 /// Router Methods:
-///
 ///  - getClientProxy: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router. If a null proxy is returned, the client will forward requests to the router's endpoints.
-///
 ///  - getServerProxy: Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
-///
 ///  - addProxies: Add new proxy information to the router's routing table.
 extension Router {
     public func _iceD_getClientProxy(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -488,7 +459,6 @@ extension Router {
 /// with just the endpoint information of the service.
 ///
 /// RouterFinder Methods:
-///
 ///  - getRouter: Get the router proxy implemented by the process hosting this finder object.
 extension RouterFinder {
     public func _iceD_getRouter(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

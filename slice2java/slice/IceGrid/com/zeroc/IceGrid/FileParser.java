@@ -16,8 +16,8 @@
 package com.zeroc.IceGrid;
 
 /**
- * <code>icegridadmin</code> provides a {@link FileParser}} object to transform XML files into
- * {@link ApplicationDescriptor}} objects.
+ * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
+ * {@link ApplicationDescriptor} objects.
  **/
 public interface FileParser extends com.zeroc.Ice.Object
 {

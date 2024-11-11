@@ -46,7 +46,7 @@ public typealias NumPyDoubleSeq2 = [Swift.Double]
 
 public typealias NumPyComplex128Seq = Foundation.Data
 
-/// Traits for Slice interface`NumPyCustom`.
+/// Traits for Slice interface `NumPyCustom`.
 public struct NumPyCustomTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::NumPy::Custom"]
     public static let staticId = "::Test::NumPy::Custom"
@@ -66,7 +66,9 @@ private final class NumPyCustomPrxI: Ice.ObjectPrxI, NumPyCustomPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: NumPyCustomPrx.Protocol) throws -> NumPyCustomPrx {
     try communicator.makeProxyImpl(proxyString) as NumPyCustomPrxI
@@ -78,62 +80,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `NumPyCustomPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `NumPyCustomPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: NumPyCustomPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> NumPyCustomPrx? {
     return try await NumPyCustomPrxI.checkedCast(prx: prx, facet: facet, context: context) as NumPyCustomPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `NumPyCustomPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `NumPyCustomPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: NumPyCustomPrx.Protocol, facet: Swift.String? = nil) -> NumPyCustomPrx {
     return NumPyCustomPrxI.uncheckedCast(prx: prx, facet: facet) as NumPyCustomPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `NumPyCustomPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: NumPyCustomPrx.Protocol) -> Swift.String {
     return NumPyCustomTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `NumPyCustomPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `NumPyCustomPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `NumPyCustomPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: NumPyCustomPrx.Protocol) throws -> NumPyCustomPrx? {
         return try read() as NumPyCustomPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `NumPyCustomPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `NumPyCustomPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: NumPyCustomPrx.Protocol) throws -> NumPyCustomPrx? {
         return try read(tag: tag) as NumPyCustomPrxI?
     }
@@ -388,9 +385,7 @@ open class NumPyD: Ice.Value {
         self.doubleSeq = doubleSeq
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::NumPy::D" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

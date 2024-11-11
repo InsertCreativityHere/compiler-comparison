@@ -2,7 +2,7 @@
 %
 % Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
 % collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
-% embedded within {@link InvocationMetrics}.
+% embedded within InvocationMetrics.
 %
 % ChildInvocationMetrics Properties:
 %   size - The size of the invocation.

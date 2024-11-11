@@ -40,9 +40,7 @@ open class Default: Ice.Value {
         self.y = y
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Default" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -84,9 +82,7 @@ open class NoDefault: Ice.Value {
         self.y = y
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::NoDefault" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

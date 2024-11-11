@@ -23,9 +23,9 @@ public typealias BSeq = [B?]
 public struct BSeqHelper {
     /// Read a `BSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `BSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> BSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = BSeq(repeating: nil, count: sz)
@@ -36,13 +36,13 @@ public struct BSeqHelper {
         }
         return v
     }
+
     /// Read an optional `BSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `BSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> BSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -51,11 +51,10 @@ public struct BSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `BSeq` sequence to the stream.
+    /// Write a `BSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `BSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: BSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -63,13 +62,12 @@ public struct BSeqHelper {
         }
     }
 
-    /// Wite an optional `BSeq?` sequence to the stream.
+    /// Write an optional `BSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `BSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: BSeq?) {
         guard let val = v else {
             return
@@ -98,7 +96,7 @@ public class SS3 {
 public extension Ice.InputStream {
     /// Read a `SS3` structured value from the stream.
     ///
-    /// - returns: `SS3` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> SS3 {
         let v = SS3()
         try self.read(SS1.self) { v.c1 = $0 }
@@ -108,9 +106,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `SS3?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `SS3?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> SS3? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -124,7 +122,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `SS3` structured value to the stream.
     ///
-    /// - parameter _: `SS3` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: SS3) {
         self.write(v.c1)
         self.write(v.c2)
@@ -132,9 +130,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `SS3?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SS3?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: SS3?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -153,9 +150,9 @@ public typealias BDict = [Swift.Int32: B?]
 public struct BDictHelper {
     /// Read a `BDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `BDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> BDict {
         let sz = try Swift.Int(istr.readSize())
         var v = BDict()
@@ -175,13 +172,13 @@ public struct BDictHelper {
         }
         return v
     }
+
     /// Read an optional `BDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `BDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> BDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -190,11 +187,10 @@ public struct BDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `BDict` dictionary to the stream.
+    /// Write a `BDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `BDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: BDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -203,13 +199,12 @@ public struct BDictHelper {
         }
     }
 
-    /// Wite an optional `BDict?` dictionary to the stream.
+    /// Write an optional `BDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `BDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: BDict?) {
         guard let val = v else {
             return
@@ -246,9 +241,7 @@ open class BaseException: Ice.UserException, @unchecked Sendable {
         self.pb = pb
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::BaseException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -297,9 +290,7 @@ open class DerivedException: BaseException, @unchecked Sendable {
         super.init(sbe: sbe, pb: pb)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::DerivedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -326,9 +317,9 @@ public typealias PBaseSeq = [PBase?]
 public struct PBaseSeqHelper {
     /// Read a `PBaseSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `PBaseSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> PBaseSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = PBaseSeq(repeating: nil, count: sz)
@@ -339,13 +330,13 @@ public struct PBaseSeqHelper {
         }
         return v
     }
+
     /// Read an optional `PBaseSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `PBaseSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> PBaseSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -354,11 +345,10 @@ public struct PBaseSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `PBaseSeq` sequence to the stream.
+    /// Write a `PBaseSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `PBaseSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: PBaseSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -366,13 +356,12 @@ public struct PBaseSeqHelper {
         }
     }
 
-    /// Wite an optional `PBaseSeq?` sequence to the stream.
+    /// Write an optional `PBaseSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `PBaseSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: PBaseSeq?) {
         guard let val = v else {
             return
@@ -399,9 +388,7 @@ public extension Ice.ClassResolver {
 }
 
 open class PreservedException: Ice.UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::PreservedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -415,7 +402,7 @@ open class PreservedException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`TestIntf`.
+/// Traits for Slice interface `TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestIntf"]
     public static let staticId = "::Test::TestIntf"
@@ -435,7 +422,9 @@ private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TestIntfPrx.Protocol) throws -> TestIntfPrx {
     try communicator.makeProxyImpl(proxyString) as TestIntfPrxI
@@ -447,62 +436,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `TestIntfPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `TestIntfPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
     return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `TestIntfPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `TestIntfPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil) -> TestIntfPrx {
     return TestIntfPrxI.uncheckedCast(prx: prx, facet: facet) as TestIntfPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `TestIntfPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TestIntfPrx.Protocol) -> Swift.String {
     return TestIntfTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `TestIntfPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `TestIntfPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `TestIntfPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: TestIntfPrx.Protocol) throws -> TestIntfPrx? {
         return try read() as TestIntfPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `TestIntfPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `TestIntfPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: TestIntfPrx.Protocol) throws -> TestIntfPrx? {
         return try read(tag: tag) as TestIntfPrxI?
     }
@@ -1002,9 +986,7 @@ public extension TestIntfPrx {
 
     /// Use of forward-declared class to verify that code is generated correctly.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Forward?`
+    /// - Parameter context: Optional request context.
     func useForward(context: Ice.Context? = nil) async throws -> Forward? {
         return try await _impl._invoke(operation: "useForward",
                                        mode: .Normal,
@@ -1048,9 +1030,7 @@ open class SBase: Ice.Value {
         self.sb = sb
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::SBase" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1091,9 +1071,7 @@ open class SBSKnownDerived: SBase {
         super.init(sb: sb)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::SBSKnownDerived" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1135,9 +1113,7 @@ open class B: Ice.Value {
         self.pb = pb
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::B" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1182,9 +1158,7 @@ open class D1: B {
         super.init(sb: sb, pb: pb)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::D1" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1226,9 +1200,7 @@ open class SS1: Ice.Value {
         self.s = s
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::SS1" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1266,9 +1238,7 @@ open class SS2: Ice.Value {
         self.s = s
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::SS2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1306,9 +1276,7 @@ open class PBase: Ice.Value {
         self.pi = pi
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PBase" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1349,9 +1317,7 @@ open class Preserved: PBase {
         super.init(pi: pi)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Preserved" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1394,9 +1360,7 @@ open class PDerived: Preserved {
         super.init(pi: pi, ps: ps)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PDerived" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1445,9 +1409,7 @@ open class CompactPDerived: Preserved {
         super.init(pi: pi, ps: ps)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::CompactPDerived" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1487,9 +1449,7 @@ open class PNode: Ice.Value {
         self.next = next
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PNode" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1532,9 +1492,7 @@ open class D3: B {
         super.init(sb: sb, pb: pb)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::D3" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1579,9 +1537,7 @@ open class PCUnknown: PBase {
         super.init(pi: pi)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PCUnknown" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1624,9 +1580,7 @@ open class PCDerived: PDerived {
         super.init(pi: pi, ps: ps, pb: pb)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PCDerived" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1669,9 +1623,7 @@ open class PCDerived2: PCDerived {
         super.init(pi: pi, ps: ps, pb: pb, pbs: pbs)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PCDerived2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1714,9 +1666,7 @@ open class PCDerived3: PCDerived2 {
         super.init(pi: pi, ps: ps, pb: pb, pbs: pbs, pcd2: pcd2)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::PCDerived3" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1765,9 +1715,7 @@ open class CompactPCDerived: CompactPDerived {
         super.init(pi: pi, ps: ps, pb: pb)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::CompactPCDerived" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1807,9 +1755,7 @@ open class Hidden: Ice.Value {
         self.f = f
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Hidden" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1847,9 +1793,7 @@ open class Forward: Ice.Value {
         self.h = h
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Forward" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2038,9 +1982,7 @@ public protocol TestIntf {
 
     /// Use of forward-declared class to verify that code is generated correctly.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Forward?`
+    /// - Parameter current: The Current object for the dispatch.
     func useForward(current: Ice.Current) async throws -> Forward?
 
     func shutdown(current: Ice.Current) async throws

@@ -1,6 +1,6 @@
 % SessionControlPrx   Summary of SessionControlPrx
 %
-% An administrative session control object, which is tied to the lifecycle of a {@link Session}.
+% An administrative session control object, which is tied to the lifecycle of a Session.
 %
 % SessionControlPrx Methods:
 %   categories - Access the object that manages the allowable categories for object identities for this session.

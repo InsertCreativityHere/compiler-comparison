@@ -59,8 +59,8 @@ classdef RouterPrx < Ice.RouterPrx
             r_ = obj.iceInvokeAsync('getCategoryForClient', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = createSession(obj, userId, password, varargin)
-            % createSession   Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
-            % {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+            % createSession   Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
+            % Session object is returned to the client. Otherwise, null is returned and only an internal session
             % (i.e., not visible to the client) is created.
             % If a session proxy is returned, it must be configured to route through the router that created it. This will
             % happen automatically if the router is configured as the client's default router at the time the session
@@ -71,7 +71,7 @@ classdef RouterPrx < Ice.RouterPrx
             %   password (char) - The password for the given user id.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Glacier2.SessionPrx) - A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
+            % Returns (Glacier2.SessionPrx) - A proxy for the newly created session, or null if no SessionManager has been installed.
             %
             % Exceptions:
             %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
@@ -90,8 +90,8 @@ classdef RouterPrx < Ice.RouterPrx
             is_.endEncapsulation();
         end
         function r_ = createSessionAsync(obj, userId, password, varargin)
-            % createSessionAsync   Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
-            % {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+            % createSessionAsync   Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
+            % Session object is returned to the client. Otherwise, null is returned and only an internal session
             % (i.e., not visible to the client) is created.
             % If a session proxy is returned, it must be configured to route through the router that created it. This will
             % happen automatically if the router is configured as the client's default router at the time the session
@@ -125,8 +125,8 @@ classdef RouterPrx < Ice.RouterPrx
         end
         function result = createSessionFromSecureConnection(obj, varargin)
             % createSessionFromSecureConnection   Create a per-client session with the router. The user is authenticated through the SSL certificates that
-            % have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
-            % {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+            % have been associated with the connection. If a SessionManager has been installed, a proxy to a
+            % Session object is returned to the client. Otherwise, null is returned and only an internal session
             % (i.e., not visible to the client) is created.
             % If a session proxy is returned, it must be configured to route through the router that created it. This will
             % happen automatically if the router is configured as the client's default router at the time the session
@@ -135,7 +135,7 @@ classdef RouterPrx < Ice.RouterPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Glacier2.SessionPrx) - A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
+            % Returns (Glacier2.SessionPrx) - A proxy for the newly created session, or null if no SessionManager has been installed.
             %
             % Exceptions:
             %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
@@ -151,8 +151,8 @@ classdef RouterPrx < Ice.RouterPrx
         end
         function r_ = createSessionFromSecureConnectionAsync(obj, varargin)
             % createSessionFromSecureConnectionAsync   Create a per-client session with the router. The user is authenticated through the SSL certificates that
-            % have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
-            % {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+            % have been associated with the connection. If a SessionManager has been installed, a proxy to a
+            % Session object is returned to the client. Otherwise, null is returned and only an internal session
             % (i.e., not visible to the client) is created.
             % If a session proxy is returned, it must be configured to route through the router that created it. This will
             % happen automatically if the router is configured as the client's default router at the time the session

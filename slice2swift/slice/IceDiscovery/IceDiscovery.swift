@@ -16,13 +16,13 @@
 import Foundation
 import Ice
 
-/// Traits for Slice interface`LookupReply`.
+/// Traits for Slice interface `LookupReply`.
 public struct LookupReplyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceDiscovery::LookupReply"]
     public static let staticId = "::IceDiscovery::LookupReply"
 }
 
-/// Traits for Slice interface`Lookup`.
+/// Traits for Slice interface `Lookup`.
 public struct LookupTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceDiscovery::Lookup"]
     public static let staticId = "::IceDiscovery::Lookup"
@@ -31,13 +31,9 @@ public struct LookupTraits: Ice.SliceTraits {
 /// The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
 ///
 /// LookupReplyPrx Methods:
-///
 ///  - foundObjectById: Reply to the findObjectById request.
-///
 ///  - foundObjectByIdAsync: Reply to the findObjectById request.
-///
 ///  - foundAdapterById: Reply to the findAdpaterById request.
-///
 ///  - foundAdapterByIdAsync: Reply to the findAdpaterById request.
 public protocol LookupReplyPrx: Ice.ObjectPrx {}
 
@@ -53,7 +49,9 @@ private final class LookupReplyPrxI: Ice.ObjectPrxI, LookupReplyPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LookupReplyPrx.Protocol) throws -> LookupReplyPrx {
     try communicator.makeProxyImpl(proxyString) as LookupReplyPrxI
@@ -65,62 +63,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `LookupReplyPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `LookupReplyPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: LookupReplyPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> LookupReplyPrx? {
     return try await LookupReplyPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupReplyPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `LookupReplyPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `LookupReplyPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: LookupReplyPrx.Protocol, facet: Swift.String? = nil) -> LookupReplyPrx {
     return LookupReplyPrxI.uncheckedCast(prx: prx, facet: facet) as LookupReplyPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `LookupReplyPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LookupReplyPrx.Protocol) -> Swift.String {
     return LookupReplyTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `LookupReplyPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `LookupReplyPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `LookupReplyPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: LookupReplyPrx.Protocol) throws -> LookupReplyPrx? {
         return try read() as LookupReplyPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `LookupReplyPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `LookupReplyPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: LookupReplyPrx.Protocol) throws -> LookupReplyPrx? {
         return try read(tag: tag) as LookupReplyPrxI?
     }
@@ -129,22 +122,17 @@ public extension Ice.InputStream {
 /// The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
 ///
 /// LookupReplyPrx Methods:
-///
 ///  - foundObjectById: Reply to the findObjectById request.
-///
 ///  - foundObjectByIdAsync: Reply to the findObjectById request.
-///
 ///  - foundAdapterById: Reply to the findAdpaterById request.
-///
 ///  - foundAdapterByIdAsync: Reply to the findAdpaterById request.
 public extension LookupReplyPrx {
     /// Reply to the findObjectById request.
     ///
-    /// - parameter id: `Ice.Identity` The identity of the object.
-    ///
-    /// - parameter prx: `Ice.ObjectPrx?` The proxy of the object. This proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_id: The identity of the object.
+    ///   - iceP_prx: The proxy of the object. This proxy is never null.
+    ///   - context: Optional request context.
     func foundObjectById(id iceP_id: Ice.Identity, prx iceP_prx: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "foundObjectById",
                                        mode: .Normal,
@@ -157,14 +145,12 @@ public extension LookupReplyPrx {
 
     /// Reply to the findAdpaterById request.
     ///
-    /// - parameter id: `Swift.String` The adapter ID.
-    ///
-    /// - parameter prx: `Ice.ObjectPrx?` The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+    /// - Parameters:
+    ///   - iceP_id: The adapter ID.
+    ///   - iceP_prx: The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
     /// endpoints. This proxy is never null.
-    ///
-    /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a replica group.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    ///   - iceP_isReplicaGroup: True if the adapter is also a member of a replica group.
+    ///   - context: Optional request context.
     func foundAdapterById(id iceP_id: Swift.String, prx iceP_prx: Ice.ObjectPrx?, isReplicaGroup iceP_isReplicaGroup: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "foundAdapterById",
                                        mode: .Normal,
@@ -180,13 +166,9 @@ public extension LookupReplyPrx {
 /// The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
 ///
 /// LookupPrx Methods:
-///
 ///  - findObjectById: Request to find an Ice object
-///
 ///  - findObjectByIdAsync: Request to find an Ice object
-///
 ///  - findAdapterById: Request to find an object adapter
-///
 ///  - findAdapterByIdAsync: Request to find an object adapter
 public protocol LookupPrx: Ice.ObjectPrx {}
 
@@ -202,7 +184,9 @@ private final class LookupPrxI: Ice.ObjectPrxI, LookupPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LookupPrx.Protocol) throws -> LookupPrx {
     try communicator.makeProxyImpl(proxyString) as LookupPrxI
@@ -214,62 +198,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `LookupPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `LookupPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: LookupPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> LookupPrx? {
     return try await LookupPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `LookupPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `LookupPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: LookupPrx.Protocol, facet: Swift.String? = nil) -> LookupPrx {
     return LookupPrxI.uncheckedCast(prx: prx, facet: facet) as LookupPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `LookupPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LookupPrx.Protocol) -> Swift.String {
     return LookupTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `LookupPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `LookupPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `LookupPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: LookupPrx.Protocol) throws -> LookupPrx? {
         return try read() as LookupPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `LookupPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `LookupPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: LookupPrx.Protocol) throws -> LookupPrx? {
         return try read(tag: tag) as LookupPrxI?
     }
@@ -278,26 +257,20 @@ public extension Ice.InputStream {
 /// The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
 ///
 /// LookupPrx Methods:
-///
 ///  - findObjectById: Request to find an Ice object
-///
 ///  - findObjectByIdAsync: Request to find an Ice object
-///
 ///  - findAdapterById: Request to find an object adapter
-///
 ///  - findAdapterByIdAsync: Request to find an object adapter
 public extension LookupPrx {
     /// Request to find an Ice object
     ///
-    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+    /// - Parameters:
+    ///   - iceP_domainId: The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
     /// matching domain identifier.
-    ///
-    /// - parameter id: `Ice.Identity` The object identity.
-    ///
-    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
+    ///   - iceP_id: The object identity.
+    ///   - iceP_reply: The proxy of the LookupReply interface that should be used to send the reply if a matching
     /// object is found. The reply proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    ///   - context: Optional request context.
     func findObjectById(domainId iceP_domainId: Swift.String, id iceP_id: Ice.Identity, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "findObjectById",
                                        mode: .Idempotent,
@@ -311,15 +284,13 @@ public extension LookupPrx {
 
     /// Request to find an object adapter
     ///
-    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+    /// - Parameters:
+    ///   - iceP_domainId: The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
     /// matching domain identifier.
-    ///
-    /// - parameter id: `Swift.String` The adapter ID.
-    ///
-    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
+    ///   - iceP_id: The adapter ID.
+    ///   - iceP_reply: The proxy of the LookupReply interface that should be used to send the reply if a matching
     /// adapter is found. The reply proxy is never null.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    ///   - context: Optional request context.
     func findAdapterById(domainId iceP_domainId: Swift.String, id iceP_id: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "findAdapterById",
                                        mode: .Idempotent,
@@ -366,23 +337,20 @@ public struct LookupReplyDisp: Ice.Dispatcher {
 public protocol LookupReply {
     /// Reply to the findObjectById request.
     ///
-    /// - parameter id: `Ice.Identity` The identity of the object.
-    ///
-    /// - parameter prx: `Ice.ObjectPrx?` The proxy of the object. This proxy is never null.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - id: The identity of the object.
+    ///   - prx: The proxy of the object. This proxy is never null.
+    ///   - current: The Current object for the dispatch.
     func foundObjectById(id: Ice.Identity, prx: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Reply to the findAdpaterById request.
     ///
-    /// - parameter id: `Swift.String` The adapter ID.
-    ///
-    /// - parameter prx: `Ice.ObjectPrx?` The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+    /// - Parameters:
+    ///   - id: The adapter ID.
+    ///   - prx: The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
     /// endpoints. This proxy is never null.
-    ///
-    /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a replica group.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///   - isReplicaGroup: True if the adapter is also a member of a replica group.
+    ///   - current: The Current object for the dispatch.
     func foundAdapterById(id: Swift.String, prx: Ice.ObjectPrx?, isReplicaGroup: Swift.Bool, current: Ice.Current) async throws
 }
 
@@ -420,37 +388,31 @@ public struct LookupDisp: Ice.Dispatcher {
 public protocol Lookup {
     /// Request to find an Ice object
     ///
-    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+    /// - Parameters:
+    ///   - domainId: The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
     /// matching domain identifier.
-    ///
-    /// - parameter id: `Ice.Identity` The object identity.
-    ///
-    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
+    ///   - id: The object identity.
+    ///   - reply: The proxy of the LookupReply interface that should be used to send the reply if a matching
     /// object is found. The reply proxy is never null.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///   - current: The Current object for the dispatch.
     func findObjectById(domainId: Swift.String, id: Ice.Identity, reply: LookupReplyPrx?, current: Ice.Current) async throws
 
     /// Request to find an object adapter
     ///
-    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+    /// - Parameters:
+    ///   - domainId: The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
     /// matching domain identifier.
-    ///
-    /// - parameter id: `Swift.String` The adapter ID.
-    ///
-    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
+    ///   - id: The adapter ID.
+    ///   - reply: The proxy of the LookupReply interface that should be used to send the reply if a matching
     /// adapter is found. The reply proxy is never null.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///   - current: The Current object for the dispatch.
     func findAdapterById(domainId: Swift.String, id: Swift.String, reply: LookupReplyPrx?, current: Ice.Current) async throws
 }
 
 /// The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
 ///
 /// LookupReply Methods:
-///
 ///  - foundObjectById: Reply to the findObjectById request.
-///
 ///  - foundAdapterById: Reply to the findAdpaterById request.
 extension LookupReply {
     public func _iceD_foundObjectById(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -478,9 +440,7 @@ extension LookupReply {
 /// The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
 ///
 /// Lookup Methods:
-///
 ///  - findObjectById: Request to find an Ice object
-///
 ///  - findAdapterById: Request to find an object adapter
 extension Lookup {
     public func _iceD_findObjectById(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

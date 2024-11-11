@@ -31,9 +31,7 @@ public extension Ice.ClassResolver {
 
 /// This exception is thrown if an attempt is made to start an already-started service.
 open class AlreadyStartedException: Ice.UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceBox::AlreadyStartedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -62,9 +60,7 @@ public extension Ice.ClassResolver {
 
 /// This exception is thrown if an attempt is made to stop an already-stopped service.
 open class AlreadyStoppedException: Ice.UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceBox::AlreadyStoppedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -93,9 +89,7 @@ public extension Ice.ClassResolver {
 
 /// This exception is thrown if a service name does not refer to an existing service.
 open class NoSuchServiceException: Ice.UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceBox::NoSuchServiceException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -109,13 +103,13 @@ open class NoSuchServiceException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`ServiceObserver`.
+/// Traits for Slice interface `ServiceObserver`.
 public struct ServiceObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceBox::ServiceObserver"]
     public static let staticId = "::IceBox::ServiceObserver"
 }
 
-/// Traits for Slice interface`ServiceManager`.
+/// Traits for Slice interface `ServiceManager`.
 public struct ServiceManagerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceBox::ServiceManager"]
     public static let staticId = "::IceBox::ServiceManager"
@@ -124,13 +118,9 @@ public struct ServiceManagerTraits: Ice.SliceTraits {
 /// An Observer interface implemented by admin clients interested in the status of services.
 ///
 /// ServiceObserverPrx Methods:
-///
 ///  - servicesStarted: Receives the names of the services that were started.
-///
 ///  - servicesStartedAsync: Receives the names of the services that were started.
-///
 ///  - servicesStopped: Receives the names of the services that were stopped.
-///
 ///  - servicesStoppedAsync: Receives the names of the services that were stopped.
 public protocol ServiceObserverPrx: Ice.ObjectPrx {}
 
@@ -146,7 +136,9 @@ private final class ServiceObserverPrxI: Ice.ObjectPrxI, ServiceObserverPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ServiceObserverPrx.Protocol) throws -> ServiceObserverPrx {
     try communicator.makeProxyImpl(proxyString) as ServiceObserverPrxI
@@ -158,62 +150,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `ServiceObserverPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `ServiceObserverPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: ServiceObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ServiceObserverPrx? {
     return try await ServiceObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServiceObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `ServiceObserverPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `ServiceObserverPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: ServiceObserverPrx.Protocol, facet: Swift.String? = nil) -> ServiceObserverPrx {
     return ServiceObserverPrxI.uncheckedCast(prx: prx, facet: facet) as ServiceObserverPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `ServiceObserverPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ServiceObserverPrx.Protocol) -> Swift.String {
     return ServiceObserverTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `ServiceObserverPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `ServiceObserverPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `ServiceObserverPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: ServiceObserverPrx.Protocol) throws -> ServiceObserverPrx? {
         return try read() as ServiceObserverPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `ServiceObserverPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `ServiceObserverPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: ServiceObserverPrx.Protocol) throws -> ServiceObserverPrx? {
         return try read(tag: tag) as ServiceObserverPrxI?
     }
@@ -222,20 +209,16 @@ public extension Ice.InputStream {
 /// An Observer interface implemented by admin clients interested in the status of services.
 ///
 /// ServiceObserverPrx Methods:
-///
 ///  - servicesStarted: Receives the names of the services that were started.
-///
 ///  - servicesStartedAsync: Receives the names of the services that were started.
-///
 ///  - servicesStopped: Receives the names of the services that were stopped.
-///
 ///  - servicesStoppedAsync: Receives the names of the services that were stopped.
 public extension ServiceObserverPrx {
     /// Receives the names of the services that were started.
     ///
-    /// - parameter _: `Ice.StringSeq` The names of the services.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_services: The names of the services.
+    ///   - context: Optional request context.
     func servicesStarted(_ iceP_services: Ice.StringSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "servicesStarted",
                                        mode: .Normal,
@@ -247,9 +230,9 @@ public extension ServiceObserverPrx {
 
     /// Receives the names of the services that were stopped.
     ///
-    /// - parameter _: `Ice.StringSeq` The names of the services.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_services: The names of the services.
+    ///   - context: Optional request context.
     func servicesStopped(_ iceP_services: Ice.StringSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "servicesStopped",
                                        mode: .Normal,
@@ -263,21 +246,13 @@ public extension ServiceObserverPrx {
 /// Administers a set of IceBox Service instances.
 ///
 /// ServiceManagerPrx Methods:
-///
 ///  - startService: Start an individual service.
-///
 ///  - startServiceAsync: Start an individual service.
-///
 ///  - stopService: Stop an individual service.
-///
 ///  - stopServiceAsync: Stop an individual service.
-///
 ///  - addObserver: Registers a new observer with the ServiceManager.
-///
 ///  - addObserverAsync: Registers a new observer with the ServiceManager.
-///
 ///  - shutdown: Shut down all services.
-///
 ///  - shutdownAsync: Shut down all services.
 public protocol ServiceManagerPrx: Ice.ObjectPrx {}
 
@@ -293,7 +268,9 @@ private final class ServiceManagerPrxI: Ice.ObjectPrxI, ServiceManagerPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ServiceManagerPrx.Protocol) throws -> ServiceManagerPrx {
     try communicator.makeProxyImpl(proxyString) as ServiceManagerPrxI
@@ -305,62 +282,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `ServiceManagerPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `ServiceManagerPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: ServiceManagerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ServiceManagerPrx? {
     return try await ServiceManagerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServiceManagerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `ServiceManagerPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `ServiceManagerPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: ServiceManagerPrx.Protocol, facet: Swift.String? = nil) -> ServiceManagerPrx {
     return ServiceManagerPrxI.uncheckedCast(prx: prx, facet: facet) as ServiceManagerPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `ServiceManagerPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ServiceManagerPrx.Protocol) -> Swift.String {
     return ServiceManagerTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `ServiceManagerPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `ServiceManagerPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `ServiceManagerPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: ServiceManagerPrx.Protocol) throws -> ServiceManagerPrx? {
         return try read() as ServiceManagerPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `ServiceManagerPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `ServiceManagerPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: ServiceManagerPrx.Protocol) throws -> ServiceManagerPrx? {
         return try read(tag: tag) as ServiceManagerPrxI?
     }
@@ -369,34 +341,22 @@ public extension Ice.InputStream {
 /// Administers a set of IceBox Service instances.
 ///
 /// ServiceManagerPrx Methods:
-///
 ///  - startService: Start an individual service.
-///
 ///  - startServiceAsync: Start an individual service.
-///
 ///  - stopService: Stop an individual service.
-///
 ///  - stopServiceAsync: Stop an individual service.
-///
 ///  - addObserver: Registers a new observer with the ServiceManager.
-///
 ///  - addObserverAsync: Registers a new observer with the ServiceManager.
-///
 ///  - shutdown: Shut down all services.
-///
 ///  - shutdownAsync: Shut down all services.
 public extension ServiceManagerPrx {
     /// Start an individual service.
     ///
-    /// - parameter _: `Swift.String` The service name.
+    /// - Parameters:
+    ///   - iceP_service: The service name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AlreadyStartedException - If the service is already running.
-    ///
-    ///   - NoSuchServiceException - If no service could be found with the given name.
+    /// - Throws: AlreadyStartedException If the service is already running. NoSuchServiceException If no service could be found with the given name.
     func startService(_ iceP_service: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "startService",
                                        mode: .Normal,
@@ -417,15 +377,11 @@ public extension ServiceManagerPrx {
 
     /// Stop an individual service.
     ///
-    /// - parameter _: `Swift.String` The service name.
+    /// - Parameters:
+    ///   - iceP_service: The service name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AlreadyStoppedException - If the service is already stopped.
-    ///
-    ///   - NoSuchServiceException - If no service could be found with the given name.
+    /// - Throws: AlreadyStoppedException If the service is already stopped. NoSuchServiceException If no service could be found with the given name.
     func stopService(_ iceP_service: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "stopService",
                                        mode: .Normal,
@@ -446,9 +402,9 @@ public extension ServiceManagerPrx {
 
     /// Registers a new observer with the ServiceManager.
     ///
-    /// - parameter _: `ServiceObserverPrx?` The new observer
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_observer: The new observer
+    ///   - context: Optional request context.
     func addObserver(_ iceP_observer: ServiceObserverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "addObserver",
                                        mode: .Normal,
@@ -460,7 +416,7 @@ public extension ServiceManagerPrx {
 
     /// Shut down all services. This causes stop to be invoked on all configured services.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -502,16 +458,16 @@ public struct ServiceObserverDisp: Ice.Dispatcher {
 public protocol ServiceObserver {
     /// Receives the names of the services that were started.
     ///
-    /// - parameter services: `Ice.StringSeq` The names of the services.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - services: The names of the services.
+    ///   - current: The Current object for the dispatch.
     func servicesStarted(services: Ice.StringSeq, current: Ice.Current) async throws
 
     /// Receives the names of the services that were stopped.
     ///
-    /// - parameter services: `Ice.StringSeq` The names of the services.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - services: The names of the services.
+    ///   - current: The Current object for the dispatch.
     func servicesStopped(services: Ice.StringSeq, current: Ice.Current) async throws
 }
 
@@ -553,49 +509,39 @@ public struct ServiceManagerDisp: Ice.Dispatcher {
 public protocol ServiceManager {
     /// Start an individual service.
     ///
-    /// - parameter service: `Swift.String` The service name.
+    /// - Parameters:
+    ///   - service: The service name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AlreadyStartedException - If the service is already running.
-    ///
-    ///   - NoSuchServiceException - If no service could be found with the given name.
+    /// - Throws: AlreadyStartedException If the service is already running. NoSuchServiceException If no service could be found with the given name.
     func startService(service: Swift.String, current: Ice.Current) async throws
 
     /// Stop an individual service.
     ///
-    /// - parameter service: `Swift.String` The service name.
+    /// - Parameters:
+    ///   - service: The service name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AlreadyStoppedException - If the service is already stopped.
-    ///
-    ///   - NoSuchServiceException - If no service could be found with the given name.
+    /// - Throws: AlreadyStoppedException If the service is already stopped. NoSuchServiceException If no service could be found with the given name.
     func stopService(service: Swift.String, current: Ice.Current) async throws
 
     /// Registers a new observer with the ServiceManager.
     ///
-    /// - parameter observer: `ServiceObserverPrx?` The new observer
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - observer: The new observer
+    ///   - current: The Current object for the dispatch.
     func addObserver(observer: ServiceObserverPrx?, current: Ice.Current) async throws
 
     /// Shut down all services. This causes stop to be invoked on all configured services.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
 /// An Observer interface implemented by admin clients interested in the status of services.
 ///
 /// ServiceObserver Methods:
-///
 ///  - servicesStarted: Receives the names of the services that were started.
-///
 ///  - servicesStopped: Receives the names of the services that were stopped.
 extension ServiceObserver {
     public func _iceD_servicesStarted(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -620,13 +566,9 @@ extension ServiceObserver {
 /// Administers a set of IceBox Service instances.
 ///
 /// ServiceManager Methods:
-///
 ///  - startService: Start an individual service.
-///
 ///  - stopService: Stop an individual service.
-///
 ///  - addObserver: Registers a new observer with the ServiceManager.
-///
 ///  - shutdown: Shut down all services.
 extension ServiceManager {
     public func _iceD_startService(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

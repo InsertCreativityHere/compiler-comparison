@@ -25,9 +25,9 @@ public typealias SliceChecksumDict = [Swift.String: Swift.String]
 public struct SliceChecksumDictHelper {
     /// Read a `SliceChecksumDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `SliceChecksumDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: InputStream) throws -> SliceChecksumDict {
         let sz = try Swift.Int(istr.readSize())
         var v = SliceChecksumDict()
@@ -38,13 +38,13 @@ public struct SliceChecksumDictHelper {
         }
         return v
     }
+
     /// Read an optional `SliceChecksumDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `SliceChecksumDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: InputStream, tag: Swift.Int32) throws -> SliceChecksumDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -53,11 +53,10 @@ public struct SliceChecksumDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `SliceChecksumDict` dictionary to the stream.
+    /// Write a `SliceChecksumDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `SliceChecksumDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: OutputStream, value v: SliceChecksumDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -66,13 +65,12 @@ public struct SliceChecksumDictHelper {
         }
     }
 
-    /// Wite an optional `SliceChecksumDict?` dictionary to the stream.
+    /// Write an optional `SliceChecksumDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SliceChecksumDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: OutputStream, tag: Swift.Int32, value v: SliceChecksumDict?) {
         guard let val = v else {
             return

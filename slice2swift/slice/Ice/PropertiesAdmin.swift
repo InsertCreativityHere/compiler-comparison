@@ -15,7 +15,7 @@
 
 import Foundation
 
-/// Traits for Slice interface`PropertiesAdmin`.
+/// Traits for Slice interface `PropertiesAdmin`.
 public struct PropertiesAdminTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Ice::PropertiesAdmin"]
     public static let staticId = "::Ice::PropertiesAdmin"
@@ -24,17 +24,11 @@ public struct PropertiesAdminTraits: SliceTraits {
 /// The PropertiesAdmin interface provides remote access to the properties of a communicator.
 ///
 /// PropertiesAdminPrx Methods:
-///
 ///  - getProperty: Get a property by key.
-///
 ///  - getPropertyAsync: Get a property by key.
-///
 ///  - getPropertiesForPrefix: Get all properties whose keys begin with prefix.
-///
 ///  - getPropertiesForPrefixAsync: Get all properties whose keys begin with prefix.
-///
 ///  - setProperties: Update the communicator's properties with the given property set.
-///
 ///  - setPropertiesAsync: Update the communicator's properties with the given property set.
 public protocol PropertiesAdminPrx: ObjectPrx {}
 
@@ -50,7 +44,9 @@ internal final class PropertiesAdminPrxI: ObjectPrxI, PropertiesAdminPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: PropertiesAdminPrx.Protocol) throws -> PropertiesAdminPrx {
     try communicator.makeProxyImpl(proxyString) as PropertiesAdminPrxI
@@ -62,62 +58,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `PropertiesAdminPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `PropertiesAdminPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: ObjectPrx, type: PropertiesAdminPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> PropertiesAdminPrx? {
     return try await PropertiesAdminPrxI.checkedCast(prx: prx, facet: facet, context: context) as PropertiesAdminPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `PropertiesAdminPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `PropertiesAdminPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: ObjectPrx, type: PropertiesAdminPrx.Protocol, facet: Swift.String? = nil) -> PropertiesAdminPrx {
     return PropertiesAdminPrxI.uncheckedCast(prx: prx, facet: facet) as PropertiesAdminPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `PropertiesAdminPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: PropertiesAdminPrx.Protocol) -> Swift.String {
     return PropertiesAdminTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `PropertiesAdminPrx`.
 public extension InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `PropertiesAdminPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `PropertiesAdminPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: PropertiesAdminPrx.Protocol) throws -> PropertiesAdminPrx? {
         return try read() as PropertiesAdminPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `PropertiesAdminPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `PropertiesAdminPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: PropertiesAdminPrx.Protocol) throws -> PropertiesAdminPrx? {
         return try read(tag: tag) as PropertiesAdminPrxI?
     }
@@ -126,26 +117,20 @@ public extension InputStream {
 /// The PropertiesAdmin interface provides remote access to the properties of a communicator.
 ///
 /// PropertiesAdminPrx Methods:
-///
 ///  - getProperty: Get a property by key.
-///
 ///  - getPropertyAsync: Get a property by key.
-///
 ///  - getPropertiesForPrefix: Get all properties whose keys begin with prefix.
-///
 ///  - getPropertiesForPrefixAsync: Get all properties whose keys begin with prefix.
-///
 ///  - setProperties: Update the communicator's properties with the given property set.
-///
 ///  - setPropertiesAsync: Update the communicator's properties with the given property set.
 public extension PropertiesAdminPrx {
     /// Get a property by key. If the property is not set, an empty string is returned.
     ///
-    /// - parameter _: `Swift.String` The property key.
+    /// - Parameters:
+    ///   - iceP_key: The property key.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String` - The property value.
+    /// - Returns: The property value.
     func getProperty(_ iceP_key: Swift.String, context: Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getProperty",
                                        mode: .Normal,
@@ -162,11 +147,11 @@ public extension PropertiesAdminPrx {
     /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
     /// properties are returned.
     ///
-    /// - parameter _: `Swift.String` The prefix to search for (empty string if none).
+    /// - Parameters:
+    ///   - iceP_prefix: The prefix to search for (empty string if none).
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `PropertyDict` - The matching property set.
+    /// - Returns: The matching property set.
     func getPropertiesForPrefix(_ iceP_prefix: Swift.String, context: Context? = nil) async throws -> PropertyDict {
         return try await _impl._invoke(operation: "getPropertiesForPrefix",
                                        mode: .Normal,
@@ -185,9 +170,9 @@ public extension PropertiesAdminPrx {
     /// value is an empty string, the property is removed. Any existing properties that are not modified or removed
     /// by the entries in newProperties are retained with their original values.
     ///
-    /// - parameter _: `PropertyDict` Properties to be added, changed, or removed.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_newProperties: Properties to be added, changed, or removed.
+    ///   - context: Optional request context.
     func setProperties(_ iceP_newProperties: PropertyDict, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setProperties",
                                        mode: .Normal,
@@ -234,21 +219,21 @@ public struct PropertiesAdminDisp: Ice.Dispatcher {
 public protocol PropertiesAdmin {
     /// Get a property by key. If the property is not set, an empty string is returned.
     ///
-    /// - parameter key: `Swift.String` The property key.
+    /// - Parameters:
+    ///   - key: The property key.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String` - The property value.
+    /// - Returns: The property value.
     func getProperty(key: Swift.String, current: Current) async throws -> Swift.String
 
     /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
     /// properties are returned.
     ///
-    /// - parameter prefix: `Swift.String` The prefix to search for (empty string if none).
+    /// - Parameters:
+    ///   - prefix: The prefix to search for (empty string if none).
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PropertyDict` - The matching property set.
+    /// - Returns: The matching property set.
     func getPropertiesForPrefix(prefix: Swift.String, current: Current) async throws -> PropertyDict
 
     /// Update the communicator's properties with the given property set. If an entry in newProperties
@@ -256,20 +241,17 @@ public protocol PropertiesAdmin {
     /// value is an empty string, the property is removed. Any existing properties that are not modified or removed
     /// by the entries in newProperties are retained with their original values.
     ///
-    /// - parameter newProperties: `PropertyDict` Properties to be added, changed, or removed.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - newProperties: Properties to be added, changed, or removed.
+    ///   - current: The Current object for the dispatch.
     func setProperties(newProperties: PropertyDict, current: Current) async throws
 }
 
 /// The PropertiesAdmin interface provides remote access to the properties of a communicator.
 ///
 /// PropertiesAdmin Methods:
-///
 ///  - getProperty: Get a property by key.
-///
 ///  - getPropertiesForPrefix: Get all properties whose keys begin with prefix.
-///
 ///  - setProperties: Update the communicator's properties with the given property set.
 extension PropertiesAdmin {
     public func _iceD_getProperty(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// Traits for Slice interface`UnexpectedObjectExceptionTest`.
+/// Traits for Slice interface `UnexpectedObjectExceptionTest`.
 public struct UnexpectedObjectExceptionTestTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::UnexpectedObjectExceptionTest"]
     public static let staticId = "::Test::UnexpectedObjectExceptionTest"
@@ -44,9 +44,7 @@ open class EOneMember: Ice.UserException, @unchecked Sendable {
         self.e = e
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::EOneMember" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -90,9 +88,7 @@ open class ETwoMembers: Ice.UserException, @unchecked Sendable {
         self.e2 = e2
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::ETwoMembers" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -128,7 +124,7 @@ public class SOneMember {
 public extension Ice.InputStream {
     /// Read a `SOneMember` structured value from the stream.
     ///
-    /// - returns: `SOneMember` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> SOneMember {
         let v = SOneMember()
         try self.read(Empty.self) { v.e = $0 }
@@ -137,9 +133,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `SOneMember?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `SOneMember?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> SOneMember? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -153,16 +149,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `SOneMember` structured value to the stream.
     ///
-    /// - parameter _: `SOneMember` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: SOneMember) {
         self.write(v.e)
     }
 
     /// Write an optional `SOneMember?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SOneMember?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: SOneMember?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -190,7 +185,7 @@ public class STwoMembers {
 public extension Ice.InputStream {
     /// Read a `STwoMembers` structured value from the stream.
     ///
-    /// - returns: `STwoMembers` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> STwoMembers {
         let v = STwoMembers()
         try self.read(Empty.self) { v.e1 = $0 }
@@ -200,9 +195,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `STwoMembers?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `STwoMembers?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> STwoMembers? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -216,7 +211,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `STwoMembers` structured value to the stream.
     ///
-    /// - parameter _: `STwoMembers` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: STwoMembers) {
         self.write(v.e1)
         self.write(v.e2)
@@ -224,9 +219,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `STwoMembers?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `STwoMembers?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: STwoMembers?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -245,9 +239,9 @@ public typealias DOneMember = [Swift.Int32: COneMember?]
 public struct DOneMemberHelper {
     /// Read a `DOneMember` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `DOneMember` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> DOneMember {
         let sz = try Swift.Int(istr.readSize())
         var v = DOneMember()
@@ -267,13 +261,13 @@ public struct DOneMemberHelper {
         }
         return v
     }
+
     /// Read an optional `DOneMember?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `DOneMember` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> DOneMember? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -282,11 +276,10 @@ public struct DOneMemberHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `DOneMember` dictionary to the stream.
+    /// Write a `DOneMember` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `DOneMember` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: DOneMember) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -295,13 +288,12 @@ public struct DOneMemberHelper {
         }
     }
 
-    /// Wite an optional `DOneMember?` dictionary to the stream.
+    /// Write an optional `DOneMember?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `DOneMember` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: DOneMember?) {
         guard let val = v else {
             return
@@ -321,9 +313,9 @@ public typealias DTwoMembers = [Swift.Int32: CTwoMembers?]
 public struct DTwoMembersHelper {
     /// Read a `DTwoMembers` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `DTwoMembers` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> DTwoMembers {
         let sz = try Swift.Int(istr.readSize())
         var v = DTwoMembers()
@@ -343,13 +335,13 @@ public struct DTwoMembersHelper {
         }
         return v
     }
+
     /// Read an optional `DTwoMembers?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `DTwoMembers` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> DTwoMembers? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -358,11 +350,10 @@ public struct DTwoMembersHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `DTwoMembers` dictionary to the stream.
+    /// Write a `DTwoMembers` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `DTwoMembers` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: DTwoMembers) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -371,13 +362,12 @@ public struct DTwoMembersHelper {
         }
     }
 
-    /// Wite an optional `DTwoMembers?` dictionary to the stream.
+    /// Write an optional `DTwoMembers?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `DTwoMembers` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: DTwoMembers?) {
         guard let val = v else {
             return
@@ -404,7 +394,9 @@ private final class UnexpectedObjectExceptionTestPrxI: Ice.ObjectPrxI, Unexpecte
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: UnexpectedObjectExceptionTestPrx.Protocol) throws -> UnexpectedObjectExceptionTestPrx {
     try communicator.makeProxyImpl(proxyString) as UnexpectedObjectExceptionTestPrxI
@@ -416,62 +408,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `UnexpectedObjectExceptionTestPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `UnexpectedObjectExceptionTestPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: UnexpectedObjectExceptionTestPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> UnexpectedObjectExceptionTestPrx? {
     return try await UnexpectedObjectExceptionTestPrxI.checkedCast(prx: prx, facet: facet, context: context) as UnexpectedObjectExceptionTestPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `UnexpectedObjectExceptionTestPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `UnexpectedObjectExceptionTestPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: UnexpectedObjectExceptionTestPrx.Protocol, facet: Swift.String? = nil) -> UnexpectedObjectExceptionTestPrx {
     return UnexpectedObjectExceptionTestPrxI.uncheckedCast(prx: prx, facet: facet) as UnexpectedObjectExceptionTestPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `UnexpectedObjectExceptionTestPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: UnexpectedObjectExceptionTestPrx.Protocol) -> Swift.String {
     return UnexpectedObjectExceptionTestTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `UnexpectedObjectExceptionTestPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `UnexpectedObjectExceptionTestPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `UnexpectedObjectExceptionTestPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: UnexpectedObjectExceptionTestPrx.Protocol) throws -> UnexpectedObjectExceptionTestPrx? {
         return try read() as UnexpectedObjectExceptionTestPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `UnexpectedObjectExceptionTestPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `UnexpectedObjectExceptionTestPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: UnexpectedObjectExceptionTestPrx.Protocol) throws -> UnexpectedObjectExceptionTestPrx? {
         return try read(tag: tag) as UnexpectedObjectExceptionTestPrxI?
     }
@@ -505,9 +492,7 @@ public extension Ice.ClassResolver {
 }
 
 open class Empty: Ice.Value {
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Empty" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -535,9 +520,7 @@ public extension Ice.ClassResolver {
 }
 
 open class AlsoEmpty: Ice.Value {
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::AlsoEmpty" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -573,9 +556,7 @@ open class COneMember: Ice.Value {
         self.e = e
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::COneMember" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -615,9 +596,7 @@ open class CTwoMembers: Ice.Value {
         self.e2 = e2
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::CTwoMembers" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

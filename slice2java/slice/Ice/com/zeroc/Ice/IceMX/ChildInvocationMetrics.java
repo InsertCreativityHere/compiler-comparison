@@ -18,7 +18,7 @@ package com.zeroc.Ice.IceMX;
 /**
  * Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
  * collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
- * embedded within {@link InvocationMetrics}}.
+ * embedded within {@link InvocationMetrics}.
  **/
 public class ChildInvocationMetrics extends Metrics
 {
@@ -64,7 +64,7 @@ public class ChildInvocationMetrics extends Metrics
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -4384807207836098918L;
+    private static final long serialVersionUID = 7311186638186538650L;
 
     /** @hidden */
     @Override

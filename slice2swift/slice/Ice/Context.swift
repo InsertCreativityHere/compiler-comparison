@@ -24,9 +24,9 @@ public typealias Context = [Swift.String: Swift.String]
 public struct ContextHelper {
     /// Read a `Context` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `Context` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: InputStream) throws -> Context {
         let sz = try Swift.Int(istr.readSize())
         var v = Context()
@@ -37,13 +37,13 @@ public struct ContextHelper {
         }
         return v
     }
+
     /// Read an optional `Context?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `Context` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: InputStream, tag: Swift.Int32) throws -> Context? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -52,11 +52,10 @@ public struct ContextHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `Context` dictionary to the stream.
+    /// Write a `Context` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `Context` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: OutputStream, value v: Context) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -65,13 +64,12 @@ public struct ContextHelper {
         }
     }
 
-    /// Wite an optional `Context?` dictionary to the stream.
+    /// Write an optional `Context?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `Context` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: OutputStream, tag: Swift.Int32, value v: Context?) {
         guard let val = v else {
             return

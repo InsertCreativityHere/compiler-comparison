@@ -29,7 +29,7 @@ public enum Color: Swift.UInt8 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `Color` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> Color {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 2)
         guard let val = Color(rawValue: rawValue) else {
@@ -40,9 +40,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `Color` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> Color? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -55,16 +55,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `Color` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: Color) {
         write(enum: v.rawValue, maxValue: 2)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `Color` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: Color?) {
         guard let v = value else {
             return
@@ -86,7 +85,7 @@ public enum NestedColor: Swift.UInt8 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `NestedColor` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> NestedColor {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 2)
         guard let val = NestedColor(rawValue: rawValue) else {
@@ -97,9 +96,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `NestedColor` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> NestedColor? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -112,16 +111,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `NestedColor` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: NestedColor) {
         write(enum: v.rawValue, maxValue: 2)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `NestedColor` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: NestedColor?) {
         guard let v = value else {
             return
@@ -186,7 +184,7 @@ public struct Struct1 {
 public extension Ice.InputStream {
     /// Read a `Struct1` structured value from the stream.
     ///
-    /// - returns: `Struct1` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> Struct1 {
         var v = Struct1()
         v.boolFalse = try self.read()
@@ -216,9 +214,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `Struct1?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `Struct1?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> Struct1? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -232,7 +230,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `Struct1` structured value to the stream.
     ///
-    /// - parameter _: `Struct1` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: Struct1) {
         self.write(v.boolFalse)
         self.write(v.boolTrue)
@@ -260,9 +258,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `Struct1?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `Struct1?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: Struct1?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -366,7 +363,7 @@ public struct Struct2 {
 public extension Ice.InputStream {
     /// Read a `Struct2` structured value from the stream.
     ///
-    /// - returns: `Struct2` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> Struct2 {
         var v = Struct2()
         v.boolTrue = try self.read()
@@ -394,9 +391,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `Struct2?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `Struct2?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> Struct2? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -410,7 +407,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `Struct2` structured value to the stream.
     ///
-    /// - parameter _: `Struct2` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: Struct2) {
         self.write(v.boolTrue)
         self.write(v.b)
@@ -436,9 +433,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `Struct2?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `Struct2?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: Struct2?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -506,7 +502,7 @@ public struct Struct3 {
 public extension Ice.InputStream {
     /// Read a `Struct3` structured value from the stream.
     ///
-    /// - returns: `Struct3` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> Struct3 {
         var v = Struct3()
         v.boolFalse = try self.read()
@@ -536,9 +532,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `Struct3?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `Struct3?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> Struct3? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -552,7 +548,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `Struct3` structured value to the stream.
     ///
-    /// - parameter _: `Struct3` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: Struct3) {
         self.write(v.boolFalse)
         self.write(v.boolTrue)
@@ -580,9 +576,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `Struct3?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `Struct3?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: Struct3?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -646,9 +641,7 @@ open class BaseEx: Ice.UserException, @unchecked Sendable {
         self.zeroDotD = zeroDotD
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::BaseEx" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -729,9 +722,7 @@ open class DerivedEx: BaseEx, @unchecked Sendable {
         super.init(boolFalse: boolFalse, boolTrue: boolTrue, b: b, s: s, i: i, l: l, f: f, d: d, str: str, noDefault: noDefault, zeroI: zeroI, zeroL: zeroL, zeroF: zeroF, zeroDotF: zeroDotF, zeroD: zeroD, zeroDotD: zeroDotD)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::DerivedEx" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -770,9 +761,9 @@ public typealias IntStringDict = [Swift.Int32: Swift.String]
 public struct IntStringDictHelper {
     /// Read a `IntStringDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `IntStringDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> IntStringDict {
         let sz = try Swift.Int(istr.readSize())
         var v = IntStringDict()
@@ -783,13 +774,13 @@ public struct IntStringDictHelper {
         }
         return v
     }
+
     /// Read an optional `IntStringDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `IntStringDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> IntStringDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -798,11 +789,10 @@ public struct IntStringDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `IntStringDict` dictionary to the stream.
+    /// Write a `IntStringDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `IntStringDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: IntStringDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -811,13 +801,12 @@ public struct IntStringDictHelper {
         }
     }
 
-    /// Wite an optional `IntStringDict?` dictionary to the stream.
+    /// Write an optional `IntStringDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `IntStringDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: IntStringDict?) {
         guard let val = v else {
             return
@@ -844,7 +833,7 @@ public struct InnerStruct: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `InnerStruct` structured value from the stream.
     ///
-    /// - returns: `InnerStruct` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> InnerStruct {
         var v = InnerStruct()
         v.a = try self.read()
@@ -853,9 +842,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `InnerStruct?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `InnerStruct?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> InnerStruct? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -869,16 +858,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `InnerStruct` structured value to the stream.
     ///
-    /// - parameter _: `InnerStruct` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: InnerStruct) {
         self.write(v.a)
     }
 
     /// Write an optional `InnerStruct?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerStruct?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: InnerStruct?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {
@@ -927,7 +915,7 @@ public struct StructNoDefaults {
 public extension Ice.InputStream {
     /// Read a `StructNoDefaults` structured value from the stream.
     ///
-    /// - returns: `StructNoDefaults` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> StructNoDefaults {
         var v = StructNoDefaults()
         v.bo = try self.read()
@@ -948,9 +936,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `StructNoDefaults?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `StructNoDefaults?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> StructNoDefaults? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -964,7 +952,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `StructNoDefaults` structured value to the stream.
     ///
-    /// - parameter _: `StructNoDefaults` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: StructNoDefaults) {
         self.write(v.bo)
         self.write(v.b)
@@ -983,9 +971,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `StructNoDefaults?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `StructNoDefaults?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: StructNoDefaults?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1023,9 +1010,7 @@ open class ExceptionNoDefaultsBase: Ice.UserException, @unchecked Sendable {
         self.bs = bs
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::ExceptionNoDefaultsBase" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -1072,9 +1057,7 @@ open class ExceptionNoDefaults: ExceptionNoDefaultsBase, @unchecked Sendable {
         super.init(str: str, c1: c1, bs: bs)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::ExceptionNoDefaults" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -1146,9 +1129,7 @@ open class Base: Ice.Value {
         self.zeroDotD = zeroDotD
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Base" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1229,9 +1210,7 @@ open class Derived: Base {
         super.init(boolFalse: boolFalse, boolTrue: boolTrue, b: b, s: s, i: i, l: l, f: f, d: d, str: str, noDefault: noDefault, zeroI: zeroI, zeroL: zeroL, zeroF: zeroF, zeroDotF: zeroDotF, zeroD: zeroD, zeroDotD: zeroDotD)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Derived" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1285,9 +1264,7 @@ open class ClassNoDefaultsBase: Ice.Value {
         self.bs = bs
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::ClassNoDefaultsBase" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1334,9 +1311,7 @@ open class ClassNoDefaults: ClassNoDefaultsBase {
         super.init(str: str, c1: c1, bs: bs)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::ClassNoDefaults" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

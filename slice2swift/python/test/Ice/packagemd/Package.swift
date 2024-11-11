@@ -38,9 +38,7 @@ open class E1: Ice.UserException, @unchecked Sendable {
         self.i = i
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test2::E1" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -81,9 +79,7 @@ open class E2: E1, @unchecked Sendable {
         super.init(i: i)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test2::E2" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -123,9 +119,7 @@ open class E1: Ice.UserException, @unchecked Sendable {
         self.i = i
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test3::E1" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -166,9 +160,7 @@ open class E2: E1, @unchecked Sendable {
         super.init(i: i)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test3::E2" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -208,9 +200,7 @@ open class C1: Ice.Value {
         self.i = i
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test2::C1" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -251,9 +241,7 @@ open class C2: C1 {
         super.init(i: i)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test2::C2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -293,9 +281,7 @@ open class C1: Ice.Value {
         self.i = i
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test3::C1" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -336,9 +322,7 @@ open class C2: C1 {
         super.init(i: i)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test3::C2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

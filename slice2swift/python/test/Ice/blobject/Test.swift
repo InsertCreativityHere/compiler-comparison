@@ -30,9 +30,7 @@ public extension Ice.ClassResolver {
 }
 
 open class UE: Ice.UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::UE" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -46,7 +44,7 @@ open class UE: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`Hello`.
+/// Traits for Slice interface `Hello`.
 public struct HelloTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Hello"]
     public static let staticId = "::Test::Hello"
@@ -66,7 +64,9 @@ private final class HelloPrxI: Ice.ObjectPrxI, HelloPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: HelloPrx.Protocol) throws -> HelloPrx {
     try communicator.makeProxyImpl(proxyString) as HelloPrxI
@@ -78,62 +78,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `HelloPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `HelloPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: HelloPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> HelloPrx? {
     return try await HelloPrxI.checkedCast(prx: prx, facet: facet, context: context) as HelloPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `HelloPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `HelloPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: HelloPrx.Protocol, facet: Swift.String? = nil) -> HelloPrx {
     return HelloPrxI.uncheckedCast(prx: prx, facet: facet) as HelloPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `HelloPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: HelloPrx.Protocol) -> Swift.String {
     return HelloTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `HelloPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `HelloPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `HelloPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: HelloPrx.Protocol) throws -> HelloPrx? {
         return try read() as HelloPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `HelloPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `HelloPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: HelloPrx.Protocol) throws -> HelloPrx? {
         return try read(tag: tag) as HelloPrxI?
     }

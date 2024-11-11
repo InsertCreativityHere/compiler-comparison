@@ -40,9 +40,7 @@ open class PermissionDeniedException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Glacier2::PermissionDeniedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -58,13 +56,13 @@ open class PermissionDeniedException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`PermissionsVerifier`.
+/// Traits for Slice interface `PermissionsVerifier`.
 public struct PermissionsVerifierTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::PermissionsVerifier", "::Ice::Object"]
     public static let staticId = "::Glacier2::PermissionsVerifier"
 }
 
-/// Traits for Slice interface`SSLPermissionsVerifier`.
+/// Traits for Slice interface `SSLPermissionsVerifier`.
 public struct SSLPermissionsVerifierTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::SSLPermissionsVerifier", "::Ice::Object"]
     public static let staticId = "::Glacier2::SSLPermissionsVerifier"
@@ -73,9 +71,7 @@ public struct SSLPermissionsVerifierTraits: Ice.SliceTraits {
 /// The Glacier2 permissions verifier. This is called through the process of establishing a session.
 ///
 /// PermissionsVerifierPrx Methods:
-///
 ///  - checkPermissions: Check whether a user has permission to access the router.
-///
 ///  - checkPermissionsAsync: Check whether a user has permission to access the router.
 public protocol PermissionsVerifierPrx: Ice.ObjectPrx {}
 
@@ -91,7 +87,9 @@ private final class PermissionsVerifierPrxI: Ice.ObjectPrxI, PermissionsVerifier
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: PermissionsVerifierPrx.Protocol) throws -> PermissionsVerifierPrx {
     try communicator.makeProxyImpl(proxyString) as PermissionsVerifierPrxI
@@ -103,62 +101,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `PermissionsVerifierPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `PermissionsVerifierPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: PermissionsVerifierPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> PermissionsVerifierPrx? {
     return try await PermissionsVerifierPrxI.checkedCast(prx: prx, facet: facet, context: context) as PermissionsVerifierPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `PermissionsVerifierPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `PermissionsVerifierPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: PermissionsVerifierPrx.Protocol, facet: Swift.String? = nil) -> PermissionsVerifierPrx {
     return PermissionsVerifierPrxI.uncheckedCast(prx: prx, facet: facet) as PermissionsVerifierPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `PermissionsVerifierPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: PermissionsVerifierPrx.Protocol) -> Swift.String {
     return PermissionsVerifierTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `PermissionsVerifierPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `PermissionsVerifierPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `PermissionsVerifierPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: PermissionsVerifierPrx.Protocol) throws -> PermissionsVerifierPrx? {
         return try read() as PermissionsVerifierPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `PermissionsVerifierPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `PermissionsVerifierPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: PermissionsVerifierPrx.Protocol) throws -> PermissionsVerifierPrx? {
         return try read(tag: tag) as PermissionsVerifierPrxI?
     }
@@ -167,28 +160,22 @@ public extension Ice.InputStream {
 /// The Glacier2 permissions verifier. This is called through the process of establishing a session.
 ///
 /// PermissionsVerifierPrx Methods:
-///
 ///  - checkPermissions: Check whether a user has permission to access the router.
-///
 ///  - checkPermissionsAsync: Check whether a user has permission to access the router.
 public extension PermissionsVerifierPrx {
     /// Check whether a user has permission to access the router.
     ///
-    /// - parameter userId: `Swift.String` The user id for which to check permission.
+    /// - Parameters:
+    ///   - iceP_userId: The user id for which to check permission.
+    ///   - iceP_password: The user's password.
+    ///   - context: Optional request context.
     ///
-    /// - parameter password: `Swift.String` The user's password.
+    /// - Returns:
+    ///   - returnValue: True if access is granted, or false otherwise.
+    ///   - reason: The reason why access was denied.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.Bool` - True if access is granted, or false otherwise.
-    ///
-    ///   - reason: `Swift.String` - The reason why access was denied.
-    ///
-    /// - throws:
-    ///
-    ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+    /// - Throws:
+    ///   - PermissionDeniedException Raised if the user access is denied. This can be raised in place of
     ///     returning false with a reason set in the reason out parameter.
     func checkPermissions(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, reason: Swift.String) {
         return try await _impl._invoke(operation: "checkPermissions",
@@ -216,9 +203,7 @@ public extension PermissionsVerifierPrx {
 /// The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
 ///
 /// SSLPermissionsVerifierPrx Methods:
-///
 ///  - authorize: Check whether a user has permission to access the router.
-///
 ///  - authorizeAsync: Check whether a user has permission to access the router.
 public protocol SSLPermissionsVerifierPrx: Ice.ObjectPrx {}
 
@@ -234,7 +219,9 @@ private final class SSLPermissionsVerifierPrxI: Ice.ObjectPrxI, SSLPermissionsVe
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SSLPermissionsVerifierPrx.Protocol) throws -> SSLPermissionsVerifierPrx {
     try communicator.makeProxyImpl(proxyString) as SSLPermissionsVerifierPrxI
@@ -246,62 +233,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `SSLPermissionsVerifierPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `SSLPermissionsVerifierPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: SSLPermissionsVerifierPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SSLPermissionsVerifierPrx? {
     return try await SSLPermissionsVerifierPrxI.checkedCast(prx: prx, facet: facet, context: context) as SSLPermissionsVerifierPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `SSLPermissionsVerifierPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `SSLPermissionsVerifierPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: SSLPermissionsVerifierPrx.Protocol, facet: Swift.String? = nil) -> SSLPermissionsVerifierPrx {
     return SSLPermissionsVerifierPrxI.uncheckedCast(prx: prx, facet: facet) as SSLPermissionsVerifierPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `SSLPermissionsVerifierPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SSLPermissionsVerifierPrx.Protocol) -> Swift.String {
     return SSLPermissionsVerifierTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `SSLPermissionsVerifierPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `SSLPermissionsVerifierPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `SSLPermissionsVerifierPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: SSLPermissionsVerifierPrx.Protocol) throws -> SSLPermissionsVerifierPrx? {
         return try read() as SSLPermissionsVerifierPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `SSLPermissionsVerifierPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `SSLPermissionsVerifierPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: SSLPermissionsVerifierPrx.Protocol) throws -> SSLPermissionsVerifierPrx? {
         return try read(tag: tag) as SSLPermissionsVerifierPrxI?
     }
@@ -310,26 +292,21 @@ public extension Ice.InputStream {
 /// The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
 ///
 /// SSLPermissionsVerifierPrx Methods:
-///
 ///  - authorize: Check whether a user has permission to access the router.
-///
 ///  - authorizeAsync: Check whether a user has permission to access the router.
 public extension SSLPermissionsVerifierPrx {
     /// Check whether a user has permission to access the router.
     ///
-    /// - parameter _: `SSLInfo` The SSL information.
+    /// - Parameters:
+    ///   - iceP_info: The SSL information.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns:
+    ///   - returnValue: True if access is granted, or false otherwise.
+    ///   - reason: The reason why access was denied.
     ///
-    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.Bool` - True if access is granted, or false otherwise.
-    ///
-    ///   - reason: `Swift.String` - The reason why access was denied.
-    ///
-    /// - throws:
-    ///
-    ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+    /// - Throws:
+    ///   - PermissionDeniedException Raised if the user access is denied. This can be raised in place of
     ///     returning false with a reason set in the reason out parameter.
     func authorize(_ iceP_info: SSLInfo, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, reason: Swift.String) {
         return try await _impl._invoke(operation: "authorize",
@@ -385,21 +362,17 @@ public struct PermissionsVerifierDisp: Ice.Dispatcher {
 public protocol PermissionsVerifier {
     /// Check whether a user has permission to access the router.
     ///
-    /// - parameter userId: `Swift.String` The user id for which to check permission.
+    /// - Parameters:
+    ///   - userId: The user id for which to check permission.
+    ///   - password: The user's password.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter password: `Swift.String` The user's password.
+    /// - Returns:
+    ///   - returnValue: True if access is granted, or false otherwise.
+    ///   - reason: The reason why access was denied.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.Bool` - True if access is granted, or false otherwise.
-    ///
-    ///   - reason: `Swift.String` - The reason why access was denied.
-    ///
-    /// - throws:
-    ///
-    ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+    /// - Throws:
+    ///   - PermissionDeniedException Raised if the user access is denied. This can be raised in place of
     ///     returning false with a reason set in the reason out parameter.
     func checkPermissions(userId: Swift.String, password: Swift.String, current: Ice.Current) async throws -> (returnValue: Swift.Bool, reason: Swift.String)
 }
@@ -436,19 +409,16 @@ public struct SSLPermissionsVerifierDisp: Ice.Dispatcher {
 public protocol SSLPermissionsVerifier {
     /// Check whether a user has permission to access the router.
     ///
-    /// - parameter info: `SSLInfo` The SSL information.
+    /// - Parameters:
+    ///   - info: The SSL information.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns:
+    ///   - returnValue: True if access is granted, or false otherwise.
+    ///   - reason: The reason why access was denied.
     ///
-    /// - returns: `(returnValue: Swift.Bool, reason: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.Bool` - True if access is granted, or false otherwise.
-    ///
-    ///   - reason: `Swift.String` - The reason why access was denied.
-    ///
-    /// - throws:
-    ///
-    ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+    /// - Throws:
+    ///   - PermissionDeniedException Raised if the user access is denied. This can be raised in place of
     ///     returning false with a reason set in the reason out parameter.
     func authorize(info: SSLInfo, current: Ice.Current) async throws -> (returnValue: Swift.Bool, reason: Swift.String)
 }
@@ -456,7 +426,6 @@ public protocol SSLPermissionsVerifier {
 /// The Glacier2 permissions verifier. This is called through the process of establishing a session.
 ///
 /// PermissionsVerifier Methods:
-///
 ///  - checkPermissions: Check whether a user has permission to access the router.
 extension PermissionsVerifier {
     public func _iceD_checkPermissions(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -477,7 +446,6 @@ extension PermissionsVerifier {
 /// The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
 ///
 /// SSLPermissionsVerifier Methods:
-///
 ///  - authorize: Check whether a user has permission to access the router.
 extension SSLPermissionsVerifier {
     public func _iceD_authorize(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

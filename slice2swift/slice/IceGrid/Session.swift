@@ -17,35 +17,25 @@ import Foundation
 import Ice
 import Glacier2
 
-/// Traits for Slice interface`Session`.
+/// Traits for Slice interface `Session`.
 public struct SessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::Session", "::Ice::Object", "::IceGrid::Session"]
     public static let staticId = "::IceGrid::Session"
 }
 
 /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-/// via the {@link Registry} object or via the registry client SessionManager object.
+/// via the `Registry` object or via the registry client SessionManager object.
 ///
 /// SessionPrx Methods:
-///
 ///  - keepAlive: Keep the session alive.
-///
 ///  - keepAliveAsync: Keep the session alive.
-///
 ///  - allocateObjectById: Allocate an object.
-///
 ///  - allocateObjectByIdAsync: Allocate an object.
-///
 ///  - allocateObjectByType: Allocate an object with the given type.
-///
 ///  - allocateObjectByTypeAsync: Allocate an object with the given type.
-///
 ///  - releaseObject: Release an object that was allocated using allocateObjectById or allocateObjectByType.
-///
 ///  - releaseObjectAsync: Release an object that was allocated using allocateObjectById or allocateObjectByType.
-///
 ///  - setAllocationTimeout: Set the allocation timeout.
-///
 ///  - setAllocationTimeoutAsync: Set the allocation timeout.
 public protocol SessionPrx: Glacier2.SessionPrx {}
 
@@ -61,7 +51,9 @@ private final class SessionPrxI: Ice.ObjectPrxI, SessionPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: SessionPrx.Protocol) throws -> SessionPrx {
     try communicator.makeProxyImpl(proxyString) as SessionPrxI
@@ -73,96 +65,81 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `SessionPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `SessionPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: SessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> SessionPrx? {
     return try await SessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as SessionPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `SessionPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `SessionPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: SessionPrx.Protocol, facet: Swift.String? = nil) -> SessionPrx {
     return SessionPrxI.uncheckedCast(prx: prx, facet: facet) as SessionPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `SessionPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: SessionPrx.Protocol) -> Swift.String {
     return SessionTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `SessionPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `SessionPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `SessionPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: SessionPrx.Protocol) throws -> SessionPrx? {
         return try read() as SessionPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `SessionPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `SessionPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: SessionPrx.Protocol) throws -> SessionPrx? {
         return try read(tag: tag) as SessionPrxI?
     }
 }
 
 /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-/// via the {@link Registry} object or via the registry client SessionManager object.
+/// via the `Registry` object or via the registry client SessionManager object.
 ///
 /// SessionPrx Methods:
-///
 ///  - keepAlive: Keep the session alive.
-///
 ///  - keepAliveAsync: Keep the session alive.
-///
 ///  - allocateObjectById: Allocate an object.
-///
 ///  - allocateObjectByIdAsync: Allocate an object.
-///
 ///  - allocateObjectByType: Allocate an object with the given type.
-///
 ///  - allocateObjectByTypeAsync: Allocate an object with the given type.
-///
 ///  - releaseObject: Release an object that was allocated using allocateObjectById or allocateObjectByType.
-///
 ///  - releaseObjectAsync: Release an object that was allocated using allocateObjectById or allocateObjectByType.
-///
 ///  - setAllocationTimeout: Set the allocation timeout.
-///
 ///  - setAllocationTimeoutAsync: Set the allocation timeout.
 public extension SessionPrx {
     /// Keep the session alive.
     /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func keepAlive(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "keepAlive",
                                        mode: .Idempotent,
@@ -172,17 +149,13 @@ public extension SessionPrx {
     /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
     /// available or until the timeout is reached.
     ///
-    /// - parameter _: `Ice.Identity` The identity of the object to allocate.
+    /// - Parameters:
+    ///   - iceP_id: The identity of the object to allocate.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The proxy of the allocated object. The returned proxy is never null.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The proxy of the allocated object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - AllocationException - Raised if the object can't be allocated.
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+    /// - Throws: AllocationException Raised if the object can't be allocated. ObjectNotRegisteredException Raised if the object with the given identity is not registered with
     ///     the registry.
     func allocateObjectById(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "allocateObjectById",
@@ -209,15 +182,14 @@ public extension SessionPrx {
     /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
     /// an object becomes available or until the timeout is reached.
     ///
-    /// - parameter _: `Swift.String` The type of the object.
+    /// - Parameters:
+    ///   - iceP_type: The type of the object.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The proxy of the allocated object. The returned proxy is never null.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The proxy of the allocated object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - AllocationException - Raised if the object could not be allocated.
+    /// - Throws:
+    ///   - AllocationException Raised if the object could not be allocated.
     func allocateObjectByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "allocateObjectByType",
                                        mode: .Normal,
@@ -241,16 +213,12 @@ public extension SessionPrx {
     /// Release an object that was allocated using allocateObjectById or
     /// allocateObjectByType.
     ///
-    /// - parameter _: `Ice.Identity` The identity of the object to release.
+    /// - Parameters:
+    ///   - iceP_id: The identity of the object to release.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AllocationException - Raised if the given object can't be released. This might happen if the object
-    ///     isn't allocatable or isn't allocated by the session.
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+    /// - Throws: AllocationException Raised if the given object can't be released. This might happen if the object
+    ///     isn't allocatable or isn't allocated by the session. ObjectNotRegisteredException Raised if the object with the given identity is not registered with
     ///     the registry.
     func releaseObject(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "releaseObject",
@@ -274,9 +242,9 @@ public extension SessionPrx {
     /// allocateObjectById or allocateObjectByType will block for the duration of this
     /// timeout.
     ///
-    /// - parameter _: `Swift.Int32` The timeout in milliseconds.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_timeout: The timeout in milliseconds.
+    ///   - context: Optional request context.
     func setAllocationTimeout(_ iceP_timeout: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setAllocationTimeout",
                                        mode: .Idempotent,
@@ -326,58 +294,49 @@ public struct SessionDisp: Ice.Dispatcher {
 }
 
 /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-/// via the {@link Registry} object or via the registry client SessionManager object.
+/// via the `Registry` object or via the registry client SessionManager object.
 public protocol Session: Glacier2.Session {
     /// Keep the session alive.
     /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func keepAlive(current: Ice.Current) async throws
 
     /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
     /// available or until the timeout is reached.
     ///
-    /// - parameter id: `Ice.Identity` The identity of the object to allocate.
+    /// - Parameters:
+    ///   - id: The identity of the object to allocate.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The proxy of the allocated object. The returned proxy is never null.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The proxy of the allocated object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - AllocationException - Raised if the object can't be allocated.
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+    /// - Throws: AllocationException Raised if the object can't be allocated. ObjectNotRegisteredException Raised if the object with the given identity is not registered with
     ///     the registry.
     func allocateObjectById(id: Ice.Identity, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
     /// an object becomes available or until the timeout is reached.
     ///
-    /// - parameter type: `Swift.String` The type of the object.
+    /// - Parameters:
+    ///   - type: The type of the object.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The proxy of the allocated object. The returned proxy is never null.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The proxy of the allocated object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - AllocationException - Raised if the object could not be allocated.
+    /// - Throws:
+    ///   - AllocationException Raised if the object could not be allocated.
     func allocateObjectByType(type: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Release an object that was allocated using allocateObjectById or
     /// allocateObjectByType.
     ///
-    /// - parameter id: `Ice.Identity` The identity of the object to release.
+    /// - Parameters:
+    ///   - id: The identity of the object to release.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AllocationException - Raised if the given object can't be released. This might happen if the object
-    ///     isn't allocatable or isn't allocated by the session.
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+    /// - Throws: AllocationException Raised if the given object can't be released. This might happen if the object
+    ///     isn't allocatable or isn't allocated by the session. ObjectNotRegisteredException Raised if the object with the given identity is not registered with
     ///     the registry.
     func releaseObject(id: Ice.Identity, current: Ice.Current) async throws
 
@@ -385,25 +344,20 @@ public protocol Session: Glacier2.Session {
     /// allocateObjectById or allocateObjectByType will block for the duration of this
     /// timeout.
     ///
-    /// - parameter timeout: `Swift.Int32` The timeout in milliseconds.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - timeout: The timeout in milliseconds.
+    ///   - current: The Current object for the dispatch.
     func setAllocationTimeout(timeout: Swift.Int32, current: Ice.Current) async throws
 }
 
 /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-/// via the {@link Registry} object or via the registry client SessionManager object.
+/// via the `Registry` object or via the registry client SessionManager object.
 ///
 /// Session Methods:
-///
 ///  - keepAlive: Keep the session alive.
-///
 ///  - allocateObjectById: Allocate an object.
-///
 ///  - allocateObjectByType: Allocate an object with the given type.
-///
 ///  - releaseObject: Release an object that was allocated using allocateObjectById or allocateObjectByType.
-///
 ///  - setAllocationTimeout: Set the allocation timeout.
 extension Session {
     public func _iceD_keepAlive(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

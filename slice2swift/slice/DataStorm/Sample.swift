@@ -37,7 +37,7 @@ public enum SampleEvent: Swift.UInt8 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `SampleEvent` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> SampleEvent {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 3)
         guard let val = SampleEvent(rawValue: rawValue) else {
@@ -48,9 +48,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `SampleEvent` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> SampleEvent? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -63,16 +63,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `SampleEvent` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: SampleEvent) {
         write(enum: v.rawValue, maxValue: 3)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `SampleEvent` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: SampleEvent?) {
         guard let v = value else {
             return
@@ -89,9 +88,9 @@ public typealias SampleEventSeq = [SampleEvent]
 public struct SampleEventSeqHelper {
     /// Read a `SampleEventSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `SampleEventSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> SampleEventSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = SampleEventSeq()
@@ -102,13 +101,13 @@ public struct SampleEventSeqHelper {
         }
         return v
     }
+
     /// Read an optional `SampleEventSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `SampleEventSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> SampleEventSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -117,11 +116,10 @@ public struct SampleEventSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `SampleEventSeq` sequence to the stream.
+    /// Write a `SampleEventSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `SampleEventSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: SampleEventSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -129,13 +127,12 @@ public struct SampleEventSeqHelper {
         }
     }
 
-    /// Wite an optional `SampleEventSeq?` sequence to the stream.
+    /// Write an optional `SampleEventSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SampleEventSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: SampleEventSeq?) {
         guard let val = v else {
             return

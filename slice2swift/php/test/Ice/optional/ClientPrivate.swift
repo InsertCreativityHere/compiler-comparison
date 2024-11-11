@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// Traits for Slice interface`Initial2`.
+/// Traits for Slice interface `Initial2`.
 public struct Initial2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Initial2"]
     public static let staticId = "::Test::Initial2"
@@ -36,7 +36,9 @@ private final class Initial2PrxI: Ice.ObjectPrxI, Initial2Prx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: Initial2Prx.Protocol) throws -> Initial2Prx {
     try communicator.makeProxyImpl(proxyString) as Initial2PrxI
@@ -48,62 +50,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `Initial2Prx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `Initial2Prx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: Initial2Prx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> Initial2Prx? {
     return try await Initial2PrxI.checkedCast(prx: prx, facet: facet, context: context) as Initial2PrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `Initial2Prx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `Initial2Prx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: Initial2Prx.Protocol, facet: Swift.String? = nil) -> Initial2Prx {
     return Initial2PrxI.uncheckedCast(prx: prx, facet: facet) as Initial2PrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `Initial2Prx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: Initial2Prx.Protocol) -> Swift.String {
     return Initial2Traits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `Initial2Prx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `Initial2Prx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `Initial2Prx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: Initial2Prx.Protocol) throws -> Initial2Prx? {
         return try read() as Initial2PrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `Initial2Prx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `Initial2Prx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: Initial2Prx.Protocol) throws -> Initial2Prx? {
         return try read(tag: tag) as Initial2PrxI?
     }

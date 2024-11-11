@@ -38,9 +38,7 @@ open class A: Ice.UserException, @unchecked Sendable {
         self.aMem = aMem
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::A" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -81,9 +79,7 @@ open class B: A, @unchecked Sendable {
         super.init(aMem: aMem)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::B" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -126,9 +122,7 @@ open class C: B, @unchecked Sendable {
         super.init(aMem: aMem, bMem: bMem)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::C" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -168,9 +162,7 @@ open class D: Ice.UserException, @unchecked Sendable {
         self.dMem = dMem
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::D" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -186,13 +178,13 @@ open class D: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`Thrower`.
+/// Traits for Slice interface `Thrower`.
 public struct ThrowerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Thrower"]
     public static let staticId = "::Test::Thrower"
 }
 
-/// Traits for Slice interface`WrongOperation`.
+/// Traits for Slice interface `WrongOperation`.
 public struct WrongOperationTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::WrongOperation"]
     public static let staticId = "::Test::WrongOperation"
@@ -212,7 +204,9 @@ private final class ThrowerPrxI: Ice.ObjectPrxI, ThrowerPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ThrowerPrx.Protocol) throws -> ThrowerPrx {
     try communicator.makeProxyImpl(proxyString) as ThrowerPrxI
@@ -224,62 +218,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `ThrowerPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `ThrowerPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: ThrowerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ThrowerPrx? {
     return try await ThrowerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ThrowerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `ThrowerPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `ThrowerPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: ThrowerPrx.Protocol, facet: Swift.String? = nil) -> ThrowerPrx {
     return ThrowerPrxI.uncheckedCast(prx: prx, facet: facet) as ThrowerPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `ThrowerPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ThrowerPrx.Protocol) -> Swift.String {
     return ThrowerTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `ThrowerPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `ThrowerPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `ThrowerPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: ThrowerPrx.Protocol) throws -> ThrowerPrx? {
         return try read() as ThrowerPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `ThrowerPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `ThrowerPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: ThrowerPrx.Protocol) throws -> ThrowerPrx? {
         return try read(tag: tag) as ThrowerPrxI?
     }
@@ -535,7 +524,9 @@ private final class WrongOperationPrxI: Ice.ObjectPrxI, WrongOperationPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: WrongOperationPrx.Protocol) throws -> WrongOperationPrx {
     try communicator.makeProxyImpl(proxyString) as WrongOperationPrxI
@@ -547,62 +538,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `WrongOperationPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `WrongOperationPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: WrongOperationPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> WrongOperationPrx? {
     return try await WrongOperationPrxI.checkedCast(prx: prx, facet: facet, context: context) as WrongOperationPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `WrongOperationPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `WrongOperationPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: WrongOperationPrx.Protocol, facet: Swift.String? = nil) -> WrongOperationPrx {
     return WrongOperationPrxI.uncheckedCast(prx: prx, facet: facet) as WrongOperationPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `WrongOperationPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: WrongOperationPrx.Protocol) -> Swift.String {
     return WrongOperationTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `WrongOperationPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `WrongOperationPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `WrongOperationPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: WrongOperationPrx.Protocol) throws -> WrongOperationPrx? {
         return try read() as WrongOperationPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `WrongOperationPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `WrongOperationPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: WrongOperationPrx.Protocol) throws -> WrongOperationPrx? {
         return try read(tag: tag) as WrongOperationPrxI?
     }

@@ -21,19 +21,19 @@ package com.zeroc.Ice;
 public enum LogMessageType
 {
     /**
-     * The {@link RemoteLogger}} received a print message.
+     * The {@link RemoteLogger} received a print message.
      **/
     PrintMessage(0),
     /**
-     * The {@link RemoteLogger}} received a trace message.
+     * The {@link RemoteLogger} received a trace message.
      **/
     TraceMessage(1),
     /**
-     * The {@link RemoteLogger}} received a warning message.
+     * The {@link RemoteLogger} received a warning message.
      **/
     WarningMessage(2),
     /**
-     * The {@link RemoteLogger}} received an error message.
+     * The {@link RemoteLogger} received an error message.
      **/
     ErrorMessage(3);
 

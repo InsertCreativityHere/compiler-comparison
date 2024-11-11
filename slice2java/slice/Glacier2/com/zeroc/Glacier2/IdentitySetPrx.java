@@ -16,7 +16,7 @@
 package com.zeroc.Glacier2;
 
 /**
- * An object for managing the set of object identity constraints on a {@link Session}}.
+ * An object for managing the set of object identity constraints on a {@link Session}.
  *
  * @see Session
  * @see SessionControl

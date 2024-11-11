@@ -34,7 +34,7 @@ public struct PointF {
 public extension Ice.InputStream {
     /// Read a `PointF` structured value from the stream.
     ///
-    /// - returns: `PointF` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> PointF {
         var v = PointF()
         v.x = try self.read()
@@ -45,9 +45,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `PointF?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `PointF?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> PointF? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -61,7 +61,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `PointF` structured value to the stream.
     ///
-    /// - parameter _: `PointF` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: PointF) {
         self.write(v.x)
         self.write(v.y)
@@ -70,9 +70,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `PointF?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `PointF?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: PointF?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {
@@ -101,7 +100,7 @@ public struct PointD {
 public extension Ice.InputStream {
     /// Read a `PointD` structured value from the stream.
     ///
-    /// - returns: `PointD` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> PointD {
         var v = PointD()
         v.x = try self.read()
@@ -112,9 +111,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `PointD?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `PointD?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> PointD? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -128,7 +127,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `PointD` structured value to the stream.
     ///
-    /// - parameter _: `PointD` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: PointD) {
         self.write(v.x)
         self.write(v.y)
@@ -137,9 +136,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `PointD?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `PointD?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: PointD?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {
@@ -166,7 +164,7 @@ public struct Point: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `Point` structured value from the stream.
     ///
-    /// - returns: `Point` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> Point {
         var v = Point()
         v.x = try self.read()
@@ -176,9 +174,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `Point?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `Point?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> Point? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -192,7 +190,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `Point` structured value to the stream.
     ///
-    /// - parameter _: `Point` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: Point) {
         self.write(v.x)
         self.write(v.y)
@@ -200,9 +198,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `Point?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `Point?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: Point?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {
@@ -220,9 +217,9 @@ public typealias Points = [Point]
 public struct PointsHelper {
     /// Read a `Points` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `Points` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> Points {
         let sz = try istr.readAndCheckSeqSize(minSize: 8)
         var v = Points()
@@ -233,13 +230,13 @@ public struct PointsHelper {
         }
         return v
     }
+
     /// Read an optional `Points?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `Points` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> Points? {
         guard try istr.readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -248,11 +245,10 @@ public struct PointsHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `Points` sequence to the stream.
+    /// Write a `Points` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `Points` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: Points) {
         ostr.write(size: v.count)
         for item in v {
@@ -260,13 +256,12 @@ public struct PointsHelper {
         }
     }
 
-    /// Wite an optional `Points?` sequence to the stream.
+    /// Write an optional `Points?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `Points` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: Points?) {
         guard let val = v else {
             return
@@ -291,7 +286,7 @@ public struct Polyline {
 public extension Ice.InputStream {
     /// Read a `Polyline` structured value from the stream.
     ///
-    /// - returns: `Polyline` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> Polyline {
         var v = Polyline()
         v.vertices = try PointsHelper.read(from: self)
@@ -300,9 +295,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `Polyline?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `Polyline?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> Polyline? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -316,16 +311,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `Polyline` structured value to the stream.
     ///
-    /// - parameter _: `Polyline` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: Polyline) {
         PointsHelper.write(to: self, value: v.vertices)
     }
 
     /// Write an optional `Polyline?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `Polyline?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: Polyline?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -357,7 +351,7 @@ public struct Color: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `Color` structured value from the stream.
     ///
-    /// - returns: `Color` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> Color {
         var v = Color()
         v.r = try self.read()
@@ -369,9 +363,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `Color?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `Color?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> Color? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -385,7 +379,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `Color` structured value to the stream.
     ///
-    /// - parameter _: `Color` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: Color) {
         self.write(v.r)
         self.write(v.g)
@@ -395,9 +389,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `Color?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `Color?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: Color?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {
@@ -415,9 +408,9 @@ public typealias StringColorMap = [Swift.Int32: Color]
 public struct StringColorMapHelper {
     /// Read a `StringColorMap` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `StringColorMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> StringColorMap {
         let sz = try Swift.Int(istr.readSize())
         var v = StringColorMap()
@@ -428,13 +421,13 @@ public struct StringColorMapHelper {
         }
         return v
     }
+
     /// Read an optional `StringColorMap?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `StringColorMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> StringColorMap? {
         guard try istr.readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -443,11 +436,10 @@ public struct StringColorMapHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `StringColorMap` dictionary to the stream.
+    /// Write a `StringColorMap` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `StringColorMap` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: StringColorMap) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -456,13 +448,12 @@ public struct StringColorMapHelper {
         }
     }
 
-    /// Wite an optional `StringColorMap?` dictionary to the stream.
+    /// Write an optional `StringColorMap?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `StringColorMap` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: StringColorMap?) {
         guard let val = v else {
             return
@@ -487,7 +478,7 @@ public struct ColorPalette {
 public extension Ice.InputStream {
     /// Read a `ColorPalette` structured value from the stream.
     ///
-    /// - returns: `ColorPalette` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ColorPalette {
         var v = ColorPalette()
         v.colors = try StringColorMapHelper.read(from: self)
@@ -496,9 +487,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ColorPalette?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ColorPalette?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ColorPalette? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -512,16 +503,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ColorPalette` structured value to the stream.
     ///
-    /// - parameter _: `ColorPalette` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ColorPalette) {
         StringColorMapHelper.write(to: self, value: v.colors)
     }
 
     /// Write an optional `ColorPalette?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ColorPalette?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ColorPalette?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -551,7 +541,7 @@ public class Draw {
 public extension Ice.InputStream {
     /// Read a `Draw` structured value from the stream.
     ///
-    /// - returns: `Draw` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> Draw {
         let v = Draw()
         v.backgroundColor = try self.read()
@@ -562,9 +552,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `Draw?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `Draw?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> Draw? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -578,7 +568,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `Draw` structured value to the stream.
     ///
-    /// - parameter _: `Draw` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: Draw) {
         self.write(v.backgroundColor)
         self.write(v.pen)
@@ -587,9 +577,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `Draw?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `Draw?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: Draw?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -625,9 +614,7 @@ open class Pen: Ice.Value {
         self.color = color
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Pen" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

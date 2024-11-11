@@ -23,9 +23,9 @@ public typealias MXStringIntDict = [Swift.String: Swift.Int32]
 public struct MXStringIntDictHelper {
     /// Read a `MXStringIntDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `MXStringIntDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: InputStream) throws -> MXStringIntDict {
         let sz = try Swift.Int(istr.readSize())
         var v = MXStringIntDict()
@@ -36,13 +36,13 @@ public struct MXStringIntDictHelper {
         }
         return v
     }
+
     /// Read an optional `MXStringIntDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `MXStringIntDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: InputStream, tag: Swift.Int32) throws -> MXStringIntDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -51,11 +51,10 @@ public struct MXStringIntDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `MXStringIntDict` dictionary to the stream.
+    /// Write a `MXStringIntDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `MXStringIntDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: OutputStream, value v: MXStringIntDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -64,13 +63,12 @@ public struct MXStringIntDictHelper {
         }
     }
 
-    /// Wite an optional `MXStringIntDict?` dictionary to the stream.
+    /// Write an optional `MXStringIntDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `MXStringIntDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: OutputStream, tag: Swift.Int32, value v: MXStringIntDict?) {
         guard let val = v else {
             return
@@ -102,7 +100,7 @@ public struct MXMetricsFailures {
 public extension InputStream {
     /// Read a `MXMetricsFailures` structured value from the stream.
     ///
-    /// - returns: `MXMetricsFailures` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> MXMetricsFailures {
         var v = MXMetricsFailures()
         v.id = try self.read()
@@ -112,9 +110,9 @@ public extension InputStream {
 
     /// Read an optional `MXMetricsFailures?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `MXMetricsFailures?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> MXMetricsFailures? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -128,7 +126,7 @@ public extension InputStream {
 public extension OutputStream {
     /// Write a `MXMetricsFailures` structured value to the stream.
     ///
-    /// - parameter _: `MXMetricsFailures` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: MXMetricsFailures) {
         self.write(v.id)
         MXStringIntDictHelper.write(to: self, value: v.failures)
@@ -136,9 +134,8 @@ public extension OutputStream {
 
     /// Write an optional `MXMetricsFailures?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `MXMetricsFailures?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: MXMetricsFailures?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -150,7 +147,7 @@ public extension OutputStream {
     }
 }
 
-/// A sequence of {@link MetricsFailures}.
+/// A sequence of `MetricsFailures`.
 public typealias MXMetricsFailuresSeq = [MXMetricsFailures]
 
 /// Helper class to read and write `MXMetricsFailuresSeq` sequence values from
@@ -158,9 +155,9 @@ public typealias MXMetricsFailuresSeq = [MXMetricsFailures]
 public struct MXMetricsFailuresSeqHelper {
     /// Read a `MXMetricsFailuresSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `MXMetricsFailuresSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream) throws -> MXMetricsFailuresSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 2)
         var v = MXMetricsFailuresSeq()
@@ -171,13 +168,13 @@ public struct MXMetricsFailuresSeqHelper {
         }
         return v
     }
+
     /// Read an optional `MXMetricsFailuresSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `MXMetricsFailuresSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream, tag: Swift.Int32) throws -> MXMetricsFailuresSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -186,11 +183,10 @@ public struct MXMetricsFailuresSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `MXMetricsFailuresSeq` sequence to the stream.
+    /// Write a `MXMetricsFailuresSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `MXMetricsFailuresSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream, value v: MXMetricsFailuresSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -198,13 +194,12 @@ public struct MXMetricsFailuresSeqHelper {
         }
     }
 
-    /// Wite an optional `MXMetricsFailuresSeq?` sequence to the stream.
+    /// Write an optional `MXMetricsFailuresSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `MXMetricsFailuresSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream,  tag: Swift.Int32, value v: MXMetricsFailuresSeq?) {
         guard let val = v else {
             return
@@ -227,9 +222,9 @@ public typealias MXMetricsMap = [MXMetrics?]
 public struct MXMetricsMapHelper {
     /// Read a `MXMetricsMap` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `MXMetricsMap` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream) throws -> MXMetricsMap {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = MXMetricsMap(repeating: nil, count: sz)
@@ -240,13 +235,13 @@ public struct MXMetricsMapHelper {
         }
         return v
     }
+
     /// Read an optional `MXMetricsMap?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `MXMetricsMap` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream, tag: Swift.Int32) throws -> MXMetricsMap? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -255,11 +250,10 @@ public struct MXMetricsMapHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `MXMetricsMap` sequence to the stream.
+    /// Write a `MXMetricsMap` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `MXMetricsMap` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream, value v: MXMetricsMap) {
         ostr.write(size: v.count)
         for item in v {
@@ -267,13 +261,12 @@ public struct MXMetricsMapHelper {
         }
     }
 
-    /// Wite an optional `MXMetricsMap?` sequence to the stream.
+    /// Write an optional `MXMetricsMap?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `MXMetricsMap` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream,  tag: Swift.Int32, value v: MXMetricsMap?) {
         guard let val = v else {
             return
@@ -294,9 +287,9 @@ public typealias MXMetricsView = [Swift.String: MXMetricsMap]
 public struct MXMetricsViewHelper {
     /// Read a `MXMetricsView` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `MXMetricsView` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: InputStream) throws -> MXMetricsView {
         let sz = try Swift.Int(istr.readSize())
         var v = MXMetricsView()
@@ -307,13 +300,13 @@ public struct MXMetricsViewHelper {
         }
         return v
     }
+
     /// Read an optional `MXMetricsView?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `MXMetricsView` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: InputStream, tag: Swift.Int32) throws -> MXMetricsView? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -322,11 +315,10 @@ public struct MXMetricsViewHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `MXMetricsView` dictionary to the stream.
+    /// Write a `MXMetricsView` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `MXMetricsView` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: OutputStream, value v: MXMetricsView) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -335,13 +327,12 @@ public struct MXMetricsViewHelper {
         }
     }
 
-    /// Wite an optional `MXMetricsView?` dictionary to the stream.
+    /// Write an optional `MXMetricsView?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `MXMetricsView` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: OutputStream, tag: Swift.Int32, value v: MXMetricsView?) {
         guard let val = v else {
             return
@@ -369,9 +360,7 @@ public extension ClassResolver {
 
 /// Raised if a metrics view cannot be found.
 open class MXUnknownMetricsView: UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceMX::UnknownMetricsView" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
@@ -385,7 +374,7 @@ open class MXUnknownMetricsView: UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`MXMetricsAdmin`.
+/// Traits for Slice interface `MXMetricsAdmin`.
 public struct MXMetricsAdminTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::MetricsAdmin"]
     public static let staticId = "::IceMX::MetricsAdmin"
@@ -395,29 +384,17 @@ public struct MXMetricsAdminTraits: SliceTraits {
 /// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
 ///
 /// MXMetricsAdminPrx Methods:
-///
 ///  - getMetricsViewNames: Get the names of enabled and disabled metrics.
-///
 ///  - getMetricsViewNamesAsync: Get the names of enabled and disabled metrics.
-///
 ///  - enableMetricsView: Enables a metrics view.
-///
 ///  - enableMetricsViewAsync: Enables a metrics view.
-///
 ///  - disableMetricsView: Disable a metrics view.
-///
 ///  - disableMetricsViewAsync: Disable a metrics view.
-///
 ///  - getMetricsView: Get the metrics objects for the given metrics view.
-///
 ///  - getMetricsViewAsync: Get the metrics objects for the given metrics view.
-///
 ///  - getMapMetricsFailures: Get the metrics failures associated with the given view and map.
-///
 ///  - getMapMetricsFailuresAsync: Get the metrics failures associated with the given view and map.
-///
 ///  - getMetricsFailures: Get the metrics failure associated for the given metrics.
-///
 ///  - getMetricsFailuresAsync: Get the metrics failure associated for the given metrics.
 public protocol MXMetricsAdminPrx: ObjectPrx {}
 
@@ -433,7 +410,9 @@ internal final class MXMetricsAdminPrxI: ObjectPrxI, MXMetricsAdminPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: MXMetricsAdminPrx.Protocol) throws -> MXMetricsAdminPrx {
     try communicator.makeProxyImpl(proxyString) as MXMetricsAdminPrxI
@@ -445,62 +424,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `MXMetricsAdminPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `MXMetricsAdminPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: ObjectPrx, type: MXMetricsAdminPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> MXMetricsAdminPrx? {
     return try await MXMetricsAdminPrxI.checkedCast(prx: prx, facet: facet, context: context) as MXMetricsAdminPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `MXMetricsAdminPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `MXMetricsAdminPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: ObjectPrx, type: MXMetricsAdminPrx.Protocol, facet: Swift.String? = nil) -> MXMetricsAdminPrx {
     return MXMetricsAdminPrxI.uncheckedCast(prx: prx, facet: facet) as MXMetricsAdminPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `MXMetricsAdminPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: MXMetricsAdminPrx.Protocol) -> Swift.String {
     return MXMetricsAdminTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `MXMetricsAdminPrx`.
 public extension InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `MXMetricsAdminPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `MXMetricsAdminPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: MXMetricsAdminPrx.Protocol) throws -> MXMetricsAdminPrx? {
         return try read() as MXMetricsAdminPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `MXMetricsAdminPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MXMetricsAdminPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: MXMetricsAdminPrx.Protocol) throws -> MXMetricsAdminPrx? {
         return try read(tag: tag) as MXMetricsAdminPrxI?
     }
@@ -510,40 +484,26 @@ public extension InputStream {
 /// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
 ///
 /// MXMetricsAdminPrx Methods:
-///
 ///  - getMetricsViewNames: Get the names of enabled and disabled metrics.
-///
 ///  - getMetricsViewNamesAsync: Get the names of enabled and disabled metrics.
-///
 ///  - enableMetricsView: Enables a metrics view.
-///
 ///  - enableMetricsViewAsync: Enables a metrics view.
-///
 ///  - disableMetricsView: Disable a metrics view.
-///
 ///  - disableMetricsViewAsync: Disable a metrics view.
-///
 ///  - getMetricsView: Get the metrics objects for the given metrics view.
-///
 ///  - getMetricsViewAsync: Get the metrics objects for the given metrics view.
-///
 ///  - getMapMetricsFailures: Get the metrics failures associated with the given view and map.
-///
 ///  - getMapMetricsFailuresAsync: Get the metrics failures associated with the given view and map.
-///
 ///  - getMetricsFailures: Get the metrics failure associated for the given metrics.
-///
 ///  - getMetricsFailuresAsync: Get the metrics failure associated for the given metrics.
 public extension MXMetricsAdminPrx {
     /// Get the names of enabled and disabled metrics.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `(returnValue: StringSeq, disabledViews: StringSeq)`:
-    ///
-    ///   - returnValue: `StringSeq` - The name of the enabled views.
-    ///
-    ///   - disabledViews: `StringSeq` - The names of the disabled views.
+    /// - Returns:
+    ///   - returnValue: The name of the enabled views.
+    ///   - disabledViews: The names of the disabled views.
     func getMetricsViewNames(context: Context? = nil) async throws -> (returnValue: StringSeq, disabledViews: StringSeq) {
         return try await _impl._invoke(operation: "getMetricsViewNames",
                                        mode: .Normal,
@@ -557,13 +517,12 @@ public extension MXMetricsAdminPrx {
 
     /// Enables a metrics view.
     ///
-    /// - parameter _: `Swift.String` The metrics view name.
+    /// - Parameters:
+    ///   - iceP_name: The metrics view name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
+    /// - Throws:
+    ///   - UnknownMetricsView Raised if the metrics view cannot be found.
     func enableMetricsView(_ iceP_name: Swift.String, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "enableMetricsView",
                                        mode: .Normal,
@@ -582,13 +541,12 @@ public extension MXMetricsAdminPrx {
 
     /// Disable a metrics view.
     ///
-    /// - parameter _: `Swift.String` The metrics view name.
+    /// - Parameters:
+    ///   - iceP_name: The metrics view name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
+    /// - Throws:
+    ///   - UnknownMetricsView Raised if the metrics view cannot be found.
     func disableMetricsView(_ iceP_name: Swift.String, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "disableMetricsView",
                                        mode: .Normal,
@@ -609,19 +567,16 @@ public extension MXMetricsAdminPrx {
     /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
     /// dependent of the invocation latency for this operation.
     ///
-    /// - parameter _: `Swift.String` The name of the metrics view.
+    /// - Parameters:
+    ///   - iceP_view: The name of the metrics view.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns:
+    ///   - returnValue: The metrics view data.
+    ///   - timestamp: The local time of the process when the metrics object were retrieved.
     ///
-    /// - returns: `(returnValue: MXMetricsView, timestamp: Swift.Int64)`:
-    ///
-    ///   - returnValue: `MXMetricsView` - The metrics view data.
-    ///
-    ///   - timestamp: `Swift.Int64` - The local time of the process when the metrics object were retrieved.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
+    /// - Throws:
+    ///   - UnknownMetricsView Raised if the metrics view cannot be found.
     func getMetricsView(_ iceP_view: Swift.String, context: Context? = nil) async throws -> (returnValue: MXMetricsView, timestamp: Swift.Int64) {
         return try await _impl._invoke(operation: "getMetricsView",
                                        mode: .Normal,
@@ -647,17 +602,15 @@ public extension MXMetricsAdminPrx {
 
     /// Get the metrics failures associated with the given view and map.
     ///
-    /// - parameter view: `Swift.String` The name of the metrics view.
+    /// - Parameters:
+    ///   - iceP_view: The name of the metrics view.
+    ///   - iceP_map: The name of the metrics map.
+    ///   - context: Optional request context.
     ///
-    /// - parameter map: `Swift.String` The name of the metrics map.
+    /// - Returns: The metrics failures associated with the map.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MXMetricsFailuresSeq` - The metrics failures associated with the map.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
+    /// - Throws:
+    ///   - UnknownMetricsView Raised if the metrics view cannot be found.
     func getMapMetricsFailures(view iceP_view: Swift.String, map iceP_map: Swift.String, context: Context? = nil) async throws -> MXMetricsFailuresSeq {
         return try await _impl._invoke(operation: "getMapMetricsFailures",
                                        mode: .Normal,
@@ -681,19 +634,16 @@ public extension MXMetricsAdminPrx {
 
     /// Get the metrics failure associated for the given metrics.
     ///
-    /// - parameter view: `Swift.String` The name of the metrics view.
+    /// - Parameters:
+    ///   - iceP_view: The name of the metrics view.
+    ///   - iceP_map: The name of the metrics map.
+    ///   - iceP_id: The ID of the metrics.
+    ///   - context: Optional request context.
     ///
-    /// - parameter map: `Swift.String` The name of the metrics map.
+    /// - Returns: The metrics failures associated with the metrics.
     ///
-    /// - parameter id: `Swift.String` The ID of the metrics.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MXMetricsFailures` - The metrics failures associated with the metrics.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
+    /// - Throws:
+    ///   - UnknownMetricsView Raised if the metrics view cannot be found.
     func getMetricsFailures(view iceP_view: Swift.String, map iceP_map: Swift.String, id iceP_id: Swift.String, context: Context? = nil) async throws -> MXMetricsFailures {
         return try await _impl._invoke(operation: "getMetricsFailures",
                                        mode: .Normal,
@@ -756,9 +706,7 @@ open class MXMetrics: Value {
         self.failures = failures
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceMX::Metrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
@@ -802,7 +750,7 @@ open class MXThreadMetrics: MXMetrics {
     /// The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
     public var inUseForUser: Swift.Int32 = 0
     /// The number of threads which are currently performing other activities. These are all other that are not
-    /// counted with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
+    /// counted with `inUseForUser` or `inUseForIO`, such as DNS lookups, garbage collection).
     public var inUseForOther: Swift.Int32 = 0
 
     public required init() {
@@ -816,9 +764,7 @@ open class MXThreadMetrics: MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceMX::ThreadMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
@@ -873,9 +819,7 @@ open class MXDispatchMetrics: MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceMX::DispatchMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
@@ -912,7 +856,7 @@ public extension ClassResolver {
 
 /// Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
 /// collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
-/// embedded within {@link InvocationMetrics}.
+/// embedded within `InvocationMetrics`.
 open class MXChildInvocationMetrics: MXMetrics {
     /// The size of the invocation. This corresponds to the size of the marshaled input parameters.
     public var size: Swift.Int64 = 0
@@ -930,9 +874,7 @@ open class MXChildInvocationMetrics: MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceMX::ChildInvocationMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
@@ -966,11 +908,9 @@ public extension ClassResolver {
 }
 
 /// Provides information on invocations that are collocated. Collocated metrics are embedded within
-/// {@link InvocationMetrics}.
+/// `InvocationMetrics`.
 open class MXCollocatedMetrics: MXChildInvocationMetrics {
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceMX::CollocatedMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
@@ -1000,11 +940,9 @@ public extension ClassResolver {
 }
 
 /// Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
-/// within {@link InvocationMetrics}.
+/// within `InvocationMetrics`.
 open class MXRemoteMetrics: MXChildInvocationMetrics {
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceMX::RemoteMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
@@ -1056,9 +994,7 @@ open class MXInvocationMetrics: MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceMX::InvocationMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
@@ -1112,9 +1048,7 @@ open class MXConnectionMetrics: MXMetrics {
         super.init(id: id, total: total, current: current, totalLifetime: totalLifetime, failures: failures)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceMX::ConnectionMetrics" }
 
     open override func _iceReadImpl(from istr: InputStream) throws {
@@ -1177,86 +1111,74 @@ public struct MXMetricsAdminDisp: Ice.Dispatcher {
 public protocol MXMetricsAdmin {
     /// Get the names of enabled and disabled metrics.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: StringSeq, disabledViews: StringSeq)`:
-    ///
-    ///   - returnValue: `StringSeq` - The name of the enabled views.
-    ///
-    ///   - disabledViews: `StringSeq` - The names of the disabled views.
+    /// - Returns:
+    ///   - returnValue: The name of the enabled views.
+    ///   - disabledViews: The names of the disabled views.
     func getMetricsViewNames(current: Current) async throws -> (returnValue: StringSeq, disabledViews: StringSeq)
 
     /// Enables a metrics view.
     ///
-    /// - parameter name: `Swift.String` The metrics view name.
+    /// - Parameters:
+    ///   - name: The metrics view name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
+    /// - Throws:
+    ///   - UnknownMetricsView Raised if the metrics view cannot be found.
     func enableMetricsView(name: Swift.String, current: Current) async throws
 
     /// Disable a metrics view.
     ///
-    /// - parameter name: `Swift.String` The metrics view name.
+    /// - Parameters:
+    ///   - name: The metrics view name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
+    /// - Throws:
+    ///   - UnknownMetricsView Raised if the metrics view cannot be found.
     func disableMetricsView(name: Swift.String, current: Current) async throws
 
     /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
     /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
     /// dependent of the invocation latency for this operation.
     ///
-    /// - parameter view: `Swift.String` The name of the metrics view.
+    /// - Parameters:
+    ///   - view: The name of the metrics view.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns:
+    ///   - returnValue: The metrics view data.
+    ///   - timestamp: The local time of the process when the metrics object were retrieved.
     ///
-    /// - returns: `(returnValue: MXMetricsView, timestamp: Swift.Int64)`:
-    ///
-    ///   - returnValue: `MXMetricsView` - The metrics view data.
-    ///
-    ///   - timestamp: `Swift.Int64` - The local time of the process when the metrics object were retrieved.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
+    /// - Throws:
+    ///   - UnknownMetricsView Raised if the metrics view cannot be found.
     func getMetricsView(view: Swift.String, current: Current) async throws -> (returnValue: MXMetricsView, timestamp: Swift.Int64)
 
     /// Get the metrics failures associated with the given view and map.
     ///
-    /// - parameter view: `Swift.String` The name of the metrics view.
+    /// - Parameters:
+    ///   - view: The name of the metrics view.
+    ///   - map: The name of the metrics map.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter map: `Swift.String` The name of the metrics map.
+    /// - Returns: The metrics failures associated with the map.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MXMetricsFailuresSeq` - The metrics failures associated with the map.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
+    /// - Throws:
+    ///   - UnknownMetricsView Raised if the metrics view cannot be found.
     func getMapMetricsFailures(view: Swift.String, map: Swift.String, current: Current) async throws -> MXMetricsFailuresSeq
 
     /// Get the metrics failure associated for the given metrics.
     ///
-    /// - parameter view: `Swift.String` The name of the metrics view.
+    /// - Parameters:
+    ///   - view: The name of the metrics view.
+    ///   - map: The name of the metrics map.
+    ///   - id: The ID of the metrics.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter map: `Swift.String` The name of the metrics map.
+    /// - Returns: The metrics failures associated with the metrics.
     ///
-    /// - parameter id: `Swift.String` The ID of the metrics.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MXMetricsFailures` - The metrics failures associated with the metrics.
-    ///
-    /// - throws:
-    ///
-    ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
+    /// - Throws:
+    ///   - UnknownMetricsView Raised if the metrics view cannot be found.
     func getMetricsFailures(view: Swift.String, map: Swift.String, id: Swift.String, current: Current) async throws -> MXMetricsFailures
 }
 
@@ -1264,17 +1186,11 @@ public protocol MXMetricsAdmin {
 /// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
 ///
 /// MXMetricsAdmin Methods:
-///
 ///  - getMetricsViewNames: Get the names of enabled and disabled metrics.
-///
 ///  - enableMetricsView: Enables a metrics view.
-///
 ///  - disableMetricsView: Disable a metrics view.
-///
 ///  - getMetricsView: Get the metrics objects for the given metrics view.
-///
 ///  - getMapMetricsFailures: Get the metrics failures associated with the given view and map.
-///
 ///  - getMetricsFailures: Get the metrics failure associated for the given metrics.
 extension MXMetricsAdmin {
     public func _iceD_getMetricsViewNames(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

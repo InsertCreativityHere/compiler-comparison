@@ -45,8 +45,8 @@ namespace IceGrid
 {
 
 /**
- * <code>icegridadmin</code> provides a {@link FileParser}} object to transform XML files into
- * {@link ApplicationDescriptor}} objects.
+ * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
+ * {@link ApplicationDescriptor} objects.
  */
 class ICEGRID_API FileParserPrx : public ::Ice::Proxy<FileParserPrx, ::Ice::ObjectPrx>
 {
@@ -192,8 +192,8 @@ namespace IceGrid
 {
 
 /**
- * <code>icegridadmin</code> provides a {@link FileParser}} object to transform XML files into
- * {@link ApplicationDescriptor}} objects.
+ * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
+ * {@link ApplicationDescriptor} objects.
  */
 class ICEGRID_API FileParser : public virtual ::Ice::Object
 {

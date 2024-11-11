@@ -3,10 +3,10 @@
 % An enumeration representing the different types of log messages.
 %
 % LogMessageType Properties:
-%   PrintMessage - The {@link RemoteLogger} received a print message.
-%   TraceMessage - The {@link RemoteLogger} received a trace message.
-%   WarningMessage - The {@link RemoteLogger} received a warning message.
-%   ErrorMessage - The {@link RemoteLogger} received an error message.
+%   PrintMessage - The RemoteLogger received a print message.
+%   TraceMessage - The RemoteLogger received a trace message.
+%   WarningMessage - The RemoteLogger received a warning message.
+%   ErrorMessage - The RemoteLogger received an error message.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from RemoteLogger.ice by slice2matlab version 3.8.0-alpha.0
@@ -14,19 +14,19 @@
 classdef LogMessageType < uint8
     enumeration% PrintMessage   Summary of PrintMessage
         %
-        % The {@link RemoteLogger} received a print message.
+        % The RemoteLogger received a print message.
         
         PrintMessage (0)% TraceMessage   Summary of TraceMessage
         %
-        % The {@link RemoteLogger} received a trace message.
+        % The RemoteLogger received a trace message.
         
         TraceMessage (1)% WarningMessage   Summary of WarningMessage
         %
-        % The {@link RemoteLogger} received a warning message.
+        % The RemoteLogger received a warning message.
         
         WarningMessage (2)% ErrorMessage   Summary of ErrorMessage
         %
-        % The {@link RemoteLogger} received an error message.
+        % The RemoteLogger received an error message.
         
         ErrorMessage (3)
     end

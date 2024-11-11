@@ -43,7 +43,7 @@ namespace IceStorm
     struct LinkInfo;
 
     /**
-     * A sequence of {@link LinkInfo}} objects.
+     * A sequence of {@link LinkInfo} objects.
      */
     using LinkInfoSeq = ::std::vector<LinkInfo>;
 

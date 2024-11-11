@@ -42,9 +42,7 @@ open class CommonTestCaseNotExistException: Ice.UserException, @unchecked Sendab
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::Common::TestCaseNotExistException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -82,9 +80,7 @@ open class CommonTestCaseFailedException: Ice.UserException, @unchecked Sendable
         self.output = output
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::Common::TestCaseFailedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -100,13 +96,13 @@ open class CommonTestCaseFailedException: Ice.UserException, @unchecked Sendable
     }
 }
 
-/// Traits for Slice interface`CommonTestCase`.
+/// Traits for Slice interface `CommonTestCase`.
 public struct CommonTestCaseTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::TestCase"]
     public static let staticId = "::Test::Common::TestCase"
 }
 
-/// Traits for Slice interface`CommonController`.
+/// Traits for Slice interface `CommonController`.
 public struct CommonControllerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::Controller"]
     public static let staticId = "::Test::Common::Controller"
@@ -134,9 +130,7 @@ open class CommonProcessFailedException: Ice.UserException, @unchecked Sendable 
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::Common::ProcessFailedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -152,25 +146,25 @@ open class CommonProcessFailedException: Ice.UserException, @unchecked Sendable 
     }
 }
 
-/// Traits for Slice interface`CommonProcess`.
+/// Traits for Slice interface `CommonProcess`.
 public struct CommonProcessTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::Process"]
     public static let staticId = "::Test::Common::Process"
 }
 
-/// Traits for Slice interface`CommonProcessController`.
+/// Traits for Slice interface `CommonProcessController`.
 public struct CommonProcessControllerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::ProcessController"]
     public static let staticId = "::Test::Common::ProcessController"
 }
 
-/// Traits for Slice interface`CommonBrowserProcessController`.
+/// Traits for Slice interface `CommonBrowserProcessController`.
 public struct CommonBrowserProcessControllerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::BrowserProcessController", "::Test::Common::ProcessController"]
     public static let staticId = "::Test::Common::BrowserProcessController"
 }
 
-/// Traits for Slice interface`CommonProcessControllerRegistry`.
+/// Traits for Slice interface `CommonProcessControllerRegistry`.
 public struct CommonProcessControllerRegistryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::ProcessControllerRegistry"]
     public static let staticId = "::Test::Common::ProcessControllerRegistry"
@@ -190,7 +184,9 @@ private final class CommonTestCasePrxI: Ice.ObjectPrxI, CommonTestCasePrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CommonTestCasePrx.Protocol) throws -> CommonTestCasePrx {
     try communicator.makeProxyImpl(proxyString) as CommonTestCasePrxI
@@ -202,62 +198,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `CommonTestCasePrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `CommonTestCasePrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: CommonTestCasePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CommonTestCasePrx? {
     return try await CommonTestCasePrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonTestCasePrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `CommonTestCasePrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `CommonTestCasePrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: CommonTestCasePrx.Protocol, facet: Swift.String? = nil) -> CommonTestCasePrx {
     return CommonTestCasePrxI.uncheckedCast(prx: prx, facet: facet) as CommonTestCasePrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `CommonTestCasePrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CommonTestCasePrx.Protocol) -> Swift.String {
     return CommonTestCaseTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `CommonTestCasePrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `CommonTestCasePrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `CommonTestCasePrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: CommonTestCasePrx.Protocol) throws -> CommonTestCasePrx? {
         return try read() as CommonTestCasePrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `CommonTestCasePrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `CommonTestCasePrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: CommonTestCasePrx.Protocol) throws -> CommonTestCasePrx? {
         return try read(tag: tag) as CommonTestCasePrxI?
     }
@@ -348,7 +339,9 @@ private final class CommonControllerPrxI: Ice.ObjectPrxI, CommonControllerPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CommonControllerPrx.Protocol) throws -> CommonControllerPrx {
     try communicator.makeProxyImpl(proxyString) as CommonControllerPrxI
@@ -360,62 +353,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `CommonControllerPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `CommonControllerPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: CommonControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CommonControllerPrx? {
     return try await CommonControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonControllerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `CommonControllerPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `CommonControllerPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: CommonControllerPrx.Protocol, facet: Swift.String? = nil) -> CommonControllerPrx {
     return CommonControllerPrxI.uncheckedCast(prx: prx, facet: facet) as CommonControllerPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `CommonControllerPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CommonControllerPrx.Protocol) -> Swift.String {
     return CommonControllerTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `CommonControllerPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `CommonControllerPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `CommonControllerPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: CommonControllerPrx.Protocol) throws -> CommonControllerPrx? {
         return try read() as CommonControllerPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `CommonControllerPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `CommonControllerPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: CommonControllerPrx.Protocol) throws -> CommonControllerPrx? {
         return try read(tag: tag) as CommonControllerPrxI?
     }
@@ -499,7 +487,9 @@ private final class CommonProcessPrxI: Ice.ObjectPrxI, CommonProcessPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CommonProcessPrx.Protocol) throws -> CommonProcessPrx {
     try communicator.makeProxyImpl(proxyString) as CommonProcessPrxI
@@ -511,62 +501,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `CommonProcessPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `CommonProcessPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: CommonProcessPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CommonProcessPrx? {
     return try await CommonProcessPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonProcessPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `CommonProcessPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `CommonProcessPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: CommonProcessPrx.Protocol, facet: Swift.String? = nil) -> CommonProcessPrx {
     return CommonProcessPrxI.uncheckedCast(prx: prx, facet: facet) as CommonProcessPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `CommonProcessPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CommonProcessPrx.Protocol) -> Swift.String {
     return CommonProcessTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `CommonProcessPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `CommonProcessPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `CommonProcessPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: CommonProcessPrx.Protocol) throws -> CommonProcessPrx? {
         return try read() as CommonProcessPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `CommonProcessPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `CommonProcessPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: CommonProcessPrx.Protocol) throws -> CommonProcessPrx? {
         return try read(tag: tag) as CommonProcessPrxI?
     }
@@ -634,7 +619,9 @@ private final class CommonProcessControllerPrxI: Ice.ObjectPrxI, CommonProcessCo
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CommonProcessControllerPrx.Protocol) throws -> CommonProcessControllerPrx {
     try communicator.makeProxyImpl(proxyString) as CommonProcessControllerPrxI
@@ -646,62 +633,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `CommonProcessControllerPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `CommonProcessControllerPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: CommonProcessControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CommonProcessControllerPrx? {
     return try await CommonProcessControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonProcessControllerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `CommonProcessControllerPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `CommonProcessControllerPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: CommonProcessControllerPrx.Protocol, facet: Swift.String? = nil) -> CommonProcessControllerPrx {
     return CommonProcessControllerPrxI.uncheckedCast(prx: prx, facet: facet) as CommonProcessControllerPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `CommonProcessControllerPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CommonProcessControllerPrx.Protocol) -> Swift.String {
     return CommonProcessControllerTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `CommonProcessControllerPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `CommonProcessControllerPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `CommonProcessControllerPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: CommonProcessControllerPrx.Protocol) throws -> CommonProcessControllerPrx? {
         return try read() as CommonProcessControllerPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `CommonProcessControllerPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `CommonProcessControllerPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: CommonProcessControllerPrx.Protocol) throws -> CommonProcessControllerPrx? {
         return try read(tag: tag) as CommonProcessControllerPrxI?
     }
@@ -759,7 +741,9 @@ private final class CommonBrowserProcessControllerPrxI: Ice.ObjectPrxI, CommonBr
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CommonBrowserProcessControllerPrx.Protocol) throws -> CommonBrowserProcessControllerPrx {
     try communicator.makeProxyImpl(proxyString) as CommonBrowserProcessControllerPrxI
@@ -771,62 +755,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `CommonBrowserProcessControllerPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `CommonBrowserProcessControllerPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: CommonBrowserProcessControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CommonBrowserProcessControllerPrx? {
     return try await CommonBrowserProcessControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonBrowserProcessControllerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `CommonBrowserProcessControllerPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `CommonBrowserProcessControllerPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: CommonBrowserProcessControllerPrx.Protocol, facet: Swift.String? = nil) -> CommonBrowserProcessControllerPrx {
     return CommonBrowserProcessControllerPrxI.uncheckedCast(prx: prx, facet: facet) as CommonBrowserProcessControllerPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `CommonBrowserProcessControllerPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CommonBrowserProcessControllerPrx.Protocol) -> Swift.String {
     return CommonBrowserProcessControllerTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `CommonBrowserProcessControllerPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `CommonBrowserProcessControllerPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `CommonBrowserProcessControllerPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: CommonBrowserProcessControllerPrx.Protocol) throws -> CommonBrowserProcessControllerPrx? {
         return try read() as CommonBrowserProcessControllerPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `CommonBrowserProcessControllerPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `CommonBrowserProcessControllerPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: CommonBrowserProcessControllerPrx.Protocol) throws -> CommonBrowserProcessControllerPrx? {
         return try read(tag: tag) as CommonBrowserProcessControllerPrxI?
     }
@@ -857,7 +836,9 @@ private final class CommonProcessControllerRegistryPrxI: Ice.ObjectPrxI, CommonP
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: CommonProcessControllerRegistryPrx.Protocol) throws -> CommonProcessControllerRegistryPrx {
     try communicator.makeProxyImpl(proxyString) as CommonProcessControllerRegistryPrxI
@@ -869,62 +850,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `CommonProcessControllerRegistryPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `CommonProcessControllerRegistryPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: CommonProcessControllerRegistryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> CommonProcessControllerRegistryPrx? {
     return try await CommonProcessControllerRegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as CommonProcessControllerRegistryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `CommonProcessControllerRegistryPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `CommonProcessControllerRegistryPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: CommonProcessControllerRegistryPrx.Protocol, facet: Swift.String? = nil) -> CommonProcessControllerRegistryPrx {
     return CommonProcessControllerRegistryPrxI.uncheckedCast(prx: prx, facet: facet) as CommonProcessControllerRegistryPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `CommonProcessControllerRegistryPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: CommonProcessControllerRegistryPrx.Protocol) -> Swift.String {
     return CommonProcessControllerRegistryTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `CommonProcessControllerRegistryPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `CommonProcessControllerRegistryPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `CommonProcessControllerRegistryPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: CommonProcessControllerRegistryPrx.Protocol) throws -> CommonProcessControllerRegistryPrx? {
         return try read() as CommonProcessControllerRegistryPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `CommonProcessControllerRegistryPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `CommonProcessControllerRegistryPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: CommonProcessControllerRegistryPrx.Protocol) throws -> CommonProcessControllerRegistryPrx? {
         return try read(tag: tag) as CommonProcessControllerRegistryPrxI?
     }
@@ -975,9 +951,7 @@ open class CommonConfig: Ice.Value {
         self.sprops = sprops
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Common::Config" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -1035,9 +1009,7 @@ open class CommonOptionOverrides: Ice.Value {
         self.ipv6 = ipv6
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Common::OptionOverrides" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

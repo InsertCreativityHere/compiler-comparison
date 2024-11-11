@@ -1,7 +1,7 @@
 % AdminSessionPrx   Summary of AdminSessionPrx
 %
 % Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-% sessions are created either via the {@link Registry} object or via the registry admin
+% sessions are created either via the Registry object or via the registry admin
 % SessionManager object.
 %
 % AdminSessionPrx Methods:

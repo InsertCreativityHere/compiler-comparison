@@ -16,13 +16,13 @@
 import Foundation
 import Ice
 
-/// Traits for Slice interface`LookupReply`.
+/// Traits for Slice interface `LookupReply`.
 public struct LookupReplyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceLocatorDiscovery::LookupReply"]
     public static let staticId = "::IceLocatorDiscovery::LookupReply"
 }
 
-/// Traits for Slice interface`Lookup`.
+/// Traits for Slice interface `Lookup`.
 public struct LookupTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceLocatorDiscovery::Lookup"]
     public static let staticId = "::IceLocatorDiscovery::Lookup"
@@ -32,9 +32,7 @@ public struct LookupTraits: Ice.SliceTraits {
 /// implementations invoke on this interface to provide their locator proxy.
 ///
 /// LookupReplyPrx Methods:
-///
 ///  - foundLocator: This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-///
 ///  - foundLocatorAsync: This method is called by the implementation of the Lookup interface to reply to a findLocator request.
 public protocol LookupReplyPrx: Ice.ObjectPrx {}
 
@@ -50,7 +48,9 @@ private final class LookupReplyPrxI: Ice.ObjectPrxI, LookupReplyPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LookupReplyPrx.Protocol) throws -> LookupReplyPrx {
     try communicator.makeProxyImpl(proxyString) as LookupReplyPrxI
@@ -62,62 +62,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `LookupReplyPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `LookupReplyPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: LookupReplyPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> LookupReplyPrx? {
     return try await LookupReplyPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupReplyPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `LookupReplyPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `LookupReplyPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: LookupReplyPrx.Protocol, facet: Swift.String? = nil) -> LookupReplyPrx {
     return LookupReplyPrxI.uncheckedCast(prx: prx, facet: facet) as LookupReplyPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `LookupReplyPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LookupReplyPrx.Protocol) -> Swift.String {
     return LookupReplyTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `LookupReplyPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `LookupReplyPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `LookupReplyPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: LookupReplyPrx.Protocol) throws -> LookupReplyPrx? {
         return try read() as LookupReplyPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `LookupReplyPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `LookupReplyPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: LookupReplyPrx.Protocol) throws -> LookupReplyPrx? {
         return try read(tag: tag) as LookupReplyPrxI?
     }
@@ -127,16 +122,14 @@ public extension Ice.InputStream {
 /// implementations invoke on this interface to provide their locator proxy.
 ///
 /// LookupReplyPrx Methods:
-///
 ///  - foundLocator: This method is called by the implementation of the Lookup interface to reply to a findLocator request.
-///
 ///  - foundLocatorAsync: This method is called by the implementation of the Lookup interface to reply to a findLocator request.
 public extension LookupReplyPrx {
     /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
     ///
-    /// - parameter _: `Ice.LocatorPrx?` The proxy of the locator.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_prx: The proxy of the locator.
+    ///   - context: Optional request context.
     func foundLocator(_ iceP_prx: Ice.LocatorPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "foundLocator",
                                        mode: .Normal,
@@ -153,9 +146,7 @@ public extension LookupReplyPrx {
 /// Clients typically make a multicast findLocator request to find the locator proxy.
 ///
 /// LookupPrx Methods:
-///
 ///  - findLocator: Find a locator proxy with the given instance name.
-///
 ///  - findLocatorAsync: Find a locator proxy with the given instance name.
 public protocol LookupPrx: Ice.ObjectPrx {}
 
@@ -171,7 +162,9 @@ private final class LookupPrxI: Ice.ObjectPrxI, LookupPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LookupPrx.Protocol) throws -> LookupPrx {
     try communicator.makeProxyImpl(proxyString) as LookupPrxI
@@ -183,62 +176,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `LookupPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `LookupPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: LookupPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> LookupPrx? {
     return try await LookupPrxI.checkedCast(prx: prx, facet: facet, context: context) as LookupPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `LookupPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `LookupPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: LookupPrx.Protocol, facet: Swift.String? = nil) -> LookupPrx {
     return LookupPrxI.uncheckedCast(prx: prx, facet: facet) as LookupPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `LookupPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LookupPrx.Protocol) -> Swift.String {
     return LookupTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `LookupPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `LookupPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `LookupPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: LookupPrx.Protocol) throws -> LookupPrx? {
         return try read() as LookupPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `LookupPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `LookupPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: LookupPrx.Protocol) throws -> LookupPrx? {
         return try read(tag: tag) as LookupPrxI?
     }
@@ -250,19 +238,16 @@ public extension Ice.InputStream {
 /// Clients typically make a multicast findLocator request to find the locator proxy.
 ///
 /// LookupPrx Methods:
-///
 ///  - findLocator: Find a locator proxy with the given instance name.
-///
 ///  - findLocatorAsync: Find a locator proxy with the given instance name.
 public extension LookupPrx {
     /// Find a locator proxy with the given instance name.
     ///
-    /// - parameter instanceName: `Swift.String` Restrict the search to Ice registries configured with the given instance name. If
+    /// - Parameters:
+    ///   - iceP_instanceName: Restrict the search to Ice registries configured with the given instance name. If
     /// empty, all the available registries will reply.
-    ///
-    /// - parameter reply: `LookupReplyPrx?` The reply object to use to send the reply.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    ///   - iceP_reply: The reply object to use to send the reply.
+    ///   - context: Optional request context.
     func findLocator(instanceName iceP_instanceName: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "findLocator",
                                        mode: .Idempotent,
@@ -307,9 +292,9 @@ public struct LookupReplyDisp: Ice.Dispatcher {
 public protocol LookupReply {
     /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
     ///
-    /// - parameter prx: `Ice.LocatorPrx?` The proxy of the locator.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - prx: The proxy of the locator.
+    ///   - current: The Current object for the dispatch.
     func foundLocator(prx: Ice.LocatorPrx?, current: Ice.Current) async throws
 }
 
@@ -348,12 +333,11 @@ public struct LookupDisp: Ice.Dispatcher {
 public protocol Lookup {
     /// Find a locator proxy with the given instance name.
     ///
-    /// - parameter instanceName: `Swift.String` Restrict the search to Ice registries configured with the given instance name. If
+    /// - Parameters:
+    ///   - instanceName: Restrict the search to Ice registries configured with the given instance name. If
     /// empty, all the available registries will reply.
-    ///
-    /// - parameter reply: `LookupReplyPrx?` The reply object to use to send the reply.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///   - reply: The reply object to use to send the reply.
+    ///   - current: The Current object for the dispatch.
     func findLocator(instanceName: Swift.String, reply: LookupReplyPrx?, current: Ice.Current) async throws
 }
 
@@ -361,7 +345,6 @@ public protocol Lookup {
 /// implementations invoke on this interface to provide their locator proxy.
 ///
 /// LookupReply Methods:
-///
 ///  - foundLocator: This method is called by the implementation of the Lookup interface to reply to a findLocator request.
 extension LookupReply {
     public func _iceD_foundLocator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -380,7 +363,6 @@ extension LookupReply {
 /// Clients typically make a multicast findLocator request to find the locator proxy.
 ///
 /// Lookup Methods:
-///
 ///  - findLocator: Find a locator proxy with the given instance name.
 extension Lookup {
     public func _iceD_findLocator(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

@@ -31,9 +31,7 @@ public extension Ice.ClassResolver {
 
 /// This exception is raised if a user account for a given session identifier can't be found.
 open class UserAccountNotFoundException: Ice.UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::UserAccountNotFoundException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -47,7 +45,7 @@ open class UserAccountNotFoundException: Ice.UserException, @unchecked Sendable 
     }
 }
 
-/// Traits for Slice interface`UserAccountMapper`.
+/// Traits for Slice interface `UserAccountMapper`.
 public struct UserAccountMapperTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::UserAccountMapper"]
     public static let staticId = "::IceGrid::UserAccountMapper"
@@ -56,9 +54,7 @@ public struct UserAccountMapperTraits: Ice.SliceTraits {
 /// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
 ///
 /// UserAccountMapperPrx Methods:
-///
 ///  - getUserAccount: Get the name of the user account for the given user.
-///
 ///  - getUserAccountAsync: Get the name of the user account for the given user.
 public protocol UserAccountMapperPrx: Ice.ObjectPrx {}
 
@@ -74,7 +70,9 @@ private final class UserAccountMapperPrxI: Ice.ObjectPrxI, UserAccountMapperPrx 
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: UserAccountMapperPrx.Protocol) throws -> UserAccountMapperPrx {
     try communicator.makeProxyImpl(proxyString) as UserAccountMapperPrxI
@@ -86,62 +84,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `UserAccountMapperPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `UserAccountMapperPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: UserAccountMapperPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> UserAccountMapperPrx? {
     return try await UserAccountMapperPrxI.checkedCast(prx: prx, facet: facet, context: context) as UserAccountMapperPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `UserAccountMapperPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `UserAccountMapperPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: UserAccountMapperPrx.Protocol, facet: Swift.String? = nil) -> UserAccountMapperPrx {
     return UserAccountMapperPrxI.uncheckedCast(prx: prx, facet: facet) as UserAccountMapperPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `UserAccountMapperPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: UserAccountMapperPrx.Protocol) -> Swift.String {
     return UserAccountMapperTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `UserAccountMapperPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `UserAccountMapperPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `UserAccountMapperPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: UserAccountMapperPrx.Protocol) throws -> UserAccountMapperPrx? {
         return try read() as UserAccountMapperPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `UserAccountMapperPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `UserAccountMapperPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: UserAccountMapperPrx.Protocol) throws -> UserAccountMapperPrx? {
         return try read(tag: tag) as UserAccountMapperPrxI?
     }
@@ -150,25 +143,22 @@ public extension Ice.InputStream {
 /// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
 ///
 /// UserAccountMapperPrx Methods:
-///
 ///  - getUserAccount: Get the name of the user account for the given user.
-///
 ///  - getUserAccountAsync: Get the name of the user account for the given user.
 public extension UserAccountMapperPrx {
     /// Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
     /// account to use to run servers.
     ///
-    /// - parameter _: `Swift.String` The value of the server descriptor's user attribute. If this attribute is not
+    /// - Parameters:
+    ///   - iceP_user: The value of the server descriptor's user attribute. If this attribute is not
     /// defined, and the server's activation mode is session, the default value of user
     /// is the session identifier.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The user account name.
     ///
-    /// - returns: `Swift.String` - The user account name.
-    ///
-    /// - throws:
-    ///
-    ///   - UserAccountNotFoundException - Raised if no user account is found for the given user.
+    /// - Throws:
+    ///   - UserAccountNotFoundException Raised if no user account is found for the given user.
     func getUserAccount(_ iceP_user: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getUserAccount",
                                        mode: .Normal,
@@ -223,24 +213,22 @@ public protocol UserAccountMapper {
     /// Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
     /// account to use to run servers.
     ///
-    /// - parameter user: `Swift.String` The value of the server descriptor's user attribute. If this attribute is not
+    /// - Parameters:
+    ///   - user: The value of the server descriptor's user attribute. If this attribute is not
     /// defined, and the server's activation mode is session, the default value of user
     /// is the session identifier.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The user account name.
     ///
-    /// - returns: `Swift.String` - The user account name.
-    ///
-    /// - throws:
-    ///
-    ///   - UserAccountNotFoundException - Raised if no user account is found for the given user.
+    /// - Throws:
+    ///   - UserAccountNotFoundException Raised if no user account is found for the given user.
     func getUserAccount(user: Swift.String, current: Ice.Current) async throws -> Swift.String
 }
 
 /// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
 ///
 /// UserAccountMapper Methods:
-///
 ///  - getUserAccount: Get the name of the user account for the given user.
 extension UserAccountMapper {
     public func _iceD_getUserAccount(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

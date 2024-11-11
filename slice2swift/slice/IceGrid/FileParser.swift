@@ -40,9 +40,7 @@ open class ParseException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::ParseException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -58,19 +56,17 @@ open class ParseException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`FileParser`.
+/// Traits for Slice interface `FileParser`.
 public struct FileParserTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileParser"]
     public static let staticId = "::IceGrid::FileParser"
 }
 
-/// icegridadmin provides a {@link FileParser} object to transform XML files into
-/// {@link ApplicationDescriptor} objects.
+/// icegridadmin provides a `FileParser` object to transform XML files into
+/// `ApplicationDescriptor` objects.
 ///
 /// FileParserPrx Methods:
-///
 ///  - parse: Parse a file.
-///
 ///  - parseAsync: Parse a file.
 public protocol FileParserPrx: Ice.ObjectPrx {}
 
@@ -86,7 +82,9 @@ private final class FileParserPrxI: Ice.ObjectPrxI, FileParserPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: FileParserPrx.Protocol) throws -> FileParserPrx {
     try communicator.makeProxyImpl(proxyString) as FileParserPrxI
@@ -98,89 +96,80 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `FileParserPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `FileParserPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: FileParserPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> FileParserPrx? {
     return try await FileParserPrxI.checkedCast(prx: prx, facet: facet, context: context) as FileParserPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `FileParserPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `FileParserPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: FileParserPrx.Protocol, facet: Swift.String? = nil) -> FileParserPrx {
     return FileParserPrxI.uncheckedCast(prx: prx, facet: facet) as FileParserPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `FileParserPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: FileParserPrx.Protocol) -> Swift.String {
     return FileParserTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `FileParserPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `FileParserPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `FileParserPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: FileParserPrx.Protocol) throws -> FileParserPrx? {
         return try read() as FileParserPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `FileParserPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `FileParserPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: FileParserPrx.Protocol) throws -> FileParserPrx? {
         return try read(tag: tag) as FileParserPrxI?
     }
 }
 
-/// icegridadmin provides a {@link FileParser} object to transform XML files into
-/// {@link ApplicationDescriptor} objects.
+/// icegridadmin provides a `FileParser` object to transform XML files into
+/// `ApplicationDescriptor` objects.
 ///
 /// FileParserPrx Methods:
-///
 ///  - parse: Parse a file.
-///
 ///  - parseAsync: Parse a file.
 public extension FileParserPrx {
     /// Parse a file.
     ///
-    /// - parameter xmlFile: `Swift.String` Full pathname to the file.
+    /// - Parameters:
+    ///   - iceP_xmlFile: Full pathname to the file.
+    ///   - iceP_adminProxy: An Admin proxy, used only to retrieve default templates when needed. May be null.
+    ///   - context: Optional request context.
     ///
-    /// - parameter adminProxy: `AdminPrx?` An Admin proxy, used only to retrieve default templates when needed. May be null.
+    /// - Returns: The application descriptor.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ApplicationDescriptor` - The application descriptor.
-    ///
-    /// - throws:
-    ///
-    ///   - ParseException - Raised if an error occurred during parsing.
+    /// - Throws:
+    ///   - ParseException Raised if an error occurred during parsing.
     func parse(xmlFile iceP_xmlFile: Swift.String, adminProxy iceP_adminProxy: AdminPrx?, context: Ice.Context? = nil) async throws -> ApplicationDescriptor {
         return try await _impl._invoke(operation: "parse",
                                        mode: .Idempotent,
@@ -232,30 +221,27 @@ public struct FileParserDisp: Ice.Dispatcher {
     }
 }
 
-/// icegridadmin provides a {@link FileParser} object to transform XML files into
-/// {@link ApplicationDescriptor} objects.
+/// icegridadmin provides a `FileParser` object to transform XML files into
+/// `ApplicationDescriptor` objects.
 public protocol FileParser {
     /// Parse a file.
     ///
-    /// - parameter xmlFile: `Swift.String` Full pathname to the file.
+    /// - Parameters:
+    ///   - xmlFile: Full pathname to the file.
+    ///   - adminProxy: An Admin proxy, used only to retrieve default templates when needed. May be null.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter adminProxy: `AdminPrx?` An Admin proxy, used only to retrieve default templates when needed. May be null.
+    /// - Returns: The application descriptor.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ApplicationDescriptor` - The application descriptor.
-    ///
-    /// - throws:
-    ///
-    ///   - ParseException - Raised if an error occurred during parsing.
+    /// - Throws:
+    ///   - ParseException Raised if an error occurred during parsing.
     func parse(xmlFile: Swift.String, adminProxy: AdminPrx?, current: Ice.Current) async throws -> ApplicationDescriptor
 }
 
-/// icegridadmin provides a {@link FileParser} object to transform XML files into
-/// {@link ApplicationDescriptor} objects.
+/// icegridadmin provides a `FileParser` object to transform XML files into
+/// `ApplicationDescriptor` objects.
 ///
 /// FileParser Methods:
-///
 ///  - parse: Parse a file.
 extension FileParser {
     public func _iceD_parse(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

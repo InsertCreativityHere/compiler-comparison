@@ -57,7 +57,7 @@ namespace Glacier2
 {
 
 /**
- * A client-visible session object, which is tied to the lifecycle of a {@link Router}}.
+ * A client-visible session object, which is tied to the lifecycle of a {@link Router}.
  * @see Router
  * @see SessionManager
  */
@@ -138,7 +138,7 @@ protected:
 
 /**
  * An object for managing the set of identity constraints for specific parts of object identity on a
- * {@link Session}}.
+ * {@link Session}.
  * @see Session
  * @see SessionControl
  */
@@ -284,7 +284,7 @@ protected:
 };
 
 /**
- * An object for managing the set of object identity constraints on a {@link Session}}.
+ * An object for managing the set of object identity constraints on a {@link Session}.
  * @see Session
  * @see SessionControl
  */
@@ -433,7 +433,7 @@ protected:
 };
 
 /**
- * An administrative session control object, which is tied to the lifecycle of a {@link Session}}.
+ * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
  * @see Session
  */
 class GLACIER2_API SessionControlPrx : public ::Ice::Proxy<SessionControlPrx, ::Ice::ObjectPrx>
@@ -628,8 +628,8 @@ protected:
 };
 
 /**
- * The session manager for username/password authenticated users that is responsible for managing {@link Session}}
- * objects. New session objects are created by the {@link Router}} object calling on an application-provided
+ * The session manager for username/password authenticated users that is responsible for managing {@link Session}
+ * objects. New session objects are created by the {@link Router} object calling on an application-provided
  * session manager. If no session manager is provided by the application, no client-visible sessions are passed to
  * the client.
  * @see Router
@@ -641,7 +641,7 @@ public:
 
     /**
      * Create a new session. The implementation must return a non-null proxy or raise
-     * {@link CannotCreateSessionException}} if the session cannot be created.
+     * {@link CannotCreateSessionException} if the session cannot be created.
      * @param userId The user id for the session.
      * @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
      * are not configured.
@@ -653,7 +653,7 @@ public:
 
     /**
      * Create a new session. The implementation must return a non-null proxy or raise
-     * {@link CannotCreateSessionException}} if the session cannot be created.
+     * {@link CannotCreateSessionException} if the session cannot be created.
      * @param userId The user id for the session.
      * @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
      * are not configured.
@@ -664,7 +664,7 @@ public:
 
     /**
      * Create a new session. The implementation must return a non-null proxy or raise
-     * {@link CannotCreateSessionException}} if the session cannot be created.
+     * {@link CannotCreateSessionException} if the session cannot be created.
      * @param userId The user id for the session.
      * @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
      * are not configured.
@@ -725,8 +725,8 @@ protected:
 };
 
 /**
- * The session manager for SSL authenticated users that is responsible for managing {@link Session}} objects. New
- * session objects are created by the {@link Router}} object calling on an application-provided session manager. If
+ * The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
+ * session objects are created by the {@link Router} object calling on an application-provided session manager. If
  * no session manager is provided by the application, no client-visible sessions are passed to the client.
  * @see Router
  * @see Session
@@ -875,7 +875,7 @@ namespace Glacier2
 {
 
 /**
- * A client-visible session object, which is tied to the lifecycle of a {@link Router}}.
+ * A client-visible session object, which is tied to the lifecycle of a {@link Router}.
  * @see Router
  * @see SessionManager
  */
@@ -923,7 +923,7 @@ using SessionPtr = ::std::shared_ptr<Session>;
 
 /**
  * An object for managing the set of identity constraints for specific parts of object identity on a
- * {@link Session}}.
+ * {@link Session}.
  * @see Session
  * @see SessionControl
  */
@@ -992,7 +992,7 @@ public:
 using StringSetPtr = ::std::shared_ptr<StringSet>;
 
 /**
- * An object for managing the set of object identity constraints on a {@link Session}}.
+ * An object for managing the set of object identity constraints on a {@link Session}.
  * @see Session
  * @see SessionControl
  */
@@ -1062,7 +1062,7 @@ public:
 using IdentitySetPtr = ::std::shared_ptr<IdentitySet>;
 
 /**
- * An administrative session control object, which is tied to the lifecycle of a {@link Session}}.
+ * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
  * @see Session
  */
 class GLACIER2_API SessionControl : public virtual ::Ice::Object
@@ -1148,8 +1148,8 @@ public:
 using SessionControlPtr = ::std::shared_ptr<SessionControl>;
 
 /**
- * The session manager for username/password authenticated users that is responsible for managing {@link Session}}
- * objects. New session objects are created by the {@link Router}} object calling on an application-provided
+ * The session manager for username/password authenticated users that is responsible for managing {@link Session}
+ * objects. New session objects are created by the {@link Router} object calling on an application-provided
  * session manager. If no session manager is provided by the application, no client-visible sessions are passed to
  * the client.
  * @see Router
@@ -1183,7 +1183,7 @@ public:
 
     /**
      * Create a new session. The implementation must return a non-null proxy or raise
-     * {@link CannotCreateSessionException}} if the session cannot be created.
+     * {@link CannotCreateSessionException} if the session cannot be created.
      * @param userId The user id for the session.
      * @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
      * are not configured.
@@ -1204,8 +1204,8 @@ public:
 using SessionManagerPtr = ::std::shared_ptr<SessionManager>;
 
 /**
- * The session manager for SSL authenticated users that is responsible for managing {@link Session}} objects. New
- * session objects are created by the {@link Router}} object calling on an application-provided session manager. If
+ * The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
+ * session objects are created by the {@link Router} object calling on an application-provided session manager. If
  * no session manager is provided by the application, no client-visible sessions are passed to the client.
  * @see Router
  * @see Session

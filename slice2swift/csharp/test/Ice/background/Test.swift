@@ -16,13 +16,13 @@
 import Foundation
 import Ice
 
-/// Traits for Slice interface`Background`.
+/// Traits for Slice interface `Background`.
 public struct BackgroundTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Background"]
     public static let staticId = "::Test::Background"
 }
 
-/// Traits for Slice interface`BackgroundController`.
+/// Traits for Slice interface `BackgroundController`.
 public struct BackgroundControllerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::BackgroundController"]
     public static let staticId = "::Test::BackgroundController"
@@ -42,7 +42,9 @@ private final class BackgroundPrxI: Ice.ObjectPrxI, BackgroundPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: BackgroundPrx.Protocol) throws -> BackgroundPrx {
     try communicator.makeProxyImpl(proxyString) as BackgroundPrxI
@@ -54,62 +56,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `BackgroundPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `BackgroundPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: BackgroundPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> BackgroundPrx? {
     return try await BackgroundPrxI.checkedCast(prx: prx, facet: facet, context: context) as BackgroundPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `BackgroundPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `BackgroundPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: BackgroundPrx.Protocol, facet: Swift.String? = nil) -> BackgroundPrx {
     return BackgroundPrxI.uncheckedCast(prx: prx, facet: facet) as BackgroundPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `BackgroundPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: BackgroundPrx.Protocol) -> Swift.String {
     return BackgroundTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `BackgroundPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `BackgroundPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `BackgroundPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: BackgroundPrx.Protocol) throws -> BackgroundPrx? {
         return try read() as BackgroundPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `BackgroundPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `BackgroundPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: BackgroundPrx.Protocol) throws -> BackgroundPrx? {
         return try read(tag: tag) as BackgroundPrxI?
     }
@@ -152,7 +149,9 @@ private final class BackgroundControllerPrxI: Ice.ObjectPrxI, BackgroundControll
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: BackgroundControllerPrx.Protocol) throws -> BackgroundControllerPrx {
     try communicator.makeProxyImpl(proxyString) as BackgroundControllerPrxI
@@ -164,62 +163,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `BackgroundControllerPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `BackgroundControllerPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: BackgroundControllerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> BackgroundControllerPrx? {
     return try await BackgroundControllerPrxI.checkedCast(prx: prx, facet: facet, context: context) as BackgroundControllerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `BackgroundControllerPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `BackgroundControllerPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: BackgroundControllerPrx.Protocol, facet: Swift.String? = nil) -> BackgroundControllerPrx {
     return BackgroundControllerPrxI.uncheckedCast(prx: prx, facet: facet) as BackgroundControllerPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `BackgroundControllerPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: BackgroundControllerPrx.Protocol) -> Swift.String {
     return BackgroundControllerTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `BackgroundControllerPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `BackgroundControllerPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `BackgroundControllerPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: BackgroundControllerPrx.Protocol) throws -> BackgroundControllerPrx? {
         return try read() as BackgroundControllerPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `BackgroundControllerPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `BackgroundControllerPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: BackgroundControllerPrx.Protocol) throws -> BackgroundControllerPrx? {
         return try read(tag: tag) as BackgroundControllerPrxI?
     }

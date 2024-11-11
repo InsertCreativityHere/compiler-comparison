@@ -35,7 +35,7 @@ public struct LogUpdate: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `LogUpdate` structured value from the stream.
     ///
-    /// - returns: `LogUpdate` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> LogUpdate {
         var v = LogUpdate()
         v.generation = try self.read()
@@ -45,9 +45,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `LogUpdate?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `LogUpdate?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> LogUpdate? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -61,7 +61,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `LogUpdate` structured value to the stream.
     ///
-    /// - parameter _: `LogUpdate` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: LogUpdate) {
         self.write(v.generation)
         self.write(v.iteration)
@@ -69,9 +69,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `LogUpdate?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `LogUpdate?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: LogUpdate?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {

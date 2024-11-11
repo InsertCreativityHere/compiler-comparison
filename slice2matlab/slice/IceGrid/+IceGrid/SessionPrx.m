@@ -1,7 +1,7 @@
 % SessionPrx   Summary of SessionPrx
 %
 % A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
-% via the {@link Registry} object or via the registry client SessionManager object.
+% via the Registry object or via the registry client SessionManager object.
 %
 % SessionPrx Methods:
 %   keepAlive - Keep the session alive.

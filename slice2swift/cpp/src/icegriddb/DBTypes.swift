@@ -23,9 +23,9 @@ public typealias StringLongDict = [Swift.String: Swift.Int64]
 public struct StringLongDictHelper {
     /// Read a `StringLongDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `StringLongDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> StringLongDict {
         let sz = try Swift.Int(istr.readSize())
         var v = StringLongDict()
@@ -36,13 +36,13 @@ public struct StringLongDictHelper {
         }
         return v
     }
+
     /// Read an optional `StringLongDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `StringLongDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> StringLongDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -51,11 +51,10 @@ public struct StringLongDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `StringLongDict` dictionary to the stream.
+    /// Write a `StringLongDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `StringLongDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: StringLongDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -64,13 +63,12 @@ public struct StringLongDictHelper {
         }
     }
 
-    /// Wite an optional `StringLongDict?` dictionary to the stream.
+    /// Write an optional `StringLongDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `StringLongDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: StringLongDict?) {
         guard let val = v else {
             return
@@ -105,7 +103,7 @@ public class AllData {
 public extension Ice.InputStream {
     /// Read a `AllData` structured value from the stream.
     ///
-    /// - returns: `AllData` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> AllData {
         let v = AllData()
         v.applications = try ApplicationInfoSeqHelper.read(from: self)
@@ -118,9 +116,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `AllData?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `AllData?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> AllData? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -134,7 +132,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `AllData` structured value to the stream.
     ///
-    /// - parameter _: `AllData` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: AllData) {
         ApplicationInfoSeqHelper.write(to: self, value: v.applications)
         AdapterInfoSeqHelper.write(to: self, value: v.adapters)
@@ -145,9 +143,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `AllData?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `AllData?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: AllData?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {

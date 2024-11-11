@@ -16,7 +16,7 @@
 package com.zeroc.IceGrid;
 
 /**
- * The IceGrid locator interface provides access to the {@link Query}} and {@link Registry}} object of the IceGrid
+ * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
  * registry.
  *
  * @see Query

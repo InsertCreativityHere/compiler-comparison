@@ -37,7 +37,7 @@ public struct SubscriberRecordKey: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `SubscriberRecordKey` structured value from the stream.
     ///
-    /// - returns: `SubscriberRecordKey` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> SubscriberRecordKey {
         var v = SubscriberRecordKey()
         v.topic = try self.read()
@@ -47,9 +47,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `SubscriberRecordKey?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `SubscriberRecordKey?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> SubscriberRecordKey? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -63,7 +63,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `SubscriberRecordKey` structured value to the stream.
     ///
-    /// - parameter _: `SubscriberRecordKey` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: SubscriberRecordKey) {
         self.write(v.topic)
         self.write(v.id)
@@ -71,9 +71,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `SubscriberRecordKey?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SubscriberRecordKey?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: SubscriberRecordKey?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -119,7 +118,7 @@ public struct SubscriberRecord {
 public extension Ice.InputStream {
     /// Read a `SubscriberRecord` structured value from the stream.
     ///
-    /// - returns: `SubscriberRecord` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> SubscriberRecord {
         var v = SubscriberRecord()
         v.topicName = try self.read()
@@ -134,9 +133,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `SubscriberRecord?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `SubscriberRecord?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> SubscriberRecord? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -150,7 +149,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `SubscriberRecord` structured value to the stream.
     ///
-    /// - parameter _: `SubscriberRecord` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: SubscriberRecord) {
         self.write(v.topicName)
         self.write(v.id)
@@ -163,9 +162,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `SubscriberRecord?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SubscriberRecord?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: SubscriberRecord?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -184,9 +182,9 @@ public typealias SubscriberRecordSeq = [SubscriberRecord]
 public struct SubscriberRecordSeqHelper {
     /// Read a `SubscriberRecordSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `SubscriberRecordSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> SubscriberRecordSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 13)
         var v = SubscriberRecordSeq()
@@ -197,13 +195,13 @@ public struct SubscriberRecordSeqHelper {
         }
         return v
     }
+
     /// Read an optional `SubscriberRecordSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `SubscriberRecordSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> SubscriberRecordSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -212,11 +210,10 @@ public struct SubscriberRecordSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `SubscriberRecordSeq` sequence to the stream.
+    /// Write a `SubscriberRecordSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `SubscriberRecordSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: SubscriberRecordSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -224,13 +221,12 @@ public struct SubscriberRecordSeqHelper {
         }
     }
 
-    /// Wite an optional `SubscriberRecordSeq?` sequence to the stream.
+    /// Write an optional `SubscriberRecordSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SubscriberRecordSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: SubscriberRecordSeq?) {
         guard let val = v else {
             return

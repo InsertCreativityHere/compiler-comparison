@@ -24,9 +24,9 @@ public typealias StringStringDict = [Swift.String: Swift.String]
 public struct StringStringDictHelper {
     /// Read a `StringStringDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `StringStringDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> StringStringDict {
         let sz = try Swift.Int(istr.readSize())
         var v = StringStringDict()
@@ -37,13 +37,13 @@ public struct StringStringDictHelper {
         }
         return v
     }
+
     /// Read an optional `StringStringDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `StringStringDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> StringStringDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -52,11 +52,10 @@ public struct StringStringDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `StringStringDict` dictionary to the stream.
+    /// Write a `StringStringDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `StringStringDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: StringStringDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -65,13 +64,12 @@ public struct StringStringDictHelper {
         }
     }
 
-    /// Wite an optional `StringStringDict?` dictionary to the stream.
+    /// Write an optional `StringStringDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `StringStringDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: StringStringDict?) {
         guard let val = v else {
             return
@@ -103,7 +101,7 @@ public struct PropertyDescriptor: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `PropertyDescriptor` structured value from the stream.
     ///
-    /// - returns: `PropertyDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> PropertyDescriptor {
         var v = PropertyDescriptor()
         v.name = try self.read()
@@ -113,9 +111,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `PropertyDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `PropertyDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> PropertyDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -129,7 +127,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `PropertyDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `PropertyDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: PropertyDescriptor) {
         self.write(v.name)
         self.write(v.value)
@@ -137,9 +135,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `PropertyDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `PropertyDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: PropertyDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -159,9 +156,9 @@ public typealias PropertyDescriptorSeq = [PropertyDescriptor]
 public struct PropertyDescriptorSeqHelper {
     /// Read a `PropertyDescriptorSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `PropertyDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> PropertyDescriptorSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 2)
         var v = PropertyDescriptorSeq()
@@ -172,13 +169,13 @@ public struct PropertyDescriptorSeqHelper {
         }
         return v
     }
+
     /// Read an optional `PropertyDescriptorSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `PropertyDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> PropertyDescriptorSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -187,11 +184,10 @@ public struct PropertyDescriptorSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `PropertyDescriptorSeq` sequence to the stream.
+    /// Write a `PropertyDescriptorSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `PropertyDescriptorSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: PropertyDescriptorSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -199,13 +195,12 @@ public struct PropertyDescriptorSeqHelper {
         }
     }
 
-    /// Wite an optional `PropertyDescriptorSeq?` sequence to the stream.
+    /// Write an optional `PropertyDescriptorSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `PropertyDescriptorSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: PropertyDescriptorSeq?) {
         guard let val = v else {
             return
@@ -237,7 +232,7 @@ public struct PropertySetDescriptor {
 public extension Ice.InputStream {
     /// Read a `PropertySetDescriptor` structured value from the stream.
     ///
-    /// - returns: `PropertySetDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> PropertySetDescriptor {
         var v = PropertySetDescriptor()
         v.references = try self.read()
@@ -247,9 +242,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `PropertySetDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `PropertySetDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> PropertySetDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -263,7 +258,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `PropertySetDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `PropertySetDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: PropertySetDescriptor) {
         self.write(v.references)
         PropertyDescriptorSeqHelper.write(to: self, value: v.properties)
@@ -271,9 +266,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `PropertySetDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `PropertySetDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: PropertySetDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -293,9 +287,9 @@ public typealias PropertySetDescriptorDict = [Swift.String: PropertySetDescripto
 public struct PropertySetDescriptorDictHelper {
     /// Read a `PropertySetDescriptorDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `PropertySetDescriptorDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> PropertySetDescriptorDict {
         let sz = try Swift.Int(istr.readSize())
         var v = PropertySetDescriptorDict()
@@ -306,13 +300,13 @@ public struct PropertySetDescriptorDictHelper {
         }
         return v
     }
+
     /// Read an optional `PropertySetDescriptorDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `PropertySetDescriptorDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> PropertySetDescriptorDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -321,11 +315,10 @@ public struct PropertySetDescriptorDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `PropertySetDescriptorDict` dictionary to the stream.
+    /// Write a `PropertySetDescriptorDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `PropertySetDescriptorDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: PropertySetDescriptorDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -334,13 +327,12 @@ public struct PropertySetDescriptorDictHelper {
         }
     }
 
-    /// Wite an optional `PropertySetDescriptorDict?` dictionary to the stream.
+    /// Write an optional `PropertySetDescriptorDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `PropertySetDescriptorDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: PropertySetDescriptorDict?) {
         guard let val = v else {
             return
@@ -376,7 +368,7 @@ public struct ObjectDescriptor: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `ObjectDescriptor` structured value from the stream.
     ///
-    /// - returns: `ObjectDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ObjectDescriptor {
         var v = ObjectDescriptor()
         v.id = try self.read()
@@ -387,9 +379,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ObjectDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ObjectDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ObjectDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -403,7 +395,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ObjectDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `ObjectDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ObjectDescriptor) {
         self.write(v.id)
         self.write(v.type)
@@ -412,9 +404,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ObjectDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ObjectDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ObjectDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -434,9 +425,9 @@ public typealias ObjectDescriptorSeq = [ObjectDescriptor]
 public struct ObjectDescriptorSeqHelper {
     /// Read a `ObjectDescriptorSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ObjectDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ObjectDescriptorSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 4)
         var v = ObjectDescriptorSeq()
@@ -447,13 +438,13 @@ public struct ObjectDescriptorSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ObjectDescriptorSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ObjectDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ObjectDescriptorSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -462,11 +453,10 @@ public struct ObjectDescriptorSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ObjectDescriptorSeq` sequence to the stream.
+    /// Write a `ObjectDescriptorSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ObjectDescriptorSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ObjectDescriptorSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -474,13 +464,12 @@ public struct ObjectDescriptorSeqHelper {
         }
     }
 
-    /// Wite an optional `ObjectDescriptorSeq?` sequence to the stream.
+    /// Write an optional `ObjectDescriptorSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ObjectDescriptorSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ObjectDescriptorSeq?) {
         guard let val = v else {
             return
@@ -536,7 +525,7 @@ public struct AdapterDescriptor {
 public extension Ice.InputStream {
     /// Read a `AdapterDescriptor` structured value from the stream.
     ///
-    /// - returns: `AdapterDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> AdapterDescriptor {
         var v = AdapterDescriptor()
         v.name = try self.read()
@@ -553,9 +542,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `AdapterDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `AdapterDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> AdapterDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -569,7 +558,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `AdapterDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `AdapterDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: AdapterDescriptor) {
         self.write(v.name)
         self.write(v.description)
@@ -584,9 +573,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `AdapterDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `AdapterDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: AdapterDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -606,9 +594,9 @@ public typealias AdapterDescriptorSeq = [AdapterDescriptor]
 public struct AdapterDescriptorSeqHelper {
     /// Read a `AdapterDescriptorSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `AdapterDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> AdapterDescriptorSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 9)
         var v = AdapterDescriptorSeq()
@@ -619,13 +607,13 @@ public struct AdapterDescriptorSeqHelper {
         }
         return v
     }
+
     /// Read an optional `AdapterDescriptorSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `AdapterDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> AdapterDescriptorSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -634,11 +622,10 @@ public struct AdapterDescriptorSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `AdapterDescriptorSeq` sequence to the stream.
+    /// Write a `AdapterDescriptorSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `AdapterDescriptorSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: AdapterDescriptorSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -646,13 +633,12 @@ public struct AdapterDescriptorSeqHelper {
         }
     }
 
-    /// Wite an optional `AdapterDescriptorSeq?` sequence to the stream.
+    /// Write an optional `AdapterDescriptorSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `AdapterDescriptorSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: AdapterDescriptorSeq?) {
         guard let val = v else {
             return
@@ -686,7 +672,7 @@ public struct DistributionDescriptor {
 public extension Ice.InputStream {
     /// Read a `DistributionDescriptor` structured value from the stream.
     ///
-    /// - returns: `DistributionDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> DistributionDescriptor {
         var v = DistributionDescriptor()
         v.icepatch = try self.read()
@@ -696,9 +682,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `DistributionDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `DistributionDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> DistributionDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -712,7 +698,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `DistributionDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `DistributionDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: DistributionDescriptor) {
         self.write(v.icepatch)
         self.write(v.directories)
@@ -720,9 +706,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `DistributionDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `DistributionDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: DistributionDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -742,9 +727,9 @@ public typealias ServerDescriptorSeq = [ServerDescriptor?]
 public struct ServerDescriptorSeqHelper {
     /// Read a `ServerDescriptorSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ServerDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ServerDescriptorSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = ServerDescriptorSeq(repeating: nil, count: sz)
@@ -755,13 +740,13 @@ public struct ServerDescriptorSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ServerDescriptorSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ServerDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ServerDescriptorSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -770,11 +755,10 @@ public struct ServerDescriptorSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ServerDescriptorSeq` sequence to the stream.
+    /// Write a `ServerDescriptorSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ServerDescriptorSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ServerDescriptorSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -782,13 +766,12 @@ public struct ServerDescriptorSeqHelper {
         }
     }
 
-    /// Wite an optional `ServerDescriptorSeq?` sequence to the stream.
+    /// Write an optional `ServerDescriptorSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ServerDescriptorSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ServerDescriptorSeq?) {
         guard let val = v else {
             return
@@ -809,9 +792,9 @@ public typealias ServiceDescriptorSeq = [ServiceDescriptor?]
 public struct ServiceDescriptorSeqHelper {
     /// Read a `ServiceDescriptorSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ServiceDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ServiceDescriptorSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = ServiceDescriptorSeq(repeating: nil, count: sz)
@@ -822,13 +805,13 @@ public struct ServiceDescriptorSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ServiceDescriptorSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ServiceDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ServiceDescriptorSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -837,11 +820,10 @@ public struct ServiceDescriptorSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ServiceDescriptorSeq` sequence to the stream.
+    /// Write a `ServiceDescriptorSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ServiceDescriptorSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ServiceDescriptorSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -849,13 +831,12 @@ public struct ServiceDescriptorSeqHelper {
         }
     }
 
-    /// Wite an optional `ServiceDescriptorSeq?` sequence to the stream.
+    /// Write an optional `ServiceDescriptorSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ServiceDescriptorSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ServiceDescriptorSeq?) {
         guard let val = v else {
             return
@@ -894,7 +875,7 @@ public struct ServerInstanceDescriptor {
 public extension Ice.InputStream {
     /// Read a `ServerInstanceDescriptor` structured value from the stream.
     ///
-    /// - returns: `ServerInstanceDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ServerInstanceDescriptor {
         var v = ServerInstanceDescriptor()
         v.template = try self.read()
@@ -906,9 +887,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ServerInstanceDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ServerInstanceDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ServerInstanceDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -922,7 +903,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ServerInstanceDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `ServerInstanceDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ServerInstanceDescriptor) {
         self.write(v.template)
         StringStringDictHelper.write(to: self, value: v.parameterValues)
@@ -932,9 +913,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ServerInstanceDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ServerInstanceDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ServerInstanceDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -954,9 +934,9 @@ public typealias ServerInstanceDescriptorSeq = [ServerInstanceDescriptor]
 public struct ServerInstanceDescriptorSeqHelper {
     /// Read a `ServerInstanceDescriptorSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ServerInstanceDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ServerInstanceDescriptorSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 5)
         var v = ServerInstanceDescriptorSeq()
@@ -967,13 +947,13 @@ public struct ServerInstanceDescriptorSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ServerInstanceDescriptorSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ServerInstanceDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ServerInstanceDescriptorSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -982,11 +962,10 @@ public struct ServerInstanceDescriptorSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ServerInstanceDescriptorSeq` sequence to the stream.
+    /// Write a `ServerInstanceDescriptorSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ServerInstanceDescriptorSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ServerInstanceDescriptorSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -994,13 +973,12 @@ public struct ServerInstanceDescriptorSeqHelper {
         }
     }
 
-    /// Wite an optional `ServerInstanceDescriptorSeq?` sequence to the stream.
+    /// Write an optional `ServerInstanceDescriptorSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ServerInstanceDescriptorSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ServerInstanceDescriptorSeq?) {
         guard let val = v else {
             return
@@ -1035,7 +1013,7 @@ public class TemplateDescriptor {
 public extension Ice.InputStream {
     /// Read a `TemplateDescriptor` structured value from the stream.
     ///
-    /// - returns: `TemplateDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> TemplateDescriptor {
         let v = TemplateDescriptor()
         try self.read(CommunicatorDescriptor.self) { v.descriptor = $0 }
@@ -1046,9 +1024,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `TemplateDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `TemplateDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> TemplateDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1062,7 +1040,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `TemplateDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `TemplateDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: TemplateDescriptor) {
         self.write(v.descriptor)
         self.write(v.parameters)
@@ -1071,9 +1049,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `TemplateDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `TemplateDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: TemplateDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1093,9 +1070,9 @@ public typealias TemplateDescriptorDict = [Swift.String: TemplateDescriptor]
 public struct TemplateDescriptorDictHelper {
     /// Read a `TemplateDescriptorDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `TemplateDescriptorDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> TemplateDescriptorDict {
         let sz = try Swift.Int(istr.readSize())
         var v = TemplateDescriptorDict()
@@ -1106,13 +1083,13 @@ public struct TemplateDescriptorDictHelper {
         }
         return v
     }
+
     /// Read an optional `TemplateDescriptorDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `TemplateDescriptorDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> TemplateDescriptorDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1121,11 +1098,10 @@ public struct TemplateDescriptorDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `TemplateDescriptorDict` dictionary to the stream.
+    /// Write a `TemplateDescriptorDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `TemplateDescriptorDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: TemplateDescriptorDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -1134,13 +1110,12 @@ public struct TemplateDescriptorDictHelper {
         }
     }
 
-    /// Wite an optional `TemplateDescriptorDict?` dictionary to the stream.
+    /// Write an optional `TemplateDescriptorDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `TemplateDescriptorDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: TemplateDescriptorDict?) {
         guard let val = v else {
             return
@@ -1178,7 +1153,7 @@ public class ServiceInstanceDescriptor {
 public extension Ice.InputStream {
     /// Read a `ServiceInstanceDescriptor` structured value from the stream.
     ///
-    /// - returns: `ServiceInstanceDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ServiceInstanceDescriptor {
         let v = ServiceInstanceDescriptor()
         v.template = try self.read()
@@ -1190,9 +1165,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ServiceInstanceDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ServiceInstanceDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ServiceInstanceDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1206,7 +1181,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ServiceInstanceDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `ServiceInstanceDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ServiceInstanceDescriptor) {
         self.write(v.template)
         StringStringDictHelper.write(to: self, value: v.parameterValues)
@@ -1216,9 +1191,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ServiceInstanceDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ServiceInstanceDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ServiceInstanceDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1238,9 +1212,9 @@ public typealias ServiceInstanceDescriptorSeq = [ServiceInstanceDescriptor]
 public struct ServiceInstanceDescriptorSeqHelper {
     /// Read a `ServiceInstanceDescriptorSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ServiceInstanceDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ServiceInstanceDescriptorSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 5)
         var v = ServiceInstanceDescriptorSeq()
@@ -1251,13 +1225,13 @@ public struct ServiceInstanceDescriptorSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ServiceInstanceDescriptorSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ServiceInstanceDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ServiceInstanceDescriptorSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1266,11 +1240,10 @@ public struct ServiceInstanceDescriptorSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ServiceInstanceDescriptorSeq` sequence to the stream.
+    /// Write a `ServiceInstanceDescriptorSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ServiceInstanceDescriptorSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ServiceInstanceDescriptorSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1278,13 +1251,12 @@ public struct ServiceInstanceDescriptorSeqHelper {
         }
     }
 
-    /// Wite an optional `ServiceInstanceDescriptorSeq?` sequence to the stream.
+    /// Write an optional `ServiceInstanceDescriptorSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ServiceInstanceDescriptorSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ServiceInstanceDescriptorSeq?) {
         guard let val = v else {
             return
@@ -1328,7 +1300,7 @@ public class NodeDescriptor {
 public extension Ice.InputStream {
     /// Read a `NodeDescriptor` structured value from the stream.
     ///
-    /// - returns: `NodeDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> NodeDescriptor {
         let v = NodeDescriptor()
         v.variables = try StringStringDictHelper.read(from: self)
@@ -1342,9 +1314,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `NodeDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `NodeDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> NodeDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1358,7 +1330,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `NodeDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `NodeDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: NodeDescriptor) {
         StringStringDictHelper.write(to: self, value: v.variables)
         ServerInstanceDescriptorSeqHelper.write(to: self, value: v.serverInstances)
@@ -1370,9 +1342,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `NodeDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `NodeDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: NodeDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1392,9 +1363,9 @@ public typealias NodeDescriptorDict = [Swift.String: NodeDescriptor]
 public struct NodeDescriptorDictHelper {
     /// Read a `NodeDescriptorDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `NodeDescriptorDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> NodeDescriptorDict {
         let sz = try Swift.Int(istr.readSize())
         var v = NodeDescriptorDict()
@@ -1405,13 +1376,13 @@ public struct NodeDescriptorDictHelper {
         }
         return v
     }
+
     /// Read an optional `NodeDescriptorDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `NodeDescriptorDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> NodeDescriptorDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1420,11 +1391,10 @@ public struct NodeDescriptorDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `NodeDescriptorDict` dictionary to the stream.
+    /// Write a `NodeDescriptorDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `NodeDescriptorDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: NodeDescriptorDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -1433,13 +1403,12 @@ public struct NodeDescriptorDictHelper {
         }
     }
 
-    /// Wite an optional `NodeDescriptorDict?` dictionary to the stream.
+    /// Write an optional `NodeDescriptorDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `NodeDescriptorDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: NodeDescriptorDict?) {
         guard let val = v else {
             return
@@ -1483,7 +1452,7 @@ public class ReplicaGroupDescriptor {
 public extension Ice.InputStream {
     /// Read a `ReplicaGroupDescriptor` structured value from the stream.
     ///
-    /// - returns: `ReplicaGroupDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ReplicaGroupDescriptor {
         let v = ReplicaGroupDescriptor()
         v.id = try self.read()
@@ -1497,9 +1466,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ReplicaGroupDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ReplicaGroupDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ReplicaGroupDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1513,7 +1482,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ReplicaGroupDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `ReplicaGroupDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ReplicaGroupDescriptor) {
         self.write(v.id)
         self.write(v.loadBalancing)
@@ -1525,9 +1494,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ReplicaGroupDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ReplicaGroupDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ReplicaGroupDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1547,9 +1515,9 @@ public typealias ReplicaGroupDescriptorSeq = [ReplicaGroupDescriptor]
 public struct ReplicaGroupDescriptorSeqHelper {
     /// Read a `ReplicaGroupDescriptorSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ReplicaGroupDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ReplicaGroupDescriptorSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 6)
         var v = ReplicaGroupDescriptorSeq()
@@ -1560,13 +1528,13 @@ public struct ReplicaGroupDescriptorSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ReplicaGroupDescriptorSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ReplicaGroupDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ReplicaGroupDescriptorSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1575,11 +1543,10 @@ public struct ReplicaGroupDescriptorSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ReplicaGroupDescriptorSeq` sequence to the stream.
+    /// Write a `ReplicaGroupDescriptorSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ReplicaGroupDescriptorSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ReplicaGroupDescriptorSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1587,13 +1554,12 @@ public struct ReplicaGroupDescriptorSeqHelper {
         }
     }
 
-    /// Wite an optional `ReplicaGroupDescriptorSeq?` sequence to the stream.
+    /// Write an optional `ReplicaGroupDescriptorSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ReplicaGroupDescriptorSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ReplicaGroupDescriptorSeq?) {
         guard let val = v else {
             return
@@ -1646,7 +1612,7 @@ public class ApplicationDescriptor {
 public extension Ice.InputStream {
     /// Read a `ApplicationDescriptor` structured value from the stream.
     ///
-    /// - returns: `ApplicationDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ApplicationDescriptor {
         let v = ApplicationDescriptor()
         v.name = try self.read()
@@ -1663,9 +1629,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ApplicationDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ApplicationDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ApplicationDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1679,7 +1645,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ApplicationDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `ApplicationDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ApplicationDescriptor) {
         self.write(v.name)
         StringStringDictHelper.write(to: self, value: v.variables)
@@ -1694,9 +1660,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ApplicationDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ApplicationDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ApplicationDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1716,9 +1681,9 @@ public typealias ApplicationDescriptorSeq = [ApplicationDescriptor]
 public struct ApplicationDescriptorSeqHelper {
     /// Read a `ApplicationDescriptorSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ApplicationDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ApplicationDescriptorSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 10)
         var v = ApplicationDescriptorSeq()
@@ -1729,13 +1694,13 @@ public struct ApplicationDescriptorSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ApplicationDescriptorSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ApplicationDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ApplicationDescriptorSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1744,11 +1709,10 @@ public struct ApplicationDescriptorSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ApplicationDescriptorSeq` sequence to the stream.
+    /// Write a `ApplicationDescriptorSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ApplicationDescriptorSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ApplicationDescriptorSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1756,13 +1720,12 @@ public struct ApplicationDescriptorSeqHelper {
         }
     }
 
-    /// Wite an optional `ApplicationDescriptorSeq?` sequence to the stream.
+    /// Write an optional `ApplicationDescriptorSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ApplicationDescriptorSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ApplicationDescriptorSeq?) {
         guard let val = v else {
             return
@@ -1818,7 +1781,7 @@ public class NodeUpdateDescriptor {
 public extension Ice.InputStream {
     /// Read a `NodeUpdateDescriptor` structured value from the stream.
     ///
-    /// - returns: `NodeUpdateDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> NodeUpdateDescriptor {
         let v = NodeUpdateDescriptor()
         v.name = try self.read()
@@ -1836,9 +1799,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `NodeUpdateDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `NodeUpdateDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> NodeUpdateDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1852,7 +1815,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `NodeUpdateDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `NodeUpdateDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: NodeUpdateDescriptor) {
         self.write(v.name)
         self.write(v.description)
@@ -1868,9 +1831,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `NodeUpdateDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `NodeUpdateDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: NodeUpdateDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1890,9 +1852,9 @@ public typealias NodeUpdateDescriptorSeq = [NodeUpdateDescriptor]
 public struct NodeUpdateDescriptorSeqHelper {
     /// Read a `NodeUpdateDescriptorSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `NodeUpdateDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> NodeUpdateDescriptorSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 10)
         var v = NodeUpdateDescriptorSeq()
@@ -1903,13 +1865,13 @@ public struct NodeUpdateDescriptorSeqHelper {
         }
         return v
     }
+
     /// Read an optional `NodeUpdateDescriptorSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `NodeUpdateDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> NodeUpdateDescriptorSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1918,11 +1880,10 @@ public struct NodeUpdateDescriptorSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `NodeUpdateDescriptorSeq` sequence to the stream.
+    /// Write a `NodeUpdateDescriptorSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `NodeUpdateDescriptorSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: NodeUpdateDescriptorSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1930,13 +1891,12 @@ public struct NodeUpdateDescriptorSeqHelper {
         }
     }
 
-    /// Wite an optional `NodeUpdateDescriptorSeq?` sequence to the stream.
+    /// Write an optional `NodeUpdateDescriptorSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `NodeUpdateDescriptorSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: NodeUpdateDescriptorSeq?) {
         guard let val = v else {
             return
@@ -2007,7 +1967,7 @@ public class ApplicationUpdateDescriptor {
 public extension Ice.InputStream {
     /// Read a `ApplicationUpdateDescriptor` structured value from the stream.
     ///
-    /// - returns: `ApplicationUpdateDescriptor` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ApplicationUpdateDescriptor {
         let v = ApplicationUpdateDescriptor()
         v.name = try self.read()
@@ -2030,9 +1990,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ApplicationUpdateDescriptor?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ApplicationUpdateDescriptor?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ApplicationUpdateDescriptor? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -2046,7 +2006,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ApplicationUpdateDescriptor` structured value to the stream.
     ///
-    /// - parameter _: `ApplicationUpdateDescriptor` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ApplicationUpdateDescriptor) {
         self.write(v.name)
         self.write(v.description)
@@ -2067,9 +2027,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ApplicationUpdateDescriptor?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ApplicationUpdateDescriptor?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ApplicationUpdateDescriptor?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -2114,9 +2073,7 @@ open class CommunicatorDescriptor: Ice.Value {
         self.description = description
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::CommunicatorDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2203,9 +2160,7 @@ open class ServerDescriptor: CommunicatorDescriptor {
         super.init(adapters: adapters, propertySet: propertySet, logs: logs, description: description)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::ServerDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2277,9 +2232,7 @@ open class ServiceDescriptor: CommunicatorDescriptor {
         super.init(adapters: adapters, propertySet: propertySet, logs: logs, description: description)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::ServiceDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2326,9 +2279,7 @@ open class IceBoxDescriptor: ServerDescriptor {
         super.init(adapters: adapters, propertySet: propertySet, logs: logs, description: description, id: id, exe: exe, iceVersion: iceVersion, pwd: pwd, options: options, envs: envs, activation: activation, activationTimeout: activationTimeout, deactivationTimeout: deactivationTimeout, applicationDistrib: applicationDistrib, distrib: distrib, allocatable: allocatable, user: user)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::IceBoxDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2370,9 +2321,7 @@ open class LoadBalancingPolicy: Ice.Value {
         self.nReplicas = nReplicas
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::LoadBalancingPolicy" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2403,9 +2352,7 @@ public extension Ice.ClassResolver {
 
 /// Random load balancing policy.
 open class RandomLoadBalancingPolicy: LoadBalancingPolicy {
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::RandomLoadBalancingPolicy" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2436,9 +2383,7 @@ public extension Ice.ClassResolver {
 
 /// Ordered load balancing policy.
 open class OrderedLoadBalancingPolicy: LoadBalancingPolicy {
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::OrderedLoadBalancingPolicy" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2469,9 +2414,7 @@ public extension Ice.ClassResolver {
 
 /// Round robin load balancing policy.
 open class RoundRobinLoadBalancingPolicy: LoadBalancingPolicy {
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::RoundRobinLoadBalancingPolicy" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2515,9 +2458,7 @@ open class AdaptiveLoadBalancingPolicy: LoadBalancingPolicy {
         super.init(nReplicas: nReplicas)
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::AdaptiveLoadBalancingPolicy" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2559,9 +2500,7 @@ open class BoxedString: Ice.Value {
         self.value = value
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::BoxedString" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2601,9 +2540,7 @@ open class BoxedDistributionDescriptor: Ice.Value {
         self.value = value
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::BoxedDistributionDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

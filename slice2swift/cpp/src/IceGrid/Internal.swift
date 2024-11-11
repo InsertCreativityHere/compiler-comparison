@@ -23,9 +23,9 @@ public typealias InternalDbEnvDescriptorSeq = [InternalDbEnvDescriptor?]
 public struct InternalDbEnvDescriptorSeqHelper {
     /// Read a `InternalDbEnvDescriptorSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InternalDbEnvDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InternalDbEnvDescriptorSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = InternalDbEnvDescriptorSeq(repeating: nil, count: sz)
@@ -36,13 +36,13 @@ public struct InternalDbEnvDescriptorSeqHelper {
         }
         return v
     }
+
     /// Read an optional `InternalDbEnvDescriptorSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InternalDbEnvDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InternalDbEnvDescriptorSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -51,11 +51,10 @@ public struct InternalDbEnvDescriptorSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InternalDbEnvDescriptorSeq` sequence to the stream.
+    /// Write a `InternalDbEnvDescriptorSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InternalDbEnvDescriptorSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InternalDbEnvDescriptorSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -63,13 +62,12 @@ public struct InternalDbEnvDescriptorSeqHelper {
         }
     }
 
-    /// Wite an optional `InternalDbEnvDescriptorSeq?` sequence to the stream.
+    /// Write an optional `InternalDbEnvDescriptorSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InternalDbEnvDescriptorSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: InternalDbEnvDescriptorSeq?) {
         guard let val = v else {
             return
@@ -89,9 +87,9 @@ public typealias InternalAdapterDescriptorSeq = [InternalAdapterDescriptor?]
 public struct InternalAdapterDescriptorSeqHelper {
     /// Read a `InternalAdapterDescriptorSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InternalAdapterDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InternalAdapterDescriptorSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = InternalAdapterDescriptorSeq(repeating: nil, count: sz)
@@ -102,13 +100,13 @@ public struct InternalAdapterDescriptorSeqHelper {
         }
         return v
     }
+
     /// Read an optional `InternalAdapterDescriptorSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InternalAdapterDescriptorSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InternalAdapterDescriptorSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -117,11 +115,10 @@ public struct InternalAdapterDescriptorSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InternalAdapterDescriptorSeq` sequence to the stream.
+    /// Write a `InternalAdapterDescriptorSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InternalAdapterDescriptorSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InternalAdapterDescriptorSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -129,13 +126,12 @@ public struct InternalAdapterDescriptorSeqHelper {
         }
     }
 
-    /// Wite an optional `InternalAdapterDescriptorSeq?` sequence to the stream.
+    /// Write an optional `InternalAdapterDescriptorSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InternalAdapterDescriptorSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: InternalAdapterDescriptorSeq?) {
         guard let val = v else {
             return
@@ -155,9 +151,9 @@ public typealias PropertyDescriptorSeqDict = [Swift.String: PropertyDescriptorSe
 public struct PropertyDescriptorSeqDictHelper {
     /// Read a `PropertyDescriptorSeqDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `PropertyDescriptorSeqDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> PropertyDescriptorSeqDict {
         let sz = try Swift.Int(istr.readSize())
         var v = PropertyDescriptorSeqDict()
@@ -168,13 +164,13 @@ public struct PropertyDescriptorSeqDictHelper {
         }
         return v
     }
+
     /// Read an optional `PropertyDescriptorSeqDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `PropertyDescriptorSeqDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> PropertyDescriptorSeqDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -183,11 +179,10 @@ public struct PropertyDescriptorSeqDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `PropertyDescriptorSeqDict` dictionary to the stream.
+    /// Write a `PropertyDescriptorSeqDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `PropertyDescriptorSeqDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: PropertyDescriptorSeqDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -196,13 +191,12 @@ public struct PropertyDescriptorSeqDictHelper {
         }
     }
 
-    /// Wite an optional `PropertyDescriptorSeqDict?` dictionary to the stream.
+    /// Write an optional `PropertyDescriptorSeqDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `PropertyDescriptorSeqDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: PropertyDescriptorSeqDict?) {
         guard let val = v else {
             return
@@ -230,9 +224,7 @@ public extension Ice.ClassResolver {
 
 /// This exception is raised if an adapter is active.
 open class AdapterActiveException: Ice.UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::AdapterActiveException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -269,9 +261,7 @@ open class AdapterNotActiveException: Ice.UserException, @unchecked Sendable {
         self.activatable = activatable
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::AdapterNotActiveException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -287,7 +277,7 @@ open class AdapterNotActiveException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`Adapter`.
+/// Traits for Slice interface `Adapter`.
 public struct AdapterTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::Adapter"]
     public static let staticId = "::IceGrid::Adapter"
@@ -316,9 +306,7 @@ open class AdapterExistsException: Ice.UserException, @unchecked Sendable {
         self.id = id
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::AdapterExistsException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -341,9 +329,9 @@ public typealias AdapterPrxDict = [Swift.String: AdapterPrx?]
 public struct AdapterPrxDictHelper {
     /// Read a `AdapterPrxDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `AdapterPrxDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> AdapterPrxDict {
         let sz = try Swift.Int(istr.readSize())
         var v = AdapterPrxDict()
@@ -354,13 +342,13 @@ public struct AdapterPrxDictHelper {
         }
         return v
     }
+
     /// Read an optional `AdapterPrxDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `AdapterPrxDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> AdapterPrxDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -369,11 +357,10 @@ public struct AdapterPrxDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `AdapterPrxDict` dictionary to the stream.
+    /// Write a `AdapterPrxDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `AdapterPrxDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: AdapterPrxDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -382,13 +369,12 @@ public struct AdapterPrxDictHelper {
         }
     }
 
-    /// Wite an optional `AdapterPrxDict?` dictionary to the stream.
+    /// Write an optional `AdapterPrxDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `AdapterPrxDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: AdapterPrxDict?) {
         guard let val = v else {
             return
@@ -401,13 +387,13 @@ public struct AdapterPrxDictHelper {
     }
 }
 
-/// Traits for Slice interface`FileReader`.
+/// Traits for Slice interface `FileReader`.
 public struct FileReaderTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileReader"]
     public static let staticId = "::IceGrid::FileReader"
 }
 
-/// Traits for Slice interface`Server`.
+/// Traits for Slice interface `Server`.
 public struct ServerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileReader", "::IceGrid::Server"]
     public static let staticId = "::IceGrid::Server"
@@ -420,9 +406,9 @@ public typealias InternalRegistryPrxSeq = [InternalRegistryPrx?]
 public struct InternalRegistryPrxSeqHelper {
     /// Read a `InternalRegistryPrxSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InternalRegistryPrxSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InternalRegistryPrxSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 2)
         var v = InternalRegistryPrxSeq()
@@ -433,13 +419,13 @@ public struct InternalRegistryPrxSeqHelper {
         }
         return v
     }
+
     /// Read an optional `InternalRegistryPrxSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InternalRegistryPrxSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InternalRegistryPrxSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -448,11 +434,10 @@ public struct InternalRegistryPrxSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InternalRegistryPrxSeq` sequence to the stream.
+    /// Write a `InternalRegistryPrxSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InternalRegistryPrxSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InternalRegistryPrxSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -460,13 +445,12 @@ public struct InternalRegistryPrxSeqHelper {
         }
     }
 
-    /// Wite an optional `InternalRegistryPrxSeq?` sequence to the stream.
+    /// Write an optional `InternalRegistryPrxSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InternalRegistryPrxSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: InternalRegistryPrxSeq?) {
         guard let val = v else {
             return
@@ -479,13 +463,13 @@ public struct InternalRegistryPrxSeqHelper {
     }
 }
 
-/// Traits for Slice interface`ReplicaObserver`.
+/// Traits for Slice interface `ReplicaObserver`.
 public struct ReplicaObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::ReplicaObserver"]
     public static let staticId = "::IceGrid::ReplicaObserver"
 }
 
-/// Traits for Slice interface`Node`.
+/// Traits for Slice interface `Node`.
 public struct NodeTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileReader", "::IceGrid::Node", "::IceGrid::ReplicaObserver"]
     public static let staticId = "::IceGrid::Node"
@@ -498,9 +482,9 @@ public typealias NodePrxSeq = [NodePrx?]
 public struct NodePrxSeqHelper {
     /// Read a `NodePrxSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `NodePrxSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> NodePrxSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 2)
         var v = NodePrxSeq()
@@ -511,13 +495,13 @@ public struct NodePrxSeqHelper {
         }
         return v
     }
+
     /// Read an optional `NodePrxSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `NodePrxSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> NodePrxSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -526,11 +510,10 @@ public struct NodePrxSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `NodePrxSeq` sequence to the stream.
+    /// Write a `NodePrxSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `NodePrxSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: NodePrxSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -538,13 +521,12 @@ public struct NodePrxSeqHelper {
         }
     }
 
-    /// Wite an optional `NodePrxSeq?` sequence to the stream.
+    /// Write an optional `NodePrxSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `NodePrxSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: NodePrxSeq?) {
         guard let val = v else {
             return
@@ -572,9 +554,7 @@ public extension Ice.ClassResolver {
 
 /// This exception is raised if a node is already registered and active.
 open class NodeActiveException: Ice.UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::NodeActiveException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -588,7 +568,7 @@ open class NodeActiveException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// Traits for Slice interface`NodeSession`.
+/// Traits for Slice interface `NodeSession`.
 public struct NodeSessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::NodeSession"]
     public static let staticId = "::IceGrid::NodeSession"
@@ -609,9 +589,7 @@ public extension Ice.ClassResolver {
 
 /// This exception is raised if a replica is already registered and active.
 open class ReplicaActiveException: Ice.UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::ReplicaActiveException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -640,7 +618,7 @@ public enum TopicName: Swift.UInt8 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `TopicName` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> TopicName {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 4)
         guard let val = TopicName(rawValue: rawValue) else {
@@ -651,9 +629,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `TopicName` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> TopicName? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -666,16 +644,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `TopicName` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: TopicName) {
         write(enum: v.rawValue, maxValue: 4)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `TopicName` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: TopicName?) {
         guard let v = value else {
             return
@@ -684,7 +661,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface`DatabaseObserver`.
+/// Traits for Slice interface `DatabaseObserver`.
 public struct DatabaseObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::AdapterObserver", "::IceGrid::ApplicationObserver", "::IceGrid::DatabaseObserver", "::IceGrid::ObjectObserver"]
     public static let staticId = "::IceGrid::DatabaseObserver"
@@ -697,9 +674,9 @@ public typealias StringLongDict = [Swift.String: Swift.Int64]
 public struct StringLongDictHelper {
     /// Read a `StringLongDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `StringLongDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> StringLongDict {
         let sz = try Swift.Int(istr.readSize())
         var v = StringLongDict()
@@ -710,13 +687,13 @@ public struct StringLongDictHelper {
         }
         return v
     }
+
     /// Read an optional `StringLongDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `StringLongDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> StringLongDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -725,11 +702,10 @@ public struct StringLongDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `StringLongDict` dictionary to the stream.
+    /// Write a `StringLongDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `StringLongDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: StringLongDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -738,13 +714,12 @@ public struct StringLongDictHelper {
         }
     }
 
-    /// Wite an optional `StringLongDict?` dictionary to the stream.
+    /// Write an optional `StringLongDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `StringLongDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: StringLongDict?) {
         guard let val = v else {
             return
@@ -757,13 +732,13 @@ public struct StringLongDictHelper {
     }
 }
 
-/// Traits for Slice interface`ReplicaSession`.
+/// Traits for Slice interface `ReplicaSession`.
 public struct ReplicaSessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::ReplicaSession"]
     public static let staticId = "::IceGrid::ReplicaSession"
 }
 
-/// Traits for Slice interface`InternalRegistry`.
+/// Traits for Slice interface `InternalRegistry`.
 public struct InternalRegistryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileReader", "::IceGrid::InternalRegistry"]
     public static let staticId = "::IceGrid::InternalRegistry"
@@ -783,7 +758,9 @@ private final class AdapterPrxI: Ice.ObjectPrxI, AdapterPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: AdapterPrx.Protocol) throws -> AdapterPrx {
     try communicator.makeProxyImpl(proxyString) as AdapterPrxI
@@ -795,62 +772,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `AdapterPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `AdapterPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: AdapterPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> AdapterPrx? {
     return try await AdapterPrxI.checkedCast(prx: prx, facet: facet, context: context) as AdapterPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `AdapterPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `AdapterPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: AdapterPrx.Protocol, facet: Swift.String? = nil) -> AdapterPrx {
     return AdapterPrxI.uncheckedCast(prx: prx, facet: facet) as AdapterPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `AdapterPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: AdapterPrx.Protocol) -> Swift.String {
     return AdapterTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `AdapterPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `AdapterPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `AdapterPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: AdapterPrx.Protocol) throws -> AdapterPrx? {
         return try read() as AdapterPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `AdapterPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `AdapterPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: AdapterPrx.Protocol) throws -> AdapterPrx? {
         return try read(tag: tag) as AdapterPrxI?
     }
@@ -861,9 +833,7 @@ public extension AdapterPrx {
     /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
     /// adapter is inactive or the adapter direct proxy it's active.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ObjectPrx?`
+    /// - Parameter context: Optional request context.
     func activate(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "activate",
                                        mode: .Normal,
@@ -877,9 +847,9 @@ public extension AdapterPrx {
     /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
     /// contains the last known adapter endpoints.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A direct proxy containing the last known adapter endpoints if the adapter is already active.
+    /// - Returns: A direct proxy containing the last known adapter endpoints if the adapter is already active.
     func getDirectProxy(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "getDirectProxy",
                                        mode: .Idempotent,
@@ -899,13 +869,12 @@ public extension AdapterPrx {
 
     /// Set the direct proxy for this adapter.
     ///
-    /// - parameter _: `Ice.ObjectPrx?`
+    /// - Parameters:
+    ///   - iceP_proxy
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AdapterActiveException - The adapter is already active. It's not possible to override the direct proxy of
+    /// - Throws:
+    ///   - AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
     ///     an active adapter.
     func setDirectProxy(_ iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setDirectProxy",
@@ -938,7 +907,9 @@ private final class FileReaderPrxI: Ice.ObjectPrxI, FileReaderPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: FileReaderPrx.Protocol) throws -> FileReaderPrx {
     try communicator.makeProxyImpl(proxyString) as FileReaderPrxI
@@ -950,62 +921,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `FileReaderPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `FileReaderPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: FileReaderPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> FileReaderPrx? {
     return try await FileReaderPrxI.checkedCast(prx: prx, facet: facet, context: context) as FileReaderPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `FileReaderPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `FileReaderPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: FileReaderPrx.Protocol, facet: Swift.String? = nil) -> FileReaderPrx {
     return FileReaderPrxI.uncheckedCast(prx: prx, facet: facet) as FileReaderPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `FileReaderPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: FileReaderPrx.Protocol) -> Swift.String {
     return FileReaderTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `FileReaderPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `FileReaderPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `FileReaderPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: FileReaderPrx.Protocol) throws -> FileReaderPrx? {
         return try read() as FileReaderPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `FileReaderPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `FileReaderPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: FileReaderPrx.Protocol) throws -> FileReaderPrx? {
         return try read(tag: tag) as FileReaderPrxI?
     }
@@ -1014,13 +980,10 @@ public extension Ice.InputStream {
 public extension FileReaderPrx {
     /// Count the number of given lines from the end of the file and return the file offset.
     ///
-    /// - parameter filename: `Swift.String`
-    ///
-    /// - parameter lines: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int64`
+    /// - Parameters:
+    ///   - iceP_filename
+    ///   - iceP_lines
+    ///   - context: Optional request context.
     func getOffsetFromEnd(filename iceP_filename: Swift.String, lines iceP_lines: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Int64 {
         return try await _impl._invoke(operation: "getOffsetFromEnd",
                                        mode: .Idempotent,
@@ -1044,21 +1007,16 @@ public extension FileReaderPrx {
 
     /// Read lines (or size bytes) at the specified position from the given file.
     ///
-    /// - parameter filename: `Swift.String`
+    /// - Parameters:
+    ///   - iceP_filename
+    ///   - iceP_pos
+    ///   - iceP_size
+    ///   - context: Optional request context.
     ///
-    /// - parameter pos: `Swift.Int64`
-    ///
-    /// - parameter size: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.Bool, newPos: Swift.Int64, lines: Ice.StringSeq)`:
-    ///
-    ///   - returnValue: `Swift.Bool`
-    ///
-    ///   - newPos: `Swift.Int64`
-    ///
-    ///   - lines: `Ice.StringSeq`
+    /// - Returns:
+    ///   - returnValue
+    ///   - newPos
+    ///   - lines
     func read(filename iceP_filename: Swift.String, pos iceP_pos: Swift.Int64, size iceP_size: Swift.Int32, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, newPos: Swift.Int64, lines: Ice.StringSeq) {
         return try await _impl._invoke(operation: "read",
                                        mode: .Idempotent,
@@ -1098,7 +1056,9 @@ private final class ServerPrxI: Ice.ObjectPrxI, ServerPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ServerPrx.Protocol) throws -> ServerPrx {
     try communicator.makeProxyImpl(proxyString) as ServerPrxI
@@ -1110,62 +1070,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `ServerPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `ServerPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: ServerPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ServerPrx? {
     return try await ServerPrxI.checkedCast(prx: prx, facet: facet, context: context) as ServerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `ServerPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `ServerPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: ServerPrx.Protocol, facet: Swift.String? = nil) -> ServerPrx {
     return ServerPrxI.uncheckedCast(prx: prx, facet: facet) as ServerPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `ServerPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ServerPrx.Protocol) -> Swift.String {
     return ServerTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `ServerPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `ServerPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `ServerPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: ServerPrx.Protocol) throws -> ServerPrx? {
         return try read() as ServerPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `ServerPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `ServerPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: ServerPrx.Protocol) throws -> ServerPrx? {
         return try read(tag: tag) as ServerPrxI?
     }
@@ -1174,7 +1129,7 @@ public extension Ice.InputStream {
 public extension ServerPrx {
     /// Start the server.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func start(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "start",
                                        mode: .Normal,
@@ -1191,7 +1146,7 @@ public extension ServerPrx {
     /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
     /// configurable amount of time, it will be killed.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func stop(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "stop",
                                        mode: .Normal,
@@ -1207,17 +1162,15 @@ public extension ServerPrx {
 
     /// Check if the given server can be loaded on this node.
     ///
-    /// - parameter svr: `InternalServerDescriptor?`
+    /// - Parameters:
+    ///   - iceP_svr
+    ///   - iceP_noRestart
+    ///   - context: Optional request context.
     ///
-    /// - parameter noRestart: `Swift.Bool`
+    /// - Returns: True if the server is inactive.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool` - True if the server is inactive.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server can't be updated.
+    /// - Throws:
+    ///   - DeploymentException Raised if the server can't be updated.
     func checkUpdate(svr iceP_svr: InternalServerDescriptor?, noRestart iceP_noRestart: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "checkUpdate",
                                        mode: .Normal,
@@ -1242,9 +1195,9 @@ public extension ServerPrx {
 
     /// Enable or disable the server.
     ///
-    /// - parameter _: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_enable
+    ///   - context: Optional request context.
     func setEnabled(_ iceP_enable: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setEnabled",
                                        mode: .Normal,
@@ -1256,9 +1209,7 @@ public extension ServerPrx {
 
     /// Check if the server is enabled.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
+    /// - Parameter context: Optional request context.
     func isEnabled(context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "isEnabled",
                                        mode: .Idempotent,
@@ -1271,9 +1222,9 @@ public extension ServerPrx {
 
     /// Send signal to the server
     ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_signal
+    ///   - context: Optional request context.
     func sendSignal(_ iceP_signal: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sendSignal",
                                        mode: .Normal,
@@ -1292,11 +1243,10 @@ public extension ServerPrx {
 
     /// Write message on servers' stdout or stderr.
     ///
-    /// - parameter message: `Swift.String`
-    ///
-    /// - parameter fd: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_message
+    ///   - iceP_fd
+    ///   - context: Optional request context.
     func writeMessage(message iceP_message: Swift.String, fd iceP_fd: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "writeMessage",
                                        mode: .Normal,
@@ -1309,9 +1259,9 @@ public extension ServerPrx {
 
     /// Return the server state.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `ServerState` - The server state.
+    /// - Returns: The server state.
     func getState(context: Ice.Context? = nil) async throws -> ServerState {
         return try await _impl._invoke(operation: "getState",
                                        mode: .Idempotent,
@@ -1325,9 +1275,7 @@ public extension ServerPrx {
     /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
     /// it's the pid value returned by the fork() system call and converted to an integer.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
+    /// - Parameter context: Optional request context.
     func getPid(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getPid",
                                        mode: .Idempotent,
@@ -1340,9 +1288,9 @@ public extension ServerPrx {
 
     /// Set the process proxy.
     ///
-    /// - parameter _: `Ice.ProcessPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_proc
+    ///   - context: Optional request context.
     func setProcess(_ iceP_proc: Ice.ProcessPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setProcess",
                                        mode: .Normal,
@@ -1367,7 +1315,9 @@ private final class ReplicaObserverPrxI: Ice.ObjectPrxI, ReplicaObserverPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ReplicaObserverPrx.Protocol) throws -> ReplicaObserverPrx {
     try communicator.makeProxyImpl(proxyString) as ReplicaObserverPrxI
@@ -1379,62 +1329,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `ReplicaObserverPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `ReplicaObserverPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: ReplicaObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ReplicaObserverPrx? {
     return try await ReplicaObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ReplicaObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `ReplicaObserverPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `ReplicaObserverPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: ReplicaObserverPrx.Protocol, facet: Swift.String? = nil) -> ReplicaObserverPrx {
     return ReplicaObserverPrxI.uncheckedCast(prx: prx, facet: facet) as ReplicaObserverPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `ReplicaObserverPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ReplicaObserverPrx.Protocol) -> Swift.String {
     return ReplicaObserverTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `ReplicaObserverPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `ReplicaObserverPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `ReplicaObserverPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: ReplicaObserverPrx.Protocol) throws -> ReplicaObserverPrx? {
         return try read() as ReplicaObserverPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `ReplicaObserverPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `ReplicaObserverPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: ReplicaObserverPrx.Protocol) throws -> ReplicaObserverPrx? {
         return try read(tag: tag) as ReplicaObserverPrxI?
     }
@@ -1443,9 +1388,9 @@ public extension Ice.InputStream {
 public extension ReplicaObserverPrx {
     /// Initialization of the replica observer.
     ///
-    /// - parameter _: `InternalRegistryPrxSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_replicas
+    ///   - context: Optional request context.
     func replicaInit(_ iceP_replicas: InternalRegistryPrxSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "replicaInit",
                                        mode: .Normal,
@@ -1457,9 +1402,9 @@ public extension ReplicaObserverPrx {
 
     /// Notification that a replica has been added. The node should establish a session with this new replica.
     ///
-    /// - parameter _: `InternalRegistryPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_replica
+    ///   - context: Optional request context.
     func replicaAdded(_ iceP_replica: InternalRegistryPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "replicaAdded",
                                        mode: .Normal,
@@ -1471,9 +1416,9 @@ public extension ReplicaObserverPrx {
 
     /// Notification that a replica has been removed. The node should destroy the session to this replica.
     ///
-    /// - parameter _: `InternalRegistryPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_replica
+    ///   - context: Optional request context.
     func replicaRemoved(_ iceP_replica: InternalRegistryPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "replicaRemoved",
                                        mode: .Normal,
@@ -1498,7 +1443,9 @@ private final class NodePrxI: Ice.ObjectPrxI, NodePrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: NodePrx.Protocol) throws -> NodePrx {
     try communicator.makeProxyImpl(proxyString) as NodePrxI
@@ -1510,62 +1457,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `NodePrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `NodePrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: NodePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> NodePrx? {
     return try await NodePrxI.checkedCast(prx: prx, facet: facet, context: context) as NodePrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `NodePrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `NodePrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: NodePrx.Protocol, facet: Swift.String? = nil) -> NodePrx {
     return NodePrxI.uncheckedCast(prx: prx, facet: facet) as NodePrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `NodePrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: NodePrx.Protocol) -> Swift.String {
     return NodeTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `NodePrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `NodePrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `NodePrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: NodePrx.Protocol) throws -> NodePrx? {
         return try read() as NodePrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `NodePrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `NodePrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: NodePrx.Protocol) throws -> NodePrx? {
         return try read(tag: tag) as NodePrxI?
     }
@@ -1575,21 +1517,16 @@ public extension NodePrx {
     /// Load the given server. If the server resources weren't already created (database environment directories,
     /// property files, etc), they will be created. The returned proxy is never null.
     ///
-    /// - parameter svr: `InternalServerDescriptor?`
+    /// - Parameters:
+    ///   - iceP_svr
+    ///   - iceP_replicaName
+    ///   - context: Optional request context.
     ///
-    /// - parameter replicaName: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)`:
-    ///
-    ///   - returnValue: `ServerPrx?`
-    ///
-    ///   - adapters: `AdapterPrxDict`
-    ///
-    ///   - activateTimeout: `Swift.Int32`
-    ///
-    ///   - deactivateTimeout: `Swift.Int32`
+    /// - Returns:
+    ///   - returnValue
+    ///   - adapters
+    ///   - activateTimeout
+    ///   - deactivateTimeout
     func loadServer(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32) {
         return try await _impl._invoke(operation: "loadServer",
                                        mode: .Idempotent,
@@ -1619,21 +1556,16 @@ public extension NodePrx {
     /// (database environment directories, property files, etc), they will be created. If the server can't be updated
     /// without a restart, a DeploymentException is raised. The returned proxy is never null.
     ///
-    /// - parameter svr: `InternalServerDescriptor?`
+    /// - Parameters:
+    ///   - iceP_svr
+    ///   - iceP_replicaName
+    ///   - context: Optional request context.
     ///
-    /// - parameter replicaName: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)`:
-    ///
-    ///   - returnValue: `ServerPrx?`
-    ///
-    ///   - adapters: `AdapterPrxDict`
-    ///
-    ///   - activateTimeout: `Swift.Int32`
-    ///
-    ///   - deactivateTimeout: `Swift.Int32`
+    /// - Returns:
+    ///   - returnValue
+    ///   - adapters
+    ///   - activateTimeout
+    ///   - deactivateTimeout
     func loadServerWithoutRestart(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil) async throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32) {
         return try await _impl._invoke(operation: "loadServerWithoutRestart",
                                        mode: .Idempotent,
@@ -1661,15 +1593,12 @@ public extension NodePrx {
 
     /// Destroy the given server.
     ///
-    /// - parameter name: `Swift.String`
-    ///
-    /// - parameter uuid: `Swift.String`
-    ///
-    /// - parameter revision: `Swift.Int32`
-    ///
-    /// - parameter replicaName: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_name
+    ///   - iceP_uuid
+    ///   - iceP_revision
+    ///   - iceP_replicaName
+    ///   - context: Optional request context.
     func destroyServer(name iceP_name: Swift.String, uuid iceP_uuid: Swift.String, revision iceP_revision: Swift.Int32, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroyServer",
                                        mode: .Idempotent,
@@ -1691,15 +1620,12 @@ public extension NodePrx {
 
     /// Destroy the server if it's not active.
     ///
-    /// - parameter name: `Swift.String`
-    ///
-    /// - parameter uuid: `Swift.String`
-    ///
-    /// - parameter revision: `Swift.Int32`
-    ///
-    /// - parameter replicaName: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_name
+    ///   - iceP_uuid
+    ///   - iceP_revision
+    ///   - iceP_replicaName
+    ///   - context: Optional request context.
     func destroyServerWithoutRestart(name iceP_name: Swift.String, uuid iceP_uuid: Swift.String, revision iceP_revision: Swift.Int32, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroyServerWithoutRestart",
                                        mode: .Idempotent,
@@ -1722,9 +1648,9 @@ public extension NodePrx {
     /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
     /// replicaAdded below).
     ///
-    /// - parameter _: `InternalRegistryPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_replica
+    ///   - context: Optional request context.
     func registerWithReplica(_ iceP_replica: InternalRegistryPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "registerWithReplica",
                                        mode: .Normal,
@@ -1736,9 +1662,7 @@ public extension NodePrx {
 
     /// Get the node name.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
+    /// - Parameter context: Optional request context.
     func getName(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getName",
                                        mode: .Idempotent,
@@ -1751,9 +1675,7 @@ public extension NodePrx {
 
     /// Get the node hostname.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.String`
+    /// - Parameter context: Optional request context.
     func getHostname(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getHostname",
                                        mode: .Idempotent,
@@ -1766,9 +1688,7 @@ public extension NodePrx {
 
     /// Get the node load.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `LoadInfo`
+    /// - Parameter context: Optional request context.
     func getLoad(context: Ice.Context? = nil) async throws -> LoadInfo {
         return try await _impl._invoke(operation: "getLoad",
                                        mode: .Idempotent,
@@ -1781,9 +1701,7 @@ public extension NodePrx {
 
     /// Get the number of processor sockets for the machine where this node is running.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
+    /// - Parameter context: Optional request context.
     func getProcessorSocketCount(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getProcessorSocketCount",
                                        mode: .Idempotent,
@@ -1796,7 +1714,7 @@ public extension NodePrx {
 
     /// Shutdown the node.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Idempotent,
@@ -1818,7 +1736,9 @@ private final class NodeSessionPrxI: Ice.ObjectPrxI, NodeSessionPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: NodeSessionPrx.Protocol) throws -> NodeSessionPrx {
     try communicator.makeProxyImpl(proxyString) as NodeSessionPrxI
@@ -1830,62 +1750,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `NodeSessionPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `NodeSessionPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: NodeSessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> NodeSessionPrx? {
     return try await NodeSessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as NodeSessionPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `NodeSessionPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `NodeSessionPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: NodeSessionPrx.Protocol, facet: Swift.String? = nil) -> NodeSessionPrx {
     return NodeSessionPrxI.uncheckedCast(prx: prx, facet: facet) as NodeSessionPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `NodeSessionPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: NodeSessionPrx.Protocol) -> Swift.String {
     return NodeSessionTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `NodeSessionPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `NodeSessionPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `NodeSessionPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: NodeSessionPrx.Protocol) throws -> NodeSessionPrx? {
         return try read() as NodeSessionPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `NodeSessionPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `NodeSessionPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: NodeSessionPrx.Protocol) throws -> NodeSessionPrx? {
         return try read(tag: tag) as NodeSessionPrxI?
     }
@@ -1894,9 +1809,9 @@ public extension Ice.InputStream {
 public extension NodeSessionPrx {
     /// The node call this method to keep the session alive.
     ///
-    /// - parameter _: `LoadInfo`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_load
+    ///   - context: Optional request context.
     func keepAlive(_ iceP_load: LoadInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "keepAlive",
                                        mode: .Normal,
@@ -1909,9 +1824,9 @@ public extension NodeSessionPrx {
     /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
     /// It only calls this for the session with the master.
     ///
-    /// - parameter _: `ReplicaObserverPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_observer
+    ///   - context: Optional request context.
     func setReplicaObserver(_ iceP_observer: ReplicaObserverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setReplicaObserver",
                                        mode: .Normal,
@@ -1923,9 +1838,7 @@ public extension NodeSessionPrx {
 
     /// Return the node session timeout.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
+    /// - Parameter context: Optional request context.
     func getTimeout(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getTimeout",
                                        mode: .Idempotent,
@@ -1938,9 +1851,7 @@ public extension NodeSessionPrx {
 
     /// Return the node observer.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NodeObserverPrx?`
+    /// - Parameter context: Optional request context.
     func getObserver(context: Ice.Context? = nil) async throws -> NodeObserverPrx? {
         return try await _impl._invoke(operation: "getObserver",
                                        mode: .Idempotent,
@@ -1953,7 +1864,7 @@ public extension NodeSessionPrx {
 
     /// Ask the registry to load the servers on the node.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func loadServers(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "loadServers",
                                        mode: .Idempotent,
@@ -1962,9 +1873,7 @@ public extension NodeSessionPrx {
 
     /// Get the name of the servers deployed on the node.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.StringSeq`
+    /// - Parameter context: Optional request context.
     func getServers(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invoke(operation: "getServers",
                                        mode: .Idempotent,
@@ -1979,11 +1888,10 @@ public extension NodeSessionPrx {
     /// replicas have been updated). This is used by the node to ensure that before to start a server all the
     /// replicas have the up-to-date descriptor of the server.
     ///
-    /// - parameter application: `Swift.String`
-    ///
-    /// - parameter revision: `Swift.Int32`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_application
+    ///   - iceP_revision
+    ///   - context: Optional request context.
     func waitForApplicationUpdate(application iceP_application: Swift.String, revision iceP_revision: Swift.Int32, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "waitForApplicationUpdate",
                                        mode: .Normal,
@@ -1996,7 +1904,7 @@ public extension NodeSessionPrx {
 
     /// Destroy the session.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroy",
                                        mode: .Normal,
@@ -2018,7 +1926,9 @@ private final class DatabaseObserverPrxI: Ice.ObjectPrxI, DatabaseObserverPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: DatabaseObserverPrx.Protocol) throws -> DatabaseObserverPrx {
     try communicator.makeProxyImpl(proxyString) as DatabaseObserverPrxI
@@ -2030,62 +1940,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `DatabaseObserverPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `DatabaseObserverPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: DatabaseObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> DatabaseObserverPrx? {
     return try await DatabaseObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as DatabaseObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `DatabaseObserverPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `DatabaseObserverPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: DatabaseObserverPrx.Protocol, facet: Swift.String? = nil) -> DatabaseObserverPrx {
     return DatabaseObserverPrxI.uncheckedCast(prx: prx, facet: facet) as DatabaseObserverPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `DatabaseObserverPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: DatabaseObserverPrx.Protocol) -> Swift.String {
     return DatabaseObserverTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `DatabaseObserverPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `DatabaseObserverPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `DatabaseObserverPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: DatabaseObserverPrx.Protocol) throws -> DatabaseObserverPrx? {
         return try read() as DatabaseObserverPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `DatabaseObserverPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `DatabaseObserverPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: DatabaseObserverPrx.Protocol) throws -> DatabaseObserverPrx? {
         return try read(tag: tag) as DatabaseObserverPrxI?
     }
@@ -2107,7 +2012,9 @@ private final class ReplicaSessionPrxI: Ice.ObjectPrxI, ReplicaSessionPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ReplicaSessionPrx.Protocol) throws -> ReplicaSessionPrx {
     try communicator.makeProxyImpl(proxyString) as ReplicaSessionPrxI
@@ -2119,62 +2026,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `ReplicaSessionPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `ReplicaSessionPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: ReplicaSessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ReplicaSessionPrx? {
     return try await ReplicaSessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as ReplicaSessionPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `ReplicaSessionPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `ReplicaSessionPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: ReplicaSessionPrx.Protocol, facet: Swift.String? = nil) -> ReplicaSessionPrx {
     return ReplicaSessionPrxI.uncheckedCast(prx: prx, facet: facet) as ReplicaSessionPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `ReplicaSessionPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ReplicaSessionPrx.Protocol) -> Swift.String {
     return ReplicaSessionTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `ReplicaSessionPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `ReplicaSessionPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `ReplicaSessionPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: ReplicaSessionPrx.Protocol) throws -> ReplicaSessionPrx? {
         return try read() as ReplicaSessionPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `ReplicaSessionPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `ReplicaSessionPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: ReplicaSessionPrx.Protocol) throws -> ReplicaSessionPrx? {
         return try read(tag: tag) as ReplicaSessionPrxI?
     }
@@ -2183,7 +2085,7 @@ public extension Ice.InputStream {
 public extension ReplicaSessionPrx {
     /// The replica call this method to keep the session alive.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func keepAlive(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "keepAlive",
                                        mode: .Normal,
@@ -2192,9 +2094,7 @@ public extension ReplicaSessionPrx {
 
     /// Return the replica session timeout.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Int32`
+    /// - Parameter context: Optional request context.
     func getTimeout(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getTimeout",
                                        mode: .Idempotent,
@@ -2207,11 +2107,10 @@ public extension ReplicaSessionPrx {
 
     /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
     ///
-    /// - parameter dbObs: `DatabaseObserverPrx?`
-    ///
-    /// - parameter serials: `StringLongDict?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_dbObs
+    ///   - iceP_serials
+    ///   - context: Optional request context.
     func setDatabaseObserver(dbObs iceP_dbObs: DatabaseObserverPrx?, serials iceP_serials: StringLongDict? = nil, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setDatabaseObserver",
                                        mode: .Idempotent,
@@ -2234,9 +2133,9 @@ public extension ReplicaSessionPrx {
     /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
     /// for replicated objects (e.g.: IceGrid::Query object).
     ///
-    /// - parameter _: `StringObjectProxyDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_endpoints
+    ///   - context: Optional request context.
     func setEndpoints(_ iceP_endpoints: StringObjectProxyDict, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setEndpoints",
                                        mode: .Idempotent,
@@ -2248,9 +2147,9 @@ public extension ReplicaSessionPrx {
 
     /// Registers the replica well-known objects with the master.
     ///
-    /// - parameter _: `ObjectInfoSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_objects
+    ///   - context: Optional request context.
     func registerWellKnownObjects(_ iceP_objects: ObjectInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "registerWellKnownObjects",
                                        mode: .Idempotent,
@@ -2263,13 +2162,11 @@ public extension ReplicaSessionPrx {
     /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
     /// with the locator registry interface.
     ///
-    /// - parameter adapterId: `Swift.String`
-    ///
-    /// - parameter replicaGroupId: `Swift.String`
-    ///
-    /// - parameter proxy: `Ice.ObjectPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_adapterId
+    ///   - iceP_replicaGroupId
+    ///   - iceP_proxy
+    ///   - context: Optional request context.
     func setAdapterDirectProxy(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setAdapterDirectProxy",
                                        mode: .Idempotent,
@@ -2293,13 +2190,11 @@ public extension ReplicaSessionPrx {
     /// Notify the master that an update was received. The master might wait for replication updates to be received by
     /// all the replicas before to continue.
     ///
-    /// - parameter name: `TopicName`
-    ///
-    /// - parameter serial: `Swift.Int32`
-    ///
-    /// - parameter failure: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_name
+    ///   - iceP_serial
+    ///   - iceP_failure
+    ///   - context: Optional request context.
     func receivedUpdate(name iceP_name: TopicName, serial iceP_serial: Swift.Int32, failure iceP_failure: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "receivedUpdate",
                                        mode: .Normal,
@@ -2313,7 +2208,7 @@ public extension ReplicaSessionPrx {
 
     /// Destroy the session.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroy",
                                        mode: .Normal,
@@ -2335,7 +2230,9 @@ private final class InternalRegistryPrxI: Ice.ObjectPrxI, InternalRegistryPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: InternalRegistryPrx.Protocol) throws -> InternalRegistryPrx {
     try communicator.makeProxyImpl(proxyString) as InternalRegistryPrxI
@@ -2347,62 +2244,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `InternalRegistryPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `InternalRegistryPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: InternalRegistryPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> InternalRegistryPrx? {
     return try await InternalRegistryPrxI.checkedCast(prx: prx, facet: facet, context: context) as InternalRegistryPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `InternalRegistryPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `InternalRegistryPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: InternalRegistryPrx.Protocol, facet: Swift.String? = nil) -> InternalRegistryPrx {
     return InternalRegistryPrxI.uncheckedCast(prx: prx, facet: facet) as InternalRegistryPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `InternalRegistryPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: InternalRegistryPrx.Protocol) -> Swift.String {
     return InternalRegistryTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `InternalRegistryPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `InternalRegistryPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `InternalRegistryPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: InternalRegistryPrx.Protocol) throws -> InternalRegistryPrx? {
         return try read() as InternalRegistryPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `InternalRegistryPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `InternalRegistryPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: InternalRegistryPrx.Protocol) throws -> InternalRegistryPrx? {
         return try read(tag: tag) as InternalRegistryPrxI?
     }
@@ -2413,19 +2305,16 @@ public extension InternalRegistryPrx {
     /// registerNode overrides the existing registration only when the previously
     /// registered node is not active.
     ///
-    /// - parameter info: `InternalNodeInfo?` Some information on the node.
+    /// - Parameters:
+    ///   - iceP_info: Some information on the node.
+    ///   - iceP_prx: The proxy of the node.
+    ///   - iceP_loadInf: The load information of the node.
+    ///   - context: Optional request context.
     ///
-    /// - parameter prx: `NodePrx?` The proxy of the node.
+    /// - Returns: The node session proxy.
     ///
-    /// - parameter loadInf: `LoadInfo` The load information of the node.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NodeSessionPrx?` - The node session proxy.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeActiveException - Raised if the node is already registered and currently active.
+    /// - Throws:
+    ///   - NodeActiveException Raised if the node is already registered and currently active.
     func registerNode(info iceP_info: InternalNodeInfo?, prx iceP_prx: NodePrx?, loadInf iceP_loadInf: LoadInfo, context: Ice.Context? = nil) async throws -> NodeSessionPrx? {
         return try await _impl._invoke(operation: "registerNode",
                                        mode: .Normal,
@@ -2455,17 +2344,15 @@ public extension InternalRegistryPrx {
     /// registerReplica overrides the existing registration only when the previously
     /// registered node is not active.
     ///
-    /// - parameter info: `InternalReplicaInfo?` Some information on the replica.
+    /// - Parameters:
+    ///   - iceP_info: Some information on the replica.
+    ///   - iceP_prx: The proxy of the replica.
+    ///   - context: Optional request context.
     ///
-    /// - parameter prx: `InternalRegistryPrx?` The proxy of the replica.
+    /// - Returns: The replica session proxy.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ReplicaSessionPrx?` - The replica session proxy.
-    ///
-    /// - throws:
-    ///
-    ///   - ReplicaActiveException - Raised if the replica is already registered and currently active.
+    /// - Throws:
+    ///   - ReplicaActiveException Raised if the replica is already registered and currently active.
     func registerReplica(info iceP_info: InternalReplicaInfo?, prx iceP_prx: InternalRegistryPrx?, context: Ice.Context? = nil) async throws -> ReplicaSessionPrx? {
         return try await _impl._invoke(operation: "registerReplica",
                                        mode: .Normal,
@@ -2493,9 +2380,9 @@ public extension InternalRegistryPrx {
     /// Create a session with the given registry replica. This method returns only once the session creation has been
     /// attempted.
     ///
-    /// - parameter _: `InternalRegistryPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_prx
+    ///   - context: Optional request context.
     func registerWithReplica(_ iceP_prx: InternalRegistryPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "registerWithReplica",
                                        mode: .Normal,
@@ -2507,9 +2394,7 @@ public extension InternalRegistryPrx {
 
     /// Return the proxies of all the nodes known by this registry.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `NodePrxSeq`
+    /// - Parameter context: Optional request context.
     func getNodes(context: Ice.Context? = nil) async throws -> NodePrxSeq {
         return try await _impl._invoke(operation: "getNodes",
                                        mode: .Idempotent,
@@ -2522,9 +2407,7 @@ public extension InternalRegistryPrx {
 
     /// Return the proxies of all the registry replicas known by this registry.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `InternalRegistryPrxSeq`
+    /// - Parameter context: Optional request context.
     func getReplicas(context: Ice.Context? = nil) async throws -> InternalRegistryPrxSeq {
         return try await _impl._invoke(operation: "getReplicas",
                                        mode: .Idempotent,
@@ -2537,13 +2420,11 @@ public extension InternalRegistryPrx {
 
     /// Return applications, adapters, objects from this replica.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `(returnValue: ApplicationInfoSeq, serial: Swift.Int64)`:
-    ///
-    ///   - returnValue: `ApplicationInfoSeq`
-    ///
-    ///   - serial: `Swift.Int64`
+    /// - Returns:
+    ///   - returnValue
+    ///   - serial
     func getApplications(context: Ice.Context? = nil) async throws -> (returnValue: ApplicationInfoSeq, serial: Swift.Int64) {
         return try await _impl._invoke(operation: "getApplications",
                                        mode: .Idempotent,
@@ -2580,7 +2461,7 @@ public extension InternalRegistryPrx {
 
     /// Shutdown this registry.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Idempotent,
@@ -2614,9 +2495,7 @@ open class InternalDbEnvDescriptor: Ice.Value {
         self.properties = properties
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::InternalDbEnvDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2660,9 +2539,7 @@ open class InternalAdapterDescriptor: Ice.Value {
         self.serverLifetime = serverLifetime
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::InternalAdapterDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2756,9 +2633,7 @@ open class InternalServerDescriptor: Ice.Value {
         self.services = services
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::InternalServerDescriptor" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2859,9 +2734,7 @@ open class InternalNodeInfo: Ice.Value {
         self.iceSoVersion = iceSoVersion
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::InternalNodeInfo" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2920,9 +2793,7 @@ open class InternalReplicaInfo: Ice.Value {
         self.hostname = hostname
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::InternalReplicaInfo" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2977,28 +2848,25 @@ public protocol Adapter {
     /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
     /// adapter is inactive or the adapter direct proxy it's active.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.ObjectPrx?`
+    /// - Parameter current: The Current object for the dispatch.
     func activate(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
     /// contains the last known adapter endpoints.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A direct proxy containing the last known adapter endpoints if the adapter is already active.
+    /// - Returns: A direct proxy containing the last known adapter endpoints if the adapter is already active.
     func getDirectProxy(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Set the direct proxy for this adapter.
     ///
-    /// - parameter proxy: `Ice.ObjectPrx?`
+    /// - Parameters:
+    ///   - proxy
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AdapterActiveException - The adapter is already active. It's not possible to override the direct proxy of
+    /// - Throws:
+    ///   - AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
     ///     an active adapter.
     func setDirectProxy(proxy: Ice.ObjectPrx?, current: Ice.Current) async throws
 }
@@ -3036,32 +2904,24 @@ public struct FileReaderDisp: Ice.Dispatcher {
 public protocol FileReader {
     /// Count the number of given lines from the end of the file and return the file offset.
     ///
-    /// - parameter filename: `Swift.String`
-    ///
-    /// - parameter lines: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int64`
+    /// - Parameters:
+    ///   - filename
+    ///   - lines
+    ///   - current: The Current object for the dispatch.
     func getOffsetFromEnd(filename: Swift.String, lines: Swift.Int32, current: Ice.Current) async throws -> Swift.Int64
 
     /// Read lines (or size bytes) at the specified position from the given file.
     ///
-    /// - parameter filename: `Swift.String`
+    /// - Parameters:
+    ///   - filename
+    ///   - pos
+    ///   - size
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter pos: `Swift.Int64`
-    ///
-    /// - parameter size: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.Bool, newPos: Swift.Int64, lines: Ice.StringSeq)`:
-    ///
-    ///   - returnValue: `Swift.Bool`
-    ///
-    ///   - newPos: `Swift.Int64`
-    ///
-    ///   - lines: `Ice.StringSeq`
+    /// - Returns:
+    ///   - returnValue
+    ///   - newPos
+    ///   - lines
     func read(filename: Swift.String, pos: Swift.Int64, size: Swift.Int32, current: Ice.Current) async throws -> (returnValue: Swift.Bool, newPos: Swift.Int64, lines: Ice.StringSeq)
 }
 
@@ -3118,80 +2978,73 @@ public struct ServerDisp: Ice.Dispatcher {
 public protocol Server: FileReader {
     /// Start the server.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func start(current: Ice.Current) async throws
 
     /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
     /// configurable amount of time, it will be killed.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func stop(current: Ice.Current) async throws
 
     /// Check if the given server can be loaded on this node.
     ///
-    /// - parameter svr: `InternalServerDescriptor?`
+    /// - Parameters:
+    ///   - svr
+    ///   - noRestart
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter noRestart: `Swift.Bool`
+    /// - Returns: True if the server is inactive.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool` - True if the server is inactive.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server can't be updated.
+    /// - Throws:
+    ///   - DeploymentException Raised if the server can't be updated.
     func checkUpdate(svr: InternalServerDescriptor?, noRestart: Swift.Bool, current: Ice.Current) async throws -> Swift.Bool
 
     /// Enable or disable the server.
     ///
-    /// - parameter enable: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - enable
+    ///   - current: The Current object for the dispatch.
     func setEnabled(enable: Swift.Bool, current: Ice.Current) async throws
 
     /// Check if the server is enabled.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
+    /// - Parameter current: The Current object for the dispatch.
     func isEnabled(current: Ice.Current) async throws -> Swift.Bool
 
     /// Send signal to the server
     ///
-    /// - parameter signal: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - signal
+    ///   - current: The Current object for the dispatch.
     func sendSignal(signal: Swift.String, current: Ice.Current) async throws
 
     /// Write message on servers' stdout or stderr.
     ///
-    /// - parameter message: `Swift.String`
-    ///
-    /// - parameter fd: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - message
+    ///   - fd
+    ///   - current: The Current object for the dispatch.
     func writeMessage(message: Swift.String, fd: Swift.Int32, current: Ice.Current) async throws
 
     /// Return the server state.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `ServerState` - The server state.
+    /// - Returns: The server state.
     func getState(current: Ice.Current) async throws -> ServerState
 
     /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
     /// it's the pid value returned by the fork() system call and converted to an integer.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
+    /// - Parameter current: The Current object for the dispatch.
     func getPid(current: Ice.Current) async throws -> Swift.Int32
 
     /// Set the process proxy.
     ///
-    /// - parameter proc: `Ice.ProcessPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - proc
+    ///   - current: The Current object for the dispatch.
     func setProcess(proc: Ice.ProcessPrx?, current: Ice.Current) async throws
 }
 
@@ -3230,23 +3083,23 @@ public struct ReplicaObserverDisp: Ice.Dispatcher {
 public protocol ReplicaObserver {
     /// Initialization of the replica observer.
     ///
-    /// - parameter replicas: `InternalRegistryPrxSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - replicas
+    ///   - current: The Current object for the dispatch.
     func replicaInit(replicas: InternalRegistryPrxSeq, current: Ice.Current) async throws
 
     /// Notification that a replica has been added. The node should establish a session with this new replica.
     ///
-    /// - parameter replica: `InternalRegistryPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - replica
+    ///   - current: The Current object for the dispatch.
     func replicaAdded(replica: InternalRegistryPrx?, current: Ice.Current) async throws
 
     /// Notification that a replica has been removed. The node should destroy the session to this replica.
     ///
-    /// - parameter replica: `InternalRegistryPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - replica
+    ///   - current: The Current object for the dispatch.
     func replicaRemoved(replica: InternalRegistryPrx?, current: Ice.Current) async throws
 }
 
@@ -3310,109 +3163,85 @@ public protocol Node: FileReader, ReplicaObserver {
     /// Load the given server. If the server resources weren't already created (database environment directories,
     /// property files, etc), they will be created. The returned proxy is never null.
     ///
-    /// - parameter svr: `InternalServerDescriptor?`
+    /// - Parameters:
+    ///   - svr
+    ///   - replicaName
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter replicaName: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)`:
-    ///
-    ///   - returnValue: `ServerPrx?`
-    ///
-    ///   - adapters: `AdapterPrxDict`
-    ///
-    ///   - activateTimeout: `Swift.Int32`
-    ///
-    ///   - deactivateTimeout: `Swift.Int32`
+    /// - Returns:
+    ///   - returnValue
+    ///   - adapters
+    ///   - activateTimeout
+    ///   - deactivateTimeout
     func loadServer(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) async throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)
 
     /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
     /// (database environment directories, property files, etc), they will be created. If the server can't be updated
     /// without a restart, a DeploymentException is raised. The returned proxy is never null.
     ///
-    /// - parameter svr: `InternalServerDescriptor?`
+    /// - Parameters:
+    ///   - svr
+    ///   - replicaName
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter replicaName: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)`:
-    ///
-    ///   - returnValue: `ServerPrx?`
-    ///
-    ///   - adapters: `AdapterPrxDict`
-    ///
-    ///   - activateTimeout: `Swift.Int32`
-    ///
-    ///   - deactivateTimeout: `Swift.Int32`
+    /// - Returns:
+    ///   - returnValue
+    ///   - adapters
+    ///   - activateTimeout
+    ///   - deactivateTimeout
     func loadServerWithoutRestart(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) async throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)
 
     /// Destroy the given server.
     ///
-    /// - parameter name: `Swift.String`
-    ///
-    /// - parameter uuid: `Swift.String`
-    ///
-    /// - parameter revision: `Swift.Int32`
-    ///
-    /// - parameter replicaName: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - name
+    ///   - uuid
+    ///   - revision
+    ///   - replicaName
+    ///   - current: The Current object for the dispatch.
     func destroyServer(name: Swift.String, uuid: Swift.String, revision: Swift.Int32, replicaName: Swift.String, current: Ice.Current) async throws
 
     /// Destroy the server if it's not active.
     ///
-    /// - parameter name: `Swift.String`
-    ///
-    /// - parameter uuid: `Swift.String`
-    ///
-    /// - parameter revision: `Swift.Int32`
-    ///
-    /// - parameter replicaName: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - name
+    ///   - uuid
+    ///   - revision
+    ///   - replicaName
+    ///   - current: The Current object for the dispatch.
     func destroyServerWithoutRestart(name: Swift.String, uuid: Swift.String, revision: Swift.Int32, replicaName: Swift.String, current: Ice.Current) async throws
 
     /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
     /// replicaAdded below).
     ///
-    /// - parameter replica: `InternalRegistryPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - replica
+    ///   - current: The Current object for the dispatch.
     func registerWithReplica(replica: InternalRegistryPrx?, current: Ice.Current) async throws
 
     /// Get the node name.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
+    /// - Parameter current: The Current object for the dispatch.
     func getName(current: Ice.Current) async throws -> Swift.String
 
     /// Get the node hostname.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.String`
+    /// - Parameter current: The Current object for the dispatch.
     func getHostname(current: Ice.Current) async throws -> Swift.String
 
     /// Get the node load.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `LoadInfo`
+    /// - Parameter current: The Current object for the dispatch.
     func getLoad(current: Ice.Current) async throws -> LoadInfo
 
     /// Get the number of processor sockets for the machine where this node is running.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
+    /// - Parameter current: The Current object for the dispatch.
     func getProcessorSocketCount(current: Ice.Current) async throws -> Swift.Int32
 
     /// Shutdown the node.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -3461,59 +3290,52 @@ public struct NodeSessionDisp: Ice.Dispatcher {
 public protocol NodeSession {
     /// The node call this method to keep the session alive.
     ///
-    /// - parameter load: `LoadInfo`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - load
+    ///   - current: The Current object for the dispatch.
     func keepAlive(load: LoadInfo, current: Ice.Current) async throws
 
     /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
     /// It only calls this for the session with the master.
     ///
-    /// - parameter observer: `ReplicaObserverPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - observer
+    ///   - current: The Current object for the dispatch.
     func setReplicaObserver(observer: ReplicaObserverPrx?, current: Ice.Current) async throws
 
     /// Return the node session timeout.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
+    /// - Parameter current: The Current object for the dispatch.
     func getTimeout(current: Ice.Current) async throws -> Swift.Int32
 
     /// Return the node observer.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `NodeObserverPrx?`
+    /// - Parameter current: The Current object for the dispatch.
     func getObserver(current: Ice.Current) async throws -> NodeObserverPrx?
 
     /// Ask the registry to load the servers on the node.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func loadServers(current: Ice.Current) async throws
 
     /// Get the name of the servers deployed on the node.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.StringSeq`
+    /// - Parameter current: The Current object for the dispatch.
     func getServers(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Wait for the application update to complete (the application is completely updated once all the registry
     /// replicas have been updated). This is used by the node to ensure that before to start a server all the
     /// replicas have the up-to-date descriptor of the server.
     ///
-    /// - parameter application: `Swift.String`
-    ///
-    /// - parameter revision: `Swift.Int32`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - application
+    ///   - revision
+    ///   - current: The Current object for the dispatch.
     func waitForApplicationUpdate(application: Swift.String, revision: Swift.Int32, current: Ice.Current) async throws
 
     /// Destroy the session.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func destroy(current: Ice.Current) async throws
 }
 
@@ -3614,67 +3436,60 @@ public struct ReplicaSessionDisp: Ice.Dispatcher {
 public protocol ReplicaSession {
     /// The replica call this method to keep the session alive.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func keepAlive(current: Ice.Current) async throws
 
     /// Return the replica session timeout.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Int32`
+    /// - Parameter current: The Current object for the dispatch.
     func getTimeout(current: Ice.Current) async throws -> Swift.Int32
 
     /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
     ///
-    /// - parameter dbObs: `DatabaseObserverPrx?`
-    ///
-    /// - parameter serials: `StringLongDict?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - dbObs
+    ///   - serials
+    ///   - current: The Current object for the dispatch.
     func setDatabaseObserver(dbObs: DatabaseObserverPrx?, serials: StringLongDict?, current: Ice.Current) async throws
 
     /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
     /// for replicated objects (e.g.: IceGrid::Query object).
     ///
-    /// - parameter endpoints: `StringObjectProxyDict`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - endpoints
+    ///   - current: The Current object for the dispatch.
     func setEndpoints(endpoints: StringObjectProxyDict, current: Ice.Current) async throws
 
     /// Registers the replica well-known objects with the master.
     ///
-    /// - parameter objects: `ObjectInfoSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - objects
+    ///   - current: The Current object for the dispatch.
     func registerWellKnownObjects(objects: ObjectInfoSeq, current: Ice.Current) async throws
 
     /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
     /// with the locator registry interface.
     ///
-    /// - parameter adapterId: `Swift.String`
-    ///
-    /// - parameter replicaGroupId: `Swift.String`
-    ///
-    /// - parameter proxy: `Ice.ObjectPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - adapterId
+    ///   - replicaGroupId
+    ///   - proxy
+    ///   - current: The Current object for the dispatch.
     func setAdapterDirectProxy(adapterId: Swift.String, replicaGroupId: Swift.String, proxy: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Notify the master that an update was received. The master might wait for replication updates to be received by
     /// all the replicas before to continue.
     ///
-    /// - parameter name: `TopicName`
-    ///
-    /// - parameter serial: `Swift.Int32`
-    ///
-    /// - parameter failure: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - name
+    ///   - serial
+    ///   - failure
+    ///   - current: The Current object for the dispatch.
     func receivedUpdate(name: TopicName, serial: Swift.Int32, failure: Swift.String, current: Ice.Current) async throws
 
     /// Destroy the session.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func destroy(current: Ice.Current) async throws
 }
 
@@ -3731,69 +3546,58 @@ public protocol InternalRegistry: FileReader {
     /// registerNode overrides the existing registration only when the previously
     /// registered node is not active.
     ///
-    /// - parameter info: `InternalNodeInfo?` Some information on the node.
+    /// - Parameters:
+    ///   - info: Some information on the node.
+    ///   - prx: The proxy of the node.
+    ///   - loadInf: The load information of the node.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter prx: `NodePrx?` The proxy of the node.
+    /// - Returns: The node session proxy.
     ///
-    /// - parameter loadInf: `LoadInfo` The load information of the node.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `NodeSessionPrx?` - The node session proxy.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeActiveException - Raised if the node is already registered and currently active.
+    /// - Throws:
+    ///   - NodeActiveException Raised if the node is already registered and currently active.
     func registerNode(info: InternalNodeInfo?, prx: NodePrx?, loadInf: LoadInfo, current: Ice.Current) async throws -> NodeSessionPrx?
 
     /// Register a replica with the registry. If a replica with the same name is already registered,
     /// registerReplica overrides the existing registration only when the previously
     /// registered node is not active.
     ///
-    /// - parameter info: `InternalReplicaInfo?` Some information on the replica.
+    /// - Parameters:
+    ///   - info: Some information on the replica.
+    ///   - prx: The proxy of the replica.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter prx: `InternalRegistryPrx?` The proxy of the replica.
+    /// - Returns: The replica session proxy.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ReplicaSessionPrx?` - The replica session proxy.
-    ///
-    /// - throws:
-    ///
-    ///   - ReplicaActiveException - Raised if the replica is already registered and currently active.
+    /// - Throws:
+    ///   - ReplicaActiveException Raised if the replica is already registered and currently active.
     func registerReplica(info: InternalReplicaInfo?, prx: InternalRegistryPrx?, current: Ice.Current) async throws -> ReplicaSessionPrx?
 
     /// Create a session with the given registry replica. This method returns only once the session creation has been
     /// attempted.
     ///
-    /// - parameter prx: `InternalRegistryPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - prx
+    ///   - current: The Current object for the dispatch.
     func registerWithReplica(prx: InternalRegistryPrx?, current: Ice.Current) async throws
 
     /// Return the proxies of all the nodes known by this registry.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `NodePrxSeq`
+    /// - Parameter current: The Current object for the dispatch.
     func getNodes(current: Ice.Current) async throws -> NodePrxSeq
 
     /// Return the proxies of all the registry replicas known by this registry.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `InternalRegistryPrxSeq`
+    /// - Parameter current: The Current object for the dispatch.
     func getReplicas(current: Ice.Current) async throws -> InternalRegistryPrxSeq
 
     /// Return applications, adapters, objects from this replica.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `(returnValue: ApplicationInfoSeq, serial: Swift.Int64)`:
-    ///
-    ///   - returnValue: `ApplicationInfoSeq`
-    ///
-    ///   - serial: `Swift.Int64`
+    /// - Returns:
+    ///   - returnValue
+    ///   - serial
     func getApplications(current: Ice.Current) async throws -> (returnValue: ApplicationInfoSeq, serial: Swift.Int64)
 
     func getAdapters(current: Ice.Current) async throws -> (returnValue: AdapterInfoSeq, serial: Swift.Int64)
@@ -3802,7 +3606,7 @@ public protocol InternalRegistry: FileReader {
 
     /// Shutdown this registry.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 

@@ -103,7 +103,7 @@ namespace IceGrid
     struct RegistryInfo;
 
     /**
-     * A sequence of {@link RegistryInfo}} structures.
+     * A sequence of {@link RegistryInfo} structures.
      */
     using RegistryInfoSeq = ::std::vector<RegistryInfo>;
 
@@ -112,7 +112,7 @@ namespace IceGrid
     struct ApplicationInfo;
 
     /**
-     * A sequence of {@link ApplicationInfo}} structures.
+     * A sequence of {@link ApplicationInfo} structures.
      */
     using ApplicationInfoSeq = ::std::vector<ApplicationInfo>;
 
@@ -2637,7 +2637,7 @@ public:
     /**
      * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
      * registry.
-     * @param objects The objects registered with the {@link Admin}} interface (not through the deployment
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
      * mechanism).
      * @param context The Context map to send with the invocation.
      */
@@ -2646,7 +2646,7 @@ public:
     /**
      * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
      * registry.
-     * @param objects The objects registered with the {@link Admin}} interface (not through the deployment
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
      * mechanism).
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2656,7 +2656,7 @@ public:
     /**
      * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
      * registry.
-     * @param objects The objects registered with the {@link Admin}} interface (not through the deployment
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
      * mechanism).
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2673,7 +2673,7 @@ public:
 
     /**
      * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
-     * {@link Admin}} interface.
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param context The Context map to send with the invocation.
      */
@@ -2681,7 +2681,7 @@ public:
 
     /**
      * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
-     * {@link Admin}} interface.
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2690,7 +2690,7 @@ public:
 
     /**
      * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
-     * {@link Admin}} interface.
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2706,7 +2706,7 @@ public:
     /// \endcond
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}}
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
      * interface was updated.
      * @param info The details of the updated object.
      * @param context The Context map to send with the invocation.
@@ -2714,7 +2714,7 @@ public:
     void objectUpdated(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}}
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
      * interface was updated.
      * @param info The details of the updated object.
      * @param context The Context map to send with the invocation.
@@ -2723,7 +2723,7 @@ public:
     [[nodiscard]] ::std::future<void> objectUpdatedAsync(const ObjectInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}}
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
      * interface was updated.
      * @param info The details of the updated object.
      * @param response The response callback.
@@ -2740,7 +2740,7 @@ public:
     /// \endcond
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}}
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
      * interface was removed.
      * @param id The identity of the removed object.
      * @param context The Context map to send with the invocation.
@@ -2748,7 +2748,7 @@ public:
     void objectRemoved(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}}
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
      * interface was removed.
      * @param id The identity of the removed object.
      * @param context The Context map to send with the invocation.
@@ -2757,7 +2757,7 @@ public:
     [[nodiscard]] ::std::future<void> objectRemovedAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}}
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
      * interface was removed.
      * @param id The identity of the removed object.
      * @param response The response callback.
@@ -2818,7 +2818,7 @@ protected:
 
 /**
  * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
- * sessions are created either via the {@link Registry}} object or via the registry admin
+ * sessions are created either via the {@link Registry} object or via the registry admin
  * <code>SessionManager</code> object.
  * @see Registry
  */
@@ -4857,7 +4857,7 @@ public:
     /**
      * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
      * registry.
-     * @param objects The objects registered with the {@link Admin}} interface (not through the deployment
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
      * mechanism).
      * @param current The Current object for the invocation.
      */
@@ -4868,7 +4868,7 @@ public:
 
     /**
      * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
-     * {@link Admin}} interface.
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param current The Current object for the invocation.
      */
@@ -4878,7 +4878,7 @@ public:
     /// \endcond
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}}
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
      * interface was updated.
      * @param info The details of the updated object.
      * @param current The Current object for the invocation.
@@ -4889,7 +4889,7 @@ public:
     /// \endcond
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}}
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
      * interface was removed.
      * @param id The identity of the removed object.
      * @param current The Current object for the invocation.
@@ -4908,7 +4908,7 @@ using ObjectObserverPtr = ::std::shared_ptr<ObjectObserver>;
 
 /**
  * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
- * sessions are created either via the {@link Registry}} object or via the registry admin
+ * sessions are created either via the {@link Registry} object or via the registry admin
  * <code>SessionManager</code> object.
  * @see Registry
  */

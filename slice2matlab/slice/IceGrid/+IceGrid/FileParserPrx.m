@@ -1,7 +1,7 @@
 % FileParserPrx   Summary of FileParserPrx
 %
-% icegridadmin provides a {@link FileParser} object to transform XML files into
-% {@link ApplicationDescriptor} objects.
+% icegridadmin provides a FileParser object to transform XML files into
+% ApplicationDescriptor objects.
 %
 % FileParserPrx Methods:
 %   parse - Parse a file.

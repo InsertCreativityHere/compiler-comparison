@@ -31,7 +31,7 @@ public struct S: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `S` structured value from the stream.
     ///
-    /// - returns: `S` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> S {
         var v = S()
         v.v = try self.read()
@@ -40,9 +40,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `S?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `S?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> S? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -56,16 +56,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `S` structured value to the stream.
     ///
-    /// - parameter _: `S` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: S) {
         self.write(v.v)
     }
 
     /// Write an optional `S?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `S?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: S?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {
@@ -83,9 +82,9 @@ public typealias SMap = [Swift.String: S]
 public struct SMapHelper {
     /// Read a `SMap` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `SMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> SMap {
         let sz = try Swift.Int(istr.readSize())
         var v = SMap()
@@ -96,13 +95,13 @@ public struct SMapHelper {
         }
         return v
     }
+
     /// Read an optional `SMap?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `SMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> SMap? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -111,11 +110,10 @@ public struct SMapHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `SMap` dictionary to the stream.
+    /// Write a `SMap` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `SMap` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: SMap) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -124,13 +122,12 @@ public struct SMapHelper {
         }
     }
 
-    /// Wite an optional `SMap?` dictionary to the stream.
+    /// Write an optional `SMap?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SMap` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: SMap?) {
         guard let val = v else {
             return
@@ -150,9 +147,9 @@ public typealias SSeq = [S]
 public struct SSeqHelper {
     /// Read a `SSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `SSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> SSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 4)
         var v = SSeq()
@@ -163,13 +160,13 @@ public struct SSeqHelper {
         }
         return v
     }
+
     /// Read an optional `SSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `SSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> SSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -178,11 +175,10 @@ public struct SSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `SSeq` sequence to the stream.
+    /// Write a `SSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `SSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: SSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -190,13 +186,12 @@ public struct SSeqHelper {
         }
     }
 
-    /// Wite an optional `SSeq?` sequence to the stream.
+    /// Write an optional `SSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: SSeq?) {
         guard let val = v else {
             return
@@ -214,9 +209,9 @@ public typealias CMap = [Swift.String: C?]
 public struct CMapHelper {
     /// Read a `CMap` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `CMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> CMap {
         let sz = try Swift.Int(istr.readSize())
         var v = CMap()
@@ -236,13 +231,13 @@ public struct CMapHelper {
         }
         return v
     }
+
     /// Read an optional `CMap?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `CMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> CMap? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -251,11 +246,10 @@ public struct CMapHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `CMap` dictionary to the stream.
+    /// Write a `CMap` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `CMap` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: CMap) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -264,13 +258,12 @@ public struct CMapHelper {
         }
     }
 
-    /// Wite an optional `CMap?` dictionary to the stream.
+    /// Write an optional `CMap?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `CMap` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: CMap?) {
         guard let val = v else {
             return
@@ -290,9 +283,9 @@ public typealias CSeq = [C?]
 public struct CSeqHelper {
     /// Read a `CSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `CSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> CSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = CSeq(repeating: nil, count: sz)
@@ -303,13 +296,13 @@ public struct CSeqHelper {
         }
         return v
     }
+
     /// Read an optional `CSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `CSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> CSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -318,11 +311,10 @@ public struct CSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `CSeq` sequence to the stream.
+    /// Write a `CSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `CSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: CSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -330,13 +322,12 @@ public struct CSeqHelper {
         }
     }
 
-    /// Wite an optional `CSeq?` sequence to the stream.
+    /// Write an optional `CSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `CSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: CSeq?) {
         guard let val = v else {
             return
@@ -362,7 +353,7 @@ public enum E1: Swift.UInt8 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `E1` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> E1 {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 2)
         guard let val = E1(rawValue: rawValue) else {
@@ -373,9 +364,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `E1` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> E1? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -388,16 +379,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `E1` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: E1) {
         write(enum: v.rawValue, maxValue: 2)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `E1` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: E1?) {
         guard let v = value else {
             return
@@ -420,7 +410,7 @@ public struct S1: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `S1` structured value from the stream.
     ///
-    /// - returns: `S1` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> S1 {
         var v = S1()
         v.s = try self.read()
@@ -429,9 +419,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `S1?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `S1?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> S1? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -445,16 +435,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `S1` structured value to the stream.
     ///
-    /// - parameter _: `S1` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: S1) {
         self.write(v.s)
     }
 
     /// Write an optional `S1?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `S1?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: S1?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -485,7 +474,7 @@ public class S2 {
 public extension Ice.InputStream {
     /// Read a `S2` structured value from the stream.
     ///
-    /// - returns: `S2` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> S2 {
         let v = S2()
         v.E1 = try self.read()
@@ -496,9 +485,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `S2?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `S2?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> S2? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -512,7 +501,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `S2` structured value to the stream.
     ///
-    /// - parameter _: `S2` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: S2) {
         self.write(v.E1)
         self.write(v.S1)
@@ -521,9 +510,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `S2?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `S2?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: S2?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -535,7 +523,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface`I`.
+/// Traits for Slice interface `I`.
 public struct ITraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::I"]
     public static let staticId = "::Test::I"
@@ -548,9 +536,9 @@ public typealias IMap = [Swift.String: IPrx?]
 public struct IMapHelper {
     /// Read a `IMap` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `IMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> IMap {
         let sz = try Swift.Int(istr.readSize())
         var v = IMap()
@@ -561,13 +549,13 @@ public struct IMapHelper {
         }
         return v
     }
+
     /// Read an optional `IMap?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `IMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> IMap? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -576,11 +564,10 @@ public struct IMapHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `IMap` dictionary to the stream.
+    /// Write a `IMap` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `IMap` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: IMap) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -589,13 +576,12 @@ public struct IMapHelper {
         }
     }
 
-    /// Wite an optional `IMap?` dictionary to the stream.
+    /// Write an optional `IMap?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `IMap` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: IMap?) {
         guard let val = v else {
             return
@@ -615,9 +601,9 @@ public typealias ISeq = [IPrx?]
 public struct ISeqHelper {
     /// Read a `ISeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ISeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ISeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 2)
         var v = ISeq()
@@ -628,13 +614,13 @@ public struct ISeqHelper {
         }
         return v
     }
+
     /// Read an optional `ISeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ISeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ISeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -643,11 +629,10 @@ public struct ISeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ISeq` sequence to the stream.
+    /// Write a `ISeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ISeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ISeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -655,13 +640,12 @@ public struct ISeqHelper {
         }
     }
 
-    /// Wite an optional `ISeq?` sequence to the stream.
+    /// Write an optional `ISeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ISeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ISeq?) {
         guard let val = v else {
             return
@@ -688,7 +672,7 @@ public struct InnerS: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `InnerS` structured value from the stream.
     ///
-    /// - returns: `InnerS` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> InnerS {
         var v = InnerS()
         v.v = try self.read()
@@ -697,9 +681,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `InnerS?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `InnerS?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> InnerS? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -713,16 +697,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `InnerS` structured value to the stream.
     ///
-    /// - parameter _: `InnerS` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: InnerS) {
         self.write(v.v)
     }
 
     /// Write an optional `InnerS?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerS?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: InnerS?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {
@@ -747,7 +730,7 @@ public struct InnerInner2S: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `InnerInner2S` structured value from the stream.
     ///
-    /// - returns: `InnerInner2S` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> InnerInner2S {
         var v = InnerInner2S()
         v.v = try self.read()
@@ -756,9 +739,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `InnerInner2S?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `InnerInner2S?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> InnerInner2S? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -772,16 +755,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `InnerInner2S` structured value to the stream.
     ///
-    /// - parameter _: `InnerInner2S` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: InnerInner2S) {
         self.write(v.v)
     }
 
     /// Write an optional `InnerInner2S?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerInner2S?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: InnerInner2S?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {
@@ -799,9 +781,9 @@ public typealias InnerInner2SMap = [Swift.String: InnerInner2S]
 public struct InnerInner2SMapHelper {
     /// Read a `InnerInner2SMap` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InnerInner2SMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InnerInner2SMap {
         let sz = try Swift.Int(istr.readSize())
         var v = InnerInner2SMap()
@@ -812,13 +794,13 @@ public struct InnerInner2SMapHelper {
         }
         return v
     }
+
     /// Read an optional `InnerInner2SMap?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InnerInner2SMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InnerInner2SMap? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -827,11 +809,10 @@ public struct InnerInner2SMapHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InnerInner2SMap` dictionary to the stream.
+    /// Write a `InnerInner2SMap` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InnerInner2SMap` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InnerInner2SMap) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -840,13 +821,12 @@ public struct InnerInner2SMapHelper {
         }
     }
 
-    /// Wite an optional `InnerInner2SMap?` dictionary to the stream.
+    /// Write an optional `InnerInner2SMap?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerInner2SMap` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: InnerInner2SMap?) {
         guard let val = v else {
             return
@@ -866,9 +846,9 @@ public typealias InnerInner2SSeq = [InnerInner2S]
 public struct InnerInner2SSeqHelper {
     /// Read a `InnerInner2SSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InnerInner2SSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InnerInner2SSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 4)
         var v = InnerInner2SSeq()
@@ -879,13 +859,13 @@ public struct InnerInner2SSeqHelper {
         }
         return v
     }
+
     /// Read an optional `InnerInner2SSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InnerInner2SSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InnerInner2SSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -894,11 +874,10 @@ public struct InnerInner2SSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InnerInner2SSeq` sequence to the stream.
+    /// Write a `InnerInner2SSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InnerInner2SSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InnerInner2SSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -906,13 +885,12 @@ public struct InnerInner2SSeqHelper {
         }
     }
 
-    /// Wite an optional `InnerInner2SSeq?` sequence to the stream.
+    /// Write an optional `InnerInner2SSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerInner2SSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: InnerInner2SSeq?) {
         guard let val = v else {
             return
@@ -930,9 +908,9 @@ public typealias InnerInner2CMap = [Swift.String: InnerInner2C?]
 public struct InnerInner2CMapHelper {
     /// Read a `InnerInner2CMap` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InnerInner2CMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InnerInner2CMap {
         let sz = try Swift.Int(istr.readSize())
         var v = InnerInner2CMap()
@@ -952,13 +930,13 @@ public struct InnerInner2CMapHelper {
         }
         return v
     }
+
     /// Read an optional `InnerInner2CMap?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InnerInner2CMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InnerInner2CMap? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -967,11 +945,10 @@ public struct InnerInner2CMapHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InnerInner2CMap` dictionary to the stream.
+    /// Write a `InnerInner2CMap` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InnerInner2CMap` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InnerInner2CMap) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -980,13 +957,12 @@ public struct InnerInner2CMapHelper {
         }
     }
 
-    /// Wite an optional `InnerInner2CMap?` dictionary to the stream.
+    /// Write an optional `InnerInner2CMap?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerInner2CMap` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: InnerInner2CMap?) {
         guard let val = v else {
             return
@@ -1006,9 +982,9 @@ public typealias InnerInner2CSeq = [InnerInner2C?]
 public struct InnerInner2CSeqHelper {
     /// Read a `InnerInner2CSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InnerInner2CSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InnerInner2CSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = InnerInner2CSeq(repeating: nil, count: sz)
@@ -1019,13 +995,13 @@ public struct InnerInner2CSeqHelper {
         }
         return v
     }
+
     /// Read an optional `InnerInner2CSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InnerInner2CSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InnerInner2CSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1034,11 +1010,10 @@ public struct InnerInner2CSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InnerInner2CSeq` sequence to the stream.
+    /// Write a `InnerInner2CSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InnerInner2CSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InnerInner2CSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1046,13 +1021,12 @@ public struct InnerInner2CSeqHelper {
         }
     }
 
-    /// Wite an optional `InnerInner2CSeq?` sequence to the stream.
+    /// Write an optional `InnerInner2CSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerInner2CSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: InnerInner2CSeq?) {
         guard let val = v else {
             return
@@ -1065,7 +1039,7 @@ public struct InnerInner2CSeqHelper {
     }
 }
 
-/// Traits for Slice interface`InnerInner2I`.
+/// Traits for Slice interface `InnerInner2I`.
 public struct InnerInner2ITraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Inner::Inner2::I"]
     public static let staticId = "::Test::Inner::Inner2::I"
@@ -1078,9 +1052,9 @@ public typealias InnerInner2IMap = [Swift.String: InnerInner2IPrx?]
 public struct InnerInner2IMapHelper {
     /// Read a `InnerInner2IMap` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InnerInner2IMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InnerInner2IMap {
         let sz = try Swift.Int(istr.readSize())
         var v = InnerInner2IMap()
@@ -1091,13 +1065,13 @@ public struct InnerInner2IMapHelper {
         }
         return v
     }
+
     /// Read an optional `InnerInner2IMap?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InnerInner2IMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InnerInner2IMap? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1106,11 +1080,10 @@ public struct InnerInner2IMapHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InnerInner2IMap` dictionary to the stream.
+    /// Write a `InnerInner2IMap` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InnerInner2IMap` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InnerInner2IMap) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -1119,13 +1092,12 @@ public struct InnerInner2IMapHelper {
         }
     }
 
-    /// Wite an optional `InnerInner2IMap?` dictionary to the stream.
+    /// Write an optional `InnerInner2IMap?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerInner2IMap` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: InnerInner2IMap?) {
         guard let val = v else {
             return
@@ -1145,9 +1117,9 @@ public typealias InnerInner2ISeq = [InnerInner2IPrx?]
 public struct InnerInner2ISeqHelper {
     /// Read a `InnerInner2ISeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InnerInner2ISeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InnerInner2ISeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 2)
         var v = InnerInner2ISeq()
@@ -1158,13 +1130,13 @@ public struct InnerInner2ISeqHelper {
         }
         return v
     }
+
     /// Read an optional `InnerInner2ISeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InnerInner2ISeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InnerInner2ISeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1173,11 +1145,10 @@ public struct InnerInner2ISeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InnerInner2ISeq` sequence to the stream.
+    /// Write a `InnerInner2ISeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InnerInner2ISeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InnerInner2ISeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1185,13 +1156,12 @@ public struct InnerInner2ISeqHelper {
         }
     }
 
-    /// Wite an optional `InnerInner2ISeq?` sequence to the stream.
+    /// Write an optional `InnerInner2ISeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerInner2ISeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: InnerInner2ISeq?) {
         guard let val = v else {
             return
@@ -1211,9 +1181,9 @@ public typealias InnerSSeq = [InnerInner2S]
 public struct InnerSSeqHelper {
     /// Read a `InnerSSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InnerSSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InnerSSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 4)
         var v = InnerSSeq()
@@ -1224,13 +1194,13 @@ public struct InnerSSeqHelper {
         }
         return v
     }
+
     /// Read an optional `InnerSSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InnerSSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InnerSSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -1239,11 +1209,10 @@ public struct InnerSSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InnerSSeq` sequence to the stream.
+    /// Write a `InnerSSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InnerSSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InnerSSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1251,13 +1220,12 @@ public struct InnerSSeqHelper {
         }
     }
 
-    /// Wite an optional `InnerSSeq?` sequence to the stream.
+    /// Write an optional `InnerSSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerSSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: InnerSSeq?) {
         guard let val = v else {
             return
@@ -1275,9 +1243,9 @@ public typealias InnerSMap = [Swift.String: InnerInner2S]
 public struct InnerSMapHelper {
     /// Read a `InnerSMap` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InnerSMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InnerSMap {
         let sz = try Swift.Int(istr.readSize())
         var v = InnerSMap()
@@ -1288,13 +1256,13 @@ public struct InnerSMapHelper {
         }
         return v
     }
+
     /// Read an optional `InnerSMap?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InnerSMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InnerSMap? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1303,11 +1271,10 @@ public struct InnerSMapHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InnerSMap` dictionary to the stream.
+    /// Write a `InnerSMap` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InnerSMap` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InnerSMap) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -1316,13 +1283,12 @@ public struct InnerSMapHelper {
         }
     }
 
-    /// Wite an optional `InnerSMap?` dictionary to the stream.
+    /// Write an optional `InnerSMap?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerSMap` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: InnerSMap?) {
         guard let val = v else {
             return
@@ -1342,9 +1308,9 @@ public typealias InnerCMap = [Swift.String: InnerInner2C?]
 public struct InnerCMapHelper {
     /// Read a `InnerCMap` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InnerCMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InnerCMap {
         let sz = try Swift.Int(istr.readSize())
         var v = InnerCMap()
@@ -1364,13 +1330,13 @@ public struct InnerCMapHelper {
         }
         return v
     }
+
     /// Read an optional `InnerCMap?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InnerCMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InnerCMap? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1379,11 +1345,10 @@ public struct InnerCMapHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InnerCMap` dictionary to the stream.
+    /// Write a `InnerCMap` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InnerCMap` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InnerCMap) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -1392,13 +1357,12 @@ public struct InnerCMapHelper {
         }
     }
 
-    /// Wite an optional `InnerCMap?` dictionary to the stream.
+    /// Write an optional `InnerCMap?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerCMap` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: InnerCMap?) {
         guard let val = v else {
             return
@@ -1418,9 +1382,9 @@ public typealias InnerCSeq = [InnerInner2C?]
 public struct InnerCSeqHelper {
     /// Read a `InnerCSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InnerCSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InnerCSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = InnerCSeq(repeating: nil, count: sz)
@@ -1431,13 +1395,13 @@ public struct InnerCSeqHelper {
         }
         return v
     }
+
     /// Read an optional `InnerCSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InnerCSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InnerCSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1446,11 +1410,10 @@ public struct InnerCSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InnerCSeq` sequence to the stream.
+    /// Write a `InnerCSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InnerCSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InnerCSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1458,13 +1421,12 @@ public struct InnerCSeqHelper {
         }
     }
 
-    /// Wite an optional `InnerCSeq?` sequence to the stream.
+    /// Write an optional `InnerCSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerCSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: InnerCSeq?) {
         guard let val = v else {
             return
@@ -1477,7 +1439,7 @@ public struct InnerCSeqHelper {
     }
 }
 
-/// Traits for Slice interface`InnerI`.
+/// Traits for Slice interface `InnerI`.
 public struct InnerITraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Inner::I"]
     public static let staticId = "::Test::Inner::I"
@@ -1490,9 +1452,9 @@ public typealias InnerIMap = [Swift.String: InnerIPrx?]
 public struct InnerIMapHelper {
     /// Read a `InnerIMap` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InnerIMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InnerIMap {
         let sz = try Swift.Int(istr.readSize())
         var v = InnerIMap()
@@ -1503,13 +1465,13 @@ public struct InnerIMapHelper {
         }
         return v
     }
+
     /// Read an optional `InnerIMap?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InnerIMap` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InnerIMap? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1518,11 +1480,10 @@ public struct InnerIMapHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InnerIMap` dictionary to the stream.
+    /// Write a `InnerIMap` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InnerIMap` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InnerIMap) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -1531,13 +1492,12 @@ public struct InnerIMapHelper {
         }
     }
 
-    /// Wite an optional `InnerIMap?` dictionary to the stream.
+    /// Write an optional `InnerIMap?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerIMap` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: InnerIMap?) {
         guard let val = v else {
             return
@@ -1557,9 +1517,9 @@ public typealias InnerISeq = [InnerIPrx?]
 public struct InnerISeqHelper {
     /// Read a `InnerISeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `InnerISeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> InnerISeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 2)
         var v = InnerISeq()
@@ -1570,13 +1530,13 @@ public struct InnerISeqHelper {
         }
         return v
     }
+
     /// Read an optional `InnerISeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `InnerISeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> InnerISeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1585,11 +1545,10 @@ public struct InnerISeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `InnerISeq` sequence to the stream.
+    /// Write a `InnerISeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `InnerISeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: InnerISeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1597,13 +1556,12 @@ public struct InnerISeqHelper {
         }
     }
 
-    /// Wite an optional `InnerISeq?` sequence to the stream.
+    /// Write an optional `InnerISeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `InnerISeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: InnerISeq?) {
         guard let val = v else {
             return
@@ -1616,7 +1574,7 @@ public struct InnerISeqHelper {
     }
 }
 
-/// Traits for Slice interface`TestInner2I`.
+/// Traits for Slice interface `TestInner2I`.
 public struct TestInner2ITraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Inner::Test::Inner2::I"]
     public static let staticId = "::Inner::Test::Inner2::I"
@@ -1636,7 +1594,9 @@ private final class IPrxI: Ice.ObjectPrxI, IPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: IPrx.Protocol) throws -> IPrx {
     try communicator.makeProxyImpl(proxyString) as IPrxI
@@ -1648,62 +1608,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `IPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `IPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: IPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> IPrx? {
     return try await IPrxI.checkedCast(prx: prx, facet: facet, context: context) as IPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `IPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `IPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: IPrx.Protocol, facet: Swift.String? = nil) -> IPrx {
     return IPrxI.uncheckedCast(prx: prx, facet: facet) as IPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `IPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: IPrx.Protocol) -> Swift.String {
     return ITraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `IPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `IPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `IPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: IPrx.Protocol) throws -> IPrx? {
         return try read() as IPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `IPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `IPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: IPrx.Protocol) throws -> IPrx? {
         return try read(tag: tag) as IPrxI?
     }
@@ -1865,7 +1820,9 @@ private final class InnerInner2IPrxI: Ice.ObjectPrxI, InnerInner2IPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: InnerInner2IPrx.Protocol) throws -> InnerInner2IPrx {
     try communicator.makeProxyImpl(proxyString) as InnerInner2IPrxI
@@ -1877,62 +1834,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `InnerInner2IPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `InnerInner2IPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: InnerInner2IPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> InnerInner2IPrx? {
     return try await InnerInner2IPrxI.checkedCast(prx: prx, facet: facet, context: context) as InnerInner2IPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `InnerInner2IPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `InnerInner2IPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: InnerInner2IPrx.Protocol, facet: Swift.String? = nil) -> InnerInner2IPrx {
     return InnerInner2IPrxI.uncheckedCast(prx: prx, facet: facet) as InnerInner2IPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `InnerInner2IPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: InnerInner2IPrx.Protocol) -> Swift.String {
     return InnerInner2ITraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `InnerInner2IPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `InnerInner2IPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `InnerInner2IPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: InnerInner2IPrx.Protocol) throws -> InnerInner2IPrx? {
         return try read() as InnerInner2IPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `InnerInner2IPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `InnerInner2IPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: InnerInner2IPrx.Protocol) throws -> InnerInner2IPrx? {
         return try read(tag: tag) as InnerInner2IPrxI?
     }
@@ -2052,7 +2004,9 @@ private final class InnerIPrxI: Ice.ObjectPrxI, InnerIPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: InnerIPrx.Protocol) throws -> InnerIPrx {
     try communicator.makeProxyImpl(proxyString) as InnerIPrxI
@@ -2064,62 +2018,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `InnerIPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `InnerIPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: InnerIPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> InnerIPrx? {
     return try await InnerIPrxI.checkedCast(prx: prx, facet: facet, context: context) as InnerIPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `InnerIPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `InnerIPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: InnerIPrx.Protocol, facet: Swift.String? = nil) -> InnerIPrx {
     return InnerIPrxI.uncheckedCast(prx: prx, facet: facet) as InnerIPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `InnerIPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: InnerIPrx.Protocol) -> Swift.String {
     return InnerITraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `InnerIPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `InnerIPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `InnerIPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: InnerIPrx.Protocol) throws -> InnerIPrx? {
         return try read() as InnerIPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `InnerIPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `InnerIPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: InnerIPrx.Protocol) throws -> InnerIPrx? {
         return try read(tag: tag) as InnerIPrxI?
     }
@@ -2239,7 +2188,9 @@ private final class TestInner2IPrxI: Ice.ObjectPrxI, TestInner2IPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TestInner2IPrx.Protocol) throws -> TestInner2IPrx {
     try communicator.makeProxyImpl(proxyString) as TestInner2IPrxI
@@ -2251,62 +2202,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `TestInner2IPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `TestInner2IPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: TestInner2IPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestInner2IPrx? {
     return try await TestInner2IPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestInner2IPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `TestInner2IPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `TestInner2IPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: TestInner2IPrx.Protocol, facet: Swift.String? = nil) -> TestInner2IPrx {
     return TestInner2IPrxI.uncheckedCast(prx: prx, facet: facet) as TestInner2IPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `TestInner2IPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TestInner2IPrx.Protocol) -> Swift.String {
     return TestInner2ITraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `TestInner2IPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `TestInner2IPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `TestInner2IPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: TestInner2IPrx.Protocol) throws -> TestInner2IPrx? {
         return try read() as TestInner2IPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `TestInner2IPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `TestInner2IPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: TestInner2IPrx.Protocol) throws -> TestInner2IPrx? {
         return try read(tag: tag) as TestInner2IPrxI?
     }
@@ -2434,9 +2380,7 @@ open class C: Ice.Value {
         self.s = s
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2474,9 +2418,7 @@ open class C1: Ice.Value {
         self.s = s
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::C1" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2519,9 +2461,7 @@ open class C2: Ice.Value {
         self.C1 = C1
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::C2" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2564,9 +2504,7 @@ open class InnerInner2C: Ice.Value {
         self.s = s
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Inner::Inner2::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
@@ -2604,9 +2542,7 @@ open class InnerC: Ice.Value {
         self.s = s
     }
 
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    /// - Returns: The Slice type ID of the interface supported by this object.
     open override class func ice_staticId() -> Swift.String { "::Test::Inner::C" }
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {

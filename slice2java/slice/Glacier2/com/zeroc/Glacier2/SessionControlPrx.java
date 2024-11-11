@@ -16,7 +16,7 @@
 package com.zeroc.Glacier2;
 
 /**
- * An administrative session control object, which is tied to the lifecycle of a {@link Session}}.
+ * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
  *
  * @see Session
  **/

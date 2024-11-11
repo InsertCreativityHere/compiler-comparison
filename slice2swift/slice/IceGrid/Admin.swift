@@ -43,7 +43,7 @@ public enum ServerState: Swift.UInt8 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `ServerState` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> ServerState {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 6)
         guard let val = ServerState(rawValue: rawValue) else {
@@ -54,9 +54,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ServerState` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> ServerState? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -69,16 +69,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `ServerState` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: ServerState) {
         write(enum: v.rawValue, maxValue: 6)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `ServerState` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: ServerState?) {
         guard let v = value else {
             return
@@ -95,9 +94,9 @@ public typealias StringObjectProxyDict = [Swift.String: Ice.ObjectPrx?]
 public struct StringObjectProxyDictHelper {
     /// Read a `StringObjectProxyDict` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `StringObjectProxyDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> StringObjectProxyDict {
         let sz = try Swift.Int(istr.readSize())
         var v = StringObjectProxyDict()
@@ -108,13 +107,13 @@ public struct StringObjectProxyDictHelper {
         }
         return v
     }
+
     /// Read an optional `StringObjectProxyDict?` dictionary from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `StringObjectProxyDict` - The dictionary read from the stream.
+    /// - Returns: The dictionary read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> StringObjectProxyDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -123,11 +122,10 @@ public struct StringObjectProxyDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `StringObjectProxyDict` dictionary to the stream.
+    /// Write a `StringObjectProxyDict` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `StringObjectProxyDict` - The dictionary value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: StringObjectProxyDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
@@ -136,13 +134,12 @@ public struct StringObjectProxyDictHelper {
         }
     }
 
-    /// Wite an optional `StringObjectProxyDict?` dictionary to the stream.
+    /// Write an optional `StringObjectProxyDict?` dictionary to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `StringObjectProxyDict` - The dictionary value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The dictionary value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: StringObjectProxyDict?) {
         guard let val = v else {
             return
@@ -174,7 +171,7 @@ public struct ObjectInfo {
 public extension Ice.InputStream {
     /// Read a `ObjectInfo` structured value from the stream.
     ///
-    /// - returns: `ObjectInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ObjectInfo {
         var v = ObjectInfo()
         v.proxy = try self.read(Ice.ObjectPrx.self)
@@ -184,9 +181,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ObjectInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ObjectInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ObjectInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -200,7 +197,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ObjectInfo` structured value to the stream.
     ///
-    /// - parameter _: `ObjectInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ObjectInfo) {
         self.write(v.proxy)
         self.write(v.type)
@@ -208,9 +205,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ObjectInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ObjectInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ObjectInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -230,9 +226,9 @@ public typealias ObjectInfoSeq = [ObjectInfo]
 public struct ObjectInfoSeqHelper {
     /// Read a `ObjectInfoSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ObjectInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ObjectInfoSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 3)
         var v = ObjectInfoSeq()
@@ -243,13 +239,13 @@ public struct ObjectInfoSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ObjectInfoSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ObjectInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ObjectInfoSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -258,11 +254,10 @@ public struct ObjectInfoSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ObjectInfoSeq` sequence to the stream.
+    /// Write a `ObjectInfoSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ObjectInfoSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ObjectInfoSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -270,13 +265,12 @@ public struct ObjectInfoSeqHelper {
         }
     }
 
-    /// Wite an optional `ObjectInfoSeq?` sequence to the stream.
+    /// Write an optional `ObjectInfoSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ObjectInfoSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ObjectInfoSeq?) {
         guard let val = v else {
             return
@@ -311,7 +305,7 @@ public struct AdapterInfo {
 public extension Ice.InputStream {
     /// Read a `AdapterInfo` structured value from the stream.
     ///
-    /// - returns: `AdapterInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> AdapterInfo {
         var v = AdapterInfo()
         v.id = try self.read()
@@ -322,9 +316,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `AdapterInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `AdapterInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> AdapterInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -338,7 +332,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `AdapterInfo` structured value to the stream.
     ///
-    /// - parameter _: `AdapterInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: AdapterInfo) {
         self.write(v.id)
         self.write(v.proxy)
@@ -347,9 +341,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `AdapterInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `AdapterInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: AdapterInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -369,9 +362,9 @@ public typealias AdapterInfoSeq = [AdapterInfo]
 public struct AdapterInfoSeqHelper {
     /// Read a `AdapterInfoSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `AdapterInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> AdapterInfoSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 4)
         var v = AdapterInfoSeq()
@@ -382,13 +375,13 @@ public struct AdapterInfoSeqHelper {
         }
         return v
     }
+
     /// Read an optional `AdapterInfoSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `AdapterInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> AdapterInfoSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -397,11 +390,10 @@ public struct AdapterInfoSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `AdapterInfoSeq` sequence to the stream.
+    /// Write a `AdapterInfoSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `AdapterInfoSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: AdapterInfoSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -409,13 +401,12 @@ public struct AdapterInfoSeqHelper {
         }
     }
 
-    /// Wite an optional `AdapterInfoSeq?` sequence to the stream.
+    /// Write an optional `AdapterInfoSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `AdapterInfoSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: AdapterInfoSeq?) {
         guard let val = v else {
             return
@@ -459,7 +450,7 @@ public class ServerInfo {
 public extension Ice.InputStream {
     /// Read a `ServerInfo` structured value from the stream.
     ///
-    /// - returns: `ServerInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ServerInfo {
         let v = ServerInfo()
         v.application = try self.read()
@@ -473,9 +464,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ServerInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ServerInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ServerInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -489,7 +480,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ServerInfo` structured value to the stream.
     ///
-    /// - parameter _: `ServerInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ServerInfo) {
         self.write(v.application)
         self.write(v.uuid)
@@ -501,9 +492,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ServerInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ServerInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ServerInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -553,7 +543,7 @@ public struct NodeInfo: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `NodeInfo` structured value from the stream.
     ///
-    /// - returns: `NodeInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> NodeInfo {
         var v = NodeInfo()
         v.name = try self.read()
@@ -569,9 +559,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `NodeInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `NodeInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> NodeInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -585,7 +575,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `NodeInfo` structured value to the stream.
     ///
-    /// - parameter _: `NodeInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: NodeInfo) {
         self.write(v.name)
         self.write(v.os)
@@ -599,9 +589,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `NodeInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `NodeInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: NodeInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -632,7 +621,7 @@ public struct RegistryInfo: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `RegistryInfo` structured value from the stream.
     ///
-    /// - returns: `RegistryInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> RegistryInfo {
         var v = RegistryInfo()
         v.name = try self.read()
@@ -642,9 +631,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `RegistryInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `RegistryInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> RegistryInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -658,7 +647,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `RegistryInfo` structured value to the stream.
     ///
-    /// - parameter _: `RegistryInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: RegistryInfo) {
         self.write(v.name)
         self.write(v.hostname)
@@ -666,9 +655,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `RegistryInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `RegistryInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: RegistryInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -680,7 +668,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// A sequence of {@link RegistryInfo} structures.
+/// A sequence of `RegistryInfo` structures.
 public typealias RegistryInfoSeq = [RegistryInfo]
 
 /// Helper class to read and write `RegistryInfoSeq` sequence values from
@@ -688,9 +676,9 @@ public typealias RegistryInfoSeq = [RegistryInfo]
 public struct RegistryInfoSeqHelper {
     /// Read a `RegistryInfoSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `RegistryInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> RegistryInfoSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 2)
         var v = RegistryInfoSeq()
@@ -701,13 +689,13 @@ public struct RegistryInfoSeqHelper {
         }
         return v
     }
+
     /// Read an optional `RegistryInfoSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `RegistryInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> RegistryInfoSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -716,11 +704,10 @@ public struct RegistryInfoSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `RegistryInfoSeq` sequence to the stream.
+    /// Write a `RegistryInfoSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `RegistryInfoSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: RegistryInfoSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -728,13 +715,12 @@ public struct RegistryInfoSeqHelper {
         }
     }
 
-    /// Wite an optional `RegistryInfoSeq?` sequence to the stream.
+    /// Write an optional `RegistryInfoSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `RegistryInfoSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: RegistryInfoSeq?) {
         guard let val = v else {
             return
@@ -769,7 +755,7 @@ public struct LoadInfo {
 public extension Ice.InputStream {
     /// Read a `LoadInfo` structured value from the stream.
     ///
-    /// - returns: `LoadInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> LoadInfo {
         var v = LoadInfo()
         v.avg1 = try self.read()
@@ -780,9 +766,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `LoadInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `LoadInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> LoadInfo? {
         guard try readOptional(tag: tag, expectedFormat: .VSize) else {
             return nil
@@ -796,7 +782,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `LoadInfo` structured value to the stream.
     ///
-    /// - parameter _: `LoadInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: LoadInfo) {
         self.write(v.avg1)
         self.write(v.avg5)
@@ -805,9 +791,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `LoadInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `LoadInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: LoadInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .VSize) {
@@ -852,7 +837,7 @@ public class ApplicationInfo {
 public extension Ice.InputStream {
     /// Read a `ApplicationInfo` structured value from the stream.
     ///
-    /// - returns: `ApplicationInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ApplicationInfo {
         let v = ApplicationInfo()
         v.uuid = try self.read()
@@ -867,9 +852,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ApplicationInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ApplicationInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ApplicationInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -883,7 +868,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ApplicationInfo` structured value to the stream.
     ///
-    /// - parameter _: `ApplicationInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ApplicationInfo) {
         self.write(v.uuid)
         self.write(v.createTime)
@@ -896,9 +881,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ApplicationInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ApplicationInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ApplicationInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -910,7 +894,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// A sequence of {@link ApplicationInfo} structures.
+/// A sequence of `ApplicationInfo` structures.
 public typealias ApplicationInfoSeq = [ApplicationInfo]
 
 /// Helper class to read and write `ApplicationInfoSeq` sequence values from
@@ -918,9 +902,9 @@ public typealias ApplicationInfoSeq = [ApplicationInfo]
 public struct ApplicationInfoSeqHelper {
     /// Read a `ApplicationInfoSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ApplicationInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ApplicationInfoSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 33)
         var v = ApplicationInfoSeq()
@@ -931,13 +915,13 @@ public struct ApplicationInfoSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ApplicationInfoSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ApplicationInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ApplicationInfoSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -946,11 +930,10 @@ public struct ApplicationInfoSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ApplicationInfoSeq` sequence to the stream.
+    /// Write a `ApplicationInfoSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ApplicationInfoSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ApplicationInfoSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -958,13 +941,12 @@ public struct ApplicationInfoSeqHelper {
         }
     }
 
-    /// Wite an optional `ApplicationInfoSeq?` sequence to the stream.
+    /// Write an optional `ApplicationInfoSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ApplicationInfoSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ApplicationInfoSeq?) {
         guard let val = v else {
             return
@@ -1002,7 +984,7 @@ public class ApplicationUpdateInfo {
 public extension Ice.InputStream {
     /// Read a `ApplicationUpdateInfo` structured value from the stream.
     ///
-    /// - returns: `ApplicationUpdateInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ApplicationUpdateInfo {
         let v = ApplicationUpdateInfo()
         v.updateTime = try self.read()
@@ -1014,9 +996,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ApplicationUpdateInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ApplicationUpdateInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ApplicationUpdateInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1030,7 +1012,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ApplicationUpdateInfo` structured value to the stream.
     ///
-    /// - parameter _: `ApplicationUpdateInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ApplicationUpdateInfo) {
         self.write(v.updateTime)
         self.write(v.updateUser)
@@ -1040,9 +1022,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ApplicationUpdateInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ApplicationUpdateInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ApplicationUpdateInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1054,13 +1035,13 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface`Admin`.
+/// Traits for Slice interface `Admin`.
 public struct AdminTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::Admin"]
     public static let staticId = "::IceGrid::Admin"
 }
 
-/// Traits for Slice interface`FileIterator`.
+/// Traits for Slice interface `FileIterator`.
 public struct FileIteratorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileIterator"]
     public static let staticId = "::IceGrid::FileIterator"
@@ -1091,7 +1072,7 @@ public struct ServerDynamicInfo: Swift.Hashable {
 public extension Ice.InputStream {
     /// Read a `ServerDynamicInfo` structured value from the stream.
     ///
-    /// - returns: `ServerDynamicInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> ServerDynamicInfo {
         var v = ServerDynamicInfo()
         v.id = try self.read()
@@ -1103,9 +1084,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `ServerDynamicInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ServerDynamicInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> ServerDynamicInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1119,7 +1100,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `ServerDynamicInfo` structured value to the stream.
     ///
-    /// - parameter _: `ServerDynamicInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: ServerDynamicInfo) {
         self.write(v.id)
         self.write(v.state)
@@ -1129,9 +1110,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `ServerDynamicInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ServerDynamicInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: ServerDynamicInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1151,9 +1131,9 @@ public typealias ServerDynamicInfoSeq = [ServerDynamicInfo]
 public struct ServerDynamicInfoSeqHelper {
     /// Read a `ServerDynamicInfoSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ServerDynamicInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ServerDynamicInfoSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 7)
         var v = ServerDynamicInfoSeq()
@@ -1164,13 +1144,13 @@ public struct ServerDynamicInfoSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ServerDynamicInfoSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ServerDynamicInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ServerDynamicInfoSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1179,11 +1159,10 @@ public struct ServerDynamicInfoSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ServerDynamicInfoSeq` sequence to the stream.
+    /// Write a `ServerDynamicInfoSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ServerDynamicInfoSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ServerDynamicInfoSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1191,13 +1170,12 @@ public struct ServerDynamicInfoSeqHelper {
         }
     }
 
-    /// Wite an optional `ServerDynamicInfoSeq?` sequence to the stream.
+    /// Write an optional `ServerDynamicInfoSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ServerDynamicInfoSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ServerDynamicInfoSeq?) {
         guard let val = v else {
             return
@@ -1229,7 +1207,7 @@ public struct AdapterDynamicInfo {
 public extension Ice.InputStream {
     /// Read a `AdapterDynamicInfo` structured value from the stream.
     ///
-    /// - returns: `AdapterDynamicInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> AdapterDynamicInfo {
         var v = AdapterDynamicInfo()
         v.id = try self.read()
@@ -1239,9 +1217,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `AdapterDynamicInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `AdapterDynamicInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> AdapterDynamicInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1255,7 +1233,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `AdapterDynamicInfo` structured value to the stream.
     ///
-    /// - parameter _: `AdapterDynamicInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: AdapterDynamicInfo) {
         self.write(v.id)
         self.write(v.proxy)
@@ -1263,9 +1241,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `AdapterDynamicInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `AdapterDynamicInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: AdapterDynamicInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1285,9 +1262,9 @@ public typealias AdapterDynamicInfoSeq = [AdapterDynamicInfo]
 public struct AdapterDynamicInfoSeqHelper {
     /// Read a `AdapterDynamicInfoSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `AdapterDynamicInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> AdapterDynamicInfoSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 3)
         var v = AdapterDynamicInfoSeq()
@@ -1298,13 +1275,13 @@ public struct AdapterDynamicInfoSeqHelper {
         }
         return v
     }
+
     /// Read an optional `AdapterDynamicInfoSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `AdapterDynamicInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> AdapterDynamicInfoSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1313,11 +1290,10 @@ public struct AdapterDynamicInfoSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `AdapterDynamicInfoSeq` sequence to the stream.
+    /// Write a `AdapterDynamicInfoSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `AdapterDynamicInfoSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: AdapterDynamicInfoSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1325,13 +1301,12 @@ public struct AdapterDynamicInfoSeqHelper {
         }
     }
 
-    /// Wite an optional `AdapterDynamicInfoSeq?` sequence to the stream.
+    /// Write an optional `AdapterDynamicInfoSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `AdapterDynamicInfoSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: AdapterDynamicInfoSeq?) {
         guard let val = v else {
             return
@@ -1366,7 +1341,7 @@ public struct NodeDynamicInfo {
 public extension Ice.InputStream {
     /// Read a `NodeDynamicInfo` structured value from the stream.
     ///
-    /// - returns: `NodeDynamicInfo` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> NodeDynamicInfo {
         var v = NodeDynamicInfo()
         v.info = try self.read()
@@ -1377,9 +1352,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `NodeDynamicInfo?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `NodeDynamicInfo?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> NodeDynamicInfo? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1393,7 +1368,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `NodeDynamicInfo` structured value to the stream.
     ///
-    /// - parameter _: `NodeDynamicInfo` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: NodeDynamicInfo) {
         self.write(v.info)
         ServerDynamicInfoSeqHelper.write(to: self, value: v.servers)
@@ -1402,9 +1377,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `NodeDynamicInfo?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `NodeDynamicInfo?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: NodeDynamicInfo?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -1416,7 +1390,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface`RegistryObserver`.
+/// Traits for Slice interface `RegistryObserver`.
 public struct RegistryObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::RegistryObserver"]
     public static let staticId = "::IceGrid::RegistryObserver"
@@ -1430,9 +1404,9 @@ public typealias NodeDynamicInfoSeq = [NodeDynamicInfo]
 public struct NodeDynamicInfoSeqHelper {
     /// Read a `NodeDynamicInfoSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `NodeDynamicInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> NodeDynamicInfoSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 13)
         var v = NodeDynamicInfoSeq()
@@ -1443,13 +1417,13 @@ public struct NodeDynamicInfoSeqHelper {
         }
         return v
     }
+
     /// Read an optional `NodeDynamicInfoSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `NodeDynamicInfoSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> NodeDynamicInfoSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -1458,11 +1432,10 @@ public struct NodeDynamicInfoSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `NodeDynamicInfoSeq` sequence to the stream.
+    /// Write a `NodeDynamicInfoSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `NodeDynamicInfoSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: NodeDynamicInfoSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -1470,13 +1443,12 @@ public struct NodeDynamicInfoSeqHelper {
         }
     }
 
-    /// Wite an optional `NodeDynamicInfoSeq?` sequence to the stream.
+    /// Write an optional `NodeDynamicInfoSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `NodeDynamicInfoSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: NodeDynamicInfoSeq?) {
         guard let val = v else {
             return
@@ -1489,31 +1461,31 @@ public struct NodeDynamicInfoSeqHelper {
     }
 }
 
-/// Traits for Slice interface`NodeObserver`.
+/// Traits for Slice interface `NodeObserver`.
 public struct NodeObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::NodeObserver"]
     public static let staticId = "::IceGrid::NodeObserver"
 }
 
-/// Traits for Slice interface`ApplicationObserver`.
+/// Traits for Slice interface `ApplicationObserver`.
 public struct ApplicationObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::ApplicationObserver"]
     public static let staticId = "::IceGrid::ApplicationObserver"
 }
 
-/// Traits for Slice interface`AdapterObserver`.
+/// Traits for Slice interface `AdapterObserver`.
 public struct AdapterObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::AdapterObserver"]
     public static let staticId = "::IceGrid::AdapterObserver"
 }
 
-/// Traits for Slice interface`ObjectObserver`.
+/// Traits for Slice interface `ObjectObserver`.
 public struct ObjectObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::ObjectObserver"]
     public static let staticId = "::IceGrid::ObjectObserver"
 }
 
-/// Traits for Slice interface`AdminSession`.
+/// Traits for Slice interface `AdminSession`.
 public struct AdminSessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::Session", "::Ice::Object", "::IceGrid::AdminSession"]
     public static let staticId = "::IceGrid::AdminSession"
@@ -1523,185 +1495,95 @@ public struct AdminSessionTraits: Ice.SliceTraits {
 /// Please see the IceGrid documentation for further information.
 ///
 /// AdminPrx Methods:
-///
 ///  - addApplication: Add an application to IceGrid.
-///
 ///  - addApplicationAsync: Add an application to IceGrid.
-///
 ///  - syncApplication: Synchronize a deployed application with the given application descriptor.
-///
 ///  - syncApplicationAsync: Synchronize a deployed application with the given application descriptor.
-///
 ///  - updateApplication: Update a deployed application with the given update application descriptor.
-///
 ///  - updateApplicationAsync: Update a deployed application with the given update application descriptor.
-///
 ///  - syncApplicationWithoutRestart: Synchronize a deployed application with the given application descriptor.
-///
 ///  - syncApplicationWithoutRestartAsync: Synchronize a deployed application with the given application descriptor.
-///
 ///  - updateApplicationWithoutRestart: Update a deployed application with the given update application descriptor only if no server restarts are necessary for the update of the application.
-///
 ///  - updateApplicationWithoutRestartAsync: Update a deployed application with the given update application descriptor only if no server restarts are necessary for the update of the application.
-///
 ///  - removeApplication: Remove an application from IceGrid.
-///
 ///  - removeApplicationAsync: Remove an application from IceGrid.
-///
 ///  - instantiateServer: Instantiate a server template from an application on the given node.
-///
 ///  - instantiateServerAsync: Instantiate a server template from an application on the given node.
-///
 ///  - getApplicationInfo: Get an application descriptor.
-///
 ///  - getApplicationInfoAsync: Get an application descriptor.
-///
 ///  - getDefaultApplicationDescriptor: Get the default application descriptor.
-///
 ///  - getDefaultApplicationDescriptorAsync: Get the default application descriptor.
-///
 ///  - getAllApplicationNames: Get all the IceGrid applications currently registered.
-///
 ///  - getAllApplicationNamesAsync: Get all the IceGrid applications currently registered.
-///
 ///  - getServerInfo: Get the server information for the server with the given id.
-///
 ///  - getServerInfoAsync: Get the server information for the server with the given id.
-///
 ///  - getServerState: Get a server's state.
-///
 ///  - getServerStateAsync: Get a server's state.
-///
 ///  - getServerPid: Get a server's system process id.
-///
 ///  - getServerPidAsync: Get a server's system process id.
-///
 ///  - getServerAdminCategory: Get the category for server admin objects.
-///
 ///  - getServerAdminCategoryAsync: Get the category for server admin objects.
-///
 ///  - getServerAdmin: Get a proxy to the server's admin object.
-///
 ///  - getServerAdminAsync: Get a proxy to the server's admin object.
-///
 ///  - enableServer: Enable or disable a server.
-///
 ///  - enableServerAsync: Enable or disable a server.
-///
 ///  - isServerEnabled: Check if the server is enabled or disabled.
-///
 ///  - isServerEnabledAsync: Check if the server is enabled or disabled.
-///
 ///  - startServer: Start a server and wait for its activation.
-///
 ///  - startServerAsync: Start a server and wait for its activation.
-///
 ///  - stopServer: Stop a server.
-///
 ///  - stopServerAsync: Stop a server.
-///
 ///  - sendSignal: Send signal to a server.
-///
 ///  - sendSignalAsync: Send signal to a server.
-///
 ///  - getAllServerIds: Get all the server ids registered with IceGrid.
-///
 ///  - getAllServerIdsAsync: Get all the server ids registered with IceGrid.
-///
 ///  - getAdapterInfo: Get the adapter information for the replica group or adapter with the given id.
-///
 ///  - getAdapterInfoAsync: Get the adapter information for the replica group or adapter with the given id.
-///
 ///  - removeAdapter: Remove the adapter with the given id.
-///
 ///  - removeAdapterAsync: Remove the adapter with the given id.
-///
 ///  - getAllAdapterIds: Get all the adapter ids registered with IceGrid.
-///
 ///  - getAllAdapterIdsAsync: Get all the adapter ids registered with IceGrid.
-///
 ///  - addObject: Add an object to the object registry.
-///
 ///  - addObjectAsync: Add an object to the object registry.
-///
 ///  - updateObject: Update an object in the object registry.
-///
 ///  - updateObjectAsync: Update an object in the object registry.
-///
 ///  - addObjectWithType: Add an object to the object registry and explicitly specify its type.
-///
 ///  - addObjectWithTypeAsync: Add an object to the object registry and explicitly specify its type.
-///
 ///  - removeObject: Remove an object from the object registry.
-///
 ///  - removeObjectAsync: Remove an object from the object registry.
-///
 ///  - getObjectInfo: Get the object info for the object with the given identity.
-///
 ///  - getObjectInfoAsync: Get the object info for the object with the given identity.
-///
 ///  - getObjectInfosByType: Get the object info of all the registered objects with the given type.
-///
 ///  - getObjectInfosByTypeAsync: Get the object info of all the registered objects with the given type.
-///
 ///  - getAllObjectInfos: Get the object info of all the registered objects whose stringified identities match the given expression.
-///
 ///  - getAllObjectInfosAsync: Get the object info of all the registered objects whose stringified identities match the given expression.
-///
 ///  - pingNode: Ping an IceGrid node to see if it is active.
-///
 ///  - pingNodeAsync: Ping an IceGrid node to see if it is active.
-///
 ///  - getNodeLoad: Get the load averages of the node.
-///
 ///  - getNodeLoadAsync: Get the load averages of the node.
-///
 ///  - getNodeInfo: Get the node information for the node with the given name.
-///
 ///  - getNodeInfoAsync: Get the node information for the node with the given name.
-///
 ///  - getNodeAdmin: Get a proxy to the IceGrid node's admin object.
-///
 ///  - getNodeAdminAsync: Get a proxy to the IceGrid node's admin object.
-///
 ///  - getNodeProcessorSocketCount: Get the number of physical processor sockets for the machine running the node with the given name.
-///
 ///  - getNodeProcessorSocketCountAsync: Get the number of physical processor sockets for the machine running the node with the given name.
-///
 ///  - shutdownNode: Shutdown an IceGrid node.
-///
 ///  - shutdownNodeAsync: Shutdown an IceGrid node.
-///
 ///  - getNodeHostname: Get the hostname of this node.
-///
 ///  - getNodeHostnameAsync: Get the hostname of this node.
-///
 ///  - getAllNodeNames: Get all the IceGrid nodes currently registered.
-///
 ///  - getAllNodeNamesAsync: Get all the IceGrid nodes currently registered.
-///
 ///  - pingRegistry: Ping an IceGrid registry to see if it is active.
-///
 ///  - pingRegistryAsync: Ping an IceGrid registry to see if it is active.
-///
 ///  - getRegistryInfo: Get the registry information for the registry with the given name.
-///
 ///  - getRegistryInfoAsync: Get the registry information for the registry with the given name.
-///
 ///  - getRegistryAdmin: Get a proxy to the IceGrid registry's admin object.
-///
 ///  - getRegistryAdminAsync: Get a proxy to the IceGrid registry's admin object.
-///
 ///  - shutdownRegistry: Shutdown an IceGrid registry.
-///
 ///  - shutdownRegistryAsync: Shutdown an IceGrid registry.
-///
 ///  - getAllRegistryNames: Get all the IceGrid registries currently registered.
-///
 ///  - getAllRegistryNamesAsync: Get all the IceGrid registries currently registered.
-///
 ///  - shutdown: Shut down the IceGrid registry.
-///
 ///  - shutdownAsync: Shut down the IceGrid registry.
 public protocol AdminPrx: Ice.ObjectPrx {}
 
@@ -1717,7 +1599,9 @@ private final class AdminPrxI: Ice.ObjectPrxI, AdminPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: AdminPrx.Protocol) throws -> AdminPrx {
     try communicator.makeProxyImpl(proxyString) as AdminPrxI
@@ -1729,62 +1613,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `AdminPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `AdminPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: AdminPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> AdminPrx? {
     return try await AdminPrxI.checkedCast(prx: prx, facet: facet, context: context) as AdminPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `AdminPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `AdminPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: AdminPrx.Protocol, facet: Swift.String? = nil) -> AdminPrx {
     return AdminPrxI.uncheckedCast(prx: prx, facet: facet) as AdminPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `AdminPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: AdminPrx.Protocol) -> Swift.String {
     return AdminTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `AdminPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `AdminPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `AdminPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: AdminPrx.Protocol) throws -> AdminPrx? {
         return try read() as AdminPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `AdminPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `AdminPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: AdminPrx.Protocol) throws -> AdminPrx? {
         return try read(tag: tag) as AdminPrxI?
     }
@@ -1794,199 +1673,105 @@ public extension Ice.InputStream {
 /// Please see the IceGrid documentation for further information.
 ///
 /// AdminPrx Methods:
-///
 ///  - addApplication: Add an application to IceGrid.
-///
 ///  - addApplicationAsync: Add an application to IceGrid.
-///
 ///  - syncApplication: Synchronize a deployed application with the given application descriptor.
-///
 ///  - syncApplicationAsync: Synchronize a deployed application with the given application descriptor.
-///
 ///  - updateApplication: Update a deployed application with the given update application descriptor.
-///
 ///  - updateApplicationAsync: Update a deployed application with the given update application descriptor.
-///
 ///  - syncApplicationWithoutRestart: Synchronize a deployed application with the given application descriptor.
-///
 ///  - syncApplicationWithoutRestartAsync: Synchronize a deployed application with the given application descriptor.
-///
 ///  - updateApplicationWithoutRestart: Update a deployed application with the given update application descriptor only if no server restarts are necessary for the update of the application.
-///
 ///  - updateApplicationWithoutRestartAsync: Update a deployed application with the given update application descriptor only if no server restarts are necessary for the update of the application.
-///
 ///  - removeApplication: Remove an application from IceGrid.
-///
 ///  - removeApplicationAsync: Remove an application from IceGrid.
-///
 ///  - instantiateServer: Instantiate a server template from an application on the given node.
-///
 ///  - instantiateServerAsync: Instantiate a server template from an application on the given node.
-///
 ///  - getApplicationInfo: Get an application descriptor.
-///
 ///  - getApplicationInfoAsync: Get an application descriptor.
-///
 ///  - getDefaultApplicationDescriptor: Get the default application descriptor.
-///
 ///  - getDefaultApplicationDescriptorAsync: Get the default application descriptor.
-///
 ///  - getAllApplicationNames: Get all the IceGrid applications currently registered.
-///
 ///  - getAllApplicationNamesAsync: Get all the IceGrid applications currently registered.
-///
 ///  - getServerInfo: Get the server information for the server with the given id.
-///
 ///  - getServerInfoAsync: Get the server information for the server with the given id.
-///
 ///  - getServerState: Get a server's state.
-///
 ///  - getServerStateAsync: Get a server's state.
-///
 ///  - getServerPid: Get a server's system process id.
-///
 ///  - getServerPidAsync: Get a server's system process id.
-///
 ///  - getServerAdminCategory: Get the category for server admin objects.
-///
 ///  - getServerAdminCategoryAsync: Get the category for server admin objects.
-///
 ///  - getServerAdmin: Get a proxy to the server's admin object.
-///
 ///  - getServerAdminAsync: Get a proxy to the server's admin object.
-///
 ///  - enableServer: Enable or disable a server.
-///
 ///  - enableServerAsync: Enable or disable a server.
-///
 ///  - isServerEnabled: Check if the server is enabled or disabled.
-///
 ///  - isServerEnabledAsync: Check if the server is enabled or disabled.
-///
 ///  - startServer: Start a server and wait for its activation.
-///
 ///  - startServerAsync: Start a server and wait for its activation.
-///
 ///  - stopServer: Stop a server.
-///
 ///  - stopServerAsync: Stop a server.
-///
 ///  - sendSignal: Send signal to a server.
-///
 ///  - sendSignalAsync: Send signal to a server.
-///
 ///  - getAllServerIds: Get all the server ids registered with IceGrid.
-///
 ///  - getAllServerIdsAsync: Get all the server ids registered with IceGrid.
-///
 ///  - getAdapterInfo: Get the adapter information for the replica group or adapter with the given id.
-///
 ///  - getAdapterInfoAsync: Get the adapter information for the replica group or adapter with the given id.
-///
 ///  - removeAdapter: Remove the adapter with the given id.
-///
 ///  - removeAdapterAsync: Remove the adapter with the given id.
-///
 ///  - getAllAdapterIds: Get all the adapter ids registered with IceGrid.
-///
 ///  - getAllAdapterIdsAsync: Get all the adapter ids registered with IceGrid.
-///
 ///  - addObject: Add an object to the object registry.
-///
 ///  - addObjectAsync: Add an object to the object registry.
-///
 ///  - updateObject: Update an object in the object registry.
-///
 ///  - updateObjectAsync: Update an object in the object registry.
-///
 ///  - addObjectWithType: Add an object to the object registry and explicitly specify its type.
-///
 ///  - addObjectWithTypeAsync: Add an object to the object registry and explicitly specify its type.
-///
 ///  - removeObject: Remove an object from the object registry.
-///
 ///  - removeObjectAsync: Remove an object from the object registry.
-///
 ///  - getObjectInfo: Get the object info for the object with the given identity.
-///
 ///  - getObjectInfoAsync: Get the object info for the object with the given identity.
-///
 ///  - getObjectInfosByType: Get the object info of all the registered objects with the given type.
-///
 ///  - getObjectInfosByTypeAsync: Get the object info of all the registered objects with the given type.
-///
 ///  - getAllObjectInfos: Get the object info of all the registered objects whose stringified identities match the given expression.
-///
 ///  - getAllObjectInfosAsync: Get the object info of all the registered objects whose stringified identities match the given expression.
-///
 ///  - pingNode: Ping an IceGrid node to see if it is active.
-///
 ///  - pingNodeAsync: Ping an IceGrid node to see if it is active.
-///
 ///  - getNodeLoad: Get the load averages of the node.
-///
 ///  - getNodeLoadAsync: Get the load averages of the node.
-///
 ///  - getNodeInfo: Get the node information for the node with the given name.
-///
 ///  - getNodeInfoAsync: Get the node information for the node with the given name.
-///
 ///  - getNodeAdmin: Get a proxy to the IceGrid node's admin object.
-///
 ///  - getNodeAdminAsync: Get a proxy to the IceGrid node's admin object.
-///
 ///  - getNodeProcessorSocketCount: Get the number of physical processor sockets for the machine running the node with the given name.
-///
 ///  - getNodeProcessorSocketCountAsync: Get the number of physical processor sockets for the machine running the node with the given name.
-///
 ///  - shutdownNode: Shutdown an IceGrid node.
-///
 ///  - shutdownNodeAsync: Shutdown an IceGrid node.
-///
 ///  - getNodeHostname: Get the hostname of this node.
-///
 ///  - getNodeHostnameAsync: Get the hostname of this node.
-///
 ///  - getAllNodeNames: Get all the IceGrid nodes currently registered.
-///
 ///  - getAllNodeNamesAsync: Get all the IceGrid nodes currently registered.
-///
 ///  - pingRegistry: Ping an IceGrid registry to see if it is active.
-///
 ///  - pingRegistryAsync: Ping an IceGrid registry to see if it is active.
-///
 ///  - getRegistryInfo: Get the registry information for the registry with the given name.
-///
 ///  - getRegistryInfoAsync: Get the registry information for the registry with the given name.
-///
 ///  - getRegistryAdmin: Get a proxy to the IceGrid registry's admin object.
-///
 ///  - getRegistryAdminAsync: Get a proxy to the IceGrid registry's admin object.
-///
 ///  - shutdownRegistry: Shutdown an IceGrid registry.
-///
 ///  - shutdownRegistryAsync: Shutdown an IceGrid registry.
-///
 ///  - getAllRegistryNames: Get all the IceGrid registries currently registered.
-///
 ///  - getAllRegistryNamesAsync: Get all the IceGrid registries currently registered.
-///
 ///  - shutdown: Shut down the IceGrid registry.
-///
 ///  - shutdownAsync: Shut down the IceGrid registry.
 public extension AdminPrx {
     /// Add an application to IceGrid.
     ///
-    /// - parameter _: `ApplicationDescriptor` The application descriptor.
+    /// - Parameters:
+    ///   - iceP_descriptor: The application descriptor.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. DeploymentException Raised if application deployment failed.
     func addApplication(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "addApplication",
                                        mode: .Normal,
@@ -2009,18 +1794,12 @@ public extension AdminPrx {
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
     /// current descriptor with this new descriptor.
     ///
-    /// - parameter _: `ApplicationDescriptor` The application descriptor.
+    /// - Parameters:
+    ///   - iceP_descriptor: The application descriptor.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. ApplicationNotExistException Raised if the application doesn't exist. DeploymentException Raised if application deployment failed.
     func syncApplication(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "syncApplication",
                                        mode: .Normal,
@@ -2044,18 +1823,12 @@ public extension AdminPrx {
 
     /// Update a deployed application with the given update application descriptor.
     ///
-    /// - parameter _: `ApplicationUpdateDescriptor` The update descriptor.
+    /// - Parameters:
+    ///   - iceP_descriptor: The update descriptor.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. ApplicationNotExistException Raised if the application doesn't exist. DeploymentException Raised if application deployment failed.
     func updateApplication(_ iceP_descriptor: ApplicationUpdateDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "updateApplication",
                                        mode: .Normal,
@@ -2082,18 +1855,12 @@ public extension AdminPrx {
     /// application. If some servers need to be restarted, the synchronization is rejected with a
     /// DeploymentException.
     ///
-    /// - parameter _: `ApplicationDescriptor` The application descriptor.
+    /// - Parameters:
+    ///   - iceP_descriptor: The application descriptor.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. ApplicationNotExistException Raised if the application doesn't exist. DeploymentException Raised if application deployment failed.
     func syncApplicationWithoutRestart(_ iceP_descriptor: ApplicationDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "syncApplicationWithoutRestart",
                                        mode: .Normal,
@@ -2119,18 +1886,12 @@ public extension AdminPrx {
     /// necessary for the update of the application. If some servers need to be restarted, the synchronization is
     /// rejected with a DeploymentException.
     ///
-    /// - parameter _: `ApplicationUpdateDescriptor` The update descriptor.
+    /// - Parameters:
+    ///   - iceP_descriptor: The update descriptor.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. ApplicationNotExistException Raised if the application doesn't exist. DeploymentException Raised if application deployment failed.
     func updateApplicationWithoutRestart(_ iceP_descriptor: ApplicationUpdateDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "updateApplicationWithoutRestart",
                                        mode: .Normal,
@@ -2154,18 +1915,12 @@ public extension AdminPrx {
 
     /// Remove an application from IceGrid.
     ///
-    /// - parameter _: `Swift.String` The application name.
+    /// - Parameters:
+    ///   - iceP_name: The application name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. ApplicationNotExistException Raised if the application doesn't exist. DeploymentException Raised if application deployment failed.
     func removeApplication(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "removeApplication",
                                        mode: .Normal,
@@ -2188,22 +1943,14 @@ public extension AdminPrx {
 
     /// Instantiate a server template from an application on the given node.
     ///
-    /// - parameter application: `Swift.String` The application name.
+    /// - Parameters:
+    ///   - iceP_application: The application name.
+    ///   - iceP_node: The name of the node where the server will be deployed.
+    ///   - iceP_desc: The descriptor of the server instance to deploy.
+    ///   - context: Optional request context.
     ///
-    /// - parameter node: `Swift.String` The name of the node where the server will be deployed.
-    ///
-    /// - parameter desc: `ServerInstanceDescriptor` The descriptor of the server instance to deploy.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if server instantiation failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. ApplicationNotExistException Raised if the application doesn't exist. DeploymentException Raised if server instantiation failed.
     func instantiateServer(application iceP_application: Swift.String, node iceP_node: Swift.String, desc iceP_desc: ServerInstanceDescriptor, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "instantiateServer",
                                        mode: .Normal,
@@ -2228,15 +1975,14 @@ public extension AdminPrx {
 
     /// Get an application descriptor.
     ///
-    /// - parameter _: `Swift.String` The application name.
+    /// - Parameters:
+    ///   - iceP_name: The application name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The application descriptor.
     ///
-    /// - returns: `ApplicationInfo` - The application descriptor.
-    ///
-    /// - throws:
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
+    /// - Throws:
+    ///   - ApplicationNotExistException Raised if the application doesn't exist.
     func getApplicationInfo(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> ApplicationInfo {
         return try await _impl._invoke(operation: "getApplicationInfo",
                                        mode: .Idempotent,
@@ -2260,13 +2006,12 @@ public extension AdminPrx {
 
     /// Get the default application descriptor.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `ApplicationDescriptor` - The default application descriptor.
+    /// - Returns: The default application descriptor.
     ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the default application descriptor can't be accessed or is invalid.
+    /// - Throws:
+    ///   - DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
     func getDefaultApplicationDescriptor(context: Ice.Context? = nil) async throws -> ApplicationDescriptor {
         return try await _impl._invoke(operation: "getDefaultApplicationDescriptor",
                                        mode: .Idempotent,
@@ -2287,9 +2032,9 @@ public extension AdminPrx {
 
     /// Get all the IceGrid applications currently registered.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Ice.StringSeq` - The application names.
+    /// - Returns: The application names.
     func getAllApplicationNames(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invoke(operation: "getAllApplicationNames",
                                        mode: .Idempotent,
@@ -2302,15 +2047,14 @@ public extension AdminPrx {
 
     /// Get the server information for the server with the given id.
     ///
-    /// - parameter _: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The server information.
     ///
-    /// - returns: `ServerInfo` - The server information.
-    ///
-    /// - throws:
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws:
+    ///   - ServerNotExistException Raised if the server doesn't exist.
     func getServerInfo(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> ServerInfo {
         return try await _impl._invoke(operation: "getServerInfo",
                                        mode: .Idempotent,
@@ -2334,19 +2078,13 @@ public extension AdminPrx {
 
     /// Get a server's state.
     ///
-    /// - parameter _: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The server state.
     ///
-    /// - returns: `ServerState` - The server state.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func getServerState(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> ServerState {
         return try await _impl._invoke(operation: "getServerState",
                                        mode: .Idempotent,
@@ -2373,19 +2111,13 @@ public extension AdminPrx {
 
     /// Get a server's system process id. The process id is operating system dependent.
     ///
-    /// - parameter _: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The server's process id.
     ///
-    /// - returns: `Swift.Int32` - The server's process id.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func getServerPid(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getServerPid",
                                        mode: .Idempotent,
@@ -2413,9 +2145,9 @@ public extension AdminPrx {
     /// Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
     /// changing its identity: use the server ID as name and the returned category as category.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Swift.String` - The category for server admin objects.
+    /// - Returns: The category for server admin objects.
     func getServerAdminCategory(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getServerAdminCategory",
                                        mode: .Idempotent,
@@ -2428,19 +2160,13 @@ public extension AdminPrx {
 
     /// Get a proxy to the server's admin object.
     ///
-    /// - parameter _: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: A proxy to the server's admin object. The returned proxy is never null.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the server's admin object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func getServerAdmin(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "getServerAdmin",
                                        mode: .Idempotent,
@@ -2469,19 +2195,12 @@ public extension AdminPrx {
     /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
     /// default.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - iceP_enabled: True to enable the server, false to disable it.
+    ///   - context: Optional request context.
     ///
-    /// - parameter enabled: `Swift.Bool` True to enable the server, false to disable it.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func enableServer(id iceP_id: Swift.String, enabled iceP_enabled: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "enableServer",
                                        mode: .Idempotent,
@@ -2505,19 +2224,13 @@ public extension AdminPrx {
 
     /// Check if the server is enabled or disabled.
     ///
-    /// - parameter _: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: True if the server is enabled.
     ///
-    /// - returns: `Swift.Bool` - True if the server is enabled.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func isServerEnabled(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "isServerEnabled",
                                        mode: .Idempotent,
@@ -2544,19 +2257,11 @@ public extension AdminPrx {
 
     /// Start a server and wait for its activation.
     ///
-    /// - parameter _: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    ///
-    ///   - ServerStartException - Raised if the server couldn't be started.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist. ServerStartException Raised if the server couldn't be started.
     func startServer(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "startServer",
                                        mode: .Normal,
@@ -2581,19 +2286,11 @@ public extension AdminPrx {
 
     /// Stop a server.
     ///
-    /// - parameter _: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    ///
-    ///   - ServerStopException - Raised if the server couldn't be stopped.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist. ServerStopException Raised if the server couldn't be stopped.
     func stopServer(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "stopServer",
                                        mode: .Normal,
@@ -2618,21 +2315,12 @@ public extension AdminPrx {
 
     /// Send signal to a server.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - iceP_signal: The signal, for example SIGTERM or 15.
+    ///   - context: Optional request context.
     ///
-    /// - parameter signal: `Swift.String` The signal, for example SIGTERM or 15.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - BadSignalException - Raised if the signal is not recognized by the target server.
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: BadSignalException Raised if the signal is not recognized by the target server. DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func sendSignal(id iceP_id: Swift.String, signal iceP_signal: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "sendSignal",
                                        mode: .Normal,
@@ -2658,9 +2346,9 @@ public extension AdminPrx {
 
     /// Get all the server ids registered with IceGrid.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Ice.StringSeq` - The server ids.
+    /// - Returns: The server ids.
     func getAllServerIds(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invoke(operation: "getAllServerIds",
                                        mode: .Idempotent,
@@ -2673,17 +2361,16 @@ public extension AdminPrx {
 
     /// Get the adapter information for the replica group or adapter with the given id.
     ///
-    /// - parameter _: `Swift.String` The adapter id.
+    /// - Parameters:
+    ///   - iceP_id: The adapter id.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `AdapterInfoSeq` - A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+    /// - Returns: A sequence of adapter information structures. If the given id refers to an adapter, this sequence
     /// will contain only one element. If the given id refers to a replica group, the sequence will contain the
     /// adapter information of each member of the replica group.
     ///
-    /// - throws:
-    ///
-    ///   - AdapterNotExistException - Raised if the adapter or replica group doesn't exist.
+    /// - Throws:
+    ///   - AdapterNotExistException Raised if the adapter or replica group doesn't exist.
     func getAdapterInfo(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> AdapterInfoSeq {
         return try await _impl._invoke(operation: "getAdapterInfo",
                                        mode: .Idempotent,
@@ -2706,15 +2393,11 @@ public extension AdminPrx {
 
     /// Remove the adapter with the given id.
     ///
-    /// - parameter _: `Swift.String` The adapter id.
+    /// - Parameters:
+    ///   - iceP_id: The adapter id.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - AdapterNotExistException - Raised if the adapter doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AdapterNotExistException Raised if the adapter doesn't exist. DeploymentException Raised if application deployment failed.
     func removeAdapter(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "removeAdapter",
                                        mode: .Normal,
@@ -2735,9 +2418,9 @@ public extension AdminPrx {
 
     /// Get all the adapter ids registered with IceGrid.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Ice.StringSeq` - The adapter ids.
+    /// - Returns: The adapter ids.
     func getAllAdapterIds(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invoke(operation: "getAllAdapterIds",
                                        mode: .Idempotent,
@@ -2751,16 +2434,12 @@ public extension AdminPrx {
     /// Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
     /// given proxy. The object must be reachable.
     ///
-    /// - parameter _: `Ice.ObjectPrx?` The object to be added to the registry.
+    /// - Parameters:
+    ///   - iceP_obj: The object to be added to the registry.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the object can't be added. This might be raised if the invocation on
-    ///     the proxy to get the object type failed.
-    ///
-    ///   - ObjectExistsException - Raised if the object is already registered.
+    /// - Throws: DeploymentException Raised if the object can't be added. This might be raised if the invocation on
+    ///     the proxy to get the object type failed. ObjectExistsException Raised if the object is already registered.
     func addObject(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "addObject",
                                        mode: .Normal,
@@ -2782,16 +2461,12 @@ public extension AdminPrx {
     /// Update an object in the object registry. Only objects added with this interface can be updated with this
     /// operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
     ///
-    /// - parameter _: `Ice.ObjectPrx?` The object to be updated to the registry.
+    /// - Parameters:
+    ///   - iceP_obj: The object to be updated to the registry.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the object can't be updated. This might happen if the object was added
-    ///     with a deployment descriptor.
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
+    /// - Throws: DeploymentException Raised if the object can't be updated. This might happen if the object was added
+    ///     with a deployment descriptor. ObjectNotRegisteredException Raised if the object isn't registered with the registry.
     func updateObject(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "updateObject",
                                        mode: .Normal,
@@ -2812,17 +2487,12 @@ public extension AdminPrx {
 
     /// Add an object to the object registry and explicitly specify its type.
     ///
-    /// - parameter obj: `Ice.ObjectPrx?` The object to be added to the registry. The proxy is never null.
+    /// - Parameters:
+    ///   - iceP_obj: The object to be added to the registry. The proxy is never null.
+    ///   - iceP_type: The object type.
+    ///   - context: Optional request context.
     ///
-    /// - parameter type: `Swift.String` The object type.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
-    ///
-    ///   - ObjectExistsException - Raised if the object is already registered.
+    /// - Throws: DeploymentException Raised if application deployment failed. ObjectExistsException Raised if the object is already registered.
     func addObjectWithType(obj iceP_obj: Ice.ObjectPrx?, type iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "addObjectWithType",
                                        mode: .Normal,
@@ -2845,16 +2515,12 @@ public extension AdminPrx {
     /// Remove an object from the object registry. Only objects added with this interface can be removed with this
     /// operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
     ///
-    /// - parameter _: `Ice.Identity` The identity of the object to be removed from the registry.
+    /// - Parameters:
+    ///   - iceP_id: The identity of the object to be removed from the registry.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the object can't be removed. This might happen if the object was added
-    ///     with a deployment descriptor.
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
+    /// - Throws: DeploymentException Raised if the object can't be removed. This might happen if the object was added
+    ///     with a deployment descriptor. ObjectNotRegisteredException Raised if the object isn't registered with the registry.
     func removeObject(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "removeObject",
                                        mode: .Normal,
@@ -2875,15 +2541,14 @@ public extension AdminPrx {
 
     /// Get the object info for the object with the given identity.
     ///
-    /// - parameter _: `Ice.Identity` The identity of the object.
+    /// - Parameters:
+    ///   - iceP_id: The identity of the object.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The object info.
     ///
-    /// - returns: `ObjectInfo` - The object info.
-    ///
-    /// - throws:
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
+    /// - Throws:
+    ///   - ObjectNotRegisteredException Raised if the object isn't registered with the registry.
     func getObjectInfo(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> ObjectInfo {
         return try await _impl._invoke(operation: "getObjectInfo",
                                        mode: .Idempotent,
@@ -2906,11 +2571,11 @@ public extension AdminPrx {
 
     /// Get the object info of all the registered objects with the given type.
     ///
-    /// - parameter _: `Swift.String` The type of the object.
+    /// - Parameters:
+    ///   - iceP_type: The type of the object.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ObjectInfoSeq` - The object infos.
+    /// - Returns: The object infos.
     func getObjectInfosByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) async throws -> ObjectInfoSeq {
         return try await _impl._invoke(operation: "getObjectInfosByType",
                                        mode: .Idempotent,
@@ -2926,12 +2591,12 @@ public extension AdminPrx {
 
     /// Get the object info of all the registered objects whose stringified identities match the given expression.
     ///
-    /// - parameter _: `Swift.String` The expression to match against the stringified identities of registered objects. The expression
+    /// - Parameters:
+    ///   - iceP_expr: The expression to match against the stringified identities of registered objects. The expression
     /// may contain a trailing wildcard (*) character.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ObjectInfoSeq` - All the object infos with a stringified identity matching the given expression.
+    /// - Returns: All the object infos with a stringified identity matching the given expression.
     func getAllObjectInfos(_ iceP_expr: Swift.String, context: Ice.Context? = nil) async throws -> ObjectInfoSeq {
         return try await _impl._invoke(operation: "getAllObjectInfos",
                                        mode: .Idempotent,
@@ -2947,15 +2612,14 @@ public extension AdminPrx {
 
     /// Ping an IceGrid node to see if it is active.
     ///
-    /// - parameter _: `Swift.String` The node name.
+    /// - Parameters:
+    ///   - iceP_name: The node name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: true if the node ping succeeded, false otherwise.
     ///
-    /// - returns: `Swift.Bool` - true if the node ping succeeded, false otherwise.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
+    /// - Throws:
+    ///   - NodeNotExistException Raised if the node doesn't exist.
     func pingNode(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "pingNode",
                                        mode: .Idempotent,
@@ -2978,17 +2642,13 @@ public extension AdminPrx {
 
     /// Get the load averages of the node.
     ///
-    /// - parameter _: `Swift.String` The node name.
+    /// - Parameters:
+    ///   - iceP_name: The node name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The node load information.
     ///
-    /// - returns: `LoadInfo` - The node load information.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func getNodeLoad(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> LoadInfo {
         return try await _impl._invoke(operation: "getNodeLoad",
                                        mode: .Idempotent,
@@ -3013,17 +2673,13 @@ public extension AdminPrx {
 
     /// Get the node information for the node with the given name.
     ///
-    /// - parameter _: `Swift.String` The node name.
+    /// - Parameters:
+    ///   - iceP_name: The node name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The node information.
     ///
-    /// - returns: `NodeInfo` - The node information.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func getNodeInfo(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> NodeInfo {
         return try await _impl._invoke(operation: "getNodeInfo",
                                        mode: .Idempotent,
@@ -3048,17 +2704,13 @@ public extension AdminPrx {
 
     /// Get a proxy to the IceGrid node's admin object.
     ///
-    /// - parameter _: `Swift.String` The IceGrid node name
+    /// - Parameters:
+    ///   - iceP_name: The IceGrid node name
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: A proxy to the IceGrid node's admin object. The returned proxy is never null.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid node's admin object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func getNodeAdmin(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "getNodeAdmin",
                                        mode: .Idempotent,
@@ -3085,17 +2737,13 @@ public extension AdminPrx {
     /// Note that this method will return 1 on operating systems where this can't be automatically determined and
     /// where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
     ///
-    /// - parameter _: `Swift.String` The node name.
+    /// - Parameters:
+    ///   - iceP_name: The node name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The number of processor sockets or 1 if the number of sockets can't determined.
     ///
-    /// - returns: `Swift.Int32` - The number of processor sockets or 1 if the number of sockets can't determined.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func getNodeProcessorSocketCount(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "getNodeProcessorSocketCount",
                                        mode: .Idempotent,
@@ -3120,15 +2768,11 @@ public extension AdminPrx {
 
     /// Shutdown an IceGrid node.
     ///
-    /// - parameter _: `Swift.String` The node name.
+    /// - Parameters:
+    ///   - iceP_name: The node name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func shutdownNode(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdownNode",
                                        mode: .Normal,
@@ -3149,17 +2793,13 @@ public extension AdminPrx {
 
     /// Get the hostname of this node.
     ///
-    /// - parameter _: `Swift.String` The node name.
+    /// - Parameters:
+    ///   - iceP_name: The node name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The node hostname.
     ///
-    /// - returns: `Swift.String` - The node hostname.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func getNodeHostname(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getNodeHostname",
                                        mode: .Idempotent,
@@ -3184,9 +2824,9 @@ public extension AdminPrx {
 
     /// Get all the IceGrid nodes currently registered.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Ice.StringSeq` - The node names.
+    /// - Returns: The node names.
     func getAllNodeNames(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invoke(operation: "getAllNodeNames",
                                        mode: .Idempotent,
@@ -3199,15 +2839,14 @@ public extension AdminPrx {
 
     /// Ping an IceGrid registry to see if it is active.
     ///
-    /// - parameter _: `Swift.String` The registry name.
+    /// - Parameters:
+    ///   - iceP_name: The registry name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: true if the registry ping succeeded, false otherwise.
     ///
-    /// - returns: `Swift.Bool` - true if the registry ping succeeded, false otherwise.
-    ///
-    /// - throws:
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
+    /// - Throws:
+    ///   - RegistryNotExistException Raised if the registry doesn't exist.
     func pingRegistry(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "pingRegistry",
                                        mode: .Idempotent,
@@ -3230,17 +2869,13 @@ public extension AdminPrx {
 
     /// Get the registry information for the registry with the given name.
     ///
-    /// - parameter _: `Swift.String` The registry name.
+    /// - Parameters:
+    ///   - iceP_name: The registry name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: The registry information.
     ///
-    /// - returns: `RegistryInfo` - The registry information.
-    ///
-    /// - throws:
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    ///
-    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
+    /// - Throws: RegistryNotExistException Raised if the registry doesn't exist. RegistryUnreachableException Raised if the registry could not be reached.
     func getRegistryInfo(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> RegistryInfo {
         return try await _impl._invoke(operation: "getRegistryInfo",
                                        mode: .Idempotent,
@@ -3265,15 +2900,14 @@ public extension AdminPrx {
 
     /// Get a proxy to the IceGrid registry's admin object.
     ///
-    /// - parameter _: `Swift.String` The registry name
+    /// - Parameters:
+    ///   - iceP_name: The registry name
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: A proxy to the IceGrid registry's admin object. The returned proxy is never null.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid registry's admin object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
+    /// - Throws:
+    ///   - RegistryNotExistException Raised if the registry doesn't exist.
     func getRegistryAdmin(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "getRegistryAdmin",
                                        mode: .Idempotent,
@@ -3296,15 +2930,11 @@ public extension AdminPrx {
 
     /// Shutdown an IceGrid registry.
     ///
-    /// - parameter _: `Swift.String` The registry name.
+    /// - Parameters:
+    ///   - iceP_name: The registry name.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    ///
-    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
+    /// - Throws: RegistryNotExistException Raised if the registry doesn't exist. RegistryUnreachableException Raised if the registry could not be reached.
     func shutdownRegistry(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdownRegistry",
                                        mode: .Idempotent,
@@ -3325,9 +2955,9 @@ public extension AdminPrx {
 
     /// Get all the IceGrid registries currently registered.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Ice.StringSeq` - The registry names.
+    /// - Returns: The registry names.
     func getAllRegistryNames(context: Ice.Context? = nil) async throws -> Ice.StringSeq {
         return try await _impl._invoke(operation: "getAllRegistryNames",
                                        mode: .Idempotent,
@@ -3340,7 +2970,7 @@ public extension AdminPrx {
 
     /// Shut down the IceGrid registry.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func shutdown(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -3351,13 +2981,9 @@ public extension AdminPrx {
 /// This interface provides access to IceGrid log file contents.
 ///
 /// FileIteratorPrx Methods:
-///
 ///  - read: Read lines from the log file.
-///
 ///  - readAsync: Read lines from the log file.
-///
 ///  - destroy: Destroy the iterator.
-///
 ///  - destroyAsync: Destroy the iterator.
 public protocol FileIteratorPrx: Ice.ObjectPrx {}
 
@@ -3373,7 +2999,9 @@ private final class FileIteratorPrxI: Ice.ObjectPrxI, FileIteratorPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: FileIteratorPrx.Protocol) throws -> FileIteratorPrx {
     try communicator.makeProxyImpl(proxyString) as FileIteratorPrxI
@@ -3385,62 +3013,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `FileIteratorPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `FileIteratorPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: FileIteratorPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
     return try await FileIteratorPrxI.checkedCast(prx: prx, facet: facet, context: context) as FileIteratorPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `FileIteratorPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `FileIteratorPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: FileIteratorPrx.Protocol, facet: Swift.String? = nil) -> FileIteratorPrx {
     return FileIteratorPrxI.uncheckedCast(prx: prx, facet: facet) as FileIteratorPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `FileIteratorPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: FileIteratorPrx.Protocol) -> Swift.String {
     return FileIteratorTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `FileIteratorPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `FileIteratorPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `FileIteratorPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: FileIteratorPrx.Protocol) throws -> FileIteratorPrx? {
         return try read() as FileIteratorPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `FileIteratorPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `FileIteratorPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: FileIteratorPrx.Protocol) throws -> FileIteratorPrx? {
         return try read(tag: tag) as FileIteratorPrxI?
     }
@@ -3449,33 +3072,26 @@ public extension Ice.InputStream {
 /// This interface provides access to IceGrid log file contents.
 ///
 /// FileIteratorPrx Methods:
-///
 ///  - read: Read lines from the log file.
-///
 ///  - readAsync: Read lines from the log file.
-///
 ///  - destroy: Destroy the iterator.
-///
 ///  - destroyAsync: Destroy the iterator.
 public extension FileIteratorPrx {
     /// Read lines from the log file.
     ///
-    /// - parameter _: `Swift.Int32` Specifies the maximum number of bytes to be received. The server will ensure that the returned
+    /// - Parameters:
+    ///   - iceP_size: Specifies the maximum number of bytes to be received. The server will ensure that the returned
     /// message doesn't exceed the given size.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.Bool, lines: Ice.StringSeq)`:
-    ///
-    ///   - returnValue: `Swift.Bool` - True if EOF is encountered.
-    ///
-    ///   - lines: `Ice.StringSeq` - The lines read from the file. If there was nothing to read from the file since the last call to
+    /// - Returns:
+    ///   - returnValue: True if EOF is encountered.
+    ///   - lines: The lines read from the file. If there was nothing to read from the file since the last call to
     /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
     /// '\n' should be added when writing the last line to the to the output device).
     ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if there was a problem to read lines from the file.
+    /// - Throws:
+    ///   - FileNotAvailableException Raised if there was a problem to read lines from the file.
     func read(_ iceP_size: Swift.Int32, context: Ice.Context? = nil) async throws -> (returnValue: Swift.Bool, lines: Ice.StringSeq) {
         return try await _impl._invoke(operation: "read",
                                        mode: .Normal,
@@ -3499,7 +3115,7 @@ public extension FileIteratorPrx {
 
     /// Destroy the iterator.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func destroy(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "destroy",
                                        mode: .Normal,
@@ -3510,17 +3126,11 @@ public extension FileIteratorPrx {
 /// This interface allows applications to monitor changes the state of the registry.
 ///
 /// RegistryObserverPrx Methods:
-///
 ///  - registryInit: The registryInit operation is called after registration of an observer to indicate the state of the registries.
-///
 ///  - registryInitAsync: The registryInit operation is called after registration of an observer to indicate the state of the registries.
-///
 ///  - registryUp: The registryUp operation is called to notify an observer that a registry replica came up.
-///
 ///  - registryUpAsync: The registryUp operation is called to notify an observer that a registry replica came up.
-///
 ///  - registryDown: The registryDown operation is called to notify an observer that a registry replica went down.
-///
 ///  - registryDownAsync: The registryDown operation is called to notify an observer that a registry replica went down.
 public protocol RegistryObserverPrx: Ice.ObjectPrx {}
 
@@ -3536,7 +3146,9 @@ private final class RegistryObserverPrxI: Ice.ObjectPrxI, RegistryObserverPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: RegistryObserverPrx.Protocol) throws -> RegistryObserverPrx {
     try communicator.makeProxyImpl(proxyString) as RegistryObserverPrxI
@@ -3548,62 +3160,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `RegistryObserverPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `RegistryObserverPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: RegistryObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> RegistryObserverPrx? {
     return try await RegistryObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as RegistryObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `RegistryObserverPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `RegistryObserverPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: RegistryObserverPrx.Protocol, facet: Swift.String? = nil) -> RegistryObserverPrx {
     return RegistryObserverPrxI.uncheckedCast(prx: prx, facet: facet) as RegistryObserverPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `RegistryObserverPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: RegistryObserverPrx.Protocol) -> Swift.String {
     return RegistryObserverTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `RegistryObserverPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `RegistryObserverPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `RegistryObserverPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: RegistryObserverPrx.Protocol) throws -> RegistryObserverPrx? {
         return try read() as RegistryObserverPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `RegistryObserverPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `RegistryObserverPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: RegistryObserverPrx.Protocol) throws -> RegistryObserverPrx? {
         return try read(tag: tag) as RegistryObserverPrxI?
     }
@@ -3612,25 +3219,19 @@ public extension Ice.InputStream {
 /// This interface allows applications to monitor changes the state of the registry.
 ///
 /// RegistryObserverPrx Methods:
-///
 ///  - registryInit: The registryInit operation is called after registration of an observer to indicate the state of the registries.
-///
 ///  - registryInitAsync: The registryInit operation is called after registration of an observer to indicate the state of the registries.
-///
 ///  - registryUp: The registryUp operation is called to notify an observer that a registry replica came up.
-///
 ///  - registryUpAsync: The registryUp operation is called to notify an observer that a registry replica came up.
-///
 ///  - registryDown: The registryDown operation is called to notify an observer that a registry replica went down.
-///
 ///  - registryDownAsync: The registryDown operation is called to notify an observer that a registry replica went down.
 public extension RegistryObserverPrx {
     /// The registryInit operation is called after registration of an observer to indicate the state of
     /// the registries.
     ///
-    /// - parameter _: `RegistryInfoSeq` The current state of the registries.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_registries: The current state of the registries.
+    ///   - context: Optional request context.
     func registryInit(_ iceP_registries: RegistryInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "registryInit",
                                        mode: .Normal,
@@ -3642,9 +3243,9 @@ public extension RegistryObserverPrx {
 
     /// The registryUp operation is called to notify an observer that a registry replica came up.
     ///
-    /// - parameter _: `RegistryInfo` The registry state.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_registryReplica: The registry state.
+    ///   - context: Optional request context.
     func registryUp(_ iceP_registryReplica: RegistryInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "registryUp",
                                        mode: .Normal,
@@ -3656,9 +3257,9 @@ public extension RegistryObserverPrx {
 
     /// The registryDown operation is called to notify an observer that a registry replica went down.
     ///
-    /// - parameter _: `Swift.String` The registry name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_name: The registry name.
+    ///   - context: Optional request context.
     func registryDown(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "registryDown",
                                        mode: .Normal,
@@ -3673,25 +3274,15 @@ public extension RegistryObserverPrx {
 /// the IceGrid nodes.
 ///
 /// NodeObserverPrx Methods:
-///
 ///  - nodeInit: The nodeInit operation indicates the current state of nodes.
-///
 ///  - nodeInitAsync: The nodeInit operation indicates the current state of nodes.
-///
 ///  - nodeUp: The nodeUp operation is called to notify an observer that a node came up.
-///
 ///  - nodeUpAsync: The nodeUp operation is called to notify an observer that a node came up.
-///
 ///  - nodeDown: The nodeDown operation is called to notify an observer that a node went down.
-///
 ///  - nodeDownAsync: The nodeDown operation is called to notify an observer that a node went down.
-///
 ///  - updateServer: The updateServer operation is called to notify an observer that the state of a server changed.
-///
 ///  - updateServerAsync: The updateServer operation is called to notify an observer that the state of a server changed.
-///
 ///  - updateAdapter: The updateAdapter operation is called to notify an observer that the state of an adapter changed.
-///
 ///  - updateAdapterAsync: The updateAdapter operation is called to notify an observer that the state of an adapter changed.
 public protocol NodeObserverPrx: Ice.ObjectPrx {}
 
@@ -3707,7 +3298,9 @@ private final class NodeObserverPrxI: Ice.ObjectPrxI, NodeObserverPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: NodeObserverPrx.Protocol) throws -> NodeObserverPrx {
     try communicator.makeProxyImpl(proxyString) as NodeObserverPrxI
@@ -3719,62 +3312,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `NodeObserverPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `NodeObserverPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: NodeObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> NodeObserverPrx? {
     return try await NodeObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as NodeObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `NodeObserverPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `NodeObserverPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: NodeObserverPrx.Protocol, facet: Swift.String? = nil) -> NodeObserverPrx {
     return NodeObserverPrxI.uncheckedCast(prx: prx, facet: facet) as NodeObserverPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `NodeObserverPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: NodeObserverPrx.Protocol) -> Swift.String {
     return NodeObserverTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `NodeObserverPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `NodeObserverPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `NodeObserverPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: NodeObserverPrx.Protocol) throws -> NodeObserverPrx? {
         return try read() as NodeObserverPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `NodeObserverPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `NodeObserverPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: NodeObserverPrx.Protocol) throws -> NodeObserverPrx? {
         return try read(tag: tag) as NodeObserverPrxI?
     }
@@ -3784,33 +3372,23 @@ public extension Ice.InputStream {
 /// the IceGrid nodes.
 ///
 /// NodeObserverPrx Methods:
-///
 ///  - nodeInit: The nodeInit operation indicates the current state of nodes.
-///
 ///  - nodeInitAsync: The nodeInit operation indicates the current state of nodes.
-///
 ///  - nodeUp: The nodeUp operation is called to notify an observer that a node came up.
-///
 ///  - nodeUpAsync: The nodeUp operation is called to notify an observer that a node came up.
-///
 ///  - nodeDown: The nodeDown operation is called to notify an observer that a node went down.
-///
 ///  - nodeDownAsync: The nodeDown operation is called to notify an observer that a node went down.
-///
 ///  - updateServer: The updateServer operation is called to notify an observer that the state of a server changed.
-///
 ///  - updateServerAsync: The updateServer operation is called to notify an observer that the state of a server changed.
-///
 ///  - updateAdapter: The updateAdapter operation is called to notify an observer that the state of an adapter changed.
-///
 ///  - updateAdapterAsync: The updateAdapter operation is called to notify an observer that the state of an adapter changed.
 public extension NodeObserverPrx {
     /// The nodeInit operation indicates the current state of nodes. It is called after the
     /// registration of an observer.
     ///
-    /// - parameter _: `NodeDynamicInfoSeq` The current state of the nodes.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_nodes: The current state of the nodes.
+    ///   - context: Optional request context.
     func nodeInit(_ iceP_nodes: NodeDynamicInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "nodeInit",
                                        mode: .Normal,
@@ -3822,9 +3400,9 @@ public extension NodeObserverPrx {
 
     /// The nodeUp operation is called to notify an observer that a node came up.
     ///
-    /// - parameter _: `NodeDynamicInfo` The node state.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_node: The node state.
+    ///   - context: Optional request context.
     func nodeUp(_ iceP_node: NodeDynamicInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "nodeUp",
                                        mode: .Normal,
@@ -3836,9 +3414,9 @@ public extension NodeObserverPrx {
 
     /// The nodeDown operation is called to notify an observer that a node went down.
     ///
-    /// - parameter _: `Swift.String` The node name.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_name: The node name.
+    ///   - context: Optional request context.
     func nodeDown(_ iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "nodeDown",
                                        mode: .Normal,
@@ -3850,11 +3428,10 @@ public extension NodeObserverPrx {
 
     /// The updateServer operation is called to notify an observer that the state of a server changed.
     ///
-    /// - parameter node: `Swift.String` The node hosting the server.
-    ///
-    /// - parameter updatedInfo: `ServerDynamicInfo` The new server state.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_node: The node hosting the server.
+    ///   - iceP_updatedInfo: The new server state.
+    ///   - context: Optional request context.
     func updateServer(node iceP_node: Swift.String, updatedInfo iceP_updatedInfo: ServerDynamicInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "updateServer",
                                        mode: .Normal,
@@ -3868,11 +3445,10 @@ public extension NodeObserverPrx {
     /// The updateAdapter operation is called to notify an observer that the state of an adapter
     /// changed.
     ///
-    /// - parameter node: `Swift.String` The node hosting the adapter.
-    ///
-    /// - parameter updatedInfo: `AdapterDynamicInfo` The new adapter state.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_node: The node hosting the adapter.
+    ///   - iceP_updatedInfo: The new adapter state.
+    ///   - context: Optional request context.
     func updateAdapter(node iceP_node: Swift.String, updatedInfo iceP_updatedInfo: AdapterDynamicInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "updateAdapter",
                                        mode: .Normal,
@@ -3888,21 +3464,13 @@ public extension NodeObserverPrx {
 /// state of the IceGrid registry database.
 ///
 /// ApplicationObserverPrx Methods:
-///
 ///  - applicationInit: applicationInit is called after the registration of an observer to indicate the state of the registry.
-///
 ///  - applicationInitAsync: applicationInit is called after the registration of an observer to indicate the state of the registry.
-///
 ///  - applicationAdded: The applicationAdded operation is called to notify an observer that an application was added.
-///
 ///  - applicationAddedAsync: The applicationAdded operation is called to notify an observer that an application was added.
-///
 ///  - applicationRemoved: The applicationRemoved operation is called to notify an observer that an application was removed.
-///
 ///  - applicationRemovedAsync: The applicationRemoved operation is called to notify an observer that an application was removed.
-///
 ///  - applicationUpdated: The applicationUpdated operation is called to notify an observer that an application was updated.
-///
 ///  - applicationUpdatedAsync: The applicationUpdated operation is called to notify an observer that an application was updated.
 public protocol ApplicationObserverPrx: Ice.ObjectPrx {}
 
@@ -3918,7 +3486,9 @@ private final class ApplicationObserverPrxI: Ice.ObjectPrxI, ApplicationObserver
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ApplicationObserverPrx.Protocol) throws -> ApplicationObserverPrx {
     try communicator.makeProxyImpl(proxyString) as ApplicationObserverPrxI
@@ -3930,62 +3500,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `ApplicationObserverPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `ApplicationObserverPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: ApplicationObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ApplicationObserverPrx? {
     return try await ApplicationObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ApplicationObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `ApplicationObserverPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `ApplicationObserverPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: ApplicationObserverPrx.Protocol, facet: Swift.String? = nil) -> ApplicationObserverPrx {
     return ApplicationObserverPrxI.uncheckedCast(prx: prx, facet: facet) as ApplicationObserverPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `ApplicationObserverPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ApplicationObserverPrx.Protocol) -> Swift.String {
     return ApplicationObserverTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `ApplicationObserverPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `ApplicationObserverPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `ApplicationObserverPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: ApplicationObserverPrx.Protocol) throws -> ApplicationObserverPrx? {
         return try read() as ApplicationObserverPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `ApplicationObserverPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `ApplicationObserverPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: ApplicationObserverPrx.Protocol) throws -> ApplicationObserverPrx? {
         return try read(tag: tag) as ApplicationObserverPrxI?
     }
@@ -3995,32 +3560,23 @@ public extension Ice.InputStream {
 /// state of the IceGrid registry database.
 ///
 /// ApplicationObserverPrx Methods:
-///
 ///  - applicationInit: applicationInit is called after the registration of an observer to indicate the state of the registry.
-///
 ///  - applicationInitAsync: applicationInit is called after the registration of an observer to indicate the state of the registry.
-///
 ///  - applicationAdded: The applicationAdded operation is called to notify an observer that an application was added.
-///
 ///  - applicationAddedAsync: The applicationAdded operation is called to notify an observer that an application was added.
-///
 ///  - applicationRemoved: The applicationRemoved operation is called to notify an observer that an application was removed.
-///
 ///  - applicationRemovedAsync: The applicationRemoved operation is called to notify an observer that an application was removed.
-///
 ///  - applicationUpdated: The applicationUpdated operation is called to notify an observer that an application was updated.
-///
 ///  - applicationUpdatedAsync: The applicationUpdated operation is called to notify an observer that an application was updated.
 public extension ApplicationObserverPrx {
     /// applicationInit is called after the registration of an observer to indicate the state of the
     /// registry.
     ///
-    /// - parameter serial: `Swift.Int32` The current serial number of the registry database. This serial number allows observers to
+    /// - Parameters:
+    ///   - iceP_serial: The current serial number of the registry database. This serial number allows observers to
     /// make sure that their internal state is synchronized with the registry.
-    ///
-    /// - parameter applications: `ApplicationInfoSeq` The applications currently registered with the registry.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    ///   - iceP_applications: The applications currently registered with the registry.
+    ///   - context: Optional request context.
     func applicationInit(serial iceP_serial: Swift.Int32, applications iceP_applications: ApplicationInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "applicationInit",
                                        mode: .Normal,
@@ -4034,11 +3590,10 @@ public extension ApplicationObserverPrx {
 
     /// The applicationAdded operation is called to notify an observer that an application was added.
     ///
-    /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
-    ///
-    /// - parameter desc: `ApplicationInfo` The descriptor of the new application.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_serial: The new serial number of the registry database.
+    ///   - iceP_desc: The descriptor of the new application.
+    ///   - context: Optional request context.
     func applicationAdded(serial iceP_serial: Swift.Int32, desc iceP_desc: ApplicationInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "applicationAdded",
                                        mode: .Normal,
@@ -4053,11 +3608,10 @@ public extension ApplicationObserverPrx {
     /// The applicationRemoved operation is called to notify an observer that an application was
     /// removed.
     ///
-    /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
-    ///
-    /// - parameter name: `Swift.String` The name of the application that was removed.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_serial: The new serial number of the registry database.
+    ///   - iceP_name: The name of the application that was removed.
+    ///   - context: Optional request context.
     func applicationRemoved(serial iceP_serial: Swift.Int32, name iceP_name: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "applicationRemoved",
                                        mode: .Normal,
@@ -4071,11 +3625,10 @@ public extension ApplicationObserverPrx {
     /// The applicationUpdated operation is called to notify an observer that an application was
     /// updated.
     ///
-    /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
-    ///
-    /// - parameter desc: `ApplicationUpdateInfo` The descriptor of the update.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_serial: The new serial number of the registry database.
+    ///   - iceP_desc: The descriptor of the update.
+    ///   - context: Optional request context.
     func applicationUpdated(serial iceP_serial: Swift.Int32, desc iceP_desc: ApplicationUpdateInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "applicationUpdated",
                                        mode: .Normal,
@@ -4091,21 +3644,13 @@ public extension ApplicationObserverPrx {
 /// This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
 ///
 /// AdapterObserverPrx Methods:
-///
 ///  - adapterInit: adapterInit is called after registration of an observer to indicate the state of the registry.
-///
 ///  - adapterInitAsync: adapterInit is called after registration of an observer to indicate the state of the registry.
-///
 ///  - adapterAdded: The adapterAdded operation is called to notify an observer when a dynamically-registered adapter was added.
-///
 ///  - adapterAddedAsync: The adapterAdded operation is called to notify an observer when a dynamically-registered adapter was added.
-///
 ///  - adapterUpdated: The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
-///
 ///  - adapterUpdatedAsync: The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
-///
 ///  - adapterRemoved: The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
-///
 ///  - adapterRemovedAsync: The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
 public protocol AdapterObserverPrx: Ice.ObjectPrx {}
 
@@ -4121,7 +3666,9 @@ private final class AdapterObserverPrxI: Ice.ObjectPrxI, AdapterObserverPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: AdapterObserverPrx.Protocol) throws -> AdapterObserverPrx {
     try communicator.makeProxyImpl(proxyString) as AdapterObserverPrxI
@@ -4133,62 +3680,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `AdapterObserverPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `AdapterObserverPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: AdapterObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> AdapterObserverPrx? {
     return try await AdapterObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as AdapterObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `AdapterObserverPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `AdapterObserverPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: AdapterObserverPrx.Protocol, facet: Swift.String? = nil) -> AdapterObserverPrx {
     return AdapterObserverPrxI.uncheckedCast(prx: prx, facet: facet) as AdapterObserverPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `AdapterObserverPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: AdapterObserverPrx.Protocol) -> Swift.String {
     return AdapterObserverTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `AdapterObserverPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `AdapterObserverPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `AdapterObserverPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: AdapterObserverPrx.Protocol) throws -> AdapterObserverPrx? {
         return try read() as AdapterObserverPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `AdapterObserverPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `AdapterObserverPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: AdapterObserverPrx.Protocol) throws -> AdapterObserverPrx? {
         return try read(tag: tag) as AdapterObserverPrxI?
     }
@@ -4197,29 +3739,21 @@ public extension Ice.InputStream {
 /// This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
 ///
 /// AdapterObserverPrx Methods:
-///
 ///  - adapterInit: adapterInit is called after registration of an observer to indicate the state of the registry.
-///
 ///  - adapterInitAsync: adapterInit is called after registration of an observer to indicate the state of the registry.
-///
 ///  - adapterAdded: The adapterAdded operation is called to notify an observer when a dynamically-registered adapter was added.
-///
 ///  - adapterAddedAsync: The adapterAdded operation is called to notify an observer when a dynamically-registered adapter was added.
-///
 ///  - adapterUpdated: The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
-///
 ///  - adapterUpdatedAsync: The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
-///
 ///  - adapterRemoved: The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
-///
 ///  - adapterRemovedAsync: The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
 public extension AdapterObserverPrx {
     /// adapterInit is called after registration of an observer to indicate the state of the registry.
     ///
-    /// - parameter _: `AdapterInfoSeq` The adapters that were dynamically registered with the registry (not through the deployment
+    /// - Parameters:
+    ///   - iceP_adpts: The adapters that were dynamically registered with the registry (not through the deployment
     /// mechanism).
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    ///   - context: Optional request context.
     func adapterInit(_ iceP_adpts: AdapterInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "adapterInit",
                                        mode: .Normal,
@@ -4232,9 +3766,9 @@ public extension AdapterObserverPrx {
     /// The adapterAdded operation is called to notify an observer when a dynamically-registered
     /// adapter was added.
     ///
-    /// - parameter _: `AdapterInfo` The details of the new adapter.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_info: The details of the new adapter.
+    ///   - context: Optional request context.
     func adapterAdded(_ iceP_info: AdapterInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "adapterAdded",
                                        mode: .Normal,
@@ -4247,9 +3781,9 @@ public extension AdapterObserverPrx {
     /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
     /// updated.
     ///
-    /// - parameter _: `AdapterInfo` The details of the updated adapter.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_info: The details of the updated adapter.
+    ///   - context: Optional request context.
     func adapterUpdated(_ iceP_info: AdapterInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "adapterUpdated",
                                        mode: .Normal,
@@ -4262,9 +3796,9 @@ public extension AdapterObserverPrx {
     /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
     /// removed.
     ///
-    /// - parameter _: `Swift.String` The ID of the removed adapter.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_id: The ID of the removed adapter.
+    ///   - context: Optional request context.
     func adapterRemoved(_ iceP_id: Swift.String, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "adapterRemoved",
                                        mode: .Normal,
@@ -4278,22 +3812,14 @@ public extension AdapterObserverPrx {
 /// This interface allows applications to monitor IceGrid well-known objects.
 ///
 /// ObjectObserverPrx Methods:
-///
 ///  - objectInit: objectInit is called after the registration of an observer to indicate the state of the registry.
-///
 ///  - objectInitAsync: objectInit is called after the registration of an observer to indicate the state of the registry.
-///
-///  - objectAdded: The objectAdded operation is called to notify an observer when an object was added to the {@link Admin} interface.
-///
-///  - objectAddedAsync: The objectAdded operation is called to notify an observer when an object was added to the {@link Admin} interface.
-///
-///  - objectUpdated: objectUpdated is called to notify an observer when an object registered with the {@link Admin} interface was updated.
-///
-///  - objectUpdatedAsync: objectUpdated is called to notify an observer when an object registered with the {@link Admin} interface was updated.
-///
-///  - objectRemoved: objectRemoved is called to notify an observer when an object registered with the {@link Admin} interface was removed.
-///
-///  - objectRemovedAsync: objectRemoved is called to notify an observer when an object registered with the {@link Admin} interface was removed.
+///  - objectAdded: The objectAdded operation is called to notify an observer when an object was added to the `Admin` interface.
+///  - objectAddedAsync: The objectAdded operation is called to notify an observer when an object was added to the `Admin` interface.
+///  - objectUpdated: objectUpdated is called to notify an observer when an object registered with the `Admin` interface was updated.
+///  - objectUpdatedAsync: objectUpdated is called to notify an observer when an object registered with the `Admin` interface was updated.
+///  - objectRemoved: objectRemoved is called to notify an observer when an object registered with the `Admin` interface was removed.
+///  - objectRemovedAsync: objectRemoved is called to notify an observer when an object registered with the `Admin` interface was removed.
 public protocol ObjectObserverPrx: Ice.ObjectPrx {}
 
 private final class ObjectObserverPrxI: Ice.ObjectPrxI, ObjectObserverPrx {
@@ -4308,7 +3834,9 @@ private final class ObjectObserverPrxI: Ice.ObjectPrxI, ObjectObserverPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ObjectObserverPrx.Protocol) throws -> ObjectObserverPrx {
     try communicator.makeProxyImpl(proxyString) as ObjectObserverPrxI
@@ -4320,62 +3848,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `ObjectObserverPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `ObjectObserverPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: ObjectObserverPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> ObjectObserverPrx? {
     return try await ObjectObserverPrxI.checkedCast(prx: prx, facet: facet, context: context) as ObjectObserverPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `ObjectObserverPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `ObjectObserverPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: ObjectObserverPrx.Protocol, facet: Swift.String? = nil) -> ObjectObserverPrx {
     return ObjectObserverPrxI.uncheckedCast(prx: prx, facet: facet) as ObjectObserverPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `ObjectObserverPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ObjectObserverPrx.Protocol) -> Swift.String {
     return ObjectObserverTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `ObjectObserverPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `ObjectObserverPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `ObjectObserverPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: ObjectObserverPrx.Protocol) throws -> ObjectObserverPrx? {
         return try read() as ObjectObserverPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `ObjectObserverPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `ObjectObserverPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: ObjectObserverPrx.Protocol) throws -> ObjectObserverPrx? {
         return try read(tag: tag) as ObjectObserverPrxI?
     }
@@ -4384,30 +3907,22 @@ public extension Ice.InputStream {
 /// This interface allows applications to monitor IceGrid well-known objects.
 ///
 /// ObjectObserverPrx Methods:
-///
 ///  - objectInit: objectInit is called after the registration of an observer to indicate the state of the registry.
-///
 ///  - objectInitAsync: objectInit is called after the registration of an observer to indicate the state of the registry.
-///
-///  - objectAdded: The objectAdded operation is called to notify an observer when an object was added to the {@link Admin} interface.
-///
-///  - objectAddedAsync: The objectAdded operation is called to notify an observer when an object was added to the {@link Admin} interface.
-///
-///  - objectUpdated: objectUpdated is called to notify an observer when an object registered with the {@link Admin} interface was updated.
-///
-///  - objectUpdatedAsync: objectUpdated is called to notify an observer when an object registered with the {@link Admin} interface was updated.
-///
-///  - objectRemoved: objectRemoved is called to notify an observer when an object registered with the {@link Admin} interface was removed.
-///
-///  - objectRemovedAsync: objectRemoved is called to notify an observer when an object registered with the {@link Admin} interface was removed.
+///  - objectAdded: The objectAdded operation is called to notify an observer when an object was added to the `Admin` interface.
+///  - objectAddedAsync: The objectAdded operation is called to notify an observer when an object was added to the `Admin` interface.
+///  - objectUpdated: objectUpdated is called to notify an observer when an object registered with the `Admin` interface was updated.
+///  - objectUpdatedAsync: objectUpdated is called to notify an observer when an object registered with the `Admin` interface was updated.
+///  - objectRemoved: objectRemoved is called to notify an observer when an object registered with the `Admin` interface was removed.
+///  - objectRemovedAsync: objectRemoved is called to notify an observer when an object registered with the `Admin` interface was removed.
 public extension ObjectObserverPrx {
     /// objectInit is called after the registration of an observer to indicate the state of the
     /// registry.
     ///
-    /// - parameter _: `ObjectInfoSeq` The objects registered with the {@link Admin} interface (not through the deployment
+    /// - Parameters:
+    ///   - iceP_objects: The objects registered with the `Admin` interface (not through the deployment
     /// mechanism).
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    ///   - context: Optional request context.
     func objectInit(_ iceP_objects: ObjectInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "objectInit",
                                        mode: .Normal,
@@ -4418,11 +3933,11 @@ public extension ObjectObserverPrx {
     }
 
     /// The objectAdded operation is called to notify an observer when an object was added to the
-    /// {@link Admin} interface.
+    /// `Admin` interface.
     ///
-    /// - parameter _: `ObjectInfo` The details of the added object.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_info: The details of the added object.
+    ///   - context: Optional request context.
     func objectAdded(_ iceP_info: ObjectInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "objectAdded",
                                        mode: .Normal,
@@ -4432,12 +3947,12 @@ public extension ObjectObserverPrx {
                                        context: context)
     }
 
-    /// objectUpdated is called to notify an observer when an object registered with the {@link Admin}
+    /// objectUpdated is called to notify an observer when an object registered with the `Admin`
     /// interface was updated.
     ///
-    /// - parameter _: `ObjectInfo` The details of the updated object.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_info: The details of the updated object.
+    ///   - context: Optional request context.
     func objectUpdated(_ iceP_info: ObjectInfo, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "objectUpdated",
                                        mode: .Normal,
@@ -4447,12 +3962,12 @@ public extension ObjectObserverPrx {
                                        context: context)
     }
 
-    /// objectRemoved is called to notify an observer when an object registered with the {@link Admin}
+    /// objectRemoved is called to notify an observer when an object registered with the `Admin`
     /// interface was removed.
     ///
-    /// - parameter _: `Ice.Identity` The identity of the removed object.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_id: The identity of the removed object.
+    ///   - context: Optional request context.
     func objectRemoved(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "objectRemoved",
                                        mode: .Normal,
@@ -4464,69 +3979,39 @@ public extension ObjectObserverPrx {
 }
 
 /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-/// sessions are created either via the {@link Registry} object or via the registry admin
+/// sessions are created either via the `Registry` object or via the registry admin
 /// SessionManager object.
 ///
 /// AdminSessionPrx Methods:
-///
 ///  - keepAlive: Keep the session alive.
-///
 ///  - keepAliveAsync: Keep the session alive.
-///
 ///  - getAdmin: Get the admin interface.
-///
 ///  - getAdminAsync: Get the admin interface.
-///
 ///  - getAdminCallbackTemplate: Get a "template" proxy for admin callback objects.
-///
 ///  - getAdminCallbackTemplateAsync: Get a "template" proxy for admin callback objects.
-///
 ///  - setObservers: Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-///
 ///  - setObserversAsync: Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-///
 ///  - setObserversByIdentity: Set the observer identities that receive notifications the state of the registry or nodes changes.
-///
 ///  - setObserversByIdentityAsync: Set the observer identities that receive notifications the state of the registry or nodes changes.
-///
 ///  - startUpdate: Acquires an exclusive lock to start updating the registry applications.
-///
 ///  - startUpdateAsync: Acquires an exclusive lock to start updating the registry applications.
-///
 ///  - finishUpdate: Finish updating the registry and release the exclusive lock.
-///
 ///  - finishUpdateAsync: Finish updating the registry and release the exclusive lock.
-///
 ///  - getReplicaName: Get the name of the registry replica hosting this session.
-///
 ///  - getReplicaNameAsync: Get the name of the registry replica hosting this session.
-///
 ///  - openServerLog: Open the given server log file for reading.
-///
 ///  - openServerLogAsync: Open the given server log file for reading.
-///
 ///  - openServerStdErr: Open the given server stderr file for reading.
-///
 ///  - openServerStdErrAsync: Open the given server stderr file for reading.
-///
 ///  - openServerStdOut: Open the given server stdout file for reading.
-///
 ///  - openServerStdOutAsync: Open the given server stdout file for reading.
-///
 ///  - openNodeStdErr: Open the given node stderr file for reading.
-///
 ///  - openNodeStdErrAsync: Open the given node stderr file for reading.
-///
 ///  - openNodeStdOut: Open the given node stdout file for reading.
-///
 ///  - openNodeStdOutAsync: Open the given node stdout file for reading.
-///
 ///  - openRegistryStdErr: Open the given registry stderr file for reading.
-///
 ///  - openRegistryStdErrAsync: Open the given registry stderr file for reading.
-///
 ///  - openRegistryStdOut: Open the given registry stdout file for reading.
-///
 ///  - openRegistryStdOutAsync: Open the given registry stdout file for reading.
 public protocol AdminSessionPrx: Glacier2.SessionPrx {}
 
@@ -4542,7 +4027,9 @@ private final class AdminSessionPrxI: Ice.ObjectPrxI, AdminSessionPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: AdminSessionPrx.Protocol) throws -> AdminSessionPrx {
     try communicator.makeProxyImpl(proxyString) as AdminSessionPrxI
@@ -4554,137 +4041,102 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `AdminSessionPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `AdminSessionPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: AdminSessionPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> AdminSessionPrx? {
     return try await AdminSessionPrxI.checkedCast(prx: prx, facet: facet, context: context) as AdminSessionPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `AdminSessionPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `AdminSessionPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: AdminSessionPrx.Protocol, facet: Swift.String? = nil) -> AdminSessionPrx {
     return AdminSessionPrxI.uncheckedCast(prx: prx, facet: facet) as AdminSessionPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `AdminSessionPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: AdminSessionPrx.Protocol) -> Swift.String {
     return AdminSessionTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `AdminSessionPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `AdminSessionPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `AdminSessionPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: AdminSessionPrx.Protocol) throws -> AdminSessionPrx? {
         return try read() as AdminSessionPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `AdminSessionPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `AdminSessionPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: AdminSessionPrx.Protocol) throws -> AdminSessionPrx? {
         return try read(tag: tag) as AdminSessionPrxI?
     }
 }
 
 /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-/// sessions are created either via the {@link Registry} object or via the registry admin
+/// sessions are created either via the `Registry` object or via the registry admin
 /// SessionManager object.
 ///
 /// AdminSessionPrx Methods:
-///
 ///  - keepAlive: Keep the session alive.
-///
 ///  - keepAliveAsync: Keep the session alive.
-///
 ///  - getAdmin: Get the admin interface.
-///
 ///  - getAdminAsync: Get the admin interface.
-///
 ///  - getAdminCallbackTemplate: Get a "template" proxy for admin callback objects.
-///
 ///  - getAdminCallbackTemplateAsync: Get a "template" proxy for admin callback objects.
-///
 ///  - setObservers: Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-///
 ///  - setObserversAsync: Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-///
 ///  - setObserversByIdentity: Set the observer identities that receive notifications the state of the registry or nodes changes.
-///
 ///  - setObserversByIdentityAsync: Set the observer identities that receive notifications the state of the registry or nodes changes.
-///
 ///  - startUpdate: Acquires an exclusive lock to start updating the registry applications.
-///
 ///  - startUpdateAsync: Acquires an exclusive lock to start updating the registry applications.
-///
 ///  - finishUpdate: Finish updating the registry and release the exclusive lock.
-///
 ///  - finishUpdateAsync: Finish updating the registry and release the exclusive lock.
-///
 ///  - getReplicaName: Get the name of the registry replica hosting this session.
-///
 ///  - getReplicaNameAsync: Get the name of the registry replica hosting this session.
-///
 ///  - openServerLog: Open the given server log file for reading.
-///
 ///  - openServerLogAsync: Open the given server log file for reading.
-///
 ///  - openServerStdErr: Open the given server stderr file for reading.
-///
 ///  - openServerStdErrAsync: Open the given server stderr file for reading.
-///
 ///  - openServerStdOut: Open the given server stdout file for reading.
-///
 ///  - openServerStdOutAsync: Open the given server stdout file for reading.
-///
 ///  - openNodeStdErr: Open the given node stderr file for reading.
-///
 ///  - openNodeStdErrAsync: Open the given node stderr file for reading.
-///
 ///  - openNodeStdOut: Open the given node stdout file for reading.
-///
 ///  - openNodeStdOutAsync: Open the given node stdout file for reading.
-///
 ///  - openRegistryStdErr: Open the given registry stderr file for reading.
-///
 ///  - openRegistryStdErrAsync: Open the given registry stderr file for reading.
-///
 ///  - openRegistryStdOut: Open the given registry stdout file for reading.
-///
 ///  - openRegistryStdOutAsync: Open the given registry stdout file for reading.
 public extension AdminSessionPrx {
     /// Keep the session alive.
     /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func keepAlive(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "keepAlive",
                                        mode: .Idempotent,
@@ -4693,9 +4145,9 @@ public extension AdminSessionPrx {
 
     /// Get the admin interface. The admin object returned by this operation can only be accessed by the session.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `AdminPrx?` - The admin interface proxy. The returned proxy is never null.
+    /// - Returns: The admin interface proxy. The returned proxy is never null.
     func getAdmin(context: Ice.Context? = nil) async throws -> AdminPrx? {
         return try await _impl._invoke(operation: "getAdmin",
                                        mode: .Idempotent,
@@ -4709,9 +4161,9 @@ public extension AdminSessionPrx {
     /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
     /// its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
+    /// - Returns: A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
     func getAdminCallbackTemplate(context: Ice.Context? = nil) async throws -> Ice.ObjectPrx? {
         return try await _impl._invoke(operation: "getAdminCallbackTemplate",
                                        mode: .Idempotent,
@@ -4724,21 +4176,16 @@ public extension AdminSessionPrx {
 
     /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
     ///
-    /// - parameter registryObs: `RegistryObserverPrx?` The registry observer.
+    /// - Parameters:
+    ///   - iceP_registryObs: The registry observer.
+    ///   - iceP_nodeObs: The node observer.
+    ///   - iceP_appObs: The application observer.
+    ///   - iceP_adptObs: The adapter observer.
+    ///   - iceP_objObs: The object observer.
+    ///   - context: Optional request context.
     ///
-    /// - parameter nodeObs: `NodeObserverPrx?` The node observer.
-    ///
-    /// - parameter appObs: `ApplicationObserverPrx?` The application observer.
-    ///
-    /// - parameter adptObs: `AdapterObserverPrx?` The adapter observer.
-    ///
-    /// - parameter objObs: `ObjectObserverPrx?` The object observer.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
+    /// - Throws:
+    ///   - ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
     func setObservers(registryObs iceP_registryObs: RegistryObserverPrx?, nodeObs iceP_nodeObs: NodeObserverPrx?, appObs iceP_appObs: ApplicationObserverPrx?, adptObs iceP_adptObs: AdapterObserverPrx?, objObs iceP_objObs: ObjectObserverPrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setObservers",
                                        mode: .Idempotent,
@@ -4763,21 +4210,16 @@ public extension AdminSessionPrx {
     /// operation should be used by clients that are using a bidirectional connection to communicate with the
     /// session.
     ///
-    /// - parameter registryObs: `Ice.Identity` The registry observer identity.
+    /// - Parameters:
+    ///   - iceP_registryObs: The registry observer identity.
+    ///   - iceP_nodeObs: The node observer identity.
+    ///   - iceP_appObs: The application observer.
+    ///   - iceP_adptObs: The adapter observer.
+    ///   - iceP_objObs: The object observer.
+    ///   - context: Optional request context.
     ///
-    /// - parameter nodeObs: `Ice.Identity` The node observer identity.
-    ///
-    /// - parameter appObs: `Ice.Identity` The application observer.
-    ///
-    /// - parameter adptObs: `Ice.Identity` The adapter observer.
-    ///
-    /// - parameter objObs: `Ice.Identity` The object observer.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
+    /// - Throws:
+    ///   - ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
     func setObserversByIdentity(registryObs iceP_registryObs: Ice.Identity, nodeObs iceP_nodeObs: Ice.Identity, appObs iceP_appObs: Ice.Identity, adptObs iceP_adptObs: Ice.Identity, objObs iceP_objObs: Ice.Identity, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "setObserversByIdentity",
                                        mode: .Idempotent,
@@ -4800,13 +4242,12 @@ public extension AdminSessionPrx {
 
     /// Acquires an exclusive lock to start updating the registry applications.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Swift.Int32` - The current serial.
+    /// - Returns: The current serial.
     ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock
+    /// - Throws:
+    ///   - AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock
     ///     is currently acquired by another session.
     func startUpdate(context: Ice.Context? = nil) async throws -> Swift.Int32 {
         return try await _impl._invoke(operation: "startUpdate",
@@ -4827,11 +4268,10 @@ public extension AdminSessionPrx {
 
     /// Finish updating the registry and release the exclusive lock.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock.
+    /// - Throws:
+    ///   - AccessDeniedException Raised if the session doesn't hold the exclusive lock.
     func finishUpdate(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "finishUpdate",
                                        mode: .Normal,
@@ -4847,9 +4287,9 @@ public extension AdminSessionPrx {
 
     /// Get the name of the registry replica hosting this session.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     ///
-    /// - returns: `Swift.String` - The replica name of the registry.
+    /// - Returns: The replica name of the registry.
     func getReplicaName(context: Ice.Context? = nil) async throws -> Swift.String {
         return try await _impl._invoke(operation: "getReplicaName",
                                        mode: .Idempotent,
@@ -4862,27 +4302,17 @@ public extension AdminSessionPrx {
 
     /// Open the given server log file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter path: `Swift.String` The path of the log file. A log file can be opened only if it's declared in the server or
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - iceP_path: The path of the log file. A log file can be opened only if it's declared in the server or
     /// service deployment descriptor.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the begining. If
     /// 0 or positive, the file is read from the last count lines.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. FileNotAvailableException Raised if the file can't be read. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func openServerLog(id iceP_id: Swift.String, path iceP_path: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invoke(operation: "openServerLog",
                                        mode: .Normal,
@@ -4913,24 +4343,15 @@ public extension AdminSessionPrx {
 
     /// Open the given server stderr file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the begining. If
     /// 0 or positive, the file is read from the last count lines.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. FileNotAvailableException Raised if the file can't be read. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func openServerStdErr(id iceP_id: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invoke(operation: "openServerStdErr",
                                        mode: .Normal,
@@ -4960,24 +4381,15 @@ public extension AdminSessionPrx {
 
     /// Open the given server stdout file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining.
+    /// - Parameters:
+    ///   - iceP_id: The server id.
+    ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the begining.
     /// If 0 or positive, the file is read from the last count lines.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. FileNotAvailableException Raised if the file can't be read. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func openServerStdOut(id iceP_id: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invoke(operation: "openServerStdOut",
                                        mode: .Normal,
@@ -5007,22 +4419,15 @@ public extension AdminSessionPrx {
 
     /// Open the given node stderr file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter name: `Swift.String` The node name.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// - Parameters:
+    ///   - iceP_name: The node name.
+    ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the begining. If
     /// 0 or positive, the file is read from the last count lines.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: FileNotAvailableException Raised if the file can't be read. NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func openNodeStdErr(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invoke(operation: "openNodeStdErr",
                                        mode: .Normal,
@@ -5050,22 +4455,15 @@ public extension AdminSessionPrx {
 
     /// Open the given node stdout file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter name: `Swift.String` The node name.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// - Parameters:
+    ///   - iceP_name: The node name.
+    ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the begining. If
     /// 0 or positive, the file is read from the last count lines.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: FileNotAvailableException Raised if the file can't be read. NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func openNodeStdOut(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invoke(operation: "openNodeStdOut",
                                        mode: .Normal,
@@ -5093,22 +4491,15 @@ public extension AdminSessionPrx {
 
     /// Open the given registry stderr file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter name: `Swift.String` The registry name.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// - Parameters:
+    ///   - iceP_name: The registry name.
+    ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the begining. If
     /// 0 or positive, the file is read from the last count lines.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    ///
-    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
+    /// - Throws: FileNotAvailableException Raised if the file can't be read. RegistryNotExistException Raised if the registry doesn't exist. RegistryUnreachableException Raised if the registry could not be reached.
     func openRegistryStdErr(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invoke(operation: "openRegistryStdErr",
                                        mode: .Normal,
@@ -5136,22 +4527,15 @@ public extension AdminSessionPrx {
 
     /// Open the given registry stdout file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter name: `Swift.String` The registry name.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// - Parameters:
+    ///   - iceP_name: The registry name.
+    ///   - iceP_count: Specifies where to start reading the file. If negative, the file is read from the begining. If
     /// 0 or positive, the file is read from the last count lines.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    ///
-    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
+    /// - Throws: FileNotAvailableException Raised if the file can't be read. RegistryNotExistException Raised if the registry doesn't exist. RegistryUnreachableException Raised if the registry could not be reached.
     func openRegistryStdOut(name iceP_name: Swift.String, count iceP_count: Swift.Int32, context: Ice.Context? = nil) async throws -> FileIteratorPrx? {
         return try await _impl._invoke(operation: "openRegistryStdOut",
                                        mode: .Normal,
@@ -5299,49 +4683,33 @@ public struct AdminDisp: Ice.Dispatcher {
 public protocol Admin {
     /// Add an application to IceGrid.
     ///
-    /// - parameter descriptor: `ApplicationDescriptor` The application descriptor.
+    /// - Parameters:
+    ///   - descriptor: The application descriptor.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. DeploymentException Raised if application deployment failed.
     func addApplication(descriptor: ApplicationDescriptor, current: Ice.Current) async throws
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
     /// current descriptor with this new descriptor.
     ///
-    /// - parameter descriptor: `ApplicationDescriptor` The application descriptor.
+    /// - Parameters:
+    ///   - descriptor: The application descriptor.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. ApplicationNotExistException Raised if the application doesn't exist. DeploymentException Raised if application deployment failed.
     func syncApplication(descriptor: ApplicationDescriptor, current: Ice.Current) async throws
 
     /// Update a deployed application with the given update application descriptor.
     ///
-    /// - parameter descriptor: `ApplicationUpdateDescriptor` The update descriptor.
+    /// - Parameters:
+    ///   - descriptor: The update descriptor.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. ApplicationNotExistException Raised if the application doesn't exist. DeploymentException Raised if application deployment failed.
     func updateApplication(descriptor: ApplicationUpdateDescriptor, current: Ice.Current) async throws
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -5349,574 +4717,431 @@ public protocol Admin {
     /// application. If some servers need to be restarted, the synchronization is rejected with a
     /// DeploymentException.
     ///
-    /// - parameter descriptor: `ApplicationDescriptor` The application descriptor.
+    /// - Parameters:
+    ///   - descriptor: The application descriptor.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. ApplicationNotExistException Raised if the application doesn't exist. DeploymentException Raised if application deployment failed.
     func syncApplicationWithoutRestart(descriptor: ApplicationDescriptor, current: Ice.Current) async throws
 
     /// Update a deployed application with the given update application descriptor only if no server restarts are
     /// necessary for the update of the application. If some servers need to be restarted, the synchronization is
     /// rejected with a DeploymentException.
     ///
-    /// - parameter descriptor: `ApplicationUpdateDescriptor` The update descriptor.
+    /// - Parameters:
+    ///   - descriptor: The update descriptor.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. ApplicationNotExistException Raised if the application doesn't exist. DeploymentException Raised if application deployment failed.
     func updateApplicationWithoutRestart(descriptor: ApplicationUpdateDescriptor, current: Ice.Current) async throws
 
     /// Remove an application from IceGrid.
     ///
-    /// - parameter name: `Swift.String` The application name.
+    /// - Parameters:
+    ///   - name: The application name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. ApplicationNotExistException Raised if the application doesn't exist. DeploymentException Raised if application deployment failed.
     func removeApplication(name: Swift.String, current: Ice.Current) async throws
 
     /// Instantiate a server template from an application on the given node.
     ///
-    /// - parameter application: `Swift.String` The application name.
+    /// - Parameters:
+    ///   - application: The application name.
+    ///   - node: The name of the node where the server will be deployed.
+    ///   - desc: The descriptor of the server instance to deploy.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter node: `Swift.String` The name of the node where the server will be deployed.
-    ///
-    /// - parameter desc: `ServerInstanceDescriptor` The descriptor of the server instance to deploy.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock or if another session is
-    ///     holding the lock.
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if server instantiation failed.
+    /// - Throws: AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+    ///     holding the lock. ApplicationNotExistException Raised if the application doesn't exist. DeploymentException Raised if server instantiation failed.
     func instantiateServer(application: Swift.String, node: Swift.String, desc: ServerInstanceDescriptor, current: Ice.Current) async throws
 
     /// Get an application descriptor.
     ///
-    /// - parameter name: `Swift.String` The application name.
+    /// - Parameters:
+    ///   - name: The application name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The application descriptor.
     ///
-    /// - returns: `ApplicationInfo` - The application descriptor.
-    ///
-    /// - throws:
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
+    /// - Throws:
+    ///   - ApplicationNotExistException Raised if the application doesn't exist.
     func getApplicationInfo(name: Swift.String, current: Ice.Current) async throws -> ApplicationInfo
 
     /// Get the default application descriptor.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `ApplicationDescriptor` - The default application descriptor.
+    /// - Returns: The default application descriptor.
     ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the default application descriptor can't be accessed or is invalid.
+    /// - Throws:
+    ///   - DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
     func getDefaultApplicationDescriptor(current: Ice.Current) async throws -> ApplicationDescriptor
 
     /// Get all the IceGrid applications currently registered.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The application names.
+    /// - Returns: The application names.
     func getAllApplicationNames(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Get the server information for the server with the given id.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The server information.
     ///
-    /// - returns: `ServerInfo` - The server information.
-    ///
-    /// - throws:
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws:
+    ///   - ServerNotExistException Raised if the server doesn't exist.
     func getServerInfo(id: Swift.String, current: Ice.Current) async throws -> ServerInfo
 
     /// Get a server's state.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The server state.
     ///
-    /// - returns: `ServerState` - The server state.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func getServerState(id: Swift.String, current: Ice.Current) async throws -> ServerState
 
     /// Get a server's system process id. The process id is operating system dependent.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The server's process id.
     ///
-    /// - returns: `Swift.Int32` - The server's process id.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func getServerPid(id: Swift.String, current: Ice.Current) async throws -> Swift.Int32
 
     /// Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
     /// changing its identity: use the server ID as name and the returned category as category.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The category for server admin objects.
+    /// - Returns: The category for server admin objects.
     func getServerAdminCategory(current: Ice.Current) async throws -> Swift.String
 
     /// Get a proxy to the server's admin object.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: A proxy to the server's admin object. The returned proxy is never null.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the server's admin object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func getServerAdmin(id: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
     /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
     /// default.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - enabled: True to enable the server, false to disable it.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter enabled: `Swift.Bool` True to enable the server, false to disable it.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func enableServer(id: Swift.String, enabled: Swift.Bool, current: Ice.Current) async throws
 
     /// Check if the server is enabled or disabled.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: True if the server is enabled.
     ///
-    /// - returns: `Swift.Bool` - True if the server is enabled.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func isServerEnabled(id: Swift.String, current: Ice.Current) async throws -> Swift.Bool
 
     /// Start a server and wait for its activation.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    ///
-    ///   - ServerStartException - Raised if the server couldn't be started.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist. ServerStartException Raised if the server couldn't be started.
     func startServer(id: Swift.String, current: Ice.Current) async throws
 
     /// Stop a server.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    ///
-    ///   - ServerStopException - Raised if the server couldn't be stopped.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist. ServerStopException Raised if the server couldn't be stopped.
     func stopServer(id: Swift.String, current: Ice.Current) async throws
 
     /// Send signal to a server.
     ///
-    /// - parameter id: `Swift.String` The server id.
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - signal: The signal, for example SIGTERM or 15.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter signal: `Swift.String` The signal, for example SIGTERM or 15.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - BadSignalException - Raised if the signal is not recognized by the target server.
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: BadSignalException Raised if the signal is not recognized by the target server. DeploymentException Raised if the server couldn't be deployed on the node. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func sendSignal(id: Swift.String, signal: Swift.String, current: Ice.Current) async throws
 
     /// Get all the server ids registered with IceGrid.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The server ids.
+    /// - Returns: The server ids.
     func getAllServerIds(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Get the adapter information for the replica group or adapter with the given id.
     ///
-    /// - parameter id: `Swift.String` The adapter id.
+    /// - Parameters:
+    ///   - id: The adapter id.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `AdapterInfoSeq` - A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+    /// - Returns: A sequence of adapter information structures. If the given id refers to an adapter, this sequence
     /// will contain only one element. If the given id refers to a replica group, the sequence will contain the
     /// adapter information of each member of the replica group.
     ///
-    /// - throws:
-    ///
-    ///   - AdapterNotExistException - Raised if the adapter or replica group doesn't exist.
+    /// - Throws:
+    ///   - AdapterNotExistException Raised if the adapter or replica group doesn't exist.
     func getAdapterInfo(id: Swift.String, current: Ice.Current) async throws -> AdapterInfoSeq
 
     /// Remove the adapter with the given id.
     ///
-    /// - parameter id: `Swift.String` The adapter id.
+    /// - Parameters:
+    ///   - id: The adapter id.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - AdapterNotExistException - Raised if the adapter doesn't exist.
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
+    /// - Throws: AdapterNotExistException Raised if the adapter doesn't exist. DeploymentException Raised if application deployment failed.
     func removeAdapter(id: Swift.String, current: Ice.Current) async throws
 
     /// Get all the adapter ids registered with IceGrid.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The adapter ids.
+    /// - Returns: The adapter ids.
     func getAllAdapterIds(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
     /// given proxy. The object must be reachable.
     ///
-    /// - parameter obj: `Ice.ObjectPrx?` The object to be added to the registry.
+    /// - Parameters:
+    ///   - obj: The object to be added to the registry.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the object can't be added. This might be raised if the invocation on
-    ///     the proxy to get the object type failed.
-    ///
-    ///   - ObjectExistsException - Raised if the object is already registered.
+    /// - Throws: DeploymentException Raised if the object can't be added. This might be raised if the invocation on
+    ///     the proxy to get the object type failed. ObjectExistsException Raised if the object is already registered.
     func addObject(obj: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Update an object in the object registry. Only objects added with this interface can be updated with this
     /// operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
     ///
-    /// - parameter obj: `Ice.ObjectPrx?` The object to be updated to the registry.
+    /// - Parameters:
+    ///   - obj: The object to be updated to the registry.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the object can't be updated. This might happen if the object was added
-    ///     with a deployment descriptor.
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
+    /// - Throws: DeploymentException Raised if the object can't be updated. This might happen if the object was added
+    ///     with a deployment descriptor. ObjectNotRegisteredException Raised if the object isn't registered with the registry.
     func updateObject(obj: Ice.ObjectPrx?, current: Ice.Current) async throws
 
     /// Add an object to the object registry and explicitly specify its type.
     ///
-    /// - parameter obj: `Ice.ObjectPrx?` The object to be added to the registry. The proxy is never null.
+    /// - Parameters:
+    ///   - obj: The object to be added to the registry. The proxy is never null.
+    ///   - type: The object type.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter type: `Swift.String` The object type.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if application deployment failed.
-    ///
-    ///   - ObjectExistsException - Raised if the object is already registered.
+    /// - Throws: DeploymentException Raised if application deployment failed. ObjectExistsException Raised if the object is already registered.
     func addObjectWithType(obj: Ice.ObjectPrx?, type: Swift.String, current: Ice.Current) async throws
 
     /// Remove an object from the object registry. Only objects added with this interface can be removed with this
     /// operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
     ///
-    /// - parameter id: `Ice.Identity` The identity of the object to be removed from the registry.
+    /// - Parameters:
+    ///   - id: The identity of the object to be removed from the registry.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the object can't be removed. This might happen if the object was added
-    ///     with a deployment descriptor.
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
+    /// - Throws: DeploymentException Raised if the object can't be removed. This might happen if the object was added
+    ///     with a deployment descriptor. ObjectNotRegisteredException Raised if the object isn't registered with the registry.
     func removeObject(id: Ice.Identity, current: Ice.Current) async throws
 
     /// Get the object info for the object with the given identity.
     ///
-    /// - parameter id: `Ice.Identity` The identity of the object.
+    /// - Parameters:
+    ///   - id: The identity of the object.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The object info.
     ///
-    /// - returns: `ObjectInfo` - The object info.
-    ///
-    /// - throws:
-    ///
-    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
+    /// - Throws:
+    ///   - ObjectNotRegisteredException Raised if the object isn't registered with the registry.
     func getObjectInfo(id: Ice.Identity, current: Ice.Current) async throws -> ObjectInfo
 
     /// Get the object info of all the registered objects with the given type.
     ///
-    /// - parameter type: `Swift.String` The type of the object.
+    /// - Parameters:
+    ///   - type: The type of the object.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ObjectInfoSeq` - The object infos.
+    /// - Returns: The object infos.
     func getObjectInfosByType(type: Swift.String, current: Ice.Current) async throws -> ObjectInfoSeq
 
     /// Get the object info of all the registered objects whose stringified identities match the given expression.
     ///
-    /// - parameter expr: `Swift.String` The expression to match against the stringified identities of registered objects. The expression
+    /// - Parameters:
+    ///   - expr: The expression to match against the stringified identities of registered objects. The expression
     /// may contain a trailing wildcard (*) character.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ObjectInfoSeq` - All the object infos with a stringified identity matching the given expression.
+    /// - Returns: All the object infos with a stringified identity matching the given expression.
     func getAllObjectInfos(expr: Swift.String, current: Ice.Current) async throws -> ObjectInfoSeq
 
     /// Ping an IceGrid node to see if it is active.
     ///
-    /// - parameter name: `Swift.String` The node name.
+    /// - Parameters:
+    ///   - name: The node name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: true if the node ping succeeded, false otherwise.
     ///
-    /// - returns: `Swift.Bool` - true if the node ping succeeded, false otherwise.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
+    /// - Throws:
+    ///   - NodeNotExistException Raised if the node doesn't exist.
     func pingNode(name: Swift.String, current: Ice.Current) async throws -> Swift.Bool
 
     /// Get the load averages of the node.
     ///
-    /// - parameter name: `Swift.String` The node name.
+    /// - Parameters:
+    ///   - name: The node name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The node load information.
     ///
-    /// - returns: `LoadInfo` - The node load information.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func getNodeLoad(name: Swift.String, current: Ice.Current) async throws -> LoadInfo
 
     /// Get the node information for the node with the given name.
     ///
-    /// - parameter name: `Swift.String` The node name.
+    /// - Parameters:
+    ///   - name: The node name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The node information.
     ///
-    /// - returns: `NodeInfo` - The node information.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func getNodeInfo(name: Swift.String, current: Ice.Current) async throws -> NodeInfo
 
     /// Get a proxy to the IceGrid node's admin object.
     ///
-    /// - parameter name: `Swift.String` The IceGrid node name
+    /// - Parameters:
+    ///   - name: The IceGrid node name
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: A proxy to the IceGrid node's admin object. The returned proxy is never null.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid node's admin object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func getNodeAdmin(name: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Get the number of physical processor sockets for the machine running the node with the given name.
     /// Note that this method will return 1 on operating systems where this can't be automatically determined and
     /// where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
     ///
-    /// - parameter name: `Swift.String` The node name.
+    /// - Parameters:
+    ///   - name: The node name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The number of processor sockets or 1 if the number of sockets can't determined.
     ///
-    /// - returns: `Swift.Int32` - The number of processor sockets or 1 if the number of sockets can't determined.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func getNodeProcessorSocketCount(name: Swift.String, current: Ice.Current) async throws -> Swift.Int32
 
     /// Shutdown an IceGrid node.
     ///
-    /// - parameter name: `Swift.String` The node name.
+    /// - Parameters:
+    ///   - name: The node name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func shutdownNode(name: Swift.String, current: Ice.Current) async throws
 
     /// Get the hostname of this node.
     ///
-    /// - parameter name: `Swift.String` The node name.
+    /// - Parameters:
+    ///   - name: The node name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The node hostname.
     ///
-    /// - returns: `Swift.String` - The node hostname.
-    ///
-    /// - throws:
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func getNodeHostname(name: Swift.String, current: Ice.Current) async throws -> Swift.String
 
     /// Get all the IceGrid nodes currently registered.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The node names.
+    /// - Returns: The node names.
     func getAllNodeNames(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Ping an IceGrid registry to see if it is active.
     ///
-    /// - parameter name: `Swift.String` The registry name.
+    /// - Parameters:
+    ///   - name: The registry name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: true if the registry ping succeeded, false otherwise.
     ///
-    /// - returns: `Swift.Bool` - true if the registry ping succeeded, false otherwise.
-    ///
-    /// - throws:
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
+    /// - Throws:
+    ///   - RegistryNotExistException Raised if the registry doesn't exist.
     func pingRegistry(name: Swift.String, current: Ice.Current) async throws -> Swift.Bool
 
     /// Get the registry information for the registry with the given name.
     ///
-    /// - parameter name: `Swift.String` The registry name.
+    /// - Parameters:
+    ///   - name: The registry name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: The registry information.
     ///
-    /// - returns: `RegistryInfo` - The registry information.
-    ///
-    /// - throws:
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    ///
-    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
+    /// - Throws: RegistryNotExistException Raised if the registry doesn't exist. RegistryUnreachableException Raised if the registry could not be reached.
     func getRegistryInfo(name: Swift.String, current: Ice.Current) async throws -> RegistryInfo
 
     /// Get a proxy to the IceGrid registry's admin object.
     ///
-    /// - parameter name: `Swift.String` The registry name
+    /// - Parameters:
+    ///   - name: The registry name
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: A proxy to the IceGrid registry's admin object. The returned proxy is never null.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid registry's admin object. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
+    /// - Throws:
+    ///   - RegistryNotExistException Raised if the registry doesn't exist.
     func getRegistryAdmin(name: Swift.String, current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Shutdown an IceGrid registry.
     ///
-    /// - parameter name: `Swift.String` The registry name.
+    /// - Parameters:
+    ///   - name: The registry name.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    ///
-    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
+    /// - Throws: RegistryNotExistException Raised if the registry doesn't exist. RegistryUnreachableException Raised if the registry could not be reached.
     func shutdownRegistry(name: Swift.String, current: Ice.Current) async throws
 
     /// Get all the IceGrid registries currently registered.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Ice.StringSeq` - The registry names.
+    /// - Returns: The registry names.
     func getAllRegistryNames(current: Ice.Current) async throws -> Ice.StringSeq
 
     /// Shut down the IceGrid registry.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func shutdown(current: Ice.Current) async throws
 }
 
@@ -5954,27 +5179,24 @@ public struct FileIteratorDisp: Ice.Dispatcher {
 public protocol FileIterator {
     /// Read lines from the log file.
     ///
-    /// - parameter size: `Swift.Int32` Specifies the maximum number of bytes to be received. The server will ensure that the returned
+    /// - Parameters:
+    ///   - size: Specifies the maximum number of bytes to be received. The server will ensure that the returned
     /// message doesn't exceed the given size.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Swift.Bool, lines: Ice.StringSeq)`:
-    ///
-    ///   - returnValue: `Swift.Bool` - True if EOF is encountered.
-    ///
-    ///   - lines: `Ice.StringSeq` - The lines read from the file. If there was nothing to read from the file since the last call to
+    /// - Returns:
+    ///   - returnValue: True if EOF is encountered.
+    ///   - lines: The lines read from the file. If there was nothing to read from the file since the last call to
     /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
     /// '\n' should be added when writing the last line to the to the output device).
     ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if there was a problem to read lines from the file.
+    /// - Throws:
+    ///   - FileNotAvailableException Raised if there was a problem to read lines from the file.
     func read(size: Swift.Int32, current: Ice.Current) async throws -> (returnValue: Swift.Bool, lines: Ice.StringSeq)
 
     /// Destroy the iterator.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func destroy(current: Ice.Current) async throws
 }
 
@@ -6015,23 +5237,23 @@ public protocol RegistryObserver {
     /// The registryInit operation is called after registration of an observer to indicate the state of
     /// the registries.
     ///
-    /// - parameter registries: `RegistryInfoSeq` The current state of the registries.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - registries: The current state of the registries.
+    ///   - current: The Current object for the dispatch.
     func registryInit(registries: RegistryInfoSeq, current: Ice.Current) async throws
 
     /// The registryUp operation is called to notify an observer that a registry replica came up.
     ///
-    /// - parameter registryReplica: `RegistryInfo` The registry state.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - registryReplica: The registry state.
+    ///   - current: The Current object for the dispatch.
     func registryUp(registryReplica: RegistryInfo, current: Ice.Current) async throws
 
     /// The registryDown operation is called to notify an observer that a registry replica went down.
     ///
-    /// - parameter name: `Swift.String` The registry name.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - name: The registry name.
+    ///   - current: The Current object for the dispatch.
     func registryDown(name: Swift.String, current: Ice.Current) async throws
 }
 
@@ -6077,42 +5299,40 @@ public protocol NodeObserver {
     /// The nodeInit operation indicates the current state of nodes. It is called after the
     /// registration of an observer.
     ///
-    /// - parameter nodes: `NodeDynamicInfoSeq` The current state of the nodes.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - nodes: The current state of the nodes.
+    ///   - current: The Current object for the dispatch.
     func nodeInit(nodes: NodeDynamicInfoSeq, current: Ice.Current) async throws
 
     /// The nodeUp operation is called to notify an observer that a node came up.
     ///
-    /// - parameter node: `NodeDynamicInfo` The node state.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - node: The node state.
+    ///   - current: The Current object for the dispatch.
     func nodeUp(node: NodeDynamicInfo, current: Ice.Current) async throws
 
     /// The nodeDown operation is called to notify an observer that a node went down.
     ///
-    /// - parameter name: `Swift.String` The node name.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - name: The node name.
+    ///   - current: The Current object for the dispatch.
     func nodeDown(name: Swift.String, current: Ice.Current) async throws
 
     /// The updateServer operation is called to notify an observer that the state of a server changed.
     ///
-    /// - parameter node: `Swift.String` The node hosting the server.
-    ///
-    /// - parameter updatedInfo: `ServerDynamicInfo` The new server state.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - node: The node hosting the server.
+    ///   - updatedInfo: The new server state.
+    ///   - current: The Current object for the dispatch.
     func updateServer(node: Swift.String, updatedInfo: ServerDynamicInfo, current: Ice.Current) async throws
 
     /// The updateAdapter operation is called to notify an observer that the state of an adapter
     /// changed.
     ///
-    /// - parameter node: `Swift.String` The node hosting the adapter.
-    ///
-    /// - parameter updatedInfo: `AdapterDynamicInfo` The new adapter state.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - node: The node hosting the adapter.
+    ///   - updatedInfo: The new adapter state.
+    ///   - current: The Current object for the dispatch.
     func updateAdapter(node: Swift.String, updatedInfo: AdapterDynamicInfo, current: Ice.Current) async throws
 }
 
@@ -6156,41 +5376,37 @@ public protocol ApplicationObserver {
     /// applicationInit is called after the registration of an observer to indicate the state of the
     /// registry.
     ///
-    /// - parameter serial: `Swift.Int32` The current serial number of the registry database. This serial number allows observers to
+    /// - Parameters:
+    ///   - serial: The current serial number of the registry database. This serial number allows observers to
     /// make sure that their internal state is synchronized with the registry.
-    ///
-    /// - parameter applications: `ApplicationInfoSeq` The applications currently registered with the registry.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///   - applications: The applications currently registered with the registry.
+    ///   - current: The Current object for the dispatch.
     func applicationInit(serial: Swift.Int32, applications: ApplicationInfoSeq, current: Ice.Current) async throws
 
     /// The applicationAdded operation is called to notify an observer that an application was added.
     ///
-    /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
-    ///
-    /// - parameter desc: `ApplicationInfo` The descriptor of the new application.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - serial: The new serial number of the registry database.
+    ///   - desc: The descriptor of the new application.
+    ///   - current: The Current object for the dispatch.
     func applicationAdded(serial: Swift.Int32, desc: ApplicationInfo, current: Ice.Current) async throws
 
     /// The applicationRemoved operation is called to notify an observer that an application was
     /// removed.
     ///
-    /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
-    ///
-    /// - parameter name: `Swift.String` The name of the application that was removed.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - serial: The new serial number of the registry database.
+    ///   - name: The name of the application that was removed.
+    ///   - current: The Current object for the dispatch.
     func applicationRemoved(serial: Swift.Int32, name: Swift.String, current: Ice.Current) async throws
 
     /// The applicationUpdated operation is called to notify an observer that an application was
     /// updated.
     ///
-    /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
-    ///
-    /// - parameter desc: `ApplicationUpdateInfo` The descriptor of the update.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - serial: The new serial number of the registry database.
+    ///   - desc: The descriptor of the update.
+    ///   - current: The Current object for the dispatch.
     func applicationUpdated(serial: Swift.Int32, desc: ApplicationUpdateInfo, current: Ice.Current) async throws
 }
 
@@ -6232,34 +5448,34 @@ public struct AdapterObserverDisp: Ice.Dispatcher {
 public protocol AdapterObserver {
     /// adapterInit is called after registration of an observer to indicate the state of the registry.
     ///
-    /// - parameter adpts: `AdapterInfoSeq` The adapters that were dynamically registered with the registry (not through the deployment
+    /// - Parameters:
+    ///   - adpts: The adapters that were dynamically registered with the registry (not through the deployment
     /// mechanism).
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///   - current: The Current object for the dispatch.
     func adapterInit(adpts: AdapterInfoSeq, current: Ice.Current) async throws
 
     /// The adapterAdded operation is called to notify an observer when a dynamically-registered
     /// adapter was added.
     ///
-    /// - parameter info: `AdapterInfo` The details of the new adapter.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - info: The details of the new adapter.
+    ///   - current: The Current object for the dispatch.
     func adapterAdded(info: AdapterInfo, current: Ice.Current) async throws
 
     /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
     /// updated.
     ///
-    /// - parameter info: `AdapterInfo` The details of the updated adapter.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - info: The details of the updated adapter.
+    ///   - current: The Current object for the dispatch.
     func adapterUpdated(info: AdapterInfo, current: Ice.Current) async throws
 
     /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
     /// removed.
     ///
-    /// - parameter id: `Swift.String` The ID of the removed adapter.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - id: The ID of the removed adapter.
+    ///   - current: The Current object for the dispatch.
     func adapterRemoved(id: Swift.String, current: Ice.Current) async throws
 }
 
@@ -6302,34 +5518,34 @@ public protocol ObjectObserver {
     /// objectInit is called after the registration of an observer to indicate the state of the
     /// registry.
     ///
-    /// - parameter objects: `ObjectInfoSeq` The objects registered with the {@link Admin} interface (not through the deployment
+    /// - Parameters:
+    ///   - objects: The objects registered with the `Admin` interface (not through the deployment
     /// mechanism).
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///   - current: The Current object for the dispatch.
     func objectInit(objects: ObjectInfoSeq, current: Ice.Current) async throws
 
     /// The objectAdded operation is called to notify an observer when an object was added to the
-    /// {@link Admin} interface.
+    /// `Admin` interface.
     ///
-    /// - parameter info: `ObjectInfo` The details of the added object.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - info: The details of the added object.
+    ///   - current: The Current object for the dispatch.
     func objectAdded(info: ObjectInfo, current: Ice.Current) async throws
 
-    /// objectUpdated is called to notify an observer when an object registered with the {@link Admin}
+    /// objectUpdated is called to notify an observer when an object registered with the `Admin`
     /// interface was updated.
     ///
-    /// - parameter info: `ObjectInfo` The details of the updated object.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - info: The details of the updated object.
+    ///   - current: The Current object for the dispatch.
     func objectUpdated(info: ObjectInfo, current: Ice.Current) async throws
 
-    /// objectRemoved is called to notify an observer when an object registered with the {@link Admin}
+    /// objectRemoved is called to notify an observer when an object registered with the `Admin`
     /// interface was removed.
     ///
-    /// - parameter id: `Ice.Identity` The identity of the removed object.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - id: The identity of the removed object.
+    ///   - current: The Current object for the dispatch.
     func objectRemoved(id: Ice.Identity, current: Ice.Current) async throws
 }
 
@@ -6392,245 +5608,177 @@ public struct AdminSessionDisp: Ice.Dispatcher {
 }
 
 /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-/// sessions are created either via the {@link Registry} object or via the registry admin
+/// sessions are created either via the `Registry` object or via the registry admin
 /// SessionManager object.
 public protocol AdminSession: Glacier2.Session {
     /// Keep the session alive.
     /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func keepAlive(current: Ice.Current) async throws
 
     /// Get the admin interface. The admin object returned by this operation can only be accessed by the session.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `AdminPrx?` - The admin interface proxy. The returned proxy is never null.
+    /// - Returns: The admin interface proxy. The returned proxy is never null.
     func getAdmin(current: Ice.Current) async throws -> AdminPrx?
 
     /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
     /// its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
+    /// - Returns: A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
     func getAdminCallbackTemplate(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
     /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
     ///
-    /// - parameter registryObs: `RegistryObserverPrx?` The registry observer.
+    /// - Parameters:
+    ///   - registryObs: The registry observer.
+    ///   - nodeObs: The node observer.
+    ///   - appObs: The application observer.
+    ///   - adptObs: The adapter observer.
+    ///   - objObs: The object observer.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter nodeObs: `NodeObserverPrx?` The node observer.
-    ///
-    /// - parameter appObs: `ApplicationObserverPrx?` The application observer.
-    ///
-    /// - parameter adptObs: `AdapterObserverPrx?` The adapter observer.
-    ///
-    /// - parameter objObs: `ObjectObserverPrx?` The object observer.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
+    /// - Throws:
+    ///   - ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
     func setObservers(registryObs: RegistryObserverPrx?, nodeObs: NodeObserverPrx?, appObs: ApplicationObserverPrx?, adptObs: AdapterObserverPrx?, objObs: ObjectObserverPrx?, current: Ice.Current) async throws
 
     /// Set the observer identities that receive notifications the state of the registry or nodes changes. This
     /// operation should be used by clients that are using a bidirectional connection to communicate with the
     /// session.
     ///
-    /// - parameter registryObs: `Ice.Identity` The registry observer identity.
+    /// - Parameters:
+    ///   - registryObs: The registry observer identity.
+    ///   - nodeObs: The node observer identity.
+    ///   - appObs: The application observer.
+    ///   - adptObs: The adapter observer.
+    ///   - objObs: The object observer.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter nodeObs: `Ice.Identity` The node observer identity.
-    ///
-    /// - parameter appObs: `Ice.Identity` The application observer.
-    ///
-    /// - parameter adptObs: `Ice.Identity` The adapter observer.
-    ///
-    /// - parameter objObs: `Ice.Identity` The object observer.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
+    /// - Throws:
+    ///   - ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
     func setObserversByIdentity(registryObs: Ice.Identity, nodeObs: Ice.Identity, appObs: Ice.Identity, adptObs: Ice.Identity, objObs: Ice.Identity, current: Ice.Current) async throws
 
     /// Acquires an exclusive lock to start updating the registry applications.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Swift.Int32` - The current serial.
+    /// - Returns: The current serial.
     ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock
+    /// - Throws:
+    ///   - AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock
     ///     is currently acquired by another session.
     func startUpdate(current: Ice.Current) async throws -> Swift.Int32
 
     /// Finish updating the registry and release the exclusive lock.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - throws:
-    ///
-    ///   - AccessDeniedException - Raised if the session doesn't hold the exclusive lock.
+    /// - Throws:
+    ///   - AccessDeniedException Raised if the session doesn't hold the exclusive lock.
     func finishUpdate(current: Ice.Current) async throws
 
     /// Get the name of the registry replica hosting this session.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     ///
-    /// - returns: `Swift.String` - The replica name of the registry.
+    /// - Returns: The replica name of the registry.
     func getReplicaName(current: Ice.Current) async throws -> Swift.String
 
     /// Open the given server log file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter path: `Swift.String` The path of the log file. A log file can be opened only if it's declared in the server or
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - path: The path of the log file. A log file can be opened only if it's declared in the server or
     /// service deployment descriptor.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    ///   - count: Specifies where to start reading the file. If negative, the file is read from the begining. If
     /// 0 or positive, the file is read from the last count lines.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. FileNotAvailableException Raised if the file can't be read. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func openServerLog(id: Swift.String, path: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given server stderr file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - count: Specifies where to start reading the file. If negative, the file is read from the begining. If
     /// 0 or positive, the file is read from the last count lines.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. FileNotAvailableException Raised if the file can't be read. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func openServerStdErr(id: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given server stdout file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining.
+    /// - Parameters:
+    ///   - id: The server id.
+    ///   - count: Specifies where to start reading the file. If negative, the file is read from the begining.
     /// If 0 or positive, the file is read from the last count lines.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
+    /// - Throws: DeploymentException Raised if the server couldn't be deployed on the node. FileNotAvailableException Raised if the file can't be read. NodeUnreachableException Raised if the node could not be reached. ServerNotExistException Raised if the server doesn't exist.
     func openServerStdOut(id: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given node stderr file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter name: `Swift.String` The node name.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// - Parameters:
+    ///   - name: The node name.
+    ///   - count: Specifies where to start reading the file. If negative, the file is read from the begining. If
     /// 0 or positive, the file is read from the last count lines.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: FileNotAvailableException Raised if the file can't be read. NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func openNodeStdErr(name: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given node stdout file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter name: `Swift.String` The node name.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// - Parameters:
+    ///   - name: The node name.
+    ///   - count: Specifies where to start reading the file. If negative, the file is read from the begining. If
     /// 0 or positive, the file is read from the last count lines.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - NodeNotExistException - Raised if the node doesn't exist.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
+    /// - Throws: FileNotAvailableException Raised if the file can't be read. NodeNotExistException Raised if the node doesn't exist. NodeUnreachableException Raised if the node could not be reached.
     func openNodeStdOut(name: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given registry stderr file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter name: `Swift.String` The registry name.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// - Parameters:
+    ///   - name: The registry name.
+    ///   - count: Specifies where to start reading the file. If negative, the file is read from the begining. If
     /// 0 or positive, the file is read from the last count lines.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    ///
-    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
+    /// - Throws: FileNotAvailableException Raised if the file can't be read. RegistryNotExistException Raised if the registry doesn't exist. RegistryUnreachableException Raised if the registry could not be reached.
     func openRegistryStdErr(name: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 
     /// Open the given registry stdout file for reading. The file can be read with the returned file iterator.
     ///
-    /// - parameter name: `Swift.String` The registry name.
-    ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// - Parameters:
+    ///   - name: The registry name.
+    ///   - count: Specifies where to start reading the file. If negative, the file is read from the begining. If
     /// 0 or positive, the file is read from the last count lines.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Returns: An iterator to read the file. The returned proxy is never null.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
-    ///
-    /// - throws:
-    ///
-    ///   - FileNotAvailableException - Raised if the file can't be read.
-    ///
-    ///   - RegistryNotExistException - Raised if the registry doesn't exist.
-    ///
-    ///   - RegistryUnreachableException - Raised if the registry could not be reached.
+    /// - Throws: FileNotAvailableException Raised if the file can't be read. RegistryNotExistException Raised if the registry doesn't exist. RegistryUnreachableException Raised if the registry could not be reached.
     func openRegistryStdOut(name: Swift.String, count: Swift.Int32, current: Ice.Current) async throws -> FileIteratorPrx?
 }
 
@@ -6638,95 +5786,50 @@ public protocol AdminSession: Glacier2.Session {
 /// Please see the IceGrid documentation for further information.
 ///
 /// Admin Methods:
-///
 ///  - addApplication: Add an application to IceGrid.
-///
 ///  - syncApplication: Synchronize a deployed application with the given application descriptor.
-///
 ///  - updateApplication: Update a deployed application with the given update application descriptor.
-///
 ///  - syncApplicationWithoutRestart: Synchronize a deployed application with the given application descriptor.
-///
 ///  - updateApplicationWithoutRestart: Update a deployed application with the given update application descriptor only if no server restarts are necessary for the update of the application.
-///
 ///  - removeApplication: Remove an application from IceGrid.
-///
 ///  - instantiateServer: Instantiate a server template from an application on the given node.
-///
 ///  - getApplicationInfo: Get an application descriptor.
-///
 ///  - getDefaultApplicationDescriptor: Get the default application descriptor.
-///
 ///  - getAllApplicationNames: Get all the IceGrid applications currently registered.
-///
 ///  - getServerInfo: Get the server information for the server with the given id.
-///
 ///  - getServerState: Get a server's state.
-///
 ///  - getServerPid: Get a server's system process id.
-///
 ///  - getServerAdminCategory: Get the category for server admin objects.
-///
 ///  - getServerAdmin: Get a proxy to the server's admin object.
-///
 ///  - enableServer: Enable or disable a server.
-///
 ///  - isServerEnabled: Check if the server is enabled or disabled.
-///
 ///  - startServer: Start a server and wait for its activation.
-///
 ///  - stopServer: Stop a server.
-///
 ///  - sendSignal: Send signal to a server.
-///
 ///  - getAllServerIds: Get all the server ids registered with IceGrid.
-///
 ///  - getAdapterInfo: Get the adapter information for the replica group or adapter with the given id.
-///
 ///  - removeAdapter: Remove the adapter with the given id.
-///
 ///  - getAllAdapterIds: Get all the adapter ids registered with IceGrid.
-///
 ///  - addObject: Add an object to the object registry.
-///
 ///  - updateObject: Update an object in the object registry.
-///
 ///  - addObjectWithType: Add an object to the object registry and explicitly specify its type.
-///
 ///  - removeObject: Remove an object from the object registry.
-///
 ///  - getObjectInfo: Get the object info for the object with the given identity.
-///
 ///  - getObjectInfosByType: Get the object info of all the registered objects with the given type.
-///
 ///  - getAllObjectInfos: Get the object info of all the registered objects whose stringified identities match the given expression.
-///
 ///  - pingNode: Ping an IceGrid node to see if it is active.
-///
 ///  - getNodeLoad: Get the load averages of the node.
-///
 ///  - getNodeInfo: Get the node information for the node with the given name.
-///
 ///  - getNodeAdmin: Get a proxy to the IceGrid node's admin object.
-///
 ///  - getNodeProcessorSocketCount: Get the number of physical processor sockets for the machine running the node with the given name.
-///
 ///  - shutdownNode: Shutdown an IceGrid node.
-///
 ///  - getNodeHostname: Get the hostname of this node.
-///
 ///  - getAllNodeNames: Get all the IceGrid nodes currently registered.
-///
 ///  - pingRegistry: Ping an IceGrid registry to see if it is active.
-///
 ///  - getRegistryInfo: Get the registry information for the registry with the given name.
-///
 ///  - getRegistryAdmin: Get a proxy to the IceGrid registry's admin object.
-///
 ///  - shutdownRegistry: Shutdown an IceGrid registry.
-///
 ///  - getAllRegistryNames: Get all the IceGrid registries currently registered.
-///
 ///  - shutdown: Shut down the IceGrid registry.
 extension Admin {
     public func _iceD_addApplication(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -7213,9 +6316,7 @@ extension Admin {
 /// This interface provides access to IceGrid log file contents.
 ///
 /// FileIterator Methods:
-///
 ///  - read: Read lines from the log file.
-///
 ///  - destroy: Destroy the iterator.
 extension FileIterator {
     public func _iceD_read(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -7242,11 +6343,8 @@ extension FileIterator {
 /// This interface allows applications to monitor changes the state of the registry.
 ///
 /// RegistryObserver Methods:
-///
 ///  - registryInit: The registryInit operation is called after registration of an observer to indicate the state of the registries.
-///
 ///  - registryUp: The registryUp operation is called to notify an observer that a registry replica came up.
-///
 ///  - registryDown: The registryDown operation is called to notify an observer that a registry replica went down.
 extension RegistryObserver {
     public func _iceD_registryInit(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -7281,15 +6379,10 @@ extension RegistryObserver {
 /// the IceGrid nodes.
 ///
 /// NodeObserver Methods:
-///
 ///  - nodeInit: The nodeInit operation indicates the current state of nodes.
-///
 ///  - nodeUp: The nodeUp operation is called to notify an observer that a node came up.
-///
 ///  - nodeDown: The nodeDown operation is called to notify an observer that a node went down.
-///
 ///  - updateServer: The updateServer operation is called to notify an observer that the state of a server changed.
-///
 ///  - updateAdapter: The updateAdapter operation is called to notify an observer that the state of an adapter changed.
 extension NodeObserver {
     public func _iceD_nodeInit(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -7344,13 +6437,9 @@ extension NodeObserver {
 /// state of the IceGrid registry database.
 ///
 /// ApplicationObserver Methods:
-///
 ///  - applicationInit: applicationInit is called after the registration of an observer to indicate the state of the registry.
-///
 ///  - applicationAdded: The applicationAdded operation is called to notify an observer that an application was added.
-///
 ///  - applicationRemoved: The applicationRemoved operation is called to notify an observer that an application was removed.
-///
 ///  - applicationUpdated: The applicationUpdated operation is called to notify an observer that an application was updated.
 extension ApplicationObserver {
     public func _iceD_applicationInit(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -7400,13 +6489,9 @@ extension ApplicationObserver {
 /// This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
 ///
 /// AdapterObserver Methods:
-///
 ///  - adapterInit: adapterInit is called after registration of an observer to indicate the state of the registry.
-///
 ///  - adapterAdded: The adapterAdded operation is called to notify an observer when a dynamically-registered adapter was added.
-///
 ///  - adapterUpdated: The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
-///
 ///  - adapterRemoved: The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
 extension AdapterObserver {
     public func _iceD_adapterInit(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -7449,14 +6534,10 @@ extension AdapterObserver {
 /// This interface allows applications to monitor IceGrid well-known objects.
 ///
 /// ObjectObserver Methods:
-///
 ///  - objectInit: objectInit is called after the registration of an observer to indicate the state of the registry.
-///
-///  - objectAdded: The objectAdded operation is called to notify an observer when an object was added to the {@link Admin} interface.
-///
-///  - objectUpdated: objectUpdated is called to notify an observer when an object registered with the {@link Admin} interface was updated.
-///
-///  - objectRemoved: objectRemoved is called to notify an observer when an object registered with the {@link Admin} interface was removed.
+///  - objectAdded: The objectAdded operation is called to notify an observer when an object was added to the `Admin` interface.
+///  - objectUpdated: objectUpdated is called to notify an observer when an object registered with the `Admin` interface was updated.
+///  - objectRemoved: objectRemoved is called to notify an observer when an object registered with the `Admin` interface was removed.
 extension ObjectObserver {
     public func _iceD_objectInit(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -7496,39 +6577,24 @@ extension ObjectObserver {
 }
 
 /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-/// sessions are created either via the {@link Registry} object or via the registry admin
+/// sessions are created either via the `Registry` object or via the registry admin
 /// SessionManager object.
 ///
 /// AdminSession Methods:
-///
 ///  - keepAlive: Keep the session alive.
-///
 ///  - getAdmin: Get the admin interface.
-///
 ///  - getAdminCallbackTemplate: Get a "template" proxy for admin callback objects.
-///
 ///  - setObservers: Set the observer proxies that receive notifications when the state of the registry or nodes changes.
-///
 ///  - setObserversByIdentity: Set the observer identities that receive notifications the state of the registry or nodes changes.
-///
 ///  - startUpdate: Acquires an exclusive lock to start updating the registry applications.
-///
 ///  - finishUpdate: Finish updating the registry and release the exclusive lock.
-///
 ///  - getReplicaName: Get the name of the registry replica hosting this session.
-///
 ///  - openServerLog: Open the given server log file for reading.
-///
 ///  - openServerStdErr: Open the given server stderr file for reading.
-///
 ///  - openServerStdOut: Open the given server stdout file for reading.
-///
 ///  - openNodeStdErr: Open the given node stderr file for reading.
-///
 ///  - openNodeStdOut: Open the given node stdout file for reading.
-///
 ///  - openRegistryStdErr: Open the given registry stderr file for reading.
-///
 ///  - openRegistryStdOut: Open the given registry stdout file for reading.
 extension AdminSession {
     public func _iceD_keepAlive(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

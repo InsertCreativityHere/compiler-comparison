@@ -40,9 +40,7 @@ open class ApplicationNotExistException: Ice.UserException, @unchecked Sendable 
         self.name = name
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::ApplicationNotExistException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -82,9 +80,7 @@ open class ServerNotExistException: Ice.UserException, @unchecked Sendable {
         self.id = id
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::ServerNotExistException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -127,9 +123,7 @@ open class ServerStartException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::ServerStartException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -174,9 +168,7 @@ open class ServerStopException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::ServerStopException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -218,9 +210,7 @@ open class AdapterNotExistException: Ice.UserException, @unchecked Sendable {
         self.id = id
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::AdapterNotExistException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -260,9 +250,7 @@ open class ObjectExistsException: Ice.UserException, @unchecked Sendable {
         self.id = id
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::ObjectExistsException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -302,9 +290,7 @@ open class ObjectNotRegisteredException: Ice.UserException, @unchecked Sendable 
         self.id = id
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::ObjectNotRegisteredException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -344,9 +330,7 @@ open class NodeNotExistException: Ice.UserException, @unchecked Sendable {
         self.name = name
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::NodeNotExistException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -386,9 +370,7 @@ open class RegistryNotExistException: Ice.UserException, @unchecked Sendable {
         self.name = name
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::RegistryNotExistException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -428,9 +410,7 @@ open class DeploymentException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::DeploymentException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -473,9 +453,7 @@ open class NodeUnreachableException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::NodeUnreachableException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -520,9 +498,7 @@ open class ServerUnreachableException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::ServerUnreachableException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -567,9 +543,7 @@ open class RegistryUnreachableException: Ice.UserException, @unchecked Sendable 
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::RegistryUnreachableException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -611,9 +585,7 @@ open class BadSignalException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::BadSignalException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -653,9 +625,7 @@ open class AccessDeniedException: Ice.UserException, @unchecked Sendable {
         self.lockUserId = lockUserId
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::AccessDeniedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -695,9 +665,7 @@ open class AllocationException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::AllocationException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -728,9 +696,7 @@ public extension Ice.ClassResolver {
 
 /// This exception is raised if the request to allocate an object times out.
 open class AllocationTimeoutException: AllocationException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::AllocationTimeoutException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -770,9 +736,7 @@ open class PermissionDeniedException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::PermissionDeniedException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -812,9 +776,7 @@ open class ObserverAlreadyRegisteredException: Ice.UserException, @unchecked Sen
         self.id = id
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::ObserverAlreadyRegisteredException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -854,9 +816,7 @@ open class FileNotAvailableException: Ice.UserException, @unchecked Sendable {
         self.reason = reason
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::IceGrid::FileNotAvailableException" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {

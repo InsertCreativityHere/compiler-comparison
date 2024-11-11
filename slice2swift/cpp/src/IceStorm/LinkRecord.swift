@@ -38,7 +38,7 @@ public struct LinkRecord {
 public extension Ice.InputStream {
     /// Read a `LinkRecord` structured value from the stream.
     ///
-    /// - returns: `LinkRecord` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> LinkRecord {
         var v = LinkRecord()
         v.obj = try self.read(TopicLinkPrx.self)
@@ -49,9 +49,9 @@ public extension Ice.InputStream {
 
     /// Read an optional `LinkRecord?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `LinkRecord?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> LinkRecord? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -65,7 +65,7 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Write a `LinkRecord` structured value to the stream.
     ///
-    /// - parameter _: `LinkRecord` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: LinkRecord) {
         self.write(v.obj)
         self.write(v.cost)
@@ -74,9 +74,8 @@ public extension Ice.OutputStream {
 
     /// Write an optional `LinkRecord?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `LinkRecord?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: LinkRecord?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {

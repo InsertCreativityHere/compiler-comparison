@@ -41,9 +41,7 @@ open class UnknownDerived: Base, @unchecked Sendable {
         super.init(b: b)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::UnknownDerived" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -86,9 +84,7 @@ open class UnknownIntermediate: Base, @unchecked Sendable {
         super.init(b: b)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::UnknownIntermediate" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -131,9 +127,7 @@ open class UnknownMostDerived1: KnownIntermediate, @unchecked Sendable {
         super.init(b: b, ki: ki)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::UnknownMostDerived1" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
@@ -176,9 +170,7 @@ open class UnknownMostDerived2: UnknownIntermediate, @unchecked Sendable {
         super.init(b: b, ui: ui)
     }
 
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Test::UnknownMostDerived2" }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {

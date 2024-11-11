@@ -53,7 +53,7 @@ public enum ByteEnum: Swift.UInt8 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `ByteEnum` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> ByteEnum {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 126)
         guard let val = ByteEnum(rawValue: rawValue) else {
@@ -64,9 +64,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ByteEnum` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> ByteEnum? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -79,16 +79,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `ByteEnum` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: ByteEnum) {
         write(enum: v.rawValue, maxValue: 126)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `ByteEnum` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: ByteEnum?) {
         guard let v = value else {
             return
@@ -104,9 +103,9 @@ public typealias ByteEnumSeq = [ByteEnum]
 public struct ByteEnumSeqHelper {
     /// Read a `ByteEnumSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ByteEnumSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ByteEnumSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = ByteEnumSeq()
@@ -117,13 +116,13 @@ public struct ByteEnumSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ByteEnumSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ByteEnumSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ByteEnumSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -132,11 +131,10 @@ public struct ByteEnumSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ByteEnumSeq` sequence to the stream.
+    /// Write a `ByteEnumSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ByteEnumSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ByteEnumSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -144,13 +142,12 @@ public struct ByteEnumSeqHelper {
         }
     }
 
-    /// Wite an optional `ByteEnumSeq?` sequence to the stream.
+    /// Write an optional `ByteEnumSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ByteEnumSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ByteEnumSeq?) {
         guard let val = v else {
             return
@@ -184,7 +181,7 @@ public enum ShortEnum: Swift.Int32 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `ShortEnum` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> ShortEnum {
         let rawValue: Swift.Int32 = try read(enumMaxValue: 32766)
         guard let val = ShortEnum(rawValue: rawValue) else {
@@ -195,9 +192,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `ShortEnum` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> ShortEnum? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -210,16 +207,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `ShortEnum` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: ShortEnum) {
         write(enum: v.rawValue, maxValue: 32766)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `ShortEnum` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: ShortEnum?) {
         guard let v = value else {
             return
@@ -235,9 +231,9 @@ public typealias ShortEnumSeq = [ShortEnum]
 public struct ShortEnumSeqHelper {
     /// Read a `ShortEnumSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `ShortEnumSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> ShortEnumSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = ShortEnumSeq()
@@ -248,13 +244,13 @@ public struct ShortEnumSeqHelper {
         }
         return v
     }
+
     /// Read an optional `ShortEnumSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ShortEnumSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ShortEnumSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -263,11 +259,10 @@ public struct ShortEnumSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `ShortEnumSeq` sequence to the stream.
+    /// Write a `ShortEnumSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ShortEnumSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: ShortEnumSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -275,13 +270,12 @@ public struct ShortEnumSeqHelper {
         }
     }
 
-    /// Wite an optional `ShortEnumSeq?` sequence to the stream.
+    /// Write an optional `ShortEnumSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ShortEnumSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ShortEnumSeq?) {
         guard let val = v else {
             return
@@ -316,7 +310,7 @@ public enum IntEnum: Swift.Int32 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `IntEnum` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> IntEnum {
         let rawValue: Swift.Int32 = try read(enumMaxValue: 2147483647)
         guard let val = IntEnum(rawValue: rawValue) else {
@@ -327,9 +321,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `IntEnum` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> IntEnum? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -342,16 +336,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `IntEnum` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: IntEnum) {
         write(enum: v.rawValue, maxValue: 2147483647)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `IntEnum` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: IntEnum?) {
         guard let v = value else {
             return
@@ -367,9 +360,9 @@ public typealias IntEnumSeq = [IntEnum]
 public struct IntEnumSeqHelper {
     /// Read a `IntEnumSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `IntEnumSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> IntEnumSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = IntEnumSeq()
@@ -380,13 +373,13 @@ public struct IntEnumSeqHelper {
         }
         return v
     }
+
     /// Read an optional `IntEnumSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `IntEnumSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> IntEnumSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -395,11 +388,10 @@ public struct IntEnumSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `IntEnumSeq` sequence to the stream.
+    /// Write a `IntEnumSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `IntEnumSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: IntEnumSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -407,13 +399,12 @@ public struct IntEnumSeqHelper {
         }
     }
 
-    /// Wite an optional `IntEnumSeq?` sequence to the stream.
+    /// Write an optional `IntEnumSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `IntEnumSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: IntEnumSeq?) {
         guard let val = v else {
             return
@@ -439,7 +430,7 @@ public enum SimpleEnum: Swift.UInt8 {
 public extension Ice.InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `SimpleEnum` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> SimpleEnum {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 2)
         guard let val = SimpleEnum(rawValue: rawValue) else {
@@ -450,9 +441,9 @@ public extension Ice.InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `SimpleEnum` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> SimpleEnum? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -465,16 +456,15 @@ public extension Ice.InputStream {
 public extension Ice.OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `SimpleEnum` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: SimpleEnum) {
         write(enum: v.rawValue, maxValue: 2)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `SimpleEnum` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: SimpleEnum?) {
         guard let v = value else {
             return
@@ -490,9 +480,9 @@ public typealias SimpleEnumSeq = [SimpleEnum]
 public struct SimpleEnumSeqHelper {
     /// Read a `SimpleEnumSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `SimpleEnumSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream) throws -> SimpleEnumSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = SimpleEnumSeq()
@@ -503,13 +493,13 @@ public struct SimpleEnumSeqHelper {
         }
         return v
     }
+
     /// Read an optional `SimpleEnumSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `SimpleEnumSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> SimpleEnumSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -518,11 +508,10 @@ public struct SimpleEnumSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `SimpleEnumSeq` sequence to the stream.
+    /// Write a `SimpleEnumSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `SimpleEnumSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream, value v: SimpleEnumSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -530,13 +519,12 @@ public struct SimpleEnumSeqHelper {
         }
     }
 
-    /// Wite an optional `SimpleEnumSeq?` sequence to the stream.
+    /// Write an optional `SimpleEnumSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SimpleEnumSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: SimpleEnumSeq?) {
         guard let val = v else {
             return
@@ -549,7 +537,7 @@ public struct SimpleEnumSeqHelper {
     }
 }
 
-/// Traits for Slice interface`TestIntf`.
+/// Traits for Slice interface `TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestIntf"]
     public static let staticId = "::Test::TestIntf"
@@ -569,7 +557,9 @@ private final class TestIntfPrxI: Ice.ObjectPrxI, TestIntfPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: TestIntfPrx.Protocol) throws -> TestIntfPrx {
     try communicator.makeProxyImpl(proxyString) as TestIntfPrxI
@@ -581,62 +571,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `TestIntfPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `TestIntfPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) async throws -> TestIntfPrx? {
     return try await TestIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as TestIntfPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `TestIntfPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `TestIntfPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: Ice.ObjectPrx, type: TestIntfPrx.Protocol, facet: Swift.String? = nil) -> TestIntfPrx {
     return TestIntfPrxI.uncheckedCast(prx: prx, facet: facet) as TestIntfPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `TestIntfPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: TestIntfPrx.Protocol) -> Swift.String {
     return TestIntfTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `TestIntfPrx`.
 public extension Ice.InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `TestIntfPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `TestIntfPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: TestIntfPrx.Protocol) throws -> TestIntfPrx? {
         return try read() as TestIntfPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `TestIntfPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `TestIntfPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: TestIntfPrx.Protocol) throws -> TestIntfPrx? {
         return try read(tag: tag) as TestIntfPrxI?
     }

@@ -15,7 +15,7 @@
 
 import Foundation
 
-/// Traits for Slice interface`Process`.
+/// Traits for Slice interface `Process`.
 public struct ProcessTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Ice::Process"]
     public static let staticId = "::Ice::Process"
@@ -27,13 +27,9 @@ public struct ProcessTraits: SliceTraits {
 /// identity harder to guess, and be registered in an object adapter with a secured endpoint.
 ///
 /// ProcessPrx Methods:
-///
 ///  - shutdown: Initiate a graceful shut-down.
-///
 ///  - shutdownAsync: Initiate a graceful shut-down.
-///
 ///  - writeMessage: Write a message on the process' stdout or stderr.
-///
 ///  - writeMessageAsync: Write a message on the process' stdout or stderr.
 public protocol ProcessPrx: ObjectPrx {}
 
@@ -49,7 +45,9 @@ internal final class ProcessPrxI: ObjectPrxI, ProcessPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: ProcessPrx.Protocol) throws -> ProcessPrx {
     try communicator.makeProxyImpl(proxyString) as ProcessPrxI
@@ -61,62 +59,57 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `ProcessPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `ProcessPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: ObjectPrx, type: ProcessPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> ProcessPrx? {
     return try await ProcessPrxI.checkedCast(prx: prx, facet: facet, context: context) as ProcessPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `ProcessPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `ProcessPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: ObjectPrx, type: ProcessPrx.Protocol, facet: Swift.String? = nil) -> ProcessPrx {
     return ProcessPrxI.uncheckedCast(prx: prx, facet: facet) as ProcessPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `ProcessPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: ProcessPrx.Protocol) -> Swift.String {
     return ProcessTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `ProcessPrx`.
 public extension InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `ProcessPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `ProcessPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: ProcessPrx.Protocol) throws -> ProcessPrx? {
         return try read() as ProcessPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `ProcessPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `ProcessPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: ProcessPrx.Protocol) throws -> ProcessPrx? {
         return try read(tag: tag) as ProcessPrxI?
     }
@@ -128,18 +121,14 @@ public extension InputStream {
 /// identity harder to guess, and be registered in an object adapter with a secured endpoint.
 ///
 /// ProcessPrx Methods:
-///
 ///  - shutdown: Initiate a graceful shut-down.
-///
 ///  - shutdownAsync: Initiate a graceful shut-down.
-///
 ///  - writeMessage: Write a message on the process' stdout or stderr.
-///
 ///  - writeMessageAsync: Write a message on the process' stdout or stderr.
 public extension ProcessPrx {
     /// Initiate a graceful shut-down.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameter context: Optional request context.
     func shutdown(context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "shutdown",
                                        mode: .Normal,
@@ -148,11 +137,10 @@ public extension ProcessPrx {
 
     /// Write a message on the process' stdout or stderr.
     ///
-    /// - parameter message: `Swift.String` The message.
-    ///
-    /// - parameter fd: `Swift.Int32` 1 for stdout, 2 for stderr.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_message: The message.
+    ///   - iceP_fd: 1 for stdout, 2 for stderr.
+    ///   - context: Optional request context.
     func writeMessage(message iceP_message: Swift.String, fd iceP_fd: Swift.Int32, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "writeMessage",
                                        mode: .Normal,
@@ -201,16 +189,15 @@ public struct ProcessDisp: Ice.Dispatcher {
 public protocol Process {
     /// Initiate a graceful shut-down.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameter current: The Current object for the dispatch.
     func shutdown(current: Current) async throws
 
     /// Write a message on the process' stdout or stderr.
     ///
-    /// - parameter message: `Swift.String` The message.
-    ///
-    /// - parameter fd: `Swift.Int32` 1 for stdout, 2 for stderr.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - message: The message.
+    ///   - fd: 1 for stdout, 2 for stderr.
+    ///   - current: The Current object for the dispatch.
     func writeMessage(message: Swift.String, fd: Swift.Int32, current: Current) async throws
 }
 
@@ -220,9 +207,7 @@ public protocol Process {
 /// identity harder to guess, and be registered in an object adapter with a secured endpoint.
 ///
 /// Process Methods:
-///
 ///  - shutdown: Initiate a graceful shut-down.
-///
 ///  - writeMessage: Write a message on the process' stdout or stderr.
 extension Process {
     public func _iceD_shutdown(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

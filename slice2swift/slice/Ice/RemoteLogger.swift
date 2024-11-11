@@ -17,13 +17,13 @@ import Foundation
 
 /// An enumeration representing the different types of log messages.
 public enum LogMessageType: Swift.UInt8 {
-    /// The {@link RemoteLogger} received a print message.
+    /// The `RemoteLogger` received a print message.
     case PrintMessage = 0
-    /// The {@link RemoteLogger} received a trace message.
+    /// The `RemoteLogger` received a trace message.
     case TraceMessage = 1
-    /// The {@link RemoteLogger} received a warning message.
+    /// The `RemoteLogger` received a warning message.
     case WarningMessage = 2
-    /// The {@link RemoteLogger} received an error message.
+    /// The `RemoteLogger` received an error message.
     case ErrorMessage = 3
     public init() {
         self = .PrintMessage
@@ -34,7 +34,7 @@ public enum LogMessageType: Swift.UInt8 {
 public extension InputStream {
     /// Read an enumerated value.
     ///
-    /// - returns: `LogMessageType` - The enumarated value.
+    /// - Returns:  The enumerated value.
     func read() throws -> LogMessageType {
         let rawValue: Swift.UInt8 = try read(enumMaxValue: 3)
         guard let val = LogMessageType(rawValue: rawValue) else {
@@ -45,9 +45,9 @@ public extension InputStream {
 
     /// Read an optional enumerated value from the stream.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `LogMessageType` - The enumerated value.
+    /// - Returns: The enumerated value.
     func read(tag: Swift.Int32) throws -> LogMessageType? {
         guard try readOptional(tag: tag, expectedFormat: .Size) else {
             return nil
@@ -60,16 +60,15 @@ public extension InputStream {
 public extension OutputStream {
     /// Writes an enumerated value to the stream.
     ///
-    /// parameter _: `LogMessageType` - The enumerator to write.
+    /// - Parameter v: The enumerator to write.
     func write(_ v: LogMessageType) {
         write(enum: v.rawValue, maxValue: 3)
     }
 
     /// Writes an optional enumerated value to the stream.
     ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `LogMessageType` - The enumerator to write.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The enumerator to write.
     func write(tag: Swift.Int32, value: LogMessageType?) {
         guard let v = value else {
             return
@@ -78,7 +77,7 @@ public extension OutputStream {
     }
 }
 
-/// A sequence of {@link LogMessageType}
+/// A sequence of `LogMessageType`.
 public typealias LogMessageTypeSeq = [LogMessageType]
 
 /// Helper class to read and write `LogMessageTypeSeq` sequence values from
@@ -86,9 +85,9 @@ public typealias LogMessageTypeSeq = [LogMessageType]
 public struct LogMessageTypeSeqHelper {
     /// Read a `LogMessageTypeSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `LogMessageTypeSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream) throws -> LogMessageTypeSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 1)
         var v = LogMessageTypeSeq()
@@ -99,13 +98,13 @@ public struct LogMessageTypeSeqHelper {
         }
         return v
     }
+
     /// Read an optional `LogMessageTypeSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `LogMessageTypeSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream, tag: Swift.Int32) throws -> LogMessageTypeSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -114,11 +113,10 @@ public struct LogMessageTypeSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `LogMessageTypeSeq` sequence to the stream.
+    /// Write a `LogMessageTypeSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `LogMessageTypeSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream, value v: LogMessageTypeSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -126,13 +124,12 @@ public struct LogMessageTypeSeqHelper {
         }
     }
 
-    /// Wite an optional `LogMessageTypeSeq?` sequence to the stream.
+    /// Write an optional `LogMessageTypeSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `LogMessageTypeSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream,  tag: Swift.Int32, value v: LogMessageTypeSeq?) {
         guard let val = v else {
             return
@@ -147,9 +144,9 @@ public struct LogMessageTypeSeqHelper {
 
 /// A complete log message.
 public struct LogMessage: Swift.Hashable {
-    /// The type of message sent to the {@link RemoteLogger}.
+    /// The type of message sent to the `RemoteLogger`.
     public var type: LogMessageType = .PrintMessage
-    /// The date and time when the {@link RemoteLogger} received this message, expressed as the number of microseconds
+    /// The date and time when the `RemoteLogger` received this message, expressed as the number of microseconds
     /// since the Unix Epoch (00:00:00 UTC on 1 January 1970)
     public var timestamp: Swift.Int64 = 0
     /// For a message of type trace, the trace category of this log message; otherwise, the empty string.
@@ -171,7 +168,7 @@ public struct LogMessage: Swift.Hashable {
 public extension InputStream {
     /// Read a `LogMessage` structured value from the stream.
     ///
-    /// - returns: `LogMessage` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read() throws -> LogMessage {
         var v = LogMessage()
         v.type = try self.read()
@@ -183,9 +180,9 @@ public extension InputStream {
 
     /// Read an optional `LogMessage?` structured value from the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - returns: `LogMessage?` - The structured value read from the stream.
+    /// - Returns: The structured value read from the stream.
     func read(tag: Swift.Int32) throws -> LogMessage? {
         guard try readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -199,7 +196,7 @@ public extension InputStream {
 public extension OutputStream {
     /// Write a `LogMessage` structured value to the stream.
     ///
-    /// - parameter _: `LogMessage` - The value to write to the stream.
+    /// - Parameter v: The value to write to the stream.
     func write(_ v: LogMessage) {
         self.write(v.type)
         self.write(v.timestamp)
@@ -209,9 +206,8 @@ public extension OutputStream {
 
     /// Write an optional `LogMessage?` structured value to the stream.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `LogMessage?` - The value to write to the stream.
+    /// - Parameter tag: The numeric tag associated with the value.
+    /// - Parameter value: The value to write to the stream.
     func write(tag: Swift.Int32, value: LogMessage?) {
         if let v = value {
             if writeOptional(tag: tag, format: .FSize) {
@@ -223,7 +219,7 @@ public extension OutputStream {
     }
 }
 
-/// A sequence of {@link LogMessage}.
+/// A sequence of `LogMessage`.
 public typealias LogMessageSeq = [LogMessage]
 
 /// Helper class to read and write `LogMessageSeq` sequence values from
@@ -231,9 +227,9 @@ public typealias LogMessageSeq = [LogMessage]
 public struct LogMessageSeqHelper {
     /// Read a `LogMessageSeq` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
     ///
-    /// - returns: `LogMessageSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream) throws -> LogMessageSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 11)
         var v = LogMessageSeq()
@@ -244,13 +240,13 @@ public struct LogMessageSeqHelper {
         }
         return v
     }
+
     /// Read an optional `LogMessageSeq?` sequence from the stream.
     ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
+    /// - Parameter istr: The stream to read from.
+    /// - Parameter tag: The numeric tag associated with the value.
     ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `LogMessageSeq` - The sequence read from the stream.
+    /// - Returns: The sequence read from the stream.
     public static func read(from istr: InputStream, tag: Swift.Int32) throws -> LogMessageSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
@@ -259,11 +255,10 @@ public struct LogMessageSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `LogMessageSeq` sequence to the stream.
+    /// Write a `LogMessageSeq` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `LogMessageSeq` - The sequence value to write to the stream.
+    /// - Parameter ostr: The stream to write to.
+    /// - Parameter value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream, value v: LogMessageSeq) {
         ostr.write(size: v.count)
         for item in v {
@@ -271,13 +266,12 @@ public struct LogMessageSeqHelper {
         }
     }
 
-    /// Wite an optional `LogMessageSeq?` sequence to the stream.
+    /// Write an optional `LogMessageSeq?` sequence to the stream.
     ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `LogMessageSeq` The sequence value to write to the stream.
+    /// - Parameters:
+    ///   - ostr: The stream to write to.
+    ///   - tag: The numeric tag associated with the value.
+    ///   - value: The sequence value to write to the stream.
     public static func write(to ostr: OutputStream,  tag: Swift.Int32, value v: LogMessageSeq?) {
         guard let val = v else {
             return
@@ -290,7 +284,7 @@ public struct LogMessageSeqHelper {
     }
 }
 
-/// Traits for Slice interface`RemoteLogger`.
+/// Traits for Slice interface `RemoteLogger`.
 public struct RemoteLoggerTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Ice::RemoteLogger"]
     public static let staticId = "::Ice::RemoteLogger"
@@ -311,9 +305,7 @@ public extension ClassResolver {
 
 /// Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
 open class RemoteLoggerAlreadyAttachedException: UserException, @unchecked Sendable {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
+    /// - Returns: The Slice type ID of this exception.
     open override class func ice_staticId() -> Swift.String { "::Ice::RemoteLoggerAlreadyAttachedException" }
 
     open override func _iceWriteImpl(to ostr: OutputStream) {
@@ -327,23 +319,19 @@ open class RemoteLoggerAlreadyAttachedException: UserException, @unchecked Senda
     }
 }
 
-/// Traits for Slice interface`LoggerAdmin`.
+/// Traits for Slice interface `LoggerAdmin`.
 public struct LoggerAdminTraits: SliceTraits {
     public static let staticIds = ["::Ice::LoggerAdmin", "::Ice::Object"]
     public static let staticId = "::Ice::LoggerAdmin"
 }
 
 /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
-/// to the local {@link RemoteLogger} of another Ice application.
+/// to the local `RemoteLogger` of another Ice application.
 ///
 /// RemoteLoggerPrx Methods:
-///
 ///  - `init`: init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-///
 ///  - initAsync: init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-///
 ///  - log: Log a LogMessage.
-///
 ///  - logAsync: Log a LogMessage.
 public protocol RemoteLoggerPrx: ObjectPrx {}
 
@@ -359,7 +347,9 @@ internal final class RemoteLoggerPrxI: ObjectPrxI, RemoteLoggerPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: RemoteLoggerPrx.Protocol) throws -> RemoteLoggerPrx {
     try communicator.makeProxyImpl(proxyString) as RemoteLoggerPrxI
@@ -371,87 +361,77 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `RemoteLoggerPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `RemoteLoggerPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: ObjectPrx, type: RemoteLoggerPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> RemoteLoggerPrx? {
     return try await RemoteLoggerPrxI.checkedCast(prx: prx, facet: facet, context: context) as RemoteLoggerPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `RemoteLoggerPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `RemoteLoggerPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: ObjectPrx, type: RemoteLoggerPrx.Protocol, facet: Swift.String? = nil) -> RemoteLoggerPrx {
     return RemoteLoggerPrxI.uncheckedCast(prx: prx, facet: facet) as RemoteLoggerPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `RemoteLoggerPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: RemoteLoggerPrx.Protocol) -> Swift.String {
     return RemoteLoggerTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `RemoteLoggerPrx`.
 public extension InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `RemoteLoggerPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `RemoteLoggerPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: RemoteLoggerPrx.Protocol) throws -> RemoteLoggerPrx? {
         return try read() as RemoteLoggerPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `RemoteLoggerPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `RemoteLoggerPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: RemoteLoggerPrx.Protocol) throws -> RemoteLoggerPrx? {
         return try read(tag: tag) as RemoteLoggerPrxI?
     }
 }
 
 /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
-/// to the local {@link RemoteLogger} of another Ice application.
+/// to the local `RemoteLogger` of another Ice application.
 ///
 /// RemoteLoggerPrx Methods:
-///
 ///  - `init`: init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-///
 ///  - initAsync: init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-///
 ///  - log: Log a LogMessage.
-///
 ///  - logAsync: Log a LogMessage.
 public extension RemoteLoggerPrx {
     /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
     ///
-    /// - parameter prefix: `Swift.String` The prefix of the associated local Logger.
-    ///
-    /// - parameter logMessages: `LogMessageSeq` Old log messages generated before "now".
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_prefix: The prefix of the associated local Logger.
+    ///   - iceP_logMessages: Old log messages generated before "now".
+    ///   - context: Optional request context.
     func `init`(prefix iceP_prefix: Swift.String, logMessages iceP_logMessages: LogMessageSeq, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "init",
                                        mode: .Normal,
@@ -464,9 +444,9 @@ public extension RemoteLoggerPrx {
 
     /// Log a LogMessage. Note that log may be called by LoggerAdmin before init.
     ///
-    /// - parameter _: `LogMessage` The message to log.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
+    /// - Parameters:
+    ///   - iceP_message: The message to log.
+    ///   - context: Optional request context.
     func log(_ iceP_message: LogMessage, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "log",
                                        mode: .Normal,
@@ -478,20 +458,14 @@ public extension RemoteLoggerPrx {
 }
 
 /// The interface of the admin object that allows an Ice application the attach its
-/// {@link RemoteLogger} to the {@link RemoteLogger} of this admin object's Ice communicator.
+/// `RemoteLogger` to the `RemoteLogger` of this admin object's Ice communicator.
 ///
 /// LoggerAdminPrx Methods:
-///
 ///  - attachRemoteLogger: Attaches a RemoteLogger object to the local logger.
-///
 ///  - attachRemoteLoggerAsync: Attaches a RemoteLogger object to the local logger.
-///
 ///  - detachRemoteLogger: Detaches a RemoteLogger object from the local logger.
-///
 ///  - detachRemoteLoggerAsync: Detaches a RemoteLogger object from the local logger.
-///
 ///  - getLog: Retrieves log messages recently logged.
-///
 ///  - getLogAsync: Retrieves log messages recently logged.
 public protocol LoggerAdminPrx: ObjectPrx {}
 
@@ -507,7 +481,9 @@ internal final class LoggerAdminPrxI: ObjectPrxI, LoggerAdminPrx {
 ///    - communicator: The communicator of the new proxy.
 ///    - proxyString: The proxy string to parse.
 ///    - type: The type of the new proxy.
+///
 /// - Throws: `Ice.ParseException` if the proxy string is invalid.
+///
 /// - Returns: A new proxy with the requested type.
 public func makeProxy(communicator: Ice.Communicator, proxyString: String, type: LoggerAdminPrx.Protocol) throws -> LoggerAdminPrx {
     try communicator.makeProxyImpl(proxyString) as LoggerAdminPrxI
@@ -519,104 +495,89 @@ public func makeProxy(communicator: Ice.Communicator, proxyString: String, type:
 /// It will throw a local exception if a communication error occurs. You can optionally supply a
 /// facet name and a context map.
 ///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
+///   - context: The optional context dictionary for the remote invocation.
 ///
-/// - parameter type: `LoggerAdminPrx.Protocol` - The proxy type to cast to.
+/// - Returns: A proxy with the requested type or nil if the objet does not support this type.
 ///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `LoggerAdminPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
+/// - Throws: `Ice.LocalException` if a communication error occurs.
 public func checkedCast(prx: ObjectPrx, type: LoggerAdminPrx.Protocol, facet: Swift.String? = nil, context: Context? = nil) async throws -> LoggerAdminPrx? {
     return try await LoggerAdminPrxI.checkedCast(prx: prx, facet: facet, context: context) as LoggerAdminPrxI?
 }
 
 /// Downcasts the given proxy to this type without contacting the remote server.
 ///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+/// - Parameters:
+///   - prx: The proxy to be cast.
+///   - type: The proxy type to cast to.
+///   - facet: The optional name of the desired facet.
 ///
-/// - parameter type: `LoggerAdminPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `LoggerAdminPrx` - A proxy with the requested type
+/// - Returns: A proxy with the requested type.
 public func uncheckedCast(prx: ObjectPrx, type: LoggerAdminPrx.Protocol, facet: Swift.String? = nil) -> LoggerAdminPrx {
     return LoggerAdminPrxI.uncheckedCast(prx: prx, facet: facet) as LoggerAdminPrxI
 }
 
 /// Returns the Slice type id of the interface associated with this proxy type.
 ///
-/// parameter type: `LoggerAdminPrx.Protocol` -  The proxy type to retrieve the type id.
+/// - Parameter type:  The proxy type to retrieve the type id.
 ///
-/// returns: `String` - The type id of the interface associated with this proxy type.
+/// - Returns: The type id of the interface associated with this proxy type.
 public func ice_staticId(_ type: LoggerAdminPrx.Protocol) -> Swift.String {
     return LoggerAdminTraits.staticId
 }
 
-/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// Extension to `Ice.InputStream` class to support reading proxies of type
 /// `LoggerAdminPrx`.
 public extension InputStream {
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter type: `LoggerAdminPrx.Protocol` - The type of the proxy to be extracted.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - returns: `LoggerAdminPrx?` - The extracted proxy
+    /// - Returns: The extracted proxy.
     func read(_ type: LoggerAdminPrx.Protocol) throws -> LoggerAdminPrx? {
         return try read() as LoggerAdminPrxI?
     }
     /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
     ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    /// - Parameter tag:  The numeric tag associated with the value.
+    /// - Parameter type: The type of the proxy to be extracted.
     ///
-    /// - parameter type: `LoggerAdminPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `LoggerAdminPrx` - The extracted proxy.
+    /// - Returns: The extracted proxy.
     func read(tag: Swift.Int32, type: LoggerAdminPrx.Protocol) throws -> LoggerAdminPrx? {
         return try read(tag: tag) as LoggerAdminPrxI?
     }
 }
 
 /// The interface of the admin object that allows an Ice application the attach its
-/// {@link RemoteLogger} to the {@link RemoteLogger} of this admin object's Ice communicator.
+/// `RemoteLogger` to the `RemoteLogger` of this admin object's Ice communicator.
 ///
 /// LoggerAdminPrx Methods:
-///
 ///  - attachRemoteLogger: Attaches a RemoteLogger object to the local logger.
-///
 ///  - attachRemoteLoggerAsync: Attaches a RemoteLogger object to the local logger.
-///
 ///  - detachRemoteLogger: Detaches a RemoteLogger object from the local logger.
-///
 ///  - detachRemoteLoggerAsync: Detaches a RemoteLogger object from the local logger.
-///
 ///  - getLog: Retrieves log messages recently logged.
-///
 ///  - getLogAsync: Retrieves log messages recently logged.
 public extension LoggerAdminPrx {
     /// Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
     /// RemoteLogger proxy.
     ///
-    /// - parameter prx: `RemoteLoggerPrx?` A proxy to the remote logger.
-    ///
-    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the remote logger wishes to receive. An empty list means
+    /// - Parameters:
+    ///   - iceP_prx: A proxy to the remote logger.
+    ///   - iceP_messageTypes: The list of message types that the remote logger wishes to receive. An empty list means
     /// no filtering (send all message types).
-    ///
-    /// - parameter traceCategories: `StringSeq` The categories of traces that the remote logger wishes to receive. This parameter is
+    ///   - iceP_traceCategories: The categories of traces that the remote logger wishes to receive. This parameter is
     /// ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
     /// trace categories).
-    ///
-    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be provided to init. A negative
+    ///   - iceP_messageMax: The maximum number of log messages (of all types) to be provided to init. A negative
     /// value requests all messages available.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - RemoteLoggerAlreadyAttachedException - Raised if this remote logger is already attached to this admin
+    /// - Throws:
+    ///   - RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
     ///     object.
     func attachRemoteLogger(prx iceP_prx: RemoteLoggerPrx?, messageTypes iceP_messageTypes: LogMessageTypeSeq, traceCategories iceP_traceCategories: StringSeq, messageMax iceP_messageMax: Swift.Int32, context: Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "attachRemoteLogger",
@@ -639,11 +600,11 @@ public extension LoggerAdminPrx {
 
     /// Detaches a RemoteLogger object from the local logger.
     ///
-    /// - parameter _: `RemoteLoggerPrx?` A proxy to the remote logger.
+    /// - Parameters:
+    ///   - iceP_prx: A proxy to the remote logger.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool` - True if the provided remote logger proxy was detached, and false otherwise.
+    /// - Returns: True if the provided remote logger proxy was detached, and false otherwise.
     func detachRemoteLogger(_ iceP_prx: RemoteLoggerPrx?, context: Context? = nil) async throws -> Swift.Bool {
         return try await _impl._invoke(operation: "detachRemoteLogger",
                                        mode: .Normal,
@@ -659,23 +620,19 @@ public extension LoggerAdminPrx {
 
     /// Retrieves log messages recently logged.
     ///
-    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the caller wishes to receive. An empty list means no
+    /// - Parameters:
+    ///   - iceP_messageTypes: The list of message types that the caller wishes to receive. An empty list means no
     /// filtering (send all message types).
-    ///
-    /// - parameter traceCategories: `StringSeq` The categories of traces that caller wish to receive. This parameter is ignored if
+    ///   - iceP_traceCategories: The categories of traces that caller wish to receive. This parameter is ignored if
     /// messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
     /// categories).
-    ///
-    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be returned. A negative value
+    ///   - iceP_messageMax: The maximum number of log messages (of all types) to be returned. A negative value
     /// requests all messages available.
+    ///   - context: Optional request context.
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: LogMessageSeq, prefix: Swift.String)`:
-    ///
-    ///   - returnValue: `LogMessageSeq` - The Log messages.
-    ///
-    ///   - prefix: `Swift.String` - The prefix of the associated local logger.
+    /// - Returns:
+    ///   - returnValue: The Log messages.
+    ///   - prefix: The prefix of the associated local logger.
     func getLog(messageTypes iceP_messageTypes: LogMessageTypeSeq, traceCategories iceP_traceCategories: StringSeq, messageMax iceP_messageMax: Swift.Int32, context: Context? = nil) async throws -> (returnValue: LogMessageSeq, prefix: Swift.String) {
         return try await _impl._invoke(operation: "getLog",
                                        mode: .Normal,
@@ -724,22 +681,21 @@ public struct RemoteLoggerDisp: Ice.Dispatcher {
 }
 
 /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
-/// to the local {@link RemoteLogger} of another Ice application.
+/// to the local `RemoteLogger` of another Ice application.
 public protocol RemoteLogger {
     /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
     ///
-    /// - parameter prefix: `Swift.String` The prefix of the associated local Logger.
-    ///
-    /// - parameter logMessages: `LogMessageSeq` Old log messages generated before "now".
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - prefix: The prefix of the associated local Logger.
+    ///   - logMessages: Old log messages generated before "now".
+    ///   - current: The Current object for the dispatch.
     func `init`(prefix: Swift.String, logMessages: LogMessageSeq, current: Current) async throws
 
     /// Log a LogMessage. Note that log may be called by LoggerAdmin before init.
     ///
-    /// - parameter message: `LogMessage` The message to log.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    /// - Parameters:
+    ///   - message: The message to log.
+    ///   - current: The Current object for the dispatch.
     func log(message: LogMessage, current: Current) async throws
 }
 
@@ -776,69 +732,59 @@ public struct LoggerAdminDisp: Ice.Dispatcher {
 }
 
 /// The interface of the admin object that allows an Ice application the attach its
-/// {@link RemoteLogger} to the {@link RemoteLogger} of this admin object's Ice communicator.
+/// `RemoteLogger` to the `RemoteLogger` of this admin object's Ice communicator.
 public protocol LoggerAdmin {
     /// Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
     /// RemoteLogger proxy.
     ///
-    /// - parameter prx: `RemoteLoggerPrx?` A proxy to the remote logger.
-    ///
-    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the remote logger wishes to receive. An empty list means
+    /// - Parameters:
+    ///   - prx: A proxy to the remote logger.
+    ///   - messageTypes: The list of message types that the remote logger wishes to receive. An empty list means
     /// no filtering (send all message types).
-    ///
-    /// - parameter traceCategories: `StringSeq` The categories of traces that the remote logger wishes to receive. This parameter is
+    ///   - traceCategories: The categories of traces that the remote logger wishes to receive. This parameter is
     /// ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
     /// trace categories).
-    ///
-    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be provided to init. A negative
+    ///   - messageMax: The maximum number of log messages (of all types) to be provided to init. A negative
     /// value requests all messages available.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - throws:
-    ///
-    ///   - RemoteLoggerAlreadyAttachedException - Raised if this remote logger is already attached to this admin
+    /// - Throws:
+    ///   - RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
     ///     object.
     func attachRemoteLogger(prx: RemoteLoggerPrx?, messageTypes: LogMessageTypeSeq, traceCategories: StringSeq, messageMax: Swift.Int32, current: Current) async throws
 
     /// Detaches a RemoteLogger object from the local logger.
     ///
-    /// - parameter prx: `RemoteLoggerPrx?` A proxy to the remote logger.
+    /// - Parameters:
+    ///   - prx: A proxy to the remote logger.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool` - True if the provided remote logger proxy was detached, and false otherwise.
+    /// - Returns: True if the provided remote logger proxy was detached, and false otherwise.
     func detachRemoteLogger(prx: RemoteLoggerPrx?, current: Current) async throws -> Swift.Bool
 
     /// Retrieves log messages recently logged.
     ///
-    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the caller wishes to receive. An empty list means no
+    /// - Parameters:
+    ///   - messageTypes: The list of message types that the caller wishes to receive. An empty list means no
     /// filtering (send all message types).
-    ///
-    /// - parameter traceCategories: `StringSeq` The categories of traces that caller wish to receive. This parameter is ignored if
+    ///   - traceCategories: The categories of traces that caller wish to receive. This parameter is ignored if
     /// messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
     /// categories).
-    ///
-    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be returned. A negative value
+    ///   - messageMax: The maximum number of log messages (of all types) to be returned. A negative value
     /// requests all messages available.
+    ///   - current: The Current object for the dispatch.
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: LogMessageSeq, prefix: Swift.String)`:
-    ///
-    ///   - returnValue: `LogMessageSeq` - The Log messages.
-    ///
-    ///   - prefix: `Swift.String` - The prefix of the associated local logger.
+    /// - Returns:
+    ///   - returnValue: The Log messages.
+    ///   - prefix: The prefix of the associated local logger.
     func getLog(messageTypes: LogMessageTypeSeq, traceCategories: StringSeq, messageMax: Swift.Int32, current: Current) async throws -> (returnValue: LogMessageSeq, prefix: Swift.String)
 }
 
 /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
-/// to the local {@link RemoteLogger} of another Ice application.
+/// to the local `RemoteLogger` of another Ice application.
 ///
 /// RemoteLogger Methods:
-///
 ///  - `init`: init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
-///
 ///  - log: Log a LogMessage.
 extension RemoteLogger {
     public func _iceD_init(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -862,14 +808,11 @@ extension RemoteLogger {
 }
 
 /// The interface of the admin object that allows an Ice application the attach its
-/// {@link RemoteLogger} to the {@link RemoteLogger} of this admin object's Ice communicator.
+/// `RemoteLogger` to the `RemoteLogger` of this admin object's Ice communicator.
 ///
 /// LoggerAdmin Methods:
-///
 ///  - attachRemoteLogger: Attaches a RemoteLogger object to the local logger.
-///
 ///  - detachRemoteLogger: Detaches a RemoteLogger object from the local logger.
-///
 ///  - getLog: Retrieves log messages recently logged.
 extension LoggerAdmin {
     public func _iceD_attachRemoteLogger(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {

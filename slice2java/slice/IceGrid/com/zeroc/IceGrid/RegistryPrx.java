@@ -363,7 +363,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-     * send heartbeats (using ACM) or call {@link Session#keepAlive}} (resp. {@link AdminSession#keepAlive}}) to keep
+     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
      * a session alive in the IceGrid registry.
      * @return The session timeout (in seconds).
      **/
@@ -374,7 +374,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-     * send heartbeats (using ACM) or call {@link Session#keepAlive}} (resp. {@link AdminSession#keepAlive}}) to keep
+     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
      * a session alive in the IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The session timeout (in seconds).
@@ -386,7 +386,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-     * send heartbeats (using ACM) or call {@link Session#keepAlive}} (resp. {@link AdminSession#keepAlive}}) to keep
+     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
      * a session alive in the IceGrid registry.
      * @return The session timeout (in seconds).
      **/
@@ -397,7 +397,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-     * send heartbeats (using ACM) or call {@link Session#keepAlive}} (resp. {@link AdminSession#keepAlive}}) to keep
+     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
      * a session alive in the IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The session timeout (in seconds).
