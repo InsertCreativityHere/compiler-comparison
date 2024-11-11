@@ -48,7 +48,7 @@ public class SBSUnknownDerived extends SBase
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -4989067056379105888L;
+    private static final long serialVersionUID = -4989057657056987707L;
 
     /** @hidden */
     @Override
