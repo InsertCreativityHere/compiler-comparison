@@ -49,7 +49,7 @@ public class SUnknown extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 1029015831179727519L;
+    private static final long serialVersionUID = 5262458938676474278L;
 
     /** @hidden */
     @Override
