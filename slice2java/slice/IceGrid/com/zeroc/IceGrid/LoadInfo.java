@@ -170,5 +170,5 @@ public class LoadInfo implements java.lang.Cloneable,
     private static final LoadInfo _nullMarshalValue = new LoadInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 6414344437786183424L;
+    private static final long serialVersionUID = 5737393356625260037L;
 }
