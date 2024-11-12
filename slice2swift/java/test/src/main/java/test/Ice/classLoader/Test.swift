@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class E_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return E.self
@@ -167,7 +167,7 @@ public extension InitialPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ConcreteClass_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return ConcreteClass.self

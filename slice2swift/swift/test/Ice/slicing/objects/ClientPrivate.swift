@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class D3_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return D3.self
@@ -63,7 +63,7 @@ open class D3: B {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PCUnknown_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PCUnknown.self
@@ -106,7 +106,7 @@ open class PCUnknown: PBase {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PCDerived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PCDerived.self
@@ -149,7 +149,7 @@ open class PCDerived: PDerived {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PCDerived2_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PCDerived2.self
@@ -192,7 +192,7 @@ open class PCDerived2: PCDerived {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PCDerived3_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PCDerived3.self
@@ -235,7 +235,7 @@ open class PCDerived3: PCDerived2 {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CompactPCDerived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return CompactPCDerived.self

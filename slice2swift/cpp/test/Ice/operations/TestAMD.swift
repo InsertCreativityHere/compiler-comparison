@@ -3986,7 +3986,7 @@ public extension MyDerivedClassPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MyClass1_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MyClass1.self

@@ -345,7 +345,7 @@ public struct MXMetricsViewHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MXUnknownMetricsView_TypeResolver: UserExceptionTypeResolver {
     public override func type() -> UserException.Type {
         return MXUnknownMetricsView.self
@@ -667,7 +667,7 @@ public extension MXMetricsAdminPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MXMetrics_TypeResolver: ValueTypeResolver {
     public override func type() -> Value.Type {
         return MXMetrics.self
@@ -730,7 +730,7 @@ open class MXMetrics: Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MXThreadMetrics_TypeResolver: ValueTypeResolver {
     public override func type() -> Value.Type {
         return MXThreadMetrics.self
@@ -786,7 +786,7 @@ open class MXThreadMetrics: MXMetrics {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MXDispatchMetrics_TypeResolver: ValueTypeResolver {
     public override func type() -> Value.Type {
         return MXDispatchMetrics.self
@@ -841,7 +841,7 @@ open class MXDispatchMetrics: MXMetrics {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MXChildInvocationMetrics_TypeResolver: ValueTypeResolver {
     public override func type() -> Value.Type {
         return MXChildInvocationMetrics.self
@@ -894,7 +894,7 @@ open class MXChildInvocationMetrics: MXMetrics {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MXCollocatedMetrics_TypeResolver: ValueTypeResolver {
     public override func type() -> Value.Type {
         return MXCollocatedMetrics.self
@@ -926,7 +926,7 @@ open class MXCollocatedMetrics: MXChildInvocationMetrics {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MXRemoteMetrics_TypeResolver: ValueTypeResolver {
     public override func type() -> Value.Type {
         return MXRemoteMetrics.self
@@ -958,7 +958,7 @@ open class MXRemoteMetrics: MXChildInvocationMetrics {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MXInvocationMetrics_TypeResolver: ValueTypeResolver {
     public override func type() -> Value.Type {
         return MXInvocationMetrics.self
@@ -1018,7 +1018,7 @@ open class MXInvocationMetrics: MXMetrics {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MXConnectionMetrics_TypeResolver: ValueTypeResolver {
     public override func type() -> Value.Type {
         return MXConnectionMetrics.self

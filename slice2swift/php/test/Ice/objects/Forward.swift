@@ -114,7 +114,7 @@ public extension F2Prx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class F1_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return F1.self

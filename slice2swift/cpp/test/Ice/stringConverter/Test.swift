@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class BadEncodingException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return BadEncodingException.self

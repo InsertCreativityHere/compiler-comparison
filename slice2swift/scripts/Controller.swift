@@ -20,7 +20,7 @@ public typealias CommonBoolSeq = [Swift.Bool]
 
 public typealias CommonStringSeq = [Swift.String]
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CommonTestCaseNotExistException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return CommonTestCaseNotExistException.self
@@ -58,7 +58,7 @@ open class CommonTestCaseNotExistException: Ice.UserException, @unchecked Sendab
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CommonTestCaseFailedException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return CommonTestCaseFailedException.self
@@ -108,7 +108,7 @@ public struct CommonControllerTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Common::Controller"
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CommonProcessFailedException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return CommonProcessFailedException.self
@@ -917,7 +917,7 @@ public extension CommonProcessControllerRegistryPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CommonConfig_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return CommonConfig.self
@@ -979,7 +979,7 @@ open class CommonConfig: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CommonOptionOverrides_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return CommonOptionOverrides.self

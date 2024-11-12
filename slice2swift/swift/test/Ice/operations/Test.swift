@@ -2592,7 +2592,7 @@ public struct MyEnumMyEnumSDHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class SomeException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return SomeException.self
@@ -4114,7 +4114,7 @@ public extension Ice.InputStream {
 /// a different module (ICE-7639).
 public extension Test2MyDerivedClassPrx {}
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MyClass1_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MyClass1.self

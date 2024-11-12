@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ApplicationNotExistException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ApplicationNotExistException.self
@@ -56,7 +56,7 @@ open class ApplicationNotExistException: Ice.UserException, @unchecked Sendable 
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ServerNotExistException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ServerNotExistException.self
@@ -96,7 +96,7 @@ open class ServerNotExistException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ServerStartException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ServerStartException.self
@@ -141,7 +141,7 @@ open class ServerStartException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ServerStopException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ServerStopException.self
@@ -186,7 +186,7 @@ open class ServerStopException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class AdapterNotExistException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return AdapterNotExistException.self
@@ -226,7 +226,7 @@ open class AdapterNotExistException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ObjectExistsException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ObjectExistsException.self
@@ -266,7 +266,7 @@ open class ObjectExistsException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ObjectNotRegisteredException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ObjectNotRegisteredException.self
@@ -306,7 +306,7 @@ open class ObjectNotRegisteredException: Ice.UserException, @unchecked Sendable 
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class NodeNotExistException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return NodeNotExistException.self
@@ -346,7 +346,7 @@ open class NodeNotExistException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class RegistryNotExistException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return RegistryNotExistException.self
@@ -386,7 +386,7 @@ open class RegistryNotExistException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class DeploymentException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return DeploymentException.self
@@ -426,7 +426,7 @@ open class DeploymentException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class NodeUnreachableException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return NodeUnreachableException.self
@@ -471,7 +471,7 @@ open class NodeUnreachableException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ServerUnreachableException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ServerUnreachableException.self
@@ -516,7 +516,7 @@ open class ServerUnreachableException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class RegistryUnreachableException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return RegistryUnreachableException.self
@@ -561,7 +561,7 @@ open class RegistryUnreachableException: Ice.UserException, @unchecked Sendable 
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class BadSignalException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return BadSignalException.self
@@ -601,7 +601,7 @@ open class BadSignalException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class AccessDeniedException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return AccessDeniedException.self
@@ -641,7 +641,7 @@ open class AccessDeniedException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class AllocationException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return AllocationException.self
@@ -681,7 +681,7 @@ open class AllocationException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class AllocationTimeoutException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return AllocationTimeoutException.self
@@ -712,7 +712,7 @@ open class AllocationTimeoutException: AllocationException, @unchecked Sendable 
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PermissionDeniedException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return PermissionDeniedException.self
@@ -752,7 +752,7 @@ open class PermissionDeniedException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ObserverAlreadyRegisteredException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ObserverAlreadyRegisteredException.self
@@ -792,7 +792,7 @@ open class ObserverAlreadyRegisteredException: Ice.UserException, @unchecked Sen
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class FileNotAvailableException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return FileNotAvailableException.self

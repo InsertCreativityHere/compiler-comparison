@@ -22,7 +22,7 @@ public struct UnexpectedObjectExceptionTestTraits: Ice.SliceTraits {
     public static let staticId = "::Test::UnexpectedObjectExceptionTest"
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class EOneMember_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return EOneMember.self
@@ -64,7 +64,7 @@ open class EOneMember: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ETwoMembers_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ETwoMembers.self
@@ -478,7 +478,7 @@ public extension UnexpectedObjectExceptionTestPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Empty_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Empty.self
@@ -506,7 +506,7 @@ open class Empty: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class AlsoEmpty_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return AlsoEmpty.self
@@ -534,7 +534,7 @@ open class AlsoEmpty: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class COneMember_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return COneMember.self
@@ -572,7 +572,7 @@ open class COneMember: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CTwoMembers_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return CTwoMembers.self

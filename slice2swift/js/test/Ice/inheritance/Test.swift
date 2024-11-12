@@ -690,7 +690,7 @@ public extension EchoPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MCA_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MCA.self
@@ -728,7 +728,7 @@ open class MCA: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MCB_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MCB.self
@@ -771,7 +771,7 @@ open class MCB: MCA {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MCC_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MCC.self
@@ -814,7 +814,7 @@ open class MCC: MCB {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MCD_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MCD.self
@@ -857,7 +857,7 @@ open class MCD: MCC {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MDA_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MDA.self
@@ -895,7 +895,7 @@ open class MDA: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MDB_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MDB.self
@@ -938,7 +938,7 @@ open class MDB: MDA {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MDC_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MDC.self
@@ -981,7 +981,7 @@ open class MDC: MDB {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MDD_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MDD.self
@@ -1024,7 +1024,7 @@ open class MDD: MDC {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MEA_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MEA.self
@@ -1062,7 +1062,7 @@ open class MEA: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MEB_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MEB.self
@@ -1105,7 +1105,7 @@ open class MEB: MEA {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MEC_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MEC.self
@@ -1148,7 +1148,7 @@ open class MEC: MEB {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MED_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MED.self
@@ -1191,7 +1191,7 @@ open class MED: MEC {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MFA_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MFA.self
@@ -1229,7 +1229,7 @@ open class MFA: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MFB_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MFB.self
@@ -1272,7 +1272,7 @@ open class MFB: MFA {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MFC_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MFC.self
@@ -1315,7 +1315,7 @@ open class MFC: MFB {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MFD_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MFD.self
@@ -1358,7 +1358,7 @@ open class MFD: MFC {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MGA_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MGA.self
@@ -1396,7 +1396,7 @@ open class MGA: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MGB_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MGB.self
@@ -1439,7 +1439,7 @@ open class MGB: MGA {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MGC_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MGC.self
@@ -1482,7 +1482,7 @@ open class MGC: MGB {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MGD_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MGD.self
@@ -1525,7 +1525,7 @@ open class MGD: MGC {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MHA_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MHA.self
@@ -1563,7 +1563,7 @@ open class MHA: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MHB_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MHB.self
@@ -1606,7 +1606,7 @@ open class MHB: MHA {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MHC_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MHC.self
@@ -1649,7 +1649,7 @@ open class MHC: MHB {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MHD_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MHD.self

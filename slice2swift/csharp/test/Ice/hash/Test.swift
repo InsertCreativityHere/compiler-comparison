@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class BaseException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return BaseException.self
@@ -44,7 +44,7 @@ open class BaseException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class InvalidPointException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return InvalidPointException.self
@@ -87,7 +87,7 @@ open class InvalidPointException: BaseException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class InvalidLengthException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return InvalidLengthException.self
@@ -130,7 +130,7 @@ open class InvalidLengthException: BaseException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class OtherException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return OtherException.self
@@ -754,7 +754,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Pen_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Pen.self

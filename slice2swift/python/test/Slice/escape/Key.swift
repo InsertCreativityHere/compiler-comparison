@@ -275,7 +275,7 @@ public struct inHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class is_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return `is`.self
@@ -313,7 +313,7 @@ open class `is`: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class not_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return not.self
@@ -811,7 +811,7 @@ public extension printPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class for_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return `for`.self

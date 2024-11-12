@@ -1093,7 +1093,7 @@ public struct IntMyInterfacePrxDictHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class OptionalException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return OptionalException.self
@@ -1139,7 +1139,7 @@ open class OptionalException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class DerivedException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return DerivedException.self
@@ -1190,7 +1190,7 @@ open class DerivedException: OptionalException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class RequiredException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return RequiredException.self
@@ -2179,7 +2179,7 @@ public extension InitialPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class OneOptional_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return OneOptional.self
@@ -2217,7 +2217,7 @@ open class OneOptional: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MultiOptional_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MultiOptional.self
@@ -2359,7 +2359,7 @@ open class MultiOptional: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class A_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return A.self
@@ -2409,7 +2409,7 @@ open class A: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class B_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return B.self
@@ -2456,7 +2456,7 @@ open class B: A {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class C_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return C.self
@@ -2503,7 +2503,7 @@ open class C: B {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class WD_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return WD.self
@@ -2545,7 +2545,7 @@ open class WD: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class OptionalWithCustom_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return OptionalWithCustom.self
@@ -2587,7 +2587,7 @@ open class OptionalWithCustom: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class E_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return E.self
@@ -2625,7 +2625,7 @@ open class E: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class F_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return F.self
@@ -2668,7 +2668,7 @@ open class F: E {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class G_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return G.self

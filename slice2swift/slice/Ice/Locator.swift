@@ -15,7 +15,7 @@
 
 import Foundation
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class AdapterNotFoundException_TypeResolver: UserExceptionTypeResolver {
     public override func type() -> UserException.Type {
         return AdapterNotFoundException.self
@@ -44,7 +44,7 @@ open class AdapterNotFoundException: UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class InvalidReplicaGroupIdException_TypeResolver: UserExceptionTypeResolver {
     public override func type() -> UserException.Type {
         return InvalidReplicaGroupIdException.self
@@ -73,7 +73,7 @@ open class InvalidReplicaGroupIdException: UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class AdapterAlreadyActiveException_TypeResolver: UserExceptionTypeResolver {
     public override func type() -> UserException.Type {
         return AdapterAlreadyActiveException.self
@@ -102,7 +102,7 @@ open class AdapterAlreadyActiveException: UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ObjectNotFoundException_TypeResolver: UserExceptionTypeResolver {
     public override func type() -> UserException.Type {
         return ObjectNotFoundException.self
@@ -131,7 +131,7 @@ open class ObjectNotFoundException: UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ServerNotFoundException_TypeResolver: UserExceptionTypeResolver {
     public override func type() -> UserException.Type {
         return ServerNotFoundException.self

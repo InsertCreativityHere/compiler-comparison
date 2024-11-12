@@ -589,7 +589,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class BaseEx_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return BaseEx.self
@@ -687,7 +687,7 @@ open class BaseEx: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class DerivedEx_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return DerivedEx.self
@@ -750,7 +750,7 @@ open class DerivedEx: BaseEx, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Base_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Base.self
@@ -848,7 +848,7 @@ open class Base: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Derived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Derived.self

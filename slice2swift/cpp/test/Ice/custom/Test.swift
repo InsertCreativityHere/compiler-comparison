@@ -3765,7 +3765,7 @@ public extension TestIntfPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class C_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return C.self
@@ -3793,7 +3793,7 @@ open class C: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class DictClass_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return DictClass.self

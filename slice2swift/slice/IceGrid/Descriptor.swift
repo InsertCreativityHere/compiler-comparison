@@ -2040,7 +2040,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CommunicatorDescriptor_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return CommunicatorDescriptor.self
@@ -2095,7 +2095,7 @@ open class CommunicatorDescriptor: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ServerDescriptor_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return ServerDescriptor.self
@@ -2202,7 +2202,7 @@ open class ServerDescriptor: CommunicatorDescriptor {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ServiceDescriptor_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return ServiceDescriptor.self
@@ -2252,7 +2252,7 @@ open class ServiceDescriptor: CommunicatorDescriptor {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class IceBoxDescriptor_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return IceBoxDescriptor.self
@@ -2297,7 +2297,7 @@ open class IceBoxDescriptor: ServerDescriptor {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class LoadBalancingPolicy_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return LoadBalancingPolicy.self
@@ -2337,7 +2337,7 @@ open class LoadBalancingPolicy: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class RandomLoadBalancingPolicy_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return RandomLoadBalancingPolicy.self
@@ -2368,7 +2368,7 @@ open class RandomLoadBalancingPolicy: LoadBalancingPolicy {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class OrderedLoadBalancingPolicy_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return OrderedLoadBalancingPolicy.self
@@ -2399,7 +2399,7 @@ open class OrderedLoadBalancingPolicy: LoadBalancingPolicy {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class RoundRobinLoadBalancingPolicy_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return RoundRobinLoadBalancingPolicy.self
@@ -2430,7 +2430,7 @@ open class RoundRobinLoadBalancingPolicy: LoadBalancingPolicy {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class AdaptiveLoadBalancingPolicy_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return AdaptiveLoadBalancingPolicy.self
@@ -2476,7 +2476,7 @@ open class AdaptiveLoadBalancingPolicy: LoadBalancingPolicy {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class BoxedString_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return BoxedString.self
@@ -2516,7 +2516,7 @@ open class BoxedString: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class BoxedDistributionDescriptor_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return BoxedDistributionDescriptor.self

@@ -130,7 +130,7 @@ public extension RegistryPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class UserInfo_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return UserInfo.self

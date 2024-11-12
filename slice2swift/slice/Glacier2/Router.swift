@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class SessionNotExistException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return SessionNotExistException.self
@@ -218,9 +218,9 @@ public extension RouterPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as PermissionDeniedException {
-                                               throw error
                                            } catch let error as CannotCreateSessionException {
+                                               throw error
+                                           } catch let error as PermissionDeniedException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -251,9 +251,9 @@ public extension RouterPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as PermissionDeniedException {
-                                               throw error
                                            } catch let error as CannotCreateSessionException {
+                                               throw error
+                                           } catch let error as PermissionDeniedException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },

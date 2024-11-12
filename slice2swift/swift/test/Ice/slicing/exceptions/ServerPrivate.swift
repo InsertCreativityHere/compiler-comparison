@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class UnknownDerived_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return UnknownDerived.self
@@ -59,7 +59,7 @@ open class UnknownDerived: Base, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class UnknownIntermediate_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return UnknownIntermediate.self
@@ -102,7 +102,7 @@ open class UnknownIntermediate: Base, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class UnknownMostDerived1_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return UnknownMostDerived1.self
@@ -145,7 +145,7 @@ open class UnknownMostDerived1: KnownIntermediate, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class UnknownMostDerived2_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return UnknownMostDerived2.self

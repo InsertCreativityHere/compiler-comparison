@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class E1_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return E1.self
@@ -54,7 +54,7 @@ open class E1: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class E2_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return E2.self
@@ -97,7 +97,7 @@ open class E2: E1, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class C1_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return C1.self
@@ -135,7 +135,7 @@ open class C1: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class C2_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return C2.self

@@ -218,7 +218,7 @@ public struct QoSHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class LinkExists_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return LinkExists.self
@@ -258,7 +258,7 @@ open class LinkExists: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class NoSuchLink_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return NoSuchLink.self
@@ -298,7 +298,7 @@ open class NoSuchLink: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class AlreadySubscribed_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return AlreadySubscribed.self
@@ -327,7 +327,7 @@ open class AlreadySubscribed: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class InvalidSubscriber_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return InvalidSubscriber.self
@@ -367,7 +367,7 @@ open class InvalidSubscriber: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class BadQoS_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return BadQoS.self
@@ -479,7 +479,7 @@ public struct TopicDictHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class TopicExists_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return TopicExists.self
@@ -519,7 +519,7 @@ open class TopicExists: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class NoSuchTopic_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return NoSuchTopic.self

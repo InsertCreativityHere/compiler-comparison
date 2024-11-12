@@ -349,7 +349,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Bar_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return Bar.self
@@ -525,7 +525,7 @@ public extension MyClassPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Baz_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Baz.self

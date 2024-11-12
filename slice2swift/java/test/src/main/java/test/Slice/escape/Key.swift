@@ -275,7 +275,7 @@ public struct gotoHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class hashCode_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return hashCode.self
@@ -313,7 +313,7 @@ open class hashCode: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class import_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return `import`.self
@@ -783,7 +783,7 @@ public extension newPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class else_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return `else`.self

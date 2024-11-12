@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class InterruptedException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return InterruptedException.self
@@ -50,7 +50,7 @@ public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticId = "::Test::TestIntf"
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CannotInterruptException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return CannotInterruptException.self

@@ -234,7 +234,7 @@ public struct optionalParamsTraits: Ice.SliceTraits {
     public static let staticId = "::await::optionalParams"
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class fixed_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return fixed.self
@@ -272,7 +272,7 @@ open class fixed: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class foreach_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return foreach.self
@@ -319,7 +319,7 @@ open class foreach: fixed, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class BaseMethods_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return BaseMethods.self
@@ -1164,7 +1164,7 @@ public extension TestPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class delete_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return delete.self
@@ -1226,7 +1226,7 @@ open class delete: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class package_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return `package`.self

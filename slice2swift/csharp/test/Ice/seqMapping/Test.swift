@@ -4142,7 +4142,7 @@ public extension MyClassPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CV_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return CV.self
@@ -4180,7 +4180,7 @@ open class CV: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CR_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return CR.self

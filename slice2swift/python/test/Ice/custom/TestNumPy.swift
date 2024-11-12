@@ -351,7 +351,7 @@ public extension NumPyCustomPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class NumPyD_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return NumPyD.self

@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MXTopicMetrics_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MXTopicMetrics.self
@@ -66,7 +66,7 @@ open class MXTopicMetrics: Ice.MXMetrics {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MXSubscriberMetrics_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MXSubscriberMetrics.self

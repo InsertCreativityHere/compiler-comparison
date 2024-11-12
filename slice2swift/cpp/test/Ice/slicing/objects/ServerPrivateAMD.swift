@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class UnknownDerivedException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return UnknownDerivedException.self
@@ -63,7 +63,7 @@ open class UnknownDerivedException: BaseException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class SBSUnknownDerived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return SBSUnknownDerived.self
@@ -106,7 +106,7 @@ open class SBSUnknownDerived: SBase {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class SUnknown_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return SUnknown.self
@@ -148,7 +148,7 @@ open class SUnknown: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class D2_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return D2.self
@@ -195,7 +195,7 @@ open class D2: B {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class D4_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return D4.self
@@ -242,7 +242,7 @@ open class D4: B {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MyClass_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MyClass.self
@@ -280,7 +280,7 @@ open class MyClass: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PSUnknown_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PSUnknown.self
@@ -331,7 +331,7 @@ open class PSUnknown: Preserved {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PSUnknown2_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PSUnknown2.self

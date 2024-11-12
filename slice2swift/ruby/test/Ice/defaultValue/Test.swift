@@ -680,7 +680,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Base_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Base.self
@@ -778,7 +778,7 @@ open class Base: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Derived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Derived.self
@@ -841,7 +841,7 @@ open class Derived: Base {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ClassNoDefaultsBase_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return ClassNoDefaultsBase.self
@@ -887,7 +887,7 @@ open class ClassNoDefaultsBase: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ClassNoDefaults_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return ClassNoDefaults.self

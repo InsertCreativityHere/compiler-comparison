@@ -255,7 +255,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class C_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return C.self

@@ -290,7 +290,7 @@ public struct RemoteLoggerTraits: SliceTraits {
     public static let staticId = "::Ice::RemoteLogger"
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class RemoteLoggerAlreadyAttachedException_TypeResolver: UserExceptionTypeResolver {
     public override func type() -> UserException.Type {
         return RemoteLoggerAlreadyAttachedException.self

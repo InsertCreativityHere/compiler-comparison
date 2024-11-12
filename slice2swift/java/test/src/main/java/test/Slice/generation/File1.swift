@@ -114,7 +114,7 @@ public extension Interface1Prx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Class1_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Class1.self

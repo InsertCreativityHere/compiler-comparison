@@ -269,7 +269,7 @@ public struct ensureHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class next_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return next.self
@@ -307,7 +307,7 @@ open class next: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class nil_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return `nil`.self
@@ -674,7 +674,7 @@ public extension extendPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class display_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return display.self

@@ -1263,7 +1263,7 @@ public struct StringMyClassDHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MyException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return MyException.self
@@ -1397,7 +1397,7 @@ public extension Ice.InputStream {
 
 public extension MyInterfacePrx {}
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class OptionalClass_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return OptionalClass.self
@@ -1447,7 +1447,7 @@ open class OptionalClass: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class MyClass_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return MyClass.self

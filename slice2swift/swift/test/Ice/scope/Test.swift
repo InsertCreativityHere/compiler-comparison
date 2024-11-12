@@ -2522,7 +2522,7 @@ public extension InnerTestInner2IPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class C_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return C.self
@@ -2560,7 +2560,7 @@ open class C: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class C1_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return C1.self
@@ -2598,7 +2598,7 @@ open class C1: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class C2_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return C2.self
@@ -2656,7 +2656,7 @@ open class C2: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class InnerInner2C_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return InnerInner2C.self
@@ -2694,7 +2694,7 @@ open class InnerInner2C: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class InnerC_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return InnerC.self

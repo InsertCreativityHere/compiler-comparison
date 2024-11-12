@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Default_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Default.self
@@ -58,7 +58,7 @@ open class Default: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class NoDefault_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return NoDefault.self

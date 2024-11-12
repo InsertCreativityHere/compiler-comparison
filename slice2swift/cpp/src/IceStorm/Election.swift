@@ -148,7 +148,7 @@ public struct TopicContentSeqHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ObserverInconsistencyException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ObserverInconsistencyException.self

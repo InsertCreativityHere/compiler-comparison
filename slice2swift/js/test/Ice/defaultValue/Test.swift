@@ -589,7 +589,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class BaseEx_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return BaseEx.self
@@ -687,7 +687,7 @@ open class BaseEx: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class DerivedEx_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return DerivedEx.self
@@ -984,7 +984,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ExceptionNoDefaultsBase_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ExceptionNoDefaultsBase.self
@@ -1030,7 +1030,7 @@ open class ExceptionNoDefaultsBase: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ExceptionNoDefaults_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ExceptionNoDefaults.self
@@ -1077,7 +1077,7 @@ open class ExceptionNoDefaults: ExceptionNoDefaultsBase, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Base_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Base.self
@@ -1175,7 +1175,7 @@ open class Base: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Derived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Derived.self
@@ -1238,7 +1238,7 @@ open class Derived: Base {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ClassNoDefaultsBase_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return ClassNoDefaultsBase.self
@@ -1284,7 +1284,7 @@ open class ClassNoDefaultsBase: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ClassNoDefaults_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return ClassNoDefaults.self

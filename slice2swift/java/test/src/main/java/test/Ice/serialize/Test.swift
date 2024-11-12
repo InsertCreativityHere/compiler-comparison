@@ -564,7 +564,7 @@ public struct StringBaseDHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Ex_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return Ex.self
@@ -738,7 +738,7 @@ public extension InitialPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Base_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Base.self
@@ -816,7 +816,7 @@ open class Base: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Derived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Derived.self

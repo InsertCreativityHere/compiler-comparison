@@ -217,7 +217,7 @@ public struct BDictHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class BaseException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return BaseException.self
@@ -263,7 +263,7 @@ open class BaseException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class DerivedException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return DerivedException.self
@@ -374,7 +374,7 @@ public struct PBaseSeqHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PreservedException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return PreservedException.self
@@ -1008,7 +1008,7 @@ public extension TestIntfPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class SBase_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return SBase.self
@@ -1046,7 +1046,7 @@ open class SBase: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class SBSKnownDerived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return SBSKnownDerived.self
@@ -1089,7 +1089,7 @@ open class SBSKnownDerived: SBase {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class B_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return B.self
@@ -1131,7 +1131,7 @@ open class B: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class D1_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return D1.self
@@ -1178,7 +1178,7 @@ open class D1: B {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class SS1_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return SS1.self
@@ -1216,7 +1216,7 @@ open class SS1: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class SS2_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return SS2.self
@@ -1254,7 +1254,7 @@ open class SS2: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PBase_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PBase.self
@@ -1292,7 +1292,7 @@ open class PBase: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Preserved_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Preserved.self
@@ -1335,7 +1335,7 @@ open class Preserved: PBase {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PDerived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PDerived.self
@@ -1378,7 +1378,7 @@ open class PDerived: Preserved {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CompactPDerived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return CompactPDerived.self
@@ -1427,7 +1427,7 @@ open class CompactPDerived: Preserved {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PNode_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PNode.self
@@ -1465,7 +1465,7 @@ open class PNode: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class D3_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return D3.self
@@ -1512,7 +1512,7 @@ open class D3: B {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PCUnknown_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PCUnknown.self
@@ -1555,7 +1555,7 @@ open class PCUnknown: PBase {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PCDerived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PCDerived.self
@@ -1598,7 +1598,7 @@ open class PCDerived: PDerived {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PCDerived2_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PCDerived2.self
@@ -1641,7 +1641,7 @@ open class PCDerived2: PCDerived {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class PCDerived3_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return PCDerived3.self
@@ -1684,7 +1684,7 @@ open class PCDerived3: PCDerived2 {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class CompactPCDerived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return CompactPCDerived.self
@@ -1733,7 +1733,7 @@ open class CompactPCDerived: CompactPDerived {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Hidden_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Hidden.self
@@ -1771,7 +1771,7 @@ open class Hidden: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class Forward_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Forward.self

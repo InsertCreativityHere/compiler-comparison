@@ -313,7 +313,7 @@ public struct endforeachHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class endif_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return endif.self
@@ -351,7 +351,7 @@ open class endif: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class endwhile_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return endwhile.self
@@ -898,7 +898,7 @@ public extension forPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class echo_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return echo.self

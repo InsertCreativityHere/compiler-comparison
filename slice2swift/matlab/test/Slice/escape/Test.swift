@@ -301,7 +301,7 @@ public struct breakswitchHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class breakpersistent_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return breakpersistent.self
@@ -363,7 +363,7 @@ open class breakpersistent: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class breakglobal_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return breakglobal.self
@@ -524,7 +524,7 @@ public extension breakelseifPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class breaklogical_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return breaklogical.self
@@ -570,7 +570,7 @@ open class breaklogical: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class breakxor_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return breakxor.self
@@ -613,7 +613,7 @@ open class breakxor: breaklogical {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class breaktry_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return breaktry.self
@@ -655,7 +655,7 @@ open class breaktry: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class breakproperties_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return breakproperties.self

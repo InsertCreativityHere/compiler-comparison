@@ -209,7 +209,7 @@ public struct PropertyDescriptorSeqDictHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class AdapterActiveException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return AdapterActiveException.self
@@ -238,7 +238,7 @@ open class AdapterActiveException: Ice.UserException, @unchecked Sendable {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class AdapterNotActiveException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return AdapterNotActiveException.self
@@ -283,7 +283,7 @@ public struct AdapterTraits: Ice.SliceTraits {
     public static let staticId = "::IceGrid::Adapter"
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class AdapterExistsException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return AdapterExistsException.self
@@ -539,7 +539,7 @@ public struct NodePrxSeqHelper {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class NodeActiveException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return NodeActiveException.self
@@ -574,7 +574,7 @@ public struct NodeSessionTraits: Ice.SliceTraits {
     public static let staticId = "::IceGrid::NodeSession"
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ReplicaActiveException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ReplicaActiveException.self
@@ -2368,9 +2368,9 @@ public extension InternalRegistryPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as ReplicaActiveException {
-                                               throw error
                                            } catch let error as PermissionDeniedException {
+                                               throw error
+                                           } catch let error as ReplicaActiveException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -2469,7 +2469,7 @@ public extension InternalRegistryPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class InternalDbEnvDescriptor_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return InternalDbEnvDescriptor.self
@@ -2513,7 +2513,7 @@ open class InternalDbEnvDescriptor: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class InternalAdapterDescriptor_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return InternalAdapterDescriptor.self
@@ -2557,7 +2557,7 @@ open class InternalAdapterDescriptor: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class InternalServerDescriptor_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return InternalServerDescriptor.self
@@ -2685,7 +2685,7 @@ open class InternalServerDescriptor: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class InternalNodeInfo_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return InternalNodeInfo.self
@@ -2766,7 +2766,7 @@ open class InternalNodeInfo: Ice.Value {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class InternalReplicaInfo_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return InternalReplicaInfo.self

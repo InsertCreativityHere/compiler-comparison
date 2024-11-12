@@ -164,7 +164,7 @@ public struct TopicLinkTraits: Ice.SliceTraits {
     public static let staticId = "::IceStorm::TopicLink"
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ReapWouldBlock_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return ReapWouldBlock.self

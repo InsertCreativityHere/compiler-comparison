@@ -2158,7 +2158,7 @@ public extension LookupPrx {
     }
 }
 
-/// :nodoc:
+@_documentation(visibility: internal)
 public class ElementConfig_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return ElementConfig.self
