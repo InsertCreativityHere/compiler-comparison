@@ -630,8 +630,8 @@ Ice.defineOperations(
         "registerWellKnownObjects": [, 2, , , [[IceGrid.ObjectInfoSeqHelper]], , , , ],
         "setAdapterDirectProxy": [, 2, , , [[7], [7], [9]], ,
         [
-            IceGrid.AdapterNotExistException,
-            IceGrid.AdapterExistsException
+            IceGrid.AdapterExistsException,
+            IceGrid.AdapterNotExistException
         ], , ],
         "receivedUpdate": [, , , , [[IceGrid.TopicName._helper], [3], [7]], , , , ],
         "destroy": [, , , , , , , , ]
@@ -748,13 +748,13 @@ Ice.defineOperations(
     {
         "registerNode": [, , , ["IceGrid.NodeSessionPrx"], [["IceGrid.InternalNodeInfo", true], ["IceGrid.NodePrx"], [IceGrid.LoadInfo]], ,
         [
-            IceGrid.NodeActiveException,
-            IceGrid.PermissionDeniedException
+            IceGrid.PermissionDeniedException,
+            IceGrid.NodeActiveException
         ], true, ],
         "registerReplica": [, , , ["IceGrid.ReplicaSessionPrx"], [["IceGrid.InternalReplicaInfo", true], ["IceGrid.InternalRegistryPrx"]], ,
         [
-            IceGrid.ReplicaActiveException,
-            IceGrid.PermissionDeniedException
+            IceGrid.PermissionDeniedException,
+            IceGrid.ReplicaActiveException
         ], true, ],
         "registerWithReplica": [, , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
         "getNodes": [, 2, , [IceGrid.NodePrxSeqHelper], , , , , ],
