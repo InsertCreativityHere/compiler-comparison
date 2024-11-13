@@ -60,5 +60,5 @@ public class not extends is
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7874039773471311417L;
+    private static final long serialVersionUID = -8136576220447769735L;
 }
