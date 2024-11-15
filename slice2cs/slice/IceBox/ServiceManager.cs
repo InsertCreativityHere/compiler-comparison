@@ -509,11 +509,11 @@ namespace IceBox
                     {
                         throw ex;
                     }
-                    catch(NoSuchServiceException)
+                    catch(AlreadyStartedException)
                     {
                         throw;
                     }
-                    catch(AlreadyStartedException)
+                    catch(NoSuchServiceException)
                     {
                         throw;
                     }
@@ -557,11 +557,11 @@ namespace IceBox
                     {
                         throw ex;
                     }
-                    catch(NoSuchServiceException)
+                    catch(AlreadyStoppedException)
                     {
                         throw;
                     }
-                    catch(AlreadyStoppedException)
+                    catch(NoSuchServiceException)
                     {
                         throw;
                     }
