@@ -255,11 +255,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(global::Ice.AdapterNotFoundException)
+                    catch(global::Ice.InvalidReplicaGroupIdException)
                     {
                         throw;
                     }
-                    catch(global::Ice.InvalidReplicaGroupIdException)
+                    catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
