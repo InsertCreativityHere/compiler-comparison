@@ -326,6 +326,6 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
     end
     properties(Constant,Access=private)
         registerNode_ex_ = { 'IceGrid.PermissionDeniedException', 'IceGrid.NodeActiveException' }
-        registerReplica_ex_ = { 'IceGrid.ReplicaActiveException', 'IceGrid.PermissionDeniedException' }
+        registerReplica_ex_ = { 'IceGrid.PermissionDeniedException', 'IceGrid.ReplicaActiveException' }
     end
 end
