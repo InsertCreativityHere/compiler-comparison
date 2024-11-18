@@ -29,8 +29,8 @@ package DataStormContract;
 public interface Node extends com.zeroc.Ice.Object
 {
     /**
-     * Initiate the creation of a publisher session with a node, after
-     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * Initiate the creation of a publisher session with a node, after the target node has announced a topic
+     * reader for which this node has a corresponding topic writer.
      * @param publisher The publisher node initiating the session. The proxy is never null.
      * @param current The Current object for the invocation.
      *
@@ -39,9 +39,9 @@ public interface Node extends com.zeroc.Ice.Object
     void initiateCreateSession(NodePrx publisher, com.zeroc.Ice.Current current);
 
     /**
-     * Initiate the creation of a subscriber session with a node, after
-     * the target node has announced a topic writer for which this node has a corresponding topic reader,
-     * or after the node has called Node::initiateCreateSession.
+     * Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+     * writer for which this node has a corresponding topic reader, or after the node has called
+     * Node::initiateCreateSession.
      * @param subscriber The subscriber node initiating the session. The proxy is never null.
      * @param session The subscriber session being created. The proxy is never null.
      * @param fromRelay Indicates if the session is being created from a relay node.

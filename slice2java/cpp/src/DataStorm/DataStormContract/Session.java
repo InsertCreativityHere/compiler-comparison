@@ -17,6 +17,13 @@ package DataStormContract;
 
 public interface Session extends com.zeroc.Ice.Object
 {
+    /**
+     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+     * while a subscriber session announces the topics it reads.
+     * @param topics The topics to announce.
+     * @param initialize currently unused.
+     * @param current The Current object for the invocation.
+     **/
     void announceTopics(TopicInfo[] topics, boolean initialize, com.zeroc.Ice.Current current);
 
     void attachTopic(TopicSpec topic, com.zeroc.Ice.Current current);

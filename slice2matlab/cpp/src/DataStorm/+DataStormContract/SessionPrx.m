@@ -5,6 +5,14 @@
 classdef SessionPrx < Ice.ObjectPrx
     methods
         function announceTopics(obj, topics, initialize, varargin)
+            % announceTopics   Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+            % while a subscriber session announces the topics it reads.
+            %
+            % Parameters:
+            %   topics (DataStormContract.TopicInfoSeq) - The topics to announce.
+            %   initialize (logical) - currently unused.
+            %   context (containers.Map) - Optional request context.
+            
             os_ = obj.iceStartWriteParams([]);
             DataStormContract.TopicInfoSeq.write(os_, topics);
             os_.writeBool(initialize);
@@ -12,6 +20,16 @@ classdef SessionPrx < Ice.ObjectPrx
             obj.iceInvoke('announceTopics', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = announceTopicsAsync(obj, topics, initialize, varargin)
+            % announceTopicsAsync   Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+            % while a subscriber session announces the topics it reads.
+            %
+            % Parameters:
+            %   topics (DataStormContract.TopicInfoSeq) - The topics to announce.
+            %   initialize (logical) - currently unused.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
             os_ = obj.iceStartWriteParams([]);
             DataStormContract.TopicInfoSeq.write(os_, topics);
             os_.writeBool(initialize);

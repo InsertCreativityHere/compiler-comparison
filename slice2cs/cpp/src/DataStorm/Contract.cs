@@ -25,12 +25,37 @@
 
 namespace DataStormContract
 {
+    /// <summary>
+    /// The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
+    ///  DataSample history in response to various events.
+    /// </summary>
+
     public enum ClearHistoryPolicy
     {
+        /// <summary>
+        /// The reader clears its history when a new DataSample is added.
+        /// </summary>
+
         OnAdd,
+        /// <summary>
+        /// The reader clears its history when a DataSample is removed.
+        /// </summary>
+
         OnRemove,
+        /// <summary>
+        /// The reader clears its history when any DataSample event occurs.
+        /// </summary>
+
         OnAll,
+        /// <summary>
+        /// The reader clears its history when any DataSample event occurs, except for PartialUpdate events.
+        /// </summary>
+
         OnAllExceptPartialUpdate,
+        /// <summary>
+        /// The reader never clears its history.
+        /// </summary>
+
         Never
     }
 
@@ -709,6 +734,17 @@ namespace DataStormContract
     [Ice.SliceTypeId("::DataStormContract::Session")]
     public partial interface Session : Ice.Object
     {
+        /// <summary>
+        /// Called by sessions to announce topics to the peer.
+        /// A publisher session announces the topics it writes,
+        ///  while a subscriber session announces the topics it reads.
+        ///
+        /// </summary>
+        ///  <param name="topics">The topics to announce.
+        ///  </param>
+        /// <param name="initialize">currently unused.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
         void announceTopics(TopicInfo[] topics, bool initialize, Ice.Current current);
 
         void attachTopic(TopicSpec topic, Ice.Current current);
@@ -747,8 +783,8 @@ namespace DataStormContract
     public partial interface Node : Ice.Object
     {
         /// <summary>
-        /// Initiate the creation of a publisher session with a node, after
-        ///  the target node has announced a topic reader for which this node has a corresponding topic writer.
+        /// Initiate the creation of a publisher session with a node, after the target node has announced a topic
+        ///  reader for which this node has a corresponding topic writer.
         /// </summary>
         /// <param name="publisher">The publisher node initiating the session. The proxy is never null.
         ///  </param>
@@ -757,9 +793,9 @@ namespace DataStormContract
         void initiateCreateSession(NodePrx? publisher, Ice.Current current);
 
         /// <summary>
-        /// Initiate the creation of a subscriber session with a node, after
-        ///  the target node has announced a topic writer for which this node has a corresponding topic reader,
-        ///  or after the node has called Node::initiateCreateSession.
+        /// Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+        ///  writer for which this node has a corresponding topic reader, or after the node has called
+        ///  Node::initiateCreateSession.
         /// </summary>
         /// <param name="subscriber">The subscriber node initiating the session. The proxy is never null.
         ///  </param>
@@ -832,8 +868,30 @@ namespace DataStormContract
 {
     public interface SessionPrx : Ice.ObjectPrx
     {
+        /// <summary>
+        /// Called by sessions to announce topics to the peer.
+        /// A publisher session announces the topics it writes,
+        ///  while a subscriber session announces the topics it reads.
+        ///
+        /// </summary>
+        ///  <param name="topics">The topics to announce.
+        ///  </param>
+        /// <param name="initialize">currently unused.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+
         void announceTopics(TopicInfo[] topics, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+        /// <summary>
+        /// Called by sessions to announce topics to the peer.
+        /// A publisher session announces the topics it writes,
+        /// </summary>
+        ///  <param name="topics">The topics to announce.
+        ///  </param>
+        /// <param name="initialize">currently unused.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task announceTopicsAsync(TopicInfo[] topics, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void attachTopic(TopicSpec topic, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -902,8 +960,8 @@ namespace DataStormContract
     public interface NodePrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Initiate the creation of a publisher session with a node, after
-        ///  the target node has announced a topic reader for which this node has a corresponding topic writer.
+        /// Initiate the creation of a publisher session with a node, after the target node has announced a topic
+        ///  reader for which this node has a corresponding topic writer.
         /// </summary>
         /// <param name="publisher">The publisher node initiating the session. The proxy is never null.
         ///  </param>
@@ -912,8 +970,8 @@ namespace DataStormContract
         void initiateCreateSession(NodePrx? publisher, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Initiate the creation of a publisher session with a node, after
-        ///  the target node has announced a topic reader for which this node has a corresponding topic writer.
+        /// Initiate the creation of a publisher session with a node, after the target node has announced a topic
+        ///  reader for which this node has a corresponding topic writer.
         /// </summary>
         /// <param name="publisher">The publisher node initiating the session. The proxy is never null.
         ///  </param>
@@ -924,9 +982,9 @@ namespace DataStormContract
         global::System.Threading.Tasks.Task initiateCreateSessionAsync(NodePrx? publisher, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Initiate the creation of a subscriber session with a node, after
-        ///  the target node has announced a topic writer for which this node has a corresponding topic reader,
-        ///  or after the node has called Node::initiateCreateSession.
+        /// Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+        ///  writer for which this node has a corresponding topic reader, or after the node has called
+        ///  Node::initiateCreateSession.
         /// </summary>
         /// <param name="subscriber">The subscriber node initiating the session. The proxy is never null.
         ///  </param>
@@ -938,9 +996,9 @@ namespace DataStormContract
         void createSession(NodePrx? subscriber, SubscriberSessionPrx? session, bool fromRelay, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Initiate the creation of a subscriber session with a node, after
-        ///  the target node has announced a topic writer for which this node has a corresponding topic reader,
-        ///  or after the node has called Node::initiateCreateSession.
+        /// Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+        ///  writer for which this node has a corresponding topic reader, or after the node has called
+        ///  Node::initiateCreateSession.
         /// </summary>
         /// <param name="subscriber">The subscriber node initiating the session. The proxy is never null.
         ///  </param>
@@ -3408,6 +3466,16 @@ namespace DataStormContract
 
     public abstract class PublisherSessionDisp_ : Ice.ObjectImpl, PublisherSession
     {
+        public abstract void announceTopics(TopicInfo[] topics, bool initialize, Ice.Current current);
+
+        public abstract void attachTopic(TopicSpec topic, Ice.Current current);
+
+        public abstract void detachTopic(long topic, Ice.Current current);
+
+        public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
+
+        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
+
         public abstract void announceElements(long topic, ElementInfo[] keys, Ice.Current current);
 
         public abstract void attachElements(long topic, ElementSpec[] elements, bool initialize, Ice.Current current);
@@ -3419,16 +3487,6 @@ namespace DataStormContract
         public abstract void initSamples(long topic, DataSamples[] samples, Ice.Current current);
 
         public abstract void disconnected(Ice.Current current);
-
-        public abstract void announceTopics(TopicInfo[] topics, bool initialize, Ice.Current current);
-
-        public abstract void attachTopic(TopicSpec topic, Ice.Current current);
-
-        public abstract void detachTopic(long topic, Ice.Current current);
-
-        public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
-
-        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -3460,6 +3518,16 @@ namespace DataStormContract
     {
         public abstract void s(long topicId, long elementId, DataSample sample, Ice.Current current);
 
+        public abstract void announceTopics(TopicInfo[] topics, bool initialize, Ice.Current current);
+
+        public abstract void attachTopic(TopicSpec topic, Ice.Current current);
+
+        public abstract void detachTopic(long topic, Ice.Current current);
+
+        public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
+
+        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
+
         public abstract void announceElements(long topic, ElementInfo[] keys, Ice.Current current);
 
         public abstract void attachElements(long topic, ElementSpec[] elements, bool initialize, Ice.Current current);
@@ -3471,16 +3539,6 @@ namespace DataStormContract
         public abstract void initSamples(long topic, DataSamples[] samples, Ice.Current current);
 
         public abstract void disconnected(Ice.Current current);
-
-        public abstract void announceTopics(TopicInfo[] topics, bool initialize, Ice.Current current);
-
-        public abstract void attachTopic(TopicSpec topic, Ice.Current current);
-
-        public abstract void detachTopic(long topic, Ice.Current current);
-
-        public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
-
-        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

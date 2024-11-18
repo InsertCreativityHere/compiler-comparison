@@ -27,6 +27,10 @@ const DataStorm = {
 
 export const DataStormContract = {};
 
+/**
+ * The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
+ * DataSample history in response to various events.
+ **/
 DataStormContract.ClearHistoryPolicy = Ice.defineEnum([
     ['OnAdd', 0], ['OnRemove', 1], ['OnAll', 2], ['OnAllExceptPartialUpdate', 3], ['Never', 4]]);
 

@@ -1,13 +1,39 @@
+% ClearHistoryPolicy   Summary of ClearHistoryPolicy
+%
+% The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
+% DataSample history in response to various events.
+%
+% ClearHistoryPolicy Properties:
+%   OnAdd - The reader clears its history when a new DataSample is added.
+%   OnRemove - The reader clears its history when a DataSample is removed.
+%   OnAll - The reader clears its history when any DataSample event occurs.
+%   OnAllExceptPartialUpdate - The reader clears its history when any DataSample event occurs, except for PartialUpdate events.
+%   Never - The reader never clears its history.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ClearHistoryPolicy < uint8
-    enumeration
-        OnAdd (0)
-        OnRemove (1)
-        OnAll (2)
-        OnAllExceptPartialUpdate (3)
+    enumeration% OnAdd   Summary of OnAdd
+        %
+        % The reader clears its history when a new DataSample is added.
+        
+        OnAdd (0)% OnRemove   Summary of OnRemove
+        %
+        % The reader clears its history when a DataSample is removed.
+        
+        OnRemove (1)% OnAll   Summary of OnAll
+        %
+        % The reader clears its history when any DataSample event occurs.
+        
+        OnAll (2)% OnAllExceptPartialUpdate   Summary of OnAllExceptPartialUpdate
+        %
+        % The reader clears its history when any DataSample event occurs, except for PartialUpdate events.
+        
+        OnAllExceptPartialUpdate (3)% Never   Summary of Never
+        %
+        % The reader never clears its history.
+        
         Never (4)
     end
     methods(Static)

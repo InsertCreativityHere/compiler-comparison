@@ -17,21 +17,49 @@ package DataStormContract;
 
 public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
 {
+    /**
+     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+     * while a subscriber session announces the topics it reads.
+     * @param topics The topics to announce.
+     * @param initialize currently unused.
+     **/
     default void announceTopics(TopicInfo[] topics, boolean initialize)
     {
         announceTopics(topics, initialize, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+     * while a subscriber session announces the topics it reads.
+     * @param topics The topics to announce.
+     * @param initialize currently unused.
+     * @param context The Context map to send with the invocation.
+     **/
     default void announceTopics(TopicInfo[] topics, boolean initialize, java.util.Map<String, String> context)
     {
         _iceI_announceTopicsAsync(topics, initialize, context, true).waitForResponse();
     }
 
+    /**
+     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+     * while a subscriber session announces the topics it reads.
+     * @param topics The topics to announce.
+     * @param initialize currently unused.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> announceTopicsAsync(TopicInfo[] topics, boolean initialize)
     {
         return _iceI_announceTopicsAsync(topics, initialize, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+     * while a subscriber session announces the topics it reads.
+     * @param topics The topics to announce.
+     * @param initialize currently unused.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> announceTopicsAsync(TopicInfo[] topics, boolean initialize, java.util.Map<String, String> context)
     {
         return _iceI_announceTopicsAsync(topics, initialize, context, false);

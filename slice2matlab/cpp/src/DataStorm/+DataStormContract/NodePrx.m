@@ -26,8 +26,8 @@
 classdef NodePrx < Ice.ObjectPrx
     methods
         function initiateCreateSession(obj, publisher, varargin)
-            % initiateCreateSession   Initiate the creation of a publisher session with a node, after
-            % the target node has announced a topic reader for which this node has a corresponding topic writer.
+            % initiateCreateSession   Initiate the creation of a publisher session with a node, after the target node has announced a topic
+            % reader for which this node has a corresponding topic writer.
             %
             % Parameters:
             %   publisher (DataStormContract.NodePrx) - The publisher node initiating the session. The proxy is never null.
@@ -41,8 +41,8 @@ classdef NodePrx < Ice.ObjectPrx
             obj.iceInvoke('initiateCreateSession', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = initiateCreateSessionAsync(obj, publisher, varargin)
-            % initiateCreateSessionAsync   Initiate the creation of a publisher session with a node, after
-            % the target node has announced a topic reader for which this node has a corresponding topic writer.
+            % initiateCreateSessionAsync   Initiate the creation of a publisher session with a node, after the target node has announced a topic
+            % reader for which this node has a corresponding topic writer.
             %
             % Parameters:
             %   publisher (DataStormContract.NodePrx) - The publisher node initiating the session. The proxy is never null.
@@ -58,9 +58,9 @@ classdef NodePrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('initiateCreateSession', 0, false, os_, 0, [], {}, varargin{:});
         end
         function createSession(obj, subscriber, session, fromRelay, varargin)
-            % createSession   Initiate the creation of a subscriber session with a node, after
-            % the target node has announced a topic writer for which this node has a corresponding topic reader,
-            % or after the node has called Node::initiateCreateSession.
+            % createSession   Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+            % writer for which this node has a corresponding topic reader, or after the node has called
+            % Node::initiateCreateSession.
             %
             % Parameters:
             %   subscriber (DataStormContract.NodePrx) - The subscriber node initiating the session. The proxy is never null.
@@ -76,9 +76,9 @@ classdef NodePrx < Ice.ObjectPrx
             obj.iceInvoke('createSession', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = createSessionAsync(obj, subscriber, session, fromRelay, varargin)
-            % createSessionAsync   Initiate the creation of a subscriber session with a node, after
-            % the target node has announced a topic writer for which this node has a corresponding topic reader,
-            % or after the node has called Node::initiateCreateSession.
+            % createSessionAsync   Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+            % writer for which this node has a corresponding topic reader, or after the node has called
+            % Node::initiateCreateSession.
             %
             % Parameters:
             %   subscriber (DataStormContract.NodePrx) - The subscriber node initiating the session. The proxy is never null.

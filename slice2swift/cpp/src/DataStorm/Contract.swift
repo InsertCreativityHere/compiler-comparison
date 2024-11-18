@@ -17,11 +17,18 @@ import Foundation
 import Ice
 import DataStorm
 
+/// The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
+/// DataSample history in response to various events.
 public enum ClearHistoryPolicy: Swift.UInt8 {
+    /// The reader clears its history when a new DataSample is added.
     case OnAdd = 0
+    /// The reader clears its history when a DataSample is removed.
     case OnRemove = 1
+    /// The reader clears its history when any DataSample event occurs.
     case OnAll = 2
+    /// The reader clears its history when any DataSample event occurs, except for PartialUpdate events.
     case OnAllExceptPartialUpdate = 3
+    /// The reader never clears its history.
     case Never = 4
     public init() {
         self = .OnAdd
@@ -1513,6 +1520,13 @@ public extension Ice.InputStream {
 }
 
 public extension SessionPrx {
+    /// Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+    /// while a subscriber session announces the topics it reads.
+    ///
+    /// - Parameters:
+    ///   - iceP_topics: The topics to announce.
+    ///   - iceP_initialize: currently unused.
+    ///   - context: Optional request context.
     func announceTopics(topics iceP_topics: TopicInfoSeq, initialize iceP_initialize: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "announceTopics",
                                        mode: .Normal,
@@ -1924,8 +1938,8 @@ public extension Ice.InputStream {
 ///  - confirmCreateSession: Confirm the creation of a publisher session with a node.
 ///  - confirmCreateSessionAsync: Confirm the creation of a publisher session with a node.
 public extension NodePrx {
-    /// Initiate the creation of a publisher session with a node, after
-    /// the target node has announced a topic reader for which this node has a corresponding topic writer.
+    /// Initiate the creation of a publisher session with a node, after the target node has announced a topic
+    /// reader for which this node has a corresponding topic writer.
     ///
     /// - Parameters:
     ///   - iceP_publisher: The publisher node initiating the session. The proxy is never null.
@@ -1939,9 +1953,9 @@ public extension NodePrx {
                                        context: context)
     }
 
-    /// Initiate the creation of a subscriber session with a node, after
-    /// the target node has announced a topic writer for which this node has a corresponding topic reader,
-    /// or after the node has called Node::initiateCreateSession.
+    /// Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+    /// writer for which this node has a corresponding topic reader, or after the node has called
+    /// Node::initiateCreateSession.
     ///
     /// - Parameters:
     ///   - iceP_subscriber: The subscriber node initiating the session. The proxy is never null.
@@ -2275,6 +2289,13 @@ public struct SessionDisp: Ice.Dispatcher {
 }
 
 public protocol Session {
+    /// Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+    /// while a subscriber session announces the topics it reads.
+    ///
+    /// - Parameters:
+    ///   - topics: The topics to announce.
+    ///   - initialize: currently unused.
+    ///   - current: The Current object for the dispatch.
     func announceTopics(topics: TopicInfoSeq, initialize: Swift.Bool, current: Ice.Current) async throws
 
     func attachTopic(topic: TopicSpec, current: Ice.Current) async throws
@@ -2444,17 +2465,17 @@ public struct NodeDisp: Ice.Dispatcher {
 /// PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
 /// publisher node through a SubscriberSession proxy.
 public protocol Node {
-    /// Initiate the creation of a publisher session with a node, after
-    /// the target node has announced a topic reader for which this node has a corresponding topic writer.
+    /// Initiate the creation of a publisher session with a node, after the target node has announced a topic
+    /// reader for which this node has a corresponding topic writer.
     ///
     /// - Parameters:
     ///   - publisher: The publisher node initiating the session. The proxy is never null.
     ///   - current: The Current object for the dispatch.
     func initiateCreateSession(publisher: NodePrx?, current: Ice.Current) async throws
 
-    /// Initiate the creation of a subscriber session with a node, after
-    /// the target node has announced a topic writer for which this node has a corresponding topic reader,
-    /// or after the node has called Node::initiateCreateSession.
+    /// Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+    /// writer for which this node has a corresponding topic reader, or after the node has called
+    /// Node::initiateCreateSession.
     ///
     /// - Parameters:
     ///   - subscriber: The subscriber node initiating the session. The proxy is never null.

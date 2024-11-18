@@ -31,12 +31,31 @@
 
 namespace DataStormContract
 {
+    /**
+     * The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
+     * DataSample history in response to various events.
+     */
     enum class ClearHistoryPolicy : ::std::uint8_t
     {
+        /**
+         * The reader clears its history when a new DataSample is added.
+         */
         OnAdd,
+        /**
+         * The reader clears its history when a DataSample is removed.
+         */
         OnRemove,
+        /**
+         * The reader clears its history when any DataSample event occurs.
+         */
         OnAll,
+        /**
+         * The reader clears its history when any DataSample event occurs, except for PartialUpdate events.
+         */
         OnAllExceptPartialUpdate,
+        /**
+         * The reader never clears its history.
+         */
         Never
     };
 
@@ -100,10 +119,36 @@ class SessionPrx : public ::Ice::Proxy<SessionPrx, ::Ice::ObjectPrx>
 {
 public:
 
+    /**
+     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+     * while a subscriber session announces the topics it reads.
+     * @param topics The topics to announce.
+     * @param initialize currently unused.
+     * @param context The Context map to send with the invocation.
+     */
     void announceTopics(const TopicInfoSeq& topics, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /**
+     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+     * while a subscriber session announces the topics it reads.
+     * @param topics The topics to announce.
+     * @param initialize currently unused.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
     [[nodiscard]] ::std::future<void> announceTopicsAsync(const TopicInfoSeq& topics, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /**
+     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+     * while a subscriber session announces the topics it reads.
+     * @param topics The topics to announce.
+     * @param initialize currently unused.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
     ::std::function<void()>
     announceTopicsAsync(const TopicInfoSeq& topics, bool initialize, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -403,8 +448,8 @@ class NodePrx : public ::Ice::Proxy<NodePrx, ::Ice::ObjectPrx>
 public:
 
     /**
-     * Initiate the creation of a publisher session with a node, after
-     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * Initiate the creation of a publisher session with a node, after the target node has announced a topic
+     * reader for which this node has a corresponding topic writer.
      * @param publisher The publisher node initiating the session. The proxy is never null.
      * @param context The Context map to send with the invocation.
      * @see Lookup::announceTopicReader
@@ -412,8 +457,8 @@ public:
     void initiateCreateSession(const ::std::optional<NodePrx>& publisher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Initiate the creation of a publisher session with a node, after
-     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * Initiate the creation of a publisher session with a node, after the target node has announced a topic
+     * reader for which this node has a corresponding topic writer.
      * @param publisher The publisher node initiating the session. The proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -422,8 +467,8 @@ public:
     [[nodiscard]] ::std::future<void> initiateCreateSessionAsync(const ::std::optional<NodePrx>& publisher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Initiate the creation of a publisher session with a node, after
-     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * Initiate the creation of a publisher session with a node, after the target node has announced a topic
+     * reader for which this node has a corresponding topic writer.
      * @param publisher The publisher node initiating the session. The proxy is never null.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -440,9 +485,9 @@ public:
     /// \endcond
 
     /**
-     * Initiate the creation of a subscriber session with a node, after
-     * the target node has announced a topic writer for which this node has a corresponding topic reader,
-     * or after the node has called Node::initiateCreateSession.
+     * Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+     * writer for which this node has a corresponding topic reader, or after the node has called
+     * Node::initiateCreateSession.
      * @param subscriber The subscriber node initiating the session. The proxy is never null.
      * @param session The subscriber session being created. The proxy is never null.
      * @param fromRelay Indicates if the session is being created from a relay node.
@@ -451,9 +496,9 @@ public:
     void createSession(const ::std::optional<NodePrx>& subscriber, const ::std::optional<SubscriberSessionPrx>& session, bool fromRelay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Initiate the creation of a subscriber session with a node, after
-     * the target node has announced a topic writer for which this node has a corresponding topic reader,
-     * or after the node has called Node::initiateCreateSession.
+     * Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+     * writer for which this node has a corresponding topic reader, or after the node has called
+     * Node::initiateCreateSession.
      * @param subscriber The subscriber node initiating the session. The proxy is never null.
      * @param session The subscriber session being created. The proxy is never null.
      * @param fromRelay Indicates if the session is being created from a relay node.
@@ -463,9 +508,9 @@ public:
     [[nodiscard]] ::std::future<void> createSessionAsync(const ::std::optional<NodePrx>& subscriber, const ::std::optional<SubscriberSessionPrx>& session, bool fromRelay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Initiate the creation of a subscriber session with a node, after
-     * the target node has announced a topic writer for which this node has a corresponding topic reader,
-     * or after the node has called Node::initiateCreateSession.
+     * Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+     * writer for which this node has a corresponding topic reader, or after the node has called
+     * Node::initiateCreateSession.
      * @param subscriber The subscriber node initiating the session. The proxy is never null.
      * @param session The subscriber session being created. The proxy is never null.
      * @param fromRelay Indicates if the session is being created from a relay node.
@@ -1137,6 +1182,13 @@ public:
      */
     static const char* ice_staticId() noexcept;
 
+    /**
+     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+     * while a subscriber session announces the topics it reads.
+     * @param topics The topics to announce.
+     * @param initialize currently unused.
+     * @param current The Current object for the invocation.
+     */
     virtual void announceTopics(TopicInfoSeq topics, bool initialize, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_announceTopics(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
@@ -1308,8 +1360,8 @@ public:
     static const char* ice_staticId() noexcept;
 
     /**
-     * Initiate the creation of a publisher session with a node, after
-     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * Initiate the creation of a publisher session with a node, after the target node has announced a topic
+     * reader for which this node has a corresponding topic writer.
      * @param publisher The publisher node initiating the session. The proxy is never null.
      * @param current The Current object for the invocation.
      * @see Lookup::announceTopicReader
@@ -1320,9 +1372,9 @@ public:
     /// \endcond
 
     /**
-     * Initiate the creation of a subscriber session with a node, after
-     * the target node has announced a topic writer for which this node has a corresponding topic reader,
-     * or after the node has called Node::initiateCreateSession.
+     * Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+     * writer for which this node has a corresponding topic reader, or after the node has called
+     * Node::initiateCreateSession.
      * @param subscriber The subscriber node initiating the session. The proxy is never null.
      * @param session The subscriber session being created. The proxy is never null.
      * @param fromRelay Indicates if the session is being created from a relay node.

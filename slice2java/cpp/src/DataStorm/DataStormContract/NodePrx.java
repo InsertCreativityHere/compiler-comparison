@@ -29,8 +29,8 @@ package DataStormContract;
 public interface NodePrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * Initiate the creation of a publisher session with a node, after
-     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * Initiate the creation of a publisher session with a node, after the target node has announced a topic
+     * reader for which this node has a corresponding topic writer.
      * @param publisher The publisher node initiating the session. The proxy is never null.
      *
      * @see Lookup::announceTopicReader
@@ -41,8 +41,8 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Initiate the creation of a publisher session with a node, after
-     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * Initiate the creation of a publisher session with a node, after the target node has announced a topic
+     * reader for which this node has a corresponding topic writer.
      * @param publisher The publisher node initiating the session. The proxy is never null.
      * @param context The Context map to send with the invocation.
      *
@@ -54,8 +54,8 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Initiate the creation of a publisher session with a node, after
-     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * Initiate the creation of a publisher session with a node, after the target node has announced a topic
+     * reader for which this node has a corresponding topic writer.
      * @param publisher The publisher node initiating the session. The proxy is never null.
      * @return A future that will be completed when the invocation completes.
      *
@@ -67,8 +67,8 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Initiate the creation of a publisher session with a node, after
-     * the target node has announced a topic reader for which this node has a corresponding topic writer.
+     * Initiate the creation of a publisher session with a node, after the target node has announced a topic
+     * reader for which this node has a corresponding topic writer.
      * @param publisher The publisher node initiating the session. The proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -97,9 +97,9 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Initiate the creation of a subscriber session with a node, after
-     * the target node has announced a topic writer for which this node has a corresponding topic reader,
-     * or after the node has called Node::initiateCreateSession.
+     * Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+     * writer for which this node has a corresponding topic reader, or after the node has called
+     * Node::initiateCreateSession.
      * @param subscriber The subscriber node initiating the session. The proxy is never null.
      * @param session The subscriber session being created. The proxy is never null.
      * @param fromRelay Indicates if the session is being created from a relay node.
@@ -110,9 +110,9 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Initiate the creation of a subscriber session with a node, after
-     * the target node has announced a topic writer for which this node has a corresponding topic reader,
-     * or after the node has called Node::initiateCreateSession.
+     * Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+     * writer for which this node has a corresponding topic reader, or after the node has called
+     * Node::initiateCreateSession.
      * @param subscriber The subscriber node initiating the session. The proxy is never null.
      * @param session The subscriber session being created. The proxy is never null.
      * @param fromRelay Indicates if the session is being created from a relay node.
@@ -124,9 +124,9 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Initiate the creation of a subscriber session with a node, after
-     * the target node has announced a topic writer for which this node has a corresponding topic reader,
-     * or after the node has called Node::initiateCreateSession.
+     * Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+     * writer for which this node has a corresponding topic reader, or after the node has called
+     * Node::initiateCreateSession.
      * @param subscriber The subscriber node initiating the session. The proxy is never null.
      * @param session The subscriber session being created. The proxy is never null.
      * @param fromRelay Indicates if the session is being created from a relay node.
@@ -138,9 +138,9 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Initiate the creation of a subscriber session with a node, after
-     * the target node has announced a topic writer for which this node has a corresponding topic reader,
-     * or after the node has called Node::initiateCreateSession.
+     * Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+     * writer for which this node has a corresponding topic reader, or after the node has called
+     * Node::initiateCreateSession.
      * @param subscriber The subscriber node initiating the session. The proxy is never null.
      * @param session The subscriber session being created. The proxy is never null.
      * @param fromRelay Indicates if the session is being created from a relay node.

@@ -34,6 +34,16 @@ __name__ = 'DataStormContract'
 if 'ClearHistoryPolicy' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ClearHistoryPolicy = None
     class ClearHistoryPolicy(Ice.EnumBase):
+        """
+        The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
+        DataSample history in response to various events.
+        Enumerators:
+        OnAdd -- The reader clears its history when a new DataSample is added.
+        OnRemove -- The reader clears its history when a DataSample is removed.
+        OnAll -- The reader clears its history when any DataSample event occurs.
+        OnAllExceptPartialUpdate -- The reader clears its history when any DataSample event occurs, except for PartialUpdate events.
+        Never -- The reader never clears its history.
+        """
 
         def __init__(self, _n, _v):
             Ice.EnumBase.__init__(self, _n, _v)
@@ -574,9 +584,40 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             super().__init__(communicator, proxyString)
 
         def announceTopics(self, topics, initialize, context=None):
+            """
+            Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+            while a subscriber session announces the topics it reads.
+            
+            Parameters
+            ----------
+            topics : DataStormContract.TopicInfo[]
+                The topics to announce.
+            initialize : bool
+                currently unused.
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_DataStormContract.Session._op_announceTopics.invoke(self, ((topics, initialize), context))
 
         def announceTopicsAsync(self, topics, initialize, context=None):
+            """
+            Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+            while a subscriber session announces the topics it reads.
+            
+            Parameters
+            ----------
+            topics : DataStormContract.TopicInfo[]
+                The topics to announce.
+            initialize : bool
+                currently unused.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_DataStormContract.Session._op_announceTopics.invokeAsync(self, ((topics, initialize), context))
 
         def attachTopic(self, topic, context=None):
@@ -669,6 +710,24 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             return '::DataStormContract::Session'
 
         def announceTopics(self, topics, initialize, current=None):
+            """
+            Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
+            while a subscriber session announces the topics it reads.
+            
+            Parameters
+            ----------
+            topics : DataStormContract.TopicInfo[]
+                The topics to announce.
+            initialize : bool
+                currently unused.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'announceTopics' not implemented")
 
         def attachTopic(self, topic, current=None):
@@ -874,8 +933,8 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
 
         def initiateCreateSession(self, publisher, context=None):
             """
-            Initiate the creation of a publisher session with a node, after
-            the target node has announced a topic reader for which this node has a corresponding topic writer.
+            Initiate the creation of a publisher session with a node, after the target node has announced a topic
+            reader for which this node has a corresponding topic writer.
             
             Parameters
             ----------
@@ -888,8 +947,8 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
 
         def initiateCreateSessionAsync(self, publisher, context=None):
             """
-            Initiate the creation of a publisher session with a node, after
-            the target node has announced a topic reader for which this node has a corresponding topic writer.
+            Initiate the creation of a publisher session with a node, after the target node has announced a topic
+            reader for which this node has a corresponding topic writer.
             
             Parameters
             ----------
@@ -907,9 +966,9 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
 
         def createSession(self, subscriber, session, fromRelay, context=None):
             """
-            Initiate the creation of a subscriber session with a node, after
-            the target node has announced a topic writer for which this node has a corresponding topic reader,
-            or after the node has called Node::initiateCreateSession.
+            Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+            writer for which this node has a corresponding topic reader, or after the node has called
+            Node::initiateCreateSession.
             
             Parameters
             ----------
@@ -926,9 +985,9 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
 
         def createSessionAsync(self, subscriber, session, fromRelay, context=None):
             """
-            Initiate the creation of a subscriber session with a node, after
-            the target node has announced a topic writer for which this node has a corresponding topic reader,
-            or after the node has called Node::initiateCreateSession.
+            Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+            writer for which this node has a corresponding topic reader, or after the node has called
+            Node::initiateCreateSession.
             
             Parameters
             ----------
@@ -1014,8 +1073,8 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
 
         def initiateCreateSession(self, publisher, current=None):
             """
-            Initiate the creation of a publisher session with a node, after
-            the target node has announced a topic reader for which this node has a corresponding topic writer.
+            Initiate the creation of a publisher session with a node, after the target node has announced a topic
+            reader for which this node has a corresponding topic writer.
             
             Parameters
             ----------
@@ -1033,9 +1092,9 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
 
         def createSession(self, subscriber, session, fromRelay, current=None):
             """
-            Initiate the creation of a subscriber session with a node, after
-            the target node has announced a topic writer for which this node has a corresponding topic reader,
-            or after the node has called Node::initiateCreateSession.
+            Initiate the creation of a subscriber session with a node, after the target node has announced a topic
+            writer for which this node has a corresponding topic reader, or after the node has called
+            Node::initiateCreateSession.
             
             Parameters
             ----------
