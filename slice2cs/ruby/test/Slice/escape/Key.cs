@@ -888,13 +888,13 @@ namespace BEGIN
 
     public abstract class elsifDisp_ : Ice.ObjectImpl, elsif
     {
-        public abstract void instance_variables(Ice.Current current);
-
         public abstract void @case(int clone, int def, Ice.Current current);
 
         public abstract void to_a(Ice.Current current);
 
         public abstract void instance_variable_set(Ice.Current current);
+
+        public abstract void instance_variables(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
