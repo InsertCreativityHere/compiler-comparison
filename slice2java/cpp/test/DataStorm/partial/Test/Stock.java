@@ -158,5 +158,5 @@ public class Stock implements java.lang.Cloneable,
     private static final Stock _nullMarshalValue = new Stock();
 
     /** @hidden */
-    private static final long serialVersionUID = -7669462828177873340L;
+    private static final long serialVersionUID = 5540027698791814957L;
 }
