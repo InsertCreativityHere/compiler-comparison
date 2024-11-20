@@ -48,7 +48,7 @@ public class IDerived extends IBase
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7299535892564893283L;
+    private static final long serialVersionUID = 7299539119865281696L;
 
     /** @hidden */
     @Override
