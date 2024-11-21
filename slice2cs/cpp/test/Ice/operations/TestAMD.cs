@@ -10118,9 +10118,9 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, Ice.Current current);
 

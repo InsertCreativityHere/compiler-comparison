@@ -200,5 +200,5 @@ public class ElementDataAck implements java.lang.Cloneable,
     private static final ElementDataAck _nullMarshalValue = new ElementDataAck();
 
     /** @hidden */
-    private static final long serialVersionUID = 2996591941557389383L;
+    private static final long serialVersionUID = -8064426562332893356L;
 }
