@@ -172,5 +172,5 @@ public class ElementInfo implements java.lang.Cloneable,
     private static final ElementInfo _nullMarshalValue = new ElementInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -909791864518375892L;
+    private static final long serialVersionUID = 3701039312356852249L;
 }
