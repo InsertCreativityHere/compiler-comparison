@@ -113,9 +113,6 @@ if 'E2' not in _M_NoNamespace.__dict__:
 if 'notify' not in _M_NoNamespace.__dict__:
     _M_NoNamespace.notify = None
     class notify(Ice.UserException):
-        """
-        Test keyword escape.
-        """
         def __init__(self, i=0):
             self.i = i
 

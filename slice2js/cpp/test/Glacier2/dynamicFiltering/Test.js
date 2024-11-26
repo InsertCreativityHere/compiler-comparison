@@ -94,24 +94,10 @@ const iceC_Test_TestController_ids = [
     "::Test::TestController"
 ];
 
-/**
- * The test controller interface permits coordination between the test
- * server and the test client. Prior to each call the client makes on
- * various backend references, it calls step on the controller. The
- * controller will manage the configuration of the system and return a
- * flag indicating whether the next call is meant to succeed or not.
- **/
 Test.TestController = class extends Ice.Object
 {
 };
 
-/**
- * The test controller interface permits coordination between the test
- * server and the test client. Prior to each call the client makes on
- * various backend references, it calls step on the controller. The
- * controller will manage the configuration of the system and return a
- * flag indicating whether the next call is meant to succeed or not.
- **/
 Test.TestControllerPrx = class extends Ice.ObjectPrx
 {
 };

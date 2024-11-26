@@ -184,38 +184,16 @@ namespace Test
 
     const ::std::string sw10 = "\340\266\247";
 
-    /**
-     * \'      single quote    byte 0x27 in ASCII encoding
-     * \"      double quote    byte 0x22 in ASCII encoding
-     * \?      question mark   byte 0x3f in ASCII encoding
-     * \\      backslash       byte 0x5c in ASCII encoding
-     * \a      audible bell    byte 0x07 in ASCII encoding
-     * \b      backspace       byte 0x08 in ASCII encoding
-     * \f      form feed - new page    byte 0x0c in ASCII encoding
-     * \n      line feed - new line    byte 0x0a in ASCII encoding
-     * \r      carriage return byte 0x0d in ASCII encoding
-     * \t      horizontal tab  byte 0x09 in ASCII encoding
-     * \v      vertical tab    byte 0x0b in ASCII encoding
-     */
     const ::std::string ss0 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
     const ::std::string ss1 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
     const ::std::string ss2 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
-    /**
-     * \\U\u\
-     */
     const ::std::string ss3 = "\\\\U\\u\\";
 
-    /**
-     * \A\
-     */
     const ::std::string ss4 = "\\A\\";
 
-    /**
-     * \u0041\
-     */
     const ::std::string ss5 = "\\u0041\\";
 
     const ::std::string su0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
@@ -268,38 +246,16 @@ namespace Test
 
     const ::std::wstring wsw10 = L"\U00000DA7";
 
-    /**
-     * \'      single quote    byte 0x27 in ASCII encoding
-     * \"      double quote    byte 0x22 in ASCII encoding
-     * \?      question mark   byte 0x3f in ASCII encoding
-     * \\      backslash       byte 0x5c in ASCII encoding
-     * \a      audible bell    byte 0x07 in ASCII encoding
-     * \b      backspace       byte 0x08 in ASCII encoding
-     * \f      form feed - new page    byte 0x0c in ASCII encoding
-     * \n      line feed - new line    byte 0x0a in ASCII encoding
-     * \r      carriage return byte 0x0d in ASCII encoding
-     * \t      horizontal tab  byte 0x09 in ASCII encoding
-     * \v      vertical tab    byte 0x0b in ASCII encoding
-     */
     const ::std::wstring wss0 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
 
     const ::std::wstring wss1 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
 
     const ::std::wstring wss2 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
 
-    /**
-     * \\U\u\
-     */
     const ::std::wstring wss3 = L"\\\\U\\u\\";
 
-    /**
-     * \A\
-     */
     const ::std::wstring wss4 = L"\\A\\";
 
-    /**
-     * \u0041\
-     */
     const ::std::wstring wss5 = L"\\u0041\\";
 
     const ::std::wstring wsu0 = L"\u0128\u0178\u00ff\u0100\u1f00\U00010194\U0001016a\U00010198\U0001f340\U0001f341\U0001f342\U0001f343";

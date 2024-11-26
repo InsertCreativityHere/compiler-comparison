@@ -139,9 +139,6 @@ Ice.TypeRegistry.declareUserExceptionType(
     "Test1.E2",
     Test1.E2);
 
-/**
- * Test keyword escape.
- **/
 Test1.def = class extends Ice.UserException
 {
     constructor(i = 0, _cause = "")

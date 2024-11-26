@@ -16,12 +16,10 @@
 import Foundation
 import Ice
 
-/// By default, sequence is received as a string.
 public typealias ByteString = Foundation.Data
 
 public typealias ByteList = Foundation.Data
 
-/// By default, a sequence is received as a list.
 public typealias StringList = [Swift.String]
 
 public typealias StringTuple = [Swift.String]

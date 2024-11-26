@@ -709,13 +709,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('throwPreservedException', 0, true, [], 0, [], Test.TestIntfPrx.throwPreservedException_ex_, varargin{:});
         end
         function f = useForward(obj, varargin)
-            % useForward   Use of forward-declared class to verify that code is generated correctly.
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.Forward)
-            
             is_ = obj.iceInvoke('useForward', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             f_h_ = IceInternal.ValueHolder();
@@ -725,13 +718,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             f = f_h_.value;
         end
         function r_ = useForwardAsync(obj, varargin)
-            % useForwardAsync   Use of forward-declared class to verify that code is generated correctly.
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 f = IceInternal.ValueHolder();

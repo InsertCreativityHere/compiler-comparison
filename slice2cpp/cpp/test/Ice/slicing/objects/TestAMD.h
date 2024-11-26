@@ -456,27 +456,10 @@ public:
     void _iceI_throwUnknownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Use of forward-declared class to verify that code is generated correctly.
-     * @param context The Context map to send with the invocation.
-     */
     void useForward(ForwardPtr& f, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Use of forward-declared class to verify that code is generated correctly.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
     [[nodiscard]] ::std::future<ForwardPtr> useForwardAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Use of forward-declared class to verify that code is generated correctly.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
     ::std::function<void()>
     useForwardAsync(::std::function<void(::Test::ForwardPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -1469,12 +1452,6 @@ public:
     void _iceD_throwUnknownDerivedAsBase(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Use of forward-declared class to verify that code is generated correctly.
-     * @param response The response callback.
-     * @param exception The exception callback.
-     * @param current The Current object for the invocation.
-     */
     virtual void useForwardAsync(::std::function<void(const ForwardPtr& f)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_useForward(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);

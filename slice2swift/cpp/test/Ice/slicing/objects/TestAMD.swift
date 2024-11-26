@@ -942,9 +942,6 @@ public extension TestIntfPrx {
                                        context: context)
     }
 
-    /// Use of forward-declared class to verify that code is generated correctly.
-    ///
-    /// - Parameter context: Optional request context.
     func useForward(context: Ice.Context? = nil) async throws -> Forward? {
         return try await _impl._invoke(operation: "useForward",
                                        mode: .Normal,
@@ -1617,9 +1614,6 @@ public protocol TestIntf {
 
     func throwUnknownDerivedAsBase(current: Ice.Current) async throws
 
-    /// Use of forward-declared class to verify that code is generated correctly.
-    ///
-    /// - Parameter current: The Current object for the dispatch.
     func useForward(current: Ice.Current) async throws -> Forward?
 
     func shutdown(current: Ice.Current) async throws

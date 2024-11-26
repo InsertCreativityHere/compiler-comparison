@@ -15,9 +15,6 @@
 
 package test.Ice.packagemd.Test1;
 
-/**
- * Test keyword escape.
- **/
 public class _notify extends com.zeroc.Ice.UserException
 {
     public _notify()
@@ -55,5 +52,5 @@ public class _notify extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 4322849587744566436L;
+    private static final long serialVersionUID = 4322847619716761018L;
 }

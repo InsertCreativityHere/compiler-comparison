@@ -163,10 +163,6 @@ namespace Test1
         }
     }
 
-    /// <summary>
-    /// Test keyword escape.
-    /// </summary>
-
     [Ice.SliceTypeId("::Test1::def")]
     public partial class def : Ice.UserException
     {

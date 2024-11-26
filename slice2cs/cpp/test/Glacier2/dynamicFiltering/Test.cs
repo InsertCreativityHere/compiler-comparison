@@ -146,15 +146,6 @@ namespace Test
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
-    /// <summary>
-    /// The test controller interface permits coordination between the test
-    /// server and the test client.
-    /// Prior to each call the client makes on
-    /// various backend references, it calls step on the controller. The
-    /// controller will manage the configuration of the system and return a
-    /// flag indicating whether the next call is meant to succeed or not.
-    /// </summary>
-
     public interface TestControllerPrx : Ice.ObjectPrx
     {
         void step(global::Glacier2.SessionPrx? currentSession, TestToken currentState, out TestToken newState, global::System.Collections.Generic.Dictionary<string, string>? context = null);

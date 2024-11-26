@@ -1129,11 +1129,6 @@ namespace Test
 
 namespace Test2
 {
-    /// <summary>
-    /// Makes sure that proxy operations are correctly generated when extending an interface from
-    /// a different module (ICE-7639).
-    /// </summary>
-
     public interface MyDerivedClassPrx : global::Test.MyClassPrx
     {
     }

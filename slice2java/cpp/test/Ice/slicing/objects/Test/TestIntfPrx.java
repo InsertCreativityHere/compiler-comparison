@@ -1385,37 +1385,21 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
         BaseException.class
     };
 
-    /**
-     * Use of forward-declared class to verify that code is generated correctly.
-     **/
     default Forward useForward()
     {
         return useForward(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    /**
-     * Use of forward-declared class to verify that code is generated correctly.
-     * @param context The Context map to send with the invocation.
-     **/
     default Forward useForward(java.util.Map<String, String> context)
     {
         return _iceI_useForwardAsync(context, true).waitForResponse();
     }
 
-    /**
-     * Use of forward-declared class to verify that code is generated correctly.
-     * @return A future that will be completed with the result.
-     **/
     default java.util.concurrent.CompletableFuture<Forward> useForwardAsync()
     {
         return _iceI_useForwardAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    /**
-     * Use of forward-declared class to verify that code is generated correctly.
-     * @param context The Context map to send with the invocation.
-     * @return A future that will be completed with the result.
-     **/
     default java.util.concurrent.CompletableFuture<Forward> useForwardAsync(java.util.Map<String, String> context)
     {
         return _iceI_useForwardAsync(context, false);

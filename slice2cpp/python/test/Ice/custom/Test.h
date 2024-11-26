@@ -27,16 +27,10 @@
 
 namespace Test
 {
-    /**
-     * By default, sequence<byte> is received as a string.
-     */
     using ByteString = ::std::vector<std::byte>;
 
     using ByteList = ::std::vector<std::byte>;
 
-    /**
-     * By default, a sequence is received as a list.
-     */
     using StringList = ::std::vector<::std::string>;
 
     using StringTuple = ::std::vector<::std::string>;

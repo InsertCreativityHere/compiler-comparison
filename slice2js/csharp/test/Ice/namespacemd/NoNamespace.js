@@ -139,9 +139,6 @@ Ice.TypeRegistry.declareUserExceptionType(
     "NoNamespace.E2",
     NoNamespace.E2);
 
-/**
- * Test keyword escape.
- **/
 NoNamespace.notify = class extends Ice.UserException
 {
     constructor(i = 0, _cause = "")

@@ -268,17 +268,6 @@ public extension BackendPrx {
     }
 }
 
-/// The test controller interface permits coordination between the test
-/// server and the test client. Prior to each call the client makes on
-/// various backend references, it calls step on the controller. The
-/// controller will manage the configuration of the system and return a
-/// flag indicating whether the next call is meant to succeed or not.
-///
-/// TestControllerPrx Methods:
-///  - step
-///  - stepAsync
-///  - shutdown
-///  - shutdownAsync
 public protocol TestControllerPrx: Ice.ObjectPrx {}
 
 private final class TestControllerPrxI: Ice.ObjectPrxI, TestControllerPrx {
@@ -363,17 +352,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// The test controller interface permits coordination between the test
-/// server and the test client. Prior to each call the client makes on
-/// various backend references, it calls step on the controller. The
-/// controller will manage the configuration of the system and return a
-/// flag indicating whether the next call is meant to succeed or not.
-///
-/// TestControllerPrx Methods:
-///  - step
-///  - stepAsync
-///  - shutdown
-///  - shutdownAsync
 public extension TestControllerPrx {
     func step(currentSession iceP_currentSession: Glacier2.SessionPrx?, currentState iceP_currentState: TestToken, context: Ice.Context? = nil) async throws -> TestToken {
         return try await _impl._invoke(operation: "step",
@@ -554,11 +532,6 @@ public struct TestControllerDisp: Ice.Dispatcher {
     }
 }
 
-/// The test controller interface permits coordination between the test
-/// server and the test client. Prior to each call the client makes on
-/// various backend references, it calls step on the controller. The
-/// controller will manage the configuration of the system and return a
-/// flag indicating whether the next call is meant to succeed or not.
 public protocol TestController {
     func step(currentSession: Glacier2.SessionPrx?, currentState: TestToken, current: Ice.Current) async throws -> TestToken
 
@@ -615,15 +588,6 @@ extension Backend {
     }
 }
 
-/// The test controller interface permits coordination between the test
-/// server and the test client. Prior to each call the client makes on
-/// various backend references, it calls step on the controller. The
-/// controller will manage the configuration of the system and return a
-/// flag indicating whether the next call is meant to succeed or not.
-///
-/// TestController Methods:
-///  - step
-///  - shutdown
 extension TestController {
     public func _iceD_step(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

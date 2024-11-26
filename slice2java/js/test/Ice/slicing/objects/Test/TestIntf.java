@@ -342,10 +342,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
     java.util.concurrent.CompletionStage<Void> throwPreservedExceptionAsync(com.zeroc.Ice.Current current)
         throws PreservedException;
 
-    /**
-     * Use of forward-declared class to verify that code is generated correctly.
-     * @param current The Current object for the invocation.
-     **/
     Forward useForward(com.zeroc.Ice.Current current);
 
     void shutdown(com.zeroc.Ice.Current current);

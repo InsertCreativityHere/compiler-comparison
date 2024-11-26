@@ -117,13 +117,6 @@ protected:
     /// \endcond
 };
 
-/**
- * The test controller interface permits coordination between the test
- * server and the test client. Prior to each call the client makes on
- * various backend references, it calls step on the controller. The
- * controller will manage the configuration of the system and return a
- * flag indicating whether the next call is meant to succeed or not.
- */
 class TestControllerPrx : public ::Ice::Proxy<TestControllerPrx, ::Ice::ObjectPrx>
 {
 public:
@@ -339,13 +332,6 @@ public:
 
 using BackendPtr = ::std::shared_ptr<Backend>;
 
-/**
- * The test controller interface permits coordination between the test
- * server and the test client. Prior to each call the client makes on
- * various backend references, it calls step on the controller. The
- * controller will manage the configuration of the system and return a
- * flag indicating whether the next call is meant to succeed or not.
- */
 class TestController : public virtual ::Ice::Object
 {
 public:

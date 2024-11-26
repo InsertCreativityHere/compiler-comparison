@@ -15,13 +15,6 @@
 
 package Test;
 
-/**
- * The test controller interface permits coordination between the test
- * server and the test client. Prior to each call the client makes on
- * various backend references, it calls step on the controller. The
- * controller will manage the configuration of the system and return a
- * flag indicating whether the next call is meant to succeed or not.
- **/
 public interface TestControllerPrx extends com.zeroc.Ice.ObjectPrx
 {
     default TestToken step(com.zeroc.Glacier2.SessionPrx currentSession, TestToken currentState)

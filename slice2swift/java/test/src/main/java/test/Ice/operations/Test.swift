@@ -2713,17 +2713,6 @@ public let sw9: Swift.String = "\u{1f34c}"
 
 public let sw10: Swift.String = "\u{da7}"
 
-/// \'      single quote    byte 0x27 in ASCII encoding
-/// \"      double quote    byte 0x22 in ASCII encoding
-/// \?      question mark   byte 0x3f in ASCII encoding
-/// \\      backslash       byte 0x5c in ASCII encoding
-/// \a      audible bell    byte 0x07 in ASCII encoding
-/// \b      backspace       byte 0x08 in ASCII encoding
-/// \f      form feed - new page    byte 0x0c in ASCII encoding
-/// \n      line feed - new line    byte 0x0a in ASCII encoding
-/// \r      carriage return byte 0x0d in ASCII encoding
-/// \t      horizontal tab  byte 0x09 in ASCII encoding
-/// \v      vertical tab    byte 0x0b in ASCII encoding
 public let ss0: Swift.String = "'\"?\\\u{0007}\u{0008}\u{000c}\n\r\t\u{000b}\u{0006}"
 
 public let ss1: Swift.String = "'\"?\\\u{0007}\u{0008}\u{000c}\n\r\t\u{000b}\u{0006}"
@@ -3912,8 +3901,6 @@ public extension MyDerivedClassPrx {
     }
 }
 
-/// Makes sure that proxy operations are correctly generated when extending an interface from
-/// a different module (ICE-7639).
 public protocol MyDerivedClassPrx: Test.MyClassPrx {}
 
 private final class MyDerivedClassPrxI: Ice.ObjectPrxI, MyDerivedClassPrx {
@@ -3998,8 +3985,6 @@ public extension Ice.InputStream {
     }
 }
 
-/// Makes sure that proxy operations are correctly generated when extending an interface from
-/// a different module (ICE-7639).
 public extension MyDerivedClassPrx {}
 
 @_documentation(visibility: internal)
@@ -4702,8 +4687,6 @@ public struct MyDerivedClassDisp: Ice.Dispatcher {
     }
 }
 
-/// Makes sure that proxy operations are correctly generated when extending an interface from
-/// a different module (ICE-7639).
 public protocol MyDerivedClass: Test.MyClass {}
 
 extension MyClass {
@@ -5646,6 +5629,4 @@ extension MyDerivedClass {
     }
 }
 
-/// Makes sure that proxy operations are correctly generated when extending an interface from
-/// a different module (ICE-7639).
 extension MyDerivedClass {}

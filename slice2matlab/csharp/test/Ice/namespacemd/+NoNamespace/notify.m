@@ -1,9 +1,3 @@
-% notify   Summary of notify
-%
-% Test keyword escape.
-%
-% notify Properties:
-%   i
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from NoNamespace.ice by slice2matlab version 3.8.0-alpha.0

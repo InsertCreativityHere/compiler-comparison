@@ -634,34 +634,9 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
             return _M_Test.TestIntf._op_throwUnknownDerivedAsBase.invokeAsync(self, ((), context))
 
         def useForward(self, context=None):
-            """
-            Use of forward-declared class to verify that code is generated correctly.
-            
-            Parameters
-            ----------
-            context : Ice.Context
-                The request context for the invocation.
-            
-            Returns
-            -------
-            Test.Forward
-            """
             return _M_Test.TestIntf._op_useForward.invoke(self, ((), context))
 
         def useForwardAsync(self, context=None):
-            """
-            Use of forward-declared class to verify that code is generated correctly.
-            
-            Parameters
-            ----------
-            context : Ice.Context
-                The request context for the invocation.
-            
-            Returns
-            -------
-            Ice.Future
-                A future object that is completed with the result of the invocation.
-            """
             return _M_Test.TestIntf._op_useForward.invokeAsync(self, ((), context))
 
         def shutdown(self, context=None):
@@ -802,19 +777,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
             raise NotImplementedError("servant method 'throwUnknownDerivedAsBase' not implemented")
 
         def useForward(self, current=None):
-            """
-            Use of forward-declared class to verify that code is generated correctly.
-            
-            Parameters
-            ----------
-            current : Ice.Current
-                The Current object for the dispatch.
-            
-            Returns
-            -------
-            Ice.Future
-                A future object that is completed with the result of the dispatch.
-            """
             raise NotImplementedError("servant method 'useForward' not implemented")
 
         def shutdown(self, current=None):

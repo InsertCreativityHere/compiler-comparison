@@ -15,9 +15,6 @@
 
 package Test1;
 
-/**
- * Test keyword escape.
- **/
 public class def extends com.zeroc.Ice.UserException
 {
     public def()
@@ -55,5 +52,5 @@ public class def extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7298390356949313834L;
+    private static final long serialVersionUID = 7298386247500495129L;
 }

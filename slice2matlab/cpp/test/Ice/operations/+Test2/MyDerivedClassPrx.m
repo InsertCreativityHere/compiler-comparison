@@ -1,11 +1,3 @@
-% MyDerivedClassPrx   Summary of MyDerivedClassPrx
-%
-% Makes sure that proxy operations are correctly generated when extending an interface from
-% a different module (ICE-7639).
-%
-% MyDerivedClassPrx Methods:
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0

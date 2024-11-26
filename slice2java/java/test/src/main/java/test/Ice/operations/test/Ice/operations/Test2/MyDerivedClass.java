@@ -15,10 +15,6 @@
 
 package test.Ice.operations.Test2;
 
-/**
- * Makes sure that proxy operations are correctly generated when extending an interface from
- * a different module (ICE-7639).
- **/
 public interface MyDerivedClass extends test.Ice.operations.Test.MyClass
 {
     /** @hidden */

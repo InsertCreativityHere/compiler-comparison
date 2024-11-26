@@ -163,10 +163,6 @@ namespace NoNamespace
         }
     }
 
-    /// <summary>
-    /// Test keyword escape.
-    /// </summary>
-
     [Ice.SliceTypeId("::NoNamespace::notify")]
     public partial class notify : Ice.UserException
     {

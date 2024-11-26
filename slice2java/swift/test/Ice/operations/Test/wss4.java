@@ -15,9 +15,6 @@
 
 package Test;
 
-/**
- * \A\
- **/
 public interface wss4
 {
     String value = "\\A\\";

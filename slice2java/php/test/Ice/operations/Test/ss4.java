@@ -15,9 +15,6 @@
 
 package Test;
 
-/**
- * \A\
- **/
 public interface ss4
 {
     String value = "\\A\\";

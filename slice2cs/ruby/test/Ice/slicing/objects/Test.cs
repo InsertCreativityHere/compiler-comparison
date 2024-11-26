@@ -666,11 +666,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task throwPreservedExceptionAsync(Ice.Current current);
 
-        /// <summary>
-        /// Use of forward-declared class to verify that code is generated correctly.
-        /// </summary>
-        /// <param name="current">The Current object for the dispatch.</param>
-
         void useForward(out Forward? f, Ice.Current current);
 
         void shutdown(Ice.Current current);
@@ -910,20 +905,8 @@ namespace Test
 
         global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        /// <summary>
-        /// Use of forward-declared class to verify that code is generated correctly.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-
         void useForward(out Forward? f, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        /// <summary>
-        /// Use of forward-declared class to verify that code is generated correctly.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<Forward?> useForwardAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);

@@ -15,9 +15,6 @@
 
 package NoNamespace;
 
-/**
- * Test keyword escape.
- **/
 public class _notify extends com.zeroc.Ice.UserException
 {
     public _notify()
@@ -55,5 +52,5 @@ public class _notify extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7599603855787039997L;
+    private static final long serialVersionUID = 7599600889189638723L;
 }

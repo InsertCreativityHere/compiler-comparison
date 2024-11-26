@@ -226,9 +226,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-/**
- * Test keyword escape.
- */
 class notify : public ::Ice::UserException
 {
 public:

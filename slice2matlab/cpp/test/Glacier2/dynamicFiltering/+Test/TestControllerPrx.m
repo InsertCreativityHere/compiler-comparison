@@ -1,18 +1,3 @@
-% TestControllerPrx   Summary of TestControllerPrx
-%
-% The test controller interface permits coordination between the test
-% server and the test client. Prior to each call the client makes on
-% various backend references, it calls step on the controller. The
-% controller will manage the configuration of the system and return a
-% flag indicating whether the next call is meant to succeed or not.
-%
-% TestControllerPrx Methods:
-%   step
-%   stepAsync
-%   shutdown
-%   shutdownAsync
-%   checkedCast - Contacts the remote server to verify that the object implements this type.
-%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
