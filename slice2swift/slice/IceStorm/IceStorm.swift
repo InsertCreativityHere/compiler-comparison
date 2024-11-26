@@ -571,7 +571,7 @@ public struct FinderTraits: Ice.SliceTraits {
     public static let staticId = "::IceStorm::Finder"
 }
 
-/// Publishers publish information on a particular topic. A topic logically represents a type. A
+/// Publishers publish information on a particular topic. A topic logically represents a type.
 ///
 /// TopicPrx Methods:
 ///  - getName: Get the name of this topic.
@@ -678,7 +678,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// Publishers publish information on a particular topic. A topic logically represents a type. A
+/// Publishers publish information on a particular topic. A topic logically represents a type.
 ///
 /// TopicPrx Methods:
 ///  - getName: Get the name of this topic.
@@ -751,7 +751,7 @@ public extension TopicPrx {
                                        context: context)
     }
 
-    /// Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
+    /// Subscribe with the given qos to this topic. A per-subscriber publisher object is returned.
     ///
     /// - Parameters:
     ///   - iceP_theQoS: The quality of service parameters for this subscription.
@@ -1070,7 +1070,7 @@ public extension TopicManagerPrx {
     }
 }
 
-/// This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+/// This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
 /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
 ///
 /// FinderPrx Methods:
@@ -1160,7 +1160,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+/// This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
 /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
 ///
 /// FinderPrx Methods:
@@ -1229,7 +1229,7 @@ public struct TopicDisp: Ice.Dispatcher {
     }
 }
 
-/// Publishers publish information on a particular topic. A topic logically represents a type. A
+/// Publishers publish information on a particular topic. A topic logically represents a type.
 public protocol Topic {
     /// Get the name of this topic.
     ///
@@ -1256,7 +1256,7 @@ public protocol Topic {
     /// - Returns: A proxy to publish data on this topic.
     func getNonReplicatedPublisher(current: Ice.Current) async throws -> Ice.ObjectPrx?
 
-    /// Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
+    /// Subscribe with the given qos to this topic. A per-subscriber publisher object is returned.
     ///
     /// - Parameters:
     ///   - theQoS: The quality of service parameters for this subscription.
@@ -1411,7 +1411,7 @@ public struct FinderDisp: Ice.Dispatcher {
     }
 }
 
-/// This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+/// This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
 /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
 public protocol Finder {
     /// Get the topic manager proxy. The proxy might point to several replicas.
@@ -1422,7 +1422,7 @@ public protocol Finder {
     func getTopicManager(current: Ice.Current) async throws -> TopicManagerPrx?
 }
 
-/// Publishers publish information on a particular topic. A topic logically represents a type. A
+/// Publishers publish information on a particular topic. A topic logically represents a type.
 ///
 /// Topic Methods:
 ///  - getName: Get the name of this topic.
@@ -1577,7 +1577,7 @@ extension TopicManager {
     }
 }
 
-/// This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+/// This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
 /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
 ///
 /// Finder Methods:

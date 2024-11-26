@@ -285,7 +285,7 @@ const iceC_Ice_LocatorFinder_ids = [
 
 /**
  * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should
- * be advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
+ * be advertised through an Ice object with the identity <code>'Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
  **/
 Ice.LocatorFinder = class extends Ice.Object
@@ -294,7 +294,7 @@ Ice.LocatorFinder = class extends Ice.Object
 
 /**
  * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should
- * be advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
+ * be advertised through an Ice object with the identity <code>'Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
  **/
 Ice.LocatorFinderPrx = class extends Ice.ObjectPrx

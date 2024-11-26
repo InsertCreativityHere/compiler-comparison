@@ -191,7 +191,7 @@ public extension RouterPrx {
 }
 
 /// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
-/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+/// through an Ice object with the identity 'Ice/RouterFinder'. This allows clients to retrieve the router proxy
 /// with just the endpoint information of the service.
 ///
 /// RouterFinderPrx Methods:
@@ -282,7 +282,7 @@ public extension InputStream {
 }
 
 /// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
-/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+/// through an Ice object with the identity 'Ice/RouterFinder'. This allows clients to retrieve the router proxy
 /// with just the endpoint information of the service.
 ///
 /// RouterFinderPrx Methods:
@@ -400,7 +400,7 @@ public struct RouterFinderDisp: Ice.Dispatcher {
 }
 
 /// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
-/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+/// through an Ice object with the identity 'Ice/RouterFinder'. This allows clients to retrieve the router proxy
 /// with just the endpoint information of the service.
 public protocol RouterFinder {
     /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
@@ -455,7 +455,7 @@ extension Router {
 }
 
 /// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
-/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+/// through an Ice object with the identity 'Ice/RouterFinder'. This allows clients to retrieve the router proxy
 /// with just the endpoint information of the service.
 ///
 /// RouterFinder Methods:

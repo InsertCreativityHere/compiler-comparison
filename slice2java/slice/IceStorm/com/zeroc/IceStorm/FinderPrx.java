@@ -16,7 +16,7 @@
 package com.zeroc.IceStorm;
 
 /**
- * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ * This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
  * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  **/
 public interface FinderPrx extends com.zeroc.Ice.ObjectPrx

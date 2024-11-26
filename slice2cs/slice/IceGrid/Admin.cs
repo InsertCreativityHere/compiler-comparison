@@ -1654,7 +1654,7 @@ namespace IceGrid
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
-        ///   </exception>
+        ///  </exception>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
         ///  </exception>
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
@@ -3668,7 +3668,7 @@ namespace IceGrid
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
-        ///   </exception>
+        ///  </exception>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
         ///  </exception>
         /// <exception name="NodeUnreachableException">Raised if the node could not be reached.

@@ -476,7 +476,7 @@ namespace IceStorm
 {
     /// <summary>
     /// Publishers publish information on a particular topic.
-    /// A topic logically represents a type. A
+    /// A topic logically represents a type.
     /// </summary>
 
     public interface TopicPrx : Ice.ObjectPrx
@@ -768,7 +768,7 @@ namespace IceStorm
     }
 
     /// <summary>
-    /// This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+    /// This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
     /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
     /// </summary>
 

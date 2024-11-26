@@ -286,7 +286,7 @@ const iceC_IceStorm_Topic_ids = [
 ];
 
 /**
- * Publishers publish information on a particular topic. A topic logically represents a type. A
+ * Publishers publish information on a particular topic. A topic logically represents a type.
  * @see TopicManager
  **/
 IceStorm.Topic = class extends Ice.Object
@@ -294,7 +294,7 @@ IceStorm.Topic = class extends Ice.Object
 };
 
 /**
- * Publishers publish information on a particular topic. A topic logically represents a type. A
+ * Publishers publish information on a particular topic. A topic logically represents a type.
  * @see TopicManager
  **/
 IceStorm.TopicPrx = class extends Ice.ObjectPrx
@@ -458,7 +458,7 @@ const iceC_IceStorm_Finder_ids = [
 ];
 
 /**
- * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ * This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
  * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  **/
 IceStorm.Finder = class extends Ice.Object
@@ -466,7 +466,7 @@ IceStorm.Finder = class extends Ice.Object
 };
 
 /**
- * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ * This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
  * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  **/
 IceStorm.FinderPrx = class extends Ice.ObjectPrx

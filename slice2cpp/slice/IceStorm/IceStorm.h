@@ -68,7 +68,7 @@ namespace IceStorm
 {
 
 /**
- * Publishers publish information on a particular topic. A topic logically represents a type. A
+ * Publishers publish information on a particular topic. A topic logically represents a type.
  * @see TopicManager
  */
 class ICESTORM_API TopicPrx : public ::Ice::Proxy<TopicPrx, ::Ice::ObjectPrx>
@@ -178,7 +178,7 @@ public:
     /// \endcond
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
      * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy. This proxy is never null.
      * @param context The Context map to send with the invocation.
@@ -191,7 +191,7 @@ public:
     ::std::optional<::Ice::ObjectPrx> subscribeAndGetPublisher(const QoS& theQoS, const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
      * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy. This proxy is never null.
      * @param context The Context map to send with the invocation.
@@ -201,7 +201,7 @@ public:
     [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> subscribeAndGetPublisherAsync(const QoS& theQoS, const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
      * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy. This proxy is never null.
      * @param response The response callback.
@@ -598,7 +598,7 @@ protected:
 };
 
 /**
- * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ * This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
  * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  */
 class ICESTORM_API FinderPrx : public ::Ice::Proxy<FinderPrx, ::Ice::ObjectPrx>
@@ -1045,7 +1045,7 @@ namespace IceStorm
 {
 
 /**
- * Publishers publish information on a particular topic. A topic logically represents a type. A
+ * Publishers publish information on a particular topic. A topic logically represents a type.
  * @see TopicManager
  */
 class ICESTORM_API Topic : public virtual ::Ice::Object
@@ -1110,7 +1110,7 @@ public:
     /// \endcond
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
      * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy. This proxy is never null.
      * @param current The Current object for the invocation.
@@ -1268,7 +1268,7 @@ public:
 using TopicManagerPtr = ::std::shared_ptr<TopicManager>;
 
 /**
- * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ * This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
  * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  */
 class ICESTORM_API Finder : public virtual ::Ice::Object

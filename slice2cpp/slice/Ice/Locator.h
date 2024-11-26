@@ -367,7 +367,7 @@ protected:
 
 /**
  * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should
- * be advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
+ * be advertised through an Ice object with the identity <code>'Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
  */
 class ICE_API LocatorFinderPrx : public Proxy<LocatorFinderPrx, ObjectPrx>
@@ -737,7 +737,7 @@ using LocatorRegistryPtr = ::std::shared_ptr<LocatorRegistry>;
 
 /**
  * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should
- * be advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
+ * be advertised through an Ice object with the identity <code>'Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
  */
 class ICE_API LocatorFinder : public virtual Object

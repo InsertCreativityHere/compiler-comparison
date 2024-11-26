@@ -1,6 +1,6 @@
 % TopicPrx   Summary of TopicPrx
 %
-% Publishers publish information on a particular topic. A topic logically represents a type. A
+% Publishers publish information on a particular topic. A topic logically represents a type.
 %
 % TopicPrx Methods:
 %   getName - Get the name of this topic.
@@ -133,7 +133,7 @@ classdef TopicPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getNonReplicatedPublisher', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = subscribeAndGetPublisher(obj, theQoS, subscriber, varargin)
-            % subscribeAndGetPublisher   Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
+            % subscribeAndGetPublisher   Subscribe with the given qos to this topic. A per-subscriber publisher object is returned.
             %
             % Parameters:
             %   theQoS (containers.Map) - The quality of service parameters for this subscription.
@@ -159,7 +159,7 @@ classdef TopicPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = subscribeAndGetPublisherAsync(obj, theQoS, subscriber, varargin)
-            % subscribeAndGetPublisherAsync   Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
+            % subscribeAndGetPublisherAsync   Subscribe with the given qos to this topic. A per-subscriber publisher object is returned.
             %
             % Parameters:
             %   theQoS (containers.Map) - The quality of service parameters for this subscription.

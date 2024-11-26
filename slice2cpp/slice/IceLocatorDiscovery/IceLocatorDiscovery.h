@@ -123,7 +123,7 @@ protected:
 /**
  * The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
  * available Ice locators on the network.
- * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+ * Ice locator implementations provide a well-known 'Ice/LocatorLookup' object accessible through UDP multicast.
  * Clients typically make a multicast findLocator request to find the locator proxy.
  * @see LookupReply
  */
@@ -267,7 +267,7 @@ using LookupReplyPtr = ::std::shared_ptr<LookupReply>;
 /**
  * The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
  * available Ice locators on the network.
- * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+ * Ice locator implementations provide a well-known 'Ice/LocatorLookup' object accessible through UDP multicast.
  * Clients typically make a multicast findLocator request to find the locator proxy.
  * @see LookupReply
  */

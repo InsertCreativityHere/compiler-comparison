@@ -16,7 +16,7 @@
 package com.zeroc.IceStorm;
 
 /**
- * Publishers publish information on a particular topic. A topic logically represents a type. A
+ * Publishers publish information on a particular topic. A topic logically represents a type.
  *
  * @see TopicManager
  **/
@@ -212,7 +212,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
      * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy. This proxy is never null.
      * @return The per-subscriber publisher object. The returned object is never null.
@@ -231,7 +231,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
      * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy. This proxy is never null.
      * @param context The Context map to send with the invocation.
@@ -270,7 +270,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
      * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy. This proxy is never null.
      * @return The per-subscriber publisher object. The returned object is never null.
@@ -283,7 +283,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
      * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy. This proxy is never null.
      * @param context The Context map to send with the invocation.

@@ -142,7 +142,7 @@ public extension LookupReplyPrx {
 
 /// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
 /// available Ice locators on the network.
-/// Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+/// Ice locator implementations provide a well-known 'Ice/LocatorLookup' object accessible through UDP multicast.
 /// Clients typically make a multicast findLocator request to find the locator proxy.
 ///
 /// LookupPrx Methods:
@@ -234,7 +234,7 @@ public extension Ice.InputStream {
 
 /// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
 /// available Ice locators on the network.
-/// Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+/// Ice locator implementations provide a well-known 'Ice/LocatorLookup' object accessible through UDP multicast.
 /// Clients typically make a multicast findLocator request to find the locator proxy.
 ///
 /// LookupPrx Methods:
@@ -328,7 +328,7 @@ public struct LookupDisp: Ice.Dispatcher {
 
 /// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
 /// available Ice locators on the network.
-/// Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+/// Ice locator implementations provide a well-known 'Ice/LocatorLookup' object accessible through UDP multicast.
 /// Clients typically make a multicast findLocator request to find the locator proxy.
 public protocol Lookup {
     /// Find a locator proxy with the given instance name.
@@ -359,7 +359,7 @@ extension LookupReply {
 
 /// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
 /// available Ice locators on the network.
-/// Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+/// Ice locator implementations provide a well-known 'Ice/LocatorLookup' object accessible through UDP multicast.
 /// Clients typically make a multicast findLocator request to find the locator proxy.
 ///
 /// Lookup Methods:

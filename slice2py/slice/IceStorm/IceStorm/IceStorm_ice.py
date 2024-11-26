@@ -353,7 +353,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
 
         def subscribeAndGetPublisher(self, theQoS, subscriber, context=None):
             """
-            Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
+            Subscribe with the given qos to this topic. A per-subscriber publisher object is returned.
             
             Parameters
             ----------
@@ -382,7 +382,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
 
         def subscribeAndGetPublisherAsync(self, theQoS, subscriber, context=None):
             """
-            Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
+            Subscribe with the given qos to this topic. A per-subscriber publisher object is returned.
             
             Parameters
             ----------
@@ -683,7 +683,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
 
         def subscribeAndGetPublisher(self, theQoS, subscriber, current=None):
             """
-            Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
+            Subscribe with the given qos to this topic. A per-subscriber publisher object is returned.
             
             Parameters
             ----------

@@ -79,7 +79,7 @@ const iceC_Ice_RouterFinder_ids = [
 
 /**
  * This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
- * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+ * through an Ice object with the identity 'Ice/RouterFinder'. This allows clients to retrieve the router proxy
  * with just the endpoint information of the service.
  **/
 Ice.RouterFinder = class extends Ice.Object
@@ -88,7 +88,7 @@ Ice.RouterFinder = class extends Ice.Object
 
 /**
  * This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
- * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+ * through an Ice object with the identity 'Ice/RouterFinder'. This allows clients to retrieve the router proxy
  * with just the endpoint information of the service.
  **/
 Ice.RouterFinderPrx = class extends Ice.ObjectPrx
