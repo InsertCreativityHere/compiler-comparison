@@ -49,10 +49,8 @@ struct AllData
     ::IceStormElection::StringLogUpdateDict llus;
     ::IceStorm::SubscriberRecordDict subscribers;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::IceStormElection::StringLogUpdateDict&, const ::IceStorm::SubscriberRecordDict&> ice_tuple() const
     {
         return std::tie(llus, subscribers);

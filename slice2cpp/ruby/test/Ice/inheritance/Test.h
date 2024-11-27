@@ -72,10 +72,8 @@ public:
     void _iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IAPrx>>>&, const ::std::optional<IAPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     IAPrx(const IAPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -135,10 +133,8 @@ public:
     void _iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IB1Prx>>>&, const ::std::optional<IB1Prx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
@@ -202,10 +198,8 @@ public:
     void _iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IB2Prx>>>&, const ::std::optional<IB2Prx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
@@ -274,10 +268,8 @@ public:
     void _iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ICPrx>>>&, const ::std::optional<ICPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
@@ -387,10 +379,8 @@ public:
     void _iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::ICPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     InitialPrx(const InitialPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -444,24 +434,18 @@ public:
 
     using ProxyType = IAPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual ::std::optional<IAPrx> iaop(::std::optional<IAPrx> p, const ::Ice::Current& current) = 0;
@@ -487,24 +471,18 @@ public:
 
     using ProxyType = IB1Prx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual ::std::optional<IB1Prx> ib1op(::std::optional<IB1Prx> p, const ::Ice::Current& current) = 0;
@@ -525,24 +503,18 @@ public:
 
     using ProxyType = IB2Prx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual ::std::optional<IB2Prx> ib2op(::std::optional<IB2Prx> p, const ::Ice::Current& current) = 0;
@@ -569,24 +541,18 @@ public:
 
     using ProxyType = ICPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual ::std::optional<ICPrx> icop(::std::optional<ICPrx> p, const ::Ice::Current& current) = 0;
@@ -609,24 +575,18 @@ public:
 
     using ProxyType = InitialPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual void shutdown(const ::Ice::Current& current) = 0;

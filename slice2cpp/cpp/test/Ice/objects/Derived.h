@@ -40,41 +40,31 @@ namespace Test
 class Derived : public Base
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     Derived() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     Derived(::Test::S theS, ::std::string str, ::std::string b) noexcept :
         Base(::std::move(theS), ::std::move(str)),
         b(::std::move(b))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::S&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(theS, str, b);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     DerivedPtr ice_clone() const { return ::std::static_pointer_cast<Derived>(_iceCloneImpl()); }
 
     ::std::string b;

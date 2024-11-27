@@ -237,10 +237,8 @@ class IPrx : public ::Ice::Proxy<IPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     IPrx(const IPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -1120,10 +1118,8 @@ public:
     void _iceI_opCustomCVSS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CustomCVSS, CustomCVSS>>>&, const CustomCVSS&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     MyClassPrx(const MyClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -1172,10 +1168,8 @@ struct S
 {
     ::std::int32_t i;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
@@ -1186,10 +1180,8 @@ struct SD
 {
     ::std::int32_t i = 1;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
@@ -1199,40 +1191,30 @@ struct SD
 class CV : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     CV() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit CV(::std::int32_t i) noexcept :
         i(i)
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CVPtr ice_clone() const { return ::std::static_pointer_cast<CV>(_iceCloneImpl()); }
 
     ::std::int32_t i;
@@ -1249,40 +1231,30 @@ protected:
 class CR : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     CR() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit CR(::Test::CVPtr v) noexcept :
         v(::std::move(v))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::CVPtr&> ice_tuple() const
     {
         return std::tie(v);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CRPtr ice_clone() const { return ::std::static_pointer_cast<CR>(_iceCloneImpl()); }
 
     ::Test::CVPtr v;
@@ -1314,24 +1286,18 @@ public:
 
     using ProxyType = IPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 };
 
@@ -1343,24 +1309,18 @@ public:
 
     using ProxyType = MyClassPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual void shutdown(const ::Ice::Current& current) = 0;

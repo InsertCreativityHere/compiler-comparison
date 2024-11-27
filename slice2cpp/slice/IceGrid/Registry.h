@@ -40,22 +40,14 @@
 
 namespace IceGrid
 {
-    /**
-     * Determines which load sampling interval to use.
-     */
+    /// Determines which load sampling interval to use.
     enum class LoadSample : ::std::uint8_t
     {
-        /**
-         * Sample every minute.
-         */
+        /// Sample every minute.
         LoadSample1,
-        /**
-         * Sample every five minutes.
-         */
+        /// Sample every five minutes.
         LoadSample5,
-        /**
-         * Sample every fifteen minutes.
-         */
+        /// Sample every fifteen minutes.
         LoadSample15
     };
 
@@ -70,39 +62,31 @@ namespace IceGrid
 namespace IceGrid
 {
 
-/**
- * The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
- * objects.
- */
+/// The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+/// objects.
 class ICEGRID_API QueryPrx : public ::Ice::Proxy<QueryPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    /**
-     * Find a well-known object by identity.
-     * @param id The identity.
-     * @param context The Context map to send with the invocation.
-     * @return The proxy or null if no such object has been found.
-     */
+    /// Find a well-known object by identity.
+    /// @param id The identity.
+    /// @param context The Context map to send with the invocation.
+    /// @return The proxy or null if no such object has been found.
     ::std::optional<::Ice::ObjectPrx> findObjectById(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Find a well-known object by identity.
-     * @param id The identity.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Find a well-known object by identity.
+    /// @param id The identity.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByIdAsync(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Find a well-known object by identity.
-     * @param id The identity.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Find a well-known object by identity.
+    /// @param id The identity.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     findObjectByIdAsync(const ::Ice::Identity& id, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -110,34 +94,28 @@ public:
     void _iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::Ice::Identity&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Find a well-known object by type. If there are several objects registered for the given type, the object is
-     * randomly selected.
-     * @param type The object type.
-     * @param context The Context map to send with the invocation.
-     * @return The proxy or null, if no such object has been found.
-     */
+    /// Find a well-known object by type. If there are several objects registered for the given type, the object is
+    /// randomly selected.
+    /// @param type The object type.
+    /// @param context The Context map to send with the invocation.
+    /// @return The proxy or null, if no such object has been found.
     ::std::optional<::Ice::ObjectPrx> findObjectByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Find a well-known object by type. If there are several objects registered for the given type, the object is
-     * randomly selected.
-     * @param type The object type.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Find a well-known object by type. If there are several objects registered for the given type, the object is
+    /// randomly selected.
+    /// @param type The object type.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByTypeAsync(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Find a well-known object by type. If there are several objects registered for the given type, the object is
-     * randomly selected.
-     * @param type The object type.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Find a well-known object by type. If there are several objects registered for the given type, the object is
+    /// randomly selected.
+    /// @param type The object type.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     findObjectByTypeAsync(::std::string_view type, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -145,40 +123,34 @@ public:
     void _iceI_findObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
-     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
-     * object is hosted on a node that has a load average of 1.0.
-     * @param type The object type.
-     * @param sample The sampling interval.
-     * @param context The Context map to send with the invocation.
-     * @return The proxy or null, if no such object has been found.
-     */
+    /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+    /// the object (for example, because the object was registered with a direct proxy), the registry assumes the
+    /// object is hosted on a node that has a load average of 1.0.
+    /// @param type The object type.
+    /// @param sample The sampling interval.
+    /// @param context The Context map to send with the invocation.
+    /// @return The proxy or null, if no such object has been found.
     ::std::optional<::Ice::ObjectPrx> findObjectByTypeOnLeastLoadedNode(::std::string_view type, LoadSample sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
-     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
-     * object is hosted on a node that has a load average of 1.0.
-     * @param type The object type.
-     * @param sample The sampling interval.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+    /// the object (for example, because the object was registered with a direct proxy), the registry assumes the
+    /// object is hosted on a node that has a load average of 1.0.
+    /// @param type The object type.
+    /// @param sample The sampling interval.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByTypeOnLeastLoadedNodeAsync(::std::string_view type, LoadSample sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
-     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
-     * object is hosted on a node that has a load average of 1.0.
-     * @param type The object type.
-     * @param sample The sampling interval.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+    /// the object (for example, because the object was registered with a direct proxy), the registry assumes the
+    /// object is hosted on a node that has a load average of 1.0.
+    /// @param type The object type.
+    /// @param sample The sampling interval.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     findObjectByTypeOnLeastLoadedNodeAsync(::std::string_view type, LoadSample sample, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -186,31 +158,25 @@ public:
     void _iceI_findObjectByTypeOnLeastLoadedNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, ::std::string_view, LoadSample, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Find all the well-known objects with the given type.
-     * @param type The object type.
-     * @param context The Context map to send with the invocation.
-     * @return The proxies or an empty sequence, if no such objects have been found.
-     */
+    /// Find all the well-known objects with the given type.
+    /// @param type The object type.
+    /// @param context The Context map to send with the invocation.
+    /// @return The proxies or an empty sequence, if no such objects have been found.
     ::Ice::ObjectProxySeq findAllObjectsByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Find all the well-known objects with the given type.
-     * @param type The object type.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Find all the well-known objects with the given type.
+    /// @param type The object type.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::Ice::ObjectProxySeq> findAllObjectsByTypeAsync(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Find all the well-known objects with the given type.
-     * @param type The object type.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Find all the well-known objects with the given type.
+    /// @param type The object type.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     findAllObjectsByTypeAsync(::std::string_view type, ::std::function<void(::Ice::ObjectProxySeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -218,35 +184,29 @@ public:
     void _iceI_findAllObjectsByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
-     * from a replica group, an empty sequence is returned.
-     * @param proxy The object proxy.
-     * @param context The Context map to send with the invocation.
-     * @return The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
-     * group.
-     */
+    /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+    /// from a replica group, an empty sequence is returned.
+    /// @param proxy The object proxy.
+    /// @param context The Context map to send with the invocation.
+    /// @return The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+    /// group.
     ::Ice::ObjectProxySeq findAllReplicas(const ::std::optional<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
-     * from a replica group, an empty sequence is returned.
-     * @param proxy The object proxy.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+    /// from a replica group, an empty sequence is returned.
+    /// @param proxy The object proxy.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::Ice::ObjectProxySeq> findAllReplicasAsync(const ::std::optional<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
-     * from a replica group, an empty sequence is returned.
-     * @param proxy The object proxy.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+    /// from a replica group, an empty sequence is returned.
+    /// @param proxy The object proxy.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     findAllReplicasAsync(const ::std::optional<::Ice::ObjectPrx>& proxy, ::std::function<void(::Ice::ObjectProxySeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -254,10 +214,8 @@ public:
     void _iceI_findAllReplicas(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>&, const ::std::optional<::Ice::ObjectPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     QueryPrx(const QueryPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -297,45 +255,37 @@ protected:
     /// \endcond
 };
 
-/**
- * The IceGrid registry allows clients create sessions directly with the registry.
- * @see Session
- * @see AdminSession
- */
+/// The IceGrid registry allows clients create sessions directly with the registry.
+/// @see Session
+/// @see AdminSession
 class ICEGRID_API RegistryPrx : public ::Ice::Proxy<RegistryPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    /**
-     * Create a client session.
-     * @param userId The user id.
-     * @param password The password for the given user id.
-     * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session. The returned proxy is never null.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
-     * user is not allowed access.
-     */
+    /// Create a client session.
+    /// @param userId The user id.
+    /// @param password The password for the given user id.
+    /// @param context The Context map to send with the invocation.
+    /// @return A proxy for the newly created session. The returned proxy is never null.
+    /// @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+    /// user is not allowed access.
     ::std::optional<SessionPrx> createSession(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Create a client session.
-     * @param userId The user id.
-     * @param password The password for the given user id.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Create a client session.
+    /// @param userId The user id.
+    /// @param password The password for the given user id.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::std::optional<SessionPrx>> createSessionAsync(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Create a client session.
-     * @param userId The user id.
-     * @param password The password for the given user id.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Create a client session.
+    /// @param userId The user id.
+    /// @param password The password for the given user id.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     createSessionAsync(::std::string_view userId, ::std::string_view password, ::std::function<void(::std::optional<::IceGrid::SessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -343,36 +293,30 @@ public:
     void _iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Create an administrative session.
-     * @param userId The user id.
-     * @param password The password for the given user id.
-     * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session. The returned proxy is never null.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
-     * user is not allowed access.
-     */
+    /// Create an administrative session.
+    /// @param userId The user id.
+    /// @param password The password for the given user id.
+    /// @param context The Context map to send with the invocation.
+    /// @return A proxy for the newly created session. The returned proxy is never null.
+    /// @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+    /// user is not allowed access.
     ::std::optional<AdminSessionPrx> createAdminSession(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Create an administrative session.
-     * @param userId The user id.
-     * @param password The password for the given user id.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Create an administrative session.
+    /// @param userId The user id.
+    /// @param password The password for the given user id.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::std::optional<AdminSessionPrx>> createAdminSessionAsync(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Create an administrative session.
-     * @param userId The user id.
-     * @param password The password for the given user id.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Create an administrative session.
+    /// @param userId The user id.
+    /// @param password The password for the given user id.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     createAdminSessionAsync(::std::string_view userId, ::std::string_view password, ::std::function<void(::std::optional<::IceGrid::AdminSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -380,30 +324,24 @@ public:
     void _iceI_createAdminSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<AdminSessionPrx>>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Create a client session from a secure connection.
-     * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session. The returned proxy is never null.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
-     * user is not allowed access.
-     */
+    /// Create a client session from a secure connection.
+    /// @param context The Context map to send with the invocation.
+    /// @return A proxy for the newly created session. The returned proxy is never null.
+    /// @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+    /// user is not allowed access.
     ::std::optional<SessionPrx> createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Create a client session from a secure connection.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Create a client session from a secure connection.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::std::optional<SessionPrx>> createSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Create a client session from a secure connection.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Create a client session from a secure connection.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     createSessionFromSecureConnectionAsync(::std::function<void(::std::optional<::IceGrid::SessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -411,30 +349,24 @@ public:
     void _iceI_createSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Create an administrative session from a secure connection.
-     * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session. The returned proxy is never null.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
-     * user is not allowed access.
-     */
+    /// Create an administrative session from a secure connection.
+    /// @param context The Context map to send with the invocation.
+    /// @return A proxy for the newly created session. The returned proxy is never null.
+    /// @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+    /// user is not allowed access.
     ::std::optional<AdminSessionPrx> createAdminSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Create an administrative session from a secure connection.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Create an administrative session from a secure connection.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::std::optional<AdminSessionPrx>> createAdminSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Create an administrative session from a secure connection.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Create an administrative session from a secure connection.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     createAdminSessionFromSecureConnectionAsync(::std::function<void(::std::optional<::IceGrid::AdminSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -442,34 +374,28 @@ public:
     void _iceI_createAdminSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<AdminSessionPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
-     * a session alive in the IceGrid registry.
-     * @param context The Context map to send with the invocation.
-     * @return The session timeout (in seconds).
-     */
+    /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+    /// send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+    /// a session alive in the IceGrid registry.
+    /// @param context The Context map to send with the invocation.
+    /// @return The session timeout (in seconds).
     [[deprecated("")]] ::std::int32_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
-     * a session alive in the IceGrid registry.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+    /// send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+    /// a session alive in the IceGrid registry.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[deprecated("")]] [[nodiscard]] ::std::future<::std::int32_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
-     * a session alive in the IceGrid registry.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+    /// send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+    /// a session alive in the IceGrid registry.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     [[deprecated("")]] ::std::function<void()>
     getSessionTimeoutAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -477,10 +403,8 @@ public:
     void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     RegistryPrx(const RegistryPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -520,38 +444,30 @@ protected:
     /// \endcond
 };
 
-/**
- * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
- * registry.
- * @see Query
- * @see Registry
- */
+/// The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+/// registry.
+/// @see Query
+/// @see Registry
 class ICEGRID_API LocatorPrx : public ::Ice::Proxy<LocatorPrx, ::Ice::LocatorPrx>
 {
 public:
 
-    /**
-     * Get the proxy of the registry object hosted by this IceGrid registry.
-     * @param context The Context map to send with the invocation.
-     * @return The proxy of the registry object. The returned proxy is never null.
-     */
+    /// Get the proxy of the registry object hosted by this IceGrid registry.
+    /// @param context The Context map to send with the invocation.
+    /// @return The proxy of the registry object. The returned proxy is never null.
     ::std::optional<RegistryPrx> getLocalRegistry(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Get the proxy of the registry object hosted by this IceGrid registry.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Get the proxy of the registry object hosted by this IceGrid registry.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::std::optional<RegistryPrx>> getLocalRegistryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Get the proxy of the registry object hosted by this IceGrid registry.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Get the proxy of the registry object hosted by this IceGrid registry.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     getLocalRegistryAsync(::std::function<void(::std::optional<::IceGrid::RegistryPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -559,28 +475,22 @@ public:
     void _iceI_getLocalRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RegistryPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Get the proxy of the query object hosted by this IceGrid registry.
-     * @param context The Context map to send with the invocation.
-     * @return The proxy of the query object. The returned proxy is never null.
-     */
+    /// Get the proxy of the query object hosted by this IceGrid registry.
+    /// @param context The Context map to send with the invocation.
+    /// @return The proxy of the query object. The returned proxy is never null.
     ::std::optional<QueryPrx> getLocalQuery(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Get the proxy of the query object hosted by this IceGrid registry.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Get the proxy of the query object hosted by this IceGrid registry.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::std::optional<QueryPrx>> getLocalQueryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Get the proxy of the query object hosted by this IceGrid registry.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Get the proxy of the query object hosted by this IceGrid registry.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     getLocalQueryAsync(::std::function<void(::std::optional<::IceGrid::QueryPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -588,10 +498,8 @@ public:
     void _iceI_getLocalQuery(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<QueryPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
@@ -645,92 +553,74 @@ protected:
 namespace IceGrid
 {
 
-/**
- * The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
- * objects.
- */
+/// The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+/// objects.
 class ICEGRID_API Query : public virtual ::Ice::Object
 {
 public:
 
     using ProxyType = QueryPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    /**
-     * Find a well-known object by identity.
-     * @param id The identity.
-     * @param current The Current object for the invocation.
-     * @return The proxy or null if no such object has been found.
-     */
+    /// Find a well-known object by identity.
+    /// @param id The identity.
+    /// @param current The Current object for the invocation.
+    /// @return The proxy or null if no such object has been found.
     virtual ::std::optional<::Ice::ObjectPrx> findObjectById(::Ice::Identity id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_findObjectById(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
-    /**
-     * Find a well-known object by type. If there are several objects registered for the given type, the object is
-     * randomly selected.
-     * @param type The object type.
-     * @param current The Current object for the invocation.
-     * @return The proxy or null, if no such object has been found.
-     */
+    /// Find a well-known object by type. If there are several objects registered for the given type, the object is
+    /// randomly selected.
+    /// @param type The object type.
+    /// @param current The Current object for the invocation.
+    /// @return The proxy or null, if no such object has been found.
     virtual ::std::optional<::Ice::ObjectPrx> findObjectByType(::std::string type, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_findObjectByType(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
-    /**
-     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
-     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
-     * object is hosted on a node that has a load average of 1.0.
-     * @param type The object type.
-     * @param sample The sampling interval.
-     * @param current The Current object for the invocation.
-     * @return The proxy or null, if no such object has been found.
-     */
+    /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+    /// the object (for example, because the object was registered with a direct proxy), the registry assumes the
+    /// object is hosted on a node that has a load average of 1.0.
+    /// @param type The object type.
+    /// @param sample The sampling interval.
+    /// @param current The Current object for the invocation.
+    /// @return The proxy or null, if no such object has been found.
     virtual ::std::optional<::Ice::ObjectPrx> findObjectByTypeOnLeastLoadedNode(::std::string type, LoadSample sample, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_findObjectByTypeOnLeastLoadedNode(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
-    /**
-     * Find all the well-known objects with the given type.
-     * @param type The object type.
-     * @param current The Current object for the invocation.
-     * @return The proxies or an empty sequence, if no such objects have been found.
-     */
+    /// Find all the well-known objects with the given type.
+    /// @param type The object type.
+    /// @param current The Current object for the invocation.
+    /// @return The proxies or an empty sequence, if no such objects have been found.
     virtual ::Ice::ObjectProxySeq findAllObjectsByType(::std::string type, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_findAllObjectsByType(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
-    /**
-     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
-     * from a replica group, an empty sequence is returned.
-     * @param proxy The object proxy.
-     * @param current The Current object for the invocation.
-     * @return The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
-     * group.
-     */
+    /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+    /// from a replica group, an empty sequence is returned.
+    /// @param proxy The object proxy.
+    /// @param current The Current object for the invocation.
+    /// @return The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+    /// group.
     virtual ::Ice::ObjectProxySeq findAllReplicas(::std::optional<::Ice::ObjectPrx> proxy, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_findAllReplicas(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
@@ -743,96 +633,78 @@ public:
 
 using QueryPtr = ::std::shared_ptr<Query>;
 
-/**
- * The IceGrid registry allows clients create sessions directly with the registry.
- * @see Session
- * @see AdminSession
- */
+/// The IceGrid registry allows clients create sessions directly with the registry.
+/// @see Session
+/// @see AdminSession
 class ICEGRID_API Registry : public virtual ::Ice::Object
 {
 public:
 
     using ProxyType = RegistryPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    /**
-     * Create a client session.
-     * @param userId The user id.
-     * @param password The password for the given user id.
-     * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session. The returned proxy is never null.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
-     * user is not allowed access.
-     */
+    /// Create a client session.
+    /// @param userId The user id.
+    /// @param password The password for the given user id.
+    /// @param current The Current object for the invocation.
+    /// @return A proxy for the newly created session. The returned proxy is never null.
+    /// @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+    /// user is not allowed access.
     virtual ::std::optional<SessionPrx> createSession(::std::string userId, ::std::string password, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_createSession(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Create an administrative session.
-     * @param userId The user id.
-     * @param password The password for the given user id.
-     * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session. The returned proxy is never null.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
-     * user is not allowed access.
-     */
+    /// Create an administrative session.
+    /// @param userId The user id.
+    /// @param password The password for the given user id.
+    /// @param current The Current object for the invocation.
+    /// @return A proxy for the newly created session. The returned proxy is never null.
+    /// @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+    /// user is not allowed access.
     virtual ::std::optional<AdminSessionPrx> createAdminSession(::std::string userId, ::std::string password, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_createAdminSession(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Create a client session from a secure connection.
-     * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session. The returned proxy is never null.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
-     * user is not allowed access.
-     */
+    /// Create a client session from a secure connection.
+    /// @param current The Current object for the invocation.
+    /// @return A proxy for the newly created session. The returned proxy is never null.
+    /// @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+    /// user is not allowed access.
     virtual ::std::optional<SessionPrx> createSessionFromSecureConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_createSessionFromSecureConnection(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Create an administrative session from a secure connection.
-     * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session. The returned proxy is never null.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
-     * user is not allowed access.
-     */
+    /// Create an administrative session from a secure connection.
+    /// @param current The Current object for the invocation.
+    /// @return A proxy for the newly created session. The returned proxy is never null.
+    /// @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+    /// user is not allowed access.
     virtual ::std::optional<AdminSessionPrx> createAdminSessionFromSecureConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_createAdminSessionFromSecureConnection(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-     * send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
-     * a session alive in the IceGrid registry.
-     * @param current The Current object for the invocation.
-     * @return The session timeout (in seconds).
-     */
+    /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+    /// send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
+    /// a session alive in the IceGrid registry.
+    /// @param current The Current object for the invocation.
+    /// @return The session timeout (in seconds).
     virtual ::std::int32_t getSessionTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getSessionTimeout(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
@@ -845,53 +717,41 @@ public:
 
 using RegistryPtr = ::std::shared_ptr<Registry>;
 
-/**
- * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
- * registry.
- * @see Query
- * @see Registry
- */
+/// The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+/// registry.
+/// @see Query
+/// @see Registry
 class ICEGRID_API Locator : public virtual ::Ice::Locator
 {
 public:
 
     using ProxyType = LocatorPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    /**
-     * Get the proxy of the registry object hosted by this IceGrid registry.
-     * @param current The Current object for the invocation.
-     * @return The proxy of the registry object. The returned proxy is never null.
-     */
+    /// Get the proxy of the registry object hosted by this IceGrid registry.
+    /// @param current The Current object for the invocation.
+    /// @return The proxy of the registry object. The returned proxy is never null.
     virtual ::std::optional<RegistryPrx> getLocalRegistry(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getLocalRegistry(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
-    /**
-     * Get the proxy of the query object hosted by this IceGrid registry.
-     * @param current The Current object for the invocation.
-     * @return The proxy of the query object. The returned proxy is never null.
-     */
+    /// Get the proxy of the query object hosted by this IceGrid registry.
+    /// @param current The Current object for the invocation.
+    /// @return The proxy of the query object. The returned proxy is never null.
     virtual ::std::optional<QueryPrx> getLocalQuery(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getLocalQuery(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;

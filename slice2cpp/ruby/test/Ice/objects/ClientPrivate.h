@@ -69,10 +69,8 @@ public:
     void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<EmptyPtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     UnexpectedObjectExceptionTestPrx(const UnexpectedObjectExceptionTestPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -120,23 +118,17 @@ namespace Test
 class Empty : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     Empty() noexcept = default;
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     EmptyPtr ice_clone() const { return ::std::static_pointer_cast<Empty>(_iceCloneImpl()); }
 
 protected:
@@ -151,23 +143,17 @@ protected:
 class AlsoEmpty : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     AlsoEmpty() noexcept = default;
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     AlsoEmptyPtr ice_clone() const { return ::std::static_pointer_cast<AlsoEmpty>(_iceCloneImpl()); }
 
 protected:
@@ -182,40 +168,30 @@ protected:
 class COneMember : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     COneMember() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit COneMember(::Test::EmptyPtr e) noexcept :
         e(::std::move(e))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
     {
         return std::tie(e);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     COneMemberPtr ice_clone() const { return ::std::static_pointer_cast<COneMember>(_iceCloneImpl()); }
 
     ::Test::EmptyPtr e;
@@ -232,41 +208,31 @@ protected:
 class CTwoMembers : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     CTwoMembers() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     CTwoMembers(::Test::EmptyPtr e1, ::Test::EmptyPtr e2) noexcept :
         e1(::std::move(e1)),
         e2(::std::move(e2))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
     {
         return std::tie(e1, e2);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CTwoMembersPtr ice_clone() const { return ::std::static_pointer_cast<CTwoMembers>(_iceCloneImpl()); }
 
     ::Test::EmptyPtr e1;
@@ -284,32 +250,24 @@ protected:
 class EOneMember : public ::Ice::UserException
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     EOneMember() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     EOneMember(EmptyPtr e) noexcept :
         e(::std::move(e))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
     {
         return std::tie(e);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -331,33 +289,25 @@ protected:
 class ETwoMembers : public ::Ice::UserException
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     ETwoMembers() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     ETwoMembers(EmptyPtr e1, EmptyPtr e2) noexcept :
         e1(::std::move(e1)),
         e2(::std::move(e2))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
     {
         return std::tie(e1, e2);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -381,10 +331,8 @@ struct SOneMember
 {
     ::Test::EmptyPtr e;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
     {
         return std::tie(e);
@@ -396,10 +344,8 @@ struct STwoMembers
     ::Test::EmptyPtr e1;
     ::Test::EmptyPtr e2;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
     {
         return std::tie(e1, e2);
@@ -424,24 +370,18 @@ public:
 
     using ProxyType = UnexpectedObjectExceptionTestPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual EmptyPtr op(const ::Ice::Current& current) = 0;

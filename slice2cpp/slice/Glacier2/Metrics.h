@@ -45,32 +45,26 @@ namespace IceMX
 namespace IceMX
 {
 
-/**
- * Provides information on Glacier2 sessions.
- */
+/// Provides information on Glacier2 sessions.
 class ICE_CLASS(GLACIER2_API) SessionMetrics : public Metrics
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     SessionMetrics() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param id The metrics identifier.
-     * @param total The total number of objects observed by this metrics.
-     * @param current The number of objects currently observed by this metrics.
-     * @param totalLifetime The sum of the lifetime of each observed objects.
-     * @param failures The number of failures observed.
-     * @param forwardedClient Number of client requests forwarded.
-     * @param forwardedServer Number of server requests forwarded.
-     * @param routingTableSize The size of the routing table.
-     * @param queuedClient Number of client requests queued.
-     * @param queuedServer Number of server requests queued.
-     * @param overriddenClient Number of client requests overridden.
-     * @param overriddenServer Number of server requests overridden.
-     */
+    /// One-shot constructor to initialize all data members.
+    /// @param id The metrics identifier.
+    /// @param total The total number of objects observed by this metrics.
+    /// @param current The number of objects currently observed by this metrics.
+    /// @param totalLifetime The sum of the lifetime of each observed objects.
+    /// @param failures The number of failures observed.
+    /// @param forwardedClient Number of client requests forwarded.
+    /// @param forwardedServer Number of server requests forwarded.
+    /// @param routingTableSize The size of the routing table.
+    /// @param queuedClient Number of client requests queued.
+    /// @param queuedServer Number of server requests queued.
+    /// @param overriddenClient Number of client requests overridden.
+    /// @param overriddenServer Number of server requests overridden.
     SessionMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t forwardedClient, ::std::int32_t forwardedServer, ::std::int32_t routingTableSize, ::std::int32_t queuedClient, ::std::int32_t queuedServer, ::std::int32_t overriddenClient, ::std::int32_t overriddenServer) noexcept :
         Metrics(::std::move(id), total, current, totalLifetime, failures),
         forwardedClient(forwardedClient),
@@ -83,56 +77,36 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     ICE_MEMBER(GLACIER2_API) static const char* ice_staticId() noexcept;
 
     ICE_MEMBER(GLACIER2_API) const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, forwardedClient, forwardedServer, routingTableSize, queuedClient, queuedServer, overriddenClient, overriddenServer);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     SessionMetricsPtr ice_clone() const { return ::std::static_pointer_cast<SessionMetrics>(_iceCloneImpl()); }
 
-    /**
-     * Number of client requests forwarded.
-     */
+    /// Number of client requests forwarded.
     ::std::int32_t forwardedClient = 0;
-    /**
-     * Number of server requests forwarded.
-     */
+    /// Number of server requests forwarded.
     ::std::int32_t forwardedServer = 0;
-    /**
-     * The size of the routing table.
-     */
+    /// The size of the routing table.
     ::std::int32_t routingTableSize = 0;
-    /**
-     * Number of client requests queued.
-     */
+    /// Number of client requests queued.
     ::std::int32_t queuedClient = 0;
-    /**
-     * Number of server requests queued.
-     */
+    /// Number of server requests queued.
     ::std::int32_t queuedServer = 0;
-    /**
-     * Number of client requests overridden.
-     */
+    /// Number of client requests overridden.
     ::std::int32_t overriddenClient = 0;
-    /**
-     * Number of server requests overridden.
-     */
+    /// Number of server requests overridden.
     ::std::int32_t overriddenServer = 0;
 
 protected:

@@ -101,10 +101,8 @@ public:
     void _iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialStruct, SerialStruct>>>&, const SerialStruct&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     MyClassPrx(const MyClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -154,10 +152,8 @@ struct Foo
     ::Test::SerialLarge SLmem;
     ::Test::SLS SLSmem;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
     {
         return std::tie(SLmem, SLSmem);
@@ -167,33 +163,25 @@ struct Foo
 class Bar : public ::Ice::UserException
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     Bar() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     Bar(SerialLarge SLmem, SLS SLSmem) noexcept :
         SLmem(::std::move(SLmem)),
         SLSmem(::std::move(SLSmem))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
     {
         return std::tie(SLmem, SLSmem);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -212,41 +200,31 @@ protected:
 class Baz : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     Baz() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     Baz(::Test::SerialLarge SLmem, ::Test::SLS SLSmem) noexcept :
         SLmem(::std::move(SLmem)),
         SLSmem(::std::move(SLSmem))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
     {
         return std::tie(SLmem, SLSmem);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     BazPtr ice_clone() const { return ::std::static_pointer_cast<Baz>(_iceCloneImpl()); }
 
     ::Test::SerialLarge SLmem;
@@ -279,24 +257,18 @@ public:
 
     using ProxyType = MyClassPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;

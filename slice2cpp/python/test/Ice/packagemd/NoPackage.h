@@ -41,40 +41,30 @@ namespace Test1
 class C1 : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     C1() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit C1(::std::int32_t i) noexcept :
         i(i)
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     C1Ptr ice_clone() const { return ::std::static_pointer_cast<C1>(_iceCloneImpl()); }
 
     ::std::int32_t i;
@@ -91,41 +81,31 @@ protected:
 class C2 : public C1
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     C2() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     C2(::std::int32_t i, ::std::int64_t l) noexcept :
         C1(i),
         l(l)
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(i, l);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     C2Ptr ice_clone() const { return ::std::static_pointer_cast<C2>(_iceCloneImpl()); }
 
     ::std::int64_t l;
@@ -142,32 +122,24 @@ protected:
 class E1 : public ::Ice::UserException
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     E1() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     E1(::std::int32_t i) noexcept :
         i(i)
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -185,33 +157,25 @@ protected:
 class E2 : public E1
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     E2() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     E2(::std::int32_t i, ::std::int64_t l) noexcept :
         E1(i),
         l(l)
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(i, l);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -229,32 +193,24 @@ protected:
 class def : public ::Ice::UserException
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     def() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     def(::std::int32_t i) noexcept :
         i(i)
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;

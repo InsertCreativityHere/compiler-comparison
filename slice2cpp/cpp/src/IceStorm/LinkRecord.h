@@ -36,28 +36,18 @@ namespace IceStorm
 namespace IceStorm
 {
 
-/**
- * Used to store persistent information for Topic federation.
- */
+/// Used to store persistent information for Topic federation.
 struct LinkRecord
 {
-    /**
-     * The topic link object.
-     */
+    /// The topic link object.
     ::std::optional<::IceStorm::TopicLinkPrx> obj;
-    /**
-     * The cost.
-     */
+    /// The cost.
     ::std::int32_t cost;
-    /**
-     * The linked topic for getLinkInfoSeq
-     */
+    /// The linked topic for getLinkInfoSeq
     ::std::optional<::IceStorm::TopicPrx> theTopic;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::optional<::IceStorm::TopicLinkPrx>&, const ::std::int32_t&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
     {
         return std::tie(obj, cost, theTopic);

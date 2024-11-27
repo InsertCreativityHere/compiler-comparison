@@ -38,37 +38,27 @@
 
 namespace IceGrid
 {
-    /**
-     * A mapping of string to string.
-     */
+    /// A mapping of string to string.
     using StringStringDict = ::std::map<::std::string, ::std::string>;
 
     struct PropertyDescriptor;
 
-    /**
-     * A sequence of property descriptors.
-     */
+    /// A sequence of property descriptors.
     using PropertyDescriptorSeq = ::std::vector<PropertyDescriptor>;
 
     struct PropertySetDescriptor;
 
-    /**
-     * A mapping of property set name to property set descriptor.
-     */
+    /// A mapping of property set name to property set descriptor.
     using PropertySetDescriptorDict = ::std::map<::std::string, PropertySetDescriptor>;
 
     struct ObjectDescriptor;
 
-    /**
-     * A sequence of object descriptors.
-     */
+    /// A sequence of object descriptors.
     using ObjectDescriptorSeq = ::std::vector<ObjectDescriptor>;
 
     struct AdapterDescriptor;
 
-    /**
-     * A sequence of adapter descriptors.
-     */
+    /// A sequence of adapter descriptors.
     using AdapterDescriptorSeq = ::std::vector<AdapterDescriptor>;
 
     class CommunicatorDescriptor;
@@ -79,38 +69,28 @@ namespace IceGrid
     class ServerDescriptor;
     using ServerDescriptorPtr = ::std::shared_ptr<ServerDescriptor>;
 
-    /**
-     * A sequence of server descriptors.
-     */
+    /// A sequence of server descriptors.
     using ServerDescriptorSeq = ::std::vector<ServerDescriptorPtr>;
 
     class ServiceDescriptor;
     using ServiceDescriptorPtr = ::std::shared_ptr<ServiceDescriptor>;
 
-    /**
-     * A sequence of service descriptors.
-     */
+    /// A sequence of service descriptors.
     using ServiceDescriptorSeq = ::std::vector<ServiceDescriptorPtr>;
 
     struct ServerInstanceDescriptor;
 
-    /**
-     * A sequence of server instance descriptors.
-     */
+    /// A sequence of server instance descriptors.
     using ServerInstanceDescriptorSeq = ::std::vector<ServerInstanceDescriptor>;
 
     struct TemplateDescriptor;
 
-    /**
-     * A mapping of template identifier to template descriptor.
-     */
+    /// A mapping of template identifier to template descriptor.
     using TemplateDescriptorDict = ::std::map<::std::string, TemplateDescriptor>;
 
     struct ServiceInstanceDescriptor;
 
-    /**
-     * A sequence of service instance descriptors.
-     */
+    /// A sequence of service instance descriptors.
     using ServiceInstanceDescriptorSeq = ::std::vector<ServiceInstanceDescriptor>;
 
     class IceBoxDescriptor;
@@ -118,9 +98,7 @@ namespace IceGrid
 
     struct NodeDescriptor;
 
-    /**
-     * Mapping of node name to node descriptor.
-     */
+    /// Mapping of node name to node descriptor.
     using NodeDescriptorDict = ::std::map<::std::string, NodeDescriptor>;
 
     class LoadBalancingPolicy;
@@ -140,16 +118,12 @@ namespace IceGrid
 
     struct ReplicaGroupDescriptor;
 
-    /**
-     * A sequence of replica groups.
-     */
+    /// A sequence of replica groups.
     using ReplicaGroupDescriptorSeq = ::std::vector<ReplicaGroupDescriptor>;
 
     struct ApplicationDescriptor;
 
-    /**
-     * A sequence of application descriptors.
-     */
+    /// A sequence of application descriptors.
     using ApplicationDescriptorSeq = ::std::vector<ApplicationDescriptor>;
 
     class BoxedString;
@@ -157,9 +131,7 @@ namespace IceGrid
 
     struct NodeUpdateDescriptor;
 
-    /**
-     * A sequence of node update descriptors.
-     */
+    /// A sequence of node update descriptors.
     using NodeUpdateDescriptorSeq = ::std::vector<NodeUpdateDescriptor>;
 
     class BoxedDistributionDescriptor;
@@ -172,156 +144,102 @@ namespace IceGrid
 namespace IceGrid
 {
 
-/**
- * Property descriptor.
- */
+/// Property descriptor.
 struct PropertyDescriptor
 {
-    /**
-     * The name of the property.
-     */
+    /// The name of the property.
     ::std::string name;
-    /**
-     * The value of the property.
-     */
+    /// The value of the property.
     ::std::string value;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(name, value);
     }
 };
 
-/**
- * A property set descriptor.
- */
+/// A property set descriptor.
 struct PropertySetDescriptor
 {
-    /**
-     * References to named property sets.
-     */
+    /// References to named property sets.
     ::Ice::StringSeq references;
-    /**
-     * The property set properties.
-     */
+    /// The property set properties.
     ::IceGrid::PropertyDescriptorSeq properties;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Ice::StringSeq&, const ::IceGrid::PropertyDescriptorSeq&> ice_tuple() const
     {
         return std::tie(references, properties);
     }
 };
 
-/**
- * An Ice object descriptor.
- */
+/// An Ice object descriptor.
 struct ObjectDescriptor
 {
-    /**
-     * The identity of the object.
-     */
+    /// The identity of the object.
     ::Ice::Identity id;
-    /**
-     * The object type.
-     */
+    /// The object type.
     ::std::string type;
-    /**
-     * Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with
-     * the proxy options specified on the object adapter or replica group.
-     */
+    /// Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with
+    /// the proxy options specified on the object adapter or replica group.
     ::std::string proxyOptions;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Ice::Identity&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(id, type, proxyOptions);
     }
 };
 
-/**
- * An Ice object adapter descriptor.
- */
+/// An Ice object adapter descriptor.
 struct AdapterDescriptor
 {
-    /**
-     * The object adapter name.
-     */
+    /// The object adapter name.
     ::std::string name;
-    /**
-     * The description of this object adapter.
-     */
+    /// The description of this object adapter.
     ::std::string description;
-    /**
-     * The object adapter id.
-     */
+    /// The object adapter id.
     ::std::string id;
-    /**
-     * The replica id of this adapter.
-     */
+    /// The replica id of this adapter.
     ::std::string replicaGroupId;
-    /**
-     * The adapter priority. This is eventually used when the adapter is member of a replica group to sort the
-     * adapter endpoints by priority.
-     */
+    /// The adapter priority. This is eventually used when the adapter is member of a replica group to sort the
+    /// adapter endpoints by priority.
     ::std::string priority;
-    /**
-     * Flag to specify if the object adapter will register a process object.
-     */
+    /// Flag to specify if the object adapter will register a process object.
     bool registerProcess;
-    /**
-     * If true the lifetime of this object adapter is the same of the server lifetime. This information is used by
-     * the IceGrid node to figure out the server state: the server is active only if all its "server lifetime"
-     * adapters are active.
-     */
+    /// If true the lifetime of this object adapter is the same of the server lifetime. This information is used by
+    /// the IceGrid node to figure out the server state: the server is active only if all its "server lifetime"
+    /// adapters are active.
     bool serverLifetime;
-    /**
-     * The well-known object descriptors associated with this object adapter.
-     */
+    /// The well-known object descriptors associated with this object adapter.
     ::IceGrid::ObjectDescriptorSeq objects;
-    /**
-     * The allocatable object descriptors associated with this object adapter.
-     */
+    /// The allocatable object descriptors associated with this object adapter.
     ::IceGrid::ObjectDescriptorSeq allocatables;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const bool&, const ::IceGrid::ObjectDescriptorSeq&, const ::IceGrid::ObjectDescriptorSeq&> ice_tuple() const
     {
         return std::tie(name, description, id, replicaGroupId, priority, registerProcess, serverLifetime, objects, allocatables);
     }
 };
 
-/**
- * A communicator descriptor.
- */
+/// A communicator descriptor.
 class ICE_CLASS(ICEGRID_API) CommunicatorDescriptor : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     CommunicatorDescriptor() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param adapters The object adapters.
-     * @param propertySet The property set.
-     * @param logs The path of each log file.
-     * @param description A description of this descriptor.
-     */
+    /// One-shot constructor to initialize all data members.
+    /// @param adapters The object adapters.
+    /// @param propertySet The property set.
+    /// @param logs The path of each log file.
+    /// @param description A description of this descriptor.
     CommunicatorDescriptor(::IceGrid::AdapterDescriptorSeq adapters, ::IceGrid::PropertySetDescriptor propertySet, ::Ice::StringSeq logs, ::std::string description) noexcept :
         adapters(::std::move(adapters)),
         propertySet(::std::move(propertySet)),
@@ -330,44 +248,30 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
     ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&> ice_tuple() const
     {
         return std::tie(adapters, propertySet, logs, description);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CommunicatorDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<CommunicatorDescriptor>(_iceCloneImpl()); }
 
-    /**
-     * The object adapters.
-     */
+    /// The object adapters.
     ::IceGrid::AdapterDescriptorSeq adapters;
-    /**
-     * The property set.
-     */
+    /// The property set.
     ::IceGrid::PropertySetDescriptor propertySet;
-    /**
-     * The path of each log file.
-     */
+    /// The path of each log file.
     ::Ice::StringSeq logs;
-    /**
-     * A description of this descriptor.
-     */
+    /// A description of this descriptor.
     ::std::string description;
 
 protected:
@@ -379,63 +283,49 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/**
- * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
- * This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier
- * releases.
- */
+/// A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
+/// This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier
+/// releases.
 struct DistributionDescriptor
 {
-    /**
-     * The proxy of the IcePatch2 server.
-     */
+    /// The proxy of the IcePatch2 server.
     ::std::string icepatch;
-    /**
-     * The source directories.
-     */
+    /// The source directories.
     ::Ice::StringSeq directories;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
     {
         return std::tie(icepatch, directories);
     }
 };
 
-/**
- * An Ice server descriptor.
- */
+/// An Ice server descriptor.
 class ICE_CLASS(ICEGRID_API) ServerDescriptor : public CommunicatorDescriptor
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     ServerDescriptor() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param adapters The object adapters.
-     * @param propertySet The property set.
-     * @param logs The path of each log file.
-     * @param description A description of this descriptor.
-     * @param id The server id.
-     * @param exe The path of the server executable.
-     * @param iceVersion The Ice version used by this server.
-     * @param pwd The path to the server working directory.
-     * @param options The command line options to pass to the server executable.
-     * @param envs The server environment variables.
-     * @param activation / The server activation mode (possible values are "on-demand" or "manual").
-     * @param activationTimeout The activation timeout (an integer value representing the number of seconds to wait for activation).
-     * @param deactivationTimeout The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
-     * @param applicationDistrib Specifies if the server depends on the application distribution.
-     * @param distrib The distribution descriptor.
-     * @param allocatable Specifies if the server is allocatable.
-     * @param user The user account used to run the server.
-     */
+    /// One-shot constructor to initialize all data members.
+    /// @param adapters The object adapters.
+    /// @param propertySet The property set.
+    /// @param logs The path of each log file.
+    /// @param description A description of this descriptor.
+    /// @param id The server id.
+    /// @param exe The path of the server executable.
+    /// @param iceVersion The Ice version used by this server.
+    /// @param pwd The path to the server working directory.
+    /// @param options The command line options to pass to the server executable.
+    /// @param envs The server environment variables.
+    /// @param activation / The server activation mode (possible values are "on-demand" or "manual").
+    /// @param activationTimeout The activation timeout (an integer value representing the number of seconds to wait for activation).
+    /// @param deactivationTimeout The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
+    /// @param applicationDistrib Specifies if the server depends on the application distribution.
+    /// @param distrib The distribution descriptor.
+    /// @param allocatable Specifies if the server is allocatable.
+    /// @param user The user account used to run the server.
     ServerDescriptor(::IceGrid::AdapterDescriptorSeq adapters, ::IceGrid::PropertySetDescriptor propertySet, ::Ice::StringSeq logs, ::std::string description, ::std::string id, ::std::string exe, ::std::string iceVersion, ::std::string pwd, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool applicationDistrib, ::IceGrid::DistributionDescriptor distrib, bool allocatable, ::std::string user) noexcept :
         CommunicatorDescriptor(::std::move(adapters), ::std::move(propertySet), ::std::move(logs), ::std::move(description)),
         id(::std::move(id)),
@@ -454,82 +344,50 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
     ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::DistributionDescriptor&, const bool&, const ::std::string&> ice_tuple() const
     {
         return std::tie(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     ServerDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<ServerDescriptor>(_iceCloneImpl()); }
 
-    /**
-     * The server id.
-     */
+    /// The server id.
     ::std::string id;
-    /**
-     * The path of the server executable.
-     */
+    /// The path of the server executable.
     ::std::string exe;
-    /**
-     * The Ice version used by this server. This is only required if backward compatibility with servers using old
-     * Ice versions is needed (otherwise the registry will assume the server is using the same Ice version).
-     * For example "3.1.1", "3.2", "3.3.0".
-     */
+    /// The Ice version used by this server. This is only required if backward compatibility with servers using old
+    /// Ice versions is needed (otherwise the registry will assume the server is using the same Ice version).
+    /// For example "3.1.1", "3.2", "3.3.0".
     ::std::string iceVersion;
-    /**
-     * The path to the server working directory.
-     */
+    /// The path to the server working directory.
     ::std::string pwd;
-    /**
-     * The command line options to pass to the server executable.
-     */
+    /// The command line options to pass to the server executable.
     ::Ice::StringSeq options;
-    /**
-     * The server environment variables.
-     */
+    /// The server environment variables.
     ::Ice::StringSeq envs;
-    /**
-     * / The server activation mode (possible values are "on-demand" or "manual").
-     */
+    /// / The server activation mode (possible values are "on-demand" or "manual").
     ::std::string activation;
-    /**
-     * The activation timeout (an integer value representing the number of seconds to wait for activation).
-     */
+    /// The activation timeout (an integer value representing the number of seconds to wait for activation).
     ::std::string activationTimeout;
-    /**
-     * The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
-     */
+    /// The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
     ::std::string deactivationTimeout;
-    /**
-     * Specifies if the server depends on the application distribution.
-     */
+    /// Specifies if the server depends on the application distribution.
     bool applicationDistrib;
-    /**
-     * The distribution descriptor.
-     */
+    /// The distribution descriptor.
     ::IceGrid::DistributionDescriptor distrib;
-    /**
-     * Specifies if the server is allocatable.
-     */
+    /// Specifies if the server is allocatable.
     bool allocatable;
-    /**
-     * The user account used to run the server.
-     */
+    /// The user account used to run the server.
     ::std::string user;
 
 protected:
@@ -541,26 +399,20 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/**
- * An IceBox service descriptor.
- */
+/// An IceBox service descriptor.
 class ICE_CLASS(ICEGRID_API) ServiceDescriptor : public CommunicatorDescriptor
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     ServiceDescriptor() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param adapters The object adapters.
-     * @param propertySet The property set.
-     * @param logs The path of each log file.
-     * @param description A description of this descriptor.
-     * @param name The service name.
-     * @param entry The entry point of the IceBox service.
-     */
+    /// One-shot constructor to initialize all data members.
+    /// @param adapters The object adapters.
+    /// @param propertySet The property set.
+    /// @param logs The path of each log file.
+    /// @param description A description of this descriptor.
+    /// @param name The service name.
+    /// @param entry The entry point of the IceBox service.
     ServiceDescriptor(::IceGrid::AdapterDescriptorSeq adapters, ::IceGrid::PropertySetDescriptor propertySet, ::Ice::StringSeq logs, ::std::string description, ::std::string name, ::std::string entry) noexcept :
         CommunicatorDescriptor(::std::move(adapters), ::std::move(propertySet), ::std::move(logs), ::std::move(description)),
         name(::std::move(name)),
@@ -568,36 +420,26 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
     ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(adapters, propertySet, logs, description, name, entry);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     ServiceDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<ServiceDescriptor>(_iceCloneImpl()); }
 
-    /**
-     * The service name.
-     */
+    /// The service name.
     ::std::string name;
-    /**
-     * The entry point of the IceBox service.
-     */
+    /// The entry point of the IceBox service.
     ::std::string entry;
 
 protected:
@@ -609,163 +451,115 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/**
- * A server template instance descriptor.
- */
+/// A server template instance descriptor.
 struct ServerInstanceDescriptor
 {
-    /**
-     * The template used by this instance.
-     */
+    /// The template used by this instance.
     ::std::string _cpp_template;
-    /**
-     * The template parameter values.
-     */
+    /// The template parameter values.
     ::IceGrid::StringStringDict parameterValues;
-    /**
-     * The property set.
-     */
+    /// The property set.
     ::IceGrid::PropertySetDescriptor propertySet;
-    /**
-     * The services property sets. It's only valid to set these property sets if the template is an IceBox server
-     * template.
-     */
+    /// The services property sets. It's only valid to set these property sets if the template is an IceBox server
+    /// template.
     ::IceGrid::PropertySetDescriptorDict servicePropertySets;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::PropertySetDescriptor&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
     {
         return std::tie(_cpp_template, parameterValues, propertySet, servicePropertySets);
     }
 };
 
-/**
- * A template descriptor for server or service templates.
- */
+/// A template descriptor for server or service templates.
 struct TemplateDescriptor
 {
-    /**
-     * The template.
-     */
+    /// The template.
     ::IceGrid::CommunicatorDescriptorPtr descriptor;
-    /**
-     * The parameters required to instantiate the template.
-     */
+    /// The parameters required to instantiate the template.
     ::Ice::StringSeq parameters;
-    /**
-     * The parameters default values.
-     */
+    /// The parameters default values.
     ::IceGrid::StringStringDict parameterDefaults;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::IceGrid::CommunicatorDescriptorPtr&, const ::Ice::StringSeq&, const ::IceGrid::StringStringDict&> ice_tuple() const
     {
         return std::tie(descriptor, parameters, parameterDefaults);
     }
 };
 
-/**
- * A service template instance descriptor.
- */
+/// A service template instance descriptor.
 struct ServiceInstanceDescriptor
 {
-    /**
-     * The template used by this instance.
-     */
+    /// The template used by this instance.
     ::std::string _cpp_template;
-    /**
-     * The template parameter values.
-     */
+    /// The template parameter values.
     ::IceGrid::StringStringDict parameterValues;
-    /**
-     * The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
-     */
+    /// The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
     ::IceGrid::ServiceDescriptorPtr descriptor;
-    /**
-     * The property set.
-     */
+    /// The property set.
     ::IceGrid::PropertySetDescriptor propertySet;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::ServiceDescriptorPtr&, const ::IceGrid::PropertySetDescriptor&> ice_tuple() const
     {
         return std::tie(_cpp_template, parameterValues, descriptor, propertySet);
     }
 };
 
-/**
- * An IceBox server descriptor.
- */
+/// An IceBox server descriptor.
 class ICE_CLASS(ICEGRID_API) IceBoxDescriptor : public ServerDescriptor
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     IceBoxDescriptor() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param adapters The object adapters.
-     * @param propertySet The property set.
-     * @param logs The path of each log file.
-     * @param description A description of this descriptor.
-     * @param id The server id.
-     * @param exe The path of the server executable.
-     * @param iceVersion The Ice version used by this server.
-     * @param pwd The path to the server working directory.
-     * @param options The command line options to pass to the server executable.
-     * @param envs The server environment variables.
-     * @param activation / The server activation mode (possible values are "on-demand" or "manual").
-     * @param activationTimeout The activation timeout (an integer value representing the number of seconds to wait for activation).
-     * @param deactivationTimeout The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
-     * @param applicationDistrib Specifies if the server depends on the application distribution.
-     * @param distrib The distribution descriptor.
-     * @param allocatable Specifies if the server is allocatable.
-     * @param user The user account used to run the server.
-     * @param services The service instances.
-     */
+    /// One-shot constructor to initialize all data members.
+    /// @param adapters The object adapters.
+    /// @param propertySet The property set.
+    /// @param logs The path of each log file.
+    /// @param description A description of this descriptor.
+    /// @param id The server id.
+    /// @param exe The path of the server executable.
+    /// @param iceVersion The Ice version used by this server.
+    /// @param pwd The path to the server working directory.
+    /// @param options The command line options to pass to the server executable.
+    /// @param envs The server environment variables.
+    /// @param activation / The server activation mode (possible values are "on-demand" or "manual").
+    /// @param activationTimeout The activation timeout (an integer value representing the number of seconds to wait for activation).
+    /// @param deactivationTimeout The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
+    /// @param applicationDistrib Specifies if the server depends on the application distribution.
+    /// @param distrib The distribution descriptor.
+    /// @param allocatable Specifies if the server is allocatable.
+    /// @param user The user account used to run the server.
+    /// @param services The service instances.
     IceBoxDescriptor(::IceGrid::AdapterDescriptorSeq adapters, ::IceGrid::PropertySetDescriptor propertySet, ::Ice::StringSeq logs, ::std::string description, ::std::string id, ::std::string exe, ::std::string iceVersion, ::std::string pwd, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool applicationDistrib, ::IceGrid::DistributionDescriptor distrib, bool allocatable, ::std::string user, ::IceGrid::ServiceInstanceDescriptorSeq services) noexcept :
         ServerDescriptor(::std::move(adapters), ::std::move(propertySet), ::std::move(logs), ::std::move(description), ::std::move(id), ::std::move(exe), ::std::move(iceVersion), ::std::move(pwd), ::std::move(options), ::std::move(envs), ::std::move(activation), ::std::move(activationTimeout), ::std::move(deactivationTimeout), applicationDistrib, ::std::move(distrib), allocatable, ::std::move(user)),
         services(::std::move(services))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
     ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::DistributionDescriptor&, const bool&, const ::std::string&, const ::IceGrid::ServiceInstanceDescriptorSeq&> ice_tuple() const
     {
         return std::tie(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user, services);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     IceBoxDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<IceBoxDescriptor>(_iceCloneImpl()); }
 
-    /**
-     * The service instances.
-     */
+    /// The service instances.
     ::IceGrid::ServiceInstanceDescriptorSeq services;
 
 protected:
@@ -777,92 +571,62 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/**
- * A node descriptor.
- */
+/// A node descriptor.
 struct NodeDescriptor
 {
-    /**
-     * The variables defined for the node.
-     */
+    /// The variables defined for the node.
     ::IceGrid::StringStringDict variables;
-    /**
-     * The server instances.
-     */
+    /// The server instances.
     ::IceGrid::ServerInstanceDescriptorSeq serverInstances;
-    /**
-     * Servers (which are not template instances).
-     */
+    /// Servers (which are not template instances).
     ::IceGrid::ServerDescriptorSeq servers;
-    /**
-     * Load factor of the node.
-     */
+    /// Load factor of the node.
     ::std::string loadFactor;
-    /**
-     * The description of this node.
-     */
+    /// The description of this node.
     ::std::string description;
-    /**
-     * Property set descriptors.
-     */
+    /// Property set descriptors.
     ::IceGrid::PropertySetDescriptorDict propertySets;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::IceGrid::StringStringDict&, const ::IceGrid::ServerInstanceDescriptorSeq&, const ::IceGrid::ServerDescriptorSeq&, const ::std::string&, const ::std::string&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
     {
         return std::tie(variables, serverInstances, servers, loadFactor, description, propertySets);
     }
 };
 
-/**
- * A base class for load balancing policies.
- */
+/// A base class for load balancing policies.
 class ICE_CLASS(ICEGRID_API) LoadBalancingPolicy : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     LoadBalancingPolicy() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
-     */
+    /// One-shot constructor to initialize all data members.
+    /// @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
     explicit LoadBalancingPolicy(::std::string nReplicas) noexcept :
         nReplicas(::std::move(nReplicas))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
     ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(nReplicas);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     LoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<LoadBalancingPolicy>(_iceCloneImpl()); }
 
-    /**
-     * The number of replicas that will be used to gather the endpoints of a replica group.
-     */
+    /// The number of replicas that will be used to gather the endpoints of a replica group.
     ::std::string nReplicas;
 
 protected:
@@ -874,25 +638,19 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/**
- * Random load balancing policy.
- */
+/// Random load balancing policy.
 class ICE_CLASS(ICEGRID_API) RandomLoadBalancingPolicy : public LoadBalancingPolicy
 {
 public:using LoadBalancingPolicy::LoadBalancingPolicy;
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
     ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     RandomLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<RandomLoadBalancingPolicy>(_iceCloneImpl()); }
 
 protected:
@@ -904,25 +662,19 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/**
- * Ordered load balancing policy.
- */
+/// Ordered load balancing policy.
 class ICE_CLASS(ICEGRID_API) OrderedLoadBalancingPolicy : public LoadBalancingPolicy
 {
 public:using LoadBalancingPolicy::LoadBalancingPolicy;
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
     ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     OrderedLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<OrderedLoadBalancingPolicy>(_iceCloneImpl()); }
 
 protected:
@@ -934,25 +686,19 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/**
- * Round robin load balancing policy.
- */
+/// Round robin load balancing policy.
 class ICE_CLASS(ICEGRID_API) RoundRobinLoadBalancingPolicy : public LoadBalancingPolicy
 {
 public:using LoadBalancingPolicy::LoadBalancingPolicy;
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
     ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     RoundRobinLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<RoundRobinLoadBalancingPolicy>(_iceCloneImpl()); }
 
 protected:
@@ -964,55 +710,41 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/**
- * Adaptive load balancing policy.
- */
+/// Adaptive load balancing policy.
 class ICE_CLASS(ICEGRID_API) AdaptiveLoadBalancingPolicy : public LoadBalancingPolicy
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     AdaptiveLoadBalancingPolicy() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
-     * @param loadSample The load sample to use for the load balancing.
-     */
+    /// One-shot constructor to initialize all data members.
+    /// @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
+    /// @param loadSample The load sample to use for the load balancing.
     AdaptiveLoadBalancingPolicy(::std::string nReplicas, ::std::string loadSample) noexcept :
         LoadBalancingPolicy(::std::move(nReplicas)),
         loadSample(::std::move(loadSample))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
     ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(nReplicas, loadSample);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     AdaptiveLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<AdaptiveLoadBalancingPolicy>(_iceCloneImpl()); }
 
-    /**
-     * The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
-     * representing respectively the load average over the past minute, the past 5 minutes and the past 15 minutes.
-     */
+    /// The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
+    /// representing respectively the load average over the past minute, the past 5 minutes and the past 15 minutes.
     ::std::string loadSample;
 
 protected:
@@ -1024,144 +756,92 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/**
- * A replica group descriptor.
- */
+/// A replica group descriptor.
 struct ReplicaGroupDescriptor
 {
-    /**
-     * The id of the replica group.
-     */
+    /// The id of the replica group.
     ::std::string id;
-    /**
-     * The load balancing policy.
-     */
+    /// The load balancing policy.
     ::IceGrid::LoadBalancingPolicyPtr loadBalancing;
-    /**
-     * Default options for proxies created for the replica group.
-     */
+    /// Default options for proxies created for the replica group.
     ::std::string proxyOptions;
-    /**
-     * The object descriptors associated with this object adapter.
-     */
+    /// The object descriptors associated with this object adapter.
     ::IceGrid::ObjectDescriptorSeq objects;
-    /**
-     * The description of this replica group.
-     */
+    /// The description of this replica group.
     ::std::string description;
-    /**
-     * The filter to use for this replica group.
-     */
+    /// The filter to use for this replica group.
     ::std::string filter;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::IceGrid::LoadBalancingPolicyPtr&, const ::std::string&, const ::IceGrid::ObjectDescriptorSeq&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(id, loadBalancing, proxyOptions, objects, description, filter);
     }
 };
 
-/**
- * An application descriptor.
- */
+/// An application descriptor.
 struct ApplicationDescriptor
 {
-    /**
-     * The application name.
-     */
+    /// The application name.
     ::std::string name;
-    /**
-     * The variables defined in the application descriptor.
-     */
+    /// The variables defined in the application descriptor.
     ::IceGrid::StringStringDict variables;
-    /**
-     * The replica groups.
-     */
+    /// The replica groups.
     ::IceGrid::ReplicaGroupDescriptorSeq replicaGroups;
-    /**
-     * The server templates.
-     */
+    /// The server templates.
     ::IceGrid::TemplateDescriptorDict serverTemplates;
-    /**
-     * The service templates.
-     */
+    /// The service templates.
     ::IceGrid::TemplateDescriptorDict serviceTemplates;
-    /**
-     * The application nodes.
-     */
+    /// The application nodes.
     ::IceGrid::NodeDescriptorDict nodes;
-    /**
-     * The application distribution.
-     */
+    /// The application distribution.
     ::IceGrid::DistributionDescriptor distrib;
-    /**
-     * The description of this application.
-     */
+    /// The description of this application.
     ::std::string description;
-    /**
-     * Property set descriptors.
-     */
+    /// Property set descriptors.
     ::IceGrid::PropertySetDescriptorDict propertySets;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::ReplicaGroupDescriptorSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::IceGrid::TemplateDescriptorDict&, const ::IceGrid::NodeDescriptorDict&, const ::IceGrid::DistributionDescriptor&, const ::std::string&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
     {
         return std::tie(name, variables, replicaGroups, serverTemplates, serviceTemplates, nodes, distrib, description, propertySets);
     }
 };
 
-/**
- * A "boxed" string.
- */
+/// A "boxed" string.
 class ICE_CLASS(ICEGRID_API) BoxedString : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     BoxedString() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param value The value of the boxed string.
-     */
+    /// One-shot constructor to initialize all data members.
+    /// @param value The value of the boxed string.
     explicit BoxedString(::std::string value) noexcept :
         value(::std::move(value))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
     ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(value);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     BoxedStringPtr ice_clone() const { return ::std::static_pointer_cast<BoxedString>(_iceCloneImpl()); }
 
-    /**
-     * The value of the boxed string.
-     */
+    /// The value of the boxed string.
     ::std::string value;
 
 protected:
@@ -1173,108 +853,70 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/**
- * A node update descriptor to describe the updates to apply to a node of a deployed application.
- */
+/// A node update descriptor to describe the updates to apply to a node of a deployed application.
 struct NodeUpdateDescriptor
 {
-    /**
-     * The name of the node to update.
-     */
+    /// The name of the node to update.
     ::std::string name;
-    /**
-     * The updated description (or null if the description wasn't updated.)
-     */
+    /// The updated description (or null if the description wasn't updated.)
     ::IceGrid::BoxedStringPtr description;
-    /**
-     * The variables to update.
-     */
+    /// The variables to update.
     ::IceGrid::StringStringDict variables;
-    /**
-     * The variables to remove.
-     */
+    /// The variables to remove.
     ::Ice::StringSeq removeVariables;
-    /**
-     * The property sets to update.
-     */
+    /// The property sets to update.
     ::IceGrid::PropertySetDescriptorDict propertySets;
-    /**
-     * The property sets to remove.
-     */
+    /// The property sets to remove.
     ::Ice::StringSeq removePropertySets;
-    /**
-     * The server instances to update.
-     */
+    /// The server instances to update.
     ::IceGrid::ServerInstanceDescriptorSeq serverInstances;
-    /**
-     * The servers which are not template instances to update.
-     */
+    /// The servers which are not template instances to update.
     ::IceGrid::ServerDescriptorSeq servers;
-    /**
-     * The ids of the servers to remove.
-     */
+    /// The ids of the servers to remove.
     ::Ice::StringSeq removeServers;
-    /**
-     * The updated load factor of the node (or null if the load factor was not updated).
-     */
+    /// The updated load factor of the node (or null if the load factor was not updated).
     ::IceGrid::BoxedStringPtr loadFactor;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::IceGrid::BoxedStringPtr&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ServerInstanceDescriptorSeq&, const ::IceGrid::ServerDescriptorSeq&, const ::Ice::StringSeq&, const ::IceGrid::BoxedStringPtr&> ice_tuple() const
     {
         return std::tie(name, description, variables, removeVariables, propertySets, removePropertySets, serverInstances, servers, removeServers, loadFactor);
     }
 };
 
-/**
- * A "boxed" distribution descriptor.
- */
+/// A "boxed" distribution descriptor.
 class ICE_CLASS(ICEGRID_API) BoxedDistributionDescriptor : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     BoxedDistributionDescriptor() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param value The value of the boxed distribution descriptor.
-     */
+    /// One-shot constructor to initialize all data members.
+    /// @param value The value of the boxed distribution descriptor.
     explicit BoxedDistributionDescriptor(::IceGrid::DistributionDescriptor value) noexcept :
         value(::std::move(value))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
     ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::IceGrid::DistributionDescriptor&> ice_tuple() const
     {
         return std::tie(value);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     BoxedDistributionDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<BoxedDistributionDescriptor>(_iceCloneImpl()); }
 
-    /**
-     * The value of the boxed distribution descriptor.
-     */
+    /// The value of the boxed distribution descriptor.
     ::IceGrid::DistributionDescriptor value;
 
 protected:
@@ -1286,76 +928,42 @@ protected:
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-/**
- * An application update descriptor to describe the updates to apply to a deployed application.
- */
+/// An application update descriptor to describe the updates to apply to a deployed application.
 struct ApplicationUpdateDescriptor
 {
-    /**
-     * The name of the application to update.
-     */
+    /// The name of the application to update.
     ::std::string name;
-    /**
-     * The updated description (or null if the description wasn't updated.)
-     */
+    /// The updated description (or null if the description wasn't updated.)
     ::IceGrid::BoxedStringPtr description;
-    /**
-     * The updated distribution application descriptor.
-     */
+    /// The updated distribution application descriptor.
     ::IceGrid::BoxedDistributionDescriptorPtr distrib;
-    /**
-     * The variables to update.
-     */
+    /// The variables to update.
     ::IceGrid::StringStringDict variables;
-    /**
-     * The variables to remove.
-     */
+    /// The variables to remove.
     ::Ice::StringSeq removeVariables;
-    /**
-     * The property sets to update.
-     */
+    /// The property sets to update.
     ::IceGrid::PropertySetDescriptorDict propertySets;
-    /**
-     * The property sets to remove.
-     */
+    /// The property sets to remove.
     ::Ice::StringSeq removePropertySets;
-    /**
-     * The replica groups to update.
-     */
+    /// The replica groups to update.
     ::IceGrid::ReplicaGroupDescriptorSeq replicaGroups;
-    /**
-     * The replica groups to remove.
-     */
+    /// The replica groups to remove.
     ::Ice::StringSeq removeReplicaGroups;
-    /**
-     * The server templates to update.
-     */
+    /// The server templates to update.
     ::IceGrid::TemplateDescriptorDict serverTemplates;
-    /**
-     * The ids of the server template to remove.
-     */
+    /// The ids of the server template to remove.
     ::Ice::StringSeq removeServerTemplates;
-    /**
-     * The service templates to update.
-     */
+    /// The service templates to update.
     ::IceGrid::TemplateDescriptorDict serviceTemplates;
-    /**
-     * The ids of the service template to remove.
-     */
+    /// The ids of the service template to remove.
     ::Ice::StringSeq removeServiceTemplates;
-    /**
-     * The application nodes to update.
-     */
+    /// The application nodes to update.
     ::IceGrid::NodeUpdateDescriptorSeq nodes;
-    /**
-     * The nodes to remove.
-     */
+    /// The nodes to remove.
     ::Ice::StringSeq removeNodes;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::IceGrid::BoxedStringPtr&, const ::IceGrid::BoxedDistributionDescriptorPtr&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ReplicaGroupDescriptorSeq&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::NodeUpdateDescriptorSeq&, const ::Ice::StringSeq&> ice_tuple() const
     {
         return std::tie(name, description, distrib, variables, removeVariables, propertySets, removePropertySets, replicaGroups, removeReplicaGroups, serverTemplates, removeServerTemplates, serviceTemplates, removeServiceTemplates, nodes, removeNodes);

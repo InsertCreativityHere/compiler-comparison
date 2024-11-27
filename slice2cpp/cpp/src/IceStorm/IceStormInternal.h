@@ -34,9 +34,7 @@ namespace IceStorm
 {
     struct EventData;
 
-    /**
-     * A sequence of EventData.
-     */
+    /// A sequence of EventData.
     using EventDataSeq = std::deque<IceStorm::EventData>;
 
     class TopicLinkPrx;
@@ -50,38 +48,30 @@ namespace IceStorm
 namespace IceStorm
 {
 
-/**
- * The TopicLink interface. This is used to forward events between federated Topic instances.
- * @see TopicInternal
- */
+/// The TopicLink interface. This is used to forward events between federated Topic instances.
+/// @see TopicInternal
 class TopicLinkPrx : public ::Ice::Proxy<TopicLinkPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    /**
-     * Forward a sequence of events.
-     * @param events The events to forward.
-     * @param context The Context map to send with the invocation.
-     */
+    /// Forward a sequence of events.
+    /// @param events The events to forward.
+    /// @param context The Context map to send with the invocation.
     void forward(const EventDataSeq& events, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Forward a sequence of events.
-     * @param events The events to forward.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Forward a sequence of events.
+    /// @param events The events to forward.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<void> forwardAsync(const EventDataSeq& events, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Forward a sequence of events.
-     * @param events The events to forward.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Forward a sequence of events.
+    /// @param events The events to forward.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     forwardAsync(const EventDataSeq& events, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -89,10 +79,8 @@ public:
     void _iceI_forward(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const EventDataSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     TopicLinkPrx(const TopicLinkPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -132,36 +120,28 @@ protected:
     /// \endcond
 };
 
-/**
- * Internal operations for a topic.
- * @see Topic
- */
+/// Internal operations for a topic.
+/// @see Topic
 class TopicInternalPrx : public ::Ice::Proxy<TopicInternalPrx, TopicPrx>
 {
 public:
 
-    /**
-     * Retrieve a proxy to the TopicLink interface.
-     * @param context The Context map to send with the invocation.
-     * @return The TopicLink for the Topic.
-     */
+    /// Retrieve a proxy to the TopicLink interface.
+    /// @param context The Context map to send with the invocation.
+    /// @return The TopicLink for the Topic.
     ::std::optional<TopicLinkPrx> getLinkProxy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Retrieve a proxy to the TopicLink interface.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Retrieve a proxy to the TopicLink interface.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::std::optional<TopicLinkPrx>> getLinkProxyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Retrieve a proxy to the TopicLink interface.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Retrieve a proxy to the TopicLink interface.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     getLinkProxyAsync(::std::function<void(::std::optional<::IceStorm::TopicLinkPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -169,31 +149,25 @@ public:
     void _iceI_getLinkProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicLinkPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Reap the given identities.
-     * @param id The sequence of identities.
-     * @param context The Context map to send with the invocation.
-     * @throws IceStorm::ReapWouldBlock Raised if the reap call would block.
-     */
+    /// Reap the given identities.
+    /// @param id The sequence of identities.
+    /// @param context The Context map to send with the invocation.
+    /// @throws IceStorm::ReapWouldBlock Raised if the reap call would block.
     void reap(const ::Ice::IdentitySeq& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Reap the given identities.
-     * @param id The sequence of identities.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Reap the given identities.
+    /// @param id The sequence of identities.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<void> reapAsync(const ::Ice::IdentitySeq& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Reap the given identities.
-     * @param id The sequence of identities.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Reap the given identities.
+    /// @param id The sequence of identities.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     reapAsync(const ::Ice::IdentitySeq& id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -201,10 +175,8 @@ public:
     void _iceI_reap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::IdentitySeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
@@ -253,36 +225,28 @@ protected:
 #endif
 };
 
-/**
- * Internal operations for a topic manager.
- * @see TopicManager
- */
+/// Internal operations for a topic manager.
+/// @see TopicManager
 class TopicManagerInternalPrx : public ::Ice::Proxy<TopicManagerInternalPrx, TopicManagerPrx>
 {
 public:
 
-    /**
-     * Return the replica node proxy for this topic manager.
-     * @param context The Context map to send with the invocation.
-     * @return The replica proxy, or null if this instance is not replicated.
-     */
+    /// Return the replica node proxy for this topic manager.
+    /// @param context The Context map to send with the invocation.
+    /// @return The replica proxy, or null if this instance is not replicated.
     ::std::optional<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Return the replica node proxy for this topic manager.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Return the replica node proxy for this topic manager.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::std::optional<::IceStormElection::NodePrx>> getReplicaNodeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Return the replica node proxy for this topic manager.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Return the replica node proxy for this topic manager.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     getReplicaNodeAsync(::std::function<void(::std::optional<::IceStormElection::NodePrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -290,10 +254,8 @@ public:
     void _iceI_getReplicaNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::IceStormElection::NodePrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
@@ -347,48 +309,32 @@ protected:
 namespace IceStorm
 {
 
-/**
- * The event data.
- */
+/// The event data.
 struct EventData
 {
-    /**
-     * The operation name.
-     */
+    /// The operation name.
     ::std::string op;
-    /**
-     * The operation mode.
-     */
+    /// The operation mode.
     ::Ice::OperationMode mode;
-    /**
-     * The encoded data for the operation's input parameters.
-     */
+    /// The encoded data for the operation's input parameters.
     ::Ice::ByteSeq data;
-    /**
-     * The Ice::Current::Context data from the originating request.
-     */
+    /// The Ice::Current::Context data from the originating request.
     ::Ice::Context context;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::Ice::OperationMode&, const ::Ice::ByteSeq&, const ::Ice::Context&> ice_tuple() const
     {
         return std::tie(op, mode, data, context);
     }
 };
 
-/**
- * Thrown if the reap call would block.
- */
+/// Thrown if the reap call would block.
 class ReapWouldBlock : public ::Ice::UserException
 {
 public:
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -413,41 +359,31 @@ using Ice::Tuple::operator!=;
 namespace IceStorm
 {
 
-/**
- * The TopicLink interface. This is used to forward events between federated Topic instances.
- * @see TopicInternal
- */
+/// The TopicLink interface. This is used to forward events between federated Topic instances.
+/// @see TopicInternal
 class TopicLink : public virtual ::Ice::Object
 {
 public:
 
     using ProxyType = TopicLinkPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    /**
-     * Forward a sequence of events.
-     * @param events The events to forward.
-     * @param current The Current object for the invocation.
-     */
+    /// Forward a sequence of events.
+    /// @param events The events to forward.
+    /// @param current The Current object for the invocation.
     virtual void forward(EventDataSeq events, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_forward(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
@@ -460,52 +396,40 @@ public:
 
 using TopicLinkPtr = ::std::shared_ptr<TopicLink>;
 
-/**
- * Internal operations for a topic.
- * @see Topic
- */
+/// Internal operations for a topic.
+/// @see Topic
 class TopicInternal : public virtual Topic
 {
 public:
 
     using ProxyType = TopicInternalPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    /**
-     * Retrieve a proxy to the TopicLink interface.
-     * @param current The Current object for the invocation.
-     * @return The TopicLink for the Topic.
-     */
+    /// Retrieve a proxy to the TopicLink interface.
+    /// @param current The Current object for the invocation.
+    /// @return The TopicLink for the Topic.
     virtual ::std::optional<TopicLinkPrx> getLinkProxy(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_getLinkProxy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Reap the given identities.
-     * @param id The sequence of identities.
-     * @param current The Current object for the invocation.
-     * @throws IceStorm::ReapWouldBlock Raised if the reap call would block.
-     */
+    /// Reap the given identities.
+    /// @param id The sequence of identities.
+    /// @param current The Current object for the invocation.
+    /// @throws IceStorm::ReapWouldBlock Raised if the reap call would block.
     virtual void reap(::Ice::IdentitySeq id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_reap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
@@ -518,41 +442,31 @@ public:
 
 using TopicInternalPtr = ::std::shared_ptr<TopicInternal>;
 
-/**
- * Internal operations for a topic manager.
- * @see TopicManager
- */
+/// Internal operations for a topic manager.
+/// @see TopicManager
 class TopicManagerInternal : public virtual TopicManager
 {
 public:
 
     using ProxyType = TopicManagerInternalPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    /**
-     * Return the replica node proxy for this topic manager.
-     * @param current The Current object for the invocation.
-     * @return The replica proxy, or null if this instance is not replicated.
-     */
+    /// Return the replica node proxy for this topic manager.
+    /// @param current The Current object for the invocation.
+    /// @return The replica proxy, or null if this instance is not replicated.
     virtual ::std::optional<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getReplicaNode(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;

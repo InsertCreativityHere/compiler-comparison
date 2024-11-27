@@ -175,10 +175,8 @@ public:
     void _iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     IntfPrx(const IntfPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -226,14 +224,10 @@ namespace Clash
 class Cls : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     Cls() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     Cls(::std::optional<::Clash::IntfPrx> s, ::std::string context, ::std::int32_t current, ::std::int16_t response, ::std::string upCast, ::std::int32_t typeId, ::std::int16_t del, ::std::optional<::std::int16_t> cookie, ::std::string ex, ::std::int32_t result, ::std::string istr, ::std::string ostr, ::std::string inS, ::std::string in, ::std::string proxy) noexcept :
         s(::std::move(s)),
         context(::std::move(context)),
@@ -253,27 +247,21 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::optional<::Clash::IntfPrx>&, const ::std::string&, const ::std::int32_t&, const ::std::int16_t&, const ::std::string&, const ::std::int32_t&, const ::std::int16_t&, const ::std::optional<::std::int16_t>&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(s, context, current, response, upCast, typeId, del, cookie, ex, result, istr, ostr, inS, in, proxy);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     ClsPtr ice_clone() const { return ::std::static_pointer_cast<Cls>(_iceCloneImpl()); }
 
     ::std::optional<::Clash::IntfPrx> s;
@@ -309,10 +297,8 @@ struct St
     ::std::int32_t rhs;
     ::std::string other;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(v, istr, ostr, rhs, other);
@@ -322,33 +308,25 @@ struct St
 class Ex : public ::Ice::UserException
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     Ex() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     Ex(::std::int16_t istr, ::std::int32_t ostr) noexcept :
         istr(istr),
         ostr(ostr)
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int16_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(istr, ostr);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -382,24 +360,18 @@ public:
 
     using ProxyType = IntfPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual void context(const ::Ice::Current& current) = 0;

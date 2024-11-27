@@ -36,33 +36,25 @@ namespace Test
 class UnknownDerived : public Base
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     UnknownDerived() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     UnknownDerived(::std::string b, ::std::string ud) noexcept :
         Base(::std::move(b)),
         ud(::std::move(ud))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, ud);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -80,33 +72,25 @@ protected:
 class UnknownIntermediate : public Base
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     UnknownIntermediate() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     UnknownIntermediate(::std::string b, ::std::string ui) noexcept :
         Base(::std::move(b)),
         ui(::std::move(ui))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, ui);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -124,33 +108,25 @@ protected:
 class UnknownMostDerived1 : public KnownIntermediate
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     UnknownMostDerived1() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     UnknownMostDerived1(::std::string b, ::std::string ki, ::std::string umd1) noexcept :
         KnownIntermediate(::std::move(b), ::std::move(ki)),
         umd1(::std::move(umd1))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, ki, umd1);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -168,33 +144,25 @@ protected:
 class UnknownMostDerived2 : public UnknownIntermediate
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     UnknownMostDerived2() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     UnknownMostDerived2(::std::string b, ::std::string ui, ::std::string umd2) noexcept :
         UnknownIntermediate(::std::move(b), ::std::move(ui)),
         umd2(::std::move(umd2))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, ui, umd2);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;

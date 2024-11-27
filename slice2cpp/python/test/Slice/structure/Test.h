@@ -49,10 +49,8 @@ struct S1
 {
     ::std::string name;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(name);
@@ -70,10 +68,8 @@ struct S2
     ::Test::IntSeq seq;
     ::Test::S1 s;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::string&, const ::Test::IntSeq&, const ::Test::S1&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, str, seq, s);
@@ -83,40 +79,30 @@ struct S2
 class C : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     C() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit C(::std::string name) noexcept :
         name(::std::move(name))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(name);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
 
     ::std::string name;
@@ -136,10 +122,8 @@ struct S3
     ::Test::StringDict sd;
     ::std::optional<::Ice::ObjectPrx> prx;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::CPtr&, const ::Test::StringDict&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(obj, sd, prx);

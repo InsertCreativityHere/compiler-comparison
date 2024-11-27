@@ -90,10 +90,8 @@ public:
     void _iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     RelayPrx(const RelayPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -390,10 +388,8 @@ public:
     void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     TestIntfPrx(const TestIntfPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -441,32 +437,24 @@ namespace Test
 class Base : public ::Ice::UserException
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     Base() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     Base(::std::string b) noexcept :
         b(::std::move(b))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(b);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -484,33 +472,25 @@ protected:
 class KnownDerived : public Base
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     KnownDerived() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     KnownDerived(::std::string b, ::std::string kd) noexcept :
         Base(::std::move(b)),
         kd(::std::move(kd))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, kd);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -528,33 +508,25 @@ protected:
 class KnownIntermediate : public Base
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     KnownIntermediate() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     KnownIntermediate(::std::string b, ::std::string ki) noexcept :
         Base(::std::move(b)),
         ki(::std::move(ki))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, ki);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -572,33 +544,25 @@ protected:
 class KnownMostDerived : public KnownIntermediate
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     KnownMostDerived() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     KnownMostDerived(::std::string b, ::std::string ki, ::std::string kmd) noexcept :
         KnownIntermediate(::std::move(b), ::std::move(ki)),
         kmd(::std::move(kmd))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, ki, kmd);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -616,33 +580,25 @@ protected:
 class KnownPreserved : public Base
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     KnownPreserved() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     KnownPreserved(::std::string b, ::std::string kp) noexcept :
         Base(::std::move(b)),
         kp(::std::move(kp))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, kp);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -660,33 +616,25 @@ protected:
 class KnownPreservedDerived : public KnownPreserved
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     KnownPreservedDerived() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     KnownPreservedDerived(::std::string b, ::std::string kp, ::std::string kpd) noexcept :
         KnownPreserved(::std::move(b), ::std::move(kp)),
         kpd(::std::move(kpd))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, kp, kpd);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -704,40 +652,30 @@ protected:
 class BaseClass : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     BaseClass() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit BaseClass(::std::string bc) noexcept :
         bc(::std::move(bc))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(bc);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     BaseClassPtr ice_clone() const { return ::std::static_pointer_cast<BaseClass>(_iceCloneImpl()); }
 
     ::std::string bc;
@@ -754,41 +692,31 @@ protected:
 class PreservedClass : public BaseClass
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     PreservedClass() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     PreservedClass(::std::string bc, ::std::string pc) noexcept :
         BaseClass(::std::move(bc)),
         pc(::std::move(pc))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(bc, pc);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     PreservedClassPtr ice_clone() const { return ::std::static_pointer_cast<PreservedClass>(_iceCloneImpl()); }
 
     ::std::string pc;
@@ -805,33 +733,25 @@ protected:
 class Preserved1 : public KnownPreservedDerived
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     Preserved1() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     Preserved1(::std::string b, ::std::string kp, ::std::string kpd, BaseClassPtr p1) noexcept :
         KnownPreservedDerived(::std::move(b), ::std::move(kp), ::std::move(kpd)),
         p1(::std::move(p1))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::Test::BaseClassPtr&> ice_tuple() const
     {
         return std::tie(b, kp, kpd, p1);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -853,33 +773,25 @@ protected:
 class Preserved2 : public Preserved1
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     Preserved2() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     Preserved2(::std::string b, ::std::string kp, ::std::string kpd, BaseClassPtr p1, BaseClassPtr p2) noexcept :
         Preserved1(::std::move(b), ::std::move(kp), ::std::move(kpd), ::std::move(p1)),
         p2(::std::move(p2))
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::Test::BaseClassPtr&, const ::Test::BaseClassPtr&> ice_tuple() const
     {
         return std::tie(b, kp, kpd, p1, p2);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -905,24 +817,18 @@ public:
 
     using ProxyType = RelayPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual void knownPreservedAsBase(const ::Ice::Current& current) = 0;
@@ -958,24 +864,18 @@ public:
 
     using ProxyType = TestIntfPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual void baseAsBase(const ::Ice::Current& current) = 0;

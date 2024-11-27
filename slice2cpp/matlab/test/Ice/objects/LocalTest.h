@@ -100,40 +100,30 @@ namespace LocalTest
 class C1 : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     C1() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit C1(::std::int32_t i) noexcept :
         i(i)
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     C1Ptr ice_clone() const { return ::std::static_pointer_cast<C1>(_iceCloneImpl()); }
 
     ::std::int32_t i;
@@ -151,10 +141,8 @@ struct S1
 {
     ::LocalTest::C1Ptr c1;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::C1Ptr&> ice_tuple() const
     {
         return std::tie(c1);
@@ -165,10 +153,8 @@ struct S2
 {
     ::LocalTest::S1 s1;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::S1&> ice_tuple() const
     {
         return std::tie(s1);
@@ -179,10 +165,8 @@ struct S3
 {
     ::LocalTest::C1Seq c1seq;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::C1Seq&> ice_tuple() const
     {
         return std::tie(c1seq);
@@ -193,10 +177,8 @@ struct S4
 {
     ::LocalTest::S1Seq s1seq;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::S1Seq&> ice_tuple() const
     {
         return std::tie(s1seq);
@@ -207,10 +189,8 @@ struct S5
 {
     ::LocalTest::C1Dict c1dict;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::C1Dict&> ice_tuple() const
     {
         return std::tie(c1dict);
@@ -221,10 +201,8 @@ struct S6
 {
     ::LocalTest::S1Dict s1dict;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::S1Dict&> ice_tuple() const
     {
         return std::tie(s1dict);
@@ -235,10 +213,8 @@ struct S7
 {
     ::LocalTest::C1SeqSeq c1seqseq;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::C1SeqSeq&> ice_tuple() const
     {
         return std::tie(c1seqseq);
@@ -249,10 +225,8 @@ struct S8
 {
     ::LocalTest::S1SeqSeq s1seqseq;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::S1SeqSeq&> ice_tuple() const
     {
         return std::tie(s1seqseq);
@@ -262,40 +236,30 @@ struct S8
 class CB1 : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     CB1() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit CB1(::LocalTest::S1 s1) noexcept :
         s1(::std::move(s1))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::S1&> ice_tuple() const
     {
         return std::tie(s1);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CB1Ptr ice_clone() const { return ::std::static_pointer_cast<CB1>(_iceCloneImpl()); }
 
     ::LocalTest::S1 s1;
@@ -312,40 +276,30 @@ protected:
 class CB2 : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     CB2() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit CB2(::LocalTest::C1Seq c1seq) noexcept :
         c1seq(::std::move(c1seq))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::C1Seq&> ice_tuple() const
     {
         return std::tie(c1seq);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CB2Ptr ice_clone() const { return ::std::static_pointer_cast<CB2>(_iceCloneImpl()); }
 
     ::LocalTest::C1Seq c1seq;
@@ -362,40 +316,30 @@ protected:
 class CB3 : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     CB3() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit CB3(::LocalTest::S1Seq s1seq) noexcept :
         s1seq(::std::move(s1seq))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::S1Seq&> ice_tuple() const
     {
         return std::tie(s1seq);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CB3Ptr ice_clone() const { return ::std::static_pointer_cast<CB3>(_iceCloneImpl()); }
 
     ::LocalTest::S1Seq s1seq;
@@ -412,40 +356,30 @@ protected:
 class CB4 : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     CB4() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit CB4(::LocalTest::C1Dict c1dict) noexcept :
         c1dict(::std::move(c1dict))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::C1Dict&> ice_tuple() const
     {
         return std::tie(c1dict);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CB4Ptr ice_clone() const { return ::std::static_pointer_cast<CB4>(_iceCloneImpl()); }
 
     ::LocalTest::C1Dict c1dict;
@@ -462,40 +396,30 @@ protected:
 class CB5 : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     CB5() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit CB5(::LocalTest::S1Dict s1dict) noexcept :
         s1dict(::std::move(s1dict))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::S1Dict&> ice_tuple() const
     {
         return std::tie(s1dict);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CB5Ptr ice_clone() const { return ::std::static_pointer_cast<CB5>(_iceCloneImpl()); }
 
     ::LocalTest::S1Dict s1dict;
@@ -512,40 +436,30 @@ protected:
 class CB6 : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     CB6() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit CB6(::LocalTest::C1SeqSeq c1seqseq) noexcept :
         c1seqseq(::std::move(c1seqseq))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::C1SeqSeq&> ice_tuple() const
     {
         return std::tie(c1seqseq);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CB6Ptr ice_clone() const { return ::std::static_pointer_cast<CB6>(_iceCloneImpl()); }
 
     ::LocalTest::C1SeqSeq c1seqseq;
@@ -562,40 +476,30 @@ protected:
 class CB7 : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     CB7() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     explicit CB7(::LocalTest::S1SeqSeq s1seqseq) noexcept :
         s1seqseq(::std::move(s1seqseq))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::S1SeqSeq&> ice_tuple() const
     {
         return std::tie(s1seqseq);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CB7Ptr ice_clone() const { return ::std::static_pointer_cast<CB7>(_iceCloneImpl()); }
 
     ::LocalTest::S1SeqSeq s1seqseq;
@@ -612,14 +516,10 @@ protected:
 class CB8 : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     CB8() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     CB8(::LocalTest::S1 s1, ::LocalTest::C1Seq c1seq, ::LocalTest::S1Dict s1dict) noexcept :
         s1(::std::move(s1)),
         c1seq(::std::move(c1seq)),
@@ -627,27 +527,21 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::LocalTest::S1&, const ::LocalTest::C1Seq&, const ::LocalTest::S1Dict&> ice_tuple() const
     {
         return std::tie(s1, c1seq, s1dict);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CB8Ptr ice_clone() const { return ::std::static_pointer_cast<CB8>(_iceCloneImpl()); }
 
     ::LocalTest::S1 s1;
@@ -668,10 +562,8 @@ struct StructKey
     ::std::int32_t i;
     ::std::int32_t j;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i, j);

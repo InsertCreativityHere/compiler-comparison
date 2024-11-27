@@ -979,10 +979,8 @@ public:
     void _iceI_opMDict2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<StringStringD, StringStringD>>>&, const StringStringD&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     MyClassPrx(const MyClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -1059,10 +1057,8 @@ public:
     void _iceI_opMyStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyStruct1>>&, const MyStruct1&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
@@ -1120,10 +1116,8 @@ struct AnotherStruct
 {
     ::std::string s;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(s);
@@ -1136,10 +1130,8 @@ struct Structure
     ::Test::MyEnum e;
     ::Test::AnotherStruct s;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::optional<::Test::MyClassPrx>&, const ::Test::MyEnum&, const ::Test::AnotherStruct&> ice_tuple() const
     {
         return std::tie(p, e, s);
@@ -1151,10 +1143,8 @@ struct MyStruct
     ::std::int32_t i;
     ::std::int32_t j;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i, j);
@@ -1167,10 +1157,8 @@ struct MyStruct1
     ::std::optional<::Test::MyClassPrx> myClass;
     ::std::string myStruct1;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::optional<::Test::MyClassPrx>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(tesT, myClass, myStruct1);
@@ -1180,14 +1168,10 @@ struct MyStruct1
 class MyClass1 : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     MyClass1() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     MyClass1(::std::string tesT, ::std::optional<::Test::MyClassPrx> myClass, ::std::string myClass1) noexcept :
         tesT(::std::move(tesT)),
         myClass(::std::move(myClass)),
@@ -1195,27 +1179,21 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::optional<::Test::MyClassPrx>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(tesT, myClass, myClass1);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     MyClass1Ptr ice_clone() const { return ::std::static_pointer_cast<MyClass1>(_iceCloneImpl()); }
 
     ::std::string tesT;
@@ -1249,24 +1227,18 @@ public:
 
     using ProxyType = MyClassPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
@@ -1589,16 +1561,12 @@ public:
     void _iceD_opWStringLiterals(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Marshaled result structure for operation opMStruct1Async.
-     */
+    /// Marshaled result structure for operation opMStruct1Async.
     class OpMStruct1MarshaledResult : public ::Ice::MarshaledResult
     {
     public:
-        /**
-         * Marshals the results immediately.
-         * @param current The Current object for the invocation.
-         */
+        /// Marshals the results immediately.
+        /// @param current The Current object for the invocation.
         OpMStruct1MarshaledResult(const Structure& returnValue, const ::Ice::Current& current);
     };
 
@@ -1607,16 +1575,12 @@ public:
     void _iceD_opMStruct1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Marshaled result structure for operation opMStruct2Async.
-     */
+    /// Marshaled result structure for operation opMStruct2Async.
     class OpMStruct2MarshaledResult : public ::Ice::MarshaledResult
     {
     public:
-        /**
-         * Marshals the results immediately.
-         * @param current The Current object for the invocation.
-         */
+        /// Marshals the results immediately.
+        /// @param current The Current object for the invocation.
         OpMStruct2MarshaledResult(const Structure& returnValue, const Structure& p2, const ::Ice::Current& current);
     };
 
@@ -1625,16 +1589,12 @@ public:
     void _iceD_opMStruct2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Marshaled result structure for operation opMSeq1Async.
-     */
+    /// Marshaled result structure for operation opMSeq1Async.
     class OpMSeq1MarshaledResult : public ::Ice::MarshaledResult
     {
     public:
-        /**
-         * Marshals the results immediately.
-         * @param current The Current object for the invocation.
-         */
+        /// Marshals the results immediately.
+        /// @param current The Current object for the invocation.
         OpMSeq1MarshaledResult(const StringS& returnValue, const ::Ice::Current& current);
     };
 
@@ -1643,16 +1603,12 @@ public:
     void _iceD_opMSeq1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Marshaled result structure for operation opMSeq2Async.
-     */
+    /// Marshaled result structure for operation opMSeq2Async.
     class OpMSeq2MarshaledResult : public ::Ice::MarshaledResult
     {
     public:
-        /**
-         * Marshals the results immediately.
-         * @param current The Current object for the invocation.
-         */
+        /// Marshals the results immediately.
+        /// @param current The Current object for the invocation.
         OpMSeq2MarshaledResult(const StringS& returnValue, const StringS& p2, const ::Ice::Current& current);
     };
 
@@ -1661,16 +1617,12 @@ public:
     void _iceD_opMSeq2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Marshaled result structure for operation opMDict1Async.
-     */
+    /// Marshaled result structure for operation opMDict1Async.
     class OpMDict1MarshaledResult : public ::Ice::MarshaledResult
     {
     public:
-        /**
-         * Marshals the results immediately.
-         * @param current The Current object for the invocation.
-         */
+        /// Marshals the results immediately.
+        /// @param current The Current object for the invocation.
         OpMDict1MarshaledResult(const StringStringD& returnValue, const ::Ice::Current& current);
     };
 
@@ -1679,16 +1631,12 @@ public:
     void _iceD_opMDict1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Marshaled result structure for operation opMDict2Async.
-     */
+    /// Marshaled result structure for operation opMDict2Async.
     class OpMDict2MarshaledResult : public ::Ice::MarshaledResult
     {
     public:
-        /**
-         * Marshals the results immediately.
-         * @param current The Current object for the invocation.
-         */
+        /// Marshals the results immediately.
+        /// @param current The Current object for the invocation.
         OpMDict2MarshaledResult(const StringStringD& returnValue, const StringStringD& p2, const ::Ice::Current& current);
     };
 
@@ -1710,24 +1658,18 @@ public:
 
     using ProxyType = MyDerivedClassPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual void opDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;

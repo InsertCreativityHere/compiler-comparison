@@ -56,10 +56,8 @@ namespace Test
 class BaseException : public ::Ice::UserException
 {
 public:
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -75,33 +73,25 @@ protected:
 class InvalidPointException : public BaseException
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     InvalidPointException() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     InvalidPointException(::std::int32_t index) noexcept :
         BaseException(),
         index(index)
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(index);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -119,33 +109,25 @@ protected:
 class InvalidLengthException : public BaseException
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     InvalidLengthException() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     InvalidLengthException(::std::int32_t length) noexcept :
         BaseException(),
         length(length)
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(length);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -163,14 +145,10 @@ protected:
 class OtherException : public ::Ice::UserException
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     OtherException() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     OtherException(::std::int32_t x, ::std::int32_t y, ::std::int32_t z, bool b) noexcept :
         x(x),
         y(y),
@@ -179,19 +157,15 @@ public:
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const bool&> ice_tuple() const
     {
         return std::tie(x, y, z, b);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -215,10 +189,8 @@ struct PointF
     float y;
     float z;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const float&, const float&, const float&> ice_tuple() const
     {
         return std::tie(x, y, z);
@@ -231,10 +203,8 @@ struct PointD
     double y;
     double z;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const double&, const double&, const double&> ice_tuple() const
     {
         return std::tie(x, y, z);
@@ -246,10 +216,8 @@ struct Point
     ::std::int32_t x;
     ::std::int32_t y;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(x, y);
@@ -260,10 +228,8 @@ struct Polyline
 {
     ::Test::Points vertices;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::Points&> ice_tuple() const
     {
         return std::tie(vertices);
@@ -277,10 +243,8 @@ struct Color
     ::std::int32_t b;
     ::std::int32_t a;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(r, g, b, a);
@@ -291,10 +255,8 @@ struct ColorPalette
 {
     ::Test::StringColorMap colors;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::StringColorMap&> ice_tuple() const
     {
         return std::tie(colors);
@@ -304,41 +266,31 @@ struct ColorPalette
 class Pen : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     Pen() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     Pen(::std::int32_t thickness, ::Test::Color color) noexcept :
         thickness(thickness),
         color(::std::move(color))
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&, const ::Test::Color&> ice_tuple() const
     {
         return std::tie(thickness, color);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     PenPtr ice_clone() const { return ::std::static_pointer_cast<Pen>(_iceCloneImpl()); }
 
     ::std::int32_t thickness;
@@ -359,10 +311,8 @@ struct Draw
     ::Test::PenPtr pen;
     bool shared;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::Color&, const ::Test::PenPtr&, const bool&> ice_tuple() const
     {
         return std::tie(backgroundColor, pen, shared);

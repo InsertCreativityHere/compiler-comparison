@@ -27,34 +27,22 @@
 
 namespace DataStorm
 {
-    /**
-     * The sample event matches the operation used by the DataWriter to update the data element. It also provides
-     * information on what to expect from the sample. A sample with the Add or Update event always provide a value
-     * while a sample with the Remove type doesn't.
-     */
+    /// The sample event matches the operation used by the DataWriter to update the data element. It also provides
+    /// information on what to expect from the sample. A sample with the Add or Update event always provide a value
+    /// while a sample with the Remove type doesn't.
     enum class SampleEvent : ::std::uint8_t
     {
-        /**
-         * The element has been added.
-         */
+        /// The element has been added.
         Add,
-        /**
-         * The element has been updated.
-         */
+        /// The element has been updated.
         Update,
-        /**
-         * The element has been partially updated.
-         */
+        /// The element has been partially updated.
         PartialUpdate,
-        /**
-         * The element has been removed.
-         */
+        /// The element has been removed.
         Remove
     };
 
-    /**
-     * A sequence of sample event.
-     */
+    /// A sequence of sample event.
     using SampleEventSeq = ::std::vector<SampleEvent>;
 
 }

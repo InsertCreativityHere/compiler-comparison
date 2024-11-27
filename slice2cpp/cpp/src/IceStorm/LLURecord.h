@@ -34,24 +34,16 @@ namespace IceStormElection
 namespace IceStormElection
 {
 
-/**
- * A struct used for marking the last log update.
- */
+/// A struct used for marking the last log update.
 struct LogUpdate
 {
-    /**
-     * The generation.
-     */
+    /// The generation.
     ::std::int64_t generation;
-    /**
-     * The iteration within this generation.
-     */
+    /// The iteration within this generation.
     ::std::int64_t iteration;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(generation, iteration);

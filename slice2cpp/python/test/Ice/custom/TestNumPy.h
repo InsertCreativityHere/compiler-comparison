@@ -276,10 +276,8 @@ public:
     void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     CustomPrx(const CustomPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -332,14 +330,10 @@ namespace NumPy
 class D : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     D() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     D(::std::optional<::Test::NumPy::BoolSeq1> boolSeq, ::std::optional<::Test::NumPy::ByteSeq1> byteSeq, ::std::optional<::Test::NumPy::ShortSeq1> shortSeq, ::std::optional<::Test::NumPy::IntSeq1> intSeq, ::std::optional<::Test::NumPy::LongSeq1> longSeq, ::std::optional<::Test::NumPy::FloatSeq1> floatSeq, ::std::optional<::Test::NumPy::DoubleSeq1> doubleSeq) noexcept :
         boolSeq(::std::move(boolSeq)),
         byteSeq(::std::move(byteSeq)),
@@ -351,27 +345,21 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::optional<::Test::NumPy::BoolSeq1>&, const ::std::optional<::Test::NumPy::ByteSeq1>&, const ::std::optional<::Test::NumPy::ShortSeq1>&, const ::std::optional<::Test::NumPy::IntSeq1>&, const ::std::optional<::Test::NumPy::LongSeq1>&, const ::std::optional<::Test::NumPy::FloatSeq1>&, const ::std::optional<::Test::NumPy::DoubleSeq1>&> ice_tuple() const
     {
         return std::tie(boolSeq, byteSeq, shortSeq, intSeq, longSeq, floatSeq, doubleSeq);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     DPtr ice_clone() const { return ::std::static_pointer_cast<D>(_iceCloneImpl()); }
 
     ::std::optional<::Test::NumPy::BoolSeq1> boolSeq;
@@ -407,24 +395,18 @@ public:
 
     using ProxyType = CustomPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual BoolSeq1 opBoolSeq(BoolSeq1 v1, BoolSeq2& v2, const ::Ice::Current& current) = 0;

@@ -357,10 +357,8 @@ public:
     void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     CustomPrx(const CustomPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -416,10 +414,8 @@ struct S
     ::Test::StringTuple s3;
     ::Test::StringTuple s4;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::ByteString&, const ::Test::ByteString&, const ::Test::ByteList&, const ::Test::ByteList&, const ::Test::StringList&, const ::Test::StringList&, const ::Test::StringTuple&, const ::Test::StringTuple&> ice_tuple() const
     {
         return std::tie(b1, b2, b3, b4, s1, s2, s3, s4);
@@ -429,14 +425,10 @@ struct S
 class C : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     C() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     C(::Test::ByteString b1, ::Test::ByteString b2, ::Test::ByteList b3, ::Test::ByteList b4, ::Test::StringList s1, ::Test::StringList s2, ::Test::StringTuple s3, ::Test::StringTuple s4) noexcept :
         b1(::std::move(b1)),
         b2(::std::move(b2)),
@@ -449,27 +441,21 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Test::ByteString&, const ::Test::ByteString&, const ::Test::ByteList&, const ::Test::ByteList&, const ::Test::StringList&, const ::Test::StringList&, const ::Test::StringTuple&, const ::Test::StringTuple&> ice_tuple() const
     {
         return std::tie(b1, b2, b3, b4, s1, s2, s3, s4);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
 
     ::Test::ByteString b1;
@@ -493,14 +479,10 @@ protected:
 class D : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     D() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     D(::std::optional<::Test::BoolSeq1> boolSeq, ::std::optional<::Test::ByteSeq1> byteSeq, ::std::optional<::Test::ShortSeq1> shortSeq, ::std::optional<::Test::IntSeq1> intSeq, ::std::optional<::Test::LongSeq1> longSeq, ::std::optional<::Test::FloatSeq1> floatSeq, ::std::optional<::Test::DoubleSeq1> doubleSeq) noexcept :
         boolSeq(::std::move(boolSeq)),
         byteSeq(::std::move(byteSeq)),
@@ -512,27 +494,21 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::optional<::Test::BoolSeq1>&, const ::std::optional<::Test::ByteSeq1>&, const ::std::optional<::Test::ShortSeq1>&, const ::std::optional<::Test::IntSeq1>&, const ::std::optional<::Test::LongSeq1>&, const ::std::optional<::Test::FloatSeq1>&, const ::std::optional<::Test::DoubleSeq1>&> ice_tuple() const
     {
         return std::tie(boolSeq, byteSeq, shortSeq, intSeq, longSeq, floatSeq, doubleSeq);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     DPtr ice_clone() const { return ::std::static_pointer_cast<D>(_iceCloneImpl()); }
 
     ::std::optional<::Test::BoolSeq1> boolSeq;
@@ -570,24 +546,18 @@ public:
 
     using ProxyType = CustomPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     virtual ByteString opByteString1(ByteString b1, ByteString& b2, const ::Ice::Current& current) = 0;

@@ -40,70 +40,44 @@ namespace IceStorm
 namespace IceStorm
 {
 
-/**
- * The key for persistent subscribers, or topics.
- * If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
- * otherwise the record holds a subscription record.
- */
+/// The key for persistent subscribers, or topics.
+/// If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
+/// otherwise the record holds a subscription record.
 struct SubscriberRecordKey
 {
-    /**
-     * The topic identity.
-     */
+    /// The topic identity.
     ::Ice::Identity topic;
-    /**
-     * The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
-     */
+    /// The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
     ::Ice::Identity id;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::Ice::Identity&, const ::Ice::Identity&> ice_tuple() const
     {
         return std::tie(topic, id);
     }
 };
 
-/**
- * Used to store persistent information for persistent subscribers.
- */
+/// Used to store persistent information for persistent subscribers.
 struct SubscriberRecord
 {
-    /**
-     * The name of the topic.
-     */
+    /// The name of the topic.
     ::std::string topicName;
-    /**
-     * The subscriber identity.
-     */
+    /// The subscriber identity.
     ::Ice::Identity id;
-    /**
-     * Is this a link record, or a subscriber record?
-     */
+    /// Is this a link record, or a subscriber record?
     bool link;
-    /**
-     * The subscriber object.
-     */
+    /// The subscriber object.
     ::std::optional<::Ice::ObjectPrx> obj;
-    /**
-     * The QoS.
-     */
+    /// The QoS.
     ::IceStorm::QoS theQoS;
-    /**
-     * The cost.
-     */
+    /// The cost.
     ::std::int32_t cost;
-    /**
-     * The linked topic.
-     */
+    /// The linked topic.
     ::std::optional<::IceStorm::TopicPrx> theTopic;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::Ice::Identity&, const bool&, const ::std::optional<::Ice::ObjectPrx>&, const ::IceStorm::QoS&, const ::std::int32_t&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
     {
         return std::tie(topicName, id, link, obj, theQoS, cost, theTopic);

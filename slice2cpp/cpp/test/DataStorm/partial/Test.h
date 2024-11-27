@@ -40,10 +40,8 @@ struct Stock
     float lastBid;
     float laskAsk;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const float&, const float&, const float&> ice_tuple() const
     {
         return std::tie(price, lastBid, laskAsk);

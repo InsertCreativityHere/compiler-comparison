@@ -44,41 +44,25 @@ namespace Glacier2
 namespace Glacier2
 {
 
-/**
- * Information taken from an SSL connection used for permissions verification.
- * @see PermissionsVerifier
- */
+/// Information taken from an SSL connection used for permissions verification.
+/// @see PermissionsVerifier
 struct SSLInfo
 {
-    /**
-     * The remote host.
-     */
+    /// The remote host.
     ::std::string remoteHost;
-    /**
-     * The remote port.
-     */
+    /// The remote port.
     ::std::int32_t remotePort;
-    /**
-     * The router's host.
-     */
+    /// The router's host.
     ::std::string localHost;
-    /**
-     * The router's port.
-     */
+    /// The router's port.
     ::std::int32_t localPort;
-    /**
-     * The negotiated cipher suite.
-     */
+    /// The negotiated cipher suite.
     ::std::string cipher;
-    /**
-     * The certificate chain.
-     */
+    /// The certificate chain.
     ::Ice::StringSeq certs;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
     {
         return std::tie(remoteHost, remotePort, localHost, localPort, cipher, certs);

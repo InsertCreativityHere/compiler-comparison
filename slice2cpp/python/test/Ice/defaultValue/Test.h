@@ -141,10 +141,8 @@ struct Struct1
     double zeroD = 0;
     double zeroDotD = 0;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
@@ -174,10 +172,8 @@ struct Struct2
     double zeroD = ::Test::ConstZeroD;
     double zeroDotD = ::Test::ConstZeroDotD;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
@@ -187,14 +183,10 @@ struct Struct2
 class Base : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     Base() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     Base(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) noexcept :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
@@ -215,27 +207,21 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     BasePtr ice_clone() const { return ::std::static_pointer_cast<Base>(_iceCloneImpl()); }
 
     bool boolFalse = false;
@@ -267,14 +253,10 @@ protected:
 class Derived : public Base
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     Derived() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     Derived(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
         Base(boolFalse, boolTrue, b, s, i, l, f, d, ::std::move(str), ::std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
@@ -286,27 +268,21 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     DerivedPtr ice_clone() const { return ::std::static_pointer_cast<Derived>(_iceCloneImpl()); }
 
     ::Test::Color c1 = ::Test::Color::red;
@@ -328,14 +304,10 @@ protected:
 class BaseEx : public ::Ice::UserException
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     BaseEx() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     BaseEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) noexcept :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
@@ -356,19 +328,15 @@ public:
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -401,14 +369,10 @@ protected:
 class DerivedEx : public BaseEx
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     DerivedEx() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     DerivedEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
         BaseEx(boolFalse, boolTrue, b, s, i, l, f, d, ::std::move(str), ::std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
@@ -420,19 +384,15 @@ public:
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -456,10 +416,8 @@ struct InnerStruct
 {
     ::std::int32_t a;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(a);
@@ -482,10 +440,8 @@ struct StructNoDefaults
     ::Test::IntStringDict dict;
     ::Test::InnerStruct st;
 
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the struct's data members.
+    /// @return The data members in a tuple.
     std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::IntSeq&, const ::Test::IntStringDict&, const ::Test::InnerStruct&> ice_tuple() const
     {
         return std::tie(bo, b, s, i, l, f, d, str, c1, bs, iseq, dict, st);
@@ -495,14 +451,10 @@ struct StructNoDefaults
 class ExceptionNoDefaultsBase : public ::Ice::UserException
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     ExceptionNoDefaultsBase() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     ExceptionNoDefaultsBase(::std::string str, Color c1, ByteSeq bs) noexcept :
         str(::std::move(str)),
         c1(c1),
@@ -510,19 +462,15 @@ public:
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
     {
         return std::tie(str, c1, bs);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -542,14 +490,10 @@ protected:
 class ExceptionNoDefaults : public ExceptionNoDefaultsBase
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     ExceptionNoDefaults() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     ExceptionNoDefaults(::std::string str, Color c1, ByteSeq bs, InnerStruct st, IntStringDict dict) noexcept :
         ExceptionNoDefaultsBase(::std::move(str), c1, ::std::move(bs)),
         st(::std::move(st)),
@@ -557,19 +501,15 @@ public:
     {
     }
 
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the exception's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
     {
         return std::tie(str, c1, bs, st, dict);
     }
 
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this exception.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
@@ -588,14 +528,10 @@ protected:
 class ClassNoDefaultsBase : public ::Ice::Value
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     ClassNoDefaultsBase() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     ClassNoDefaultsBase(::std::string str, ::Test::Color c1, ::Test::ByteSeq bs) noexcept :
         str(::std::move(str)),
         c1(c1),
@@ -603,27 +539,21 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
     {
         return std::tie(str, c1, bs);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     ClassNoDefaultsBasePtr ice_clone() const { return ::std::static_pointer_cast<ClassNoDefaultsBase>(_iceCloneImpl()); }
 
     ::std::string str;
@@ -642,14 +572,10 @@ protected:
 class ClassNoDefaults : public ClassNoDefaultsBase
 {
 public:
-    /**
-     * Default constructor.
-     */
+    /// Default constructor.
     ClassNoDefaults() noexcept = default;
 
-    /**
-     * One-shot constructor to initialize all data members.
-     */
+    /// One-shot constructor to initialize all data members.
     ClassNoDefaults(::std::string str, ::Test::Color c1, ::Test::ByteSeq bs, ::Test::InnerStruct st, ::Test::IntStringDict dict) noexcept :
         ClassNoDefaultsBase(::std::move(str), c1, ::std::move(bs)),
         st(::std::move(st)),
@@ -657,27 +583,21 @@ public:
     {
     }
 
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
     const char* ice_id() const noexcept override;
 
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
+    /// Obtains a tuple containing all of the value's data members.
+    /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
     {
         return std::tie(str, c1, bs, st, dict);
     }
 
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
     ClassNoDefaultsPtr ice_clone() const { return ::std::static_pointer_cast<ClassNoDefaults>(_iceCloneImpl()); }
 
     ::Test::InnerStruct st;

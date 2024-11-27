@@ -38,36 +38,30 @@ class HoldPrx : public ::Ice::Proxy<HoldPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    /**
-     * Puts the adapter on hold, and optionally reactivates it.
-     * @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
-     * immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
-     * milliseconds, puts the adapter on hold and then immediately reactivates it.
-     * @param context The Context map to send with the invocation.
-     */
+    /// Puts the adapter on hold, and optionally reactivates it.
+    /// @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+    /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+    /// milliseconds, puts the adapter on hold and then immediately reactivates it.
+    /// @param context The Context map to send with the invocation.
     void putOnHold(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Puts the adapter on hold, and optionally reactivates it.
-     * @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
-     * immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
-     * milliseconds, puts the adapter on hold and then immediately reactivates it.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Puts the adapter on hold, and optionally reactivates it.
+    /// @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+    /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+    /// milliseconds, puts the adapter on hold and then immediately reactivates it.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<void> putOnHoldAsync(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Puts the adapter on hold, and optionally reactivates it.
-     * @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
-     * immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
-     * milliseconds, puts the adapter on hold and then immediately reactivates it.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Puts the adapter on hold, and optionally reactivates it.
+    /// @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+    /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+    /// milliseconds, puts the adapter on hold and then immediately reactivates it.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     putOnHoldAsync(::std::int32_t delay, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -75,27 +69,21 @@ public:
     void _iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Starts a background task that calls waitForHold and activate on the adapter.
-     * @param context The Context map to send with the invocation.
-     */
+    /// Starts a background task that calls waitForHold and activate on the adapter.
+    /// @param context The Context map to send with the invocation.
     void waitForHold(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Starts a background task that calls waitForHold and activate on the adapter.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Starts a background task that calls waitForHold and activate on the adapter.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<void> waitForHoldAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Starts a background task that calls waitForHold and activate on the adapter.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Starts a background task that calls waitForHold and activate on the adapter.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     waitForHoldAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -103,27 +91,21 @@ public:
     void _iceI_waitForHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Shuts down the server.
-     * @param context The Context map to send with the invocation.
-     */
+    /// Shuts down the server.
+    /// @param context The Context map to send with the invocation.
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Shuts down the server.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
+    /// Shuts down the server.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /**
-     * Shuts down the server.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
+    /// Shuts down the server.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -131,10 +113,8 @@ public:
     void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID of this interface.
+    /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
     HoldPrx(const HoldPrx& other) noexcept : ::Ice::ObjectPrx(other)
     {
@@ -185,51 +165,39 @@ public:
 
     using ProxyType = HoldPrx;
 
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
+    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A list of fully-scoped type IDs.
     ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+    /// @param current The Current object for the invocation.
+    /// @return A fully-scoped type ID.
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
+    /// Obtains the Slice type ID corresponding to this interface.
+    /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    /**
-     * Puts the adapter on hold, and optionally reactivates it.
-     * @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
-     * immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
-     * milliseconds, puts the adapter on hold and then immediately reactivates it.
-     * @param current The Current object for the invocation.
-     */
+    /// Puts the adapter on hold, and optionally reactivates it.
+    /// @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+    /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+    /// milliseconds, puts the adapter on hold and then immediately reactivates it.
+    /// @param current The Current object for the invocation.
     virtual void putOnHold(::std::int32_t delay, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_putOnHold(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Starts a background task that calls waitForHold and activate on the adapter.
-     * @param current The Current object for the invocation.
-     */
+    /// Starts a background task that calls waitForHold and activate on the adapter.
+    /// @param current The Current object for the invocation.
     virtual void waitForHold(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_waitForHold(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /**
-     * Shuts down the server.
-     * @param current The Current object for the invocation.
-     */
+    /// Shuts down the server.
+    /// @param current The Current object for the invocation.
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
