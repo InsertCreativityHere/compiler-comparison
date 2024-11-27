@@ -970,9 +970,9 @@ public extension implicitPrx {
                                        userException:{ ex in
                                            do  {
                                                throw ex
-                                           } catch let error as fixed {
-                                               throw error
                                            } catch let error as foreach {
+                                               throw error
+                                           } catch let error as fixed {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
