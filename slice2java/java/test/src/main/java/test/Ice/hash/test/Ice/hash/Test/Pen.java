@@ -49,7 +49,7 @@ public class Pen extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -4634673612505131404L;
+    private static final long serialVersionUID = 8277400242305110941L;
 
     /** @hidden */
     @Override

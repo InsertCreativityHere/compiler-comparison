@@ -4516,9 +4516,9 @@ public extension AdminSessionPrx {
                                                throw ex
                                            } catch let error as RegistryNotExistException {
                                                throw error
-                                           } catch let error as FileNotAvailableException {
-                                               throw error
                                            } catch let error as RegistryUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
@@ -4552,9 +4552,9 @@ public extension AdminSessionPrx {
                                                throw ex
                                            } catch let error as RegistryNotExistException {
                                                throw error
-                                           } catch let error as FileNotAvailableException {
-                                               throw error
                                            } catch let error as RegistryUnreachableException {
+                                               throw error
+                                           } catch let error as FileNotAvailableException {
                                                throw error
                                            } catch is Ice.UserException {}
                                        },
