@@ -15,21 +15,25 @@
 
 package DataStormContract;
 
+/**
+ * Provides information about an element, which can be a key, a filter, or a tag. Includes the element's ID, name,
+ * and encoded value.
+ **/
 public class ElementInfo implements java.lang.Cloneable,
                                     java.io.Serializable
 {
     /**
-     * The key or filter id.
+     * The unique identifier of the element. Filter IDs are negative.
      **/
     public long id;
 
     /**
-     * The filter name.
+     * The name of the filter. This field is empty for key and tag elements.
      **/
     public String name;
 
     /**
-     * The key or filter value.
+     * The encoded value of the element.
      **/
     public byte[] value;
 
@@ -172,5 +176,5 @@ public class ElementInfo implements java.lang.Cloneable,
     private static final ElementInfo _nullMarshalValue = new ElementInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 5169020400460329181L;
+    private static final long serialVersionUID = -3357770935069405114L;
 }

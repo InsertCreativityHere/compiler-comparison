@@ -75,6 +75,10 @@ namespace DataStormContract
 
     struct TopicInfo;
 
+    /**
+     * Represents a sequence of active topics used for transmitting topic information during session establishment.
+     * @see Session#announceTopics
+     */
     using TopicInfoSeq = ::std::vector<TopicInfo>;
 
     struct TopicSpec;
@@ -120,34 +124,43 @@ class SessionPrx : public ::Ice::Proxy<SessionPrx, ::Ice::ObjectPrx>
 public:
 
     /**
-     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-     * while a subscriber session announces the topics it reads.
-     * @param topics The topics to announce.
-     * @param initialize currently unused.
+     * Announces existing topics to the peer during session establishment.
+     * A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+     *
+     * The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+     * @param topics The sequence of topics to announce.
+     * @param initialize Currently unused.
      * @param context The Context map to send with the invocation.
+     * @see attachTopic
      */
     void announceTopics(const TopicInfoSeq& topics, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-     * while a subscriber session announces the topics it reads.
-     * @param topics The topics to announce.
-     * @param initialize currently unused.
+     * Announces existing topics to the peer during session establishment.
+     * A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+     *
+     * The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+     * @param topics The sequence of topics to announce.
+     * @param initialize Currently unused.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
+     * @see attachTopic
      */
     [[nodiscard]] ::std::future<void> announceTopicsAsync(const TopicInfoSeq& topics, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-     * while a subscriber session announces the topics it reads.
-     * @param topics The topics to announce.
-     * @param initialize currently unused.
+     * Announces existing topics to the peer during session establishment.
+     * A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+     *
+     * The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+     * @param topics The sequence of topics to announce.
+     * @param initialize Currently unused.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
      * @param context The Context map to send with the invocation.
      * @return A function that can be called to cancel the invocation locally.
+     * @see attachTopic
      */
     ::std::function<void()>
     announceTopicsAsync(const TopicInfoSeq& topics, bool initialize, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -156,10 +169,42 @@ public:
     void _iceI_announceTopics(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const TopicInfoSeq&, bool, const ::Ice::Context&) const;
     /// \endcond
 
+    /**
+     * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+     *
+     * This method is called if the session is interested in the announced topic, which occurs when:
+     * - The session has a reader for a topic that the peer has a writer for, or
+     * - The session has a writer for a topic that the peer has a reader for.
+     * @param topic The TopicSpec object describing the topic being attached to the remote topic.
+     * @param context The Context map to send with the invocation.
+     */
     void attachTopic(const TopicSpec& topic, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /**
+     * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+     *
+     * This method is called if the session is interested in the announced topic, which occurs when:
+     * - The session has a reader for a topic that the peer has a writer for, or
+     * - The session has a writer for a topic that the peer has a reader for.
+     * @param topic The TopicSpec object describing the topic being attached to the remote topic.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
     [[nodiscard]] ::std::future<void> attachTopicAsync(const TopicSpec& topic, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /**
+     * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+     *
+     * This method is called if the session is interested in the announced topic, which occurs when:
+     * - The session has a reader for a topic that the peer has a writer for, or
+     * - The session has a writer for a topic that the peer has a reader for.
+     * @param topic The TopicSpec object describing the topic being attached to the remote topic.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
     ::std::function<void()>
     attachTopicAsync(const TopicSpec& topic, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -200,12 +245,44 @@ public:
     void _iceI_detachTags(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ::Ice::LongSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    void announceElements(::std::int64_t topic, const ElementInfoSeq& keys, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /**
+     * Announces new elements to the peer.
+     * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+     * key readers, key writers, and filter readers associated with the specified topic.
+     * @param topic The ID of the topic associated with the elements.
+     * @param elements The sequence of elements to announce.
+     * @param context The Context map to send with the invocation.
+     * @see attachElements
+     */
+    void announceElements(::std::int64_t topic, const ElementInfoSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> announceElementsAsync(::std::int64_t topic, const ElementInfoSeq& keys, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /**
+     * Announces new elements to the peer.
+     * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+     * key readers, key writers, and filter readers associated with the specified topic.
+     * @param topic The ID of the topic associated with the elements.
+     * @param elements The sequence of elements to announce.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     * @see attachElements
+     */
+    [[nodiscard]] ::std::future<void> announceElementsAsync(::std::int64_t topic, const ElementInfoSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /**
+     * Announces new elements to the peer.
+     * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+     * key readers, key writers, and filter readers associated with the specified topic.
+     * @param topic The ID of the topic associated with the elements.
+     * @param elements The sequence of elements to announce.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     * @see attachElements
+     */
     ::std::function<void()>
-    announceElementsAsync(::std::int64_t topic, const ElementInfoSeq& keys, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    announceElementsAsync(::std::int64_t topic, const ElementInfoSeq& elements, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_announceElements(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ElementInfoSeq&, const ::Ice::Context&) const;
@@ -616,24 +693,24 @@ public:
     /**
      * Announce a topic reader.
      * @param topic The name of the topic.
-     * @param node The node reading the topic. The proxy is never null.
+     * @param subscriber The node reading the topic. The subscriber proxy is never null.
      * @param context The Context map to send with the invocation.
      */
-    void announceTopicReader(::std::string_view topic, const ::std::optional<NodePrx>& node, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void announceTopicReader(::std::string_view topic, const ::std::optional<NodePrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Announce a topic reader.
      * @param topic The name of the topic.
-     * @param node The node reading the topic. The proxy is never null.
+     * @param subscriber The node reading the topic. The subscriber proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    [[nodiscard]] ::std::future<void> announceTopicReaderAsync(::std::string_view topic, const ::std::optional<NodePrx>& node, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> announceTopicReaderAsync(::std::string_view topic, const ::std::optional<NodePrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Announce a topic reader.
      * @param topic The name of the topic.
-     * @param node The node reading the topic. The proxy is never null.
+     * @param subscriber The node reading the topic. The subscriber proxy is never null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -641,7 +718,7 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    announceTopicReaderAsync(::std::string_view topic, const ::std::optional<NodePrx>& node, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    announceTopicReaderAsync(::std::string_view topic, const ::std::optional<NodePrx>& subscriber, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_announceTopicReader(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::std::optional<NodePrx>&, const ::Ice::Context&) const;
@@ -860,18 +937,22 @@ struct DataSamples
     }
 };
 
+/**
+ * Provides information about an element, which can be a key, a filter, or a tag. Includes the element's ID, name,
+ * and encoded value.
+ */
 struct ElementInfo
 {
     /**
-     * The key or filter id.
+     * The unique identifier of the element. Filter IDs are negative.
      */
     ::std::int64_t id;
     /**
-     * The filter name.
+     * The name of the filter. This field is empty for key and tag elements.
      */
     ::std::string name;
     /**
-     * The key or filter value.
+     * The encoded value of the element.
      */
     ::Ice::ByteSeq value;
 
@@ -885,14 +966,26 @@ struct ElementInfo
     }
 };
 
+/**
+ * Provides information about a topic, including its name and the list of active topic reader or topic writer IDs.
+ *
+ * There is a unique `TopicInfo` for all topic instances with the same name, representing a single logical topic.
+ * Each instance has its own topic reader and topic writer, which are lazily initialized and have a unique ID.
+ * @see Session#announceTopics
+ */
 struct TopicInfo
 {
     /**
-     * The topic name.
+     * The name of the topic.
      */
     ::std::string name;
     /**
-     * The id of topic writers or readers.
+     * The list of active topic reader or topic writer IDs for the topic.
+     *
+     * - In a publisher session announcing topics to a subscriber session, this contains the active topic writer
+     * IDs.
+     * - In a subscriber session announcing topics to a publisher session, this contains the active topic reader
+     * IDs.
      */
     ::Ice::LongSeq ids;
 
@@ -906,10 +999,15 @@ struct TopicInfo
     }
 };
 
+/**
+ * Provides detailed information about topic readers and topic writers, including its ID, name, keys, filters,
+ * and tags.
+ * @see Session#attachTopic
+ */
 struct TopicSpec
 {
     /**
-     * The id of the topic.
+     * The ID of the topic.
      */
     ::std::int64_t id;
     /**
@@ -917,7 +1015,7 @@ struct TopicSpec
      */
     ::std::string name;
     /**
-     * The topic keys or filters.
+     * The topic's keys and filters.
      */
     ::DataStormContract::ElementInfoSeq elements;
     /**
@@ -1037,6 +1135,9 @@ struct ElementData
     }
 };
 
+/**
+ * Provides detailed information about elements that can be either a key or a filter.
+ */
 struct ElementSpec
 {
     /**
@@ -1048,7 +1149,7 @@ struct ElementSpec
      */
     ::std::int64_t id;
     /**
-     * The name of the filter.
+     * The name of the filter. This field is empty for key elements.
      */
     ::std::string name;
     /**
@@ -1183,17 +1284,29 @@ public:
     static const char* ice_staticId() noexcept;
 
     /**
-     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-     * while a subscriber session announces the topics it reads.
-     * @param topics The topics to announce.
-     * @param initialize currently unused.
+     * Announces existing topics to the peer during session establishment.
+     * A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+     *
+     * The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+     * @param topics The sequence of topics to announce.
+     * @param initialize Currently unused.
      * @param current The Current object for the invocation.
+     * @see attachTopic
      */
     virtual void announceTopics(TopicInfoSeq topics, bool initialize, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_announceTopics(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
+    /**
+     * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+     *
+     * This method is called if the session is interested in the announced topic, which occurs when:
+     * - The session has a reader for a topic that the peer has a writer for, or
+     * - The session has a writer for a topic that the peer has a reader for.
+     * @param topic The TopicSpec object describing the topic being attached to the remote topic.
+     * @param current The Current object for the invocation.
+     */
     virtual void attachTopic(TopicSpec topic, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_attachTopic(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
@@ -1214,7 +1327,16 @@ public:
     void _iceD_detachTags(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void announceElements(::std::int64_t topic, ElementInfoSeq keys, const ::Ice::Current& current) = 0;
+    /**
+     * Announces new elements to the peer.
+     * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+     * key readers, key writers, and filter readers associated with the specified topic.
+     * @param topic The ID of the topic associated with the elements.
+     * @param elements The sequence of elements to announce.
+     * @param current The Current object for the invocation.
+     * @see attachElements
+     */
+    virtual void announceElements(::std::int64_t topic, ElementInfoSeq elements, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_announceElements(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -1437,10 +1559,10 @@ public:
     /**
      * Announce a topic reader.
      * @param topic The name of the topic.
-     * @param node The node reading the topic. The proxy is never null.
+     * @param subscriber The node reading the topic. The subscriber proxy is never null.
      * @param current The Current object for the invocation.
      */
-    virtual void announceTopicReader(::std::string topic, ::std::optional<NodePrx> node, const ::Ice::Current& current) = 0;
+    virtual void announceTopicReader(::std::string topic, ::std::optional<NodePrx> subscriber, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_announceTopicReader(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

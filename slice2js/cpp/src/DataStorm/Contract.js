@@ -111,6 +111,10 @@ Ice.defineStruct(DataStormContract.DataSamples, false, true);
 
 DataStormContract.DataSamplesSeqHelper = Ice.StreamHelpers.generateSeqHelper(DataStormContract.DataSamples, false);
 
+/**
+ * Provides information about an element, which can be a key, a filter, or a tag. Includes the element's ID, name,
+ * and encoded value.
+ **/
 DataStormContract.ElementInfo = class
 {
     constructor(id = new Ice.Long(0, 0), name = "", value = null)
@@ -144,6 +148,13 @@ Ice.defineStruct(DataStormContract.ElementInfo, false, true);
 
 DataStormContract.ElementInfoSeqHelper = Ice.StreamHelpers.generateSeqHelper(DataStormContract.ElementInfo, false);
 
+/**
+ * Provides information about a topic, including its name and the list of active topic reader or topic writer IDs.
+ *
+ * There is a unique `TopicInfo` for all topic instances with the same name, representing a single logical topic.
+ * Each instance has its own topic reader and topic writer, which are lazily initialized and have a unique ID.
+ * @see Session#announceTopics
+ **/
 DataStormContract.TopicInfo = class
 {
     constructor(name = "", ids = null)
@@ -174,6 +185,11 @@ Ice.defineStruct(DataStormContract.TopicInfo, false, true);
 
 DataStormContract.TopicInfoSeqHelper = Ice.StreamHelpers.generateSeqHelper(DataStormContract.TopicInfo, false);
 
+/**
+ * Provides detailed information about topic readers and topic writers, including its ID, name, keys, filters,
+ * and tags.
+ * @see Session#attachTopic
+ **/
 DataStormContract.TopicSpec = class
 {
     constructor(id = new Ice.Long(0, 0), name = "", elements = null, tags = null)
@@ -314,6 +330,9 @@ Ice.defineStruct(DataStormContract.ElementData, false, true);
 
 DataStormContract.ElementDataSeqHelper = Ice.StreamHelpers.generateSeqHelper(DataStormContract.ElementData, false);
 
+/**
+ * Provides detailed information about elements that can be either a key or a filter.
+ **/
 DataStormContract.ElementSpec = class
 {
     constructor(elements = null, id = new Ice.Long(0, 0), name = "", value = null, peerId = new Ice.Long(0, 0), peerName = "")

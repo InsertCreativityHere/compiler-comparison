@@ -1,3 +1,14 @@
+% ElementSpec   Summary of ElementSpec
+%
+% Provides detailed information about elements that can be either a key or a filter.
+%
+% ElementSpec Properties:
+%   elements - The readers and writers associated with the key or filter.
+%   id - The id of the key or filter.
+%   name - The name of the filter.
+%   value - The value of the key or filter.
+%   peerId - The id of the key or filter from the peer.
+%   peerName - The name of the filter from the peer.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
@@ -8,7 +19,7 @@ classdef ElementSpec
         elements
         % id - The id of the key or filter.
         id int64
-        % name - The name of the filter.
+        % name - The name of the filter. This field is empty for key elements.
         name char
         % value - The value of the key or filter.
         value

@@ -21,33 +21,33 @@
 
 classdef LookupPrx < Ice.ObjectPrx
     methods
-        function announceTopicReader(obj, topic, node, varargin)
+        function announceTopicReader(obj, topic, subscriber, varargin)
             % announceTopicReader   Announce a topic reader.
             %
             % Parameters:
             %   topic (char) - The name of the topic.
-            %   node (DataStormContract.NodePrx) - The node reading the topic. The proxy is never null.
+            %   subscriber (DataStormContract.NodePrx) - The node reading the topic. The subscriber proxy is never null.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(topic);
-            os_.writeProxy(node);
+            os_.writeProxy(subscriber);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('announceTopicReader', 2, false, os_, false, {}, varargin{:});
         end
-        function r_ = announceTopicReaderAsync(obj, topic, node, varargin)
+        function r_ = announceTopicReaderAsync(obj, topic, subscriber, varargin)
             % announceTopicReaderAsync   Announce a topic reader.
             %
             % Parameters:
             %   topic (char) - The name of the topic.
-            %   node (DataStormContract.NodePrx) - The node reading the topic. The proxy is never null.
+            %   subscriber (DataStormContract.NodePrx) - The node reading the topic. The subscriber proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(topic);
-            os_.writeProxy(node);
+            os_.writeProxy(subscriber);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('announceTopicReader', 2, false, os_, 0, [], {}, varargin{:});
         end

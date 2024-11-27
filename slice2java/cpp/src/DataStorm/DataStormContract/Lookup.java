@@ -25,10 +25,10 @@ public interface Lookup extends com.zeroc.Ice.Object
     /**
      * Announce a topic reader.
      * @param topic The name of the topic.
-     * @param node The node reading the topic. The proxy is never null.
+     * @param subscriber The node reading the topic. The subscriber proxy is never null.
      * @param current The Current object for the invocation.
      **/
-    void announceTopicReader(String topic, NodePrx node, com.zeroc.Ice.Current current);
+    void announceTopicReader(String topic, NodePrx subscriber, com.zeroc.Ice.Current current);
 
     /**
      * Announce a topic writer.
@@ -86,11 +86,11 @@ public interface Lookup extends com.zeroc.Ice.Object
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         String iceP_topic;
-        NodePrx iceP_node;
+        NodePrx iceP_subscriber;
         iceP_topic = istr.readString();
-        iceP_node = NodePrx.uncheckedCast(istr.readProxy());
+        iceP_subscriber = NodePrx.uncheckedCast(istr.readProxy());
         istr.endEncapsulation();
-        obj.announceTopicReader(iceP_topic, iceP_node, request.current);
+        obj.announceTopicReader(iceP_topic, iceP_subscriber, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 

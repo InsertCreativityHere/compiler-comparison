@@ -1,14 +1,23 @@
+% ElementInfo   Summary of ElementInfo
+%
+% Provides information about an element, which can be a key, a filter, or a tag. Includes the element's ID, name,
+% and encoded value.
+%
+% ElementInfo Properties:
+%   id - The unique identifier of the element.
+%   name - The name of the filter.
+%   value - The encoded value of the element.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ElementInfo
     properties
-        % id - The key or filter id.
+        % id - The unique identifier of the element. Filter IDs are negative.
         id int64
-        % name - The filter name.
+        % name - The name of the filter. This field is empty for key and tag elements.
         name char
-        % value - The key or filter value.
+        % value - The encoded value of the element.
         value
     end
     methods

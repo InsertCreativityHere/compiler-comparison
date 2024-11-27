@@ -18,10 +18,14 @@ package DataStormContract;
 public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-     * while a subscriber session announces the topics it reads.
-     * @param topics The topics to announce.
-     * @param initialize currently unused.
+     * Announces existing topics to the peer during session establishment.
+     * A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+     *
+     * The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+     * @param topics The sequence of topics to announce.
+     * @param initialize Currently unused.
+     *
+     * @see attachTopic
      **/
     default void announceTopics(TopicInfo[] topics, boolean initialize)
     {
@@ -29,11 +33,15 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-     * while a subscriber session announces the topics it reads.
-     * @param topics The topics to announce.
-     * @param initialize currently unused.
+     * Announces existing topics to the peer during session establishment.
+     * A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+     *
+     * The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+     * @param topics The sequence of topics to announce.
+     * @param initialize Currently unused.
      * @param context The Context map to send with the invocation.
+     *
+     * @see attachTopic
      **/
     default void announceTopics(TopicInfo[] topics, boolean initialize, java.util.Map<String, String> context)
     {
@@ -41,11 +49,15 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-     * while a subscriber session announces the topics it reads.
-     * @param topics The topics to announce.
-     * @param initialize currently unused.
+     * Announces existing topics to the peer during session establishment.
+     * A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+     *
+     * The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+     * @param topics The sequence of topics to announce.
+     * @param initialize Currently unused.
      * @return A future that will be completed when the invocation completes.
+     *
+     * @see attachTopic
      **/
     default java.util.concurrent.CompletableFuture<Void> announceTopicsAsync(TopicInfo[] topics, boolean initialize)
     {
@@ -53,12 +65,16 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-     * while a subscriber session announces the topics it reads.
-     * @param topics The topics to announce.
-     * @param initialize currently unused.
+     * Announces existing topics to the peer during session establishment.
+     * A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+     *
+     * The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+     * @param topics The sequence of topics to announce.
+     * @param initialize Currently unused.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
+     *
+     * @see attachTopic
      **/
     default java.util.concurrent.CompletableFuture<Void> announceTopicsAsync(TopicInfo[] topics, boolean initialize, java.util.Map<String, String> context)
     {
@@ -83,21 +99,57 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    /**
+     * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+     *
+     * This method is called if the session is interested in the announced topic, which occurs when:
+     * - The session has a reader for a topic that the peer has a writer for, or
+     * - The session has a writer for a topic that the peer has a reader for.
+     * @param topic The TopicSpec object describing the topic being attached to the remote topic.
+     **/
     default void attachTopic(TopicSpec topic)
     {
         attachTopic(topic, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+     *
+     * This method is called if the session is interested in the announced topic, which occurs when:
+     * - The session has a reader for a topic that the peer has a writer for, or
+     * - The session has a writer for a topic that the peer has a reader for.
+     * @param topic The TopicSpec object describing the topic being attached to the remote topic.
+     * @param context The Context map to send with the invocation.
+     **/
     default void attachTopic(TopicSpec topic, java.util.Map<String, String> context)
     {
         _iceI_attachTopicAsync(topic, context, true).waitForResponse();
     }
 
+    /**
+     * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+     *
+     * This method is called if the session is interested in the announced topic, which occurs when:
+     * - The session has a reader for a topic that the peer has a writer for, or
+     * - The session has a writer for a topic that the peer has a reader for.
+     * @param topic The TopicSpec object describing the topic being attached to the remote topic.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> attachTopicAsync(TopicSpec topic)
     {
         return _iceI_attachTopicAsync(topic, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+     *
+     * This method is called if the session is interested in the announced topic, which occurs when:
+     * - The session has a reader for a topic that the peer has a writer for, or
+     * - The session has a writer for a topic that the peer has a reader for.
+     * @param topic The TopicSpec object describing the topic being attached to the remote topic.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> attachTopicAsync(TopicSpec topic, java.util.Map<String, String> context)
     {
         return _iceI_attachTopicAsync(topic, context, false);
@@ -233,40 +285,80 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void announceElements(long topic, ElementInfo[] keys)
+    /**
+     * Announces new elements to the peer.
+     * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+     * key readers, key writers, and filter readers associated with the specified topic.
+     * @param topic The ID of the topic associated with the elements.
+     * @param elements The sequence of elements to announce.
+     *
+     * @see attachElements
+     **/
+    default void announceElements(long topic, ElementInfo[] elements)
     {
-        announceElements(topic, keys, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        announceElements(topic, elements, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void announceElements(long topic, ElementInfo[] keys, java.util.Map<String, String> context)
+    /**
+     * Announces new elements to the peer.
+     * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+     * key readers, key writers, and filter readers associated with the specified topic.
+     * @param topic The ID of the topic associated with the elements.
+     * @param elements The sequence of elements to announce.
+     * @param context The Context map to send with the invocation.
+     *
+     * @see attachElements
+     **/
+    default void announceElements(long topic, ElementInfo[] elements, java.util.Map<String, String> context)
     {
-        _iceI_announceElementsAsync(topic, keys, context, true).waitForResponse();
+        _iceI_announceElementsAsync(topic, elements, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> announceElementsAsync(long topic, ElementInfo[] keys)
+    /**
+     * Announces new elements to the peer.
+     * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+     * key readers, key writers, and filter readers associated with the specified topic.
+     * @param topic The ID of the topic associated with the elements.
+     * @param elements The sequence of elements to announce.
+     * @return A future that will be completed when the invocation completes.
+     *
+     * @see attachElements
+     **/
+    default java.util.concurrent.CompletableFuture<Void> announceElementsAsync(long topic, ElementInfo[] elements)
     {
-        return _iceI_announceElementsAsync(topic, keys, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_announceElementsAsync(topic, elements, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> announceElementsAsync(long topic, ElementInfo[] keys, java.util.Map<String, String> context)
+    /**
+     * Announces new elements to the peer.
+     * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+     * key readers, key writers, and filter readers associated with the specified topic.
+     * @param topic The ID of the topic associated with the elements.
+     * @param elements The sequence of elements to announce.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     *
+     * @see attachElements
+     **/
+    default java.util.concurrent.CompletableFuture<Void> announceElementsAsync(long topic, ElementInfo[] elements, java.util.Map<String, String> context)
     {
-        return _iceI_announceElementsAsync(topic, keys, context, false);
+        return _iceI_announceElementsAsync(topic, elements, context, false);
     }
 
     /**
      * @hidden
      * @param iceP_topic -
-     * @param iceP_keys -
+     * @param iceP_elements -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_announceElementsAsync(long iceP_topic, ElementInfo[] iceP_keys, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_announceElementsAsync(long iceP_topic, ElementInfo[] iceP_elements, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "announceElements", null, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeLong(iceP_topic);
-                     ElementInfoSeqHelper.write(ostr, iceP_keys);
+                     ElementInfoSeqHelper.write(ostr, iceP_elements);
                  }, null);
         return f;
     }

@@ -25,61 +25,61 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Announce a topic reader.
      * @param topic The name of the topic.
-     * @param node The node reading the topic. The proxy is never null.
+     * @param subscriber The node reading the topic. The subscriber proxy is never null.
      **/
-    default void announceTopicReader(String topic, NodePrx node)
+    default void announceTopicReader(String topic, NodePrx subscriber)
     {
-        announceTopicReader(topic, node, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        announceTopicReader(topic, subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
     /**
      * Announce a topic reader.
      * @param topic The name of the topic.
-     * @param node The node reading the topic. The proxy is never null.
+     * @param subscriber The node reading the topic. The subscriber proxy is never null.
      * @param context The Context map to send with the invocation.
      **/
-    default void announceTopicReader(String topic, NodePrx node, java.util.Map<String, String> context)
+    default void announceTopicReader(String topic, NodePrx subscriber, java.util.Map<String, String> context)
     {
-        _iceI_announceTopicReaderAsync(topic, node, context, true).waitForResponse();
+        _iceI_announceTopicReaderAsync(topic, subscriber, context, true).waitForResponse();
     }
 
     /**
      * Announce a topic reader.
      * @param topic The name of the topic.
-     * @param node The node reading the topic. The proxy is never null.
+     * @param subscriber The node reading the topic. The subscriber proxy is never null.
      * @return A future that will be completed when the invocation completes.
      **/
-    default java.util.concurrent.CompletableFuture<Void> announceTopicReaderAsync(String topic, NodePrx node)
+    default java.util.concurrent.CompletableFuture<Void> announceTopicReaderAsync(String topic, NodePrx subscriber)
     {
-        return _iceI_announceTopicReaderAsync(topic, node, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_announceTopicReaderAsync(topic, subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
     /**
      * Announce a topic reader.
      * @param topic The name of the topic.
-     * @param node The node reading the topic. The proxy is never null.
+     * @param subscriber The node reading the topic. The subscriber proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
-    default java.util.concurrent.CompletableFuture<Void> announceTopicReaderAsync(String topic, NodePrx node, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> announceTopicReaderAsync(String topic, NodePrx subscriber, java.util.Map<String, String> context)
     {
-        return _iceI_announceTopicReaderAsync(topic, node, context, false);
+        return _iceI_announceTopicReaderAsync(topic, subscriber, context, false);
     }
 
     /**
      * @hidden
      * @param iceP_topic -
-     * @param iceP_node -
+     * @param iceP_subscriber -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_announceTopicReaderAsync(String iceP_topic, NodePrx iceP_node, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_announceTopicReaderAsync(String iceP_topic, NodePrx iceP_subscriber, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "announceTopicReader", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(false, context, null, ostr -> {
                      ostr.writeString(iceP_topic);
-                     ostr.writeProxy(iceP_node);
+                     ostr.writeProxy(iceP_subscriber);
                  }, null);
         return f;
     }

@@ -593,8 +593,8 @@ module ::DataStormContract
                 SessionPrx_mixin::OP_detachTags.invoke(self, [topic, tags], context)
             end
 
-            def announceElements(topic, keys, context=nil)
-                SessionPrx_mixin::OP_announceElements.invoke(self, [topic, keys], context)
+            def announceElements(topic, elements, context=nil)
+                SessionPrx_mixin::OP_announceElements.invoke(self, [topic, elements], context)
             end
 
             def attachElements(topic, elements, initialize, context=nil)
@@ -717,8 +717,8 @@ module ::DataStormContract
     if not defined?(::DataStormContract::LookupPrx)
         module LookupPrx_mixin
 
-            def announceTopicReader(topic, node, context=nil)
-                LookupPrx_mixin::OP_announceTopicReader.invoke(self, [topic, node], context)
+            def announceTopicReader(topic, subscriber, context=nil)
+                LookupPrx_mixin::OP_announceTopicReader.invoke(self, [topic, subscriber], context)
             end
 
             def announceTopicWriter(topic, node, context=nil)

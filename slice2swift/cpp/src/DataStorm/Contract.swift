@@ -428,12 +428,14 @@ public struct DataSamplesSeqHelper {
     }
 }
 
+/// Provides information about an element, which can be a key, a filter, or a tag. Includes the element's ID, name,
+/// and encoded value.
 public struct ElementInfo {
-    /// The key or filter id.
+    /// The unique identifier of the element. Filter IDs are negative.
     public var id: Swift.Int64 = 0
-    /// The filter name.
+    /// The name of the filter. This field is empty for key and tag elements.
     public var name: Swift.String = ""
-    /// The key or filter value.
+    /// The encoded value of the element.
     public var value: Ice.ByteSeq = Ice.ByteSeq()
 
     public init() {}
@@ -562,10 +564,19 @@ public struct ElementInfoSeqHelper {
     }
 }
 
+/// Provides information about a topic, including its name and the list of active topic reader or topic writer IDs.
+///
+/// There is a unique `TopicInfo` for all topic instances with the same name, representing a single logical topic.
+/// Each instance has its own topic reader and topic writer, which are lazily initialized and have a unique ID.
 public struct TopicInfo {
-    /// The topic name.
+    /// The name of the topic.
     public var name: Swift.String = ""
-    /// The id of topic writers or readers.
+    /// The list of active topic reader or topic writer IDs for the topic.
+    ///
+    /// - In a publisher session announcing topics to a subscriber session, this contains the active topic writer
+    /// IDs.
+    /// - In a subscriber session announcing topics to a publisher session, this contains the active topic reader
+    /// IDs.
     public var ids: Ice.LongSeq = Ice.LongSeq()
 
     public init() {}
@@ -627,6 +638,7 @@ public extension Ice.OutputStream {
     }
 }
 
+/// Represents a sequence of active topics used for transmitting topic information during session establishment.
 public typealias TopicInfoSeq = [TopicInfo]
 
 /// Helper class to read and write `TopicInfoSeq` sequence values from
@@ -691,12 +703,14 @@ public struct TopicInfoSeqHelper {
     }
 }
 
+/// Provides detailed information about topic readers and topic writers, including its ID, name, keys, filters,
+/// and tags.
 public struct TopicSpec {
-    /// The id of the topic.
+    /// The ID of the topic.
     public var id: Swift.Int64 = 0
     /// The name of the topic.
     public var name: Swift.String = ""
-    /// The topic keys or filters.
+    /// The topic's keys and filters.
     public var elements: ElementInfoSeq = ElementInfoSeq()
     /// The topic update tags.
     public var tags: ElementInfoSeq = ElementInfoSeq()
@@ -963,12 +977,13 @@ public struct ElementDataSeqHelper {
     }
 }
 
+/// Provides detailed information about elements that can be either a key or a filter.
 public class ElementSpec {
     /// The readers and writers associated with the key or filter.
     public var elements: ElementDataSeq = ElementDataSeq()
     /// The id of the key or filter.
     public var id: Swift.Int64 = 0
-    /// The name of the filter.
+    /// The name of the filter. This field is empty for key elements.
     public var name: Swift.String = ""
     /// The value of the key or filter.
     public var value: Ice.ByteSeq = Ice.ByteSeq()
@@ -1520,12 +1535,14 @@ public extension Ice.InputStream {
 }
 
 public extension SessionPrx {
-    /// Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-    /// while a subscriber session announces the topics it reads.
+    /// Announces existing topics to the peer during session establishment.
+    /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+    ///
+    /// The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
     ///
     /// - Parameters:
-    ///   - iceP_topics: The topics to announce.
-    ///   - iceP_initialize: currently unused.
+    ///   - iceP_topics: The sequence of topics to announce.
+    ///   - iceP_initialize: Currently unused.
     ///   - context: Optional request context.
     func announceTopics(topics iceP_topics: TopicInfoSeq, initialize iceP_initialize: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "announceTopics",
@@ -1537,6 +1554,15 @@ public extension SessionPrx {
                                        context: context)
     }
 
+    /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+    ///
+    /// This method is called if the session is interested in the announced topic, which occurs when:
+    /// - The session has a reader for a topic that the peer has a writer for, or
+    /// - The session has a writer for a topic that the peer has a reader for.
+    ///
+    /// - Parameters:
+    ///   - iceP_topic: The TopicSpec object describing the topic being attached to the remote topic.
+    ///   - context: Optional request context.
     func attachTopic(_ iceP_topic: TopicSpec, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "attachTopic",
                                        mode: .Normal,
@@ -1576,12 +1602,20 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    func announceElements(topic iceP_topic: Swift.Int64, keys iceP_keys: ElementInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+    /// Announces new elements to the peer.
+    /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+    /// key readers, key writers, and filter readers associated with the specified topic.
+    ///
+    /// - Parameters:
+    ///   - iceP_topic: The ID of the topic associated with the elements.
+    ///   - iceP_elements: The sequence of elements to announce.
+    ///   - context: Optional request context.
+    func announceElements(topic iceP_topic: Swift.Int64, elements iceP_elements: ElementInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "announceElements",
                                        mode: .Normal,
                                        write: { ostr in
                                            ostr.write(iceP_topic)
-                                           ElementInfoSeqHelper.write(to: ostr, value: iceP_keys)
+                                           ElementInfoSeqHelper.write(to: ostr, value: iceP_elements)
                                        },
                                        context: context)
     }
@@ -2105,14 +2139,14 @@ public extension LookupPrx {
     ///
     /// - Parameters:
     ///   - iceP_topic: The name of the topic.
-    ///   - iceP_node: The node reading the topic. The proxy is never null.
+    ///   - iceP_subscriber: The node reading the topic. The subscriber proxy is never null.
     ///   - context: Optional request context.
-    func announceTopicReader(topic iceP_topic: Swift.String, node iceP_node: NodePrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
+    func announceTopicReader(topic iceP_topic: Swift.String, subscriber iceP_subscriber: NodePrx?, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "announceTopicReader",
                                        mode: .Idempotent,
                                        write: { ostr in
                                            ostr.write(iceP_topic)
-                                           ostr.write(iceP_node)
+                                           ostr.write(iceP_subscriber)
                                        },
                                        context: context)
     }
@@ -2289,15 +2323,26 @@ public struct SessionDisp: Ice.Dispatcher {
 }
 
 public protocol Session {
-    /// Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-    /// while a subscriber session announces the topics it reads.
+    /// Announces existing topics to the peer during session establishment.
+    /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+    ///
+    /// The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
     ///
     /// - Parameters:
-    ///   - topics: The topics to announce.
-    ///   - initialize: currently unused.
+    ///   - topics: The sequence of topics to announce.
+    ///   - initialize: Currently unused.
     ///   - current: The Current object for the dispatch.
     func announceTopics(topics: TopicInfoSeq, initialize: Swift.Bool, current: Ice.Current) async throws
 
+    /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+    ///
+    /// This method is called if the session is interested in the announced topic, which occurs when:
+    /// - The session has a reader for a topic that the peer has a writer for, or
+    /// - The session has a writer for a topic that the peer has a reader for.
+    ///
+    /// - Parameters:
+    ///   - topic: The TopicSpec object describing the topic being attached to the remote topic.
+    ///   - current: The Current object for the dispatch.
     func attachTopic(topic: TopicSpec, current: Ice.Current) async throws
 
     func detachTopic(topic: Swift.Int64, current: Ice.Current) async throws
@@ -2306,7 +2351,15 @@ public protocol Session {
 
     func detachTags(topic: Swift.Int64, tags: Ice.LongSeq, current: Ice.Current) async throws
 
-    func announceElements(topic: Swift.Int64, keys: ElementInfoSeq, current: Ice.Current) async throws
+    /// Announces new elements to the peer.
+    /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+    /// key readers, key writers, and filter readers associated with the specified topic.
+    ///
+    /// - Parameters:
+    ///   - topic: The ID of the topic associated with the elements.
+    ///   - elements: The sequence of elements to announce.
+    ///   - current: The Current object for the dispatch.
+    func announceElements(topic: Swift.Int64, elements: ElementInfoSeq, current: Ice.Current) async throws
 
     func attachElements(topic: Swift.Int64, elements: ElementSpecSeq, initialize: Swift.Bool, current: Ice.Current) async throws
 
@@ -2535,9 +2588,9 @@ public protocol Lookup {
     ///
     /// - Parameters:
     ///   - topic: The name of the topic.
-    ///   - node: The node reading the topic. The proxy is never null.
+    ///   - subscriber: The node reading the topic. The subscriber proxy is never null.
     ///   - current: The Current object for the dispatch.
-    func announceTopicReader(topic: Swift.String, node: NodePrx?, current: Ice.Current) async throws
+    func announceTopicReader(topic: Swift.String, subscriber: NodePrx?, current: Ice.Current) async throws
 
     /// Announce a topic writer.
     ///
@@ -2621,8 +2674,8 @@ extension Session {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_topic: Swift.Int64 = try istr.read()
-        let iceP_keys: ElementInfoSeq = try ElementInfoSeqHelper.read(from: istr)
-        try await self.announceElements(topic: iceP_topic, keys: iceP_keys, current: request.current)
+        let iceP_elements: ElementInfoSeq = try ElementInfoSeqHelper.read(from: istr)
+        try await self.announceElements(topic: iceP_topic, elements: iceP_elements, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2753,8 +2806,8 @@ extension Lookup {
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
         let iceP_topic: Swift.String = try istr.read()
-        let iceP_node: NodePrx? = try istr.read(NodePrx.self)
-        try await self.announceTopicReader(topic: iceP_topic, node: iceP_node, current: request.current)
+        let iceP_subscriber: NodePrx? = try istr.read(NodePrx.self)
+        try await self.announceTopicReader(topic: iceP_topic, subscriber: iceP_subscriber, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 

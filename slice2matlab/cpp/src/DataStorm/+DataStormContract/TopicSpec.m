@@ -1,14 +1,26 @@
+% TopicSpec   Summary of TopicSpec
+%
+% Provides detailed information about topic readers and topic writers, including its ID, name, keys, filters,
+% and tags.
+%
+% TopicSpec Properties:
+%   id - The ID of the topic.
+%   name - The name of the topic.
+%   elements - The topic's keys and filters.
+%   tags - The topic update tags.
+%
+% See also DataStormContract.Session.attachTopic
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef TopicSpec
     properties
-        % id - The id of the topic.
+        % id - The ID of the topic.
         id int64
         % name - The name of the topic.
         name char
-        % elements - The topic keys or filters.
+        % elements - The topic's keys and filters.
         elements
         % tags - The topic update tags.
         tags

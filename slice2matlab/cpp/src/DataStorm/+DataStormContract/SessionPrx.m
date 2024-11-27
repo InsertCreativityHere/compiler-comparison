@@ -5,13 +5,17 @@
 classdef SessionPrx < Ice.ObjectPrx
     methods
         function announceTopics(obj, topics, initialize, varargin)
-            % announceTopics   Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-            % while a subscriber session announces the topics it reads.
+            % announceTopics   Announces existing topics to the peer during session establishment.
+            % A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+            %
+            % The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
             %
             % Parameters:
-            %   topics (DataStormContract.TopicInfoSeq) - The topics to announce.
-            %   initialize (logical) - currently unused.
+            %   topics (DataStormContract.TopicInfoSeq) - The sequence of topics to announce.
+            %   initialize (logical) - Currently unused.
             %   context (containers.Map) - Optional request context.
+            %
+            % See also DataStormContract.Session.attachTopic
             
             os_ = obj.iceStartWriteParams([]);
             DataStormContract.TopicInfoSeq.write(os_, topics);
@@ -20,15 +24,19 @@ classdef SessionPrx < Ice.ObjectPrx
             obj.iceInvoke('announceTopics', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = announceTopicsAsync(obj, topics, initialize, varargin)
-            % announceTopicsAsync   Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-            % while a subscriber session announces the topics it reads.
+            % announceTopicsAsync   Announces existing topics to the peer during session establishment.
+            % A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+            %
+            % The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
             %
             % Parameters:
-            %   topics (DataStormContract.TopicInfoSeq) - The topics to announce.
-            %   initialize (logical) - currently unused.
+            %   topics (DataStormContract.TopicInfoSeq) - The sequence of topics to announce.
+            %   initialize (logical) - Currently unused.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            %
+            % See also DataStormContract.Session.attachTopic
             
             os_ = obj.iceStartWriteParams([]);
             DataStormContract.TopicInfoSeq.write(os_, topics);
@@ -37,12 +45,34 @@ classdef SessionPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('announceTopics', 0, false, os_, 0, [], {}, varargin{:});
         end
         function attachTopic(obj, topic, varargin)
+            % attachTopic   Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+            %
+            % This method is called if the session is interested in the announced topic, which occurs when:
+            % - The session has a reader for a topic that the peer has a writer for, or
+            % - The session has a writer for a topic that the peer has a reader for.
+            %
+            % Parameters:
+            %   topic (DataStormContract.TopicSpec) - The TopicSpec object describing the topic being attached to the remote topic.
+            %   context (containers.Map) - Optional request context.
+            
             os_ = obj.iceStartWriteParams([]);
             DataStormContract.TopicSpec.ice_write(os_, topic);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('attachTopic', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = attachTopicAsync(obj, topic, varargin)
+            % attachTopicAsync   Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+            %
+            % This method is called if the session is interested in the announced topic, which occurs when:
+            % - The session has a reader for a topic that the peer has a writer for, or
+            % - The session has a writer for a topic that the peer has a reader for.
+            %
+            % Parameters:
+            %   topic (DataStormContract.TopicSpec) - The TopicSpec object describing the topic being attached to the remote topic.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
             os_ = obj.iceStartWriteParams([]);
             DataStormContract.TopicSpec.ice_write(os_, topic);
             obj.iceEndWriteParams(os_);
@@ -90,17 +120,41 @@ classdef SessionPrx < Ice.ObjectPrx
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('detachTags', 0, false, os_, 0, [], {}, varargin{:});
         end
-        function announceElements(obj, topic, keys, varargin)
+        function announceElements(obj, topic, elements, varargin)
+            % announceElements   Announces new elements to the peer.
+            % The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+            % key readers, key writers, and filter readers associated with the specified topic.
+            %
+            % Parameters:
+            %   topic (int64) - The ID of the topic associated with the elements.
+            %   elements (DataStormContract.ElementInfoSeq) - The sequence of elements to announce.
+            %   context (containers.Map) - Optional request context.
+            %
+            % See also DataStormContract.Session.attachElements
+            
             os_ = obj.iceStartWriteParams([]);
             os_.writeLong(topic);
-            DataStormContract.ElementInfoSeq.write(os_, keys);
+            DataStormContract.ElementInfoSeq.write(os_, elements);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('announceElements', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = announceElementsAsync(obj, topic, keys, varargin)
+        function r_ = announceElementsAsync(obj, topic, elements, varargin)
+            % announceElementsAsync   Announces new elements to the peer.
+            % The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+            % key readers, key writers, and filter readers associated with the specified topic.
+            %
+            % Parameters:
+            %   topic (int64) - The ID of the topic associated with the elements.
+            %   elements (DataStormContract.ElementInfoSeq) - The sequence of elements to announce.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            %
+            % See also DataStormContract.Session.attachElements
+            
             os_ = obj.iceStartWriteParams([]);
             os_.writeLong(topic);
-            DataStormContract.ElementInfoSeq.write(os_, keys);
+            DataStormContract.ElementInfoSeq.write(os_, elements);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('announceElements', 0, false, os_, 0, [], {}, varargin{:});
         end

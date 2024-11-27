@@ -15,11 +15,17 @@
 
 package DataStormContract;
 
+/**
+ * Provides detailed information about topic readers and topic writers, including its ID, name, keys, filters,
+ * and tags.
+ *
+ * @see Session#attachTopic
+ **/
 public class TopicSpec implements java.lang.Cloneable,
                                   java.io.Serializable
 {
     /**
-     * The id of the topic.
+     * The ID of the topic.
      **/
     public long id;
 
@@ -29,7 +35,7 @@ public class TopicSpec implements java.lang.Cloneable,
     public String name;
 
     /**
-     * The topic keys or filters.
+     * The topic's keys and filters.
      **/
     public ElementInfo[] elements;
 
@@ -185,5 +191,5 @@ public class TopicSpec implements java.lang.Cloneable,
     private static final TopicSpec _nullMarshalValue = new TopicSpec();
 
     /** @hidden */
-    private static final long serialVersionUID = -4899407501031219463L;
+    private static final long serialVersionUID = -283339205413108815L;
 }

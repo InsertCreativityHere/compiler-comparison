@@ -1,12 +1,29 @@
+% TopicInfo   Summary of TopicInfo
+%
+% Provides information about a topic, including its name and the list of active topic reader or topic writer IDs.
+%
+% There is a unique `TopicInfo` for all topic instances with the same name, representing a single logical topic.
+% Each instance has its own topic reader and topic writer, which are lazily initialized and have a unique ID.
+%
+% TopicInfo Properties:
+%   name - The name of the topic.
+%   ids - The list of active topic reader or topic writer IDs for the topic.
+%
+% See also DataStormContract.Session.announceTopics
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef TopicInfo
     properties
-        % name - The topic name.
+        % name - The name of the topic.
         name char
-        % ids - The id of topic writers or readers.
+        % ids - The list of active topic reader or topic writer IDs for the topic.
+        %
+        % - In a publisher session announcing topics to a subscriber session, this contains the active topic writer
+        % IDs.
+        % - In a subscriber session announcing topics to a publisher session, this contains the active topic reader
+        % IDs.
         ids
     end
     methods

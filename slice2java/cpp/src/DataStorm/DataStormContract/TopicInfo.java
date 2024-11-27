@@ -15,16 +15,29 @@
 
 package DataStormContract;
 
+/**
+ * Provides information about a topic, including its name and the list of active topic reader or topic writer IDs.
+ *
+ * There is a unique `TopicInfo` for all topic instances with the same name, representing a single logical topic.
+ * Each instance has its own topic reader and topic writer, which are lazily initialized and have a unique ID.
+ *
+ * @see Session#announceTopics
+ **/
 public class TopicInfo implements java.lang.Cloneable,
                                   java.io.Serializable
 {
     /**
-     * The topic name.
+     * The name of the topic.
      **/
     public String name;
 
     /**
-     * The id of topic writers or readers.
+     * The list of active topic reader or topic writer IDs for the topic.
+     *
+     * - In a publisher session announcing topics to a subscriber session, this contains the active topic writer
+     * IDs.
+     * - In a subscriber session announcing topics to a publisher session, this contains the active topic reader
+     * IDs.
      **/
     public long[] ids;
 
@@ -159,5 +172,5 @@ public class TopicInfo implements java.lang.Cloneable,
     private static final TopicInfo _nullMarshalValue = new TopicInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -3692085388218831776L;
+    private static final long serialVersionUID = 3620991156841121684L;
 }

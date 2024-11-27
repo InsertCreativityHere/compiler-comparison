@@ -15,6 +15,9 @@
 
 package DataStormContract;
 
+/**
+ * Provides detailed information about elements that can be either a key or a filter.
+ **/
 public class ElementSpec implements java.lang.Cloneable,
                                     java.io.Serializable
 {
@@ -29,7 +32,7 @@ public class ElementSpec implements java.lang.Cloneable,
     public long id;
 
     /**
-     * The name of the filter.
+     * The name of the filter. This field is empty for key elements.
      **/
     public String name;
 
@@ -215,5 +218,5 @@ public class ElementSpec implements java.lang.Cloneable,
     private static final ElementSpec _nullMarshalValue = new ElementSpec();
 
     /** @hidden */
-    private static final long serialVersionUID = 1725941814030446078L;
+    private static final long serialVersionUID = 8614876655054680719L;
 }

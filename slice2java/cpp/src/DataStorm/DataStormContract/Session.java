@@ -18,14 +18,27 @@ package DataStormContract;
 public interface Session extends com.zeroc.Ice.Object
 {
     /**
-     * Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-     * while a subscriber session announces the topics it reads.
-     * @param topics The topics to announce.
-     * @param initialize currently unused.
+     * Announces existing topics to the peer during session establishment.
+     * A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+     *
+     * The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+     * @param topics The sequence of topics to announce.
+     * @param initialize Currently unused.
      * @param current The Current object for the invocation.
+     *
+     * @see attachTopic
      **/
     void announceTopics(TopicInfo[] topics, boolean initialize, com.zeroc.Ice.Current current);
 
+    /**
+     * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+     *
+     * This method is called if the session is interested in the announced topic, which occurs when:
+     * - The session has a reader for a topic that the peer has a writer for, or
+     * - The session has a writer for a topic that the peer has a reader for.
+     * @param topic The TopicSpec object describing the topic being attached to the remote topic.
+     * @param current The Current object for the invocation.
+     **/
     void attachTopic(TopicSpec topic, com.zeroc.Ice.Current current);
 
     void detachTopic(long topic, com.zeroc.Ice.Current current);
@@ -34,7 +47,17 @@ public interface Session extends com.zeroc.Ice.Object
 
     void detachTags(long topic, long[] tags, com.zeroc.Ice.Current current);
 
-    void announceElements(long topic, ElementInfo[] keys, com.zeroc.Ice.Current current);
+    /**
+     * Announces new elements to the peer.
+     * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+     * key readers, key writers, and filter readers associated with the specified topic.
+     * @param topic The ID of the topic associated with the elements.
+     * @param elements The sequence of elements to announce.
+     * @param current The Current object for the invocation.
+     *
+     * @see attachElements
+     **/
+    void announceElements(long topic, ElementInfo[] elements, com.zeroc.Ice.Current current);
 
     void attachElements(long topic, ElementSpec[] elements, boolean initialize, com.zeroc.Ice.Current current);
 
@@ -150,11 +173,11 @@ public interface Session extends com.zeroc.Ice.Object
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
         long iceP_topic;
-        ElementInfo[] iceP_keys;
+        ElementInfo[] iceP_elements;
         iceP_topic = istr.readLong();
-        iceP_keys = ElementInfoSeqHelper.read(istr);
+        iceP_elements = ElementInfoSeqHelper.read(istr);
         istr.endEncapsulation();
-        obj.announceElements(iceP_topic, iceP_keys, request.current);
+        obj.announceElements(iceP_topic, iceP_elements, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 

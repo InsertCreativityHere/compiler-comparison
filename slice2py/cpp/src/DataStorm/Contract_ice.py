@@ -168,6 +168,19 @@ if '_t_DataSamplesSeq' not in _M_DataStormContract.__dict__:
 if 'ElementInfo' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ElementInfo = None
     class ElementInfo(object):
+        """
+        Provides information about an element, which can be a key, a filter, or a tag. Includes the element's ID, name,
+        and encoded value.
+        
+        Attributes
+        ----------
+        id : int
+            The unique identifier of the element. Filter IDs are negative.
+        name : str
+            The name of the filter. This field is empty for key and tag elements.
+        value : int[]
+            The encoded value of the element.
+        """
         def __init__(self, id=0, name='', value=None):
             self.id = id
             self.name = name
@@ -210,6 +223,22 @@ if '_t_ElementInfoSeq' not in _M_DataStormContract.__dict__:
 if 'TopicInfo' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.TopicInfo = None
     class TopicInfo(object):
+        """
+        Provides information about a topic, including its name and the list of active topic reader or topic writer IDs.
+        There is a unique `TopicInfo` for all topic instances with the same name, representing a single logical topic.
+        Each instance has its own topic reader and topic writer, which are lazily initialized and have a unique ID.
+        
+        Attributes
+        ----------
+        name : str
+            The name of the topic.
+        ids : int[]
+            The list of active topic reader or topic writer IDs for the topic.
+            - In a publisher session announcing topics to a subscriber session, this contains the active topic writer
+            IDs.
+            - In a subscriber session announcing topics to a publisher session, this contains the active topic reader
+            IDs.
+        """
         def __init__(self, name='', ids=None):
             self.name = name
             self.ids = ids
@@ -248,6 +277,21 @@ if '_t_TopicInfoSeq' not in _M_DataStormContract.__dict__:
 if 'TopicSpec' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.TopicSpec = None
     class TopicSpec(object):
+        """
+        Provides detailed information about topic readers and topic writers, including its ID, name, keys, filters,
+        and tags.
+        
+        Attributes
+        ----------
+        id : int
+            The ID of the topic.
+        name : str
+            The name of the topic.
+        elements : DataStormContract.ElementInfo[]
+            The topic's keys and filters.
+        tags : DataStormContract.ElementInfo[]
+            The topic update tags.
+        """
         def __init__(self, id=0, name='', elements=None, tags=None):
             self.id = id
             self.name = name
@@ -406,6 +450,24 @@ if '_t_ElementDataSeq' not in _M_DataStormContract.__dict__:
 if 'ElementSpec' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ElementSpec = None
     class ElementSpec(object):
+        """
+        Provides detailed information about elements that can be either a key or a filter.
+        
+        Attributes
+        ----------
+        elements : DataStormContract.ElementData[]
+            The readers and writers associated with the key or filter.
+        id : int
+            The id of the key or filter.
+        name : str
+            The name of the filter. This field is empty for key elements.
+        value : int[]
+            The value of the key or filter.
+        peerId : int
+            The id of the key or filter from the peer.
+        peerName : str
+            The name of the filter from the peer.
+        """
         def __init__(self, elements=None, id=0, name='', value=None, peerId=0, peerName=''):
             self.elements = elements
             self.id = id
@@ -585,15 +647,16 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def announceTopics(self, topics, initialize, context=None):
             """
-            Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-            while a subscriber session announces the topics it reads.
+            Announces existing topics to the peer during session establishment.
+            A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+            The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
             
             Parameters
             ----------
             topics : DataStormContract.TopicInfo[]
-                The topics to announce.
+                The sequence of topics to announce.
             initialize : bool
-                currently unused.
+                Currently unused.
             context : Ice.Context
                 The request context for the invocation.
             """
@@ -601,15 +664,16 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def announceTopicsAsync(self, topics, initialize, context=None):
             """
-            Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-            while a subscriber session announces the topics it reads.
+            Announces existing topics to the peer during session establishment.
+            A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+            The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
             
             Parameters
             ----------
             topics : DataStormContract.TopicInfo[]
-                The topics to announce.
+                The sequence of topics to announce.
             initialize : bool
-                currently unused.
+                Currently unused.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -621,9 +685,40 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             return _M_DataStormContract.Session._op_announceTopics.invokeAsync(self, ((topics, initialize), context))
 
         def attachTopic(self, topic, context=None):
+            """
+            Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+            This method is called if the session is interested in the announced topic, which occurs when:
+            - The session has a reader for a topic that the peer has a writer for, or
+            - The session has a writer for a topic that the peer has a reader for.
+            
+            Parameters
+            ----------
+            topic : DataStormContract.TopicSpec
+                The TopicSpec object describing the topic being attached to the remote topic.
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_DataStormContract.Session._op_attachTopic.invoke(self, ((topic, ), context))
 
         def attachTopicAsync(self, topic, context=None):
+            """
+            Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+            This method is called if the session is interested in the announced topic, which occurs when:
+            - The session has a reader for a topic that the peer has a writer for, or
+            - The session has a writer for a topic that the peer has a reader for.
+            
+            Parameters
+            ----------
+            topic : DataStormContract.TopicSpec
+                The TopicSpec object describing the topic being attached to the remote topic.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_DataStormContract.Session._op_attachTopic.invokeAsync(self, ((topic, ), context))
 
         def detachTopic(self, topic, context=None):
@@ -644,11 +739,44 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def detachTagsAsync(self, topic, tags, context=None):
             return _M_DataStormContract.Session._op_detachTags.invokeAsync(self, ((topic, tags), context))
 
-        def announceElements(self, topic, keys, context=None):
-            return _M_DataStormContract.Session._op_announceElements.invoke(self, ((topic, keys), context))
+        def announceElements(self, topic, elements, context=None):
+            """
+            Announces new elements to the peer.
+            The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+            key readers, key writers, and filter readers associated with the specified topic.
+            
+            Parameters
+            ----------
+            topic : int
+                The ID of the topic associated with the elements.
+            elements : DataStormContract.ElementInfo[]
+                The sequence of elements to announce.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_DataStormContract.Session._op_announceElements.invoke(self, ((topic, elements), context))
 
-        def announceElementsAsync(self, topic, keys, context=None):
-            return _M_DataStormContract.Session._op_announceElements.invokeAsync(self, ((topic, keys), context))
+        def announceElementsAsync(self, topic, elements, context=None):
+            """
+            Announces new elements to the peer.
+            The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+            key readers, key writers, and filter readers associated with the specified topic.
+            
+            Parameters
+            ----------
+            topic : int
+                The ID of the topic associated with the elements.
+            elements : DataStormContract.ElementInfo[]
+                The sequence of elements to announce.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_DataStormContract.Session._op_announceElements.invokeAsync(self, ((topic, elements), context))
 
         def attachElements(self, topic, elements, initialize, context=None):
             return _M_DataStormContract.Session._op_attachElements.invoke(self, ((topic, elements, initialize), context))
@@ -711,15 +839,16 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def announceTopics(self, topics, initialize, current=None):
             """
-            Called by sessions to announce topics to the peer. A publisher session announces the topics it writes,
-            while a subscriber session announces the topics it reads.
+            Announces existing topics to the peer during session establishment.
+            A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+            The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
             
             Parameters
             ----------
             topics : DataStormContract.TopicInfo[]
-                The topics to announce.
+                The sequence of topics to announce.
             initialize : bool
-                currently unused.
+                Currently unused.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -731,6 +860,24 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             raise NotImplementedError("servant method 'announceTopics' not implemented")
 
         def attachTopic(self, topic, current=None):
+            """
+            Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+            This method is called if the session is interested in the announced topic, which occurs when:
+            - The session has a reader for a topic that the peer has a writer for, or
+            - The session has a writer for a topic that the peer has a reader for.
+            
+            Parameters
+            ----------
+            topic : DataStormContract.TopicSpec
+                The TopicSpec object describing the topic being attached to the remote topic.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'attachTopic' not implemented")
 
         def detachTopic(self, topic, current=None):
@@ -742,7 +889,26 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def detachTags(self, topic, tags, current=None):
             raise NotImplementedError("servant method 'detachTags' not implemented")
 
-        def announceElements(self, topic, keys, current=None):
+        def announceElements(self, topic, elements, current=None):
+            """
+            Announces new elements to the peer.
+            The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+            key readers, key writers, and filter readers associated with the specified topic.
+            
+            Parameters
+            ----------
+            topic : int
+                The ID of the topic associated with the elements.
+            elements : DataStormContract.ElementInfo[]
+                The sequence of elements to announce.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'announceElements' not implemented")
 
         def attachElements(self, topic, elements, initialize, current=None):
@@ -1168,7 +1334,7 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
             """
             super().__init__(communicator, proxyString)
 
-        def announceTopicReader(self, topic, node, context=None):
+        def announceTopicReader(self, topic, subscriber, context=None):
             """
             Announce a topic reader.
             
@@ -1176,14 +1342,14 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
             ----------
             topic : str
                 The name of the topic.
-            node : (DataStormContract.NodePrx or None)
-                The node reading the topic. The proxy is never null.
+            subscriber : (DataStormContract.NodePrx or None)
+                The node reading the topic. The subscriber proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
             """
-            return _M_DataStormContract.Lookup._op_announceTopicReader.invoke(self, ((topic, node), context))
+            return _M_DataStormContract.Lookup._op_announceTopicReader.invoke(self, ((topic, subscriber), context))
 
-        def announceTopicReaderAsync(self, topic, node, context=None):
+        def announceTopicReaderAsync(self, topic, subscriber, context=None):
             """
             Announce a topic reader.
             
@@ -1191,8 +1357,8 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
             ----------
             topic : str
                 The name of the topic.
-            node : (DataStormContract.NodePrx or None)
-                The node reading the topic. The proxy is never null.
+            subscriber : (DataStormContract.NodePrx or None)
+                The node reading the topic. The subscriber proxy is never null.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -1201,7 +1367,7 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
             Ice.Future
                 A future object that is completed with the result of the invocation.
             """
-            return _M_DataStormContract.Lookup._op_announceTopicReader.invokeAsync(self, ((topic, node), context))
+            return _M_DataStormContract.Lookup._op_announceTopicReader.invokeAsync(self, ((topic, subscriber), context))
 
         def announceTopicWriter(self, topic, node, context=None):
             """
@@ -1342,7 +1508,7 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
         def ice_staticId():
             return '::DataStormContract::Lookup'
 
-        def announceTopicReader(self, topic, node, current=None):
+        def announceTopicReader(self, topic, subscriber, current=None):
             """
             Announce a topic reader.
             
@@ -1350,8 +1516,8 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
             ----------
             topic : str
                 The name of the topic.
-            node : (DataStormContract.NodePrx or None)
-                The node reading the topic. The proxy is never null.
+            subscriber : (DataStormContract.NodePrx or None)
+                The node reading the topic. The subscriber proxy is never null.
             current : Ice.Current
                 The Current object for the dispatch.
             
