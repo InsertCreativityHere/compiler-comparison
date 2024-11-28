@@ -13403,6 +13403,10 @@ namespace Test
 
         public abstract MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, Ice.Current current);
 
+        public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
+
+        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -13434,6 +13438,10 @@ namespace Test
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, Ice.Current current);
 
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
+
+        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
+
+        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
 
         public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
 
@@ -13507,12 +13515,6 @@ namespace Test
 
         public abstract byte opByte1(byte opByte1, Ice.Current current);
 
-        public abstract short opShort1(short opShort1, Ice.Current current);
-
-        public abstract int opInt1(int opInt1, Ice.Current current);
-
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
         public abstract float opFloat1(float opFloat1, Ice.Current current);
 
         public abstract double opDouble1(double opDouble1, Ice.Current current);
@@ -13535,13 +13537,11 @@ namespace Test
 
         public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, Ice.Current current);
 
-        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
+        public abstract short opShort1(short opShort1, Ice.Current current);
 
-        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
+        public abstract int opInt1(int opInt1, Ice.Current current);
 
-        public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
-
-        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+        public abstract long opLong1(long opLong1, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -13636,6 +13636,10 @@ namespace Test2
 {
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
+        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -13667,6 +13671,10 @@ namespace Test2
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, Ice.Current current);
 
         public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
+
+        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
 
         public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, Ice.Current current);
 
@@ -13740,12 +13748,6 @@ namespace Test2
 
         public abstract byte opByte1(byte opByte1, Ice.Current current);
 
-        public abstract short opShort1(short opShort1, Ice.Current current);
-
-        public abstract int opInt1(int opInt1, Ice.Current current);
-
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
         public abstract float opFloat1(float opFloat1, Ice.Current current);
 
         public abstract double opDouble1(double opDouble1, Ice.Current current);
@@ -13768,13 +13770,11 @@ namespace Test2
 
         public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, Ice.Current current);
 
-        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
+        public abstract short opShort1(short opShort1, Ice.Current current);
 
-        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
+        public abstract int opInt1(int opInt1, Ice.Current current);
 
-        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
-
-        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+        public abstract long opLong1(long opLong1, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
