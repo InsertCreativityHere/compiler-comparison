@@ -23,7 +23,7 @@ public class ElementInfo implements java.lang.Cloneable,
                                     java.io.Serializable
 {
     /**
-     * The unique identifier of the element. Filter IDs are negative.
+     * The ID of the element. Filter IDs are negative, while key and tag IDs are positive.
      **/
     public long id;
 
@@ -176,5 +176,5 @@ public class ElementInfo implements java.lang.Cloneable,
     private static final ElementInfo _nullMarshalValue = new ElementInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 1644299989605561206L;
+    private static final long serialVersionUID = -77340613865873559L;
 }

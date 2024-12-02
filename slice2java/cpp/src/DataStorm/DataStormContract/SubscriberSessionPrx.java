@@ -17,21 +17,49 @@ package DataStormContract;
 
 public interface SubscriberSessionPrx extends SessionPrx
 {
+    /**
+     * Queue a sample with the subscribers of the topic element.
+     * @param topicId The ID of the topic.
+     * @param elementId The ID of the element.
+     * @param sample The sample to queue.
+     **/
     default void s(long topicId, long elementId, DataSample sample)
     {
         s(topicId, elementId, sample, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Queue a sample with the subscribers of the topic element.
+     * @param topicId The ID of the topic.
+     * @param elementId The ID of the element.
+     * @param sample The sample to queue.
+     * @param context The Context map to send with the invocation.
+     **/
     default void s(long topicId, long elementId, DataSample sample, java.util.Map<String, String> context)
     {
         _iceI_sAsync(topicId, elementId, sample, context, true).waitForResponse();
     }
 
+    /**
+     * Queue a sample with the subscribers of the topic element.
+     * @param topicId The ID of the topic.
+     * @param elementId The ID of the element.
+     * @param sample The sample to queue.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> sAsync(long topicId, long elementId, DataSample sample)
     {
         return _iceI_sAsync(topicId, elementId, sample, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Queue a sample with the subscribers of the topic element.
+     * @param topicId The ID of the topic.
+     * @param elementId The ID of the element.
+     * @param sample The sample to queue.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> sAsync(long topicId, long elementId, DataSample sample, java.util.Map<String, String> context)
     {
         return _iceI_sAsync(topicId, elementId, sample, context, false);

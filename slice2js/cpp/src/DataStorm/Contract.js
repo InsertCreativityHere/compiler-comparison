@@ -28,8 +28,8 @@ const DataStorm = {
 export const DataStormContract = {};
 
 /**
- * The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
- * DataSample history in response to various events.
+ * The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
+ * history in response to various events.
  **/
 DataStormContract.ClearHistoryPolicy = Ice.defineEnum([
     ['OnAdd', 0], ['OnRemove', 1], ['OnAll', 2], ['OnAllExceptPartialUpdate', 3], ['Never', 4]]);
@@ -252,6 +252,9 @@ DataStormContract.FilterInfo = class
 
 Ice.defineStruct(DataStormContract.FilterInfo, false, true);
 
+/**
+ * Represents the configuration of a reader or writer.
+ **/
 DataStormContract.ElementConfig = class extends Ice.Value
 {
     constructor(facet = undefined, sampleFilter = undefined, name = undefined, priority = undefined, sampleCount = undefined, sampleLifetime = undefined, clearHistory = undefined)

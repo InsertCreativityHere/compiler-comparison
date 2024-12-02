@@ -16,8 +16,8 @@
 package DataStormContract;
 
 /**
- * The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
- * DataSample history in response to various events.
+ * The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
+ * history in response to various events.
  **/
 public enum ClearHistoryPolicy
 {

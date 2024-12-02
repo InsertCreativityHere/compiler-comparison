@@ -31,8 +31,8 @@
 
 namespace DataStormContract
 {
-    /// The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
-    /// DataSample history in response to various events.
+    /// The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
+    /// history in response to various events.
     enum class ClearHistoryPolicy : ::std::uint8_t
     {
         /// The reader clears its history when a new DataSample is added.
@@ -220,8 +220,9 @@ public:
     /// \endcond
 
     /// Announces new elements to the peer.
+    ///
     /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-    /// key readers, key writers, and filter readers associated with the specified topic.
+    /// the readers and writers associated with the specified topic.
     /// @param topic The ID of the topic associated with the elements.
     /// @param elements The sequence of elements to announce.
     /// @param context The Context map to send with the invocation.
@@ -229,8 +230,9 @@ public:
     void announceElements(::std::int64_t topic, const ElementInfoSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// Announces new elements to the peer.
+    ///
     /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-    /// key readers, key writers, and filter readers associated with the specified topic.
+    /// the readers and writers associated with the specified topic.
     /// @param topic The ID of the topic associated with the elements.
     /// @param elements The sequence of elements to announce.
     /// @param context The Context map to send with the invocation.
@@ -239,8 +241,9 @@ public:
     [[nodiscard]] ::std::future<void> announceElementsAsync(::std::int64_t topic, const ElementInfoSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// Announces new elements to the peer.
+    ///
     /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-    /// key readers, key writers, and filter readers associated with the specified topic.
+    /// the readers and writers associated with the specified topic.
     /// @param topic The ID of the topic associated with the elements.
     /// @param elements The sequence of elements to announce.
     /// @param response The response callback.
@@ -256,12 +259,32 @@ public:
     void _iceI_announceElements(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ElementInfoSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    void attachElements(::std::int64_t topic, const ElementSpecSeq& elements, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /// Attaches the given topic elements to all subscribers of the specified topic.
+    /// @param topicId The ID of the topic to which the elements belong.
+    /// @param elements The sequence of elements to attach to the topic's subscribers.
+    /// @param initialize True if called from attachTopic, false otherwise.
+    /// @param context The Context map to send with the invocation.
+    void attachElements(::std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> attachElementsAsync(::std::int64_t topic, const ElementSpecSeq& elements, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /// Attaches the given topic elements to all subscribers of the specified topic.
+    /// @param topicId The ID of the topic to which the elements belong.
+    /// @param elements The sequence of elements to attach to the topic's subscribers.
+    /// @param initialize True if called from attachTopic, false otherwise.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
+    [[nodiscard]] ::std::future<void> attachElementsAsync(::std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /// Attaches the given topic elements to all subscribers of the specified topic.
+    /// @param topicId The ID of the topic to which the elements belong.
+    /// @param elements The sequence of elements to attach to the topic's subscribers.
+    /// @param initialize True if called from attachTopic, false otherwise.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
-    attachElementsAsync(::std::int64_t topic, const ElementSpecSeq& elements, bool initialize, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    attachElementsAsync(::std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_attachElements(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ElementSpecSeq&, bool, const ::Ice::Context&) const;
@@ -410,10 +433,30 @@ class SubscriberSessionPrx : public ::Ice::Proxy<SubscriberSessionPrx, SessionPr
 {
 public:
 
+    /// Queue a sample with the subscribers of the topic element.
+    /// @param topicId The ID of the topic.
+    /// @param elementId The ID of the element.
+    /// @param sample The sample to queue.
+    /// @param context The Context map to send with the invocation.
     void s(::std::int64_t topicId, ::std::int64_t elementId, const DataSample& sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /// Queue a sample with the subscribers of the topic element.
+    /// @param topicId The ID of the topic.
+    /// @param elementId The ID of the element.
+    /// @param sample The sample to queue.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<void> sAsync(::std::int64_t topicId, ::std::int64_t elementId, const DataSample& sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /// Queue a sample with the subscribers of the topic element.
+    /// @param topicId The ID of the topic.
+    /// @param elementId The ID of the element.
+    /// @param sample The sample to queue.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     sAsync(::std::int64_t topicId, ::std::int64_t elementId, const DataSample& sample, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -831,7 +874,7 @@ struct DataSamples
 /// and encoded value.
 struct ElementInfo
 {
-    /// The unique identifier of the element. Filter IDs are negative.
+    /// The ID of the element. Filter IDs are negative, while key and tag IDs are positive.
     ::std::int64_t id;
     /// The name of the filter. This field is empty for key and tag elements.
     ::std::string name;
@@ -906,6 +949,7 @@ struct FilterInfo
     }
 };
 
+/// Represents the configuration of a reader or writer.
 class ElementConfig : public ::Ice::Value
 {
 public:
@@ -913,6 +957,12 @@ public:
     ElementConfig() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
+    /// @param sampleFilter An optional sample filter associated with the reader.
+    /// @param name An optional name for the reader or writer.
+    /// @param priority An optional priority for the writer.
+    /// @param sampleCount An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
+    /// @param sampleLifetime An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the writer or reader sample queue.
+    /// @param clearHistory An optional clear history policy that determines when the reader or writer sample history is cleared.
     ElementConfig(::std::optional<::std::string> facet, ::std::optional<::DataStormContract::FilterInfo> sampleFilter, ::std::optional<::std::string> name, ::std::optional<::std::int32_t> priority, ::std::optional<::std::int32_t> sampleCount, ::std::optional<::std::int32_t> sampleLifetime, ::std::optional<::DataStormContract::ClearHistoryPolicy> clearHistory) noexcept :
         facet(::std::move(facet)),
         sampleFilter(::std::move(sampleFilter)),
@@ -942,11 +992,21 @@ public:
     ElementConfigPtr ice_clone() const { return ::std::static_pointer_cast<ElementConfig>(_iceCloneImpl()); }
 
     ::std::optional<::std::string> facet;
+    /// An optional sample filter associated with the reader. Sample filters are specified on the reader side.
     ::std::optional<::DataStormContract::FilterInfo> sampleFilter;
+    /// An optional name for the reader or writer.
     ::std::optional<::std::string> name;
+    /// An optional priority for the writer.
+    /// See also the `DataStorm.Topic.Priority` property.
     ::std::optional<::std::int32_t> priority;
+    /// An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
+    /// See also the `DataStorm.Topic.SampleCount` property.
     ::std::optional<::std::int32_t> sampleCount;
+    /// An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
+    /// writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
     ::std::optional<::std::int32_t> sampleLifetime;
+    /// An optional clear history policy that determines when the reader or writer sample history is cleared.
+    /// See also the `DataStorm.Topic.ClearHistory` property.
     ::std::optional<::DataStormContract::ClearHistoryPolicy> clearHistory;
 
 protected:
@@ -1116,8 +1176,9 @@ public:
     /// \endcond
 
     /// Announces new elements to the peer.
+    ///
     /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-    /// key readers, key writers, and filter readers associated with the specified topic.
+    /// the readers and writers associated with the specified topic.
     /// @param topic The ID of the topic associated with the elements.
     /// @param elements The sequence of elements to announce.
     /// @param current The Current object for the invocation.
@@ -1127,7 +1188,12 @@ public:
     void _iceD_announceElements(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void attachElements(::std::int64_t topic, ElementSpecSeq elements, bool initialize, const ::Ice::Current& current) = 0;
+    /// Attaches the given topic elements to all subscribers of the specified topic.
+    /// @param topicId The ID of the topic to which the elements belong.
+    /// @param elements The sequence of elements to attach to the topic's subscribers.
+    /// @param initialize True if called from attachTopic, false otherwise.
+    /// @param current The Current object for the invocation.
+    virtual void attachElements(::std::int64_t topicId, ElementSpecSeq elements, bool initialize, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_attachElements(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -1206,6 +1272,11 @@ public:
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
+    /// Queue a sample with the subscribers of the topic element.
+    /// @param topicId The ID of the topic.
+    /// @param elementId The ID of the element.
+    /// @param sample The sample to queue.
+    /// @param current The Current object for the invocation.
     virtual void s(::std::int64_t topicId, ::std::int64_t elementId, DataSample sample, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_s(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);

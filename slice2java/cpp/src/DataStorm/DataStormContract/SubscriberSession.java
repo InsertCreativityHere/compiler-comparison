@@ -17,6 +17,13 @@ package DataStormContract;
 
 public interface SubscriberSession extends Session
 {
+    /**
+     * Queue a sample with the subscribers of the topic element.
+     * @param topicId The ID of the topic.
+     * @param elementId The ID of the element.
+     * @param sample The sample to queue.
+     * @param current The Current object for the invocation.
+     **/
     void s(long topicId, long elementId, DataSample sample, com.zeroc.Ice.Current current);
 
     /** @hidden */

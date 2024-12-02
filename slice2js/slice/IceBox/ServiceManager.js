@@ -190,8 +190,8 @@ Ice.defineOperations(
     {
         "startService": [, , , , [[7]], ,
         [
-            IceBox.AlreadyStartedException,
-            IceBox.NoSuchServiceException
+            IceBox.NoSuchServiceException,
+            IceBox.AlreadyStartedException
         ], , ],
         "stopService": [, , , , [[7]], ,
         [

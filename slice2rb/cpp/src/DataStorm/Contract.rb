@@ -597,8 +597,8 @@ module ::DataStormContract
                 SessionPrx_mixin::OP_announceElements.invoke(self, [topic, elements], context)
             end
 
-            def attachElements(topic, elements, initialize, context=nil)
-                SessionPrx_mixin::OP_attachElements.invoke(self, [topic, elements, initialize], context)
+            def attachElements(topicId, elements, initialize, context=nil)
+                SessionPrx_mixin::OP_attachElements.invoke(self, [topicId, elements, initialize], context)
             end
 
             def attachElementsAck(topic, elements, context=nil)

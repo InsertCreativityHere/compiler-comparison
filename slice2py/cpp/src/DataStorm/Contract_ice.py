@@ -35,8 +35,8 @@ if 'ClearHistoryPolicy' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ClearHistoryPolicy = None
     class ClearHistoryPolicy(Ice.EnumBase):
         """
-        The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
-        DataSample history in response to various events.
+        The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
+        history in response to various events.
         Enumerators:
         OnAdd -- The reader clears its history when a new DataSample is added.
         OnRemove -- The reader clears its history when a DataSample is removed.
@@ -175,7 +175,7 @@ if 'ElementInfo' not in _M_DataStormContract.__dict__:
         Attributes
         ----------
         id : int
-            The unique identifier of the element. Filter IDs are negative.
+            The ID of the element. Filter IDs are negative, while key and tag IDs are positive.
         name : str
             The name of the filter. This field is empty for key and tag elements.
         value : int[]
@@ -370,6 +370,29 @@ if 'FilterInfo' not in _M_DataStormContract.__dict__:
 if 'ElementConfig' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ElementConfig = None
     class ElementConfig(Ice.Value):
+        """
+        Represents the configuration of a reader or writer.
+        
+        Attributes
+        ----------
+        facet : (str or None)
+        sampleFilter : (DataStormContract.FilterInfo or None)
+            An optional sample filter associated with the reader. Sample filters are specified on the reader side.
+        name : (str or None)
+            An optional name for the reader or writer.
+        priority : (int or None)
+            An optional priority for the writer.
+            See also the `DataStorm.Topic.Priority` property.
+        sampleCount : (int or None)
+            An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
+            See also the `DataStorm.Topic.SampleCount` property.
+        sampleLifetime : (int or None)
+            An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
+            writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
+        clearHistory : (DataStormContract.ClearHistoryPolicy or None)
+            An optional clear history policy that determines when the reader or writer sample history is cleared.
+            See also the `DataStorm.Topic.ClearHistory` property.
+        """
         def __init__(self, facet=None, sampleFilter=None, name=None, priority=None, sampleCount=None, sampleLifetime=None, clearHistory=None):
             self.facet = facet
             self.sampleFilter = sampleFilter
@@ -743,7 +766,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             """
             Announces new elements to the peer.
             The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-            key readers, key writers, and filter readers associated with the specified topic.
+            the readers and writers associated with the specified topic.
             
             Parameters
             ----------
@@ -760,7 +783,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             """
             Announces new elements to the peer.
             The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-            key readers, key writers, and filter readers associated with the specified topic.
+            the readers and writers associated with the specified topic.
             
             Parameters
             ----------
@@ -778,11 +801,44 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             """
             return _M_DataStormContract.Session._op_announceElements.invokeAsync(self, ((topic, elements), context))
 
-        def attachElements(self, topic, elements, initialize, context=None):
-            return _M_DataStormContract.Session._op_attachElements.invoke(self, ((topic, elements, initialize), context))
+        def attachElements(self, topicId, elements, initialize, context=None):
+            """
+            Attaches the given topic elements to all subscribers of the specified topic.
+            
+            Parameters
+            ----------
+            topicId : int
+                The ID of the topic to which the elements belong.
+            elements : DataStormContract.ElementSpec[]
+                The sequence of elements to attach to the topic's subscribers.
+            initialize : bool
+                True if called from attachTopic, false otherwise.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_DataStormContract.Session._op_attachElements.invoke(self, ((topicId, elements, initialize), context))
 
-        def attachElementsAsync(self, topic, elements, initialize, context=None):
-            return _M_DataStormContract.Session._op_attachElements.invokeAsync(self, ((topic, elements, initialize), context))
+        def attachElementsAsync(self, topicId, elements, initialize, context=None):
+            """
+            Attaches the given topic elements to all subscribers of the specified topic.
+            
+            Parameters
+            ----------
+            topicId : int
+                The ID of the topic to which the elements belong.
+            elements : DataStormContract.ElementSpec[]
+                The sequence of elements to attach to the topic's subscribers.
+            initialize : bool
+                True if called from attachTopic, false otherwise.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_DataStormContract.Session._op_attachElements.invokeAsync(self, ((topicId, elements, initialize), context))
 
         def attachElementsAck(self, topic, elements, context=None):
             return _M_DataStormContract.Session._op_attachElementsAck.invoke(self, ((topic, elements), context))
@@ -893,7 +949,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             """
             Announces new elements to the peer.
             The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-            key readers, key writers, and filter readers associated with the specified topic.
+            the readers and writers associated with the specified topic.
             
             Parameters
             ----------
@@ -911,7 +967,26 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             """
             raise NotImplementedError("servant method 'announceElements' not implemented")
 
-        def attachElements(self, topic, elements, initialize, current=None):
+        def attachElements(self, topicId, elements, initialize, current=None):
+            """
+            Attaches the given topic elements to all subscribers of the specified topic.
+            
+            Parameters
+            ----------
+            topicId : int
+                The ID of the topic to which the elements belong.
+            elements : DataStormContract.ElementSpec[]
+                The sequence of elements to attach to the topic's subscribers.
+            initialize : bool
+                True if called from attachTopic, false otherwise.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'attachElements' not implemented")
 
         def attachElementsAck(self, topic, elements, current=None):
@@ -1028,9 +1103,42 @@ if 'SubscriberSessionPrx' not in _M_DataStormContract.__dict__:
             super().__init__(communicator, proxyString)
 
         def s(self, topicId, elementId, sample, context=None):
+            """
+            Queue a sample with the subscribers of the topic element.
+            
+            Parameters
+            ----------
+            topicId : int
+                The ID of the topic.
+            elementId : int
+                The ID of the element.
+            sample : DataStormContract.DataSample
+                The sample to queue.
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_DataStormContract.SubscriberSession._op_s.invoke(self, ((topicId, elementId, sample), context))
 
         def sAsync(self, topicId, elementId, sample, context=None):
+            """
+            Queue a sample with the subscribers of the topic element.
+            
+            Parameters
+            ----------
+            topicId : int
+                The ID of the topic.
+            elementId : int
+                The ID of the element.
+            sample : DataStormContract.DataSample
+                The sample to queue.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_DataStormContract.SubscriberSession._op_s.invokeAsync(self, ((topicId, elementId, sample), context))
 
         @staticmethod
@@ -1063,6 +1171,25 @@ if 'SubscriberSessionPrx' not in _M_DataStormContract.__dict__:
             return '::DataStormContract::SubscriberSession'
 
         def s(self, topicId, elementId, sample, current=None):
+            """
+            Queue a sample with the subscribers of the topic element.
+            
+            Parameters
+            ----------
+            topicId : int
+                The ID of the topic.
+            elementId : int
+                The ID of the element.
+            sample : DataStormContract.DataSample
+                The sample to queue.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 's' not implemented")
 
         def __str__(self):

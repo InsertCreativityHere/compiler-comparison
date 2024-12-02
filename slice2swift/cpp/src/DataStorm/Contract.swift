@@ -17,8 +17,8 @@ import Foundation
 import Ice
 import DataStorm
 
-/// The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
-/// DataSample history in response to various events.
+/// The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
+/// history in response to various events.
 public enum ClearHistoryPolicy: Swift.UInt8 {
     /// The reader clears its history when a new DataSample is added.
     case OnAdd = 0
@@ -431,7 +431,7 @@ public struct DataSamplesSeqHelper {
 /// Provides information about an element, which can be a key, a filter, or a tag. Includes the element's ID, name,
 /// and encoded value.
 public struct ElementInfo {
-    /// The unique identifier of the element. Filter IDs are negative.
+    /// The ID of the element. Filter IDs are negative, while key and tag IDs are positive.
     public var id: Swift.Int64 = 0
     /// The name of the filter. This field is empty for key and tag elements.
     public var name: Swift.String = ""
@@ -1603,8 +1603,9 @@ public extension SessionPrx {
     }
 
     /// Announces new elements to the peer.
+    ///
     /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-    /// key readers, key writers, and filter readers associated with the specified topic.
+    /// the readers and writers associated with the specified topic.
     ///
     /// - Parameters:
     ///   - iceP_topic: The ID of the topic associated with the elements.
@@ -1620,11 +1621,18 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    func attachElements(topic iceP_topic: Swift.Int64, elements iceP_elements: ElementSpecSeq, initialize iceP_initialize: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+    /// Attaches the given topic elements to all subscribers of the specified topic.
+    ///
+    /// - Parameters:
+    ///   - iceP_topicId: The ID of the topic to which the elements belong.
+    ///   - iceP_elements: The sequence of elements to attach to the topic's subscribers.
+    ///   - iceP_initialize: True if called from attachTopic, false otherwise.
+    ///   - context: Optional request context.
+    func attachElements(topicId iceP_topicId: Swift.Int64, elements iceP_elements: ElementSpecSeq, initialize iceP_initialize: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "attachElements",
                                        mode: .Normal,
                                        write: { ostr in
-                                           ostr.write(iceP_topic)
+                                           ostr.write(iceP_topicId)
                                            ElementSpecSeqHelper.write(to: ostr, value: iceP_elements)
                                            ostr.write(iceP_initialize)
                                            ostr.writePendingValues()
@@ -1841,6 +1849,13 @@ public extension Ice.InputStream {
 }
 
 public extension SubscriberSessionPrx {
+    /// Queue a sample with the subscribers of the topic element.
+    ///
+    /// - Parameters:
+    ///   - iceP_topicId: The ID of the topic.
+    ///   - iceP_elementId: The ID of the element.
+    ///   - iceP_sample: The sample to queue.
+    ///   - context: Optional request context.
     func s(topicId iceP_topicId: Swift.Int64, elementId iceP_elementId: Swift.Int64, sample iceP_sample: DataSample, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "s",
                                        mode: .Normal,
@@ -2225,13 +2240,24 @@ public extension Ice.ClassResolver {
     }
 }
 
+/// Represents the configuration of a reader or writer.
 open class ElementConfig: Ice.Value {
     public var facet: Swift.String? = nil
+    /// An optional sample filter associated with the reader. Sample filters are specified on the reader side.
     public var sampleFilter: FilterInfo? = nil
+    /// An optional name for the reader or writer.
     public var name: Swift.String? = nil
+    /// An optional priority for the writer.
+    /// See also the `DataStorm.Topic.Priority` property.
     public var priority: Swift.Int32? = nil
+    /// An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
+    /// See also the `DataStorm.Topic.SampleCount` property.
     public var sampleCount: Swift.Int32? = nil
+    /// An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
+    /// writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
     public var sampleLifetime: Swift.Int32? = nil
+    /// An optional clear history policy that determines when the reader or writer sample history is cleared.
+    /// See also the `DataStorm.Topic.ClearHistory` property.
     public var clearHistory: ClearHistoryPolicy? = nil
 
     public required init() {}
@@ -2352,8 +2378,9 @@ public protocol Session {
     func detachTags(topic: Swift.Int64, tags: Ice.LongSeq, current: Ice.Current) async throws
 
     /// Announces new elements to the peer.
+    ///
     /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-    /// key readers, key writers, and filter readers associated with the specified topic.
+    /// the readers and writers associated with the specified topic.
     ///
     /// - Parameters:
     ///   - topic: The ID of the topic associated with the elements.
@@ -2361,7 +2388,14 @@ public protocol Session {
     ///   - current: The Current object for the dispatch.
     func announceElements(topic: Swift.Int64, elements: ElementInfoSeq, current: Ice.Current) async throws
 
-    func attachElements(topic: Swift.Int64, elements: ElementSpecSeq, initialize: Swift.Bool, current: Ice.Current) async throws
+    /// Attaches the given topic elements to all subscribers of the specified topic.
+    ///
+    /// - Parameters:
+    ///   - topicId: The ID of the topic to which the elements belong.
+    ///   - elements: The sequence of elements to attach to the topic's subscribers.
+    ///   - initialize: True if called from attachTopic, false otherwise.
+    ///   - current: The Current object for the dispatch.
+    func attachElements(topicId: Swift.Int64, elements: ElementSpecSeq, initialize: Swift.Bool, current: Ice.Current) async throws
 
     func attachElementsAck(topic: Swift.Int64, elements: ElementSpecAckSeq, current: Ice.Current) async throws
 
@@ -2473,6 +2507,13 @@ public struct SubscriberSessionDisp: Ice.Dispatcher {
 }
 
 public protocol SubscriberSession: Session {
+    /// Queue a sample with the subscribers of the topic element.
+    ///
+    /// - Parameters:
+    ///   - topicId: The ID of the topic.
+    ///   - elementId: The ID of the element.
+    ///   - sample: The sample to queue.
+    ///   - current: The Current object for the dispatch.
     func s(topicId: Swift.Int64, elementId: Swift.Int64, sample: DataSample, current: Ice.Current) async throws
 }
 
@@ -2683,11 +2724,11 @@ extension Session {
         
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
-        let iceP_topic: Swift.Int64 = try istr.read()
+        let iceP_topicId: Swift.Int64 = try istr.read()
         let iceP_elements: ElementSpecSeq = try ElementSpecSeqHelper.read(from: istr)
         let iceP_initialize: Swift.Bool = try istr.read()
         try istr.readPendingValues()
-        try await self.attachElements(topic: iceP_topic, elements: iceP_elements, initialize: iceP_initialize, current: request.current)
+        try await self.attachElements(topicId: iceP_topicId, elements: iceP_elements, initialize: iceP_initialize, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 

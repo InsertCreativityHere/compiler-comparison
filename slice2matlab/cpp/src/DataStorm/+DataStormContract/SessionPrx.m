@@ -122,8 +122,9 @@ classdef SessionPrx < Ice.ObjectPrx
         end
         function announceElements(obj, topic, elements, varargin)
             % announceElements   Announces new elements to the peer.
+            %
             % The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-            % key readers, key writers, and filter readers associated with the specified topic.
+            % the readers and writers associated with the specified topic.
             %
             % Parameters:
             %   topic (int64) - The ID of the topic associated with the elements.
@@ -140,8 +141,9 @@ classdef SessionPrx < Ice.ObjectPrx
         end
         function r_ = announceElementsAsync(obj, topic, elements, varargin)
             % announceElementsAsync   Announces new elements to the peer.
+            %
             % The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-            % key readers, key writers, and filter readers associated with the specified topic.
+            % the readers and writers associated with the specified topic.
             %
             % Parameters:
             %   topic (int64) - The ID of the topic associated with the elements.
@@ -158,18 +160,36 @@ classdef SessionPrx < Ice.ObjectPrx
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('announceElements', 0, false, os_, 0, [], {}, varargin{:});
         end
-        function attachElements(obj, topic, elements, initialize, varargin)
+        function attachElements(obj, topicId, elements, initialize, varargin)
+            % attachElements   Attaches the given topic elements to all subscribers of the specified topic.
+            %
+            % Parameters:
+            %   topicId (int64) - The ID of the topic to which the elements belong.
+            %   elements (DataStormContract.ElementSpecSeq) - The sequence of elements to attach to the topic's subscribers.
+            %   initialize (logical) - True if called from attachTopic, false otherwise.
+            %   context (containers.Map) - Optional request context.
+            
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             DataStormContract.ElementSpecSeq.write(os_, elements);
             os_.writeBool(initialize);
             os_.writePendingValues();
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('attachElements', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = attachElementsAsync(obj, topic, elements, initialize, varargin)
+        function r_ = attachElementsAsync(obj, topicId, elements, initialize, varargin)
+            % attachElementsAsync   Attaches the given topic elements to all subscribers of the specified topic.
+            %
+            % Parameters:
+            %   topicId (int64) - The ID of the topic to which the elements belong.
+            %   elements (DataStormContract.ElementSpecSeq) - The sequence of elements to attach to the topic's subscribers.
+            %   initialize (logical) - True if called from attachTopic, false otherwise.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             DataStormContract.ElementSpecSeq.write(os_, elements);
             os_.writeBool(initialize);
             os_.writePendingValues();

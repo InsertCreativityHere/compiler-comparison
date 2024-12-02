@@ -1,3 +1,15 @@
+% ElementConfig   Summary of ElementConfig
+%
+% Represents the configuration of a reader or writer.
+%
+% ElementConfig Properties:
+%   facet
+%   sampleFilter - An optional sample filter associated with the reader.
+%   name - An optional name for the reader or writer.
+%   priority - An optional priority for the writer.
+%   sampleCount - An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
+%   sampleLifetime - An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the writer or reader sample queue.
+%   clearHistory - An optional clear history policy that determines when the reader or writer sample history is cleared.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
@@ -5,11 +17,21 @@
 classdef ElementConfig < Ice.Value
     properties
         facet
+        % sampleFilter - An optional sample filter associated with the reader. Sample filters are specified on the reader side.
         sampleFilter
+        % name - An optional name for the reader or writer.
         name
+        % priority - An optional priority for the writer.
+        % See also the `DataStorm.Topic.Priority` property.
         priority
+        % sampleCount - An optional sample count, specifying the number of samples queued in the writer or reader sample queue.
+        % See also the `DataStorm.Topic.SampleCount` property.
         sampleCount
+        % sampleLifetime - An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the
+        % writer or reader sample queue. See also the `DataStorm.Topic.SampleLifetime` property.
         sampleLifetime
+        % clearHistory - An optional clear history policy that determines when the reader or writer sample history is cleared.
+        % See also the `DataStorm.Topic.ClearHistory` property.
         clearHistory
     end
     methods

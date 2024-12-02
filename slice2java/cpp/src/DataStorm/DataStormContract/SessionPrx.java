@@ -287,8 +287,9 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Announces new elements to the peer.
+     *
      * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-     * key readers, key writers, and filter readers associated with the specified topic.
+     * the readers and writers associated with the specified topic.
      * @param topic The ID of the topic associated with the elements.
      * @param elements The sequence of elements to announce.
      *
@@ -301,8 +302,9 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Announces new elements to the peer.
+     *
      * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-     * key readers, key writers, and filter readers associated with the specified topic.
+     * the readers and writers associated with the specified topic.
      * @param topic The ID of the topic associated with the elements.
      * @param elements The sequence of elements to announce.
      * @param context The Context map to send with the invocation.
@@ -316,8 +318,9 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Announces new elements to the peer.
+     *
      * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-     * key readers, key writers, and filter readers associated with the specified topic.
+     * the readers and writers associated with the specified topic.
      * @param topic The ID of the topic associated with the elements.
      * @param elements The sequence of elements to announce.
      * @return A future that will be completed when the invocation completes.
@@ -331,8 +334,9 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Announces new elements to the peer.
+     *
      * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-     * key readers, key writers, and filter readers associated with the specified topic.
+     * the readers and writers associated with the specified topic.
      * @param topic The ID of the topic associated with the elements.
      * @param elements The sequence of elements to announce.
      * @param context The Context map to send with the invocation.
@@ -363,40 +367,68 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void attachElements(long topic, ElementSpec[] elements, boolean initialize)
+    /**
+     * Attaches the given topic elements to all subscribers of the specified topic.
+     * @param topicId The ID of the topic to which the elements belong.
+     * @param elements The sequence of elements to attach to the topic's subscribers.
+     * @param initialize True if called from attachTopic, false otherwise.
+     **/
+    default void attachElements(long topicId, ElementSpec[] elements, boolean initialize)
     {
-        attachElements(topic, elements, initialize, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        attachElements(topicId, elements, initialize, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void attachElements(long topic, ElementSpec[] elements, boolean initialize, java.util.Map<String, String> context)
+    /**
+     * Attaches the given topic elements to all subscribers of the specified topic.
+     * @param topicId The ID of the topic to which the elements belong.
+     * @param elements The sequence of elements to attach to the topic's subscribers.
+     * @param initialize True if called from attachTopic, false otherwise.
+     * @param context The Context map to send with the invocation.
+     **/
+    default void attachElements(long topicId, ElementSpec[] elements, boolean initialize, java.util.Map<String, String> context)
     {
-        _iceI_attachElementsAsync(topic, elements, initialize, context, true).waitForResponse();
+        _iceI_attachElementsAsync(topicId, elements, initialize, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> attachElementsAsync(long topic, ElementSpec[] elements, boolean initialize)
+    /**
+     * Attaches the given topic elements to all subscribers of the specified topic.
+     * @param topicId The ID of the topic to which the elements belong.
+     * @param elements The sequence of elements to attach to the topic's subscribers.
+     * @param initialize True if called from attachTopic, false otherwise.
+     * @return A future that will be completed when the invocation completes.
+     **/
+    default java.util.concurrent.CompletableFuture<Void> attachElementsAsync(long topicId, ElementSpec[] elements, boolean initialize)
     {
-        return _iceI_attachElementsAsync(topic, elements, initialize, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_attachElementsAsync(topicId, elements, initialize, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> attachElementsAsync(long topic, ElementSpec[] elements, boolean initialize, java.util.Map<String, String> context)
+    /**
+     * Attaches the given topic elements to all subscribers of the specified topic.
+     * @param topicId The ID of the topic to which the elements belong.
+     * @param elements The sequence of elements to attach to the topic's subscribers.
+     * @param initialize True if called from attachTopic, false otherwise.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
+    default java.util.concurrent.CompletableFuture<Void> attachElementsAsync(long topicId, ElementSpec[] elements, boolean initialize, java.util.Map<String, String> context)
     {
-        return _iceI_attachElementsAsync(topic, elements, initialize, context, false);
+        return _iceI_attachElementsAsync(topicId, elements, initialize, context, false);
     }
 
     /**
      * @hidden
-     * @param iceP_topic -
+     * @param iceP_topicId -
      * @param iceP_elements -
      * @param iceP_initialize -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_attachElementsAsync(long iceP_topic, ElementSpec[] iceP_elements, boolean iceP_initialize, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_attachElementsAsync(long iceP_topicId, ElementSpec[] iceP_elements, boolean iceP_initialize, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "attachElements", null, sync, null);
         f.invoke(false, context, null, ostr -> {
-                     ostr.writeLong(iceP_topic);
+                     ostr.writeLong(iceP_topicId);
                      ElementSpecSeqHelper.write(ostr, iceP_elements);
                      ostr.writeBool(iceP_initialize);
                      ostr.writePendingValues();

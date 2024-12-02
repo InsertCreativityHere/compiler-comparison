@@ -1,7 +1,7 @@
 % ClearHistoryPolicy   Summary of ClearHistoryPolicy
 %
-% The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
-% DataSample history in response to various events.
+% The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
+% history in response to various events.
 %
 % ClearHistoryPolicy Properties:
 %   OnAdd - The reader clears its history when a new DataSample is added.

@@ -49,8 +49,9 @@ public interface Session extends com.zeroc.Ice.Object
 
     /**
      * Announces new elements to the peer.
+     *
      * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-     * key readers, key writers, and filter readers associated with the specified topic.
+     * the readers and writers associated with the specified topic.
      * @param topic The ID of the topic associated with the elements.
      * @param elements The sequence of elements to announce.
      * @param current The Current object for the invocation.
@@ -59,7 +60,14 @@ public interface Session extends com.zeroc.Ice.Object
      **/
     void announceElements(long topic, ElementInfo[] elements, com.zeroc.Ice.Current current);
 
-    void attachElements(long topic, ElementSpec[] elements, boolean initialize, com.zeroc.Ice.Current current);
+    /**
+     * Attaches the given topic elements to all subscribers of the specified topic.
+     * @param topicId The ID of the topic to which the elements belong.
+     * @param elements The sequence of elements to attach to the topic's subscribers.
+     * @param initialize True if called from attachTopic, false otherwise.
+     * @param current The Current object for the invocation.
+     **/
+    void attachElements(long topicId, ElementSpec[] elements, boolean initialize, com.zeroc.Ice.Current current);
 
     void attachElementsAck(long topic, ElementSpecAck[] elements, com.zeroc.Ice.Current current);
 
@@ -187,15 +195,15 @@ public interface Session extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        long iceP_topic;
+        long iceP_topicId;
         ElementSpec[] iceP_elements;
         boolean iceP_initialize;
-        iceP_topic = istr.readLong();
+        iceP_topicId = istr.readLong();
         iceP_elements = ElementSpecSeqHelper.read(istr);
         iceP_initialize = istr.readBool();
         istr.readPendingValues();
         istr.endEncapsulation();
-        obj.attachElements(iceP_topic, iceP_elements, iceP_initialize, request.current);
+        obj.attachElements(iceP_topicId, iceP_elements, iceP_initialize, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 

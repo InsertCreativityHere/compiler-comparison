@@ -4,7 +4,7 @@
 % and encoded value.
 %
 % ElementInfo Properties:
-%   id - The unique identifier of the element.
+%   id - The ID of the element.
 %   name - The name of the filter.
 %   value - The encoded value of the element.
 
@@ -13,7 +13,7 @@
 
 classdef ElementInfo
     properties
-        % id - The unique identifier of the element. Filter IDs are negative.
+        % id - The ID of the element. Filter IDs are negative, while key and tag IDs are positive.
         id int64
         % name - The name of the filter. This field is empty for key and tag elements.
         name char

@@ -5,6 +5,14 @@
 classdef SubscriberSessionPrx < DataStormContract.SessionPrx
     methods
         function s(obj, topicId, elementId, sample, varargin)
+            % s   Queue a sample with the subscribers of the topic element.
+            %
+            % Parameters:
+            %   topicId (int64) - The ID of the topic.
+            %   elementId (int64) - The ID of the element.
+            %   sample (DataStormContract.DataSample) - The sample to queue.
+            %   context (containers.Map) - Optional request context.
+            
             os_ = obj.iceStartWriteParams([]);
             os_.writeLong(topicId);
             os_.writeLong(elementId);
@@ -13,6 +21,16 @@ classdef SubscriberSessionPrx < DataStormContract.SessionPrx
             obj.iceInvoke('s', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = sAsync(obj, topicId, elementId, sample, varargin)
+            % sAsync   Queue a sample with the subscribers of the topic element.
+            %
+            % Parameters:
+            %   topicId (int64) - The ID of the topic.
+            %   elementId (int64) - The ID of the element.
+            %   sample (DataStormContract.DataSample) - The sample to queue.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
             os_ = obj.iceStartWriteParams([]);
             os_.writeLong(topicId);
             os_.writeLong(elementId);

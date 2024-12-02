@@ -26,8 +26,8 @@
 namespace DataStormContract
 {
     /// <summary>
-    /// The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its
-    ///  DataSample history in response to various events.
+    /// The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
+    ///  history in response to various events.
     /// </summary>
 
     public enum ClearHistoryPolicy
@@ -770,7 +770,7 @@ namespace DataStormContract
         /// <summary>
         /// Announces new elements to the peer.
         /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-        ///  key readers, key writers, and filter readers associated with the specified topic.
+        ///  the readers and writers associated with the specified topic.
         ///
         /// </summary>
         ///  <param name="topic">The ID of the topic associated with the elements.
@@ -781,7 +781,17 @@ namespace DataStormContract
 
         void announceElements(long topic, ElementInfo[] elements, Ice.Current current);
 
-        void attachElements(long topic, ElementSpec[] elements, bool initialize, Ice.Current current);
+        /// <summary>
+        /// Attaches the given topic elements to all subscribers of the specified topic.
+        /// </summary>
+        /// <param name="topicId">The ID of the topic to which the elements belong.
+        ///  </param>
+        /// <param name="elements">The sequence of elements to attach to the topic's subscribers.
+        ///  </param>
+        /// <param name="initialize">True if called from attachTopic, false otherwise.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        void attachElements(long topicId, ElementSpec[] elements, bool initialize, Ice.Current current);
 
         void attachElementsAck(long topic, ElementSpecAck[] elements, Ice.Current current);
 
@@ -800,6 +810,16 @@ namespace DataStormContract
     [Ice.SliceTypeId("::DataStormContract::SubscriberSession")]
     public partial interface SubscriberSession : Session
     {
+        /// <summary>
+        /// Queue a sample with the subscribers of the topic element.
+        /// </summary>
+        /// <param name="topicId">The ID of the topic.
+        ///  </param>
+        /// <param name="elementId">The ID of the element.
+        ///  </param>
+        /// <param name="sample">The sample to queue.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
         void s(long topicId, long elementId, DataSample sample, Ice.Current current);
     }
 
@@ -959,7 +979,7 @@ namespace DataStormContract
         /// <summary>
         /// Announces new elements to the peer.
         /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-        ///  key readers, key writers, and filter readers associated with the specified topic.
+        ///  the readers and writers associated with the specified topic.
         ///
         /// </summary>
         ///  <param name="topic">The ID of the topic associated with the elements.
@@ -984,9 +1004,31 @@ namespace DataStormContract
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task announceElementsAsync(long topic, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void attachElements(long topic, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        /// <summary>
+        /// Attaches the given topic elements to all subscribers of the specified topic.
+        /// </summary>
+        /// <param name="topicId">The ID of the topic to which the elements belong.
+        ///  </param>
+        /// <param name="elements">The sequence of elements to attach to the topic's subscribers.
+        ///  </param>
+        /// <param name="initialize">True if called from attachTopic, false otherwise.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
 
-        global::System.Threading.Tasks.Task attachElementsAsync(long topic, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        void attachElements(long topicId, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Attaches the given topic elements to all subscribers of the specified topic.
+        /// </summary>
+        /// <param name="topicId">The ID of the topic to which the elements belong.
+        ///  </param>
+        /// <param name="elements">The sequence of elements to attach to the topic's subscribers.
+        ///  </param>
+        /// <param name="initialize">True if called from attachTopic, false otherwise.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task attachElementsAsync(long topicId, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void attachElementsAck(long topic, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -1011,8 +1053,30 @@ namespace DataStormContract
 
     public interface SubscriberSessionPrx : SessionPrx
     {
+        /// <summary>
+        /// Queue a sample with the subscribers of the topic element.
+        /// </summary>
+        /// <param name="topicId">The ID of the topic.
+        ///  </param>
+        /// <param name="elementId">The ID of the element.
+        ///  </param>
+        /// <param name="sample">The sample to queue.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+
         void s(long topicId, long elementId, DataSample sample, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+        /// <summary>
+        /// Queue a sample with the subscribers of the topic element.
+        /// </summary>
+        /// <param name="topicId">The ID of the topic.
+        ///  </param>
+        /// <param name="elementId">The ID of the element.
+        ///  </param>
+        /// <param name="sample">The sample to queue.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task sAsync(long topicId, long elementId, DataSample sample, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
@@ -1582,11 +1646,11 @@ namespace DataStormContract
             }
         }
 
-        public void attachElements(long topic, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void attachElements(long topicId, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_attachElementsAsync(topic, elements, initialize, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_attachElementsAsync(topicId, elements, initialize, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1821,21 +1885,21 @@ namespace DataStormContract
                 });
         }
 
-        public global::System.Threading.Tasks.Task attachElementsAsync(long topic, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task attachElementsAsync(long topicId, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_attachElementsAsync(topic, elements, initialize, context, progress, cancel, false);
+            return _iceI_attachElementsAsync(topicId, elements, initialize, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_attachElementsAsync(long iceP_topic, ElementSpec[] iceP_elements, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_attachElementsAsync(long iceP_topicId, ElementSpec[] iceP_elements, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_attachElements(iceP_topic, iceP_elements, iceP_initialize, context, synchronous, completed);
+            _iceI_attachElements(iceP_topicId, iceP_elements, iceP_initialize, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _attachElements_name = "attachElements";
 
-        private void _iceI_attachElements(long iceP_topic, ElementSpec[] iceP_elements, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_attachElements(long iceP_topicId, ElementSpec[] iceP_elements, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1846,7 +1910,7 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     ElementSpecSeqHelper.write(ostr, iceP_elements);
                     ostr.writeBool(iceP_initialize);
                     ostr.writePendingValues();
@@ -2091,11 +2155,11 @@ namespace DataStormContract
             }
         }
 
-        public void attachElements(long topic, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void attachElements(long topicId, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_attachElementsAsync(topic, elements, initialize, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_attachElementsAsync(topicId, elements, initialize, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2330,21 +2394,21 @@ namespace DataStormContract
                 });
         }
 
-        public global::System.Threading.Tasks.Task attachElementsAsync(long topic, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task attachElementsAsync(long topicId, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_attachElementsAsync(topic, elements, initialize, context, progress, cancel, false);
+            return _iceI_attachElementsAsync(topicId, elements, initialize, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_attachElementsAsync(long iceP_topic, ElementSpec[] iceP_elements, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_attachElementsAsync(long iceP_topicId, ElementSpec[] iceP_elements, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_attachElements(iceP_topic, iceP_elements, iceP_initialize, context, synchronous, completed);
+            _iceI_attachElements(iceP_topicId, iceP_elements, iceP_initialize, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _attachElements_name = "attachElements";
 
-        private void _iceI_attachElements(long iceP_topic, ElementSpec[] iceP_elements, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_attachElements(long iceP_topicId, ElementSpec[] iceP_elements, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2355,7 +2419,7 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     ElementSpecSeqHelper.write(ostr, iceP_elements);
                     ostr.writeBool(iceP_initialize);
                     ostr.writePendingValues();
@@ -2601,11 +2665,11 @@ namespace DataStormContract
             }
         }
 
-        public void attachElements(long topic, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void attachElements(long topicId, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_attachElementsAsync(topic, elements, initialize, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_attachElementsAsync(topicId, elements, initialize, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2852,21 +2916,21 @@ namespace DataStormContract
                 });
         }
 
-        public global::System.Threading.Tasks.Task attachElementsAsync(long topic, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task attachElementsAsync(long topicId, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_attachElementsAsync(topic, elements, initialize, context, progress, cancel, false);
+            return _iceI_attachElementsAsync(topicId, elements, initialize, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_attachElementsAsync(long iceP_topic, ElementSpec[] iceP_elements, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_attachElementsAsync(long iceP_topicId, ElementSpec[] iceP_elements, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_attachElements(iceP_topic, iceP_elements, iceP_initialize, context, synchronous, completed);
+            _iceI_attachElements(iceP_topicId, iceP_elements, iceP_initialize, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _attachElements_name = "attachElements";
 
-        private void _iceI_attachElements(long iceP_topic, ElementSpec[] iceP_elements, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_attachElements(long iceP_topicId, ElementSpec[] iceP_elements, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2877,7 +2941,7 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     ElementSpecSeqHelper.write(ostr, iceP_elements);
                     ostr.writeBool(iceP_initialize);
                     ostr.writePendingValues();
@@ -3498,7 +3562,7 @@ namespace DataStormContract
 
         public abstract void announceElements(long topic, ElementInfo[] elements, Ice.Current current);
 
-        public abstract void attachElements(long topic, ElementSpec[] elements, bool initialize, Ice.Current current);
+        public abstract void attachElements(long topicId, ElementSpec[] elements, bool initialize, Ice.Current current);
 
         public abstract void attachElementsAck(long topic, ElementSpecAck[] elements, Ice.Current current);
 
@@ -3554,7 +3618,7 @@ namespace DataStormContract
 
         public abstract void announceElements(long topic, ElementInfo[] elements, Ice.Current current);
 
-        public abstract void attachElements(long topic, ElementSpec[] elements, bool initialize, Ice.Current current);
+        public abstract void attachElements(long topicId, ElementSpec[] elements, bool initialize, Ice.Current current);
 
         public abstract void attachElementsAck(long topic, ElementSpecAck[] elements, Ice.Current current);
 
@@ -3606,7 +3670,7 @@ namespace DataStormContract
 
         public abstract void announceElements(long topic, ElementInfo[] elements, Ice.Current current);
 
-        public abstract void attachElements(long topic, ElementSpec[] elements, bool initialize, Ice.Current current);
+        public abstract void attachElements(long topicId, ElementSpec[] elements, bool initialize, Ice.Current current);
 
         public abstract void attachElementsAck(long topic, ElementSpecAck[] elements, Ice.Current current);
 
@@ -3798,15 +3862,15 @@ namespace DataStormContract
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            long iceP_topic;
+            long iceP_topicId;
             ElementSpec[] iceP_elements;
             bool iceP_initialize;
-            iceP_topic = istr.readLong();
+            iceP_topicId = istr.readLong();
             iceP_elements = ElementSpecSeqHelper.read(istr);
             iceP_initialize = istr.readBool();
             istr.readPendingValues();
             istr.endEncapsulation();
-            obj.attachElements(iceP_topic, iceP_elements, iceP_initialize, request.current);
+            obj.attachElements(iceP_topicId, iceP_elements, iceP_initialize, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 

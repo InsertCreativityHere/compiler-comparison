@@ -230,32 +230,32 @@ DataStormContract::SessionPrx::_iceI_announceElements(const ::std::shared_ptr<::
 }
 
 void
-DataStormContract::SessionPrx::attachElements(::std::int64_t iceP_topic, const ElementSpecSeq& iceP_elements, bool iceP_initialize, const ::Ice::Context& context) const
+DataStormContract::SessionPrx::attachElements(::std::int64_t iceP_topicId, const ElementSpecSeq& iceP_elements, bool iceP_initialize, const ::Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_attachElements, iceP_topic, iceP_elements, iceP_initialize, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_attachElements, iceP_topicId, iceP_elements, iceP_initialize, context).get();
 }
 
 ::std::future<void>
-DataStormContract::SessionPrx::attachElementsAsync(::std::int64_t iceP_topic, const ElementSpecSeq& iceP_elements, bool iceP_initialize, const ::Ice::Context& context) const
+DataStormContract::SessionPrx::attachElementsAsync(::std::int64_t iceP_topicId, const ElementSpecSeq& iceP_elements, bool iceP_initialize, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &SessionPrx::_iceI_attachElements, iceP_topic, iceP_elements, iceP_initialize, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &SessionPrx::_iceI_attachElements, iceP_topicId, iceP_elements, iceP_initialize, context);
 }
 
 ::std::function<void()>
-DataStormContract::SessionPrx::attachElementsAsync(::std::int64_t iceP_topic, const ElementSpecSeq& iceP_elements, bool iceP_initialize, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+DataStormContract::SessionPrx::attachElementsAsync(::std::int64_t iceP_topicId, const ElementSpecSeq& iceP_elements, bool iceP_initialize, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &DataStormContract::SessionPrx::_iceI_attachElements, iceP_topic, iceP_elements, iceP_initialize, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &DataStormContract::SessionPrx::_iceI_attachElements, iceP_topicId, iceP_elements, iceP_initialize, context);
 }
 
 void
-DataStormContract::SessionPrx::_iceI_attachElements(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int64_t iceP_topic, const ElementSpecSeq& iceP_elements, bool iceP_initialize, const ::Ice::Context& context) const
+DataStormContract::SessionPrx::_iceI_attachElements(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int64_t iceP_topicId, const ElementSpecSeq& iceP_elements, bool iceP_initialize, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "attachElements";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
-            ostr->writeAll(iceP_topic, iceP_elements, iceP_initialize);
+            ostr->writeAll(iceP_topicId, iceP_elements, iceP_initialize);
             ostr->writePendingValues();
         },
         nullptr);
@@ -817,13 +817,13 @@ DataStormContract::Session::_iceD_attachElements(::Ice::IncomingRequest& request
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::int64_t iceP_topic;
+    ::std::int64_t iceP_topicId;
     ElementSpecSeq iceP_elements;
     bool iceP_initialize;
-    istr->readAll(iceP_topic, iceP_elements, iceP_initialize);
+    istr->readAll(iceP_topicId, iceP_elements, iceP_initialize);
     istr->readPendingValues();
     istr->endEncapsulation();
-    this->attachElements(iceP_topic, ::std::move(iceP_elements), iceP_initialize, request.current());
+    this->attachElements(iceP_topicId, ::std::move(iceP_elements), iceP_initialize, request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
