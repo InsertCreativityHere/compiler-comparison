@@ -168,5 +168,5 @@ public class S3 implements java.lang.Cloneable,
     private static final S3 _nullMarshalValue = new S3();
 
     /** @hidden */
-    private static final long serialVersionUID = 6292711578770380352L;
+    private static final long serialVersionUID = 6026382663662001905L;
 }
