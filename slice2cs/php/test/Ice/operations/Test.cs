@@ -12299,16 +12299,6 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, Ice.Current current);
 
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
-        public abstract float opFloat1(float opFloat1, Ice.Current current);
-
-        public abstract double opDouble1(double opDouble1, Ice.Current current);
-
-        public abstract string opString1(string opString1, Ice.Current current);
-
-        public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
-
         public abstract int[] opIntS(int[] s, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
@@ -12320,6 +12310,16 @@ namespace Test
         public abstract short opShort1(short opShort1, Ice.Current current);
 
         public abstract int opInt1(int opInt1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
+
+        public abstract float opFloat1(float opFloat1, Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, Ice.Current current);
+
+        public abstract string opString1(string opString1, Ice.Current current);
+
+        public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
 
@@ -12511,16 +12511,6 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p3, Ice.Current current);
 
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
-        public abstract float opFloat1(float opFloat1, Ice.Current current);
-
-        public abstract double opDouble1(double opDouble1, Ice.Current current);
-
-        public abstract string opString1(string opString1, Ice.Current current);
-
-        public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
-
         public abstract int[] opIntS(int[] s, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
@@ -12532,6 +12522,16 @@ namespace Test2
         public abstract short opShort1(short opShort1, Ice.Current current);
 
         public abstract int opInt1(int opInt1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
+
+        public abstract float opFloat1(float opFloat1, Ice.Current current);
+
+        public abstract double opDouble1(double opDouble1, Ice.Current current);
+
+        public abstract string opString1(string opString1, Ice.Current current);
+
+        public abstract string[] opStringS1(string[] opStringS1, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, Ice.Current current);
 
