@@ -153,5 +153,5 @@ public class StructKey implements java.lang.Cloneable,
     private static final StructKey _nullMarshalValue = new StructKey();
 
     /** @hidden */
-    private static final long serialVersionUID = -9093787406483408718L;
+    private static final long serialVersionUID = 2531978524150707922L;
 }
