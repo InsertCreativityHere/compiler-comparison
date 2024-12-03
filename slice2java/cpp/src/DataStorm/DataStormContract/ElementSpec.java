@@ -218,5 +218,5 @@ public class ElementSpec implements java.lang.Cloneable,
     private static final ElementSpec _nullMarshalValue = new ElementSpec();
 
     /** @hidden */
-    private static final long serialVersionUID = -5026943220020230212L;
+    private static final long serialVersionUID = 8786629260830514363L;
 }
