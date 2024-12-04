@@ -184,12 +184,7 @@ namespace @abstract
             {
                 ostr_.writeEnum(2, (int)@goto.Value, 1);
             }
-            if (@if is not null && ostr_.writeOptional(3, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr_.startSize();
-                explicitPrxHelper.write(ostr_, @if);
-                ostr_.endSize(pos);
-            }
+            ostr_.writeProxy(3, @if);
             if (@internal is not null && ostr_.writeOptional(5, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
@@ -227,9 +222,7 @@ namespace @abstract
             if (istr_.readOptional(3, Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                explicitPrx? tmpVal;
-                tmpVal = explicitPrxHelper.read(istr_);
-                @if = tmpVal;
+                @if = explicitPrxHelper.read(istr_);
             }
             else
             {
@@ -992,12 +985,7 @@ namespace @abstract
                     {
                         ostr.writeEnum(2, (int)iceP_goto.Value, 1);
                     }
-                    if (iceP_if is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-                    {
-                        int pos = ostr.startSize();
-                        explicitPrxHelper.write(ostr, iceP_if);
-                        ostr.endSize(pos);
-                    }
+                    ostr.writeProxy(3, iceP_if);
                     if (iceP_internal is not null && ostr.writeOptional(5, Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
@@ -1054,12 +1042,7 @@ namespace @abstract
                     {
                         ostr.writeEnum(2, (int)iceP_goto.Value, 1);
                     }
-                    if (iceP_if is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-                    {
-                        int pos = ostr.startSize();
-                        explicitPrxHelper.write(ostr, iceP_if);
-                        ostr.endSize(pos);
-                    }
+                    ostr.writeProxy(3, iceP_if);
                     if (iceP_internal is not null && ostr.writeOptional(5, Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
@@ -1137,9 +1120,7 @@ namespace @abstract
                     if (istr.readOptional(3, Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        explicitPrx? tmpVal;
-                        tmpVal = explicitPrxHelper.read(istr);
-                        ret.@if = tmpVal;
+                        ret.@if = explicitPrxHelper.read(istr);
                     }
                     else
                     {
@@ -1212,9 +1193,7 @@ namespace @abstract
                     if (istr.readOptional(3, Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        explicitPrx? tmpVal;
-                        tmpVal = explicitPrxHelper.read(istr);
-                        ret.@if = tmpVal;
+                        ret.@if = explicitPrxHelper.read(istr);
                     }
                     else
                     {
@@ -1819,9 +1798,7 @@ namespace @abstract
             if (istr.readOptional(3, Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
-                explicitPrx? tmpVal;
-                tmpVal = explicitPrxHelper.read(istr);
-                iceP_if = tmpVal;
+                iceP_if = explicitPrxHelper.read(istr);
             }
             else
             {
@@ -1876,9 +1853,7 @@ namespace @abstract
             if (istr.readOptional(3, Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
-                explicitPrx? tmpVal;
-                tmpVal = explicitPrxHelper.read(istr);
-                iceP_if = tmpVal;
+                iceP_if = explicitPrxHelper.read(istr);
             }
             else
             {
@@ -1933,12 +1908,7 @@ namespace @abstract
             {
                 ostr.writeEnum(2, (int)iceP_goto.Value, 1);
             }
-            if (iceP_if is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-            {
-                int pos = ostr.startSize();
-                explicitPrxHelper.write(ostr, iceP_if);
-                ostr.endSize(pos);
-            }
+            ostr.writeProxy(3, iceP_if);
             if (iceP_internal is not null && ostr.writeOptional(5, Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
@@ -1971,12 +1941,7 @@ namespace @abstract
                     {
                         ostr.writeEnum(2, (int)ret.@goto.Value, 1);
                     }
-                    if (ret.@if is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-                    {
-                        int pos = ostr.startSize();
-                        explicitPrxHelper.write(ostr, ret.@if);
-                        ostr.endSize(pos);
-                    }
+                    ostr.writeProxy(3, ret.@if);
                     if (ret.@internal is not null && ostr.writeOptional(5, Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();

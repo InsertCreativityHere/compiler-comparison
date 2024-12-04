@@ -302,12 +302,7 @@ namespace Ice.optional
                 {
                     ostr_.writeEnum(9, (int)i.Value, 1);
                 }
-                if (j is not null && ostr_.writeOptional(10, Ice.OptionalFormat.FSize))
-                {
-                    int pos = ostr_.startSize();
-                    MyInterfacePrxHelper.write(ostr_, j);
-                    ostr_.endSize(pos);
-                }
+                ostr_.writeProxy(10, j);
                 ostr_.writeByteSeq(12, bs);
                 ostr_.writeStringSeq(13, ss);
                 if (iid is not null && ostr_.writeOptional(14, Ice.OptionalFormat.VSize))
@@ -411,9 +406,7 @@ namespace Ice.optional
                 if (istr_.readOptional(10, Ice.OptionalFormat.FSize))
                 {
                     istr_.skip(4);
-                    MyInterfacePrx? tmpVal;
-                    tmpVal = MyInterfacePrxHelper.read(istr_);
-                    j = tmpVal;
+                    j = MyInterfacePrxHelper.read(istr_);
                 }
                 else
                 {
@@ -3683,12 +3676,7 @@ namespace Ice.optional
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
                     {
-                        if (iceP_p1 is not null && ostr.writeOptional(2, Ice.OptionalFormat.FSize))
-                        {
-                            int pos = ostr.startSize();
-                            MyInterfacePrxHelper.write(ostr, iceP_p1);
-                            ostr.endSize(pos);
-                        }
+                        ostr.writeProxy(2, iceP_p1);
                     },
                     read: (Ice.InputStream istr) =>
                     {
@@ -3696,9 +3684,7 @@ namespace Ice.optional
                         if (istr.readOptional(1, Ice.OptionalFormat.FSize))
                         {
                             istr.skip(4);
-                            MyInterfacePrx? tmpVal;
-                            tmpVal = MyInterfacePrxHelper.read(istr);
-                            ret.returnValue = tmpVal;
+                            ret.returnValue = MyInterfacePrxHelper.read(istr);
                         }
                         else
                         {
@@ -3707,9 +3693,7 @@ namespace Ice.optional
                         if (istr.readOptional(3, Ice.OptionalFormat.FSize))
                         {
                             istr.skip(4);
-                            MyInterfacePrx? tmpVal;
-                            tmpVal = MyInterfacePrxHelper.read(istr);
-                            ret.p3 = tmpVal;
+                            ret.p3 = MyInterfacePrxHelper.read(istr);
                         }
                         else
                         {
@@ -5541,9 +5525,7 @@ namespace Ice.optional
                 if (istr.readOptional(2, Ice.OptionalFormat.FSize))
                 {
                     istr.skip(4);
-                    MyInterfacePrx? tmpVal;
-                    tmpVal = MyInterfacePrxHelper.read(istr);
-                    iceP_p1 = tmpVal;
+                    iceP_p1 = MyInterfacePrxHelper.read(istr);
                 }
                 else
                 {
@@ -5554,18 +5536,8 @@ namespace Ice.optional
                 var ret = obj.opMyInterfaceProxy(iceP_p1, out iceP_p3, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
                 ostr.startEncapsulation(request.current.encoding, null);
-                if (ret is not null && ostr.writeOptional(1, Ice.OptionalFormat.FSize))
-                {
-                    int pos = ostr.startSize();
-                    MyInterfacePrxHelper.write(ostr, ret);
-                    ostr.endSize(pos);
-                }
-                if (iceP_p3 is not null && ostr.writeOptional(3, Ice.OptionalFormat.FSize))
-                {
-                    int pos = ostr.startSize();
-                    MyInterfacePrxHelper.write(ostr, iceP_p3);
-                    ostr.endSize(pos);
-                }
+                ostr.writeProxy(1, ret);
+                ostr.writeProxy(3, iceP_p3);
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
             }
