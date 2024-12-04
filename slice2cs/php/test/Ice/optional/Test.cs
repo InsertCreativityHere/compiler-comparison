@@ -414,27 +414,8 @@ namespace Test
             {
                 j = null;
             }
-            if (istr_.readOptional(12, Ice.OptionalFormat.VSize))
-            {
-                byte[] tmpVal;
-                tmpVal = ByteSeqHelper.read(istr_);
-                bs = tmpVal;
-            }
-            else
-            {
-                bs = null;
-            }
-            if (istr_.readOptional(13, Ice.OptionalFormat.FSize))
-            {
-                istr_.skip(4);
-                string[] tmpVal;
-                tmpVal = StringSeqHelper.read(istr_);
-                ss = tmpVal;
-            }
-            else
-            {
-                ss = null;
-            }
+            bs = istr_.readByteSeq(12);
+            ss = istr_.readStringSeq(13);
             if (istr_.readOptional(14, Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();
@@ -479,17 +460,7 @@ namespace Test
             {
                 vs = null;
             }
-            if (istr_.readOptional(18, Ice.OptionalFormat.VSize))
-            {
-                istr_.skipSize();
-                short[] tmpVal;
-                tmpVal = ShortSeqHelper.read(istr_);
-                shs = tmpVal;
-            }
-            else
-            {
-                shs = null;
-            }
+            shs = istr_.readShortSeq(18);
             if (istr_.readOptional(19, Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
@@ -578,26 +549,8 @@ namespace Test
             {
                 imipd = null;
             }
-            if (istr_.readOptional(29, Ice.OptionalFormat.VSize))
-            {
-                bool[] tmpVal;
-                tmpVal = BoolSeqHelper.read(istr_);
-                bos = tmpVal;
-            }
-            else
-            {
-                bos = null;
-            }
-            if (istr_.readOptional(30, Ice.OptionalFormat.VSize))
-            {
-                byte[] tmpVal;
-                tmpVal = SerializableHelper.read(istr_);
-                ser = tmpVal;
-            }
-            else
-            {
-                ser = null;
-            }
+            bos = istr_.readBoolSeq(29);
+            ser = istr_.readByteSeq(30);
             istr_.endSlice();
         }
     }
@@ -3830,26 +3783,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new Initial_OpByteSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        byte[] tmpVal;
-                        tmpVal = ByteSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        byte[] tmpVal;
-                        tmpVal = ByteSeqHelper.read(istr);
-                        ret.p3 = tmpVal;
-                    }
-                    else
-                    {
-                        ret.p3 = null;
-                    }
+                    ret.returnValue = istr.readByteSeq(1);
+                    ret.p3 = istr.readByteSeq(3);
                     return ret;
                 });
         }
@@ -3885,26 +3820,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new Initial_OpBoolSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        bool[] tmpVal;
-                        tmpVal = BoolSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        bool[] tmpVal;
-                        tmpVal = BoolSeqHelper.read(istr);
-                        ret.p3 = tmpVal;
-                    }
-                    else
-                    {
-                        ret.p3 = null;
-                    }
+                    ret.returnValue = istr.readBoolSeq(1);
+                    ret.p3 = istr.readBoolSeq(3);
                     return ret;
                 });
         }
@@ -3940,28 +3857,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new Initial_OpShortSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        short[] tmpVal;
-                        tmpVal = ShortSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        short[] tmpVal;
-                        tmpVal = ShortSeqHelper.read(istr);
-                        ret.p3 = tmpVal;
-                    }
-                    else
-                    {
-                        ret.p3 = null;
-                    }
+                    ret.returnValue = istr.readShortSeq(1);
+                    ret.p3 = istr.readShortSeq(3);
                     return ret;
                 });
         }
@@ -3997,28 +3894,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new Initial_OpIntSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        int[] tmpVal;
-                        tmpVal = IntSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        int[] tmpVal;
-                        tmpVal = IntSeqHelper.read(istr);
-                        ret.p3 = tmpVal;
-                    }
-                    else
-                    {
-                        ret.p3 = null;
-                    }
+                    ret.returnValue = istr.readIntSeq(1);
+                    ret.p3 = istr.readIntSeq(3);
                     return ret;
                 });
         }
@@ -4054,28 +3931,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new Initial_OpLongSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        long[] tmpVal;
-                        tmpVal = LongSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        long[] tmpVal;
-                        tmpVal = LongSeqHelper.read(istr);
-                        ret.p3 = tmpVal;
-                    }
-                    else
-                    {
-                        ret.p3 = null;
-                    }
+                    ret.returnValue = istr.readLongSeq(1);
+                    ret.p3 = istr.readLongSeq(3);
                     return ret;
                 });
         }
@@ -4111,28 +3968,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new Initial_OpFloatSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        float[] tmpVal;
-                        tmpVal = FloatSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        float[] tmpVal;
-                        tmpVal = FloatSeqHelper.read(istr);
-                        ret.p3 = tmpVal;
-                    }
-                    else
-                    {
-                        ret.p3 = null;
-                    }
+                    ret.returnValue = istr.readFloatSeq(1);
+                    ret.p3 = istr.readFloatSeq(3);
                     return ret;
                 });
         }
@@ -4168,28 +4005,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new Initial_OpDoubleSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        double[] tmpVal;
-                        tmpVal = DoubleSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        double[] tmpVal;
-                        tmpVal = DoubleSeqHelper.read(istr);
-                        ret.p3 = tmpVal;
-                    }
-                    else
-                    {
-                        ret.p3 = null;
-                    }
+                    ret.returnValue = istr.readDoubleSeq(1);
+                    ret.p3 = istr.readDoubleSeq(3);
                     return ret;
                 });
         }
@@ -4225,28 +4042,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new Initial_OpStringSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        string[] tmpVal;
-                        tmpVal = StringSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        string[] tmpVal;
-                        tmpVal = StringSeqHelper.read(istr);
-                        ret.p3 = tmpVal;
-                    }
-                    else
-                    {
-                        ret.p3 = null;
-                    }
+                    ret.returnValue = istr.readStringSeq(1);
+                    ret.p3 = istr.readStringSeq(3);
                     return ret;
                 });
         }
@@ -4582,26 +4379,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new Initial_OpSerializableResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        byte[] tmpVal;
-                        tmpVal = SerializableHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        byte[] tmpVal;
-                        tmpVal = SerializableHelper.read(istr);
-                        ret.p3 = tmpVal;
-                    }
-                    else
-                    {
-                        ret.p3 = null;
-                    }
+                    ret.returnValue = istr.readByteSeq(1);
+                    ret.p3 = istr.readByteSeq(3);
                     return ret;
                 });
         }
@@ -4927,17 +4706,7 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     string[]? ret;
-                    if (istr.readOptional(1, Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        string[] tmpVal;
-                        tmpVal = StringSeqHelper.read(istr);
-                        ret = tmpVal;
-                    }
-                    else
-                    {
-                        ret = null;
-                    }
+                    ret = istr.readStringSeq(1);
                     return ret;
                 });
         }
@@ -4973,28 +4742,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new Initial_OpMSeq2Result();
-                    if (istr.readOptional(1, Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        string[] tmpVal;
-                        tmpVal = StringSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        string[] tmpVal;
-                        tmpVal = StringSeqHelper.read(istr);
-                        ret.p2 = tmpVal;
-                    }
-                    else
-                    {
-                        ret.p2 = null;
-                    }
+                    ret.returnValue = istr.readStringSeq(1);
+                    ret.p2 = istr.readStringSeq(3);
                     return ret;
                 });
         }
@@ -5832,16 +5581,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             byte[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                byte[] tmpVal;
-                tmpVal = ByteSeqHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
+            iceP_p1 = istr.readByteSeq(2);
             istr.endEncapsulation();
             byte[]? iceP_p3;
             var ret = obj.opByteSeq(iceP_p1, out iceP_p3, request.current);
@@ -5861,16 +5601,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             bool[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                bool[] tmpVal;
-                tmpVal = BoolSeqHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
+            iceP_p1 = istr.readBoolSeq(2);
             istr.endEncapsulation();
             bool[]? iceP_p3;
             var ret = obj.opBoolSeq(iceP_p1, out iceP_p3, request.current);
@@ -5890,17 +5621,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             short[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                short[] tmpVal;
-                tmpVal = ShortSeqHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
+            iceP_p1 = istr.readShortSeq(2);
             istr.endEncapsulation();
             short[]? iceP_p3;
             var ret = obj.opShortSeq(iceP_p1, out iceP_p3, request.current);
@@ -5920,17 +5641,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             int[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                int[] tmpVal;
-                tmpVal = IntSeqHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
+            iceP_p1 = istr.readIntSeq(2);
             istr.endEncapsulation();
             int[]? iceP_p3;
             var ret = obj.opIntSeq(iceP_p1, out iceP_p3, request.current);
@@ -5950,17 +5661,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             long[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                long[] tmpVal;
-                tmpVal = LongSeqHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
+            iceP_p1 = istr.readLongSeq(2);
             istr.endEncapsulation();
             long[]? iceP_p3;
             var ret = obj.opLongSeq(iceP_p1, out iceP_p3, request.current);
@@ -5980,17 +5681,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             float[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                float[] tmpVal;
-                tmpVal = FloatSeqHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
+            iceP_p1 = istr.readFloatSeq(2);
             istr.endEncapsulation();
             float[]? iceP_p3;
             var ret = obj.opFloatSeq(iceP_p1, out iceP_p3, request.current);
@@ -6010,17 +5701,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             double[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                double[] tmpVal;
-                tmpVal = DoubleSeqHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
+            iceP_p1 = istr.readDoubleSeq(2);
             istr.endEncapsulation();
             double[]? iceP_p3;
             var ret = obj.opDoubleSeq(iceP_p1, out iceP_p3, request.current);
@@ -6040,17 +5721,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             string[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                string[] tmpVal;
-                tmpVal = StringSeqHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
+            iceP_p1 = istr.readStringSeq(2);
             istr.endEncapsulation();
             string[]? iceP_p3;
             var ret = obj.opStringSeq(iceP_p1, out iceP_p3, request.current);
@@ -6256,16 +5927,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             byte[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                byte[] tmpVal;
-                tmpVal = SerializableHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
+            iceP_p1 = istr.readByteSeq(2);
             istr.endEncapsulation();
             byte[]? iceP_p3;
             var ret = obj.opSerializable(iceP_p1, out iceP_p3, request.current);
@@ -6442,17 +6104,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             string[]? iceP_p1;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                string[] tmpVal;
-                tmpVal = StringSeqHelper.read(istr);
-                iceP_p1 = tmpVal;
-            }
-            else
-            {
-                iceP_p1 = null;
-            }
+            iceP_p1 = istr.readStringSeq(2);
             istr.endEncapsulation();
             var result = obj.opMSeq2(iceP_p1, request.current);
             return new (new Ice.OutgoingResponse(result.outputStream));

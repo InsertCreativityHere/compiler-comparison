@@ -335,38 +335,9 @@ namespace Test
             {
                 enum8 = null;
             }
-            if (istr_.readOptional(12, Ice.OptionalFormat.VSize))
-            {
-                istr_.skipSize();
-                int[] tmpVal;
-                tmpVal = global::Ice.IntSeqHelper.read(istr_);
-                intSeq12 = tmpVal;
-            }
-            else
-            {
-                intSeq12 = null;
-            }
-            if (istr_.readOptional(13, Ice.OptionalFormat.VSize))
-            {
-                byte[] tmpVal;
-                tmpVal = global::Ice.ByteSeqHelper.read(istr_);
-                byteSeq13 = tmpVal;
-            }
-            else
-            {
-                byteSeq13 = null;
-            }
-            if (istr_.readOptional(14, Ice.OptionalFormat.FSize))
-            {
-                istr_.skip(4);
-                string[] tmpVal;
-                tmpVal = global::Ice.StringSeqHelper.read(istr_);
-                stringSeq14 = tmpVal;
-            }
-            else
-            {
-                stringSeq14 = null;
-            }
+            intSeq12 = istr_.readIntSeq(12);
+            byteSeq13 = istr_.readByteSeq(13);
+            stringSeq14 = istr_.readStringSeq(14);
             if (istr_.readOptional(15, Ice.OptionalFormat.VSize))
             {
                 istr_.skipSize();

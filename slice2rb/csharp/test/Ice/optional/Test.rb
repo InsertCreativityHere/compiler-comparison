@@ -279,7 +279,7 @@ module ::Test
     if not defined?(::Test::MultiOptional)
         class MultiOptional < ::Ice::Value
 
-            def initialize(a=::Ice::Unset, b=::Ice::Unset, c=::Ice::Unset, d=::Ice::Unset, e=::Ice::Unset, f=::Ice::Unset, g=::Ice::Unset, h=::Ice::Unset, i=::Ice::Unset, j=::Ice::Unset, bs=::Ice::Unset, ss=::Ice::Unset, iid=::Ice::Unset, sid=::Ice::Unset, fs=::Ice::Unset, vs=::Ice::Unset, shs=::Ice::Unset, es=::Ice::Unset, fss=::Ice::Unset, vss=::Ice::Unset, mips=::Ice::Unset, ied=::Ice::Unset, ifsd=::Ice::Unset, ivsd=::Ice::Unset, imipd=::Ice::Unset, bos=::Ice::Unset)
+            def initialize(a=::Ice::Unset, b=::Ice::Unset, c=::Ice::Unset, d=::Ice::Unset, e=::Ice::Unset, f=::Ice::Unset, g=::Ice::Unset, h=::Ice::Unset, i=::Ice::Unset, j=::Ice::Unset, bs=::Ice::Unset, ss=::Ice::Unset, iid=::Ice::Unset, sid=::Ice::Unset, fs=::Ice::Unset, vs=::Ice::Unset, shs=::Ice::Unset, es=::Ice::Unset, fss=::Ice::Unset, vss=::Ice::Unset, mips=::Ice::Unset, ied=::Ice::Unset, ifsd=::Ice::Unset, ivsd=::Ice::Unset, imipd=::Ice::Unset, bos=::Ice::Unset, plainProxy=::Ice::Unset)
                 @a = a
                 @b = b
                 @c = c
@@ -306,9 +306,10 @@ module ::Test
                 @ivsd = ivsd
                 @imipd = imipd
                 @bos = bos
+                @plainProxy = plainProxy
             end
 
-            attr_accessor :a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :bs, :ss, :iid, :sid, :fs, :vs, :shs, :es, :fss, :vss, :mips, :ied, :ifsd, :ivsd, :imipd, :bos
+            attr_accessor :a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :bs, :ss, :iid, :sid, :fs, :vs, :shs, :es, :fss, :vss, :mips, :ied, :ifsd, :ivsd, :imipd, :bos, :plainProxy
         end
 
         if not defined?(::Test::T_MultiOptional)
@@ -341,7 +342,8 @@ module ::Test
             ['ifsd', ::Test::T_IntFixedStructDict, true, 25],
             ['ivsd', ::Test::T_IntVarStructDict, true, 26],
             ['imipd', ::Test::T_IntMyInterfacePrxDict, true, 28],
-            ['bos', ::Test::T_BoolSeq, true, 29]
+            ['bos', ::Test::T_BoolSeq, true, 29],
+            ['plainProxy', ::Ice::T_ObjectPrx, true, 30]
         ])
     end
 

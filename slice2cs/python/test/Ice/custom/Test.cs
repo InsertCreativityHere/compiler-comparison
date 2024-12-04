@@ -242,81 +242,13 @@ namespace Test
         protected override void iceReadImpl(Ice.InputStream istr_)
         {
             istr_.startSlice();
-            if (istr_.readOptional(1, Ice.OptionalFormat.VSize))
-            {
-                bool[] tmpVal;
-                tmpVal = BoolSeq1Helper.read(istr_);
-                boolSeq = tmpVal;
-            }
-            else
-            {
-                boolSeq = null;
-            }
-            if (istr_.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                byte[] tmpVal;
-                tmpVal = ByteSeq1Helper.read(istr_);
-                byteSeq = tmpVal;
-            }
-            else
-            {
-                byteSeq = null;
-            }
-            if (istr_.readOptional(3, Ice.OptionalFormat.VSize))
-            {
-                istr_.skipSize();
-                short[] tmpVal;
-                tmpVal = ShortSeq1Helper.read(istr_);
-                shortSeq = tmpVal;
-            }
-            else
-            {
-                shortSeq = null;
-            }
-            if (istr_.readOptional(4, Ice.OptionalFormat.VSize))
-            {
-                istr_.skipSize();
-                int[] tmpVal;
-                tmpVal = IntSeq1Helper.read(istr_);
-                intSeq = tmpVal;
-            }
-            else
-            {
-                intSeq = null;
-            }
-            if (istr_.readOptional(5, Ice.OptionalFormat.VSize))
-            {
-                istr_.skipSize();
-                long[] tmpVal;
-                tmpVal = LongSeq1Helper.read(istr_);
-                longSeq = tmpVal;
-            }
-            else
-            {
-                longSeq = null;
-            }
-            if (istr_.readOptional(6, Ice.OptionalFormat.VSize))
-            {
-                istr_.skipSize();
-                float[] tmpVal;
-                tmpVal = FloatSeq1Helper.read(istr_);
-                floatSeq = tmpVal;
-            }
-            else
-            {
-                floatSeq = null;
-            }
-            if (istr_.readOptional(7, Ice.OptionalFormat.VSize))
-            {
-                istr_.skipSize();
-                double[] tmpVal;
-                tmpVal = DoubleSeq1Helper.read(istr_);
-                doubleSeq = tmpVal;
-            }
-            else
-            {
-                doubleSeq = null;
-            }
+            boolSeq = istr_.readBoolSeq(1);
+            byteSeq = istr_.readByteSeq(2);
+            shortSeq = istr_.readShortSeq(3);
+            intSeq = istr_.readIntSeq(4);
+            longSeq = istr_.readLongSeq(5);
+            floatSeq = istr_.readFloatSeq(6);
+            doubleSeq = istr_.readDoubleSeq(7);
             istr_.endSlice();
         }
     }

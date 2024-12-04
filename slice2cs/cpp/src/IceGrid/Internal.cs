@@ -280,17 +280,7 @@ namespace IceGrid
             adapters = InternalAdapterDescriptorSeqHelper.read(istr_);
             dbEnvs = InternalDbEnvDescriptorSeqHelper.read(istr_);
             properties = PropertyDescriptorSeqDictHelper.read(istr_);
-            if (istr_.readOptional(1, Ice.OptionalFormat.FSize))
-            {
-                istr_.skip(4);
-                string[] tmpVal;
-                tmpVal = global::Ice.StringSeqHelper.read(istr_);
-                services = tmpVal;
-            }
-            else
-            {
-                services = null;
-            }
+            services = istr_.readStringSeq(1);
             istr_.endSlice();
         }
     }
@@ -6503,10 +6493,6 @@ namespace IceGrid
 
     public abstract class DatabaseObserverDisp_ : Ice.ObjectImpl, DatabaseObserver
     {
-        public abstract void applicationRemoved(int serial, string name, Ice.Current current);
-
-        public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, Ice.Current current);
-
         public abstract void adapterInit(AdapterInfo[] adpts, Ice.Current current);
 
         public abstract void adapterAdded(AdapterInfo info, Ice.Current current);
@@ -6521,11 +6507,15 @@ namespace IceGrid
 
         public abstract void objectUpdated(ObjectInfo info, Ice.Current current);
 
-        public abstract void objectRemoved(global::Ice.Identity id, Ice.Current current);
+        public abstract void applicationInit(int serial, ApplicationInfo[] applications, Ice.Current current);
 
         public abstract void applicationAdded(int serial, ApplicationInfo desc, Ice.Current current);
 
-        public abstract void applicationInit(int serial, ApplicationInfo[] applications, Ice.Current current);
+        public abstract void applicationRemoved(int serial, string name, Ice.Current current);
+
+        public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, Ice.Current current);
+
+        public abstract void objectRemoved(global::Ice.Identity id, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

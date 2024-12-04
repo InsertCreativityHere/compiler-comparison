@@ -25,7 +25,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
         this.vs = new VarStruct();
     }
 
-    public MultiOptional(byte a, boolean b, short c, int d, long e, float f, double g, String h, MyEnum i, MyInterfacePrx j, byte[] bs, String[] ss, java.util.Map<java.lang.Integer, java.lang.Integer> iid, java.util.Map<java.lang.String, java.lang.Integer> sid, FixedStruct fs, VarStruct vs, short[] shs, MyEnum[] es, FixedStruct[] fss, VarStruct[] vss, MyInterfacePrx[] mips, java.util.Map<java.lang.Integer, MyEnum> ied, java.util.Map<java.lang.Integer, FixedStruct> ifsd, java.util.Map<java.lang.Integer, VarStruct> ivsd, java.util.Map<java.lang.Integer, MyInterfacePrx> imipd, boolean[] bos)
+    public MultiOptional(byte a, boolean b, short c, int d, long e, float f, double g, String h, MyEnum i, MyInterfacePrx j, byte[] bs, String[] ss, java.util.Map<java.lang.Integer, java.lang.Integer> iid, java.util.Map<java.lang.String, java.lang.Integer> sid, FixedStruct fs, VarStruct vs, short[] shs, MyEnum[] es, FixedStruct[] fss, VarStruct[] vss, MyInterfacePrx[] mips, java.util.Map<java.lang.Integer, MyEnum> ied, java.util.Map<java.lang.Integer, FixedStruct> ifsd, java.util.Map<java.lang.Integer, VarStruct> ivsd, java.util.Map<java.lang.Integer, MyInterfacePrx> imipd, boolean[] bos, com.zeroc.Ice.ObjectPrx plainProxy)
     {
         setA(a);
         setB(b);
@@ -53,6 +53,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
         setIvsd(ivsd);
         setImipd(imipd);
         setBos(bos);
+        setPlainProxy(plainProxy);
     }
 
     private byte a;
@@ -1586,6 +1587,59 @@ public class MultiOptional extends com.zeroc.Ice.Value
         this.bos[index] = val;
     }
 
+    private com.zeroc.Ice.ObjectPrx plainProxy;
+    private boolean _plainProxy;
+
+    public com.zeroc.Ice.ObjectPrx getPlainProxy()
+    {
+        if(!_plainProxy)
+        {
+            throw new java.util.NoSuchElementException("plainProxy is not set");
+        }
+        return plainProxy;
+    }
+
+    public void setPlainProxy(com.zeroc.Ice.ObjectPrx plainProxy)
+    {
+        _plainProxy = true;
+        this.plainProxy = plainProxy;
+    }
+
+    public boolean hasPlainProxy()
+    {
+        return _plainProxy;
+    }
+
+    public void clearPlainProxy()
+    {
+        _plainProxy = false;
+    }
+
+    public void optionalPlainProxy(java.util.Optional<com.zeroc.Ice.ObjectPrx> v)
+    {
+        if(v == null || !v.isPresent())
+        {
+            _plainProxy = false;
+        }
+        else
+        {
+            _plainProxy = true;
+            plainProxy = v.get();
+        }
+    }
+
+    public java.util.Optional<com.zeroc.Ice.ObjectPrx> optionalPlainProxy()
+    {
+        if(_plainProxy)
+        {
+            return java.util.Optional.of(plainProxy);
+        }
+        else
+        {
+            return java.util.Optional.empty();
+        }
+    }
+
     public MultiOptional clone()
     {
         return (MultiOptional)super.clone();
@@ -1603,7 +1657,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -4524324866116521926L;
+    private static final long serialVersionUID = 4348045947864655665L;
 
     /** @hidden */
     @Override
@@ -1713,6 +1767,10 @@ public class MultiOptional extends com.zeroc.Ice.Value
         if(_bos)
         {
             ostr_.writeBoolSeq(29, bos);
+        }
+        if(_plainProxy)
+        {
+            ostr_.writeProxy(30, plainProxy);
         }
         ostr_.endSlice();
     }
@@ -1840,6 +1898,11 @@ public class MultiOptional extends com.zeroc.Ice.Value
         if(_bos = istr_.readOptional(29, com.zeroc.Ice.OptionalFormat.VSize))
         {
             bos = istr_.readBoolSeq();
+        }
+        if(_plainProxy = istr_.readOptional(30, com.zeroc.Ice.OptionalFormat.FSize))
+        {
+            istr_.skip(4);
+            plainProxy = istr_.readProxy();
         }
         istr_.endSlice();
     }

@@ -2537,26 +2537,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptBoolSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        bool[] tmpVal;
-                        tmpVal = BoolSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        bool[] tmpVal;
-                        tmpVal = BoolSeqHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readBoolSeq(1);
+                    ret.outSeq = istr.readBoolSeq(3);
                     return ret;
                 });
         }
@@ -2592,26 +2574,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptByteSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        byte[] tmpVal;
-                        tmpVal = ByteSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        byte[] tmpVal;
-                        tmpVal = ByteSeqHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readByteSeq(1);
+                    ret.outSeq = istr.readByteSeq(3);
                     return ret;
                 });
         }
@@ -2647,28 +2611,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptShortSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        short[] tmpVal;
-                        tmpVal = ShortSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        short[] tmpVal;
-                        tmpVal = ShortSeqHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readShortSeq(1);
+                    ret.outSeq = istr.readShortSeq(3);
                     return ret;
                 });
         }
@@ -2704,28 +2648,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptIntSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        int[] tmpVal;
-                        tmpVal = IntSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        int[] tmpVal;
-                        tmpVal = IntSeqHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readIntSeq(1);
+                    ret.outSeq = istr.readIntSeq(3);
                     return ret;
                 });
         }
@@ -2761,28 +2685,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptLongSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        long[] tmpVal;
-                        tmpVal = LongSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        long[] tmpVal;
-                        tmpVal = LongSeqHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readLongSeq(1);
+                    ret.outSeq = istr.readLongSeq(3);
                     return ret;
                 });
         }
@@ -2818,28 +2722,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptFloatSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        float[] tmpVal;
-                        tmpVal = FloatSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        float[] tmpVal;
-                        tmpVal = FloatSeqHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readFloatSeq(1);
+                    ret.outSeq = istr.readFloatSeq(3);
                     return ret;
                 });
         }
@@ -2875,28 +2759,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptDoubleSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        double[] tmpVal;
-                        tmpVal = DoubleSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        double[] tmpVal;
-                        tmpVal = DoubleSeqHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readDoubleSeq(1);
+                    ret.outSeq = istr.readDoubleSeq(3);
                     return ret;
                 });
         }
@@ -2932,28 +2796,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptStringSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        string[] tmpVal;
-                        tmpVal = StringSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        string[] tmpVal;
-                        tmpVal = StringSeqHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readStringSeq(1);
+                    ret.outSeq = istr.readStringSeq(3);
                     return ret;
                 });
         }
@@ -3237,26 +3081,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptByteBufferSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        byte[] tmpVal;
-                        tmpVal = ByteBufferHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        byte[] tmpVal;
-                        tmpVal = ByteBufferHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readByteSeq(1);
+                    ret.outSeq = istr.readByteSeq(3);
                     return ret;
                 });
         }
@@ -3292,28 +3118,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptShortBufferSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        short[] tmpVal;
-                        tmpVal = ShortBufferHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        short[] tmpVal;
-                        tmpVal = ShortBufferHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readShortSeq(1);
+                    ret.outSeq = istr.readShortSeq(3);
                     return ret;
                 });
         }
@@ -3349,28 +3155,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptIntBufferSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        int[] tmpVal;
-                        tmpVal = IntBufferHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        int[] tmpVal;
-                        tmpVal = IntBufferHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readIntSeq(1);
+                    ret.outSeq = istr.readIntSeq(3);
                     return ret;
                 });
         }
@@ -3406,28 +3192,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptLongBufferSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        long[] tmpVal;
-                        tmpVal = LongBufferHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        long[] tmpVal;
-                        tmpVal = LongBufferHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readLongSeq(1);
+                    ret.outSeq = istr.readLongSeq(3);
                     return ret;
                 });
         }
@@ -3463,28 +3229,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptFloatBufferSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        float[] tmpVal;
-                        tmpVal = FloatBufferHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        float[] tmpVal;
-                        tmpVal = FloatBufferHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readFloatSeq(1);
+                    ret.outSeq = istr.readFloatSeq(3);
                     return ret;
                 });
         }
@@ -3520,28 +3266,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptDoubleBufferSeqResult();
-                    if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        double[] tmpVal;
-                        tmpVal = DoubleBufferHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        double[] tmpVal;
-                        tmpVal = DoubleBufferHelper.read(istr);
-                        ret.outSeq = tmpVal;
-                    }
-                    else
-                    {
-                        ret.outSeq = null;
-                    }
+                    ret.returnValue = istr.readDoubleSeq(1);
+                    ret.outSeq = istr.readDoubleSeq(3);
                     return ret;
                 });
         }
@@ -4315,16 +4041,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             bool[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                bool[] tmpVal;
-                tmpVal = BoolSeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readBoolSeq(2);
             istr.endEncapsulation();
             bool[]? iceP_outSeq;
             var ret = obj.opOptBoolSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4344,16 +4061,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             byte[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                byte[] tmpVal;
-                tmpVal = ByteSeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readByteSeq(2);
             istr.endEncapsulation();
             byte[]? iceP_outSeq;
             var ret = obj.opOptByteSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4373,17 +4081,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             short[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                short[] tmpVal;
-                tmpVal = ShortSeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readShortSeq(2);
             istr.endEncapsulation();
             short[]? iceP_outSeq;
             var ret = obj.opOptShortSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4403,17 +4101,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             int[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                int[] tmpVal;
-                tmpVal = IntSeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readIntSeq(2);
             istr.endEncapsulation();
             int[]? iceP_outSeq;
             var ret = obj.opOptIntSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4433,17 +4121,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             long[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                long[] tmpVal;
-                tmpVal = LongSeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readLongSeq(2);
             istr.endEncapsulation();
             long[]? iceP_outSeq;
             var ret = obj.opOptLongSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4463,17 +4141,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             float[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                float[] tmpVal;
-                tmpVal = FloatSeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readFloatSeq(2);
             istr.endEncapsulation();
             float[]? iceP_outSeq;
             var ret = obj.opOptFloatSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4493,17 +4161,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             double[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                double[] tmpVal;
-                tmpVal = DoubleSeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readDoubleSeq(2);
             istr.endEncapsulation();
             double[]? iceP_outSeq;
             var ret = obj.opOptDoubleSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4523,17 +4181,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             string[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                string[] tmpVal;
-                tmpVal = StringSeqHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readStringSeq(2);
             istr.endEncapsulation();
             string[]? iceP_outSeq;
             var ret = obj.opOptStringSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4713,16 +4361,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             byte[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                byte[] tmpVal;
-                tmpVal = ByteBufferHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readByteSeq(2);
             istr.endEncapsulation();
             byte[]? iceP_outSeq;
             var ret = obj.opOptByteBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4742,17 +4381,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             short[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                short[] tmpVal;
-                tmpVal = ShortBufferHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readShortSeq(2);
             istr.endEncapsulation();
             short[]? iceP_outSeq;
             var ret = obj.opOptShortBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4772,17 +4401,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             int[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                int[] tmpVal;
-                tmpVal = IntBufferHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readIntSeq(2);
             istr.endEncapsulation();
             int[]? iceP_outSeq;
             var ret = obj.opOptIntBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4802,17 +4421,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             long[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                long[] tmpVal;
-                tmpVal = LongBufferHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readLongSeq(2);
             istr.endEncapsulation();
             long[]? iceP_outSeq;
             var ret = obj.opOptLongBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4832,17 +4441,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             float[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                float[] tmpVal;
-                tmpVal = FloatBufferHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readFloatSeq(2);
             istr.endEncapsulation();
             float[]? iceP_outSeq;
             var ret = obj.opOptFloatBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);
@@ -4862,17 +4461,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             double[]? iceP_inSeq;
-            if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                double[] tmpVal;
-                tmpVal = DoubleBufferHelper.read(istr);
-                iceP_inSeq = tmpVal;
-            }
-            else
-            {
-                iceP_inSeq = null;
-            }
+            iceP_inSeq = istr.readDoubleSeq(2);
             istr.endEncapsulation();
             double[]? iceP_outSeq;
             var ret = obj.opOptDoubleBufferSeq(iceP_inSeq, out iceP_outSeq, request.current);

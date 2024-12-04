@@ -440,7 +440,7 @@ if '_t_IntMyInterfacePrxDict' not in _M_Test.__dict__:
 if 'MultiOptional' not in _M_Test.__dict__:
     _M_Test.MultiOptional = None
     class MultiOptional(Ice.Value):
-        def __init__(self, a=None, b=None, c=None, d=None, e=None, f=None, g=None, h=None, i=None, j=None, bs=None, ss=None, iid=None, sid=None, fs=None, vs=None, shs=None, es=None, fss=None, vss=None, mips=None, ied=None, ifsd=None, ivsd=None, imipd=None, bos=None):
+        def __init__(self, a=None, b=None, c=None, d=None, e=None, f=None, g=None, h=None, i=None, j=None, bs=None, ss=None, iid=None, sid=None, fs=None, vs=None, shs=None, es=None, fss=None, vss=None, mips=None, ied=None, ifsd=None, ivsd=None, imipd=None, bos=None, plainProxy=None):
             self.a = a
             self.b = b
             self.c = c
@@ -467,6 +467,7 @@ if 'MultiOptional' not in _M_Test.__dict__:
             self.ivsd = ivsd
             self.imipd = imipd
             self.bos = bos
+            self.plainProxy = plainProxy
 
         def ice_id(self):
             return '::Test::MultiOptional'
@@ -506,7 +507,8 @@ if 'MultiOptional' not in _M_Test.__dict__:
         ('ifsd', (), _M_Test._t_IntFixedStructDict, True, 25),
         ('ivsd', (), _M_Test._t_IntVarStructDict, True, 26),
         ('imipd', (), _M_Test._t_IntMyInterfacePrxDict, True, 28),
-        ('bos', (), _M_Test._t_BoolSeq, True, 29)
+        ('bos', (), _M_Test._t_BoolSeq, True, 29),
+        ('plainProxy', (), IcePy._t_ObjectPrx, True, 30)
     ))
     MultiOptional._ice_type = _M_Test._t_MultiOptional
 

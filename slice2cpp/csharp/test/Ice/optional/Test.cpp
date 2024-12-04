@@ -1997,7 +1997,7 @@ void
 Test::MultiOptional::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29}, this->a, this->b, this->c, this->d, this->e, this->f, this->g, this->h, this->i, this->j, this->bs, this->ss, this->iid, this->sid, this->fs, this->vs, this->shs, this->es, this->fss, this->vss, this->mips, this->ied, this->ifsd, this->ivsd, this->imipd, this->bos);
+    ostr->writeAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29, 30}, this->a, this->b, this->c, this->d, this->e, this->f, this->g, this->h, this->i, this->j, this->bs, this->ss, this->iid, this->sid, this->fs, this->vs, this->shs, this->es, this->fss, this->vss, this->mips, this->ied, this->ifsd, this->ivsd, this->imipd, this->bos, this->plainProxy);
     ostr->endSlice();
 }
 
@@ -2005,7 +2005,7 @@ void
 Test::MultiOptional::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29}, this->a, this->b, this->c, this->d, this->e, this->f, this->g, this->h, this->i, this->j, this->bs, this->ss, this->iid, this->sid, this->fs, this->vs, this->shs, this->es, this->fss, this->vss, this->mips, this->ied, this->ifsd, this->ivsd, this->imipd, this->bos);
+    istr->readAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 23, 24, 25, 26, 28, 29, 30}, this->a, this->b, this->c, this->d, this->e, this->f, this->g, this->h, this->i, this->j, this->bs, this->ss, this->iid, this->sid, this->fs, this->vs, this->shs, this->es, this->fss, this->vss, this->mips, this->ied, this->ifsd, this->ivsd, this->imipd, this->bos, this->plainProxy);
     istr->endSlice();
 }
 

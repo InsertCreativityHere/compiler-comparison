@@ -409,7 +409,7 @@ namespace Test
     global $Test__t_MultiOptional;
     class MultiOptional extends \Ice\Value
     {
-        public function __construct($a=\Ice\None, $b=\Ice\None, $c=\Ice\None, $d=\Ice\None, $e=\Ice\None, $f=\Ice\None, $g=\Ice\None, $h=\Ice\None, $i=\Ice\None, $j=\Ice\None, $bs=\Ice\None, $ss=\Ice\None, $iid=\Ice\None, $sid=\Ice\None, $fs=\Ice\None, $vs=\Ice\None, $shs=\Ice\None, $es=\Ice\None, $fss=\Ice\None, $vss=\Ice\None, $mips=\Ice\None, $ied=\Ice\None, $ifsd=\Ice\None, $ivsd=\Ice\None, $imipd=\Ice\None, $bos=\Ice\None)
+        public function __construct($a=\Ice\None, $b=\Ice\None, $c=\Ice\None, $d=\Ice\None, $e=\Ice\None, $f=\Ice\None, $g=\Ice\None, $h=\Ice\None, $i=\Ice\None, $j=\Ice\None, $bs=\Ice\None, $ss=\Ice\None, $iid=\Ice\None, $sid=\Ice\None, $fs=\Ice\None, $vs=\Ice\None, $shs=\Ice\None, $es=\Ice\None, $fss=\Ice\None, $vss=\Ice\None, $mips=\Ice\None, $ied=\Ice\None, $ifsd=\Ice\None, $ivsd=\Ice\None, $imipd=\Ice\None, $bos=\Ice\None, $plainProxy=\Ice\None)
         {
             $this->a = $a;
             $this->b = $b;
@@ -437,6 +437,7 @@ namespace Test
             $this->ivsd = $ivsd;
             $this->imipd = $imipd;
             $this->bos = $bos;
+            $this->plainProxy = $plainProxy;
         }
 
         public function ice_id()
@@ -481,6 +482,7 @@ namespace Test
         public $ivsd;
         public $imipd;
         public $bos;
+        public $plainProxy;
     }
 
     global $Ice__t_Value;
@@ -510,6 +512,7 @@ namespace Test
     global $Test__t_IntVarStructDict;
     global $Test__t_IntMyInterfacePrxDict;
     global $Test__t_BoolSeq;
+    global $Ice__t_ObjectPrx;
     $Test__t_MultiOptional = IcePHP_defineClass('::Test::MultiOptional', '\\Test\\MultiOptional', -1, false, $Ice__t_Value, array(
         array('a', $IcePHP__t_byte, true, 1),
         array('b', $IcePHP__t_bool, true, 2),
@@ -536,7 +539,8 @@ namespace Test
         array('ifsd', $Test__t_IntFixedStructDict, true, 25),
         array('ivsd', $Test__t_IntVarStructDict, true, 26),
         array('imipd', $Test__t_IntMyInterfacePrxDict, true, 28),
-        array('bos', $Test__t_BoolSeq, true, 29)));
+        array('bos', $Test__t_BoolSeq, true, 29),
+        array('plainProxy', $Ice__t_ObjectPrx, true, 30)));
 }
 
 namespace Test

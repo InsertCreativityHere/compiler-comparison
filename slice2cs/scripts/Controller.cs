@@ -87,28 +87,8 @@ namespace Test
                 serialize = istr_.readBool(3);
                 compress = istr_.readBool(4);
                 ipv6 = istr_.readBool(5);
-                if (istr_.readOptional(6, Ice.OptionalFormat.FSize))
-                {
-                    istr_.skip(4);
-                    string[] tmpVal;
-                    tmpVal = StringSeqHelper.read(istr_);
-                    cprops = tmpVal;
-                }
-                else
-                {
-                    cprops = null;
-                }
-                if (istr_.readOptional(7, Ice.OptionalFormat.FSize))
-                {
-                    istr_.skip(4);
-                    string[] tmpVal;
-                    tmpVal = StringSeqHelper.read(istr_);
-                    sprops = tmpVal;
-                }
-                else
-                {
-                    sprops = null;
-                }
+                cprops = istr_.readStringSeq(6);
+                sprops = istr_.readStringSeq(7);
                 istr_.endSlice();
             }
         }
@@ -160,57 +140,11 @@ namespace Test
             protected override void iceReadImpl(Ice.InputStream istr_)
             {
                 istr_.startSlice();
-                if (istr_.readOptional(1, Ice.OptionalFormat.FSize))
-                {
-                    istr_.skip(4);
-                    string[] tmpVal;
-                    tmpVal = StringSeqHelper.read(istr_);
-                    protocol = tmpVal;
-                }
-                else
-                {
-                    protocol = null;
-                }
-                if (istr_.readOptional(2, Ice.OptionalFormat.VSize))
-                {
-                    bool[] tmpVal;
-                    tmpVal = BoolSeqHelper.read(istr_);
-                    mx = tmpVal;
-                }
-                else
-                {
-                    mx = null;
-                }
-                if (istr_.readOptional(3, Ice.OptionalFormat.VSize))
-                {
-                    bool[] tmpVal;
-                    tmpVal = BoolSeqHelper.read(istr_);
-                    serialize = tmpVal;
-                }
-                else
-                {
-                    serialize = null;
-                }
-                if (istr_.readOptional(4, Ice.OptionalFormat.VSize))
-                {
-                    bool[] tmpVal;
-                    tmpVal = BoolSeqHelper.read(istr_);
-                    compress = tmpVal;
-                }
-                else
-                {
-                    compress = null;
-                }
-                if (istr_.readOptional(5, Ice.OptionalFormat.VSize))
-                {
-                    bool[] tmpVal;
-                    tmpVal = BoolSeqHelper.read(istr_);
-                    ipv6 = tmpVal;
-                }
-                else
-                {
-                    ipv6 = null;
-                }
+                protocol = istr_.readStringSeq(1);
+                mx = istr_.readBoolSeq(2);
+                serialize = istr_.readBoolSeq(3);
+                compress = istr_.readBoolSeq(4);
+                ipv6 = istr_.readBoolSeq(5);
                 istr_.endSlice();
             }
         }

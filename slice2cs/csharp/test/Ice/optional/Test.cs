@@ -223,7 +223,7 @@ namespace Ice.optional
 
             public VarStruct? vs;
 
-            public short[]? shs;
+            public global::System.Collections.Generic.List<short>? shs;
 
             public MyEnum[]? es;
 
@@ -243,9 +243,11 @@ namespace Ice.optional
 
             public bool[]? bos;
 
+            public global::Ice.ObjectPrx? plainProxy;
+
             partial void ice_initialize();
 
-            public MultiOptional(byte? a, bool? b, short? c, int? d, long? e, float? f, double? g, string? h, MyEnum? i, MyInterfacePrx? j, byte[]? bs, string[]? ss, global::System.Collections.Generic.Dictionary<int, int>? iid, global::System.Collections.Generic.Dictionary<string, int>? sid, FixedStruct? fs, VarStruct? vs, short[]? shs, MyEnum[]? es, FixedStruct[]? fss, VarStruct[]? vss, MyInterfacePrx?[]? mips, global::System.Collections.Generic.Dictionary<int, MyEnum>? ied, global::System.Collections.Generic.Dictionary<int, FixedStruct>? ifsd, global::System.Collections.Generic.Dictionary<int, VarStruct>? ivsd, global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?>? imipd, bool[]? bos)
+            public MultiOptional(byte? a, bool? b, short? c, int? d, long? e, float? f, double? g, string? h, MyEnum? i, MyInterfacePrx? j, byte[]? bs, string[]? ss, global::System.Collections.Generic.Dictionary<int, int>? iid, global::System.Collections.Generic.Dictionary<string, int>? sid, FixedStruct? fs, VarStruct? vs, global::System.Collections.Generic.List<short>? shs, MyEnum[]? es, FixedStruct[]? fss, VarStruct[]? vss, MyInterfacePrx?[]? mips, global::System.Collections.Generic.Dictionary<int, MyEnum>? ied, global::System.Collections.Generic.Dictionary<int, FixedStruct>? ifsd, global::System.Collections.Generic.Dictionary<int, VarStruct>? ivsd, global::System.Collections.Generic.Dictionary<int, MyInterfacePrx?>? imipd, bool[]? bos, global::Ice.ObjectPrx? plainProxy)
             {
                 this.a = a;
                 this.b = b;
@@ -273,6 +275,7 @@ namespace Ice.optional
                 this.ivsd = ivsd;
                 this.imipd = imipd;
                 this.bos = bos;
+                this.plainProxy = plainProxy;
                 ice_initialize();
             }
 
@@ -329,7 +332,10 @@ namespace Ice.optional
                     VarStruct.ice_write(ostr_, vs);
                     ostr_.endSize(pos);
                 }
-                ostr_.writeShortSeq(18, shs);
+                if (shs is not null)
+                {
+                    ostr_.writeShortSeq(18, shs.Count, shs);
+                }
                 if (es is not null && ostr_.writeOptional(19, Ice.OptionalFormat.FSize))
                 {
                     int pos = ostr_.startSize();
@@ -377,6 +383,7 @@ namespace Ice.optional
                     ostr_.endSize(pos);
                 }
                 ostr_.writeBoolSeq(29, bos);
+                ostr_.writeProxy(30, plainProxy);
                 ostr_.endSlice();
             }
 
@@ -412,27 +419,8 @@ namespace Ice.optional
                 {
                     j = null;
                 }
-                if (istr_.readOptional(12, Ice.OptionalFormat.VSize))
-                {
-                    byte[] tmpVal;
-                    tmpVal = ByteSeqHelper.read(istr_);
-                    bs = tmpVal;
-                }
-                else
-                {
-                    bs = null;
-                }
-                if (istr_.readOptional(13, Ice.OptionalFormat.FSize))
-                {
-                    istr_.skip(4);
-                    string[] tmpVal;
-                    tmpVal = StringSeqHelper.read(istr_);
-                    ss = tmpVal;
-                }
-                else
-                {
-                    ss = null;
-                }
+                bs = istr_.readByteSeq(12);
+                ss = istr_.readStringSeq(13);
                 if (istr_.readOptional(14, Ice.OptionalFormat.VSize))
                 {
                     istr_.skipSize();
@@ -480,9 +468,7 @@ namespace Ice.optional
                 if (istr_.readOptional(18, Ice.OptionalFormat.VSize))
                 {
                     istr_.skipSize();
-                    short[] tmpVal;
-                    tmpVal = ShortSeqHelper.read(istr_);
-                    shs = tmpVal;
+                    shs = ShortSeqHelper.read(istr_);
                 }
                 else
                 {
@@ -576,16 +562,8 @@ namespace Ice.optional
                 {
                     imipd = null;
                 }
-                if (istr_.readOptional(29, Ice.OptionalFormat.VSize))
-                {
-                    bool[] tmpVal;
-                    tmpVal = BoolSeqHelper.read(istr_);
-                    bos = tmpVal;
-                }
-                else
-                {
-                    bos = null;
-                }
+                bos = istr_.readBoolSeq(29);
+                plainProxy = istr_.readProxy(30);
                 istr_.endSlice();
             }
         }
@@ -1245,7 +1223,7 @@ namespace Ice.optional
 
             bool[]? opBoolSeq(bool[]? p1, out bool[]? p3, Ice.Current current);
 
-            short[]? opShortSeq(short[]? p1, out short[]? p3, Ice.Current current);
+            global::System.Collections.Generic.List<short>? opShortSeq(global::System.Collections.Generic.List<short>? p1, out global::System.Collections.Generic.List<short>? p3, Ice.Current current);
 
             int[]? opIntSeq(int[]? p1, out int[]? p3, Ice.Current current);
 
@@ -1330,7 +1308,7 @@ namespace Ice.optional
 
         public record struct Initial_OpBoolSeqResult(bool[]? returnValue, bool[]? p3);
 
-        public record struct Initial_OpShortSeqResult(short[]? returnValue, short[]? p3);
+        public record struct Initial_OpShortSeqResult(global::System.Collections.Generic.List<short>? returnValue, global::System.Collections.Generic.List<short>? p3);
 
         public record struct Initial_OpIntSeqResult(int[]? returnValue, int[]? p3);
 
@@ -1581,9 +1559,9 @@ namespace Ice.optional
 
             global::System.Threading.Tasks.Task<Initial_OpBoolSeqResult> opBoolSeqAsync(bool[]? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-            short[]? opShortSeq(short[]? p1, out short[]? p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+            global::System.Collections.Generic.List<short>? opShortSeq(global::System.Collections.Generic.List<short>? p1, out global::System.Collections.Generic.List<short>? p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-            global::System.Threading.Tasks.Task<Initial_OpShortSeqResult> opShortSeqAsync(short[]? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+            global::System.Threading.Tasks.Task<Initial_OpShortSeqResult> opShortSeqAsync(global::System.Collections.Generic.List<short>? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
             int[]? opIntSeq(int[]? p1, out int[]? p3, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -1799,15 +1777,15 @@ namespace Ice.optional
 
         public sealed class ShortSeqHelper
         {
-            public static void write(Ice.OutputStream ostr, short[] v)
+            public static void write(Ice.OutputStream ostr, global::System.Collections.Generic.List<short> v)
             {
-                ostr.writeShortSeq(v);
+                ostr.writeShortSeq(v == null ? 0 : v.Count, v!);
             }
 
-            public static short[] read(Ice.InputStream istr)
+            public static global::System.Collections.Generic.List<short> read(Ice.InputStream istr)
             {
-                short[] v;
-                v = istr.readShortSeq();
+                global::System.Collections.Generic.List<short> v;
+                istr.readShortSeq(out v);
                 return v;
             }
         }
@@ -2623,7 +2601,7 @@ namespace Ice.optional
                 }
             }
 
-            public short[]? opShortSeq(short[]? p1, out short[]? p3, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+            public global::System.Collections.Generic.List<short>? opShortSeq(global::System.Collections.Generic.List<short>? p1, out global::System.Collections.Generic.List<short>? p3, global::System.Collections.Generic.Dictionary<string, string>? context = null)
             {
                 try
                 {
@@ -3811,26 +3789,8 @@ namespace Ice.optional
                     read: (Ice.InputStream istr) =>
                     {
                         var ret = new Initial_OpByteSeqResult();
-                        if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                        {
-                            byte[] tmpVal;
-                            tmpVal = ByteSeqHelper.read(istr);
-                            ret.returnValue = tmpVal;
-                        }
-                        else
-                        {
-                            ret.returnValue = null;
-                        }
-                        if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                        {
-                            byte[] tmpVal;
-                            tmpVal = ByteSeqHelper.read(istr);
-                            ret.p3 = tmpVal;
-                        }
-                        else
-                        {
-                            ret.p3 = null;
-                        }
+                        ret.returnValue = istr.readByteSeq(1);
+                        ret.p3 = istr.readByteSeq(3);
                         return ret;
                     });
             }
@@ -3866,36 +3826,18 @@ namespace Ice.optional
                     read: (Ice.InputStream istr) =>
                     {
                         var ret = new Initial_OpBoolSeqResult();
-                        if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                        {
-                            bool[] tmpVal;
-                            tmpVal = BoolSeqHelper.read(istr);
-                            ret.returnValue = tmpVal;
-                        }
-                        else
-                        {
-                            ret.returnValue = null;
-                        }
-                        if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                        {
-                            bool[] tmpVal;
-                            tmpVal = BoolSeqHelper.read(istr);
-                            ret.p3 = tmpVal;
-                        }
-                        else
-                        {
-                            ret.p3 = null;
-                        }
+                        ret.returnValue = istr.readBoolSeq(1);
+                        ret.p3 = istr.readBoolSeq(3);
                         return ret;
                     });
             }
 
-            public global::System.Threading.Tasks.Task<Initial_OpShortSeqResult> opShortSeqAsync(short[]? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+            public global::System.Threading.Tasks.Task<Initial_OpShortSeqResult> opShortSeqAsync(global::System.Collections.Generic.List<short>? p1, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
             {
                 return _iceI_opShortSeqAsync(p1, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task<Initial_OpShortSeqResult> _iceI_opShortSeqAsync(short[]? iceP_p1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task<Initial_OpShortSeqResult> _iceI_opShortSeqAsync(global::System.Collections.Generic.List<short>? iceP_p1, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_opShortSeq_name);
                 var completed = new Ice.Internal.OperationTaskCompletionCallback<Initial_OpShortSeqResult>(progress, cancel);
@@ -3905,7 +3847,7 @@ namespace Ice.optional
 
             private const string _opShortSeq_name = "opShortSeq";
 
-            private void _iceI_opShortSeq(short[]? iceP_p1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_opShortSeq(global::System.Collections.Generic.List<short>? iceP_p1, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<Initial_OpShortSeqResult>(completed);
                 outAsync.invoke(
@@ -3916,7 +3858,10 @@ namespace Ice.optional
                     synchronous,
                     write: (Ice.OutputStream ostr) =>
                     {
-                        ostr.writeShortSeq(2, iceP_p1);
+                        if (iceP_p1 is not null)
+                        {
+                            ostr.writeShortSeq(2, iceP_p1.Count, iceP_p1);
+                        }
                     },
                     read: (Ice.InputStream istr) =>
                     {
@@ -3924,9 +3869,7 @@ namespace Ice.optional
                         if (istr.readOptional(1, Ice.OptionalFormat.VSize))
                         {
                             istr.skipSize();
-                            short[] tmpVal;
-                            tmpVal = ShortSeqHelper.read(istr);
-                            ret.returnValue = tmpVal;
+                            ret.returnValue = ShortSeqHelper.read(istr);
                         }
                         else
                         {
@@ -3935,9 +3878,7 @@ namespace Ice.optional
                         if (istr.readOptional(3, Ice.OptionalFormat.VSize))
                         {
                             istr.skipSize();
-                            short[] tmpVal;
-                            tmpVal = ShortSeqHelper.read(istr);
-                            ret.p3 = tmpVal;
+                            ret.p3 = ShortSeqHelper.read(istr);
                         }
                         else
                         {
@@ -3978,28 +3919,8 @@ namespace Ice.optional
                     read: (Ice.InputStream istr) =>
                     {
                         var ret = new Initial_OpIntSeqResult();
-                        if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                        {
-                            istr.skipSize();
-                            int[] tmpVal;
-                            tmpVal = IntSeqHelper.read(istr);
-                            ret.returnValue = tmpVal;
-                        }
-                        else
-                        {
-                            ret.returnValue = null;
-                        }
-                        if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                        {
-                            istr.skipSize();
-                            int[] tmpVal;
-                            tmpVal = IntSeqHelper.read(istr);
-                            ret.p3 = tmpVal;
-                        }
-                        else
-                        {
-                            ret.p3 = null;
-                        }
+                        ret.returnValue = istr.readIntSeq(1);
+                        ret.p3 = istr.readIntSeq(3);
                         return ret;
                     });
             }
@@ -4035,28 +3956,8 @@ namespace Ice.optional
                     read: (Ice.InputStream istr) =>
                     {
                         var ret = new Initial_OpLongSeqResult();
-                        if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                        {
-                            istr.skipSize();
-                            long[] tmpVal;
-                            tmpVal = LongSeqHelper.read(istr);
-                            ret.returnValue = tmpVal;
-                        }
-                        else
-                        {
-                            ret.returnValue = null;
-                        }
-                        if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                        {
-                            istr.skipSize();
-                            long[] tmpVal;
-                            tmpVal = LongSeqHelper.read(istr);
-                            ret.p3 = tmpVal;
-                        }
-                        else
-                        {
-                            ret.p3 = null;
-                        }
+                        ret.returnValue = istr.readLongSeq(1);
+                        ret.p3 = istr.readLongSeq(3);
                         return ret;
                     });
             }
@@ -4092,28 +3993,8 @@ namespace Ice.optional
                     read: (Ice.InputStream istr) =>
                     {
                         var ret = new Initial_OpFloatSeqResult();
-                        if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                        {
-                            istr.skipSize();
-                            float[] tmpVal;
-                            tmpVal = FloatSeqHelper.read(istr);
-                            ret.returnValue = tmpVal;
-                        }
-                        else
-                        {
-                            ret.returnValue = null;
-                        }
-                        if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                        {
-                            istr.skipSize();
-                            float[] tmpVal;
-                            tmpVal = FloatSeqHelper.read(istr);
-                            ret.p3 = tmpVal;
-                        }
-                        else
-                        {
-                            ret.p3 = null;
-                        }
+                        ret.returnValue = istr.readFloatSeq(1);
+                        ret.p3 = istr.readFloatSeq(3);
                         return ret;
                     });
             }
@@ -4149,28 +4030,8 @@ namespace Ice.optional
                     read: (Ice.InputStream istr) =>
                     {
                         var ret = new Initial_OpDoubleSeqResult();
-                        if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-                        {
-                            istr.skipSize();
-                            double[] tmpVal;
-                            tmpVal = DoubleSeqHelper.read(istr);
-                            ret.returnValue = tmpVal;
-                        }
-                        else
-                        {
-                            ret.returnValue = null;
-                        }
-                        if (istr.readOptional(3, Ice.OptionalFormat.VSize))
-                        {
-                            istr.skipSize();
-                            double[] tmpVal;
-                            tmpVal = DoubleSeqHelper.read(istr);
-                            ret.p3 = tmpVal;
-                        }
-                        else
-                        {
-                            ret.p3 = null;
-                        }
+                        ret.returnValue = istr.readDoubleSeq(1);
+                        ret.p3 = istr.readDoubleSeq(3);
                         return ret;
                     });
             }
@@ -4206,28 +4067,8 @@ namespace Ice.optional
                     read: (Ice.InputStream istr) =>
                     {
                         var ret = new Initial_OpStringSeqResult();
-                        if (istr.readOptional(1, Ice.OptionalFormat.FSize))
-                        {
-                            istr.skip(4);
-                            string[] tmpVal;
-                            tmpVal = StringSeqHelper.read(istr);
-                            ret.returnValue = tmpVal;
-                        }
-                        else
-                        {
-                            ret.returnValue = null;
-                        }
-                        if (istr.readOptional(3, Ice.OptionalFormat.FSize))
-                        {
-                            istr.skip(4);
-                            string[] tmpVal;
-                            tmpVal = StringSeqHelper.read(istr);
-                            ret.p3 = tmpVal;
-                        }
-                        else
-                        {
-                            ret.p3 = null;
-                        }
+                        ret.returnValue = istr.readStringSeq(1);
+                        ret.p3 = istr.readStringSeq(3);
                         return ret;
                     });
             }
@@ -4878,17 +4719,7 @@ namespace Ice.optional
                     read: (Ice.InputStream istr) =>
                     {
                         string[]? ret;
-                        if (istr.readOptional(1, Ice.OptionalFormat.FSize))
-                        {
-                            istr.skip(4);
-                            string[] tmpVal;
-                            tmpVal = StringSeqHelper.read(istr);
-                            ret = tmpVal;
-                        }
-                        else
-                        {
-                            ret = null;
-                        }
+                        ret = istr.readStringSeq(1);
                         return ret;
                     });
             }
@@ -4924,28 +4755,8 @@ namespace Ice.optional
                     read: (Ice.InputStream istr) =>
                     {
                         var ret = new Initial_OpMSeq2Result();
-                        if (istr.readOptional(1, Ice.OptionalFormat.FSize))
-                        {
-                            istr.skip(4);
-                            string[] tmpVal;
-                            tmpVal = StringSeqHelper.read(istr);
-                            ret.returnValue = tmpVal;
-                        }
-                        else
-                        {
-                            ret.returnValue = null;
-                        }
-                        if (istr.readOptional(3, Ice.OptionalFormat.FSize))
-                        {
-                            istr.skip(4);
-                            string[] tmpVal;
-                            tmpVal = StringSeqHelper.read(istr);
-                            ret.p2 = tmpVal;
-                        }
-                        else
-                        {
-                            ret.p2 = null;
-                        }
+                        ret.returnValue = istr.readStringSeq(1);
+                        ret.p2 = istr.readStringSeq(3);
                         return ret;
                     });
             }
@@ -5204,7 +5015,7 @@ namespace Ice.optional
 
             public abstract bool[]? opBoolSeq(bool[]? p1, out bool[]? p3, Ice.Current current);
 
-            public abstract short[]? opShortSeq(short[]? p1, out short[]? p3, Ice.Current current);
+            public abstract global::System.Collections.Generic.List<short>? opShortSeq(global::System.Collections.Generic.List<short>? p1, out global::System.Collections.Generic.List<short>? p3, Ice.Current current);
 
             public abstract int[]? opIntSeq(int[]? p1, out int[]? p3, Ice.Current current);
 
@@ -5789,16 +5600,7 @@ namespace Ice.optional
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 byte[]? iceP_p1;
-                if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-                {
-                    byte[] tmpVal;
-                    tmpVal = ByteSeqHelper.read(istr);
-                    iceP_p1 = tmpVal;
-                }
-                else
-                {
-                    iceP_p1 = null;
-                }
+                iceP_p1 = istr.readByteSeq(2);
                 istr.endEncapsulation();
                 byte[]? iceP_p3;
                 var ret = obj.opByteSeq(iceP_p1, out iceP_p3, request.current);
@@ -5818,16 +5620,7 @@ namespace Ice.optional
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 bool[]? iceP_p1;
-                if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-                {
-                    bool[] tmpVal;
-                    tmpVal = BoolSeqHelper.read(istr);
-                    iceP_p1 = tmpVal;
-                }
-                else
-                {
-                    iceP_p1 = null;
-                }
+                iceP_p1 = istr.readBoolSeq(2);
                 istr.endEncapsulation();
                 bool[]? iceP_p3;
                 var ret = obj.opBoolSeq(iceP_p1, out iceP_p3, request.current);
@@ -5846,25 +5639,29 @@ namespace Ice.optional
                 Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
                 var istr = request.inputStream;
                 istr.startEncapsulation();
-                short[]? iceP_p1;
+                global::System.Collections.Generic.List<short>? iceP_p1;
                 if (istr.readOptional(2, Ice.OptionalFormat.VSize))
                 {
                     istr.skipSize();
-                    short[] tmpVal;
-                    tmpVal = ShortSeqHelper.read(istr);
-                    iceP_p1 = tmpVal;
+                    iceP_p1 = ShortSeqHelper.read(istr);
                 }
                 else
                 {
                     iceP_p1 = null;
                 }
                 istr.endEncapsulation();
-                short[]? iceP_p3;
+                global::System.Collections.Generic.List<short>? iceP_p3;
                 var ret = obj.opShortSeq(iceP_p1, out iceP_p3, request.current);
                 var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
                 ostr.startEncapsulation(request.current.encoding, null);
-                ostr.writeShortSeq(1, ret);
-                ostr.writeShortSeq(3, iceP_p3);
+                if (ret is not null)
+                {
+                    ostr.writeShortSeq(1, ret.Count, ret);
+                }
+                if (iceP_p3 is not null)
+                {
+                    ostr.writeShortSeq(3, iceP_p3.Count, iceP_p3);
+                }
                 ostr.endEncapsulation();
                 return new(new Ice.OutgoingResponse(ostr));
             }
@@ -5877,17 +5674,7 @@ namespace Ice.optional
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 int[]? iceP_p1;
-                if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-                {
-                    istr.skipSize();
-                    int[] tmpVal;
-                    tmpVal = IntSeqHelper.read(istr);
-                    iceP_p1 = tmpVal;
-                }
-                else
-                {
-                    iceP_p1 = null;
-                }
+                iceP_p1 = istr.readIntSeq(2);
                 istr.endEncapsulation();
                 int[]? iceP_p3;
                 var ret = obj.opIntSeq(iceP_p1, out iceP_p3, request.current);
@@ -5907,17 +5694,7 @@ namespace Ice.optional
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 long[]? iceP_p1;
-                if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-                {
-                    istr.skipSize();
-                    long[] tmpVal;
-                    tmpVal = LongSeqHelper.read(istr);
-                    iceP_p1 = tmpVal;
-                }
-                else
-                {
-                    iceP_p1 = null;
-                }
+                iceP_p1 = istr.readLongSeq(2);
                 istr.endEncapsulation();
                 long[]? iceP_p3;
                 var ret = obj.opLongSeq(iceP_p1, out iceP_p3, request.current);
@@ -5937,17 +5714,7 @@ namespace Ice.optional
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 float[]? iceP_p1;
-                if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-                {
-                    istr.skipSize();
-                    float[] tmpVal;
-                    tmpVal = FloatSeqHelper.read(istr);
-                    iceP_p1 = tmpVal;
-                }
-                else
-                {
-                    iceP_p1 = null;
-                }
+                iceP_p1 = istr.readFloatSeq(2);
                 istr.endEncapsulation();
                 float[]? iceP_p3;
                 var ret = obj.opFloatSeq(iceP_p1, out iceP_p3, request.current);
@@ -5967,17 +5734,7 @@ namespace Ice.optional
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 double[]? iceP_p1;
-                if (istr.readOptional(2, Ice.OptionalFormat.VSize))
-                {
-                    istr.skipSize();
-                    double[] tmpVal;
-                    tmpVal = DoubleSeqHelper.read(istr);
-                    iceP_p1 = tmpVal;
-                }
-                else
-                {
-                    iceP_p1 = null;
-                }
+                iceP_p1 = istr.readDoubleSeq(2);
                 istr.endEncapsulation();
                 double[]? iceP_p3;
                 var ret = obj.opDoubleSeq(iceP_p1, out iceP_p3, request.current);
@@ -5997,17 +5754,7 @@ namespace Ice.optional
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 string[]? iceP_p1;
-                if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-                {
-                    istr.skip(4);
-                    string[] tmpVal;
-                    tmpVal = StringSeqHelper.read(istr);
-                    iceP_p1 = tmpVal;
-                }
-                else
-                {
-                    iceP_p1 = null;
-                }
+                iceP_p1 = istr.readStringSeq(2);
                 istr.endEncapsulation();
                 string[]? iceP_p3;
                 var ret = obj.opStringSeq(iceP_p1, out iceP_p3, request.current);
@@ -6380,17 +6127,7 @@ namespace Ice.optional
                 var istr = request.inputStream;
                 istr.startEncapsulation();
                 string[]? iceP_p1;
-                if (istr.readOptional(2, Ice.OptionalFormat.FSize))
-                {
-                    istr.skip(4);
-                    string[] tmpVal;
-                    tmpVal = StringSeqHelper.read(istr);
-                    iceP_p1 = tmpVal;
-                }
-                else
-                {
-                    iceP_p1 = null;
-                }
+                iceP_p1 = istr.readStringSeq(2);
                 istr.endEncapsulation();
                 var result = obj.opMSeq2(iceP_p1, request.current);
                 return new (new Ice.OutgoingResponse(result.outputStream));

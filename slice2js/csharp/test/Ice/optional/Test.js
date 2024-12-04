@@ -188,7 +188,7 @@ Test.MyInterfacePrxSeqHelper = Ice.StreamHelpers.generateSeqHelper(Test.MyInterf
 
 Test.MultiOptional = class extends Ice.Value
 {
-    constructor(a = undefined, b = undefined, c = undefined, d = undefined, e = undefined, f = undefined, g = undefined, h = undefined, i = undefined, j = undefined, bs = undefined, ss = undefined, iid = undefined, sid = undefined, fs = undefined, vs = undefined, shs = undefined, es = undefined, fss = undefined, vss = undefined, mips = undefined, ied = undefined, ifsd = undefined, ivsd = undefined, imipd = undefined, bos = undefined)
+    constructor(a = undefined, b = undefined, c = undefined, d = undefined, e = undefined, f = undefined, g = undefined, h = undefined, i = undefined, j = undefined, bs = undefined, ss = undefined, iid = undefined, sid = undefined, fs = undefined, vs = undefined, shs = undefined, es = undefined, fss = undefined, vss = undefined, mips = undefined, ied = undefined, ifsd = undefined, ivsd = undefined, imipd = undefined, bos = undefined, plainProxy = undefined)
     {
         super();
         this.a = a;
@@ -217,6 +217,7 @@ Test.MultiOptional = class extends Ice.Value
         this.ivsd = ivsd;
         this.imipd = imipd;
         this.bos = bos;
+        this.plainProxy = plainProxy;
     }
 
     _iceWriteMemberImpl(ostr)
@@ -247,6 +248,7 @@ Test.MultiOptional = class extends Ice.Value
         Test.IntVarStructDictHelper.writeOptional(ostr, 26, this.ivsd);
         Test.IntMyInterfacePrxDictHelper.writeOptional(ostr, 28, this.imipd);
         Test.BoolSeqHelper.writeOptional(ostr, 29, this.bos);
+        Ice.ObjectPrx.writeOptional(ostr, 30, this.plainProxy);
     }
 
     _iceReadMemberImpl(istr)
@@ -277,6 +279,7 @@ Test.MultiOptional = class extends Ice.Value
         this.ivsd = Test.IntVarStructDictHelper.readOptional(istr, 26);
         this.imipd = Test.IntMyInterfacePrxDictHelper.readOptional(istr, 28);
         this.bos = Test.BoolSeqHelper.readOptional(istr, 29);
+        this.plainProxy = Ice.ObjectPrx.readOptional(istr, 30);
     }
 };
 

@@ -2207,10 +2207,11 @@ open class MultiOptional: Ice.Value {
     public var ivsd: IntVarStructDict? = nil
     public var imipd: IntMyInterfacePrxDict? = nil
     public var bos: BoolSeq? = nil
+    public var plainProxy: Ice.ObjectPrx? = nil
 
     public required init() {}
 
-    public init(a: Swift.UInt8?, b: Swift.Bool?, c: Swift.Int16?, d: Swift.Int32?, e: Swift.Int64?, f: Swift.Float?, g: Swift.Double?, h: Swift.String?, i: MyEnum?, j: MyInterfacePrx?, bs: ByteSeq?, ss: StringSeq?, iid: IntIntDict?, sid: StringIntDict?, fs: FixedStruct?, vs: VarStruct?, shs: ShortSeq?, es: MyEnumSeq?, fss: FixedStructSeq?, vss: VarStructSeq?, mips: MyInterfacePrxSeq?, ied: IntEnumDict?, ifsd: IntFixedStructDict?, ivsd: IntVarStructDict?, imipd: IntMyInterfacePrxDict?, bos: BoolSeq?) {
+    public init(a: Swift.UInt8?, b: Swift.Bool?, c: Swift.Int16?, d: Swift.Int32?, e: Swift.Int64?, f: Swift.Float?, g: Swift.Double?, h: Swift.String?, i: MyEnum?, j: MyInterfacePrx?, bs: ByteSeq?, ss: StringSeq?, iid: IntIntDict?, sid: StringIntDict?, fs: FixedStruct?, vs: VarStruct?, shs: ShortSeq?, es: MyEnumSeq?, fss: FixedStructSeq?, vss: VarStructSeq?, mips: MyInterfacePrxSeq?, ied: IntEnumDict?, ifsd: IntFixedStructDict?, ivsd: IntVarStructDict?, imipd: IntMyInterfacePrxDict?, bos: BoolSeq?, plainProxy: Ice.ObjectPrx?) {
         self.a = a
         self.b = b
         self.c = c
@@ -2237,6 +2238,7 @@ open class MultiOptional: Ice.Value {
         self.ivsd = ivsd
         self.imipd = imipd
         self.bos = bos
+        self.plainProxy = plainProxy
     }
 
     /// - Returns: The Slice type ID of the interface supported by this object.
@@ -2270,6 +2272,7 @@ open class MultiOptional: Ice.Value {
         self.ivsd = try IntVarStructDictHelper.read(from: istr, tag: 26)
         self.imipd = try IntMyInterfacePrxDictHelper.read(from: istr, tag: 28)
         self.bos = try istr.read(tag: 29)
+        self.plainProxy = try istr.read(tag: 30, type: Ice.ObjectPrx.self)
         try istr.endSlice()
     }
 
@@ -2301,6 +2304,7 @@ open class MultiOptional: Ice.Value {
         IntVarStructDictHelper.write(to: ostr, tag: 26, value: self.ivsd)
         IntMyInterfacePrxDictHelper.write(to: ostr, tag: 28, value: self.imipd)
         ostr.write(tag: 29, value: self.bos)
+        ostr.write(tag: 30, value: self.plainProxy)
         ostr.endSlice()
     }
 }

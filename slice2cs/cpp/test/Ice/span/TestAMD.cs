@@ -380,26 +380,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptionalByteSpanResult();
-                    if (istr.readOptional(10, Ice.OptionalFormat.VSize))
-                    {
-                        byte[] tmpVal;
-                        tmpVal = ByteSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(11, Ice.OptionalFormat.VSize))
-                    {
-                        byte[] tmpVal;
-                        tmpVal = ByteSeqHelper.read(istr);
-                        ret.dataOut = tmpVal;
-                    }
-                    else
-                    {
-                        ret.dataOut = null;
-                    }
+                    ret.returnValue = istr.readByteSeq(10);
+                    ret.dataOut = istr.readByteSeq(11);
                     return ret;
                 });
         }
@@ -435,28 +417,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptionalShortSpanResult();
-                    if (istr.readOptional(10, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        short[] tmpVal;
-                        tmpVal = ShortSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(11, Ice.OptionalFormat.VSize))
-                    {
-                        istr.skipSize();
-                        short[] tmpVal;
-                        tmpVal = ShortSeqHelper.read(istr);
-                        ret.dataOut = tmpVal;
-                    }
-                    else
-                    {
-                        ret.dataOut = null;
-                    }
+                    ret.returnValue = istr.readShortSeq(10);
+                    ret.dataOut = istr.readShortSeq(11);
                     return ret;
                 });
         }
@@ -492,28 +454,8 @@ namespace Test
                 read: (Ice.InputStream istr) =>
                 {
                     var ret = new TestIntf_OpOptionalStringSpanResult();
-                    if (istr.readOptional(10, Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        string[] tmpVal;
-                        tmpVal = StringSeqHelper.read(istr);
-                        ret.returnValue = tmpVal;
-                    }
-                    else
-                    {
-                        ret.returnValue = null;
-                    }
-                    if (istr.readOptional(11, Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        string[] tmpVal;
-                        tmpVal = StringSeqHelper.read(istr);
-                        ret.dataOut = tmpVal;
-                    }
-                    else
-                    {
-                        ret.dataOut = null;
-                    }
+                    ret.returnValue = istr.readStringSeq(10);
+                    ret.dataOut = istr.readStringSeq(11);
                     return ret;
                 });
         }
@@ -708,16 +650,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             byte[]? iceP_dataIn;
-            if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-            {
-                byte[] tmpVal;
-                tmpVal = ByteSeqHelper.read(istr);
-                iceP_dataIn = tmpVal;
-            }
-            else
-            {
-                iceP_dataIn = null;
-            }
+            iceP_dataIn = istr.readByteSeq(1);
             istr.endEncapsulation();
             var result = await obj.opOptionalByteSpanAsync(iceP_dataIn, request.current).ConfigureAwait(false);
             return Ice.CurrentExtensions.createOutgoingResponse(
@@ -738,17 +671,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             short[]? iceP_dataIn;
-            if (istr.readOptional(1, Ice.OptionalFormat.VSize))
-            {
-                istr.skipSize();
-                short[] tmpVal;
-                tmpVal = ShortSeqHelper.read(istr);
-                iceP_dataIn = tmpVal;
-            }
-            else
-            {
-                iceP_dataIn = null;
-            }
+            iceP_dataIn = istr.readShortSeq(1);
             istr.endEncapsulation();
             var result = await obj.opOptionalShortSpanAsync(iceP_dataIn, request.current).ConfigureAwait(false);
             return Ice.CurrentExtensions.createOutgoingResponse(
@@ -769,17 +692,7 @@ namespace Test
             var istr = request.inputStream;
             istr.startEncapsulation();
             string[]? iceP_dataIn;
-            if (istr.readOptional(1, Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                string[] tmpVal;
-                tmpVal = StringSeqHelper.read(istr);
-                iceP_dataIn = tmpVal;
-            }
-            else
-            {
-                iceP_dataIn = null;
-            }
+            iceP_dataIn = istr.readStringSeq(1);
             istr.endEncapsulation();
             var result = await obj.opOptionalStringSpanAsync(iceP_dataIn, request.current).ConfigureAwait(false);
             return Ice.CurrentExtensions.createOutgoingResponse(
