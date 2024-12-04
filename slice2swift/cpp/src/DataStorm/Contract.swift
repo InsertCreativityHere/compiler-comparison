@@ -1535,10 +1535,14 @@ public extension Ice.InputStream {
 }
 
 public extension SessionPrx {
-    /// Announces existing topics to the peer during session establishment.
+    /// Announces new and existing topics to the peer.
+    ///
+    /// - During session establishment, this operation announces existing topics.
+    /// - For already established sessions, it is used to announce new topics.
+    ///
     /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
     ///
-    /// The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+    /// The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
     ///
     /// - Parameters:
     ///   - iceP_topics: The sequence of topics to announce.
@@ -1557,6 +1561,7 @@ public extension SessionPrx {
     /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
     ///
     /// This method is called if the session is interested in the announced topic, which occurs when:
+    ///
     /// - The session has a reader for a topic that the peer has a writer for, or
     /// - The session has a writer for a topic that the peer has a reader for.
     ///
@@ -2349,10 +2354,14 @@ public struct SessionDisp: Ice.Dispatcher {
 }
 
 public protocol Session {
-    /// Announces existing topics to the peer during session establishment.
+    /// Announces new and existing topics to the peer.
+    ///
+    /// - During session establishment, this operation announces existing topics.
+    /// - For already established sessions, it is used to announce new topics.
+    ///
     /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
     ///
-    /// The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+    /// The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
     ///
     /// - Parameters:
     ///   - topics: The sequence of topics to announce.
@@ -2363,6 +2372,7 @@ public protocol Session {
     /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
     ///
     /// This method is called if the session is interested in the announced topic, which occurs when:
+    ///
     /// - The session has a reader for a topic that the peer has a writer for, or
     /// - The session has a writer for a topic that the peer has a reader for.
     ///

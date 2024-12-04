@@ -670,9 +670,11 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def announceTopics(self, topics, initialize, context=None):
             """
-            Announces existing topics to the peer during session establishment.
+            Announces new and existing topics to the peer.
+            - During session establishment, this operation announces existing topics.
+            - For already established sessions, it is used to announce new topics.
             A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
-            The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+            The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
             
             Parameters
             ----------
@@ -687,9 +689,11 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def announceTopicsAsync(self, topics, initialize, context=None):
             """
-            Announces existing topics to the peer during session establishment.
+            Announces new and existing topics to the peer.
+            - During session establishment, this operation announces existing topics.
+            - For already established sessions, it is used to announce new topics.
             A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
-            The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+            The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
             
             Parameters
             ----------
@@ -895,9 +899,11 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def announceTopics(self, topics, initialize, current=None):
             """
-            Announces existing topics to the peer during session establishment.
+            Announces new and existing topics to the peer.
+            - During session establishment, this operation announces existing topics.
+            - For already established sessions, it is used to announce new topics.
             A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
-            The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+            The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
             
             Parameters
             ----------

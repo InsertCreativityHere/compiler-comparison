@@ -735,10 +735,13 @@ namespace DataStormContract
     public partial interface Session : Ice.Object
     {
         /// <summary>
-        /// Announces existing topics to the peer during session establishment.
-        /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+        /// Announces new and existing topics to the peer.
+        /// - During session establishment, this operation announces existing topics.
+        ///  - For already established sessions, it is used to announce new topics.
         ///
-        ///  The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+        ///  A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+        ///
+        ///  The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
         ///
         /// </summary>
         ///  <param name="topics">The sequence of topics to announce.
@@ -752,6 +755,7 @@ namespace DataStormContract
         /// <summary>
         /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
         /// This method is called if the session is interested in the announced topic, which occurs when:
+        ///
         ///  - The session has a reader for a topic that the peer has a writer for, or
         ///  - The session has a writer for a topic that the peer has a reader for.
         ///
@@ -913,10 +917,13 @@ namespace DataStormContract
     public interface SessionPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Announces existing topics to the peer during session establishment.
-        /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+        /// Announces new and existing topics to the peer.
+        /// - During session establishment, this operation announces existing topics.
+        ///  - For already established sessions, it is used to announce new topics.
         ///
-        ///  The peer receiving the announcement will invoke `attachTopic` for the topics it is interested in.
+        ///  A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+        ///
+        ///  The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
         ///
         /// </summary>
         ///  <param name="topics">The sequence of topics to announce.
@@ -928,8 +935,8 @@ namespace DataStormContract
         void announceTopics(TopicInfo[] topics, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Announces existing topics to the peer during session establishment.
-        /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+        /// Announces new and existing topics to the peer.
+        /// - During session establishment, this operation announces existing topics.
         /// </summary>
         ///  <param name="topics">The sequence of topics to announce.
         ///  </param>
@@ -944,6 +951,7 @@ namespace DataStormContract
         /// <summary>
         /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
         /// This method is called if the session is interested in the announced topic, which occurs when:
+        ///
         ///  - The session has a reader for a topic that the peer has a writer for, or
         ///  - The session has a writer for a topic that the peer has a reader for.
         ///
