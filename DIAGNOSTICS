@@ -62,7 +62,7 @@ Package.ice:33: invalid module mapping:
  Slice module `::IceStorm' should map to Swift module `IceStormElection'
 /Users/austin/Code/zeroc/ice/matlab/test/Ice/operations/Test.ice:359: invalid module mapping:
  Slice module `::Test2' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/csharp/test/Slice/escape/Key.ice:136: invalid module mapping:
+/Users/austin/Code/zeroc/ice/csharp/test/Slice/escape/Key.ice:133: invalid module mapping:
  Slice module `::System' should map to Swift module `abstract'
 /Users/austin/Code/zeroc/ice/csharp/test/Ice/scope/Test.ice:147: invalid module mapping:
  Slice module `::Inner' should map to Swift module `Test'
