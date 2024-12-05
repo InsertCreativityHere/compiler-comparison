@@ -237,6 +237,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    UnknownDerivedException(const UnknownDerivedException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::Test::BPtr&, const ::std::string&, const ::Test::D2Ptr&> ice_tuple() const

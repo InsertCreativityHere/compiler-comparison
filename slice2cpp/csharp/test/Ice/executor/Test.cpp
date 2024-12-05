@@ -243,7 +243,9 @@ Test::TestIntf::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_op(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_op(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -254,7 +256,9 @@ Test::TestIntf::_iceD_op(::Ice::IncomingRequest& request, ::std::function<void(:
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_sleep(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_sleep(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -269,7 +273,9 @@ Test::TestIntf::_iceD_sleep(::Ice::IncomingRequest& request, ::std::function<voi
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opWithPayload(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opWithPayload(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -284,7 +290,9 @@ Test::TestIntf::_iceD_opWithPayload(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -379,7 +387,9 @@ Test::TestIntfController::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::TestIntfController::_iceD_holdAdapter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntfController::_iceD_holdAdapter(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -390,7 +400,9 @@ Test::TestIntfController::_iceD_holdAdapter(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-Test::TestIntfController::_iceD_resumeAdapter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntfController::_iceD_resumeAdapter(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

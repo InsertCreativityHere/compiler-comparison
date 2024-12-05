@@ -150,7 +150,9 @@ Test::Hold::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::Hold::_iceD_putOnHold(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Hold::_iceD_putOnHold(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -165,7 +167,9 @@ Test::Hold::_iceD_putOnHold(::Ice::IncomingRequest& request, ::std::function<voi
 
 /// \cond INTERNAL
 void
-Test::Hold::_iceD_waitForHold(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Hold::_iceD_waitForHold(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -176,7 +180,9 @@ Test::Hold::_iceD_waitForHold(::Ice::IncomingRequest& request, ::std::function<v
 
 /// \cond INTERNAL
 void
-Test::Hold::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Hold::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

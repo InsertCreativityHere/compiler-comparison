@@ -88,7 +88,7 @@ Test::MyClassPrx::opSerialSmallJavaAsync(const SerialSmall& iceP_i, const ::Ice:
 ::std::function<void()>
 Test::MyClassPrx::opSerialSmallJavaAsync(const SerialSmall& iceP_i, ::std::function<void(::Test::SerialSmall, ::Test::SerialSmall)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<SerialSmall, SerialSmall>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<SerialSmall, SerialSmall>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -132,7 +132,7 @@ Test::MyClassPrx::opSerialLargeJavaAsync(const SerialLarge& iceP_i, const ::Ice:
 ::std::function<void()>
 Test::MyClassPrx::opSerialLargeJavaAsync(const SerialLarge& iceP_i, ::std::function<void(::Test::SerialLarge, ::Test::SerialLarge)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<SerialLarge, SerialLarge>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<SerialLarge, SerialLarge>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -176,7 +176,7 @@ Test::MyClassPrx::opSerialStructJavaAsync(const SerialStruct& iceP_i, const ::Ic
 ::std::function<void()>
 Test::MyClassPrx::opSerialStructJavaAsync(const SerialStruct& iceP_i, ::std::function<void(::Test::SerialStruct, ::Test::SerialStruct)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<SerialStruct, SerialStruct>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<SerialStruct, SerialStruct>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -298,7 +298,9 @@ Test::MyClass::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -309,7 +311,9 @@ Test::MyClass::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<v
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_opSerialSmallJava(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_opSerialSmallJava(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -329,7 +333,9 @@ Test::MyClass::_iceD_opSerialSmallJava(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_opSerialLargeJava(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_opSerialLargeJava(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -349,7 +355,9 @@ Test::MyClass::_iceD_opSerialLargeJava(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_opSerialStructJava(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_opSerialStructJava(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();

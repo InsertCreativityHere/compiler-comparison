@@ -272,7 +272,9 @@ IceGrid::Session::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceGrid::Session::_iceD_keepAlive(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Session::_iceD_keepAlive(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -283,7 +285,9 @@ IceGrid::Session::_iceD_keepAlive(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-IceGrid::Session::_iceD_allocateObjectById(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Session::_iceD_allocateObjectById(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -313,7 +317,9 @@ IceGrid::Session::_iceD_allocateObjectById(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-IceGrid::Session::_iceD_allocateObjectByType(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Session::_iceD_allocateObjectByType(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -343,7 +349,9 @@ IceGrid::Session::_iceD_allocateObjectByType(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-IceGrid::Session::_iceD_releaseObject(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Session::_iceD_releaseObject(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -358,7 +366,9 @@ IceGrid::Session::_iceD_releaseObject(::Ice::IncomingRequest& request, ::std::fu
 
 /// \cond INTERNAL
 void
-IceGrid::Session::_iceD_setAllocationTimeout(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Session::_iceD_setAllocationTimeout(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();

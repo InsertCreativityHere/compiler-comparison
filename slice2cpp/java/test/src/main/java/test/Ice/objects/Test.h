@@ -1039,6 +1039,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    Ex(const Ex&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
@@ -1116,6 +1119,9 @@ public:
         reason(::std::move(reason))
     {
     }
+
+    /// Copy constructor.
+    Ex(const Ex&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -1282,6 +1288,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    EBase(const EBase&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::Test::A1Ptr&, const ::Test::A1Ptr&> ice_tuple() const
@@ -1323,6 +1332,9 @@ public:
         a4(::std::move(a4))
     {
     }
+
+    /// Copy constructor.
+    EDerived(const EDerived&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -1707,6 +1719,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    EOneMember(const EOneMember&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
@@ -1746,6 +1761,9 @@ public:
         e2(::std::move(e2))
     {
     }
+
+    /// Copy constructor.
+    ETwoMembers(const ETwoMembers&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

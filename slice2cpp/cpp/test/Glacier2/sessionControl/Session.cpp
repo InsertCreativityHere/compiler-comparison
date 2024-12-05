@@ -123,7 +123,9 @@ Test::Session::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::Session::_iceD_destroyFromClient(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Session::_iceD_destroyFromClient(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -141,7 +143,9 @@ Test::Session::_iceD_destroyFromClient(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-Test::Session::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Session::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

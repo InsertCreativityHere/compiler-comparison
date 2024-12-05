@@ -70,7 +70,7 @@ IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(const ::Ice::Context& context) 
 ::std::function<void()>
 IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(::std::function<void(::Ice::StringSeq, ::Ice::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -201,7 +201,7 @@ IceMX::MetricsAdminPrx::getMetricsViewAsync(::std::string_view iceP_view, const 
 ::std::function<void()>
 IceMX::MetricsAdminPrx::getMetricsViewAsync(::std::string_view iceP_view, ::std::function<void(::IceMX::MetricsView, ::std::int64_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<MetricsView, ::std::int64_t>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<MetricsView, ::std::int64_t>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -673,7 +673,9 @@ IceMX::MetricsAdmin::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdmin::_iceD_getMetricsViewNames(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceMX::MetricsAdmin::_iceD_getMetricsViewNames(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -689,7 +691,9 @@ IceMX::MetricsAdmin::_iceD_getMetricsViewNames(::Ice::IncomingRequest& request, 
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdmin::_iceD_enableMetricsView(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceMX::MetricsAdmin::_iceD_enableMetricsView(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -704,7 +708,9 @@ IceMX::MetricsAdmin::_iceD_enableMetricsView(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdmin::_iceD_disableMetricsView(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceMX::MetricsAdmin::_iceD_disableMetricsView(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -719,7 +725,9 @@ IceMX::MetricsAdmin::_iceD_disableMetricsView(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdmin::_iceD_getMetricsView(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceMX::MetricsAdmin::_iceD_getMetricsView(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -741,7 +749,9 @@ IceMX::MetricsAdmin::_iceD_getMetricsView(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdmin::_iceD_getMapMetricsFailures(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceMX::MetricsAdmin::_iceD_getMapMetricsFailures(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -761,7 +771,9 @@ IceMX::MetricsAdmin::_iceD_getMapMetricsFailures(::Ice::IncomingRequest& request
 
 /// \cond INTERNAL
 void
-IceMX::MetricsAdmin::_iceD_getMetricsFailures(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceMX::MetricsAdmin::_iceD_getMetricsFailures(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();

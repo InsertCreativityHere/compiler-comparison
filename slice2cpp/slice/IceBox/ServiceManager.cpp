@@ -395,7 +395,9 @@ IceBox::ServiceObserver::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceBox::ServiceObserver::_iceD_servicesStarted(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceBox::ServiceObserver::_iceD_servicesStarted(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -410,7 +412,9 @@ IceBox::ServiceObserver::_iceD_servicesStarted(::Ice::IncomingRequest& request, 
 
 /// \cond INTERNAL
 void
-IceBox::ServiceObserver::_iceD_servicesStopped(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceBox::ServiceObserver::_iceD_servicesStopped(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -499,7 +503,9 @@ IceBox::ServiceManager::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceBox::ServiceManager::_iceD_startService(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceBox::ServiceManager::_iceD_startService(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -514,7 +520,9 @@ IceBox::ServiceManager::_iceD_startService(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-IceBox::ServiceManager::_iceD_stopService(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceBox::ServiceManager::_iceD_stopService(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -529,7 +537,9 @@ IceBox::ServiceManager::_iceD_stopService(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-IceBox::ServiceManager::_iceD_addObserver(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceBox::ServiceManager::_iceD_addObserver(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -544,7 +554,9 @@ IceBox::ServiceManager::_iceD_addObserver(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-IceBox::ServiceManager::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceBox::ServiceManager::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

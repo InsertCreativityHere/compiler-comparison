@@ -250,6 +250,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    Base(const Base&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
@@ -285,6 +288,9 @@ public:
         kd(::std::move(kd))
     {
     }
+
+    /// Copy constructor.
+    KnownDerived(const KnownDerived&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -322,6 +328,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    KnownIntermediate(const KnownIntermediate&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
@@ -357,6 +366,9 @@ public:
         kmd(::std::move(kmd))
     {
     }
+
+    /// Copy constructor.
+    KnownMostDerived(const KnownMostDerived&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -394,6 +406,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    KnownPreserved(const KnownPreserved&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
@@ -429,6 +444,9 @@ public:
         kpd(::std::move(kpd))
     {
     }
+
+    /// Copy constructor.
+    KnownPreservedDerived(const KnownPreservedDerived&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

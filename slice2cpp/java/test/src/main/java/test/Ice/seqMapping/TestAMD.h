@@ -173,6 +173,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    Bar(const Bar&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const

@@ -402,6 +402,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    persistent(const persistent&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::_cpp_break::logicalPtr&> ice_tuple() const
@@ -446,6 +449,9 @@ public:
         enumeration(enumeration)
     {
     }
+
+    /// Copy constructor.
+    global(const global&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

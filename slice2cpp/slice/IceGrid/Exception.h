@@ -57,6 +57,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    ApplicationNotExistException(const ApplicationNotExistException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
@@ -94,6 +97,9 @@ public:
         id(::std::move(id))
     {
     }
+
+    /// Copy constructor.
+    ServerNotExistException(const ServerNotExistException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -134,6 +140,9 @@ public:
         reason(::std::move(reason))
     {
     }
+
+    /// Copy constructor.
+    ServerStartException(const ServerStartException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -177,6 +186,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    ServerStopException(const ServerStopException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
@@ -217,6 +229,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    AdapterNotExistException(const AdapterNotExistException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
@@ -254,6 +269,9 @@ public:
         id(::std::move(id))
     {
     }
+
+    /// Copy constructor.
+    ObjectExistsException(const ObjectExistsException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -293,6 +311,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    ObjectNotRegisteredException(const ObjectNotRegisteredException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::Ice::Identity&> ice_tuple() const
@@ -330,6 +351,9 @@ public:
         name(::std::move(name))
     {
     }
+
+    /// Copy constructor.
+    NodeNotExistException(const NodeNotExistException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -369,6 +393,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    RegistryNotExistException(const RegistryNotExistException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
@@ -406,6 +433,9 @@ public:
         reason(::std::move(reason))
     {
     }
+
+    /// Copy constructor.
+    DeploymentException(const DeploymentException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -446,6 +476,9 @@ public:
         reason(::std::move(reason))
     {
     }
+
+    /// Copy constructor.
+    NodeUnreachableException(const NodeUnreachableException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -489,6 +522,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    ServerUnreachableException(const ServerUnreachableException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
@@ -531,6 +567,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    RegistryUnreachableException(const RegistryUnreachableException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
@@ -571,6 +610,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    BadSignalException(const BadSignalException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
@@ -609,6 +651,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    AccessDeniedException(const AccessDeniedException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
@@ -646,6 +691,9 @@ public:
         reason(::std::move(reason))
     {
     }
+
+    /// Copy constructor.
+    AllocationException(const AllocationException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -705,6 +753,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    PermissionDeniedException(const PermissionDeniedException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const
@@ -744,6 +795,9 @@ public:
         id(::std::move(id))
     {
     }
+
+    /// Copy constructor.
+    ObserverAlreadyRegisteredException(const ObserverAlreadyRegisteredException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -788,6 +842,9 @@ public:
         reason(::std::move(reason))
     {
     }
+
+    /// Copy constructor.
+    FileNotAvailableException(const FileNotAvailableException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

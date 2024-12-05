@@ -219,7 +219,9 @@ Test::Server::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::Server::_iceD_noCert(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Server::_iceD_noCert(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -230,7 +232,9 @@ Test::Server::_iceD_noCert(::Ice::IncomingRequest& request, ::std::function<void
 
 /// \cond INTERNAL
 void
-Test::Server::_iceD_checkCert(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Server::_iceD_checkCert(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -320,7 +324,9 @@ Test::ServerFactory::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::ServerFactory::_iceD_createServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::ServerFactory::_iceD_createServer(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -339,7 +345,9 @@ Test::ServerFactory::_iceD_createServer(::Ice::IncomingRequest& request, ::std::
 
 /// \cond INTERNAL
 void
-Test::ServerFactory::_iceD_destroyServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::ServerFactory::_iceD_destroyServer(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -354,7 +362,9 @@ Test::ServerFactory::_iceD_destroyServer(::Ice::IncomingRequest& request, ::std:
 
 /// \cond INTERNAL
 void
-Test::ServerFactory::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::ServerFactory::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

@@ -637,7 +637,9 @@ Test::TestIntf::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_requestFailedException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_requestFailedException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -655,7 +657,9 @@ Test::TestIntf::_iceD_requestFailedException(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_unknownUserException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_unknownUserException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -673,7 +677,9 @@ Test::TestIntf::_iceD_unknownUserException(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_unknownLocalException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_unknownLocalException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -691,7 +697,9 @@ Test::TestIntf::_iceD_unknownLocalException(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_unknownException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_unknownException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -709,7 +717,9 @@ Test::TestIntf::_iceD_unknownException(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_localException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_localException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -727,7 +737,9 @@ Test::TestIntf::_iceD_localException(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_userException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_userException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -745,7 +757,9 @@ Test::TestIntf::_iceD_userException(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_stdException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_stdException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -763,7 +777,9 @@ Test::TestIntf::_iceD_stdException(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_cppException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_cppException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -781,7 +797,9 @@ Test::TestIntf::_iceD_cppException(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_unknownExceptionWithServantException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_unknownExceptionWithServantException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -799,7 +817,9 @@ Test::TestIntf::_iceD_unknownExceptionWithServantException(::Ice::IncomingReques
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_impossibleException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_impossibleException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -829,7 +849,9 @@ Test::TestIntf::_iceD_impossibleException(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_intfUserException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_intfUserException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -859,7 +881,9 @@ Test::TestIntf::_iceD_intfUserException(::Ice::IncomingRequest& request, ::std::
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_asyncResponse(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_asyncResponse(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -877,7 +901,9 @@ Test::TestIntf::_iceD_asyncResponse(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_asyncException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_asyncException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -895,7 +921,9 @@ Test::TestIntf::_iceD_asyncException(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1047,7 +1075,9 @@ Test::TestActivation::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::TestActivation::_iceD_activateServantLocator(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestActivation::_iceD_activateServantLocator(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();

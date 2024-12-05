@@ -62,7 +62,7 @@ Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(::std::string_view iceP_
 ::std::function<void()>
 Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(::std::string_view iceP_userId, ::std::string_view iceP_password, ::std::function<void(bool, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<bool, ::std::string>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<bool, ::std::string>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -125,7 +125,7 @@ Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info, co
 ::std::function<void()>
 Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info, ::std::function<void(bool, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<bool, ::std::string>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<bool, ::std::string>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -226,7 +226,9 @@ Glacier2::PermissionsVerifier::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Glacier2::PermissionsVerifier::_iceD_checkPermissions(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+Glacier2::PermissionsVerifier::_iceD_checkPermissions(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -316,7 +318,9 @@ Glacier2::SSLPermissionsVerifier::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Glacier2::SSLPermissionsVerifier::_iceD_authorize(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+Glacier2::SSLPermissionsVerifier::_iceD_authorize(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();

@@ -81,7 +81,7 @@ Test::MyClassPrx::opNVAsync(const NV& iceP_i, const ::Ice::Context& context) con
 ::std::function<void()>
 Test::MyClassPrx::opNVAsync(const NV& iceP_i, ::std::function<void(::Test::NV, ::Test::NV)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<NV, NV>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<NV, NV>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -125,7 +125,7 @@ Test::MyClassPrx::opNRAsync(const NR& iceP_i, const ::Ice::Context& context) con
 ::std::function<void()>
 Test::MyClassPrx::opNRAsync(const NR& iceP_i, ::std::function<void(::Test::NR, ::Test::NR)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<NR, NR>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<NR, NR>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -169,7 +169,7 @@ Test::MyClassPrx::opNDVAsync(const NDV& iceP_i, const ::Ice::Context& context) c
 ::std::function<void()>
 Test::MyClassPrx::opNDVAsync(const NDV& iceP_i, ::std::function<void(::Test::NDV, ::Test::NDV)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<NDV, NDV>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<NDV, NDV>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -213,7 +213,7 @@ Test::MyClassPrx::opNDRAsync(const NDR& iceP_i, const ::Ice::Context& context) c
 ::std::function<void()>
 Test::MyClassPrx::opNDRAsync(const NDR& iceP_i, ::std::function<void(::Test::NDR, ::Test::NDR)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<NDR, NDR>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<NDR, NDR>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -257,7 +257,7 @@ Test::MyClassPrx::opNDAISAsync(const NDAIS& iceP_i, const ::Ice::Context& contex
 ::std::function<void()>
 Test::MyClassPrx::opNDAISAsync(const NDAIS& iceP_i, ::std::function<void(::Test::NDAIS, ::Test::NDAIS)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<NDAIS, NDAIS>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<NDAIS, NDAIS>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -301,7 +301,7 @@ Test::MyClassPrx::opNDGISAsync(const NDGIS& iceP_i, const ::Ice::Context& contex
 ::std::function<void()>
 Test::MyClassPrx::opNDGISAsync(const NDGIS& iceP_i, ::std::function<void(::Test::NDGIS, ::Test::NDGIS)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<NDGIS, NDGIS>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<NDGIS, NDGIS>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -345,7 +345,7 @@ Test::MyClassPrx::opNDASSAsync(const NDASS& iceP_i, const ::Ice::Context& contex
 ::std::function<void()>
 Test::MyClassPrx::opNDASSAsync(const NDASS& iceP_i, ::std::function<void(::Test::NDASS, ::Test::NDASS)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<NDASS, NDASS>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<NDASS, NDASS>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -389,7 +389,7 @@ Test::MyClassPrx::opNDGSSAsync(const NDGSS& iceP_i, const ::Ice::Context& contex
 ::std::function<void()>
 Test::MyClassPrx::opNDGSSAsync(const NDGSS& iceP_i, ::std::function<void(::Test::NDGSS, ::Test::NDGSS)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<NDGSS, NDGSS>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<NDGSS, NDGSS>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -443,7 +443,9 @@ Test::MyClass::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -454,7 +456,9 @@ Test::MyClass::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<v
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_opNV(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_opNV(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -474,7 +478,9 @@ Test::MyClass::_iceD_opNV(::Ice::IncomingRequest& request, ::std::function<void(
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_opNR(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_opNR(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -494,7 +500,9 @@ Test::MyClass::_iceD_opNR(::Ice::IncomingRequest& request, ::std::function<void(
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_opNDV(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_opNDV(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -514,7 +522,9 @@ Test::MyClass::_iceD_opNDV(::Ice::IncomingRequest& request, ::std::function<void
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_opNDR(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_opNDR(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -534,7 +544,9 @@ Test::MyClass::_iceD_opNDR(::Ice::IncomingRequest& request, ::std::function<void
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_opNDAIS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_opNDAIS(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -554,7 +566,9 @@ Test::MyClass::_iceD_opNDAIS(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_opNDGIS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_opNDGIS(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -574,7 +588,9 @@ Test::MyClass::_iceD_opNDGIS(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_opNDASS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_opNDASS(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -594,7 +610,9 @@ Test::MyClass::_iceD_opNDASS(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_opNDGSS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyClass::_iceD_opNDGSS(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();

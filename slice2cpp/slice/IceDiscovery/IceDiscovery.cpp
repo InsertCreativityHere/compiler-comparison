@@ -193,7 +193,9 @@ IceDiscovery::LookupReply::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceDiscovery::LookupReply::_iceD_foundObjectById(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceDiscovery::LookupReply::_iceD_foundObjectById(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -209,7 +211,9 @@ IceDiscovery::LookupReply::_iceD_foundObjectById(::Ice::IncomingRequest& request
 
 /// \cond INTERNAL
 void
-IceDiscovery::LookupReply::_iceD_foundAdapterById(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceDiscovery::LookupReply::_iceD_foundAdapterById(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -300,7 +304,9 @@ IceDiscovery::Lookup::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceDiscovery::Lookup::_iceD_findObjectById(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceDiscovery::Lookup::_iceD_findObjectById(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -317,7 +323,9 @@ IceDiscovery::Lookup::_iceD_findObjectById(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-IceDiscovery::Lookup::_iceD_findAdapterById(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceDiscovery::Lookup::_iceD_findAdapterById(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();

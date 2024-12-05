@@ -91,7 +91,9 @@ Test::Controller::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::Controller::_iceD_stop(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Controller::_iceD_stop(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

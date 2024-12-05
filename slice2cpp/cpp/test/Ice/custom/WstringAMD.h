@@ -242,6 +242,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    WstringException(const WstringException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::wstring&> ice_tuple() const
@@ -300,6 +303,9 @@ public:
         reason(::std::move(reason))
     {
     }
+
+    /// Copy constructor.
+    WstringException(const WstringException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

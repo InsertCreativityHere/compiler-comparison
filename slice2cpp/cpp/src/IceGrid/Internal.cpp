@@ -236,7 +236,7 @@ IceGrid::FileReaderPrx::readAsync(::std::string_view iceP_filename, ::std::int64
 ::std::function<void()>
 IceGrid::FileReaderPrx::readAsync(::std::string_view iceP_filename, ::std::int64_t iceP_pos, ::std::int32_t iceP_size, ::std::function<void(bool, ::std::int64_t, ::Ice::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<bool, ::std::int64_t, ::Ice::StringSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<bool, ::std::int64_t, ::Ice::StringSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -761,7 +761,7 @@ IceGrid::NodePrx::loadServerAsync(const InternalServerDescriptorPtr& iceP_svr, :
 ::std::function<void()>
 IceGrid::NodePrx::loadServerAsync(const InternalServerDescriptorPtr& iceP_svr, ::std::string_view iceP_replicaName, ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -821,7 +821,7 @@ IceGrid::NodePrx::loadServerWithoutRestartAsync(const InternalServerDescriptorPt
 ::std::function<void()>
 IceGrid::NodePrx::loadServerWithoutRestartAsync(const InternalServerDescriptorPtr& iceP_svr, ::std::string_view iceP_replicaName, ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1585,11 +1585,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotExistException&)
+            catch(const AdapterExistsException&)
             {
                 throw;
             }
-            catch(const AdapterExistsException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
@@ -1870,7 +1870,7 @@ IceGrid::InternalRegistryPrx::getApplicationsAsync(const ::Ice::Context& context
 ::std::function<void()>
 IceGrid::InternalRegistryPrx::getApplicationsAsync(::std::function<void(::IceGrid::ApplicationInfoSeq, ::std::int64_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ApplicationInfoSeq, ::std::int64_t>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ApplicationInfoSeq, ::std::int64_t>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1912,7 +1912,7 @@ IceGrid::InternalRegistryPrx::getAdaptersAsync(const ::Ice::Context& context) co
 ::std::function<void()>
 IceGrid::InternalRegistryPrx::getAdaptersAsync(::std::function<void(::IceGrid::AdapterInfoSeq, ::std::int64_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<AdapterInfoSeq, ::std::int64_t>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<AdapterInfoSeq, ::std::int64_t>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1953,7 +1953,7 @@ IceGrid::InternalRegistryPrx::getObjectsAsync(const ::Ice::Context& context) con
 ::std::function<void()>
 IceGrid::InternalRegistryPrx::getObjectsAsync(::std::function<void(::IceGrid::ObjectInfoSeq, ::std::int64_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ObjectInfoSeq, ::std::int64_t>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ObjectInfoSeq, ::std::int64_t>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -2370,7 +2370,9 @@ IceGrid::Adapter::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceGrid::Adapter::_iceD_activate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Adapter::_iceD_activate(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -2396,7 +2398,9 @@ IceGrid::Adapter::_iceD_activate(::Ice::IncomingRequest& request, ::std::functio
 
 /// \cond INTERNAL
 void
-IceGrid::Adapter::_iceD_getDirectProxy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::Adapter::_iceD_getDirectProxy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -2411,7 +2415,9 @@ IceGrid::Adapter::_iceD_getDirectProxy(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-IceGrid::Adapter::_iceD_setDirectProxy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Adapter::_iceD_setDirectProxy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2505,7 +2511,9 @@ IceGrid::FileReader::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceGrid::FileReader::_iceD_getOffsetFromEnd(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::FileReader::_iceD_getOffsetFromEnd(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -2525,7 +2533,9 @@ IceGrid::FileReader::_iceD_getOffsetFromEnd(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-IceGrid::FileReader::_iceD_read(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::FileReader::_iceD_read(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -2622,7 +2632,9 @@ IceGrid::Server::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceGrid::Server::_iceD_start(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Server::_iceD_start(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -2640,7 +2652,9 @@ IceGrid::Server::_iceD_start(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-IceGrid::Server::_iceD_stop(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Server::_iceD_stop(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -2658,7 +2672,9 @@ IceGrid::Server::_iceD_stop(::Ice::IncomingRequest& request, ::std::function<voi
 
 /// \cond INTERNAL
 void
-IceGrid::Server::_iceD_checkUpdate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Server::_iceD_checkUpdate(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2679,7 +2695,9 @@ IceGrid::Server::_iceD_checkUpdate(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-IceGrid::Server::_iceD_setEnabled(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Server::_iceD_setEnabled(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2694,7 +2712,9 @@ IceGrid::Server::_iceD_setEnabled(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-IceGrid::Server::_iceD_isEnabled(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::Server::_iceD_isEnabled(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -2709,7 +2729,9 @@ IceGrid::Server::_iceD_isEnabled(::Ice::IncomingRequest& request, ::std::functio
 
 /// \cond INTERNAL
 void
-IceGrid::Server::_iceD_sendSignal(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Server::_iceD_sendSignal(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2724,7 +2746,9 @@ IceGrid::Server::_iceD_sendSignal(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-IceGrid::Server::_iceD_writeMessage(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Server::_iceD_writeMessage(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2740,7 +2764,9 @@ IceGrid::Server::_iceD_writeMessage(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-IceGrid::Server::_iceD_getState(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::Server::_iceD_getState(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -2755,7 +2781,9 @@ IceGrid::Server::_iceD_getState(::Ice::IncomingRequest& request, ::std::function
 
 /// \cond INTERNAL
 void
-IceGrid::Server::_iceD_getPid(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::Server::_iceD_getPid(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -2770,7 +2798,9 @@ IceGrid::Server::_iceD_getPid(::Ice::IncomingRequest& request, ::std::function<v
 
 /// \cond INTERNAL
 void
-IceGrid::Server::_iceD_setProcess(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Server::_iceD_setProcess(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2916,7 +2946,9 @@ IceGrid::ReplicaObserver::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaObserver::_iceD_replicaInit(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::ReplicaObserver::_iceD_replicaInit(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2931,7 +2963,9 @@ IceGrid::ReplicaObserver::_iceD_replicaInit(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaObserver::_iceD_replicaAdded(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::ReplicaObserver::_iceD_replicaAdded(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2946,7 +2980,9 @@ IceGrid::ReplicaObserver::_iceD_replicaAdded(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaObserver::_iceD_replicaRemoved(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::ReplicaObserver::_iceD_replicaRemoved(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -3040,7 +3076,9 @@ IceGrid::Node::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceGrid::Node::_iceD_loadServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Node::_iceD_loadServer(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -3072,7 +3110,9 @@ IceGrid::Node::_iceD_loadServer(::Ice::IncomingRequest& request, ::std::function
 
 /// \cond INTERNAL
 void
-IceGrid::Node::_iceD_loadServerWithoutRestart(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Node::_iceD_loadServerWithoutRestart(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -3104,7 +3144,9 @@ IceGrid::Node::_iceD_loadServerWithoutRestart(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
-IceGrid::Node::_iceD_destroyServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Node::_iceD_destroyServer(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -3129,7 +3171,9 @@ IceGrid::Node::_iceD_destroyServer(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-IceGrid::Node::_iceD_destroyServerWithoutRestart(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Node::_iceD_destroyServerWithoutRestart(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -3154,7 +3198,9 @@ IceGrid::Node::_iceD_destroyServerWithoutRestart(::Ice::IncomingRequest& request
 
 /// \cond INTERNAL
 void
-IceGrid::Node::_iceD_registerWithReplica(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::Node::_iceD_registerWithReplica(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -3169,7 +3215,9 @@ IceGrid::Node::_iceD_registerWithReplica(::Ice::IncomingRequest& request, ::std:
 
 /// \cond INTERNAL
 void
-IceGrid::Node::_iceD_getName(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::Node::_iceD_getName(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3184,7 +3232,9 @@ IceGrid::Node::_iceD_getName(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-IceGrid::Node::_iceD_getHostname(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::Node::_iceD_getHostname(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3199,7 +3249,9 @@ IceGrid::Node::_iceD_getHostname(::Ice::IncomingRequest& request, ::std::functio
 
 /// \cond INTERNAL
 void
-IceGrid::Node::_iceD_getLoad(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::Node::_iceD_getLoad(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3214,7 +3266,9 @@ IceGrid::Node::_iceD_getLoad(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-IceGrid::Node::_iceD_getProcessorSocketCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::Node::_iceD_getProcessorSocketCount(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3229,7 +3283,9 @@ IceGrid::Node::_iceD_getProcessorSocketCount(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-IceGrid::Node::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::Node::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3379,7 +3435,9 @@ IceGrid::NodeSession::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceGrid::NodeSession::_iceD_keepAlive(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::NodeSession::_iceD_keepAlive(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -3394,7 +3452,9 @@ IceGrid::NodeSession::_iceD_keepAlive(::Ice::IncomingRequest& request, ::std::fu
 
 /// \cond INTERNAL
 void
-IceGrid::NodeSession::_iceD_setReplicaObserver(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::NodeSession::_iceD_setReplicaObserver(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -3409,7 +3469,9 @@ IceGrid::NodeSession::_iceD_setReplicaObserver(::Ice::IncomingRequest& request, 
 
 /// \cond INTERNAL
 void
-IceGrid::NodeSession::_iceD_getTimeout(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::NodeSession::_iceD_getTimeout(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3424,7 +3486,9 @@ IceGrid::NodeSession::_iceD_getTimeout(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-IceGrid::NodeSession::_iceD_getObserver(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::NodeSession::_iceD_getObserver(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3439,7 +3503,9 @@ IceGrid::NodeSession::_iceD_getObserver(::Ice::IncomingRequest& request, ::std::
 
 /// \cond INTERNAL
 void
-IceGrid::NodeSession::_iceD_loadServers(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::NodeSession::_iceD_loadServers(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3457,7 +3523,9 @@ IceGrid::NodeSession::_iceD_loadServers(::Ice::IncomingRequest& request, ::std::
 
 /// \cond INTERNAL
 void
-IceGrid::NodeSession::_iceD_getServers(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::NodeSession::_iceD_getServers(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3472,7 +3540,9 @@ IceGrid::NodeSession::_iceD_getServers(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-IceGrid::NodeSession::_iceD_waitForApplicationUpdate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::NodeSession::_iceD_waitForApplicationUpdate(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -3495,7 +3565,9 @@ IceGrid::NodeSession::_iceD_waitForApplicationUpdate(::Ice::IncomingRequest& req
 
 /// \cond INTERNAL
 void
-IceGrid::NodeSession::_iceD_destroy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::NodeSession::_iceD_destroy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3734,7 +3806,9 @@ IceGrid::ReplicaSession::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaSession::_iceD_keepAlive(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::ReplicaSession::_iceD_keepAlive(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3745,7 +3819,9 @@ IceGrid::ReplicaSession::_iceD_keepAlive(::Ice::IncomingRequest& request, ::std:
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaSession::_iceD_getTimeout(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::ReplicaSession::_iceD_getTimeout(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3760,7 +3836,9 @@ IceGrid::ReplicaSession::_iceD_getTimeout(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaSession::_iceD_setDatabaseObserver(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::ReplicaSession::_iceD_setDatabaseObserver(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -3777,7 +3855,9 @@ IceGrid::ReplicaSession::_iceD_setDatabaseObserver(::Ice::IncomingRequest& reque
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaSession::_iceD_setEndpoints(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::ReplicaSession::_iceD_setEndpoints(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -3792,7 +3872,9 @@ IceGrid::ReplicaSession::_iceD_setEndpoints(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaSession::_iceD_registerWellKnownObjects(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::ReplicaSession::_iceD_registerWellKnownObjects(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -3807,7 +3889,9 @@ IceGrid::ReplicaSession::_iceD_registerWellKnownObjects(::Ice::IncomingRequest& 
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaSession::_iceD_setAdapterDirectProxy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::ReplicaSession::_iceD_setAdapterDirectProxy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -3824,7 +3908,9 @@ IceGrid::ReplicaSession::_iceD_setAdapterDirectProxy(::Ice::IncomingRequest& req
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaSession::_iceD_receivedUpdate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::ReplicaSession::_iceD_receivedUpdate(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -3841,7 +3927,9 @@ IceGrid::ReplicaSession::_iceD_receivedUpdate(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaSession::_iceD_destroy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::ReplicaSession::_iceD_destroy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -3956,7 +4044,9 @@ IceGrid::InternalRegistry::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceGrid::InternalRegistry::_iceD_registerNode(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::InternalRegistry::_iceD_registerNode(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -3978,7 +4068,9 @@ IceGrid::InternalRegistry::_iceD_registerNode(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
-IceGrid::InternalRegistry::_iceD_registerReplica(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::InternalRegistry::_iceD_registerReplica(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -3999,7 +4091,9 @@ IceGrid::InternalRegistry::_iceD_registerReplica(::Ice::IncomingRequest& request
 
 /// \cond INTERNAL
 void
-IceGrid::InternalRegistry::_iceD_registerWithReplica(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::InternalRegistry::_iceD_registerWithReplica(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -4014,7 +4108,9 @@ IceGrid::InternalRegistry::_iceD_registerWithReplica(::Ice::IncomingRequest& req
 
 /// \cond INTERNAL
 void
-IceGrid::InternalRegistry::_iceD_getNodes(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::InternalRegistry::_iceD_getNodes(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -4029,7 +4125,9 @@ IceGrid::InternalRegistry::_iceD_getNodes(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-IceGrid::InternalRegistry::_iceD_getReplicas(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::InternalRegistry::_iceD_getReplicas(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -4044,7 +4142,9 @@ IceGrid::InternalRegistry::_iceD_getReplicas(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-IceGrid::InternalRegistry::_iceD_getApplications(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::InternalRegistry::_iceD_getApplications(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -4061,7 +4161,9 @@ IceGrid::InternalRegistry::_iceD_getApplications(::Ice::IncomingRequest& request
 
 /// \cond INTERNAL
 void
-IceGrid::InternalRegistry::_iceD_getAdapters(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::InternalRegistry::_iceD_getAdapters(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -4077,7 +4179,9 @@ IceGrid::InternalRegistry::_iceD_getAdapters(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-IceGrid::InternalRegistry::_iceD_getObjects(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::InternalRegistry::_iceD_getObjects(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -4093,7 +4197,9 @@ IceGrid::InternalRegistry::_iceD_getObjects(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-IceGrid::InternalRegistry::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceGrid::InternalRegistry::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

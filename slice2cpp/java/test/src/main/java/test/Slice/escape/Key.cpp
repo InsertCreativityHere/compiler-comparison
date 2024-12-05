@@ -303,7 +303,9 @@ abstract::_cpp_catch::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-abstract::_cpp_catch::_iceD_checkedCast(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::_cpp_catch::_iceD_checkedCast(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -402,7 +404,9 @@ abstract::_cpp_default::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-abstract::_cpp_default::_iceD_do(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::_cpp_default::_iceD_do(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -556,7 +560,9 @@ abstract::_cpp_new::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-abstract::_cpp_new::_iceD_notify(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::_cpp_new::_iceD_notify(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();

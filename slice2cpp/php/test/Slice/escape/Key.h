@@ -423,6 +423,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    endif(const endif&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
@@ -459,6 +462,9 @@ public:
         exit(exit)
     {
     }
+
+    /// Copy constructor.
+    endwhile(const endwhile&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

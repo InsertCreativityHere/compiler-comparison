@@ -449,7 +449,9 @@ Test::Initial::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_getNoNamespaceC2AsC1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_getNoNamespaceC2AsC1(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -465,7 +467,9 @@ Test::Initial::_iceD_getNoNamespaceC2AsC1(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_getNoNamespaceC2AsC2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_getNoNamespaceC2AsC2(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -481,7 +485,9 @@ Test::Initial::_iceD_getNoNamespaceC2AsC2(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_throwNoNamespaceE2AsE1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_throwNoNamespaceE2AsE1(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -492,7 +498,9 @@ Test::Initial::_iceD_throwNoNamespaceE2AsE1(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_throwNoNamespaceE2AsE2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_throwNoNamespaceE2AsE2(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -503,7 +511,9 @@ Test::Initial::_iceD_throwNoNamespaceE2AsE2(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_throwNoNamespaceNotify(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_throwNoNamespaceNotify(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -514,7 +524,9 @@ Test::Initial::_iceD_throwNoNamespaceNotify(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_getWithNamespaceC2AsC1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_getWithNamespaceC2AsC1(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -530,7 +542,9 @@ Test::Initial::_iceD_getWithNamespaceC2AsC1(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_getWithNamespaceC2AsC2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_getWithNamespaceC2AsC2(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -546,7 +560,9 @@ Test::Initial::_iceD_getWithNamespaceC2AsC2(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_throwWithNamespaceE2AsE1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_throwWithNamespaceE2AsE1(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -557,7 +573,9 @@ Test::Initial::_iceD_throwWithNamespaceE2AsE1(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_throwWithNamespaceE2AsE2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_throwWithNamespaceE2AsE2(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -568,7 +586,9 @@ Test::Initial::_iceD_throwWithNamespaceE2AsE2(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

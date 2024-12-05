@@ -2007,6 +2007,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    AdapterNotActiveException(const AdapterNotActiveException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const bool&> ice_tuple() const
@@ -2043,6 +2046,9 @@ public:
         id(::std::move(id))
     {
     }
+
+    /// Copy constructor.
+    AdapterExistsException(const AdapterExistsException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

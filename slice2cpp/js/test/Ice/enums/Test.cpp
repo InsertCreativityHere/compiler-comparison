@@ -53,7 +53,7 @@ Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1, const ::Ice::Context& context) 
 ::std::function<void()>
 Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1, ::std::function<void(::Test::ByteEnum, ::Test::ByteEnum)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ByteEnum, ByteEnum>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ByteEnum, ByteEnum>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -97,7 +97,7 @@ Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1, const ::Ice::Context& context
 ::std::function<void()>
 Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1, ::std::function<void(::Test::ShortEnum, ::Test::ShortEnum)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ShortEnum, ShortEnum>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ShortEnum, ShortEnum>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -141,7 +141,7 @@ Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1, const ::Ice::Context& context) co
 ::std::function<void()>
 Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1, ::std::function<void(::Test::IntEnum, ::Test::IntEnum)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<IntEnum, IntEnum>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<IntEnum, IntEnum>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -185,7 +185,7 @@ Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1, const ::Ice::Context& conte
 ::std::function<void()>
 Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1, ::std::function<void(::Test::SimpleEnum, ::Test::SimpleEnum)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<SimpleEnum, SimpleEnum>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<SimpleEnum, SimpleEnum>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -267,7 +267,9 @@ Test::TestIntf::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opByte(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opByte(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -287,7 +289,9 @@ Test::TestIntf::_iceD_opByte(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opShort(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opShort(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -307,7 +311,9 @@ Test::TestIntf::_iceD_opShort(::Ice::IncomingRequest& request, ::std::function<v
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opInt(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opInt(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -327,7 +333,9 @@ Test::TestIntf::_iceD_opInt(::Ice::IncomingRequest& request, ::std::function<voi
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opSimple(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opSimple(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -347,7 +355,9 @@ Test::TestIntf::_iceD_opSimple(::Ice::IncomingRequest& request, ::std::function<
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

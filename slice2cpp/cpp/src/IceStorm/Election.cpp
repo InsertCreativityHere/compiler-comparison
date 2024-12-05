@@ -290,7 +290,7 @@ IceStormElection::TopicManagerSyncPrx::getContentAsync(const ::Ice::Context& con
 ::std::function<void()>
 IceStormElection::TopicManagerSyncPrx::getContentAsync(::std::function<void(::IceStormElection::LogUpdate, ::IceStormElection::TopicContentSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<LogUpdate, TopicContentSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<LogUpdate, TopicContentSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -622,7 +622,9 @@ IceStormElection::ReplicaObserver::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceStormElection::ReplicaObserver::_iceD_init(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceStormElection::ReplicaObserver::_iceD_init(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -638,7 +640,9 @@ IceStormElection::ReplicaObserver::_iceD_init(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
-IceStormElection::ReplicaObserver::_iceD_createTopic(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceStormElection::ReplicaObserver::_iceD_createTopic(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -654,7 +658,9 @@ IceStormElection::ReplicaObserver::_iceD_createTopic(::Ice::IncomingRequest& req
 
 /// \cond INTERNAL
 void
-IceStormElection::ReplicaObserver::_iceD_destroyTopic(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceStormElection::ReplicaObserver::_iceD_destroyTopic(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -670,7 +676,9 @@ IceStormElection::ReplicaObserver::_iceD_destroyTopic(::Ice::IncomingRequest& re
 
 /// \cond INTERNAL
 void
-IceStormElection::ReplicaObserver::_iceD_addSubscriber(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceStormElection::ReplicaObserver::_iceD_addSubscriber(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -687,7 +695,9 @@ IceStormElection::ReplicaObserver::_iceD_addSubscriber(::Ice::IncomingRequest& r
 
 /// \cond INTERNAL
 void
-IceStormElection::ReplicaObserver::_iceD_removeSubscriber(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceStormElection::ReplicaObserver::_iceD_removeSubscriber(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -793,7 +803,9 @@ IceStormElection::TopicManagerSync::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceStormElection::TopicManagerSync::_iceD_getContent(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceStormElection::TopicManagerSync::_iceD_getContent(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -879,7 +891,9 @@ IceStormElection::Node::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceStormElection::Node::_iceD_invitation(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceStormElection::Node::_iceD_invitation(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -895,7 +909,9 @@ IceStormElection::Node::_iceD_invitation(::Ice::IncomingRequest& request, ::std:
 
 /// \cond INTERNAL
 void
-IceStormElection::Node::_iceD_ready(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceStormElection::Node::_iceD_ready(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -914,7 +930,9 @@ IceStormElection::Node::_iceD_ready(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-IceStormElection::Node::_iceD_accept(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceStormElection::Node::_iceD_accept(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -934,7 +952,9 @@ IceStormElection::Node::_iceD_accept(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-IceStormElection::Node::_iceD_areYouCoordinator(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceStormElection::Node::_iceD_areYouCoordinator(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -949,7 +969,9 @@ IceStormElection::Node::_iceD_areYouCoordinator(::Ice::IncomingRequest& request,
 
 /// \cond INTERNAL
 void
-IceStormElection::Node::_iceD_areYouThere(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceStormElection::Node::_iceD_areYouThere(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -969,7 +991,9 @@ IceStormElection::Node::_iceD_areYouThere(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-IceStormElection::Node::_iceD_sync(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceStormElection::Node::_iceD_sync(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -984,7 +1008,9 @@ IceStormElection::Node::_iceD_sync(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-IceStormElection::Node::_iceD_nodes(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceStormElection::Node::_iceD_nodes(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -999,7 +1025,9 @@ IceStormElection::Node::_iceD_nodes(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-IceStormElection::Node::_iceD_query(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceStormElection::Node::_iceD_query(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

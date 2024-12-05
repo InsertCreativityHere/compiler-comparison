@@ -247,7 +247,9 @@ IceStorm::TopicLink::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceStorm::TopicLink::_iceD_forward(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceStorm::TopicLink::_iceD_forward(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -331,7 +333,9 @@ IceStorm::TopicInternal::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceStorm::TopicInternal::_iceD_getLinkProxy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceStorm::TopicInternal::_iceD_getLinkProxy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -346,7 +350,9 @@ IceStorm::TopicInternal::_iceD_getLinkProxy(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-IceStorm::TopicInternal::_iceD_reap(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceStorm::TopicInternal::_iceD_reap(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -485,7 +491,9 @@ IceStorm::TopicManagerInternal::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceStorm::TopicManagerInternal::_iceD_getReplicaNode(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+IceStorm::TopicManagerInternal::_iceD_getReplicaNode(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

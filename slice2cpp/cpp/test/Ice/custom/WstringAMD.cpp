@@ -60,7 +60,7 @@ Test1::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, const ::Ice::
 ::std::function<void()>
 Test1::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, ::std::function<void(::std::wstring, ::std::wstring)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::wstring, ::std::wstring>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::wstring, ::std::wstring>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -104,7 +104,7 @@ Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, const ::Ice:
 ::std::function<void()>
 Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, ::std::function<void(::Test1::WstringStruct, ::Test1::WstringStruct)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<WstringStruct, WstringStruct>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<WstringStruct, WstringStruct>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -199,7 +199,7 @@ Test2::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, const ::Ice::
 ::std::function<void()>
 Test2::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, ::std::function<void(::std::wstring, ::std::wstring)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::wstring, ::std::wstring>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::wstring, ::std::wstring>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -243,7 +243,7 @@ Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, const ::Ice:
 ::std::function<void()>
 Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, ::std::function<void(::Test2::WstringStruct, ::Test2::WstringStruct)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<WstringStruct, WstringStruct>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<WstringStruct, WstringStruct>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -410,7 +410,9 @@ Test1::WstringClass::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test1::WstringClass::_iceD_opString(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test1::WstringClass::_iceD_opString(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -440,7 +442,9 @@ Test1::WstringClass::_iceD_opString(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Test1::WstringClass::_iceD_opStruct(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test1::WstringClass::_iceD_opStruct(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -470,7 +474,9 @@ Test1::WstringClass::_iceD_opStruct(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Test1::WstringClass::_iceD_throwExcept(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test1::WstringClass::_iceD_throwExcept(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -571,7 +577,9 @@ Test2::WstringClass::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test2::WstringClass::_iceD_opString(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test2::WstringClass::_iceD_opString(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -601,7 +609,9 @@ Test2::WstringClass::_iceD_opString(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Test2::WstringClass::_iceD_opStruct(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test2::WstringClass::_iceD_opStruct(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -631,7 +641,9 @@ Test2::WstringClass::_iceD_opStruct(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Test2::WstringClass::_iceD_throwExcept(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test2::WstringClass::_iceD_throwExcept(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();

@@ -580,7 +580,9 @@ Glacier2::Session::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Glacier2::Session::_iceD_destroy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::Session::_iceD_destroy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -660,7 +662,9 @@ Glacier2::StringSet::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Glacier2::StringSet::_iceD_add(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::StringSet::_iceD_add(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -675,7 +679,9 @@ Glacier2::StringSet::_iceD_add(::Ice::IncomingRequest& request, ::std::function<
 
 /// \cond INTERNAL
 void
-Glacier2::StringSet::_iceD_remove(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::StringSet::_iceD_remove(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -690,7 +696,9 @@ Glacier2::StringSet::_iceD_remove(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Glacier2::StringSet::_iceD_get(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::StringSet::_iceD_get(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -784,7 +792,9 @@ Glacier2::IdentitySet::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Glacier2::IdentitySet::_iceD_add(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::IdentitySet::_iceD_add(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -799,7 +809,9 @@ Glacier2::IdentitySet::_iceD_add(::Ice::IncomingRequest& request, ::std::functio
 
 /// \cond INTERNAL
 void
-Glacier2::IdentitySet::_iceD_remove(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::IdentitySet::_iceD_remove(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -814,7 +826,9 @@ Glacier2::IdentitySet::_iceD_remove(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Glacier2::IdentitySet::_iceD_get(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::IdentitySet::_iceD_get(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -908,7 +922,9 @@ Glacier2::SessionControl::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Glacier2::SessionControl::_iceD_categories(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::SessionControl::_iceD_categories(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -923,7 +939,9 @@ Glacier2::SessionControl::_iceD_categories(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-Glacier2::SessionControl::_iceD_adapterIds(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::SessionControl::_iceD_adapterIds(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -938,7 +956,9 @@ Glacier2::SessionControl::_iceD_adapterIds(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-Glacier2::SessionControl::_iceD_identities(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::SessionControl::_iceD_identities(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -953,7 +973,9 @@ Glacier2::SessionControl::_iceD_identities(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-Glacier2::SessionControl::_iceD_getSessionTimeout(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::SessionControl::_iceD_getSessionTimeout(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -968,7 +990,9 @@ Glacier2::SessionControl::_iceD_getSessionTimeout(::Ice::IncomingRequest& reques
 
 /// \cond INTERNAL
 void
-Glacier2::SessionControl::_iceD_destroy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::SessionControl::_iceD_destroy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1068,7 +1092,9 @@ Glacier2::SessionManager::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Glacier2::SessionManager::_iceD_create(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::SessionManager::_iceD_create(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1157,7 +1183,9 @@ Glacier2::SSLSessionManager::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Glacier2::SSLSessionManager::_iceD_create(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::SSLSessionManager::_iceD_create(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();

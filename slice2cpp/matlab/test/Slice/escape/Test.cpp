@@ -404,7 +404,9 @@ classdef::_cpp_break::elseif::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::elseif::_iceD_events(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+classdef::_cpp_break::elseif::_iceD_events(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -415,7 +417,9 @@ classdef::_cpp_break::elseif::_iceD_events(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::elseif::_iceD_function(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+classdef::_cpp_break::elseif::_iceD_function(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -426,7 +430,9 @@ classdef::_cpp_break::elseif::_iceD_function(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::elseif::_iceD_delete(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+classdef::_cpp_break::elseif::_iceD_delete(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -437,7 +443,9 @@ classdef::_cpp_break::elseif::_iceD_delete(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::elseif::_iceD_checkedCast(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+classdef::_cpp_break::elseif::_iceD_checkedCast(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

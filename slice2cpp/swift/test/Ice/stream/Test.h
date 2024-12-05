@@ -313,6 +313,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    MyException(const MyException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::Test::MyClassPtr&> ice_tuple() const
@@ -374,6 +377,9 @@ public:
         str(::std::move(str))
     {
     }
+
+    /// Copy constructor.
+    NestedException(const NestedException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -453,6 +459,9 @@ public:
         str(::std::move(str))
     {
     }
+
+    /// Copy constructor.
+    NestedException2(const NestedException2&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

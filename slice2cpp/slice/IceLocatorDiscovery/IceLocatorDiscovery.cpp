@@ -135,7 +135,9 @@ IceLocatorDiscovery::LookupReply::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceLocatorDiscovery::LookupReply::_iceD_foundLocator(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceLocatorDiscovery::LookupReply::_iceD_foundLocator(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -219,7 +221,9 @@ IceLocatorDiscovery::Lookup::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-IceLocatorDiscovery::Lookup::_iceD_findLocator(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceLocatorDiscovery::Lookup::_iceD_findLocator(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();

@@ -356,6 +356,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    is(const is&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
@@ -392,6 +395,9 @@ public:
         pass(pass)
     {
     }
+
+    /// Copy constructor.
+    _cpp_not(const _cpp_not&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

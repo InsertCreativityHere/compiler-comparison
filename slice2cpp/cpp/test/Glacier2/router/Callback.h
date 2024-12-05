@@ -266,6 +266,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    CallbackException(const CallbackException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const double&, const ::std::string&> ice_tuple() const

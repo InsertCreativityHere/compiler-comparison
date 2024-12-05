@@ -373,6 +373,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    hashCode(const hashCode&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
@@ -409,6 +412,9 @@ public:
         native(native)
     {
     }
+
+    /// Copy constructor.
+    _cpp_import(const _cpp_import&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

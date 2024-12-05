@@ -63,7 +63,7 @@ Test::IPrx::opSAsync(const S& iceP_s1, const ::Ice::Context& context) const
 ::std::function<void()>
 Test::IPrx::opSAsync(const S& iceP_s1, ::std::function<void(::Test::S, ::Test::S)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<S, S>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<S, S>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -107,7 +107,7 @@ Test::IPrx::opSSeqAsync(const SSeq& iceP_s1, const ::Ice::Context& context) cons
 ::std::function<void()>
 Test::IPrx::opSSeqAsync(const SSeq& iceP_s1, ::std::function<void(::Test::SSeq, ::Test::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<SSeq, SSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<SSeq, SSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -151,7 +151,7 @@ Test::IPrx::opSMapAsync(const SMap& iceP_s1, const ::Ice::Context& context) cons
 ::std::function<void()>
 Test::IPrx::opSMapAsync(const SMap& iceP_s1, ::std::function<void(::Test::SMap, ::Test::SMap)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<SMap, SMap>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<SMap, SMap>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -195,7 +195,7 @@ Test::IPrx::opCAsync(const CPtr& iceP_c1, const ::Ice::Context& context) const
 ::std::function<void()>
 Test::IPrx::opCAsync(const CPtr& iceP_c1, ::std::function<void(::Test::CPtr, ::Test::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<CPtr, CPtr>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<CPtr, CPtr>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -241,7 +241,7 @@ Test::IPrx::opCSeqAsync(const CSeq& iceP_s1, const ::Ice::Context& context) cons
 ::std::function<void()>
 Test::IPrx::opCSeqAsync(const CSeq& iceP_s1, ::std::function<void(::Test::CSeq, ::Test::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<CSeq, CSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<CSeq, CSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -287,7 +287,7 @@ Test::IPrx::opCMapAsync(const CMap& iceP_c1, const ::Ice::Context& context) cons
 ::std::function<void()>
 Test::IPrx::opCMapAsync(const CMap& iceP_c1, ::std::function<void(::Test::CMap, ::Test::CMap)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<CMap, CMap>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<CMap, CMap>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -535,7 +535,7 @@ Test::Inner::Inner2::IPrx::opSAsync(const S& iceP_s1, const ::Ice::Context& cont
 ::std::function<void()>
 Test::Inner::Inner2::IPrx::opSAsync(const S& iceP_s1, ::std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<S, S>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<S, S>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -579,7 +579,7 @@ Test::Inner::Inner2::IPrx::opSSeqAsync(const SSeq& iceP_s1, const ::Ice::Context
 ::std::function<void()>
 Test::Inner::Inner2::IPrx::opSSeqAsync(const SSeq& iceP_s1, ::std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<SSeq, SSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<SSeq, SSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -623,7 +623,7 @@ Test::Inner::Inner2::IPrx::opSMapAsync(const SMap& iceP_s1, const ::Ice::Context
 ::std::function<void()>
 Test::Inner::Inner2::IPrx::opSMapAsync(const SMap& iceP_s1, ::std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<SMap, SMap>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<SMap, SMap>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -667,7 +667,7 @@ Test::Inner::Inner2::IPrx::opCAsync(const CPtr& iceP_c1, const ::Ice::Context& c
 ::std::function<void()>
 Test::Inner::Inner2::IPrx::opCAsync(const CPtr& iceP_c1, ::std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<CPtr, CPtr>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<CPtr, CPtr>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -713,7 +713,7 @@ Test::Inner::Inner2::IPrx::opCSeqAsync(const CSeq& iceP_c1, const ::Ice::Context
 ::std::function<void()>
 Test::Inner::Inner2::IPrx::opCSeqAsync(const CSeq& iceP_c1, ::std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<CSeq, CSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<CSeq, CSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -759,7 +759,7 @@ Test::Inner::Inner2::IPrx::opCMapAsync(const CMap& iceP_c1, const ::Ice::Context
 ::std::function<void()>
 Test::Inner::Inner2::IPrx::opCMapAsync(const CMap& iceP_c1, ::std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<CMap, CMap>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<CMap, CMap>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -839,7 +839,7 @@ Test::Inner::IPrx::opSAsync(const ::Test::Inner::Inner2::S& iceP_s1, const ::Ice
 ::std::function<void()>
 Test::Inner::IPrx::opSAsync(const ::Test::Inner::Inner2::S& iceP_s1, ::std::function<void(::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -883,7 +883,7 @@ Test::Inner::IPrx::opSSeqAsync(const ::Test::Inner::Inner2::SSeq& iceP_s1, const
 ::std::function<void()>
 Test::Inner::IPrx::opSSeqAsync(const ::Test::Inner::Inner2::SSeq& iceP_s1, ::std::function<void(::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -927,7 +927,7 @@ Test::Inner::IPrx::opSMapAsync(const ::Test::Inner::Inner2::SMap& iceP_s1, const
 ::std::function<void()>
 Test::Inner::IPrx::opSMapAsync(const ::Test::Inner::Inner2::SMap& iceP_s1, ::std::function<void(::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -971,7 +971,7 @@ Test::Inner::IPrx::opCAsync(const ::Test::Inner::Inner2::CPtr& iceP_c1, const ::
 ::std::function<void()>
 Test::Inner::IPrx::opCAsync(const ::Test::Inner::Inner2::CPtr& iceP_c1, ::std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1017,7 +1017,7 @@ Test::Inner::IPrx::opCSeqAsync(const ::Test::Inner::Inner2::CSeq& iceP_c1, const
 ::std::function<void()>
 Test::Inner::IPrx::opCSeqAsync(const ::Test::Inner::Inner2::CSeq& iceP_c1, ::std::function<void(::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1063,7 +1063,7 @@ Test::Inner::IPrx::opCMapAsync(const ::Test::Inner::Inner2::CMap& iceP_c1, const
 ::std::function<void()>
 Test::Inner::IPrx::opCMapAsync(const ::Test::Inner::Inner2::CMap& iceP_c1, ::std::function<void(::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1143,7 +1143,7 @@ Inner::Test::Inner2::IPrx::opSAsync(const ::Test::S& iceP_s1, const ::Ice::Conte
 ::std::function<void()>
 Inner::Test::Inner2::IPrx::opSAsync(const ::Test::S& iceP_s1, ::std::function<void(::Test::S, ::Test::S)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::S, ::Test::S>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::S, ::Test::S>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1187,7 +1187,7 @@ Inner::Test::Inner2::IPrx::opSSeqAsync(const ::Test::SSeq& iceP_s1, const ::Ice:
 ::std::function<void()>
 Inner::Test::Inner2::IPrx::opSSeqAsync(const ::Test::SSeq& iceP_s1, ::std::function<void(::Test::SSeq, ::Test::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::SSeq, ::Test::SSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::SSeq, ::Test::SSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1231,7 +1231,7 @@ Inner::Test::Inner2::IPrx::opSMapAsync(const ::Test::SMap& iceP_s1, const ::Ice:
 ::std::function<void()>
 Inner::Test::Inner2::IPrx::opSMapAsync(const ::Test::SMap& iceP_s1, ::std::function<void(::Test::SMap, ::Test::SMap)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::SMap, ::Test::SMap>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::SMap, ::Test::SMap>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1275,7 +1275,7 @@ Inner::Test::Inner2::IPrx::opCAsync(const ::Test::CPtr& iceP_c1, const ::Ice::Co
 ::std::function<void()>
 Inner::Test::Inner2::IPrx::opCAsync(const ::Test::CPtr& iceP_c1, ::std::function<void(::Test::CPtr, ::Test::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::CPtr, ::Test::CPtr>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::CPtr, ::Test::CPtr>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1321,7 +1321,7 @@ Inner::Test::Inner2::IPrx::opCSeqAsync(const ::Test::CSeq& iceP_c1, const ::Ice:
 ::std::function<void()>
 Inner::Test::Inner2::IPrx::opCSeqAsync(const ::Test::CSeq& iceP_c1, ::std::function<void(::Test::CSeq, ::Test::CSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::CSeq, ::Test::CSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::CSeq, ::Test::CSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1367,7 +1367,7 @@ Inner::Test::Inner2::IPrx::opCMapAsync(const ::Test::CMap& iceP_c1, const ::Ice:
 ::std::function<void()>
 Inner::Test::Inner2::IPrx::opCMapAsync(const ::Test::CMap& iceP_c1, ::std::function<void(::Test::CMap, ::Test::CMap)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::CMap, ::Test::CMap>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::CMap, ::Test::CMap>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1621,7 +1621,9 @@ Test::I::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::I::_iceD_opS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::I::_iceD_opS(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1641,7 +1643,9 @@ Test::I::_iceD_opS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::
 
 /// \cond INTERNAL
 void
-Test::I::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::I::_iceD_opSSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1661,7 +1665,9 @@ Test::I::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ic
 
 /// \cond INTERNAL
 void
-Test::I::_iceD_opSMap(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::I::_iceD_opSMap(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1681,7 +1687,9 @@ Test::I::_iceD_opSMap(::Ice::IncomingRequest& request, ::std::function<void(::Ic
 
 /// \cond INTERNAL
 void
-Test::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::I::_iceD_opC(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1703,7 +1711,9 @@ Test::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::function<void(::Ice::
 
 /// \cond INTERNAL
 void
-Test::I::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::I::_iceD_opCSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1725,7 +1735,9 @@ Test::I::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ic
 
 /// \cond INTERNAL
 void
-Test::I::_iceD_opCMap(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::I::_iceD_opCMap(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1747,7 +1759,9 @@ Test::I::_iceD_opCMap(::Ice::IncomingRequest& request, ::std::function<void(::Ic
 
 /// \cond INTERNAL
 void
-Test::I::_iceD_opE1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::I::_iceD_opE1(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1766,7 +1780,9 @@ Test::I::_iceD_opE1(::Ice::IncomingRequest& request, ::std::function<void(::Ice:
 
 /// \cond INTERNAL
 void
-Test::I::_iceD_opS1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::I::_iceD_opS1(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1785,7 +1801,9 @@ Test::I::_iceD_opS1(::Ice::IncomingRequest& request, ::std::function<void(::Ice:
 
 /// \cond INTERNAL
 void
-Test::I::_iceD_opC1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::I::_iceD_opC1(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1806,7 +1824,9 @@ Test::I::_iceD_opC1(::Ice::IncomingRequest& request, ::std::function<void(::Ice:
 
 /// \cond INTERNAL
 void
-Test::I::_iceD_opS1Seq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::I::_iceD_opS1Seq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1825,7 +1845,9 @@ Test::I::_iceD_opS1Seq(::Ice::IncomingRequest& request, ::std::function<void(::I
 
 /// \cond INTERNAL
 void
-Test::I::_iceD_opS1Map(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::I::_iceD_opS1Map(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1844,7 +1866,9 @@ Test::I::_iceD_opS1Map(::Ice::IncomingRequest& request, ::std::function<void(::I
 
 /// \cond INTERNAL
 void
-Test::I::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::I::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1979,7 +2003,9 @@ Test::Inner::Inner2::I::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::Inner::Inner2::I::_iceD_opS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::Inner2::I::_iceD_opS(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1999,7 +2025,9 @@ Test::Inner::Inner2::I::_iceD_opS(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Test::Inner::Inner2::I::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::Inner2::I::_iceD_opSSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2019,7 +2047,9 @@ Test::Inner::Inner2::I::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Test::Inner::Inner2::I::_iceD_opSMap(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::Inner2::I::_iceD_opSMap(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2039,7 +2069,9 @@ Test::Inner::Inner2::I::_iceD_opSMap(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Test::Inner::Inner2::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::Inner2::I::_iceD_opC(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2061,7 +2093,9 @@ Test::Inner::Inner2::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Test::Inner::Inner2::I::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::Inner2::I::_iceD_opCSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2083,7 +2117,9 @@ Test::Inner::Inner2::I::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Test::Inner::Inner2::I::_iceD_opCMap(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::Inner2::I::_iceD_opCMap(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2105,7 +2141,9 @@ Test::Inner::Inner2::I::_iceD_opCMap(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Test::Inner::Inner2::I::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::Inner2::I::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -2215,7 +2253,9 @@ Test::Inner::I::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::Inner::I::_iceD_opS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::I::_iceD_opS(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2235,7 +2275,9 @@ Test::Inner::I::_iceD_opS(::Ice::IncomingRequest& request, ::std::function<void(
 
 /// \cond INTERNAL
 void
-Test::Inner::I::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::I::_iceD_opSSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2255,7 +2297,9 @@ Test::Inner::I::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-Test::Inner::I::_iceD_opSMap(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::I::_iceD_opSMap(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2275,7 +2319,9 @@ Test::Inner::I::_iceD_opSMap(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-Test::Inner::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::I::_iceD_opC(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2297,7 +2343,9 @@ Test::Inner::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::function<void(
 
 /// \cond INTERNAL
 void
-Test::Inner::I::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::I::_iceD_opCSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2319,7 +2367,9 @@ Test::Inner::I::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-Test::Inner::I::_iceD_opCMap(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::I::_iceD_opCMap(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2341,7 +2391,9 @@ Test::Inner::I::_iceD_opCMap(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-Test::Inner::I::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Inner::I::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -2451,7 +2503,9 @@ Inner::Test::Inner2::I::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Inner::Test::Inner2::I::_iceD_opS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Inner::Test::Inner2::I::_iceD_opS(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2471,7 +2525,9 @@ Inner::Test::Inner2::I::_iceD_opS(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Inner::Test::Inner2::I::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Inner::Test::Inner2::I::_iceD_opSSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2491,7 +2547,9 @@ Inner::Test::Inner2::I::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Inner::Test::Inner2::I::_iceD_opSMap(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Inner::Test::Inner2::I::_iceD_opSMap(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2511,7 +2569,9 @@ Inner::Test::Inner2::I::_iceD_opSMap(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Inner::Test::Inner2::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Inner::Test::Inner2::I::_iceD_opC(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2533,7 +2593,9 @@ Inner::Test::Inner2::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Inner::Test::Inner2::I::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Inner::Test::Inner2::I::_iceD_opCSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2555,7 +2617,9 @@ Inner::Test::Inner2::I::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Inner::Test::Inner2::I::_iceD_opCMap(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Inner::Test::Inner2::I::_iceD_opCMap(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2577,7 +2641,9 @@ Inner::Test::Inner2::I::_iceD_opCMap(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Inner::Test::Inner2::I::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Inner::Test::Inner2::I::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

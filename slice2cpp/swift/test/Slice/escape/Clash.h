@@ -317,6 +317,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    Ex(const Ex&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::int16_t&, const ::std::int32_t&> ice_tuple() const

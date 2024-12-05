@@ -381,7 +381,7 @@ Clash::IntfPrx::opOutAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Clash::IntfPrx::opOutAsync(::std::function<void(::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -503,7 +503,9 @@ Clash::Intf::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Clash::Intf::_iceD_context(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::_iceD_context(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -514,7 +516,9 @@ Clash::Intf::_iceD_context(::Ice::IncomingRequest& request, ::std::function<void
 
 /// \cond INTERNAL
 void
-Clash::Intf::_iceD_current(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::_iceD_current(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -525,7 +529,9 @@ Clash::Intf::_iceD_current(::Ice::IncomingRequest& request, ::std::function<void
 
 /// \cond INTERNAL
 void
-Clash::Intf::_iceD_response(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::_iceD_response(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -536,7 +542,9 @@ Clash::Intf::_iceD_response(::Ice::IncomingRequest& request, ::std::function<voi
 
 /// \cond INTERNAL
 void
-Clash::Intf::_iceD_upCast(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::_iceD_upCast(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -547,7 +555,9 @@ Clash::Intf::_iceD_upCast(::Ice::IncomingRequest& request, ::std::function<void(
 
 /// \cond INTERNAL
 void
-Clash::Intf::_iceD_typeId(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::_iceD_typeId(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -558,7 +568,9 @@ Clash::Intf::_iceD_typeId(::Ice::IncomingRequest& request, ::std::function<void(
 
 /// \cond INTERNAL
 void
-Clash::Intf::_iceD_del(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::_iceD_del(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -569,7 +581,9 @@ Clash::Intf::_iceD_del(::Ice::IncomingRequest& request, ::std::function<void(::I
 
 /// \cond INTERNAL
 void
-Clash::Intf::_iceD_cookie(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::_iceD_cookie(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -580,7 +594,9 @@ Clash::Intf::_iceD_cookie(::Ice::IncomingRequest& request, ::std::function<void(
 
 /// \cond INTERNAL
 void
-Clash::Intf::_iceD_sync(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::_iceD_sync(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -591,7 +607,9 @@ Clash::Intf::_iceD_sync(::Ice::IncomingRequest& request, ::std::function<void(::
 
 /// \cond INTERNAL
 void
-Clash::Intf::_iceD_inS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::_iceD_inS(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -602,7 +620,9 @@ Clash::Intf::_iceD_inS(::Ice::IncomingRequest& request, ::std::function<void(::I
 
 /// \cond INTERNAL
 void
-Clash::Intf::_iceD_istr(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::_iceD_istr(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -613,7 +633,9 @@ Clash::Intf::_iceD_istr(::Ice::IncomingRequest& request, ::std::function<void(::
 
 /// \cond INTERNAL
 void
-Clash::Intf::_iceD_op(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::_iceD_op(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -639,7 +661,9 @@ Clash::Intf::_iceD_op(::Ice::IncomingRequest& request, ::std::function<void(::Ic
 
 /// \cond INTERNAL
 void
-Clash::Intf::_iceD_opOut(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::_iceD_opOut(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

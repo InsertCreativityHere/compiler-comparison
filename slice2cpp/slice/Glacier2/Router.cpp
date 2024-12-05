@@ -109,11 +109,11 @@ Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const CannotCreateSessionException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
-            catch(const PermissionDeniedException&)
+            catch(const CannotCreateSessionException&)
             {
                 throw;
             }
@@ -155,11 +155,11 @@ Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared
             {
                 ex.ice_throw();
             }
-            catch(const CannotCreateSessionException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
-            catch(const PermissionDeniedException&)
+            catch(const CannotCreateSessionException&)
             {
                 throw;
             }
@@ -370,7 +370,9 @@ Glacier2::Router::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Glacier2::Router::_iceD_getCategoryForClient(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+Glacier2::Router::_iceD_getCategoryForClient(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -385,7 +387,9 @@ Glacier2::Router::_iceD_getCategoryForClient(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-Glacier2::Router::_iceD_createSession(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::Router::_iceD_createSession(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -416,7 +420,9 @@ Glacier2::Router::_iceD_createSession(::Ice::IncomingRequest& request, ::std::fu
 
 /// \cond INTERNAL
 void
-Glacier2::Router::_iceD_createSessionFromSecureConnection(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::Router::_iceD_createSessionFromSecureConnection(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -442,7 +448,9 @@ Glacier2::Router::_iceD_createSessionFromSecureConnection(::Ice::IncomingRequest
 
 /// \cond INTERNAL
 void
-Glacier2::Router::_iceD_refreshSession(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::Router::_iceD_refreshSession(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -453,7 +461,9 @@ Glacier2::Router::_iceD_refreshSession(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-Glacier2::Router::_iceD_destroySession(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Glacier2::Router::_iceD_destroySession(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -464,7 +474,9 @@ Glacier2::Router::_iceD_destroySession(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-Glacier2::Router::_iceD_getSessionTimeout(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+Glacier2::Router::_iceD_getSessionTimeout(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -479,7 +491,9 @@ Glacier2::Router::_iceD_getSessionTimeout(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-Glacier2::Router::_iceD_getACMTimeout(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+Glacier2::Router::_iceD_getACMTimeout(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

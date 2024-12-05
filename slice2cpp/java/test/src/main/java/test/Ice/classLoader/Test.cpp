@@ -242,7 +242,9 @@ Test::Initial::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_getConcreteClass(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_getConcreteClass(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -258,7 +260,9 @@ Test::Initial::_iceD_getConcreteClass(::Ice::IncomingRequest& request, ::std::fu
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_throwException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_throwException(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -269,7 +273,9 @@ Test::Initial::_iceD_throwException(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

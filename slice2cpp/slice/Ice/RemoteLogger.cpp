@@ -207,7 +207,7 @@ Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, con
 ::std::function<void()>
 Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax, ::std::function<void(::Ice::LogMessageSeq, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<LogMessageSeq, ::std::string>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<LogMessageSeq, ::std::string>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -293,7 +293,9 @@ Ice::RemoteLogger::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Ice::RemoteLogger::_iceD_init(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::RemoteLogger::_iceD_init(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -309,7 +311,9 @@ Ice::RemoteLogger::_iceD_init(::Ice::IncomingRequest& request, ::std::function<v
 
 /// \cond INTERNAL
 void
-Ice::RemoteLogger::_iceD_log(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::RemoteLogger::_iceD_log(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -398,7 +402,9 @@ Ice::LoggerAdmin::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Ice::LoggerAdmin::_iceD_attachRemoteLogger(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::LoggerAdmin::_iceD_attachRemoteLogger(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -416,7 +422,9 @@ Ice::LoggerAdmin::_iceD_attachRemoteLogger(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-Ice::LoggerAdmin::_iceD_detachRemoteLogger(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::LoggerAdmin::_iceD_detachRemoteLogger(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -435,7 +443,9 @@ Ice::LoggerAdmin::_iceD_detachRemoteLogger(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-Ice::LoggerAdmin::_iceD_getLog(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::LoggerAdmin::_iceD_getLog(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();

@@ -53,7 +53,7 @@ Test::TestIntfPrx::opByteSpanAsync(std::span<const std::byte> iceP_dataIn, const
 ::std::function<void()>
 Test::TestIntfPrx::opByteSpanAsync(std::span<const std::byte> iceP_dataIn, ::std::function<void(::Test::ByteSeq, ::Test::ByteSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ByteSeq, ByteSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ByteSeq, ByteSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -97,7 +97,7 @@ Test::TestIntfPrx::opShortSpanAsync(std::span<const std::int16_t> iceP_dataIn, c
 ::std::function<void()>
 Test::TestIntfPrx::opShortSpanAsync(std::span<const std::int16_t> iceP_dataIn, ::std::function<void(::Test::ShortSeq, ::Test::ShortSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ShortSeq, ShortSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ShortSeq, ShortSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -141,7 +141,7 @@ Test::TestIntfPrx::opStringSpanAsync(std::span<std::string> iceP_dataIn, const :
 ::std::function<void()>
 Test::TestIntfPrx::opStringSpanAsync(std::span<std::string> iceP_dataIn, ::std::function<void(::Test::StringSeq, ::Test::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<StringSeq, StringSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<StringSeq, StringSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -185,7 +185,7 @@ Test::TestIntfPrx::opOptionalByteSpanAsync(::std::optional<std::span<const std::
 ::std::function<void()>
 Test::TestIntfPrx::opOptionalByteSpanAsync(::std::optional<std::span<const std::byte>> iceP_dataIn, ::std::function<void(::std::optional<::Test::ByteSeq>, ::std::optional<::Test::ByteSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -229,7 +229,7 @@ Test::TestIntfPrx::opOptionalShortSpanAsync(::std::optional<std::span<const std:
 ::std::function<void()>
 Test::TestIntfPrx::opOptionalShortSpanAsync(::std::optional<std::span<const std::int16_t>> iceP_dataIn, ::std::function<void(::std::optional<::Test::ShortSeq>, ::std::optional<::Test::ShortSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -273,7 +273,7 @@ Test::TestIntfPrx::opOptionalStringSpanAsync(::std::optional<std::span<std::stri
 ::std::function<void()>
 Test::TestIntfPrx::opOptionalStringSpanAsync(::std::optional<std::span<std::string>> iceP_dataIn, ::std::function<void(::std::optional<::Test::StringSeq>, ::std::optional<::Test::StringSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -355,7 +355,9 @@ Test::TestIntf::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opByteSpan(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opByteSpan(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -375,7 +377,9 @@ Test::TestIntf::_iceD_opByteSpan(::Ice::IncomingRequest& request, ::std::functio
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opShortSpan(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opShortSpan(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -395,7 +399,9 @@ Test::TestIntf::_iceD_opShortSpan(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opStringSpan(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opStringSpan(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -415,7 +421,9 @@ Test::TestIntf::_iceD_opStringSpan(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opOptionalByteSpan(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opOptionalByteSpan(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -435,7 +443,9 @@ Test::TestIntf::_iceD_opOptionalByteSpan(::Ice::IncomingRequest& request, ::std:
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opOptionalShortSpan(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opOptionalShortSpan(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -455,7 +465,9 @@ Test::TestIntf::_iceD_opOptionalShortSpan(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opOptionalStringSpan(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opOptionalStringSpan(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -475,7 +487,9 @@ Test::TestIntf::_iceD_opOptionalStringSpan(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

@@ -828,6 +828,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    BaseException(const BaseException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::Test::BPtr&> ice_tuple() const
@@ -869,6 +872,9 @@ public:
         pd1(::std::move(pd1))
     {
     }
+
+    /// Copy constructor.
+    DerivedException(const DerivedException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

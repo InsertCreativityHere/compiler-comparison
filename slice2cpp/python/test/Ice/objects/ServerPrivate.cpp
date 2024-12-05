@@ -326,7 +326,9 @@ Test::UnexpectedObjectExceptionTest::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::UnexpectedObjectExceptionTest::_iceD_op(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::UnexpectedObjectExceptionTest::_iceD_op(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

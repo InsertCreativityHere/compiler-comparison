@@ -56,7 +56,7 @@ Ice::RouterPrx::getClientProxyAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Ice::RouterPrx::getClientProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -204,7 +204,9 @@ Ice::Router::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Ice::Router::_iceD_getClientProxy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+Ice::Router::_iceD_getClientProxy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -221,7 +223,9 @@ Ice::Router::_iceD_getClientProxy(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Ice::Router::_iceD_getServerProxy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+Ice::Router::_iceD_getServerProxy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -236,7 +240,9 @@ Ice::Router::_iceD_getServerProxy(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Ice::Router::_iceD_addProxies(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::Router::_iceD_addProxies(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -334,7 +340,9 @@ Ice::RouterFinder::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Ice::RouterFinder::_iceD_getRouter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::RouterFinder::_iceD_getRouter(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

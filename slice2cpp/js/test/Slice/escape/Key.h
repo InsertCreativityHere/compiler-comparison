@@ -641,6 +641,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    fixed(const fixed&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
@@ -677,6 +680,9 @@ public:
         _cpp_if(_cpp_if)
     {
     }
+
+    /// Copy constructor.
+    foreach(const foreach&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -727,6 +733,9 @@ public:
         ToString(ToString)
     {
     }
+
+    /// Copy constructor.
+    BaseMethods(const BaseMethods&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

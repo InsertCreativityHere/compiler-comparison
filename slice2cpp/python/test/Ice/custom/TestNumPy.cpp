@@ -59,7 +59,7 @@ Test::NumPy::CustomPrx::opBoolSeqAsync(const BoolSeq1& iceP_v1, const ::Ice::Con
 ::std::function<void()>
 Test::NumPy::CustomPrx::opBoolSeqAsync(const BoolSeq1& iceP_v1, ::std::function<void(::Test::NumPy::BoolSeq1, ::Test::NumPy::BoolSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<BoolSeq1, BoolSeq2>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<BoolSeq1, BoolSeq2>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -103,7 +103,7 @@ Test::NumPy::CustomPrx::opByteSeqAsync(const ByteSeq1& iceP_v1, const ::Ice::Con
 ::std::function<void()>
 Test::NumPy::CustomPrx::opByteSeqAsync(const ByteSeq1& iceP_v1, ::std::function<void(::Test::NumPy::ByteSeq1, ::Test::NumPy::ByteSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ByteSeq1, ByteSeq2>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ByteSeq1, ByteSeq2>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -147,7 +147,7 @@ Test::NumPy::CustomPrx::opShortSeqAsync(const ShortSeq1& iceP_v1, const ::Ice::C
 ::std::function<void()>
 Test::NumPy::CustomPrx::opShortSeqAsync(const ShortSeq1& iceP_v1, ::std::function<void(::Test::NumPy::ShortSeq1, ::Test::NumPy::ShortSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ShortSeq1, ShortSeq2>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ShortSeq1, ShortSeq2>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -191,7 +191,7 @@ Test::NumPy::CustomPrx::opIntSeqAsync(const IntSeq1& iceP_v1, const ::Ice::Conte
 ::std::function<void()>
 Test::NumPy::CustomPrx::opIntSeqAsync(const IntSeq1& iceP_v1, ::std::function<void(::Test::NumPy::IntSeq1, ::Test::NumPy::IntSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<IntSeq1, IntSeq2>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<IntSeq1, IntSeq2>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -235,7 +235,7 @@ Test::NumPy::CustomPrx::opLongSeqAsync(const LongSeq1& iceP_v1, const ::Ice::Con
 ::std::function<void()>
 Test::NumPy::CustomPrx::opLongSeqAsync(const LongSeq1& iceP_v1, ::std::function<void(::Test::NumPy::LongSeq1, ::Test::NumPy::LongSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<LongSeq1, LongSeq2>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<LongSeq1, LongSeq2>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -279,7 +279,7 @@ Test::NumPy::CustomPrx::opFloatSeqAsync(const FloatSeq1& iceP_v1, const ::Ice::C
 ::std::function<void()>
 Test::NumPy::CustomPrx::opFloatSeqAsync(const FloatSeq1& iceP_v1, ::std::function<void(::Test::NumPy::FloatSeq1, ::Test::NumPy::FloatSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<FloatSeq1, FloatSeq2>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<FloatSeq1, FloatSeq2>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -323,7 +323,7 @@ Test::NumPy::CustomPrx::opDoubleSeqAsync(const DoubleSeq1& iceP_v1, const ::Ice:
 ::std::function<void()>
 Test::NumPy::CustomPrx::opDoubleSeqAsync(const DoubleSeq1& iceP_v1, ::std::function<void(::Test::NumPy::DoubleSeq1, ::Test::NumPy::DoubleSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<DoubleSeq1, DoubleSeq2>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<DoubleSeq1, DoubleSeq2>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -743,7 +743,9 @@ Test::NumPy::Custom::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opBoolSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opBoolSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -763,7 +765,9 @@ Test::NumPy::Custom::_iceD_opBoolSeq(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opByteSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opByteSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -783,7 +787,9 @@ Test::NumPy::Custom::_iceD_opByteSeq(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opShortSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opShortSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -803,7 +809,9 @@ Test::NumPy::Custom::_iceD_opShortSeq(::Ice::IncomingRequest& request, ::std::fu
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opIntSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opIntSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -823,7 +831,9 @@ Test::NumPy::Custom::_iceD_opIntSeq(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opLongSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opLongSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -843,7 +853,9 @@ Test::NumPy::Custom::_iceD_opLongSeq(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opFloatSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opFloatSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -863,7 +875,9 @@ Test::NumPy::Custom::_iceD_opFloatSeq(::Ice::IncomingRequest& request, ::std::fu
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opDoubleSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opDoubleSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -883,7 +897,9 @@ Test::NumPy::Custom::_iceD_opDoubleSeq(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opComplex128Seq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opComplex128Seq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -902,7 +918,9 @@ Test::NumPy::Custom::_iceD_opComplex128Seq(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opBoolMatrix(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opBoolMatrix(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -917,7 +935,9 @@ Test::NumPy::Custom::_iceD_opBoolMatrix(::Ice::IncomingRequest& request, ::std::
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opByteMatrix(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opByteMatrix(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -932,7 +952,9 @@ Test::NumPy::Custom::_iceD_opByteMatrix(::Ice::IncomingRequest& request, ::std::
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opShortMatrix(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opShortMatrix(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -947,7 +969,9 @@ Test::NumPy::Custom::_iceD_opShortMatrix(::Ice::IncomingRequest& request, ::std:
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opIntMatrix(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opIntMatrix(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -962,7 +986,9 @@ Test::NumPy::Custom::_iceD_opIntMatrix(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opLongMatrix(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opLongMatrix(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -977,7 +1003,9 @@ Test::NumPy::Custom::_iceD_opLongMatrix(::Ice::IncomingRequest& request, ::std::
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opFloatMatrix(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opFloatMatrix(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -992,7 +1020,9 @@ Test::NumPy::Custom::_iceD_opFloatMatrix(::Ice::IncomingRequest& request, ::std:
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opDoubleMatrix(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opDoubleMatrix(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1007,7 +1037,9 @@ Test::NumPy::Custom::_iceD_opDoubleMatrix(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opBogusNumpyArrayType(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opBogusNumpyArrayType(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1022,7 +1054,9 @@ Test::NumPy::Custom::_iceD_opBogusNumpyArrayType(::Ice::IncomingRequest& request
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_opD(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_opD(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1043,7 +1077,9 @@ Test::NumPy::Custom::_iceD_opD(::Ice::IncomingRequest& request, ::std::function<
 
 /// \cond INTERNAL
 void
-Test::NumPy::Custom::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::NumPy::Custom::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

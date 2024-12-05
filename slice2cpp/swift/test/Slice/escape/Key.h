@@ -378,6 +378,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    _cpp_return(const _cpp_return&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
@@ -414,6 +417,9 @@ public:
         _cpp_switch(_cpp_switch)
     {
     }
+
+    /// Copy constructor.
+    as(const as&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

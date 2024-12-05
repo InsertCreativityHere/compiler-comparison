@@ -986,6 +986,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    EBase(const EBase&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::Test::A1Ptr&, const ::Test::A1Ptr&> ice_tuple() const
@@ -1027,6 +1030,9 @@ public:
         a4(::std::move(a4))
     {
     }
+
+    /// Copy constructor.
+    EDerived(const EDerived&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

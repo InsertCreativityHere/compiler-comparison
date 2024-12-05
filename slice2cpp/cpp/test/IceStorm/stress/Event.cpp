@@ -94,7 +94,9 @@ Test::Event::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::Event::_iceD_pub(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Event::_iceD_pub(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();

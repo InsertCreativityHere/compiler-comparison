@@ -468,7 +468,9 @@ Test::CallbackReceiver::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::CallbackReceiver::_iceD_callback(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::CallbackReceiver::_iceD_callback(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -479,7 +481,9 @@ Test::CallbackReceiver::_iceD_callback(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-Test::CallbackReceiver::_iceD_callbackEx(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::CallbackReceiver::_iceD_callbackEx(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -490,7 +494,9 @@ Test::CallbackReceiver::_iceD_callbackEx(::Ice::IncomingRequest& request, ::std:
 
 /// \cond INTERNAL
 void
-Test::CallbackReceiver::_iceD_concurrentCallback(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::CallbackReceiver::_iceD_concurrentCallback(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -520,7 +526,9 @@ Test::CallbackReceiver::_iceD_concurrentCallback(::Ice::IncomingRequest& request
 
 /// \cond INTERNAL
 void
-Test::CallbackReceiver::_iceD_waitCallback(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::CallbackReceiver::_iceD_waitCallback(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -531,7 +539,9 @@ Test::CallbackReceiver::_iceD_waitCallback(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-Test::CallbackReceiver::_iceD_callbackWithPayload(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::CallbackReceiver::_iceD_callbackWithPayload(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -635,7 +645,9 @@ Test::Callback::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::Callback::_iceD_initiateCallback(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Callback::_iceD_initiateCallback(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -657,7 +669,9 @@ Test::Callback::_iceD_initiateCallback(::Ice::IncomingRequest& request, ::std::f
 
 /// \cond INTERNAL
 void
-Test::Callback::_iceD_initiateCallbackEx(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Callback::_iceD_initiateCallbackEx(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -679,7 +693,9 @@ Test::Callback::_iceD_initiateCallbackEx(::Ice::IncomingRequest& request, ::std:
 
 /// \cond INTERNAL
 void
-Test::Callback::_iceD_initiateConcurrentCallback(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Callback::_iceD_initiateConcurrentCallback(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -710,7 +726,9 @@ Test::Callback::_iceD_initiateConcurrentCallback(::Ice::IncomingRequest& request
 
 /// \cond INTERNAL
 void
-Test::Callback::_iceD_initiateWaitCallback(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Callback::_iceD_initiateWaitCallback(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -732,7 +750,9 @@ Test::Callback::_iceD_initiateWaitCallback(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-Test::Callback::_iceD_initiateCallbackWithPayload(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Callback::_iceD_initiateCallbackWithPayload(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -754,7 +774,9 @@ Test::Callback::_iceD_initiateCallbackWithPayload(::Ice::IncomingRequest& reques
 
 /// \cond INTERNAL
 void
-Test::Callback::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Callback::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

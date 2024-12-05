@@ -544,7 +544,9 @@ Ice::Locator::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Ice::Locator::_iceD_findObjectById(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+Ice::Locator::_iceD_findObjectById(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -574,7 +576,9 @@ Ice::Locator::_iceD_findObjectById(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-Ice::Locator::_iceD_findAdapterById(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+Ice::Locator::_iceD_findAdapterById(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -604,7 +608,9 @@ Ice::Locator::_iceD_findAdapterById(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Ice::Locator::_iceD_getRegistry(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+Ice::Locator::_iceD_getRegistry(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -698,7 +704,9 @@ Ice::LocatorRegistry::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Ice::LocatorRegistry::_iceD_setAdapterDirectProxy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::LocatorRegistry::_iceD_setAdapterDirectProxy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -721,7 +729,9 @@ Ice::LocatorRegistry::_iceD_setAdapterDirectProxy(::Ice::IncomingRequest& reques
 
 /// \cond INTERNAL
 void
-Ice::LocatorRegistry::_iceD_setReplicatedAdapterDirectProxy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::LocatorRegistry::_iceD_setReplicatedAdapterDirectProxy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -745,7 +755,9 @@ Ice::LocatorRegistry::_iceD_setReplicatedAdapterDirectProxy(::Ice::IncomingReque
 
 /// \cond INTERNAL
 void
-Ice::LocatorRegistry::_iceD_setServerProcessProxy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::LocatorRegistry::_iceD_setServerProcessProxy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -847,7 +859,9 @@ Ice::LocatorFinder::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Ice::LocatorFinder::_iceD_getLocator(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::LocatorFinder::_iceD_getLocator(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

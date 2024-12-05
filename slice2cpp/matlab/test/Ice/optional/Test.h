@@ -1082,6 +1082,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    OptionalException(const OptionalException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&> ice_tuple() const
@@ -1122,6 +1125,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    DerivedException(const DerivedException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&, const ::std::string&, const ::std::optional<::std::string>&, const ::std::string&> ice_tuple() const
@@ -1159,6 +1165,9 @@ public:
         ss(::std::move(ss))
     {
     }
+
+    /// Copy constructor.
+    RequiredException(const RequiredException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

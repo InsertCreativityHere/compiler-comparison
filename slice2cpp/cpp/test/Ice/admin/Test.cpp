@@ -485,7 +485,9 @@ Test::RemoteCommunicator::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_getAdmin(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_getAdmin(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -500,7 +502,9 @@ Test::RemoteCommunicator::_iceD_getAdmin(::Ice::IncomingRequest& request, ::std:
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_getChanges(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_getChanges(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -515,7 +519,9 @@ Test::RemoteCommunicator::_iceD_getChanges(::Ice::IncomingRequest& request, ::st
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_addUpdateCallback(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_addUpdateCallback(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -526,7 +532,9 @@ Test::RemoteCommunicator::_iceD_addUpdateCallback(::Ice::IncomingRequest& reques
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_removeUpdateCallback(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_removeUpdateCallback(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -537,7 +545,9 @@ Test::RemoteCommunicator::_iceD_removeUpdateCallback(::Ice::IncomingRequest& req
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_print(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_print(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -552,7 +562,9 @@ Test::RemoteCommunicator::_iceD_print(::Ice::IncomingRequest& request, ::std::fu
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_trace(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_trace(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -568,7 +580,9 @@ Test::RemoteCommunicator::_iceD_trace(::Ice::IncomingRequest& request, ::std::fu
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_warning(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_warning(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -583,7 +597,9 @@ Test::RemoteCommunicator::_iceD_warning(::Ice::IncomingRequest& request, ::std::
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_error(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_error(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -598,7 +614,9 @@ Test::RemoteCommunicator::_iceD_error(::Ice::IncomingRequest& request, ::std::fu
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -609,7 +627,9 @@ Test::RemoteCommunicator::_iceD_shutdown(::Ice::IncomingRequest& request, ::std:
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_waitForShutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_waitForShutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -620,7 +640,9 @@ Test::RemoteCommunicator::_iceD_waitForShutdown(::Ice::IncomingRequest& request,
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_destroy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_destroy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -750,7 +772,9 @@ Test::RemoteCommunicatorFactory::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicatorFactory::_iceD_createCommunicator(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicatorFactory::_iceD_createCommunicator(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -769,7 +793,9 @@ Test::RemoteCommunicatorFactory::_iceD_createCommunicator(::Ice::IncomingRequest
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicatorFactory::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicatorFactory::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -854,7 +880,9 @@ Test::TestFacet::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::TestFacet::_iceD_op(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestFacet::_iceD_op(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

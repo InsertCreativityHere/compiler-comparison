@@ -375,6 +375,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    A(const A&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
@@ -410,6 +413,9 @@ public:
         bMem(bMem)
     {
     }
+
+    /// Copy constructor.
+    B(const B&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -447,6 +453,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    C(const C&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
@@ -481,6 +490,9 @@ public:
         dMem(dMem)
     {
     }
+
+    /// Copy constructor.
+    D(const D&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

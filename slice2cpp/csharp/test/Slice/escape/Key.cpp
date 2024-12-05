@@ -220,7 +220,7 @@ abstract::optionalParamsPrx::inAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 abstract::optionalParamsPrx::inAsync(::std::function<void(::std::optional<::abstract::_cpp_break>, ::std::optional<::abstract::as>, ::std::optional<::abstract::explicitPrx>, ::std::optional<::abstract::_cpp_while>, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -264,7 +264,7 @@ abstract::optionalParamsPrx::foreachAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 abstract::optionalParamsPrx::foreachAsync(::std::function<void(::std::optional<::abstract::_cpp_break>, ::std::optional<::abstract::as>, ::std::optional<::abstract::explicitPrx>, ::std::optional<::abstract::_cpp_while>, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -611,7 +611,9 @@ abstract::_cpp_case::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-abstract::_cpp_case::_iceD_catch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::_cpp_case::_iceD_catch(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -710,7 +712,9 @@ abstract::decimal::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-abstract::decimal::_iceD_default(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::decimal::_iceD_default(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -864,7 +868,9 @@ abstract::optionalParams::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-abstract::optionalParams::_iceD_for(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::optionalParams::_iceD_for(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -886,7 +892,9 @@ abstract::optionalParams::_iceD_for(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-abstract::optionalParams::_iceD_continue(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::optionalParams::_iceD_continue(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -919,7 +927,9 @@ abstract::optionalParams::_iceD_continue(::Ice::IncomingRequest& request, ::std:
 
 /// \cond INTERNAL
 void
-abstract::optionalParams::_iceD_in(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::optionalParams::_iceD_in(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -938,7 +948,9 @@ abstract::optionalParams::_iceD_in(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-abstract::optionalParams::_iceD_foreach(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::optionalParams::_iceD_foreach(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1048,7 +1060,9 @@ abstract::implicit::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-abstract::implicit::_iceD_in(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::implicit::_iceD_in(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1145,7 +1159,9 @@ abstract::System::Test::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-abstract::System::Test::_iceD_op(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::System::Test::_iceD_op(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1225,7 +1241,9 @@ System::Test::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-System::Test::_iceD_op(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+System::Test::_iceD_op(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

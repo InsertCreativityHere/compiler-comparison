@@ -281,7 +281,9 @@ Test::TestIntf::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_sleep(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_sleep(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -365,7 +367,9 @@ Test::RemoteCommunicator::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_getObject(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_getObject(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -380,7 +384,9 @@ Test::RemoteCommunicator::_iceD_getObject(::Ice::IncomingRequest& request, ::std
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_getThreadStartCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_getThreadStartCount(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -395,7 +401,9 @@ Test::RemoteCommunicator::_iceD_getThreadStartCount(::Ice::IncomingRequest& requ
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_getThreadStopCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_getThreadStopCount(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -410,7 +418,9 @@ Test::RemoteCommunicator::_iceD_getThreadStopCount(::Ice::IncomingRequest& reque
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_destroy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_destroy(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -505,7 +515,9 @@ Test::RemoteCommunicatorFactory::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicatorFactory::_iceD_createCommunicator(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicatorFactory::_iceD_createCommunicator(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -524,7 +536,9 @@ Test::RemoteCommunicatorFactory::_iceD_createCommunicator(::Ice::IncomingRequest
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicatorFactory::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicatorFactory::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

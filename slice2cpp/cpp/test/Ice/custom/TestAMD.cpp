@@ -66,7 +66,7 @@ Test::TestIntfPrx::opShortArrayAsync(::std::pair<const ::std::int16_t*, const ::
 ::std::function<void()>
 Test::TestIntfPrx::opShortArrayAsync(::std::pair<const ::std::int16_t*, const ::std::int16_t*> iceP_inSeq, ::std::function<void(::std::pair<const ::std::int16_t*, const ::std::int16_t*>, ::std::pair<const ::std::int16_t*, const ::std::int16_t*>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::pair<const ::std::int16_t*, const ::std::int16_t*>, ::std::pair<const ::std::int16_t*, const ::std::int16_t*>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::pair<const ::std::int16_t*, const ::std::int16_t*>, ::std::pair<const ::std::int16_t*, const ::std::int16_t*>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -130,7 +130,7 @@ Test::TestIntfPrx::opDoubleArrayAsync(bool iceP_padding, ::std::pair<const doubl
 ::std::function<void()>
 Test::TestIntfPrx::opDoubleArrayAsync(bool iceP_padding, ::std::pair<const double*, const double*> iceP_inSeq, ::std::function<void(::Test::DoubleSeq, ::Test::DoubleSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<DoubleSeq, DoubleSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<DoubleSeq, DoubleSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -174,7 +174,7 @@ Test::TestIntfPrx::opBoolArrayAsync(::std::pair<const bool*, const bool*> iceP_i
 ::std::function<void()>
 Test::TestIntfPrx::opBoolArrayAsync(::std::pair<const bool*, const bool*> iceP_inSeq, ::std::function<void(::Test::BoolSeq, ::Test::BoolSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<BoolSeq, BoolSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<BoolSeq, BoolSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -218,7 +218,7 @@ Test::TestIntfPrx::opByteArrayAsync(::std::pair<const std::byte*, const std::byt
 ::std::function<void()>
 Test::TestIntfPrx::opByteArrayAsync(::std::pair<const std::byte*, const std::byte*> iceP_inSeq, ::std::function<void(::std::pair<const std::byte*, const std::byte*>, ::std::pair<const std::byte*, const std::byte*>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::pair<const std::byte*, const std::byte*>, ::std::pair<const std::byte*, const std::byte*>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::pair<const std::byte*, const std::byte*>, ::std::pair<const std::byte*, const std::byte*>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -282,7 +282,7 @@ Test::TestIntfPrx::opVariableArrayAsync(::std::pair<const Variable*, const Varia
 ::std::function<void()>
 Test::TestIntfPrx::opVariableArrayAsync(::std::pair<const Variable*, const Variable*> iceP_inSeq, ::std::function<void(::Test::VariableList, ::Test::VariableList)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<VariableList, VariableList>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<VariableList, VariableList>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -326,7 +326,7 @@ Test::TestIntfPrx::opBoolSeqAsync(const std::deque<bool>& iceP_inSeq, const ::Ic
 ::std::function<void()>
 Test::TestIntfPrx::opBoolSeqAsync(const std::deque<bool>& iceP_inSeq, ::std::function<void(std::deque<bool>, std::deque<bool>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<bool>, std::deque<bool>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<bool>, std::deque<bool>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -370,7 +370,7 @@ Test::TestIntfPrx::opBoolListAsync(const BoolList& iceP_inSeq, const ::Ice::Cont
 ::std::function<void()>
 Test::TestIntfPrx::opBoolListAsync(const BoolList& iceP_inSeq, ::std::function<void(::Test::BoolList, ::Test::BoolList)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<BoolList, BoolList>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<BoolList, BoolList>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -414,7 +414,7 @@ Test::TestIntfPrx::opByteSeqAsync(const std::deque<std::byte>& iceP_inSeq, const
 ::std::function<void()>
 Test::TestIntfPrx::opByteSeqAsync(const std::deque<std::byte>& iceP_inSeq, ::std::function<void(std::deque<std::byte>, std::deque<std::byte>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<std::byte>, std::deque<std::byte>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<std::byte>, std::deque<std::byte>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -458,7 +458,7 @@ Test::TestIntfPrx::opByteListAsync(const ByteList& iceP_inSeq, const ::Ice::Cont
 ::std::function<void()>
 Test::TestIntfPrx::opByteListAsync(const ByteList& iceP_inSeq, ::std::function<void(::Test::ByteList, ::Test::ByteList)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ByteList, ByteList>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ByteList, ByteList>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -502,7 +502,7 @@ Test::TestIntfPrx::opMyByteSeqAsync(const MyByteSeq& iceP_inSeq, const ::Ice::Co
 ::std::function<void()>
 Test::TestIntfPrx::opMyByteSeqAsync(const MyByteSeq& iceP_inSeq, ::std::function<void(MyByteSeq, MyByteSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<MyByteSeq, MyByteSeq>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<MyByteSeq, MyByteSeq>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -546,7 +546,7 @@ Test::TestIntfPrx::opStringSeqAsync(const std::deque<std::string>& iceP_inSeq, c
 ::std::function<void()>
 Test::TestIntfPrx::opStringSeqAsync(const std::deque<std::string>& iceP_inSeq, ::std::function<void(std::deque<std::string>, std::deque<std::string>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<std::string>, std::deque<std::string>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<std::string>, std::deque<std::string>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -590,7 +590,7 @@ Test::TestIntfPrx::opStringListAsync(const StringList& iceP_inSeq, const ::Ice::
 ::std::function<void()>
 Test::TestIntfPrx::opStringListAsync(const StringList& iceP_inSeq, ::std::function<void(::Test::StringList, ::Test::StringList)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<StringList, StringList>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<StringList, StringList>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -634,7 +634,7 @@ Test::TestIntfPrx::opFixedSeqAsync(const std::deque<::Test::Fixed>& iceP_inSeq, 
 ::std::function<void()>
 Test::TestIntfPrx::opFixedSeqAsync(const std::deque<::Test::Fixed>& iceP_inSeq, ::std::function<void(std::deque<::Test::Fixed>, std::deque<::Test::Fixed>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<::Test::Fixed>, std::deque<::Test::Fixed>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<::Test::Fixed>, std::deque<::Test::Fixed>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -678,7 +678,7 @@ Test::TestIntfPrx::opFixedListAsync(const FixedList& iceP_inSeq, const ::Ice::Co
 ::std::function<void()>
 Test::TestIntfPrx::opFixedListAsync(const FixedList& iceP_inSeq, ::std::function<void(::Test::FixedList, ::Test::FixedList)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<FixedList, FixedList>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<FixedList, FixedList>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -722,7 +722,7 @@ Test::TestIntfPrx::opVariableSeqAsync(const std::deque<::Test::Variable>& iceP_i
 ::std::function<void()>
 Test::TestIntfPrx::opVariableSeqAsync(const std::deque<::Test::Variable>& iceP_inSeq, ::std::function<void(std::deque<::Test::Variable>, std::deque<::Test::Variable>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<::Test::Variable>, std::deque<::Test::Variable>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<::Test::Variable>, std::deque<::Test::Variable>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -766,7 +766,7 @@ Test::TestIntfPrx::opVariableListAsync(const VariableList& iceP_inSeq, const ::I
 ::std::function<void()>
 Test::TestIntfPrx::opVariableListAsync(const VariableList& iceP_inSeq, ::std::function<void(::Test::VariableList, ::Test::VariableList)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<VariableList, VariableList>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<VariableList, VariableList>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -810,7 +810,7 @@ Test::TestIntfPrx::opStringStringDictSeqAsync(const std::deque<::Test::StringStr
 ::std::function<void()>
 Test::TestIntfPrx::opStringStringDictSeqAsync(const std::deque<::Test::StringStringDict>& iceP_inSeq, ::std::function<void(std::deque<::Test::StringStringDict>, std::deque<::Test::StringStringDict>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<::Test::StringStringDict>, std::deque<::Test::StringStringDict>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<::Test::StringStringDict>, std::deque<::Test::StringStringDict>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -854,7 +854,7 @@ Test::TestIntfPrx::opStringStringDictListAsync(const StringStringDictList& iceP_
 ::std::function<void()>
 Test::TestIntfPrx::opStringStringDictListAsync(const StringStringDictList& iceP_inSeq, ::std::function<void(::Test::StringStringDictList, ::Test::StringStringDictList)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<StringStringDictList, StringStringDictList>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<StringStringDictList, StringStringDictList>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -898,7 +898,7 @@ Test::TestIntfPrx::opESeqAsync(const std::deque<::Test::E>& iceP_inSeq, const ::
 ::std::function<void()>
 Test::TestIntfPrx::opESeqAsync(const std::deque<::Test::E>& iceP_inSeq, ::std::function<void(std::deque<::Test::E>, std::deque<::Test::E>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<::Test::E>, std::deque<::Test::E>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<::Test::E>, std::deque<::Test::E>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -942,7 +942,7 @@ Test::TestIntfPrx::opEListAsync(const EList& iceP_inSeq, const ::Ice::Context& c
 ::std::function<void()>
 Test::TestIntfPrx::opEListAsync(const EList& iceP_inSeq, ::std::function<void(::Test::EList, ::Test::EList)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<EList, EList>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<EList, EList>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -986,7 +986,7 @@ Test::TestIntfPrx::opDPrxSeqAsync(const std::deque<::std::optional<::Test::DPrx>
 ::std::function<void()>
 Test::TestIntfPrx::opDPrxSeqAsync(const std::deque<::std::optional<::Test::DPrx>>& iceP_inSeq, ::std::function<void(std::deque<::std::optional<::Test::DPrx>>, std::deque<::std::optional<::Test::DPrx>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<::std::optional<::Test::DPrx>>, std::deque<::std::optional<::Test::DPrx>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<::std::optional<::Test::DPrx>>, std::deque<::std::optional<::Test::DPrx>>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1030,7 +1030,7 @@ Test::TestIntfPrx::opDPrxListAsync(const DPrxList& iceP_inSeq, const ::Ice::Cont
 ::std::function<void()>
 Test::TestIntfPrx::opDPrxListAsync(const DPrxList& iceP_inSeq, ::std::function<void(::Test::DPrxList, ::Test::DPrxList)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<DPrxList, DPrxList>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<DPrxList, DPrxList>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1074,7 +1074,7 @@ Test::TestIntfPrx::opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& iceP_
 ::std::function<void()>
 Test::TestIntfPrx::opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& iceP_inSeq, ::std::function<void(std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1120,7 +1120,7 @@ Test::TestIntfPrx::opCListAsync(const CList& iceP_inSeq, const ::Ice::Context& c
 ::std::function<void()>
 Test::TestIntfPrx::opCListAsync(const CList& iceP_inSeq, ::std::function<void(::Test::CList, ::Test::CList)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<CList, CList>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<CList, CList>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1212,7 +1212,7 @@ Test::TestIntfPrx::opIntStringDictAsync(const IntStringDict& iceP_idict, const :
 ::std::function<void()>
 Test::TestIntfPrx::opIntStringDictAsync(const IntStringDict& iceP_idict, ::std::function<void(::Test::IntStringDict, ::Test::IntStringDict)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<IntStringDict, IntStringDict>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<IntStringDict, IntStringDict>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1256,7 +1256,7 @@ Test::TestIntfPrx::opVarDictAsync(const ::Test::CustomMap<std::string, std::int3
 ::std::function<void()>
 Test::TestIntfPrx::opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& iceP_idict, ::std::function<void(::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1300,7 +1300,7 @@ Test::TestIntfPrx::opShortBufferAsync(const ShortBuffer& iceP_inS, const ::Ice::
 ::std::function<void()>
 Test::TestIntfPrx::opShortBufferAsync(const ShortBuffer& iceP_inS, ::std::function<void(::Test::ShortBuffer, ::Test::ShortBuffer)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<ShortBuffer, ShortBuffer>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ShortBuffer, ShortBuffer>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1344,7 +1344,7 @@ Test::TestIntfPrx::opBoolBufferAsync(const ::Test::CustomBuffer<bool>& iceP_inS,
 ::std::function<void()>
 Test::TestIntfPrx::opBoolBufferAsync(const ::Test::CustomBuffer<bool>& iceP_inS, ::std::function<void(::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
@@ -1543,7 +1543,9 @@ Test::TestIntf::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opShortArray(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opShortArray(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1573,7 +1575,9 @@ Test::TestIntf::_iceD_opShortArray(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opDoubleArray(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opDoubleArray(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1604,7 +1608,9 @@ Test::TestIntf::_iceD_opDoubleArray(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opBoolArray(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opBoolArray(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1634,7 +1640,9 @@ Test::TestIntf::_iceD_opBoolArray(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opByteArray(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opByteArray(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1664,7 +1672,9 @@ Test::TestIntf::_iceD_opByteArray(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opVariableArray(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opVariableArray(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1694,7 +1704,9 @@ Test::TestIntf::_iceD_opVariableArray(::Ice::IncomingRequest& request, ::std::fu
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opBoolSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opBoolSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1724,7 +1736,9 @@ Test::TestIntf::_iceD_opBoolSeq(::Ice::IncomingRequest& request, ::std::function
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opBoolList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opBoolList(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1754,7 +1768,9 @@ Test::TestIntf::_iceD_opBoolList(::Ice::IncomingRequest& request, ::std::functio
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opByteSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opByteSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1784,7 +1800,9 @@ Test::TestIntf::_iceD_opByteSeq(::Ice::IncomingRequest& request, ::std::function
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opByteList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opByteList(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1814,7 +1832,9 @@ Test::TestIntf::_iceD_opByteList(::Ice::IncomingRequest& request, ::std::functio
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opMyByteSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opMyByteSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1844,7 +1864,9 @@ Test::TestIntf::_iceD_opMyByteSeq(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opStringSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opStringSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1874,7 +1896,9 @@ Test::TestIntf::_iceD_opStringSeq(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opStringList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opStringList(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1904,7 +1928,9 @@ Test::TestIntf::_iceD_opStringList(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opFixedSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opFixedSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1934,7 +1960,9 @@ Test::TestIntf::_iceD_opFixedSeq(::Ice::IncomingRequest& request, ::std::functio
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opFixedList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opFixedList(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1964,7 +1992,9 @@ Test::TestIntf::_iceD_opFixedList(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opVariableSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opVariableSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1994,7 +2024,9 @@ Test::TestIntf::_iceD_opVariableSeq(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opVariableList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opVariableList(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2024,7 +2056,9 @@ Test::TestIntf::_iceD_opVariableList(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opStringStringDictSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opStringStringDictSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2054,7 +2088,9 @@ Test::TestIntf::_iceD_opStringStringDictSeq(::Ice::IncomingRequest& request, ::s
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opStringStringDictList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opStringStringDictList(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2084,7 +2120,9 @@ Test::TestIntf::_iceD_opStringStringDictList(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opESeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opESeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2114,7 +2152,9 @@ Test::TestIntf::_iceD_opESeq(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opEList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opEList(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2144,7 +2184,9 @@ Test::TestIntf::_iceD_opEList(::Ice::IncomingRequest& request, ::std::function<v
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opDPrxSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opDPrxSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2174,7 +2216,9 @@ Test::TestIntf::_iceD_opDPrxSeq(::Ice::IncomingRequest& request, ::std::function
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opDPrxList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opDPrxList(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2204,7 +2248,9 @@ Test::TestIntf::_iceD_opDPrxList(::Ice::IncomingRequest& request, ::std::functio
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opCSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2236,7 +2282,9 @@ Test::TestIntf::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<vo
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opCList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opCList(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2268,7 +2316,9 @@ Test::TestIntf::_iceD_opCList(::Ice::IncomingRequest& request, ::std::function<v
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opOutArrayByteSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opOutArrayByteSeq(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2298,7 +2348,9 @@ Test::TestIntf::_iceD_opOutArrayByteSeq(::Ice::IncomingRequest& request, ::std::
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opIntStringDict(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opIntStringDict(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2328,7 +2380,9 @@ Test::TestIntf::_iceD_opIntStringDict(::Ice::IncomingRequest& request, ::std::fu
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opVarDict(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opVarDict(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2358,7 +2412,9 @@ Test::TestIntf::_iceD_opVarDict(::Ice::IncomingRequest& request, ::std::function
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opShortBuffer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opShortBuffer(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2388,7 +2444,9 @@ Test::TestIntf::_iceD_opShortBuffer(::Ice::IncomingRequest& request, ::std::func
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opBoolBuffer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opBoolBuffer(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2418,7 +2476,9 @@ Test::TestIntf::_iceD_opBoolBuffer(::Ice::IncomingRequest& request, ::std::funct
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_opBufferStruct(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_opBufferStruct(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2448,7 +2508,9 @@ Test::TestIntf::_iceD_opBufferStruct(::Ice::IncomingRequest& request, ::std::fun
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

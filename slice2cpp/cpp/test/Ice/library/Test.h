@@ -115,6 +115,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    UserError(const UserError&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&> ice_tuple() const

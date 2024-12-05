@@ -59,5 +59,5 @@ public class RegistryNotExistException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 8544194082117756376L;
+    private static final long serialVersionUID = 8544196109727063224L;
 }

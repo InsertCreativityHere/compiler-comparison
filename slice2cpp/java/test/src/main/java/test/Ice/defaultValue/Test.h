@@ -328,6 +328,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    BaseEx(const BaseEx&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
@@ -383,6 +386,9 @@ public:
         nc3(nc3)
     {
     }
+
+    /// Copy constructor.
+    DerivedEx(const DerivedEx&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -462,6 +468,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    ExceptionNoDefaultsBase(const ExceptionNoDefaultsBase&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
@@ -500,6 +509,9 @@ public:
         dict(::std::move(dict))
     {
     }
+
+    /// Copy constructor.
+    ExceptionNoDefaults(const ExceptionNoDefaults&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

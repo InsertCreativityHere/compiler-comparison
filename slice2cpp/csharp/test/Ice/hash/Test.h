@@ -83,6 +83,9 @@ public:
     {
     }
 
+    /// Copy constructor.
+    InvalidPointException(const InvalidPointException&) noexcept = default;
+
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     std::tuple<const ::std::int32_t&> ice_tuple() const
@@ -118,6 +121,9 @@ public:
         length(length)
     {
     }
+
+    /// Copy constructor.
+    InvalidLengthException(const InvalidLengthException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -156,6 +162,9 @@ public:
         b(b)
     {
     }
+
+    /// Copy constructor.
+    OtherException(const OtherException&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.

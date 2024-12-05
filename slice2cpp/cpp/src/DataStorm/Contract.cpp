@@ -717,7 +717,9 @@ DataStormContract::Session::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-DataStormContract::Session::_iceD_announceTopics(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Session::_iceD_announceTopics(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -733,7 +735,9 @@ DataStormContract::Session::_iceD_announceTopics(::Ice::IncomingRequest& request
 
 /// \cond INTERNAL
 void
-DataStormContract::Session::_iceD_attachTopic(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Session::_iceD_attachTopic(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -748,7 +752,9 @@ DataStormContract::Session::_iceD_attachTopic(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
-DataStormContract::Session::_iceD_detachTopic(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Session::_iceD_detachTopic(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -763,7 +769,9 @@ DataStormContract::Session::_iceD_detachTopic(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
-DataStormContract::Session::_iceD_attachTags(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Session::_iceD_attachTags(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -780,7 +788,9 @@ DataStormContract::Session::_iceD_attachTags(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-DataStormContract::Session::_iceD_detachTags(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Session::_iceD_detachTags(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -796,7 +806,9 @@ DataStormContract::Session::_iceD_detachTags(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-DataStormContract::Session::_iceD_announceElements(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Session::_iceD_announceElements(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -812,7 +824,9 @@ DataStormContract::Session::_iceD_announceElements(::Ice::IncomingRequest& reque
 
 /// \cond INTERNAL
 void
-DataStormContract::Session::_iceD_attachElements(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Session::_iceD_attachElements(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -830,7 +844,9 @@ DataStormContract::Session::_iceD_attachElements(::Ice::IncomingRequest& request
 
 /// \cond INTERNAL
 void
-DataStormContract::Session::_iceD_attachElementsAck(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Session::_iceD_attachElementsAck(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -847,7 +863,9 @@ DataStormContract::Session::_iceD_attachElementsAck(::Ice::IncomingRequest& requ
 
 /// \cond INTERNAL
 void
-DataStormContract::Session::_iceD_detachElements(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Session::_iceD_detachElements(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -863,7 +881,9 @@ DataStormContract::Session::_iceD_detachElements(::Ice::IncomingRequest& request
 
 /// \cond INTERNAL
 void
-DataStormContract::Session::_iceD_initSamples(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Session::_iceD_initSamples(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -879,7 +899,9 @@ DataStormContract::Session::_iceD_initSamples(::Ice::IncomingRequest& request, :
 
 /// \cond INTERNAL
 void
-DataStormContract::Session::_iceD_disconnected(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Session::_iceD_disconnected(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -1128,7 +1150,9 @@ DataStormContract::SubscriberSession::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-DataStormContract::SubscriberSession::_iceD_s(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::SubscriberSession::_iceD_s(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1269,7 +1293,9 @@ DataStormContract::Node::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-DataStormContract::Node::_iceD_initiateCreateSession(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Node::_iceD_initiateCreateSession(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1284,7 +1310,9 @@ DataStormContract::Node::_iceD_initiateCreateSession(::Ice::IncomingRequest& req
 
 /// \cond INTERNAL
 void
-DataStormContract::Node::_iceD_createSession(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Node::_iceD_createSession(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1301,7 +1329,9 @@ DataStormContract::Node::_iceD_createSession(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-DataStormContract::Node::_iceD_confirmCreateSession(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Node::_iceD_confirmCreateSession(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1396,7 +1426,9 @@ DataStormContract::Lookup::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-DataStormContract::Lookup::_iceD_announceTopicReader(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Lookup::_iceD_announceTopicReader(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -1412,7 +1444,9 @@ DataStormContract::Lookup::_iceD_announceTopicReader(::Ice::IncomingRequest& req
 
 /// \cond INTERNAL
 void
-DataStormContract::Lookup::_iceD_announceTopicWriter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Lookup::_iceD_announceTopicWriter(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -1428,7 +1462,9 @@ DataStormContract::Lookup::_iceD_announceTopicWriter(::Ice::IncomingRequest& req
 
 /// \cond INTERNAL
 void
-DataStormContract::Lookup::_iceD_announceTopics(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Lookup::_iceD_announceTopics(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -1445,7 +1481,9 @@ DataStormContract::Lookup::_iceD_announceTopics(::Ice::IncomingRequest& request,
 
 /// \cond INTERNAL
 void
-DataStormContract::Lookup::_iceD_createSession(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+DataStormContract::Lookup::_iceD_createSession(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();

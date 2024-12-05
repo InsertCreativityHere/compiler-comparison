@@ -252,7 +252,9 @@ Test::TestIntf::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::TestIntf::_iceD_getAdapterName(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::_iceD_getAdapterName(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -336,7 +338,9 @@ Test::RemoteObjectAdapter::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::RemoteObjectAdapter::_iceD_getTestIntf(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteObjectAdapter::_iceD_getTestIntf(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -351,7 +355,9 @@ Test::RemoteObjectAdapter::_iceD_getTestIntf(::Ice::IncomingRequest& request, ::
 
 /// \cond INTERNAL
 void
-Test::RemoteObjectAdapter::_iceD_deactivate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteObjectAdapter::_iceD_deactivate(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -436,7 +442,9 @@ Test::RemoteCommunicator::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_createObjectAdapter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_createObjectAdapter(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -456,7 +464,9 @@ Test::RemoteCommunicator::_iceD_createObjectAdapter(::Ice::IncomingRequest& requ
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_deactivateObjectAdapter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_deactivateObjectAdapter(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -471,7 +481,9 @@ Test::RemoteCommunicator::_iceD_deactivateObjectAdapter(::Ice::IncomingRequest& 
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicator::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::RemoteCommunicator::_iceD_shutdown(
+    ::Ice::IncomingRequest& request,
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
