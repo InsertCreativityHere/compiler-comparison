@@ -3608,6 +3608,8 @@ namespace DataStormContract
 
     public abstract class PublisherSessionDisp_ : Ice.ObjectImpl, PublisherSession
     {
+        public abstract void disconnected(Ice.Current current);
+
         public abstract void announceTopics(TopicInfo[] topics, bool initialize, Ice.Current current);
 
         public abstract void attachTopic(TopicSpec topic, Ice.Current current);
@@ -3627,8 +3629,6 @@ namespace DataStormContract
         public abstract void detachElements(long topic, long[] keys, Ice.Current current);
 
         public abstract void initSamples(long topic, DataSamples[] samples, Ice.Current current);
-
-        public abstract void disconnected(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -3660,6 +3660,8 @@ namespace DataStormContract
     {
         public abstract void s(long topicId, long elementId, DataSample sample, Ice.Current current);
 
+        public abstract void disconnected(Ice.Current current);
+
         public abstract void announceTopics(TopicInfo[] topics, bool initialize, Ice.Current current);
 
         public abstract void attachTopic(TopicSpec topic, Ice.Current current);
@@ -3679,8 +3681,6 @@ namespace DataStormContract
         public abstract void detachElements(long topic, long[] keys, Ice.Current current);
 
         public abstract void initSamples(long topic, DataSamples[] samples, Ice.Current current);
-
-        public abstract void disconnected(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
