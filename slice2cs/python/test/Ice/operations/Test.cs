@@ -13408,8 +13408,6 @@ namespace Test
 
         public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
 
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
         public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, Ice.Current current);
 
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, Ice.Current current);
@@ -13479,6 +13477,8 @@ namespace Test
         public abstract short opShort1(short opShort1, Ice.Current current);
 
         public abstract int opInt1(int opInt1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
 
         public abstract float opFloat1(float opFloat1, Ice.Current current);
 
@@ -13641,8 +13641,6 @@ namespace Test2
 
         public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, Ice.Current current);
 
-        public abstract long opLong1(long opLong1, Ice.Current current);
-
         public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, Ice.Current current);
 
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, Ice.Current current);
@@ -13712,6 +13710,8 @@ namespace Test2
         public abstract short opShort1(short opShort1, Ice.Current current);
 
         public abstract int opInt1(int opInt1, Ice.Current current);
+
+        public abstract long opLong1(long opLong1, Ice.Current current);
 
         public abstract float opFloat1(float opFloat1, Ice.Current current);
 

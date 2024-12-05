@@ -13565,8 +13565,6 @@ namespace Ice.operations
 
             public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
 
-            public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, Ice.Current current);
-
             public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
 
             public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
@@ -13574,6 +13572,8 @@ namespace Ice.operations
             public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
             public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+            public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, Ice.Current current);
 
             public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -13799,8 +13799,6 @@ namespace Test2
 
         public abstract global::Ice.operations.Test.MyClass_OpMStruct1MarshaledResult opMStruct1(Ice.Current current);
 
-        public abstract global::Ice.operations.Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Ice.operations.Test.Structure p1, Ice.Current current);
-
         public abstract global::Ice.operations.Test.MyClass_OpMSeq1MarshaledResult opMSeq1(Ice.Current current);
 
         public abstract global::Ice.operations.Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, Ice.Current current);
@@ -13808,6 +13806,8 @@ namespace Test2
         public abstract global::Ice.operations.Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract global::Ice.operations.Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+        public abstract global::Ice.operations.Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Ice.operations.Test.Structure p1, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
