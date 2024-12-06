@@ -1,3 +1,36 @@
+% SessionPrx   Summary of SessionPrx
+%
+% The base interface for publisher and subscriber sessions.
+%
+% This interface enables nodes to exchange topic and element information, as well as data samples.
+%
+% SessionPrx Methods:
+%   announceTopics - Announces new and existing topics to the peer.
+%   announceTopicsAsync - Announces new and existing topics to the peer.
+%   attachTopic - Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+%   attachTopicAsync - Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+%   detachTopic - Detaches a topic from the session.
+%   detachTopicAsync - Detaches a topic from the session.
+%   attachTags
+%   attachTagsAsync
+%   detachTags
+%   detachTagsAsync
+%   announceElements - Announces new elements to the peer.
+%   announceElementsAsync - Announces new elements to the peer.
+%   attachElements - Attaches the given topic elements to all subscribers of the specified topic.
+%   attachElementsAsync - Attaches the given topic elements to all subscribers of the specified topic.
+%   attachElementsAck
+%   attachElementsAckAsync
+%   detachElements
+%   detachElementsAsync
+%   initSamples
+%   initSamplesAsync
+%   disconnected - Notifies the peer that the session is being disconnected.
+%   disconnectedAsync - Notifies the peer that the session is being disconnected.
+%   checkedCast - Contacts the remote server to verify that the object implements this type.
+%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
+%
+% See also DataStormContract.PublisherSession, DataStormContract.SubscriberSession
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
@@ -55,7 +88,7 @@ classdef SessionPrx < Ice.ObjectPrx
         function attachTopic(obj, topic, varargin)
             % attachTopic   Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
             %
-            % This method is called if the session is interested in the announced topic, which occurs when:
+            % This operation is called if the session is interested in the announced topic, which occurs when:
             %
             % - The session has a reader for a topic that the peer has a writer for, or
             % - The session has a writer for a topic that the peer has a reader for.
@@ -72,7 +105,7 @@ classdef SessionPrx < Ice.ObjectPrx
         function r_ = attachTopicAsync(obj, topic, varargin)
             % attachTopicAsync   Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
             %
-            % This method is called if the session is interested in the announced topic, which occurs when:
+            % This operation is called if the session is interested in the announced topic, which occurs when:
             %
             % - The session has a reader for a topic that the peer has a writer for, or
             % - The session has a writer for a topic that the peer has a reader for.
@@ -89,12 +122,30 @@ classdef SessionPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('attachTopic', 0, false, os_, 0, [], {}, varargin{:});
         end
         function detachTopic(obj, topic, varargin)
+            % detachTopic   Detaches a topic from the session.
+            %
+            % This operation is called by the topic on listener sessions when the topic is being destroyed.
+            %
+            % Parameters:
+            %   topic (int64) - The ID of the topic to detach.
+            %   context (containers.Map) - Optional request context.
+            
             os_ = obj.iceStartWriteParams([]);
             os_.writeLong(topic);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('detachTopic', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = detachTopicAsync(obj, topic, varargin)
+            % detachTopicAsync   Detaches a topic from the session.
+            %
+            % This operation is called by the topic on listener sessions when the topic is being destroyed.
+            %
+            % Parameters:
+            %   topic (int64) - The ID of the topic to detach.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
             os_ = obj.iceStartWriteParams([]);
             os_.writeLong(topic);
             obj.iceEndWriteParams(os_);
@@ -251,9 +302,31 @@ classdef SessionPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('initSamples', 0, false, os_, 0, [], {}, varargin{:});
         end
         function disconnected(obj, varargin)
+            % disconnected   Notifies the peer that the session is being disconnected.
+            %
+            % This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+            %
+            % For sessions established through a relay node, this operation is invoked by the relay node if the connection
+            % between the relay node and the target node is lost.
+            %
+            % Parameters:
+            %   context (containers.Map) - Optional request context.
+            
             obj.iceInvoke('disconnected', 0, false, [], false, {}, varargin{:});
         end
         function r_ = disconnectedAsync(obj, varargin)
+            % disconnectedAsync   Notifies the peer that the session is being disconnected.
+            %
+            % This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+            %
+            % For sessions established through a relay node, this operation is invoked by the relay node if the connection
+            % between the relay node and the target node is lost.
+            %
+            % Parameters:
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
             r_ = obj.iceInvokeAsync('disconnected', 0, false, [], 0, [], {}, varargin{:});
         end
     end

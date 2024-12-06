@@ -464,10 +464,24 @@ const iceC_DataStormContract_Session_ids = [
     "::Ice::Object"
 ];
 
+/**
+ * The base interface for publisher and subscriber sessions.
+ *
+ * This interface enables nodes to exchange topic and element information, as well as data samples.
+ * @see PublisherSession
+ * @see SubscriberSession
+ **/
 DataStormContract.Session = class extends Ice.Object
 {
 };
 
+/**
+ * The base interface for publisher and subscriber sessions.
+ *
+ * This interface enables nodes to exchange topic and element information, as well as data samples.
+ * @see PublisherSession
+ * @see SubscriberSession
+ **/
 DataStormContract.SessionPrx = class extends Ice.ObjectPrx
 {
 };
@@ -498,6 +512,9 @@ const iceC_DataStormContract_PublisherSession_ids = [
     "::Ice::Object"
 ];
 
+/**
+ * The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
+ **/
 DataStormContract.PublisherSession = class extends Ice.Object
 {
     static get _iceImplements()
@@ -508,6 +525,9 @@ DataStormContract.PublisherSession = class extends Ice.Object
     }
 };
 
+/**
+ * The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
+ **/
 DataStormContract.PublisherSessionPrx = class extends Ice.ObjectPrx
 {
     static get _implements()
@@ -530,6 +550,9 @@ const iceC_DataStormContract_SubscriberSession_ids = [
     "::Ice::Object"
 ];
 
+/**
+ * The SubscriberSession servant is hosted by the subscriber node and is accessed by the publisher node.
+ **/
 DataStormContract.SubscriberSession = class extends Ice.Object
 {
     static get _iceImplements()
@@ -540,6 +563,9 @@ DataStormContract.SubscriberSession = class extends Ice.Object
     }
 };
 
+/**
+ * The SubscriberSession servant is hosted by the subscriber node and is accessed by the publisher node.
+ **/
 DataStormContract.SubscriberSessionPrx = class extends Ice.ObjectPrx
 {
     static get _implements()

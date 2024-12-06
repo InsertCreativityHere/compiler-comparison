@@ -714,7 +714,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachTopic(self, topic, context=None):
             """
             Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-            This method is called if the session is interested in the announced topic, which occurs when:
+            This operation is called if the session is interested in the announced topic, which occurs when:
             - The session has a reader for a topic that the peer has a writer for, or
             - The session has a writer for a topic that the peer has a reader for.
             
@@ -730,7 +730,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachTopicAsync(self, topic, context=None):
             """
             Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-            This method is called if the session is interested in the announced topic, which occurs when:
+            This operation is called if the session is interested in the announced topic, which occurs when:
             - The session has a reader for a topic that the peer has a writer for, or
             - The session has a writer for a topic that the peer has a reader for.
             
@@ -749,9 +749,36 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             return _M_DataStormContract.Session._op_attachTopic.invokeAsync(self, ((topic, ), context))
 
         def detachTopic(self, topic, context=None):
+            """
+            Detaches a topic from the session.
+            This operation is called by the topic on listener sessions when the topic is being destroyed.
+            
+            Parameters
+            ----------
+            topic : int
+                The ID of the topic to detach.
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_DataStormContract.Session._op_detachTopic.invoke(self, ((topic, ), context))
 
         def detachTopicAsync(self, topic, context=None):
+            """
+            Detaches a topic from the session.
+            This operation is called by the topic on listener sessions when the topic is being destroyed.
+            
+            Parameters
+            ----------
+            topic : int
+                The ID of the topic to detach.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_DataStormContract.Session._op_detachTopic.invokeAsync(self, ((topic, ), context))
 
         def attachTags(self, topic, tags, initialize, context=None):
@@ -863,9 +890,36 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             return _M_DataStormContract.Session._op_initSamples.invokeAsync(self, ((topic, samples), context))
 
         def disconnected(self, context=None):
+            """
+            Notifies the peer that the session is being disconnected.
+            This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+            For sessions established through a relay node, this operation is invoked by the relay node if the connection
+            between the relay node and the target node is lost.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            """
             return _M_DataStormContract.Session._op_disconnected.invoke(self, ((), context))
 
         def disconnectedAsync(self, context=None):
+            """
+            Notifies the peer that the session is being disconnected.
+            This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+            For sessions established through a relay node, this operation is invoked by the relay node if the connection
+            between the relay node and the target node is lost.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
             return _M_DataStormContract.Session._op_disconnected.invokeAsync(self, ((), context))
 
         @staticmethod
@@ -924,7 +978,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachTopic(self, topic, current=None):
             """
             Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-            This method is called if the session is interested in the announced topic, which occurs when:
+            This operation is called if the session is interested in the announced topic, which occurs when:
             - The session has a reader for a topic that the peer has a writer for, or
             - The session has a writer for a topic that the peer has a reader for.
             
@@ -943,6 +997,22 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             raise NotImplementedError("servant method 'attachTopic' not implemented")
 
         def detachTopic(self, topic, current=None):
+            """
+            Detaches a topic from the session.
+            This operation is called by the topic on listener sessions when the topic is being destroyed.
+            
+            Parameters
+            ----------
+            topic : int
+                The ID of the topic to detach.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'detachTopic' not implemented")
 
         def attachTags(self, topic, tags, initialize, current=None):
@@ -1005,6 +1075,22 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             raise NotImplementedError("servant method 'initSamples' not implemented")
 
         def disconnected(self, current=None):
+            """
+            Notifies the peer that the session is being disconnected.
+            This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+            For sessions established through a relay node, this operation is invoked by the relay node if the connection
+            between the relay node and the target node is lost.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'disconnected' not implemented")
 
         def __str__(self):

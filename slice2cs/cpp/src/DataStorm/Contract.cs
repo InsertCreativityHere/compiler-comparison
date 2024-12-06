@@ -754,7 +754,7 @@ namespace DataStormContract
 
         /// <summary>
         /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-        /// This method is called if the session is interested in the announced topic, which occurs when:
+        /// This operation is called if the session is interested in the announced topic, which occurs when:
         ///
         ///  - The session has a reader for a topic that the peer has a writer for, or
         ///  - The session has a writer for a topic that the peer has a reader for.
@@ -764,6 +764,14 @@ namespace DataStormContract
         /// <param name="current">The Current object for the dispatch.</param>
 
         void attachTopic(TopicSpec topic, Ice.Current current);
+
+        /// <summary>
+        /// Detaches a topic from the session.
+        /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+        ///
+        /// </summary>
+        ///  <param name="topic">The ID of the topic to detach.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         void detachTopic(long topic, Ice.Current current);
 
@@ -802,6 +810,15 @@ namespace DataStormContract
         void detachElements(long topic, long[] keys, Ice.Current current);
 
         void initSamples(long topic, DataSamples[] samples, Ice.Current current);
+
+        /// <summary>
+        /// Notifies the peer that the session is being disconnected.
+        /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+        ///
+        ///  For sessions established through a relay node, this operation is invoked by the relay node if the connection
+        ///  between the relay node and the target node is lost.
+        /// </summary>
+        /// <param name="current">The Current object for the dispatch.</param>
 
         void disconnected(Ice.Current current);
     }
@@ -914,6 +931,12 @@ namespace DataStormContract
 
 namespace DataStormContract
 {
+    /// <summary>
+    /// The base interface for publisher and subscriber sessions.
+    /// This interface enables nodes to exchange topic and element information, as well as data samples.
+    ///
+    /// </summary>
+
     public interface SessionPrx : Ice.ObjectPrx
     {
         /// <summary>
@@ -950,7 +973,7 @@ namespace DataStormContract
 
         /// <summary>
         /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-        /// This method is called if the session is interested in the announced topic, which occurs when:
+        /// This operation is called if the session is interested in the announced topic, which occurs when:
         ///
         ///  - The session has a reader for a topic that the peer has a writer for, or
         ///  - The session has a writer for a topic that the peer has a reader for.
@@ -963,7 +986,7 @@ namespace DataStormContract
 
         /// <summary>
         /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-        /// This method is called if the session is interested in the announced topic, which occurs when:
+        /// This operation is called if the session is interested in the announced topic, which occurs when:
         /// </summary>
         ///  <param name="topic">The TopicSpec object describing the topic being attached to the remote topic.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -972,8 +995,25 @@ namespace DataStormContract
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task attachTopicAsync(TopicSpec topic, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
+        /// <summary>
+        /// Detaches a topic from the session.
+        /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+        ///
+        /// </summary>
+        ///  <param name="topic">The ID of the topic to detach.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+
         void detachTopic(long topic, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+        /// <summary>
+        /// Detaches a topic from the session.
+        /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+        /// </summary>
+        ///  <param name="topic">The ID of the topic to detach.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task detachTopicAsync(long topic, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         void attachTags(long topic, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -1050,14 +1090,39 @@ namespace DataStormContract
 
         global::System.Threading.Tasks.Task initSamplesAsync(long topic, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
+        /// <summary>
+        /// Notifies the peer that the session is being disconnected.
+        /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+        ///
+        ///  For sessions established through a relay node, this operation is invoked by the relay node if the connection
+        ///  between the relay node and the target node is lost.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+
         void disconnected(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
+        /// <summary>
+        /// Notifies the peer that the session is being disconnected.
+        /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task disconnectedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
+
+    /// <summary>
+    /// The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
+    /// </summary>
 
     public interface PublisherSessionPrx : SessionPrx
     {
     }
+
+    /// <summary>
+    /// The SubscriberSession servant is hosted by the subscriber node and is accessed by the publisher node.
+    /// </summary>
 
     public interface SubscriberSessionPrx : SessionPrx
     {

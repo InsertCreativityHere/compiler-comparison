@@ -15,6 +15,14 @@
 
 package DataStormContract;
 
+/**
+ * The base interface for publisher and subscriber sessions.
+ *
+ * This interface enables nodes to exchange topic and element information, as well as data samples.
+ *
+ * @see PublisherSession
+ * @see SubscriberSession
+ **/
 public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
@@ -118,7 +126,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
      *
-     * This method is called if the session is interested in the announced topic, which occurs when:
+     * This operation is called if the session is interested in the announced topic, which occurs when:
      *
      * - The session has a reader for a topic that the peer has a writer for, or
      * - The session has a writer for a topic that the peer has a reader for.
@@ -132,7 +140,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
      *
-     * This method is called if the session is interested in the announced topic, which occurs when:
+     * This operation is called if the session is interested in the announced topic, which occurs when:
      *
      * - The session has a reader for a topic that the peer has a writer for, or
      * - The session has a writer for a topic that the peer has a reader for.
@@ -147,7 +155,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
      *
-     * This method is called if the session is interested in the announced topic, which occurs when:
+     * This operation is called if the session is interested in the announced topic, which occurs when:
      *
      * - The session has a reader for a topic that the peer has a writer for, or
      * - The session has a writer for a topic that the peer has a reader for.
@@ -162,7 +170,7 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
      *
-     * This method is called if the session is interested in the announced topic, which occurs when:
+     * This operation is called if the session is interested in the announced topic, which occurs when:
      *
      * - The session has a reader for a topic that the peer has a writer for, or
      * - The session has a writer for a topic that the peer has a reader for.
@@ -191,21 +199,49 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    /**
+     * Detaches a topic from the session.
+     *
+     * This operation is called by the topic on listener sessions when the topic is being destroyed.
+     * @param topic The ID of the topic to detach.
+     **/
     default void detachTopic(long topic)
     {
         detachTopic(topic, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Detaches a topic from the session.
+     *
+     * This operation is called by the topic on listener sessions when the topic is being destroyed.
+     * @param topic The ID of the topic to detach.
+     * @param context The Context map to send with the invocation.
+     **/
     default void detachTopic(long topic, java.util.Map<String, String> context)
     {
         _iceI_detachTopicAsync(topic, context, true).waitForResponse();
     }
 
+    /**
+     * Detaches a topic from the session.
+     *
+     * This operation is called by the topic on listener sessions when the topic is being destroyed.
+     * @param topic The ID of the topic to detach.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> detachTopicAsync(long topic)
     {
         return _iceI_detachTopicAsync(topic, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Detaches a topic from the session.
+     *
+     * This operation is called by the topic on listener sessions when the topic is being destroyed.
+     * @param topic The ID of the topic to detach.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> detachTopicAsync(long topic, java.util.Map<String, String> context)
     {
         return _iceI_detachTopicAsync(topic, context, false);
@@ -571,21 +607,57 @@ public interface SessionPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    /**
+     * Notifies the peer that the session is being disconnected.
+     *
+     * This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+     *
+     * For sessions established through a relay node, this operation is invoked by the relay node if the connection
+     * between the relay node and the target node is lost.
+     **/
     default void disconnected()
     {
         disconnected(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
+    /**
+     * Notifies the peer that the session is being disconnected.
+     *
+     * This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+     *
+     * For sessions established through a relay node, this operation is invoked by the relay node if the connection
+     * between the relay node and the target node is lost.
+     * @param context The Context map to send with the invocation.
+     **/
     default void disconnected(java.util.Map<String, String> context)
     {
         _iceI_disconnectedAsync(context, true).waitForResponse();
     }
 
+    /**
+     * Notifies the peer that the session is being disconnected.
+     *
+     * This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+     *
+     * For sessions established through a relay node, this operation is invoked by the relay node if the connection
+     * between the relay node and the target node is lost.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> disconnectedAsync()
     {
         return _iceI_disconnectedAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
+    /**
+     * Notifies the peer that the session is being disconnected.
+     *
+     * This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+     *
+     * For sessions established through a relay node, this operation is invoked by the relay node if the connection
+     * between the relay node and the target node is lost.
+     * @param context The Context map to send with the invocation.
+     * @return A future that will be completed when the invocation completes.
+     **/
     default java.util.concurrent.CompletableFuture<Void> disconnectedAsync(java.util.Map<String, String> context)
     {
         return _iceI_disconnectedAsync(context, false);

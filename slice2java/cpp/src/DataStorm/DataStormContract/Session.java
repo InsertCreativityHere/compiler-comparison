@@ -15,6 +15,14 @@
 
 package DataStormContract;
 
+/**
+ * The base interface for publisher and subscriber sessions.
+ *
+ * This interface enables nodes to exchange topic and element information, as well as data samples.
+ *
+ * @see PublisherSession
+ * @see SubscriberSession
+ **/
 public interface Session extends com.zeroc.Ice.Object
 {
     /**
@@ -37,7 +45,7 @@ public interface Session extends com.zeroc.Ice.Object
     /**
      * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
      *
-     * This method is called if the session is interested in the announced topic, which occurs when:
+     * This operation is called if the session is interested in the announced topic, which occurs when:
      *
      * - The session has a reader for a topic that the peer has a writer for, or
      * - The session has a writer for a topic that the peer has a reader for.
@@ -46,6 +54,13 @@ public interface Session extends com.zeroc.Ice.Object
      **/
     void attachTopic(TopicSpec topic, com.zeroc.Ice.Current current);
 
+    /**
+     * Detaches a topic from the session.
+     *
+     * This operation is called by the topic on listener sessions when the topic is being destroyed.
+     * @param topic The ID of the topic to detach.
+     * @param current The Current object for the invocation.
+     **/
     void detachTopic(long topic, com.zeroc.Ice.Current current);
 
     void attachTags(long topic, ElementInfo[] tags, boolean initialize, com.zeroc.Ice.Current current);
@@ -80,6 +95,15 @@ public interface Session extends com.zeroc.Ice.Object
 
     void initSamples(long topic, DataSamples[] samples, com.zeroc.Ice.Current current);
 
+    /**
+     * Notifies the peer that the session is being disconnected.
+     *
+     * This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+     *
+     * For sessions established through a relay node, this operation is invoked by the relay node if the connection
+     * between the relay node and the target node is lost.
+     * @param current The Current object for the invocation.
+     **/
     void disconnected(com.zeroc.Ice.Current current);
 
     /** @hidden */

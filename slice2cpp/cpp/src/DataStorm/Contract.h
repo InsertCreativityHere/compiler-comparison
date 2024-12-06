@@ -105,6 +105,11 @@ namespace DataStormContract
 namespace DataStormContract
 {
 
+/// The base interface for publisher and subscriber sessions.
+///
+/// This interface enables nodes to exchange topic and element information, as well as data samples.
+/// @see PublisherSession
+/// @see SubscriberSession
 class SessionPrx : public ::Ice::Proxy<SessionPrx, ::Ice::ObjectPrx>
 {
 public:
@@ -163,7 +168,7 @@ public:
 
     /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
     ///
-    /// This method is called if the session is interested in the announced topic, which occurs when:
+    /// This operation is called if the session is interested in the announced topic, which occurs when:
     ///
     /// - The session has a reader for a topic that the peer has a writer for, or
     /// - The session has a writer for a topic that the peer has a reader for.
@@ -173,7 +178,7 @@ public:
 
     /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
     ///
-    /// This method is called if the session is interested in the announced topic, which occurs when:
+    /// This operation is called if the session is interested in the announced topic, which occurs when:
     ///
     /// - The session has a reader for a topic that the peer has a writer for, or
     /// - The session has a writer for a topic that the peer has a reader for.
@@ -184,7 +189,7 @@ public:
 
     /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
     ///
-    /// This method is called if the session is interested in the announced topic, which occurs when:
+    /// This operation is called if the session is interested in the announced topic, which occurs when:
     ///
     /// - The session has a reader for a topic that the peer has a writer for, or
     /// - The session has a writer for a topic that the peer has a reader for.
@@ -201,10 +206,30 @@ public:
     void _iceI_attachTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const TopicSpec&, const ::Ice::Context&) const;
     /// \endcond
 
+    /// Detaches a topic from the session.
+    ///
+    /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+    /// @param topic The ID of the topic to detach.
+    /// @param context The Context map to send with the invocation.
     void detachTopic(::std::int64_t topic, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /// Detaches a topic from the session.
+    ///
+    /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+    /// @param topic The ID of the topic to detach.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<void> detachTopicAsync(::std::int64_t topic, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /// Detaches a topic from the session.
+    ///
+    /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+    /// @param topic The ID of the topic to detach.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     detachTopicAsync(::std::int64_t topic, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -338,10 +363,36 @@ public:
     void _iceI_initSamples(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const DataSamplesSeq&, const ::Ice::Context&) const;
     /// \endcond
 
+    /// Notifies the peer that the session is being disconnected.
+    ///
+    /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+    ///
+    /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
+    /// between the relay node and the target node is lost.
+    /// @param context The Context map to send with the invocation.
     void disconnected(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /// Notifies the peer that the session is being disconnected.
+    ///
+    /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+    ///
+    /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
+    /// between the relay node and the target node is lost.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<void> disconnectedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /// Notifies the peer that the session is being disconnected.
+    ///
+    /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+    ///
+    /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
+    /// between the relay node and the target node is lost.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
     disconnectedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -390,6 +441,7 @@ protected:
     /// \endcond
 };
 
+/// The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
 class PublisherSessionPrx : public ::Ice::Proxy<PublisherSessionPrx, SessionPrx>
 {
 public:
@@ -444,6 +496,7 @@ protected:
 #endif
 };
 
+/// The SubscriberSession servant is hosted by the subscriber node and is accessed by the publisher node.
 class SubscriberSessionPrx : public ::Ice::Proxy<SubscriberSessionPrx, SessionPrx>
 {
 public:
@@ -1130,6 +1183,11 @@ using Ice::Tuple::operator!=;
 namespace DataStormContract
 {
 
+/// The base interface for publisher and subscriber sessions.
+///
+/// This interface enables nodes to exchange topic and element information, as well as data samples.
+/// @see PublisherSession
+/// @see SubscriberSession
 class Session : public virtual ::Ice::Object
 {
 public:
@@ -1169,7 +1227,7 @@ public:
 
     /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
     ///
-    /// This method is called if the session is interested in the announced topic, which occurs when:
+    /// This operation is called if the session is interested in the announced topic, which occurs when:
     ///
     /// - The session has a reader for a topic that the peer has a writer for, or
     /// - The session has a writer for a topic that the peer has a reader for.
@@ -1180,6 +1238,11 @@ public:
     void _iceD_attachTopic(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
+    /// Detaches a topic from the session.
+    ///
+    /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+    /// @param topic The ID of the topic to detach.
+    /// @param current The Current object for the invocation.
     virtual void detachTopic(::std::int64_t topic, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_detachTopic(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
@@ -1233,6 +1296,13 @@ public:
     void _iceD_initSamples(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
+    /// Notifies the peer that the session is being disconnected.
+    ///
+    /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+    ///
+    /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
+    /// between the relay node and the target node is lost.
+    /// @param current The Current object for the invocation.
     virtual void disconnected(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_disconnected(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
@@ -1245,6 +1315,7 @@ public:
 
 using SessionPtr = ::std::shared_ptr<Session>;
 
+/// The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
 class PublisherSession : public virtual Session
 {
 public:
@@ -1272,6 +1343,7 @@ public:
 
 using PublisherSessionPtr = ::std::shared_ptr<PublisherSession>;
 
+/// The SubscriberSession servant is hosted by the subscriber node and is accessed by the publisher node.
 class SubscriberSession : public virtual Session
 {
 public:

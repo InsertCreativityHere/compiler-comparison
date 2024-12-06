@@ -1450,6 +1450,33 @@ public struct LookupTraits: Ice.SliceTraits {
     public static let staticId = "::DataStormContract::Lookup"
 }
 
+/// The base interface for publisher and subscriber sessions.
+///
+/// This interface enables nodes to exchange topic and element information, as well as data samples.
+///
+/// SessionPrx Methods:
+///  - announceTopics: Announces new and existing topics to the peer.
+///  - announceTopicsAsync: Announces new and existing topics to the peer.
+///  - attachTopic: Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+///  - attachTopicAsync: Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+///  - detachTopic: Detaches a topic from the session.
+///  - detachTopicAsync: Detaches a topic from the session.
+///  - attachTags
+///  - attachTagsAsync
+///  - detachTags
+///  - detachTagsAsync
+///  - announceElements: Announces new elements to the peer.
+///  - announceElementsAsync: Announces new elements to the peer.
+///  - attachElements: Attaches the given topic elements to all subscribers of the specified topic.
+///  - attachElementsAsync: Attaches the given topic elements to all subscribers of the specified topic.
+///  - attachElementsAck
+///  - attachElementsAckAsync
+///  - detachElements
+///  - detachElementsAsync
+///  - initSamples
+///  - initSamplesAsync
+///  - disconnected: Notifies the peer that the session is being disconnected.
+///  - disconnectedAsync: Notifies the peer that the session is being disconnected.
 public protocol SessionPrx: Ice.ObjectPrx {}
 
 private final class SessionPrxI: Ice.ObjectPrxI, SessionPrx {
@@ -1534,6 +1561,33 @@ public extension Ice.InputStream {
     }
 }
 
+/// The base interface for publisher and subscriber sessions.
+///
+/// This interface enables nodes to exchange topic and element information, as well as data samples.
+///
+/// SessionPrx Methods:
+///  - announceTopics: Announces new and existing topics to the peer.
+///  - announceTopicsAsync: Announces new and existing topics to the peer.
+///  - attachTopic: Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+///  - attachTopicAsync: Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+///  - detachTopic: Detaches a topic from the session.
+///  - detachTopicAsync: Detaches a topic from the session.
+///  - attachTags
+///  - attachTagsAsync
+///  - detachTags
+///  - detachTagsAsync
+///  - announceElements: Announces new elements to the peer.
+///  - announceElementsAsync: Announces new elements to the peer.
+///  - attachElements: Attaches the given topic elements to all subscribers of the specified topic.
+///  - attachElementsAsync: Attaches the given topic elements to all subscribers of the specified topic.
+///  - attachElementsAck
+///  - attachElementsAckAsync
+///  - detachElements
+///  - detachElementsAsync
+///  - initSamples
+///  - initSamplesAsync
+///  - disconnected: Notifies the peer that the session is being disconnected.
+///  - disconnectedAsync: Notifies the peer that the session is being disconnected.
 public extension SessionPrx {
     /// Announces new and existing topics to the peer.
     ///
@@ -1560,7 +1614,7 @@ public extension SessionPrx {
 
     /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
     ///
-    /// This method is called if the session is interested in the announced topic, which occurs when:
+    /// This operation is called if the session is interested in the announced topic, which occurs when:
     ///
     /// - The session has a reader for a topic that the peer has a writer for, or
     /// - The session has a writer for a topic that the peer has a reader for.
@@ -1577,6 +1631,13 @@ public extension SessionPrx {
                                        context: context)
     }
 
+    /// Detaches a topic from the session.
+    ///
+    /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+    ///
+    /// - Parameters:
+    ///   - iceP_topic: The ID of the topic to detach.
+    ///   - context: Optional request context.
     func detachTopic(_ iceP_topic: Swift.Int64, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "detachTopic",
                                        mode: .Normal,
@@ -1676,6 +1737,14 @@ public extension SessionPrx {
                                        context: context)
     }
 
+    /// Notifies the peer that the session is being disconnected.
+    ///
+    /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+    ///
+    /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
+    /// between the relay node and the target node is lost.
+    ///
+    /// - Parameter context: Optional request context.
     func disconnected(context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "disconnected",
                                        mode: .Normal,
@@ -1683,6 +1752,7 @@ public extension SessionPrx {
     }
 }
 
+/// The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
 public protocol PublisherSessionPrx: SessionPrx {}
 
 private final class PublisherSessionPrxI: Ice.ObjectPrxI, PublisherSessionPrx {
@@ -1767,8 +1837,14 @@ public extension Ice.InputStream {
     }
 }
 
+/// The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
 public extension PublisherSessionPrx {}
 
+/// The SubscriberSession servant is hosted by the subscriber node and is accessed by the publisher node.
+///
+/// SubscriberSessionPrx Methods:
+///  - s: Queue a sample with the subscribers of the topic element.
+///  - sAsync: Queue a sample with the subscribers of the topic element.
 public protocol SubscriberSessionPrx: SessionPrx {}
 
 private final class SubscriberSessionPrxI: Ice.ObjectPrxI, SubscriberSessionPrx {
@@ -1853,6 +1929,11 @@ public extension Ice.InputStream {
     }
 }
 
+/// The SubscriberSession servant is hosted by the subscriber node and is accessed by the publisher node.
+///
+/// SubscriberSessionPrx Methods:
+///  - s: Queue a sample with the subscribers of the topic element.
+///  - sAsync: Queue a sample with the subscribers of the topic element.
 public extension SubscriberSessionPrx {
     /// Queue a sample with the subscribers of the topic element.
     ///
@@ -2353,6 +2434,9 @@ public struct SessionDisp: Ice.Dispatcher {
     }
 }
 
+/// The base interface for publisher and subscriber sessions.
+///
+/// This interface enables nodes to exchange topic and element information, as well as data samples.
 public protocol Session {
     /// Announces new and existing topics to the peer.
     ///
@@ -2371,7 +2455,7 @@ public protocol Session {
 
     /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
     ///
-    /// This method is called if the session is interested in the announced topic, which occurs when:
+    /// This operation is called if the session is interested in the announced topic, which occurs when:
     ///
     /// - The session has a reader for a topic that the peer has a writer for, or
     /// - The session has a writer for a topic that the peer has a reader for.
@@ -2381,6 +2465,13 @@ public protocol Session {
     ///   - current: The Current object for the dispatch.
     func attachTopic(topic: TopicSpec, current: Ice.Current) async throws
 
+    /// Detaches a topic from the session.
+    ///
+    /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+    ///
+    /// - Parameters:
+    ///   - topic: The ID of the topic to detach.
+    ///   - current: The Current object for the dispatch.
     func detachTopic(topic: Swift.Int64, current: Ice.Current) async throws
 
     func attachTags(topic: Swift.Int64, tags: ElementInfoSeq, initialize: Swift.Bool, current: Ice.Current) async throws
@@ -2413,6 +2504,14 @@ public protocol Session {
 
     func initSamples(topic: Swift.Int64, samples: DataSamplesSeq, current: Ice.Current) async throws
 
+    /// Notifies the peer that the session is being disconnected.
+    ///
+    /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+    ///
+    /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
+    /// between the relay node and the target node is lost.
+    ///
+    /// - Parameter current: The Current object for the dispatch.
     func disconnected(current: Ice.Current) async throws
 }
 
@@ -2464,6 +2563,7 @@ public struct PublisherSessionDisp: Ice.Dispatcher {
     }
 }
 
+/// The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
 public protocol PublisherSession: Session {}
 
 
@@ -2516,6 +2616,7 @@ public struct SubscriberSessionDisp: Ice.Dispatcher {
     }
 }
 
+/// The SubscriberSession servant is hosted by the subscriber node and is accessed by the publisher node.
 public protocol SubscriberSession: Session {
     /// Queue a sample with the subscribers of the topic element.
     ///
@@ -2670,6 +2771,22 @@ public protocol Lookup {
     func createSession(node: NodePrx?, current: Ice.Current) async throws -> NodePrx?
 }
 
+/// The base interface for publisher and subscriber sessions.
+///
+/// This interface enables nodes to exchange topic and element information, as well as data samples.
+///
+/// Session Methods:
+///  - announceTopics: Announces new and existing topics to the peer.
+///  - attachTopic: Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+///  - detachTopic: Detaches a topic from the session.
+///  - attachTags
+///  - detachTags
+///  - announceElements: Announces new elements to the peer.
+///  - attachElements: Attaches the given topic elements to all subscribers of the specified topic.
+///  - attachElementsAck
+///  - detachElements
+///  - initSamples
+///  - disconnected: Notifies the peer that the session is being disconnected.
 extension Session {
     public func _iceD_announceTopics(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         
@@ -2781,8 +2898,13 @@ extension Session {
     }
 }
 
+/// The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
 extension PublisherSession {}
 
+/// The SubscriberSession servant is hosted by the subscriber node and is accessed by the publisher node.
+///
+/// SubscriberSession Methods:
+///  - s: Queue a sample with the subscribers of the topic element.
 extension SubscriberSession {
     public func _iceD_s(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

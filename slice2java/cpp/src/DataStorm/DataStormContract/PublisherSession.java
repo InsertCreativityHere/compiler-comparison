@@ -15,6 +15,9 @@
 
 package DataStormContract;
 
+/**
+ * The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
+ **/
 public interface PublisherSession extends Session
 {
     /** @hidden */

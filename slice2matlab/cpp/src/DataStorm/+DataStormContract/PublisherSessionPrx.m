@@ -1,3 +1,10 @@
+% PublisherSessionPrx   Summary of PublisherSessionPrx
+%
+% The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
+%
+% PublisherSessionPrx Methods:
+%   checkedCast - Contacts the remote server to verify that the object implements this type.
+%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0

@@ -1,3 +1,12 @@
+% SubscriberSessionPrx   Summary of SubscriberSessionPrx
+%
+% The SubscriberSession servant is hosted by the subscriber node and is accessed by the publisher node.
+%
+% SubscriberSessionPrx Methods:
+%   s - Queue a sample with the subscribers of the topic element.
+%   sAsync - Queue a sample with the subscribers of the topic element.
+%   checkedCast - Contacts the remote server to verify that the object implements this type.
+%   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
