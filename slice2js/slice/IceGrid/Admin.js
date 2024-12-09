@@ -508,8 +508,8 @@ Ice.defineOperations(
         ], , ],
         "stopServer": [, , , , [[7]], ,
         [
-            IceGrid.ServerNotExistException,
             IceGrid.ServerStopException,
+            IceGrid.ServerNotExistException,
             IceGrid.DeploymentException,
             IceGrid.NodeUnreachableException
         ], , ],
