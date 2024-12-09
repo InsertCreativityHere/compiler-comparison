@@ -9906,6 +9906,22 @@ namespace Ice.operations.AMD
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, Ice.Current current);
 
+            public abstract global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task opIdempotentAsync(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, Ice.Current current);
+
             public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, Ice.Current current);
@@ -9923,6 +9939,10 @@ namespace Ice.operations.AMD
             public abstract global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDResult> opStringMyEnumDAsync(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDResult> opMyEnumStringDAsync(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDResult> opMyStructMyEnumDAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, Ice.Current current);
 
@@ -9958,22 +9978,6 @@ namespace Ice.operations.AMD
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, Ice.Current current);
 
-            public abstract global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> opContextAsync(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task opDoubleMarshalingAsync(double p1, double[] p2, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task opIdempotentAsync(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, Ice.Current current);
-
             public abstract global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, Ice.Current current);
@@ -10003,10 +10007,6 @@ namespace Ice.operations.AMD
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
 
             public override string ice_id(Ice.Current current) => ice_staticId();
 
