@@ -195,5 +195,5 @@ public class _break implements java.lang.Cloneable,
     private static final _break _nullMarshalValue = new _break();
 
     /** @hidden */
-    private static final long serialVersionUID = 1052094326961914109L;
+    private static final long serialVersionUID = 8697019113189401481L;
 }
