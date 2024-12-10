@@ -315,7 +315,7 @@ public class optionalMembers extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 6255169265209741969L;
+    private static final long serialVersionUID = -3097069873603540624L;
 
     /** @hidden */
     @Override
