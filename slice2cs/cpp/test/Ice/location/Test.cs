@@ -205,11 +205,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(global::Ice.AdapterNotFoundException)
+                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
-                    catch(global::Ice.AdapterAlreadyActiveException)
+                    catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
@@ -255,15 +255,15 @@ namespace Test
                     {
                         throw ex;
                     }
+                    catch(global::Ice.AdapterAlreadyActiveException)
+                    {
+                        throw;
+                    }
                     catch(global::Ice.AdapterNotFoundException)
                     {
                         throw;
                     }
                     catch(global::Ice.InvalidReplicaGroupIdException)
-                    {
-                        throw;
-                    }
-                    catch(global::Ice.AdapterAlreadyActiveException)
                     {
                         throw;
                     }
@@ -1118,11 +1118,11 @@ namespace Test
     {
         public abstract int getRequestCount(Ice.Current current);
 
+        public abstract global::Ice.LocatorRegistryPrx? getRegistry(Ice.Current current);
+
         public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findAdapterByIdAsync(string id, Ice.Current current);
-
-        public abstract global::Ice.LocatorRegistryPrx? getRegistry(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
