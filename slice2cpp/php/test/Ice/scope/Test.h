@@ -699,7 +699,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     explicit C(::Test::S s) noexcept :
-        s(::std::move(s))
+        s(s)
     {
     }
 
@@ -879,7 +879,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     explicit C(::Test::Inner::Inner2::S s) noexcept :
-        s(::std::move(s))
+        s(s)
     {
     }
 
@@ -928,7 +928,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     explicit C(::Test::Inner::S s) noexcept :
-        s(::std::move(s))
+        s(s)
     {
     }
 

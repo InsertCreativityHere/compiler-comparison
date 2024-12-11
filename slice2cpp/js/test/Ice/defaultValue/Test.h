@@ -540,7 +540,7 @@ public:
     /// One-shot constructor to initialize all data members.
     ExceptionNoDefaults(::std::string str, Color c1, ByteSeq bs, InnerStruct st, IntStringDict dict) noexcept :
         ExceptionNoDefaultsBase(::std::move(str), c1, ::std::move(bs)),
-        st(::std::move(st)),
+        st(st),
         dict(::std::move(dict))
     {
     }
@@ -625,7 +625,7 @@ public:
     /// One-shot constructor to initialize all data members.
     ClassNoDefaults(::std::string str, ::Test::Color c1, ::Test::ByteSeq bs, ::Test::InnerStruct st, ::Test::IntStringDict dict) noexcept :
         ClassNoDefaultsBase(::std::move(str), c1, ::std::move(bs)),
-        st(::std::move(st)),
+        st(st),
         dict(::std::move(dict))
     {
     }

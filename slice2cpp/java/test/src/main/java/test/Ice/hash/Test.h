@@ -142,7 +142,7 @@ public:
     /// One-shot constructor to initialize all data members.
     Pen(::std::int32_t thickness, ::Test::Color color) noexcept :
         thickness(thickness),
-        color(::std::move(color))
+        color(color)
     {
     }
 

@@ -824,7 +824,7 @@ public:
         ss(::std::move(ss)),
         iid(::std::move(iid)),
         sid(::std::move(sid)),
-        fs(::std::move(fs)),
+        fs(fs),
         vs(::std::move(vs)),
         shs(::std::move(shs)),
         es(::std::move(es)),
@@ -1244,7 +1244,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     explicit E(::Test::FixedStruct fse) noexcept :
-        fse(::std::move(fse))
+        fse(fse)
     {
     }
 
@@ -1284,8 +1284,8 @@ public:
 
     /// One-shot constructor to initialize all data members.
     F(::Test::FixedStruct fse, ::std::optional<::Test::FixedStruct> fsf) noexcept :
-        E(::std::move(fse)),
-        fsf(::std::move(fsf))
+        E(fse),
+        fsf(fsf)
     {
     }
 
@@ -1350,8 +1350,8 @@ public:
     /// One-shot constructor to initialize all data members.
     G(::std::optional<::Test::G1> gg1Opt, ::Test::G2 gg2, ::std::optional<::Test::G2> gg2Opt, ::Test::G1 gg1) noexcept :
         gg1Opt(::std::move(gg1Opt)),
-        gg2(::std::move(gg2)),
-        gg2Opt(::std::move(gg2Opt)),
+        gg2(gg2),
+        gg2Opt(gg2Opt),
         gg1(::std::move(gg1))
     {
     }

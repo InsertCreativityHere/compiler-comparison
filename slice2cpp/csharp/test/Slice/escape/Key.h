@@ -575,7 +575,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     optionalMembers(::std::optional<::abstract::_cpp_break> _cpp_for, ::std::optional<::abstract::as> _cpp_goto, ::std::optional<::abstract::explicitPrx> _cpp_if, ::std::optional<::abstract::_cpp_while> internal, ::std::optional<::std::string> _cpp_namespace) noexcept :
-        _cpp_for(::std::move(_cpp_for)),
+        _cpp_for(_cpp_for),
         _cpp_goto(_cpp_goto),
         _cpp_if(::std::move(_cpp_if)),
         internal(::std::move(internal)),

@@ -572,7 +572,7 @@ _cpp_and::print::_iceD_raise(
     istr->readAll(iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global);
     istr->readPendingValues();
     istr->endEncapsulation();
-    const assert ret = this->raise(::std::move(iceP_else), ::std::move(iceP_return), ::std::move(iceP_while), ::std::move(iceP_yield), ::std::move(iceP_or), iceP_global, request.current());
+    const assert ret = this->raise(iceP_else, ::std::move(iceP_return), ::std::move(iceP_while), ::std::move(iceP_yield), ::std::move(iceP_or), iceP_global, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

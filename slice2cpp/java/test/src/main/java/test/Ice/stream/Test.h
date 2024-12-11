@@ -193,7 +193,7 @@ public:
         intSeq12(::std::move(intSeq12)),
         byteSeq13(::std::move(byteSeq13)),
         stringSeq14(::std::move(stringSeq14)),
-        p15(::std::move(p15))
+        p15(p15)
     {
     }
 

@@ -220,7 +220,7 @@ public:
     /// One-shot constructor to initialize all data members.
     logical(::classdef::_cpp_break::_cpp_bitand _cpp_else, ::classdef::_cpp_break::_cpp_bitor _cpp_for, bool int64) noexcept :
         _cpp_else(_cpp_else),
-        _cpp_for(::std::move(_cpp_for)),
+        _cpp_for(_cpp_for),
         int64(int64)
     {
     }
@@ -263,7 +263,7 @@ public:
 
     /// One-shot constructor to initialize all data members.
     _cpp_xor(::classdef::_cpp_break::_cpp_bitand _cpp_else, ::classdef::_cpp_break::_cpp_bitor _cpp_for, bool int64, ::std::int32_t _cpp_return) noexcept :
-        logical(_cpp_else, ::std::move(_cpp_for), int64),
+        logical(_cpp_else, _cpp_for, int64),
         _cpp_return(_cpp_return)
     {
     }

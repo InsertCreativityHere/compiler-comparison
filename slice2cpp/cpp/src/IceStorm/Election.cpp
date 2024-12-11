@@ -277,7 +277,7 @@ void
 IceStormElection::TopicManagerSyncPrx::getContent(LogUpdate& iceP_llu, TopicContentSeq& iceP_content, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<LogUpdate, TopicContentSeq>>(true, this, &TopicManagerSyncPrx::_iceI_getContent, context).get();
-    iceP_llu = ::std::move(::std::get<0>(result));
+    iceP_llu = ::std::get<0>(result);
     iceP_content = ::std::move(::std::get<1>(result));
 }
 
@@ -633,7 +633,7 @@ IceStormElection::ReplicaObserver::_iceD_init(
     TopicContentSeq iceP_content;
     istr->readAll(iceP_llu, iceP_content);
     istr->endEncapsulation();
-    this->init(::std::move(iceP_llu), ::std::move(iceP_content), request.current());
+    this->init(iceP_llu, ::std::move(iceP_content), request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
@@ -651,7 +651,7 @@ IceStormElection::ReplicaObserver::_iceD_createTopic(
     ::std::string iceP_name;
     istr->readAll(iceP_llu, iceP_name);
     istr->endEncapsulation();
-    this->createTopic(::std::move(iceP_llu), ::std::move(iceP_name), request.current());
+    this->createTopic(iceP_llu, ::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
@@ -669,7 +669,7 @@ IceStormElection::ReplicaObserver::_iceD_destroyTopic(
     ::std::string iceP_name;
     istr->readAll(iceP_llu, iceP_name);
     istr->endEncapsulation();
-    this->destroyTopic(::std::move(iceP_llu), ::std::move(iceP_name), request.current());
+    this->destroyTopic(iceP_llu, ::std::move(iceP_name), request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
@@ -688,7 +688,7 @@ IceStormElection::ReplicaObserver::_iceD_addSubscriber(
     ::IceStorm::SubscriberRecord iceP_record;
     istr->readAll(iceP_llu, iceP_topic, iceP_record);
     istr->endEncapsulation();
-    this->addSubscriber(::std::move(iceP_llu), ::std::move(iceP_topic), ::std::move(iceP_record), request.current());
+    this->addSubscriber(iceP_llu, ::std::move(iceP_topic), ::std::move(iceP_record), request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
@@ -707,7 +707,7 @@ IceStormElection::ReplicaObserver::_iceD_removeSubscriber(
     ::Ice::IdentitySeq iceP_subscribers;
     istr->readAll(iceP_llu, iceP_topic, iceP_subscribers);
     istr->endEncapsulation();
-    this->removeSubscriber(::std::move(iceP_llu), ::std::move(iceP_topic), ::std::move(iceP_subscribers), request.current());
+    this->removeSubscriber(iceP_llu, ::std::move(iceP_topic), ::std::move(iceP_subscribers), request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
@@ -945,7 +945,7 @@ IceStormElection::Node::_iceD_accept(
     ::std::int32_t iceP_max;
     istr->readAll(iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max);
     istr->endEncapsulation();
-    this->accept(iceP_j, ::std::move(iceP_gn), ::std::move(iceP_forwardedInvites), ::std::move(iceP_observer), ::std::move(iceP_llu), iceP_max, request.current());
+    this->accept(iceP_j, ::std::move(iceP_gn), ::std::move(iceP_forwardedInvites), ::std::move(iceP_observer), iceP_llu, iceP_max, request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond

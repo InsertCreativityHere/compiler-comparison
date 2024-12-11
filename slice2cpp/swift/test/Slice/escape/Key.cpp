@@ -583,7 +583,7 @@ _cpp_and::_cpp_friend::_iceD_goto(
     istr->readAll(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register);
     istr->readPendingValues();
     istr->endEncapsulation();
-    const guard ret = this->_cpp_goto(iceP_if, ::std::move(iceP_d), ::std::move(iceP_inline), ::std::move(iceP_private), ::std::move(iceP_mutable), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_not), ::std::move(iceP_operator), iceP_or, iceP_protected, iceP_public, iceP_register, request.current());
+    const guard ret = this->_cpp_goto(iceP_if, iceP_d, ::std::move(iceP_inline), ::std::move(iceP_private), ::std::move(iceP_mutable), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_not), ::std::move(iceP_operator), iceP_or, iceP_protected, iceP_public, iceP_register, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

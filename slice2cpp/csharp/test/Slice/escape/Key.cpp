@@ -208,7 +208,7 @@ abstract::optionalParamsPrx::in(::std::optional<as>& iceP_goto, ::std::optional<
     iceP_if = ::std::move(::std::get<2>(result));
     iceP_internal = ::std::move(::std::get<3>(result));
     iceP_namespace = ::std::move(::std::get<4>(result));
-    return ::std::move(::std::get<0>(result));
+    return ::std::get<0>(result);
 }
 
 ::std::future<::std::tuple<::std::optional<::abstract::_cpp_break>, ::std::optional<::abstract::as>, ::std::optional<::abstract::explicitPrx>, ::std::optional<::abstract::_cpp_while>, ::std::optional<::std::string>>>
@@ -252,7 +252,7 @@ abstract::optionalParamsPrx::foreach(::std::optional<as>& iceP_goto, ::std::opti
     iceP_if = ::std::move(::std::get<2>(result));
     iceP_internal = ::std::move(::std::get<3>(result));
     iceP_namespace = ::std::move(::std::get<4>(result));
-    return ::std::move(::std::get<0>(result));
+    return ::std::get<0>(result);
 }
 
 ::std::future<::std::tuple<::std::optional<::abstract::_cpp_break>, ::std::optional<::abstract::as>, ::std::optional<::abstract::explicitPrx>, ::std::optional<::abstract::_cpp_while>, ::std::optional<::std::string>>>
@@ -1079,7 +1079,7 @@ abstract::implicit::_iceD_in(
     istr->readAll(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_override, iceP_params, iceP_private);
     istr->readPendingValues();
     istr->endEncapsulation();
-    const as ret = this->in(::std::move(iceP_internal), ::std::move(iceP_is), ::std::move(iceP_lock), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_null), iceP_override, iceP_params, iceP_private, request.current());
+    const as ret = this->in(iceP_internal, ::std::move(iceP_is), ::std::move(iceP_lock), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_null), iceP_override, iceP_params, iceP_private, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

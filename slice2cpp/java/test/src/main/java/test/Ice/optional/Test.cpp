@@ -691,8 +691,8 @@ Test::InitialPrx::_iceI_opMyEnum(const ::std::shared_ptr<::IceInternal::Outgoing
 Test::InitialPrx::opSmallStruct(const ::std::optional<SmallStruct>& iceP_p1, ::std::optional<SmallStruct>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<SmallStruct>, ::std::optional<SmallStruct>>>(true, this, &InitialPrx::_iceI_opSmallStruct, iceP_p1, context).get();
-    iceP_p3 = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    iceP_p3 = ::std::get<1>(result);
+    return ::std::get<0>(result);
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::SmallStruct>, ::std::optional<::Test::SmallStruct>>>
@@ -735,8 +735,8 @@ Test::InitialPrx::_iceI_opSmallStruct(const ::std::shared_ptr<::IceInternal::Out
 Test::InitialPrx::opFixedStruct(const ::std::optional<FixedStruct>& iceP_p1, ::std::optional<FixedStruct>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<FixedStruct>, ::std::optional<FixedStruct>>>(true, this, &InitialPrx::_iceI_opFixedStruct, iceP_p1, context).get();
-    iceP_p3 = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    iceP_p3 = ::std::get<1>(result);
+    return ::std::get<0>(result);
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::FixedStruct>, ::std::optional<::Test::FixedStruct>>>
@@ -1752,8 +1752,8 @@ Test::InitialPrx::_iceI_opMStruct1(const ::std::shared_ptr<::IceInternal::Outgoi
 Test::InitialPrx::opMStruct2(const ::std::optional<SmallStruct>& iceP_p1, ::std::optional<SmallStruct>& iceP_p2, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<SmallStruct>, ::std::optional<SmallStruct>>>(true, this, &InitialPrx::_iceI_opMStruct2, iceP_p1, context).get();
-    iceP_p2 = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    iceP_p2 = ::std::get<1>(result);
+    return ::std::get<0>(result);
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::SmallStruct>, ::std::optional<::Test::SmallStruct>>>
@@ -2851,7 +2851,7 @@ Test::Initial::_iceD_opSmallStruct(
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<SmallStruct> iceP_p3;
-    const ::std::optional<SmallStruct> ret = this->opSmallStruct(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<SmallStruct> ret = this->opSmallStruct(iceP_p1, iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -2873,7 +2873,7 @@ Test::Initial::_iceD_opFixedStruct(
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<FixedStruct> iceP_p3;
-    const ::std::optional<FixedStruct> ret = this->opFixedStruct(::std::move(iceP_p1), iceP_p3, request.current());
+    const ::std::optional<FixedStruct> ret = this->opFixedStruct(iceP_p1, iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);
@@ -3398,7 +3398,7 @@ Test::Initial::_iceD_opMStruct2(
     ::std::optional<SmallStruct> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
-    sendResponse(::Ice::OutgoingResponse{this->opMStruct2(::std::move(iceP_p1), request.current()).outputStream(), request.current()});
+    sendResponse(::Ice::OutgoingResponse{this->opMStruct2(iceP_p1, request.current()).outputStream(), request.current()});
 }
 /// \endcond
 

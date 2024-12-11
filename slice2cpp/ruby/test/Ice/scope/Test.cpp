@@ -50,8 +50,8 @@ namespace
 Test::IPrx::opS(const S& iceP_s1, S& iceP_s2, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<S, S>>(true, this, &IPrx::_iceI_opS, iceP_s1, context).get();
-    iceP_s2 = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    iceP_s2 = ::std::get<1>(result);
+    return ::std::get<0>(result);
 }
 
 ::std::future<::std::tuple<::Test::S, ::Test::S>>
@@ -458,8 +458,8 @@ Test::IPrx::ice_staticId() noexcept
 Test::Inner::Inner2::IPrx::opS(const S& iceP_s1, S& iceP_s2, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<S, S>>(true, this, &IPrx::_iceI_opS, iceP_s1, context).get();
-    iceP_s2 = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    iceP_s2 = ::std::get<1>(result);
+    return ::std::get<0>(result);
 }
 
 ::std::future<::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>>
@@ -762,8 +762,8 @@ Test::Inner::Inner2::IPrx::ice_staticId() noexcept
 Test::Inner::IPrx::opS(const ::Test::Inner::Inner2::S& iceP_s1, ::Test::Inner::Inner2::S& iceP_s2, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>>(true, this, &IPrx::_iceI_opS, iceP_s1, context).get();
-    iceP_s2 = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    iceP_s2 = ::std::get<1>(result);
+    return ::std::get<0>(result);
 }
 
 ::std::future<::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>>
@@ -1066,8 +1066,8 @@ Test::Inner::IPrx::ice_staticId() noexcept
 Inner::Test::Inner2::IPrx::opS(const ::Test::S& iceP_s1, ::Test::S& iceP_s2, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::Test::S, ::Test::S>>(true, this, &IPrx::_iceI_opS, iceP_s1, context).get();
-    iceP_s2 = ::std::move(::std::get<1>(result));
-    return ::std::move(::std::get<0>(result));
+    iceP_s2 = ::std::get<1>(result);
+    return ::std::get<0>(result);
 }
 
 ::std::future<::std::tuple<::Test::S, ::Test::S>>
@@ -1568,7 +1568,7 @@ Test::I::_iceD_opS(
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     S iceP_s2;
-    const S ret = this->opS(::std::move(iceP_s1), iceP_s2, request.current());
+    const S ret = this->opS(iceP_s1, iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -1898,7 +1898,7 @@ Test::Inner::Inner2::I::_iceD_opS(
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     S iceP_s2;
-    const S ret = this->opS(::std::move(iceP_s1), iceP_s2, request.current());
+    const S ret = this->opS(iceP_s1, iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -2148,7 +2148,7 @@ Test::Inner::I::_iceD_opS(
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     ::Test::Inner::Inner2::S iceP_s2;
-    const ::Test::Inner::Inner2::S ret = this->opS(::std::move(iceP_s1), iceP_s2, request.current());
+    const ::Test::Inner::Inner2::S ret = this->opS(iceP_s1, iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);
@@ -2398,7 +2398,7 @@ Inner::Test::Inner2::I::_iceD_opS(
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
     ::Test::S iceP_s2;
-    const ::Test::S ret = this->opS(::std::move(iceP_s1), iceP_s2, request.current());
+    const ::Test::S ret = this->opS(iceP_s1, iceP_s2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s2, ret);

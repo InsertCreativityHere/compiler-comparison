@@ -3445,7 +3445,7 @@ IceGrid::NodeSession::_iceD_keepAlive(
     LoadInfo iceP_load;
     istr->readAll(iceP_load);
     istr->endEncapsulation();
-    this->keepAlive(::std::move(iceP_load), request.current());
+    this->keepAlive(iceP_load, request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
@@ -4057,7 +4057,7 @@ IceGrid::InternalRegistry::_iceD_registerNode(
     istr->readAll(iceP_info, iceP_prx, iceP_loadInf);
     istr->readPendingValues();
     istr->endEncapsulation();
-    const ::std::optional<NodeSessionPrx> ret = this->registerNode(::std::move(iceP_info), ::std::move(iceP_prx), ::std::move(iceP_loadInf), request.current());
+    const ::std::optional<NodeSessionPrx> ret = this->registerNode(::std::move(iceP_info), ::std::move(iceP_prx), iceP_loadInf, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
