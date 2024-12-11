@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -375,13 +375,19 @@ public:
 
     CustomPrx& operator=(const CustomPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     CustomPrx& operator=(CustomPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -416,7 +422,7 @@ struct S
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::ByteString&, const ::Test::ByteString&, const ::Test::ByteList&, const ::Test::ByteList&, const ::Test::StringList&, const ::Test::StringList&, const ::Test::StringTuple&, const ::Test::StringTuple&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::ByteString&, const ::Test::ByteString&, const ::Test::ByteList&, const ::Test::ByteList&, const ::Test::StringList&, const ::Test::StringList&, const ::Test::StringTuple&, const ::Test::StringTuple&> ice_tuple() const
     {
         return std::tie(b1, b2, b3, b4, s1, s2, s3, s4);
     }
@@ -449,7 +455,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::ByteString&, const ::Test::ByteString&, const ::Test::ByteList&, const ::Test::ByteList&, const ::Test::StringList&, const ::Test::StringList&, const ::Test::StringTuple&, const ::Test::StringTuple&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::ByteString&, const ::Test::ByteString&, const ::Test::ByteList&, const ::Test::ByteList&, const ::Test::StringList&, const ::Test::StringList&, const ::Test::StringTuple&, const ::Test::StringTuple&> ice_tuple() const
     {
         return std::tie(b1, b2, b3, b4, s1, s2, s3, s4);
     }
@@ -502,7 +508,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::Test::BoolSeq1>&, const ::std::optional<::Test::ByteSeq1>&, const ::std::optional<::Test::ShortSeq1>&, const ::std::optional<::Test::IntSeq1>&, const ::std::optional<::Test::LongSeq1>&, const ::std::optional<::Test::FloatSeq1>&, const ::std::optional<::Test::DoubleSeq1>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::Test::BoolSeq1>&, const ::std::optional<::Test::ByteSeq1>&, const ::std::optional<::Test::ShortSeq1>&, const ::std::optional<::Test::IntSeq1>&, const ::std::optional<::Test::LongSeq1>&, const ::std::optional<::Test::FloatSeq1>&, const ::std::optional<::Test::DoubleSeq1>&> ice_tuple() const
     {
         return std::tie(boolSeq, byteSeq, shortSeq, intSeq, longSeq, floatSeq, doubleSeq);
     }

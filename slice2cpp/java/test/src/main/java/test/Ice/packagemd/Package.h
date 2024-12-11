@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Package_h__
-#define __Package_h__
+#ifndef Package_h_
+#define Package_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -68,7 +68,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -109,7 +109,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(i, l);
     }
@@ -146,7 +146,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -185,7 +185,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(i, l);
     }
@@ -231,7 +231,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -272,7 +272,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(i, l);
     }
@@ -309,7 +309,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -348,7 +348,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(i, l);
     }

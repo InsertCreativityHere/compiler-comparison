@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -48,7 +48,7 @@ struct StructValue
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(firstName, lastName, age);
     }
@@ -74,7 +74,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(b);
     }
@@ -115,7 +115,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(b, e);
     }

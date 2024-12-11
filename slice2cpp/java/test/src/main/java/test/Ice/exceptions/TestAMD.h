@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __TestAMD_h__
-#define __TestAMD_h__
+#ifndef TestAMD_h_
+#define TestAMD_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -279,13 +279,19 @@ public:
 
     ThrowerPrx& operator=(const ThrowerPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     ThrowerPrx& operator=(ThrowerPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -335,13 +341,19 @@ public:
 
     WrongOperationPrx& operator=(const WrongOperationPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     WrongOperationPrx& operator=(WrongOperationPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -380,7 +392,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aMem);
     }
@@ -419,7 +431,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aMem, bMem);
     }
@@ -458,7 +470,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(aMem, bMem, cMem);
     }
@@ -496,7 +508,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(dMem);
     }

@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Contract_h__
-#define __Contract_h__
+#ifndef Contract_h_
+#define Contract_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -418,13 +418,19 @@ public:
 
     SessionPrx& operator=(const SessionPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     SessionPrx& operator=(SessionPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -469,13 +475,19 @@ public:
 
     PublisherSessionPrx& operator=(const PublisherSessionPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     PublisherSessionPrx& operator=(PublisherSessionPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -555,13 +567,19 @@ public:
 
     SubscriberSessionPrx& operator=(const SubscriberSessionPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     SubscriberSessionPrx& operator=(SubscriberSessionPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -709,13 +727,19 @@ public:
 
     NodePrx& operator=(const NodePrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     NodePrx& operator=(NodePrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -870,13 +894,19 @@ public:
 
     LookupPrx& operator=(const LookupPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     LookupPrx& operator=(LookupPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -917,7 +947,7 @@ struct DataSample
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int64_t&, const ::std::int64_t&, const ::Ice::ByteSeq&, const ::std::int64_t&, const ::std::int64_t&, const ::DataStorm::SampleEvent&, const ::Ice::ByteSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::std::int64_t&, const ::Ice::ByteSeq&, const ::std::int64_t&, const ::std::int64_t&, const ::DataStorm::SampleEvent&, const ::Ice::ByteSeq&> ice_tuple() const
     {
         return std::tie(id, keyId, keyValue, timestamp, tag, event, value);
     }
@@ -932,7 +962,7 @@ struct DataSamples
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int64_t&, const ::DataStormContract::DataSampleSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::DataStormContract::DataSampleSeq&> ice_tuple() const
     {
         return std::tie(id, samples);
     }
@@ -951,7 +981,7 @@ struct ElementInfo
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int64_t&, const ::std::string&, const ::Ice::ByteSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::std::string&, const ::Ice::ByteSeq&> ice_tuple() const
     {
         return std::tie(id, name, value);
     }
@@ -976,7 +1006,7 @@ struct TopicInfo
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::Ice::LongSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::Ice::LongSeq&> ice_tuple() const
     {
         return std::tie(name, ids);
     }
@@ -998,7 +1028,7 @@ struct TopicSpec
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int64_t&, const ::std::string&, const ::DataStormContract::ElementInfoSeq&, const ::DataStormContract::ElementInfoSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::std::string&, const ::DataStormContract::ElementInfoSeq&, const ::DataStormContract::ElementInfoSeq&> ice_tuple() const
     {
         return std::tie(id, name, elements, tags);
     }
@@ -1011,7 +1041,7 @@ struct FilterInfo
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::Ice::ByteSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::Ice::ByteSeq&> ice_tuple() const
     {
         return std::tie(name, criteria);
     }
@@ -1050,7 +1080,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::std::string>&, const ::std::optional<::DataStormContract::FilterInfo>&, const ::std::optional<::std::string>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::DataStormContract::ClearHistoryPolicy>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::std::string>&, const ::std::optional<::DataStormContract::FilterInfo>&, const ::std::optional<::std::string>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::DataStormContract::ClearHistoryPolicy>&> ice_tuple() const
     {
         return std::tie(facet, sampleFilter, name, priority, sampleCount, sampleLifetime, clearHistory);
     }
@@ -1097,7 +1127,7 @@ struct ElementData
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int64_t&, const ::DataStormContract::ElementConfigPtr&, const ::DataStormContract::LongLongDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::DataStormContract::ElementConfigPtr&, const ::DataStormContract::LongLongDict&> ice_tuple() const
     {
         return std::tie(id, config, lastIds);
     }
@@ -1121,7 +1151,7 @@ struct ElementSpec
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::DataStormContract::ElementDataSeq&, const ::std::int64_t&, const ::std::string&, const ::Ice::ByteSeq&, const ::std::int64_t&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::DataStormContract::ElementDataSeq&, const ::std::int64_t&, const ::std::string&, const ::Ice::ByteSeq&, const ::std::int64_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(elements, id, name, value, peerId, peerName);
     }
@@ -1142,7 +1172,7 @@ struct ElementDataAck
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int64_t&, const ::DataStormContract::ElementConfigPtr&, const ::DataStormContract::LongLongDict&, const ::DataStormContract::DataSampleSeq&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::DataStormContract::ElementConfigPtr&, const ::DataStormContract::LongLongDict&, const ::DataStormContract::DataSampleSeq&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, config, lastIds, samples, peerId);
     }
@@ -1165,7 +1195,7 @@ struct ElementSpecAck
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::DataStormContract::ElementDataAckSeq&, const ::std::int64_t&, const ::std::string&, const ::Ice::ByteSeq&, const ::std::int64_t&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::DataStormContract::ElementDataAckSeq&, const ::std::int64_t&, const ::std::string&, const ::Ice::ByteSeq&, const ::std::int64_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(elements, id, name, value, peerId, peerName);
     }

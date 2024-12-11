@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __EndpointTypes_h__
-#define __EndpointTypes_h__
+#ifndef EndpointTypes_h_
+#define EndpointTypes_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Config.h>

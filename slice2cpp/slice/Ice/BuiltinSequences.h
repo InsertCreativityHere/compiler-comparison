@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __BuiltinSequences_h__
-#define __BuiltinSequences_h__
+#ifndef BuiltinSequences_h_
+#define BuiltinSequences_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Config.h>

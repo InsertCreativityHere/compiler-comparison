@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -74,13 +74,19 @@ public:
 
     EmptyPrx& operator=(const EmptyPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     EmptyPrx& operator=(EmptyPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -130,13 +136,19 @@ public:
 
     APrx& operator=(const APrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     APrx& operator=(APrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -191,13 +203,19 @@ public:
 
     BPrx& operator=(const BPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     BPrx& operator=(BPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -256,13 +274,19 @@ public:
 
     CPrx& operator=(const CPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     CPrx& operator=(CPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -321,13 +345,19 @@ public:
 
     DPrx& operator=(const DPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     DPrx& operator=(DPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -381,13 +411,19 @@ public:
 
     EPrx& operator=(const EPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     EPrx& operator=(EPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -442,13 +478,19 @@ public:
 
     FPrx& operator=(const FPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     FPrx& operator=(FPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -513,13 +555,19 @@ public:
 
     GPrx& operator=(const GPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     GPrx& operator=(GPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -574,13 +622,19 @@ public:
 
     HPrx& operator=(const HPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     HPrx& operator=(HPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -667,13 +721,19 @@ public:
 
     EchoPrx& operator=(const EchoPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     EchoPrx& operator=(EchoPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

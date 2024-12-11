@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __RemoteLogger_h__
-#define __RemoteLogger_h__
+#ifndef RemoteLogger_h_
+#define RemoteLogger_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -136,13 +136,19 @@ public:
 
     RemoteLoggerPrx& operator=(const RemoteLoggerPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     RemoteLoggerPrx& operator=(RemoteLoggerPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -305,13 +311,19 @@ public:
 
     LoggerAdminPrx& operator=(const LoggerAdminPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     LoggerAdminPrx& operator=(LoggerAdminPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -348,7 +360,7 @@ struct LogMessage
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Ice::LogMessageType&, const ::std::int64_t&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Ice::LogMessageType&, const ::std::int64_t&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(type, timestamp, traceCategory, message);
     }

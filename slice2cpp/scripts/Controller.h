@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Controller_h__
-#define __Controller_h__
+#ifndef Controller_h_
+#define Controller_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -127,13 +127,19 @@ public:
 
     TestCasePrx& operator=(const TestCasePrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     TestCasePrx& operator=(TestCasePrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -216,13 +222,19 @@ public:
 
     ControllerPrx& operator=(const ControllerPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     ControllerPrx& operator=(ControllerPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -294,13 +306,19 @@ public:
 
     ProcessPrx& operator=(const ProcessPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     ProcessPrx& operator=(ProcessPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -361,13 +379,19 @@ public:
 
     ProcessControllerPrx& operator=(const ProcessControllerPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     ProcessControllerPrx& operator=(ProcessControllerPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -422,13 +446,19 @@ public:
 
     BrowserProcessControllerPrx& operator=(const BrowserProcessControllerPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     BrowserProcessControllerPrx& operator=(BrowserProcessControllerPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -482,13 +512,19 @@ public:
 
     ProcessControllerRegistryPrx& operator=(const ProcessControllerRegistryPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     ProcessControllerRegistryPrx& operator=(ProcessControllerRegistryPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -541,7 +577,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::std::string>&, const ::std::optional<bool>&, const ::std::optional<bool>&, const ::std::optional<bool>&, const ::std::optional<bool>&, const ::std::optional<::Test::Common::StringSeq>&, const ::std::optional<::Test::Common::StringSeq>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::std::string>&, const ::std::optional<bool>&, const ::std::optional<bool>&, const ::std::optional<bool>&, const ::std::optional<bool>&, const ::std::optional<::Test::Common::StringSeq>&, const ::std::optional<::Test::Common::StringSeq>&> ice_tuple() const
     {
         return std::tie(protocol, mx, serialize, compress, ipv6, cprops, sprops);
     }
@@ -591,7 +627,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::Test::Common::StringSeq>&, const ::std::optional<::Test::Common::BoolSeq>&, const ::std::optional<::Test::Common::BoolSeq>&, const ::std::optional<::Test::Common::BoolSeq>&, const ::std::optional<::Test::Common::BoolSeq>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::Test::Common::StringSeq>&, const ::std::optional<::Test::Common::BoolSeq>&, const ::std::optional<::Test::Common::BoolSeq>&, const ::std::optional<::Test::Common::BoolSeq>&, const ::std::optional<::Test::Common::BoolSeq>&> ice_tuple() const
     {
         return std::tie(protocol, mx, serialize, compress, ipv6);
     }
@@ -632,7 +668,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(reason);
     }
@@ -670,7 +706,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(output);
     }
@@ -708,7 +744,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(reason);
     }

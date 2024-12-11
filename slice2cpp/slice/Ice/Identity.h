@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Identity_h__
-#define __Identity_h__
+#ifndef Identity_h_
+#define Identity_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Config.h>
@@ -55,7 +55,7 @@ struct Identity
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(name, category);
     }

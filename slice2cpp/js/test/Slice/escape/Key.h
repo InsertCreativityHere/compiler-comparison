@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Key_h__
-#define __Key_h__
+#ifndef Key_h_
+#define Key_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -106,13 +106,19 @@ public:
 
     casePrx& operator=(const casePrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     casePrx& operator=(casePrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -162,13 +168,19 @@ public:
 
     typeofPrx& operator=(const typeofPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     typeofPrx& operator=(typeofPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -212,13 +224,19 @@ public:
 
     explicitPrx& operator=(const explicitPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     explicitPrx& operator=(explicitPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -305,13 +323,19 @@ public:
 
     optionalParamsPrx& operator=(const optionalParamsPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     optionalParamsPrx& operator=(optionalParamsPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -361,13 +385,19 @@ public:
 
     implicitPrx& operator=(const implicitPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     implicitPrx& operator=(implicitPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -420,13 +450,19 @@ public:
 
     TestPrx& operator=(const TestPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     TestPrx& operator=(TestPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -483,13 +519,19 @@ public:
 
     TestPrx& operator=(const TestPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     TestPrx& operator=(TestPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -521,7 +563,7 @@ struct _cpp_break
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(_cpp_while, clone, equals, hashCode, constructor);
     }
@@ -553,7 +595,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::optional<::await::casePrx>&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::optional<::await::casePrx>&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(_cpp_if, _cpp_else, _cpp_export, clone, equals, hashCode, constructor);
     }
@@ -604,7 +646,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::await::_cpp_break>&, const ::std::optional<::await::var>&, const ::std::optional<::await::explicitPrx>&, const ::std::optional<::await::_cpp_while>&, const ::std::optional<::std::string>&, const ::std::optional<::await::explicitPrx>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::await::_cpp_break>&, const ::std::optional<::await::var>&, const ::std::optional<::await::explicitPrx>&, const ::std::optional<::await::_cpp_while>&, const ::std::optional<::std::string>&, const ::std::optional<::await::explicitPrx>&> ice_tuple() const
     {
         return std::tie(_cpp_for, _cpp_goto, _cpp_if, internal, debugger, null);
     }
@@ -646,7 +688,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_for);
     }
@@ -686,7 +728,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_for, _cpp_goto, _cpp_if);
     }
@@ -739,7 +781,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(Data, HelpLink, InnerException, Message, Source, StackTrace, TargetSite, HResult, Equals, GetBaseException, GetHashCode, GetObjectData, GetType, ReferenceEquals, ToString);
     }

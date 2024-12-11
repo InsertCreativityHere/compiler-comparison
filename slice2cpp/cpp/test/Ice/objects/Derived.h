@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Derived_h__
-#define __Derived_h__
+#ifndef Derived_h_
+#define Derived_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -58,7 +58,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::S&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::S&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(theS, str, b);
     }

@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Session_h__
-#define __Session_h__
+#ifndef Session_h_
+#define Session_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -84,13 +84,19 @@ public:
 
     SessionPrx& operator=(const SessionPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     SessionPrx& operator=(SessionPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Context_h__
-#define __Context_h__
+#ifndef Context_h_
+#define Context_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Config.h>

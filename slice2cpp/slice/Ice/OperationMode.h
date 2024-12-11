@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __OperationMode_h__
-#define __OperationMode_h__
+#ifndef OperationMode_h_
+#define OperationMode_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Config.h>

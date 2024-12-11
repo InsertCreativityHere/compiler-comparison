@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __SSLInfo_h__
-#define __SSLInfo_h__
+#ifndef SSLInfo_h_
+#define SSLInfo_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -63,7 +63,7 @@ struct SSLInfo
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
     {
         return std::tie(remoteHost, remotePort, localHost, localPort, cipher, certs);
     }

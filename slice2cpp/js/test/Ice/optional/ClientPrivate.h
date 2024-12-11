@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __ClientPrivate_h__
-#define __ClientPrivate_h__
+#ifndef ClientPrivate_h_
+#define ClientPrivate_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -79,13 +79,19 @@ public:
 
     Initial2Prx& operator=(const Initial2Prx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     Initial2Prx& operator=(Initial2Prx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

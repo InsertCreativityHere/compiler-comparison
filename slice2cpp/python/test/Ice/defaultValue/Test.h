@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -143,7 +143,7 @@ struct Struct1
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -174,7 +174,7 @@ struct Struct2
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -215,7 +215,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -276,7 +276,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
     }
@@ -333,7 +333,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
@@ -392,7 +392,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
     }
@@ -424,7 +424,7 @@ struct InnerStruct
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(a);
     }
@@ -448,7 +448,7 @@ struct StructNoDefaults
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::IntSeq&, const ::Test::IntStringDict&, const ::Test::InnerStruct&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::IntSeq&, const ::Test::IntStringDict&, const ::Test::InnerStruct&> ice_tuple() const
     {
         return std::tie(bo, b, s, i, l, f, d, str, c1, bs, iseq, dict, st);
     }
@@ -473,7 +473,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
     {
         return std::tie(str, c1, bs);
     }
@@ -515,7 +515,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
     {
         return std::tie(str, c1, bs, st, dict);
     }
@@ -559,7 +559,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
     {
         return std::tie(str, c1, bs);
     }
@@ -603,7 +603,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
     {
         return std::tie(str, c1, bs, st, dict);
     }

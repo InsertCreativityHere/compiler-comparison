@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __IceDiscovery_h__
-#define __IceDiscovery_h__
+#ifndef IceDiscovery_h_
+#define IceDiscovery_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -122,13 +122,19 @@ public:
 
     LookupReplyPrx& operator=(const LookupReplyPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     LookupReplyPrx& operator=(LookupReplyPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -242,13 +248,19 @@ public:
 
     LookupPrx& operator=(const LookupPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     LookupPrx& operator=(LookupPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

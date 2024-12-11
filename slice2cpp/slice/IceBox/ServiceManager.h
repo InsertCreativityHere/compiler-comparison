@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __ServiceManager_h__
-#define __ServiceManager_h__
+#ifndef ServiceManager_h_
+#define ServiceManager_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -120,13 +120,19 @@ public:
 
     ServiceObserverPrx& operator=(const ServiceObserverPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     ServiceObserverPrx& operator=(ServiceObserverPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -268,13 +274,19 @@ public:
 
     ServiceManagerPrx& operator=(const ServiceManagerPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     ServiceManagerPrx& operator=(ServiceManagerPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

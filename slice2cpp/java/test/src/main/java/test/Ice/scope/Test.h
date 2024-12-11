@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -260,13 +260,19 @@ public:
 
     IPrx& operator=(const IPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     IPrx& operator=(IPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -388,13 +394,19 @@ public:
 
     IPrx& operator=(const IPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     IPrx& operator=(IPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -512,13 +524,19 @@ public:
 
     IPrx& operator=(const IPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     IPrx& operator=(IPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -647,13 +665,19 @@ public:
 
     IPrx& operator=(const IPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     IPrx& operator=(IPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -685,7 +709,7 @@ struct S
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(v);
     }
@@ -711,7 +735,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::S&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::S&> ice_tuple() const
     {
         return std::tie(s);
     }
@@ -737,7 +761,7 @@ struct S1
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(s);
     }
@@ -763,7 +787,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(s);
     }
@@ -791,7 +815,7 @@ struct S2
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::E1&, const ::Test::S1&, const ::Test::C1Ptr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::E1&, const ::Test::S1&, const ::Test::C1Ptr&> ice_tuple() const
     {
         return std::tie(E1, S1, C1);
     }
@@ -819,7 +843,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::E1&, const ::Test::S1&, const ::Test::C1Ptr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::E1&, const ::Test::S1&, const ::Test::C1Ptr&> ice_tuple() const
     {
         return std::tie(E1, S1, C1);
     }
@@ -850,7 +874,7 @@ struct S
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(v);
     }
@@ -865,7 +889,7 @@ struct S
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(v);
     }
@@ -891,7 +915,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::Inner::Inner2::S&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::Inner::Inner2::S&> ice_tuple() const
     {
         return std::tie(s);
     }
@@ -940,7 +964,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::Inner::S&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::Inner::S&> ice_tuple() const
     {
         return std::tie(s);
     }

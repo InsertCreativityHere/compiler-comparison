@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Descriptor_h__
-#define __Descriptor_h__
+#ifndef Descriptor_h_
+#define Descriptor_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -154,7 +154,7 @@ struct PropertyDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(name, value);
     }
@@ -170,7 +170,7 @@ struct PropertySetDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Ice::StringSeq&, const ::IceGrid::PropertyDescriptorSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Ice::StringSeq&, const ::IceGrid::PropertyDescriptorSeq&> ice_tuple() const
     {
         return std::tie(references, properties);
     }
@@ -189,7 +189,7 @@ struct ObjectDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Ice::Identity&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Ice::Identity&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(id, type, proxyOptions);
     }
@@ -222,7 +222,7 @@ struct AdapterDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const bool&, const ::IceGrid::ObjectDescriptorSeq&, const ::IceGrid::ObjectDescriptorSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const bool&, const ::IceGrid::ObjectDescriptorSeq&, const ::IceGrid::ObjectDescriptorSeq&> ice_tuple() const
     {
         return std::tie(name, description, id, replicaGroupId, priority, registerProcess, serverLifetime, objects, allocatables);
     }
@@ -256,7 +256,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&> ice_tuple() const
     {
         return std::tie(adapters, propertySet, logs, description);
     }
@@ -295,7 +295,7 @@ struct DistributionDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
     {
         return std::tie(icepatch, directories);
     }
@@ -352,7 +352,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::DistributionDescriptor&, const bool&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::DistributionDescriptor&, const bool&, const ::std::string&> ice_tuple() const
     {
         return std::tie(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user);
     }
@@ -428,7 +428,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(adapters, propertySet, logs, description, name, entry);
     }
@@ -466,7 +466,7 @@ struct ServerInstanceDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::PropertySetDescriptor&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::PropertySetDescriptor&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
     {
         return std::tie(_cpp_template, parameterValues, propertySet, servicePropertySets);
     }
@@ -484,7 +484,7 @@ struct TemplateDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::IceGrid::CommunicatorDescriptorPtr&, const ::Ice::StringSeq&, const ::IceGrid::StringStringDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::IceGrid::CommunicatorDescriptorPtr&, const ::Ice::StringSeq&, const ::IceGrid::StringStringDict&> ice_tuple() const
     {
         return std::tie(descriptor, parameters, parameterDefaults);
     }
@@ -504,7 +504,7 @@ struct ServiceInstanceDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::ServiceDescriptorPtr&, const ::IceGrid::PropertySetDescriptor&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::ServiceDescriptorPtr&, const ::IceGrid::PropertySetDescriptor&> ice_tuple() const
     {
         return std::tie(_cpp_template, parameterValues, descriptor, propertySet);
     }
@@ -550,7 +550,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::DistributionDescriptor&, const bool&, const ::std::string&, const ::IceGrid::ServiceInstanceDescriptorSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::DistributionDescriptor&, const bool&, const ::std::string&, const ::IceGrid::ServiceInstanceDescriptorSeq&> ice_tuple() const
     {
         return std::tie(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user, services);
     }
@@ -589,7 +589,7 @@ struct NodeDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::IceGrid::StringStringDict&, const ::IceGrid::ServerInstanceDescriptorSeq&, const ::IceGrid::ServerDescriptorSeq&, const ::std::string&, const ::std::string&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::IceGrid::StringStringDict&, const ::IceGrid::ServerInstanceDescriptorSeq&, const ::IceGrid::ServerDescriptorSeq&, const ::std::string&, const ::std::string&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
     {
         return std::tie(variables, serverInstances, servers, loadFactor, description, propertySets);
     }
@@ -617,7 +617,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(nReplicas);
     }
@@ -734,7 +734,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(nReplicas, loadSample);
     }
@@ -774,7 +774,7 @@ struct ReplicaGroupDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::IceGrid::LoadBalancingPolicyPtr&, const ::std::string&, const ::IceGrid::ObjectDescriptorSeq&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::IceGrid::LoadBalancingPolicyPtr&, const ::std::string&, const ::IceGrid::ObjectDescriptorSeq&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(id, loadBalancing, proxyOptions, objects, description, filter);
     }
@@ -804,7 +804,7 @@ struct ApplicationDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::ReplicaGroupDescriptorSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::IceGrid::TemplateDescriptorDict&, const ::IceGrid::NodeDescriptorDict&, const ::IceGrid::DistributionDescriptor&, const ::std::string&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::ReplicaGroupDescriptorSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::IceGrid::TemplateDescriptorDict&, const ::IceGrid::NodeDescriptorDict&, const ::IceGrid::DistributionDescriptor&, const ::std::string&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
     {
         return std::tie(name, variables, replicaGroups, serverTemplates, serviceTemplates, nodes, distrib, description, propertySets);
     }
@@ -832,7 +832,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(value);
     }
@@ -879,7 +879,7 @@ struct NodeUpdateDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::IceGrid::BoxedStringPtr&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ServerInstanceDescriptorSeq&, const ::IceGrid::ServerDescriptorSeq&, const ::Ice::StringSeq&, const ::IceGrid::BoxedStringPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::IceGrid::BoxedStringPtr&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ServerInstanceDescriptorSeq&, const ::IceGrid::ServerDescriptorSeq&, const ::Ice::StringSeq&, const ::IceGrid::BoxedStringPtr&> ice_tuple() const
     {
         return std::tie(name, description, variables, removeVariables, propertySets, removePropertySets, serverInstances, servers, removeServers, loadFactor);
     }
@@ -907,7 +907,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::IceGrid::DistributionDescriptor&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::IceGrid::DistributionDescriptor&> ice_tuple() const
     {
         return std::tie(value);
     }
@@ -964,7 +964,7 @@ struct ApplicationUpdateDescriptor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::IceGrid::BoxedStringPtr&, const ::IceGrid::BoxedDistributionDescriptorPtr&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ReplicaGroupDescriptorSeq&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::NodeUpdateDescriptorSeq&, const ::Ice::StringSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::IceGrid::BoxedStringPtr&, const ::IceGrid::BoxedDistributionDescriptorPtr&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ReplicaGroupDescriptorSeq&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::NodeUpdateDescriptorSeq&, const ::Ice::StringSeq&> ice_tuple() const
     {
         return std::tie(name, description, distrib, variables, removeVariables, propertySets, removePropertySets, replicaGroups, removeReplicaGroups, serverTemplates, removeServerTemplates, serviceTemplates, removeServiceTemplates, nodes, removeNodes);
     }

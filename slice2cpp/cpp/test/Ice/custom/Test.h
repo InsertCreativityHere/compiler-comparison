@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -200,13 +200,19 @@ public:
 
     DPrx& operator=(const DPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     DPrx& operator=(DPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -636,13 +642,19 @@ public:
 
     TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -670,7 +682,7 @@ struct Fixed
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int16_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int16_t&> ice_tuple() const
     {
         return std::tie(s);
     }
@@ -684,7 +696,7 @@ struct Variable
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::Test::BoolList&, const std::list<::std::string>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::BoolList&, const std::list<::std::string>&> ice_tuple() const
     {
         return std::tie(s, bl, ss);
     }
@@ -735,7 +747,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::IntStringDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::IntStringDict&> ice_tuple() const
     {
         return std::tie(isdict);
     }
@@ -767,7 +779,7 @@ struct BufferStruct
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::ByteBuffer&, const ::Test::BoolBuffer&, const ::Test::ShortBuffer&, const ::Test::IntBuffer&, const ::Test::LongBuffer&, const ::Test::FloatBuffer&, const ::Test::DoubleBuffer&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::ByteBuffer&, const ::Test::BoolBuffer&, const ::Test::ShortBuffer&, const ::Test::IntBuffer&, const ::Test::LongBuffer&, const ::Test::FloatBuffer&, const ::Test::DoubleBuffer&> ice_tuple() const
     {
         return std::tie(byteBuf, boolBuf, shortBuf, intBuf, longBuf, floatBuf, doubleBuf);
     }

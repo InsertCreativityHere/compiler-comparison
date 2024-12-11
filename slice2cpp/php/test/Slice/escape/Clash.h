@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Clash_h__
-#define __Clash_h__
+#ifndef Clash_h_
+#define Clash_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -193,13 +193,19 @@ public:
 
     IntfPrx& operator=(const IntfPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     IntfPrx& operator=(IntfPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -255,7 +261,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::Clash::IntfPrx>&, const ::std::string&, const ::std::int32_t&, const ::std::int16_t&, const ::std::string&, const ::std::int32_t&, const ::std::int16_t&, const ::std::optional<::std::int16_t>&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::Clash::IntfPrx>&, const ::std::string&, const ::std::int32_t&, const ::std::int16_t&, const ::std::string&, const ::std::int32_t&, const ::std::int16_t&, const ::std::optional<::std::int16_t>&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(s, context, current, response, upCast, typeId, del, cookie, ex, result, istr, ostr, inS, in, proxy);
     }
@@ -299,7 +305,7 @@ struct St
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(v, istr, ostr, rhs, other);
     }
@@ -323,7 +329,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int16_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int16_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(istr, ostr);
     }

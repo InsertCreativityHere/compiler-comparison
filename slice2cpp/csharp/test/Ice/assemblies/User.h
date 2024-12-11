@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __User_h__
-#define __User_h__
+#ifndef User_h_
+#define User_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -71,13 +71,19 @@ public:
 
     RegistryPrx& operator=(const RegistryPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     RegistryPrx& operator=(RegistryPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

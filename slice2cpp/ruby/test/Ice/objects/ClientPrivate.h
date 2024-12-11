@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __ClientPrivate_h__
-#define __ClientPrivate_h__
+#ifndef ClientPrivate_h_
+#define ClientPrivate_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -87,13 +87,19 @@ public:
 
     UnexpectedObjectExceptionTestPrx& operator=(const UnexpectedObjectExceptionTestPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     UnexpectedObjectExceptionTestPrx& operator=(UnexpectedObjectExceptionTestPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -185,7 +191,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
     {
         return std::tie(e);
     }
@@ -226,7 +232,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
     {
         return std::tie(e1, e2);
     }
@@ -264,7 +270,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
     {
         return std::tie(e);
     }
@@ -307,7 +313,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
     {
         return std::tie(e1, e2);
     }
@@ -339,7 +345,7 @@ struct SOneMember
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
     {
         return std::tie(e);
     }
@@ -352,7 +358,7 @@ struct STwoMembers
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
     {
         return std::tie(e1, e2);
     }

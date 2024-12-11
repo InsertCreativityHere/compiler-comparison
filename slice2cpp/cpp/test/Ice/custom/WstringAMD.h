@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __WstringAMD_h__
-#define __WstringAMD_h__
+#ifndef WstringAMD_h_
+#define WstringAMD_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -107,13 +107,19 @@ public:
 
     WstringClassPrx& operator=(const WstringClassPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     WstringClassPrx& operator=(WstringClassPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -190,13 +196,19 @@ public:
 
     WstringClassPrx& operator=(const WstringClassPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     WstringClassPrx& operator=(WstringClassPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -224,7 +236,7 @@ struct WstringStruct
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::wstring&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::wstring&> ice_tuple() const
     {
         return std::tie(s);
     }
@@ -247,7 +259,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::wstring&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::wstring&> ice_tuple() const
     {
         return std::tie(reason);
     }
@@ -286,7 +298,7 @@ struct WstringStruct
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::wstring&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::wstring&> ice_tuple() const
     {
         return std::tie(s);
     }
@@ -309,7 +321,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::wstring&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::wstring&> ice_tuple() const
     {
         return std::tie(reason);
     }

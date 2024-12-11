@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Metrics_h__
-#define __Metrics_h__
+#ifndef Metrics_h_
+#define Metrics_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -78,7 +78,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, published, forwarded);
     }
@@ -133,7 +133,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, queued, outstanding, delivered);
     }

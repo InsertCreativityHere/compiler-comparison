@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __PropertiesAdmin_h__
-#define __PropertiesAdmin_h__
+#ifndef PropertiesAdmin_h_
+#define PropertiesAdmin_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -147,13 +147,19 @@ public:
 
     PropertiesAdminPrx& operator=(const PropertiesAdminPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     PropertiesAdminPrx& operator=(PropertiesAdminPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

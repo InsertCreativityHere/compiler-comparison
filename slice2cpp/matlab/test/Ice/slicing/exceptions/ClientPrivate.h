@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __ClientPrivate_h__
-#define __ClientPrivate_h__
+#ifndef ClientPrivate_h_
+#define ClientPrivate_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -108,13 +108,19 @@ public:
 
     RelayPrx& operator=(const RelayPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     RelayPrx& operator=(RelayPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -406,13 +412,19 @@ public:
 
     TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -451,7 +463,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(b);
     }
@@ -490,7 +502,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, kd);
     }
@@ -529,7 +541,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, ki);
     }
@@ -568,7 +580,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, ki, kmd);
     }
@@ -607,7 +619,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, kp);
     }
@@ -646,7 +658,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(b, kp, kpd);
     }
@@ -687,7 +699,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(bc);
     }
@@ -728,7 +740,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(bc, pc);
     }
@@ -766,7 +778,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::Test::BaseClassPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::Test::BaseClassPtr&> ice_tuple() const
     {
         return std::tie(b, kp, kpd, p1);
     }
@@ -809,7 +821,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::Test::BaseClassPtr&, const ::Test::BaseClassPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::Test::BaseClassPtr&, const ::Test::BaseClassPtr&> ice_tuple() const
     {
         return std::tie(b, kp, kpd, p1, p2);
     }

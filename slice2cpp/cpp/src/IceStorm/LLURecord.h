@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __LLURecord_h__
-#define __LLURecord_h__
+#ifndef LLURecord_h_
+#define LLURecord_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -44,7 +44,7 @@ struct LogUpdate
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(generation, iteration);
     }

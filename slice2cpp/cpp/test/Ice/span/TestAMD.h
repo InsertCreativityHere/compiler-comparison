@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __TestAMD_h__
-#define __TestAMD_h__
+#ifndef TestAMD_h_
+#define TestAMD_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -139,13 +139,19 @@ public:
 
     TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

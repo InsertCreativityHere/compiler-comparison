@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __ClientPrivate_h__
-#define __ClientPrivate_h__
+#ifndef ClientPrivate_h_
+#define ClientPrivate_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -73,7 +73,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::Test::BPtr&, const ::std::string&, const ::Test::BPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::Test::BPtr&, const ::std::string&, const ::Test::BPtr&> ice_tuple() const
     {
         return std::tie(sb, pb, sd3, pd3);
     }
@@ -115,7 +115,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(pi, pu);
     }
@@ -156,7 +156,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs);
     }
@@ -197,7 +197,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs, pcd2);
     }
@@ -238,7 +238,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&, const ::std::int32_t&, const ::Ice::ValuePtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&, const ::std::int32_t&, const ::Ice::ValuePtr&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs, pcd2, pcd3);
     }
@@ -279,7 +279,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs);
     }

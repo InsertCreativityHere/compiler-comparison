@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Metrics_h__
-#define __Metrics_h__
+#ifndef Metrics_h_
+#define Metrics_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -272,13 +272,19 @@ public:
 
     MetricsAdminPrx& operator=(const MetricsAdminPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     MetricsAdminPrx& operator=(MetricsAdminPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -331,7 +337,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures);
     }
@@ -372,7 +378,7 @@ struct MetricsFailures
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::IceMX::StringIntDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::IceMX::StringIntDict&> ice_tuple() const
     {
         return std::tie(id, failures);
     }
@@ -428,7 +434,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, inUseForIO, inUseForUser, inUseForOther);
     }
@@ -486,7 +492,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, userException, size, replySize);
     }
@@ -543,7 +549,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, size, replySize);
     }
@@ -651,7 +657,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::IceMX::MetricsMap&, const ::IceMX::MetricsMap&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::IceMX::MetricsMap&, const ::IceMX::MetricsMap&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, retry, userException, remotes, collocated);
     }
@@ -710,7 +716,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(id, total, current, totalLifetime, failures, receivedBytes, sentBytes);
     }

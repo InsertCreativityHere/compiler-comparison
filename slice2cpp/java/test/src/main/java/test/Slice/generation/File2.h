@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __File2_h__
-#define __File2_h__
+#ifndef File2_h_
+#define File2_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -67,13 +67,19 @@ public:
 
     Interface2Prx& operator=(const Interface2Prx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     Interface2Prx& operator=(Interface2Prx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

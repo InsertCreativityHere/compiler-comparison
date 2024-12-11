@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __DerivedEx_h__
-#define __DerivedEx_h__
+#ifndef DerivedEx_h_
+#define DerivedEx_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>

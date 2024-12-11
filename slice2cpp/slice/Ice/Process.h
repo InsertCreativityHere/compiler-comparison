@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Process_h__
-#define __Process_h__
+#ifndef Process_h_
+#define Process_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -113,13 +113,19 @@ public:
 
     ProcessPrx& operator=(const ProcessPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     ProcessPrx& operator=(ProcessPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

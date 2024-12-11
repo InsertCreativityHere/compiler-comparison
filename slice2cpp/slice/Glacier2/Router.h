@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Router_h__
-#define __Router_h__
+#ifndef Router_h_
+#define Router_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -307,13 +307,19 @@ public:
 
     RouterPrx& operator=(const RouterPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     RouterPrx& operator=(RouterPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

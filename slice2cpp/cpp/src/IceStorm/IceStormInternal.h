@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __IceStormInternal_h__
-#define __IceStormInternal_h__
+#ifndef IceStormInternal_h_
+#define IceStormInternal_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -97,13 +97,19 @@ public:
 
     TopicLinkPrx& operator=(const TopicLinkPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     TopicLinkPrx& operator=(TopicLinkPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -198,13 +204,19 @@ public:
 
     TopicInternalPrx& operator=(const TopicInternalPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     TopicInternalPrx& operator=(TopicInternalPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -277,13 +289,19 @@ public:
 
     TopicManagerInternalPrx& operator=(const TopicManagerInternalPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     TopicManagerInternalPrx& operator=(TopicManagerInternalPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -323,7 +341,7 @@ struct EventData
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::Ice::OperationMode&, const ::Ice::ByteSeq&, const ::Ice::Context&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::Ice::OperationMode&, const ::Ice::ByteSeq&, const ::Ice::Context&> ice_tuple() const
     {
         return std::tie(op, mode, data, context);
     }

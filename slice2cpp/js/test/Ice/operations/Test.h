@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -1007,13 +1007,19 @@ public:
 
     MyClassPrx& operator=(const MyClassPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     MyClassPrx& operator=(MyClassPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -1090,13 +1096,19 @@ public:
 
     MyDerivedClassPrx& operator=(const MyDerivedClassPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     MyDerivedClassPrx& operator=(MyDerivedClassPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -1194,13 +1206,19 @@ public:
 
     EchoPrx& operator=(const EchoPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     EchoPrx& operator=(EchoPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -1249,13 +1267,19 @@ public:
 
     MyDerivedClassPrx& operator=(const MyDerivedClassPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     MyDerivedClassPrx& operator=(MyDerivedClassPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -1287,7 +1311,7 @@ struct AnotherStruct
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(s);
     }
@@ -1301,7 +1325,7 @@ struct Structure
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::Test::MyClassPrx>&, const ::Test::MyEnum&, const ::Test::AnotherStruct&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::Test::MyClassPrx>&, const ::Test::MyEnum&, const ::Test::AnotherStruct&> ice_tuple() const
     {
         return std::tie(p, e, s);
     }
@@ -1314,7 +1338,7 @@ struct MyStruct
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i, j);
     }
@@ -1328,7 +1352,7 @@ struct MyStruct1
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::optional<::Test::MyClassPrx>&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::optional<::Test::MyClassPrx>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(tesT, myClass, myStruct1);
     }
@@ -1356,7 +1380,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::optional<::Test::MyClassPrx>&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::optional<::Test::MyClassPrx>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(tesT, myClass, myClass1);
     }

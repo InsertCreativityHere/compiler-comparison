@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Event_h__
-#define __Event_h__
+#ifndef Event_h_
+#define Event_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -67,13 +67,19 @@ public:
 
     EventPrx& operator=(const EventPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     EventPrx& operator=(EventPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Sample_h__
-#define __Sample_h__
+#ifndef Sample_h_
+#define Sample_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>

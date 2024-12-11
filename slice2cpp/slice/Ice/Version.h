@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Version_h__
-#define __Version_h__
+#ifndef Version_h_
+#define Version_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Config.h>
@@ -46,7 +46,7 @@ struct ProtocolVersion
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::uint8_t&, const ::std::uint8_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::uint8_t&, const ::std::uint8_t&> ice_tuple() const
     {
         return std::tie(major, minor);
     }
@@ -60,7 +60,7 @@ struct EncodingVersion
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::uint8_t&, const ::std::uint8_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::uint8_t&, const ::std::uint8_t&> ice_tuple() const
     {
         return std::tie(major, minor);
     }

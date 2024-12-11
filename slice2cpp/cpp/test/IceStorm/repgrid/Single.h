@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Single_h__
-#define __Single_h__
+#ifndef Single_h_
+#define Single_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -67,13 +67,19 @@ public:
 
     SinglePrx& operator=(const SinglePrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     SinglePrx& operator=(SinglePrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

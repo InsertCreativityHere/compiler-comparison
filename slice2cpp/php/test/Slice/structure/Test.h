@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -63,7 +63,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -89,7 +89,7 @@ struct S1
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(name);
     }
@@ -113,7 +113,7 @@ struct S2
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::StringSeq&, const ::Test::StringDict&, const ::Test::S1&, const ::Test::CPtr&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::StringSeq&, const ::Test::StringDict&, const ::Test::S1&, const ::Test::CPtr&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, ss, sd, s, cls, prx);
     }

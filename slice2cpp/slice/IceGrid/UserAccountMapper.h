@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __UserAccountMapper_h__
-#define __UserAccountMapper_h__
+#ifndef UserAccountMapper_h_
+#define UserAccountMapper_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -102,13 +102,19 @@ public:
 
     UserAccountMapperPrx& operator=(const UserAccountMapperPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     UserAccountMapperPrx& operator=(UserAccountMapperPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

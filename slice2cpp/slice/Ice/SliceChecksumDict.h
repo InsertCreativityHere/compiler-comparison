@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __SliceChecksumDict_h__
-#define __SliceChecksumDict_h__
+#ifndef SliceChecksumDict_h_
+#define SliceChecksumDict_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>

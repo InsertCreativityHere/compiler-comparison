@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -92,13 +92,19 @@ public:
 
     BackendPrx& operator=(const BackendPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     BackendPrx& operator=(BackendPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -159,13 +165,19 @@ public:
 
     TestControllerPrx& operator=(const TestControllerPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     TestControllerPrx& operator=(TestControllerPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -220,13 +232,19 @@ public:
 
     TestSessionPrx& operator=(const TestSessionPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     TestSessionPrx& operator=(TestSessionPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -263,7 +281,7 @@ struct TestToken
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&, const ::std::string&, const ::Test::StateCode&, const ::std::int16_t&, const ::std::int16_t&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const ::std::string&, const ::Test::StateCode&, const ::std::int16_t&, const ::std::int16_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(expectedResult, description, code, config, caseIndex, testReference);
     }

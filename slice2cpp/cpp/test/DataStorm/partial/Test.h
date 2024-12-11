@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -42,7 +42,7 @@ struct Stock
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const float&, const float&, const float&> ice_tuple() const
+    [[nodiscard]] std::tuple<const float&, const float&, const float&> ice_tuple() const
     {
         return std::tie(price, lastBid, laskAsk);
     }

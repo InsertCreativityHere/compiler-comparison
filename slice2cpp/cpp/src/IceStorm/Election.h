@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Election_h__
-#define __Election_h__
+#ifndef Election_h_
+#define Election_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -247,13 +247,19 @@ public:
 
     ReplicaObserverPrx& operator=(const ReplicaObserverPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     ReplicaObserverPrx& operator=(ReplicaObserverPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -317,13 +323,19 @@ public:
 
     TopicManagerSyncPrx& operator=(const TopicManagerSyncPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     TopicManagerSyncPrx& operator=(TopicManagerSyncPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -589,13 +601,19 @@ public:
 
     NodePrx& operator=(const NodePrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     NodePrx& operator=(NodePrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -627,7 +645,7 @@ struct TopicContent
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Ice::Identity&, const ::IceStorm::SubscriberRecordSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Ice::Identity&, const ::IceStorm::SubscriberRecordSeq&> ice_tuple() const
     {
         return std::tie(id, records);
     }
@@ -652,7 +670,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(reason);
     }
@@ -684,7 +702,7 @@ struct NodeInfo
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::optional<::IceStormElection::NodePrx>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::optional<::IceStormElection::NodePrx>&> ice_tuple() const
     {
         return std::tie(id, n);
     }
@@ -700,7 +718,7 @@ struct GroupInfo
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::IceStormElection::LogUpdate&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::IceStormElection::LogUpdate&> ice_tuple() const
     {
         return std::tie(id, llu);
     }
@@ -725,7 +743,7 @@ struct QueryInfo
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, const ::IceStormElection::NodeState&, const ::IceStormElection::GroupInfoSeq&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, const ::IceStormElection::NodeState&, const ::IceStormElection::GroupInfoSeq&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(id, coord, group, replica, state, up, max);
     }

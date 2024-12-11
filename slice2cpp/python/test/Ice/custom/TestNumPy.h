@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __TestNumPy_h__
-#define __TestNumPy_h__
+#ifndef TestNumPy_h_
+#define TestNumPy_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -294,13 +294,19 @@ public:
 
     CustomPrx& operator=(const CustomPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     CustomPrx& operator=(CustomPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -353,7 +359,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::Test::NumPy::BoolSeq1>&, const ::std::optional<::Test::NumPy::ByteSeq1>&, const ::std::optional<::Test::NumPy::ShortSeq1>&, const ::std::optional<::Test::NumPy::IntSeq1>&, const ::std::optional<::Test::NumPy::LongSeq1>&, const ::std::optional<::Test::NumPy::FloatSeq1>&, const ::std::optional<::Test::NumPy::DoubleSeq1>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::Test::NumPy::BoolSeq1>&, const ::std::optional<::Test::NumPy::ByteSeq1>&, const ::std::optional<::Test::NumPy::ShortSeq1>&, const ::std::optional<::Test::NumPy::IntSeq1>&, const ::std::optional<::Test::NumPy::LongSeq1>&, const ::std::optional<::Test::NumPy::FloatSeq1>&, const ::std::optional<::Test::NumPy::DoubleSeq1>&> ice_tuple() const
     {
         return std::tie(boolSeq, byteSeq, shortSeq, intSeq, longSeq, floatSeq, doubleSeq);
     }

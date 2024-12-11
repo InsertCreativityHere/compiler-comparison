@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Internal_h__
-#define __Internal_h__
+#ifndef Internal_h_
+#define Internal_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -194,13 +194,19 @@ public:
 
     AdapterPrx& operator=(const AdapterPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     AdapterPrx& operator=(AdapterPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -283,13 +289,19 @@ public:
 
     FileReaderPrx& operator=(const FileReaderPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     FileReaderPrx& operator=(FileReaderPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -565,13 +577,19 @@ public:
 
     ServerPrx& operator=(const ServerPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     ServerPrx& operator=(ServerPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -680,13 +698,19 @@ public:
 
     ReplicaObserverPrx& operator=(const ReplicaObserverPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     ReplicaObserverPrx& operator=(ReplicaObserverPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -962,13 +986,19 @@ public:
 
     NodePrx& operator=(const NodePrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     NodePrx& operator=(NodePrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -1196,13 +1226,19 @@ public:
 
     NodeSessionPrx& operator=(const NodeSessionPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     NodeSessionPrx& operator=(NodeSessionPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -1246,13 +1282,19 @@ public:
 
     DatabaseObserverPrx& operator=(const DatabaseObserverPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     DatabaseObserverPrx& operator=(DatabaseObserverPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -1480,13 +1522,19 @@ public:
 
     ReplicaSessionPrx& operator=(const ReplicaSessionPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     ReplicaSessionPrx& operator=(ReplicaSessionPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -1740,13 +1788,19 @@ public:
 
     InternalRegistryPrx& operator=(const InternalRegistryPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     InternalRegistryPrx& operator=(InternalRegistryPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -1795,7 +1849,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::IceGrid::PropertyDescriptorSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::IceGrid::PropertyDescriptorSeq&> ice_tuple() const
     {
         return std::tie(name, properties);
     }
@@ -1841,7 +1895,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const bool&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const bool&> ice_tuple() const
     {
         return std::tie(id, serverLifetime);
     }
@@ -1920,7 +1974,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::IceGrid::InternalAdapterDescriptorSeq&, const ::IceGrid::InternalDbEnvDescriptorSeq&, const ::IceGrid::PropertyDescriptorSeqDict&, const ::std::optional<::Ice::StringSeq>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::IceGrid::InternalAdapterDescriptorSeq&, const ::IceGrid::InternalDbEnvDescriptorSeq&, const ::IceGrid::PropertyDescriptorSeqDict&, const ::std::optional<::Ice::StringSeq>&> ice_tuple() const
     {
         return std::tie(id, application, uuid, revision, sessionId, exe, pwd, user, activation, activationTimeout, deactivationTimeout, processRegistered, options, envs, logs, adapters, dbEnvs, properties, services);
     }
@@ -2012,7 +2066,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&> ice_tuple() const
     {
         return std::tie(activatable);
     }
@@ -2052,7 +2106,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(id);
     }
@@ -2147,7 +2201,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::optional<::std::string>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::optional<::std::string>&> ice_tuple() const
     {
         return std::tie(name, os, hostname, release, version, machine, nProcessors, dataDir, iceSoVersion);
     }
@@ -2209,7 +2263,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(name, hostname);
     }

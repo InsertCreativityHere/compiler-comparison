@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __PropertyDict_h__
-#define __PropertyDict_h__
+#ifndef PropertyDict_h_
+#define PropertyDict_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Config.h>

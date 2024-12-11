@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __LocalTest_h__
-#define __LocalTest_h__
+#ifndef LocalTest_h_
+#define LocalTest_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -117,7 +117,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i);
     }
@@ -143,7 +143,7 @@ struct S1
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::C1Ptr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::C1Ptr&> ice_tuple() const
     {
         return std::tie(c1);
     }
@@ -155,7 +155,7 @@ struct S2
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::S1&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::S1&> ice_tuple() const
     {
         return std::tie(s1);
     }
@@ -167,7 +167,7 @@ struct S3
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::C1Seq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::C1Seq&> ice_tuple() const
     {
         return std::tie(c1seq);
     }
@@ -179,7 +179,7 @@ struct S4
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::S1Seq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::S1Seq&> ice_tuple() const
     {
         return std::tie(s1seq);
     }
@@ -191,7 +191,7 @@ struct S5
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::C1Dict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::C1Dict&> ice_tuple() const
     {
         return std::tie(c1dict);
     }
@@ -203,7 +203,7 @@ struct S6
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::S1Dict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::S1Dict&> ice_tuple() const
     {
         return std::tie(s1dict);
     }
@@ -215,7 +215,7 @@ struct S7
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::C1SeqSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::C1SeqSeq&> ice_tuple() const
     {
         return std::tie(c1seqseq);
     }
@@ -227,7 +227,7 @@ struct S8
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::S1SeqSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::S1SeqSeq&> ice_tuple() const
     {
         return std::tie(s1seqseq);
     }
@@ -253,7 +253,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::S1&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::S1&> ice_tuple() const
     {
         return std::tie(s1);
     }
@@ -293,7 +293,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::C1Seq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::C1Seq&> ice_tuple() const
     {
         return std::tie(c1seq);
     }
@@ -333,7 +333,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::S1Seq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::S1Seq&> ice_tuple() const
     {
         return std::tie(s1seq);
     }
@@ -373,7 +373,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::C1Dict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::C1Dict&> ice_tuple() const
     {
         return std::tie(c1dict);
     }
@@ -413,7 +413,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::S1Dict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::S1Dict&> ice_tuple() const
     {
         return std::tie(s1dict);
     }
@@ -453,7 +453,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::C1SeqSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::C1SeqSeq&> ice_tuple() const
     {
         return std::tie(c1seqseq);
     }
@@ -493,7 +493,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::S1SeqSeq&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::S1SeqSeq&> ice_tuple() const
     {
         return std::tie(s1seqseq);
     }
@@ -535,7 +535,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::LocalTest::S1&, const ::LocalTest::C1Seq&, const ::LocalTest::S1Dict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::LocalTest::S1&, const ::LocalTest::C1Seq&, const ::LocalTest::S1Dict&> ice_tuple() const
     {
         return std::tie(s1, c1seq, s1dict);
     }
@@ -564,7 +564,7 @@ struct StructKey
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(i, j);
     }

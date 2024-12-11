@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -163,13 +163,19 @@ public:
 
     elseifPrx& operator=(const elseifPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     elseifPrx& operator=(elseifPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -205,7 +211,7 @@ struct _cpp_bitor
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_case, _cpp_continue, eq, ne);
     }
@@ -233,7 +239,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::classdef::_cpp_break::_cpp_bitor&, const bool&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::classdef::_cpp_break::_cpp_bitor&, const bool&> ice_tuple() const
     {
         return std::tie(_cpp_else, _cpp_for, int64);
     }
@@ -276,7 +282,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::classdef::_cpp_break::_cpp_bitor&, const bool&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::classdef::_cpp_break::_cpp_bitor&, const bool&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_else, _cpp_for, int64, _cpp_return);
     }
@@ -317,7 +323,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(_cpp_while, _cpp_delete);
     }
@@ -362,7 +368,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::classdef::_cpp_break::xorPtr&, const ::classdef::_cpp_break::parfor&, const ::classdef::_cpp_break::_cpp_switch&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::classdef::_cpp_break::xorPtr&, const ::classdef::_cpp_break::parfor&, const ::classdef::_cpp_break::_cpp_switch&> ice_tuple() const
     {
         return std::tie(_cpp_while, _cpp_delete, _cpp_if, _cpp_catch, spmd, otherwise);
     }
@@ -407,7 +413,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::_cpp_break::logicalPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::_cpp_break::logicalPtr&> ice_tuple() const
     {
         return std::tie(identifier, message, stack, cause, type, end);
     }
@@ -455,7 +461,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::_cpp_break::logicalPtr&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::_cpp_break::logicalPtr&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(identifier, message, stack, cause, type, end, enumeration);
     }

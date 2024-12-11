@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -426,13 +426,19 @@ public:
 
     InitialPrx& operator=(const InitialPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     InitialPrx& operator=(InitialPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -460,7 +466,7 @@ struct S
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(str);
     }
@@ -487,7 +493,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::S&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::S&, const ::std::string&> ice_tuple() const
     {
         return std::tie(theS, str);
     }
@@ -531,7 +537,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::BPtr&, const ::Test::CPtr&, const bool&, const bool&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::BPtr&, const ::Test::CPtr&, const bool&, const bool&> ice_tuple() const
     {
         return std::tie(theB, theC, preMarshalInvoked, postUnmarshalInvoked);
     }
@@ -575,7 +581,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::BPtr&, const ::Test::CPtr&, const bool&, const bool&, const ::Test::APtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::BPtr&, const ::Test::CPtr&, const bool&, const bool&, const ::Test::APtr&> ice_tuple() const
     {
         return std::tie(theB, theC, preMarshalInvoked, postUnmarshalInvoked, theA);
     }
@@ -617,7 +623,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::BPtr&, const bool&, const bool&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::BPtr&, const bool&, const bool&> ice_tuple() const
     {
         return std::tie(theB, preMarshalInvoked, postUnmarshalInvoked);
     }
@@ -663,7 +669,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::APtr&, const ::Test::BPtr&, const ::Test::CPtr&, const bool&, const bool&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::APtr&, const ::Test::BPtr&, const ::Test::CPtr&, const bool&, const bool&> ice_tuple() const
     {
         return std::tie(theA, theB, theC, preMarshalInvoked, postUnmarshalInvoked);
     }
@@ -708,7 +714,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(i, s);
     }
@@ -751,7 +757,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::EPtr&, const ::Test::EPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::EPtr&, const ::Test::EPtr&> ice_tuple() const
     {
         return std::tie(e1, e2);
     }
@@ -868,7 +874,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(name);
     }
@@ -909,7 +915,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::A1Ptr&, const ::Test::A1Ptr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::A1Ptr&, const ::Test::A1Ptr&> ice_tuple() const
     {
         return std::tie(a1, a2);
     }
@@ -952,7 +958,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::A1Ptr&, const ::Test::A1Ptr&, const ::Test::A1Ptr&, const ::Test::A1Ptr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::A1Ptr&, const ::Test::A1Ptr&, const ::Test::A1Ptr&, const ::Test::A1Ptr&> ice_tuple() const
     {
         return std::tie(a1, a2, a3, a4);
     }
@@ -991,7 +997,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::A1Ptr&, const ::Test::A1Ptr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::A1Ptr&, const ::Test::A1Ptr&> ice_tuple() const
     {
         return std::tie(a1, a2);
     }
@@ -1036,7 +1042,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::A1Ptr&, const ::Test::A1Ptr&, const ::Test::A1Ptr&, const ::Test::A1Ptr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::A1Ptr&, const ::Test::A1Ptr&, const ::Test::A1Ptr&, const ::Test::A1Ptr&> ice_tuple() const
     {
         return std::tie(a1, a2, a3, a4);
     }
@@ -1078,7 +1084,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::RecursivePtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::RecursivePtr&> ice_tuple() const
     {
         return std::tie(v);
     }
@@ -1118,7 +1124,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Ice::ValuePtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Ice::ValuePtr&> ice_tuple() const
     {
         return std::tie(value);
     }
@@ -1158,7 +1164,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(data);
     }
@@ -1185,7 +1191,7 @@ struct StructKey
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&> ice_tuple() const
     {
         return std::tie(i, s);
     }
@@ -1211,7 +1217,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::LMap&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::LMap&> ice_tuple() const
     {
         return std::tie(v);
     }
@@ -1252,7 +1258,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::F1Ptr&, const ::std::optional<::Test::F2Prx>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::F1Ptr&, const ::std::optional<::Test::F2Prx>&> ice_tuple() const
     {
         return std::tie(f1, f2);
     }

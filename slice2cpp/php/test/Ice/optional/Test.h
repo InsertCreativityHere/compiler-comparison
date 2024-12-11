@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Test_h__
-#define __Test_h__
+#ifndef Test_h_
+#define Test_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -158,13 +158,19 @@ public:
 
     MyInterfacePrx& operator=(const MyInterfacePrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     MyInterfacePrx& operator=(MyInterfacePrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -687,13 +693,19 @@ public:
 
     InitialPrx& operator=(const InitialPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     InitialPrx& operator=(InitialPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -735,7 +747,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::std::int32_t>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::std::int32_t>&> ice_tuple() const
     {
         return std::tie(a);
     }
@@ -761,7 +773,7 @@ struct SmallStruct
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::uint8_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::uint8_t&> ice_tuple() const
     {
         return std::tie(m);
     }
@@ -773,7 +785,7 @@ struct FixedStruct
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(m);
     }
@@ -785,7 +797,7 @@ struct VarStruct
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(m);
     }
@@ -837,7 +849,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::std::uint8_t>&, const ::std::optional<bool>&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int64_t>&, const ::std::optional<float>&, const ::std::optional<double>&, const ::std::optional<::std::string>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::std::optional<::Test::ByteSeq>&, const ::std::optional<::Test::StringSeq>&, const ::std::optional<::Test::IntIntDict>&, const ::std::optional<::Test::StringIntDict>&, const ::std::optional<::Test::FixedStruct>&, const ::std::optional<::Test::VarStruct>&, const ::std::optional<::Test::ShortSeq>&, const ::std::optional<::Test::MyEnumSeq>&, const ::std::optional<::Test::FixedStructSeq>&, const ::std::optional<::Test::VarStructSeq>&, const ::std::optional<::Test::MyInterfacePrxSeq>&, const ::std::optional<::Test::IntEnumDict>&, const ::std::optional<::Test::IntFixedStructDict>&, const ::std::optional<::Test::IntVarStructDict>&, const ::std::optional<::Test::IntMyInterfacePrxDict>&, const ::std::optional<::Test::BoolSeq>&, const ::std::optional<::Test::Serializable>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::std::uint8_t>&, const ::std::optional<bool>&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int64_t>&, const ::std::optional<float>&, const ::std::optional<double>&, const ::std::optional<::std::string>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::std::optional<::Test::ByteSeq>&, const ::std::optional<::Test::StringSeq>&, const ::std::optional<::Test::IntIntDict>&, const ::std::optional<::Test::StringIntDict>&, const ::std::optional<::Test::FixedStruct>&, const ::std::optional<::Test::VarStruct>&, const ::std::optional<::Test::ShortSeq>&, const ::std::optional<::Test::MyEnumSeq>&, const ::std::optional<::Test::FixedStructSeq>&, const ::std::optional<::Test::VarStructSeq>&, const ::std::optional<::Test::MyInterfacePrxSeq>&, const ::std::optional<::Test::IntEnumDict>&, const ::std::optional<::Test::IntFixedStructDict>&, const ::std::optional<::Test::IntVarStructDict>&, const ::std::optional<::Test::IntMyInterfacePrxDict>&, const ::std::optional<::Test::BoolSeq>&, const ::std::optional<::Test::Serializable>&> ice_tuple() const
     {
         return std::tie(a, b, c, d, e, f, g, h, i, j, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, mips, ied, ifsd, ivsd, imipd, bos, ser);
     }
@@ -906,7 +918,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&> ice_tuple() const
     {
         return std::tie(requiredA, ma, mb, mc);
     }
@@ -951,7 +963,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::int32_t&, const ::std::optional<::std::int32_t>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::int32_t&, const ::std::optional<::std::int32_t>&> ice_tuple() const
     {
         return std::tie(requiredA, ma, mb, mc, requiredB, md);
     }
@@ -994,7 +1006,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int32_t&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::int32_t&, const ::std::optional<::std::int32_t>&, const ::std::string&, const ::std::optional<::std::string>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int32_t>&, const ::std::int32_t&, const ::std::optional<::std::int32_t>&, const ::std::string&, const ::std::optional<::std::string>&> ice_tuple() const
     {
         return std::tie(requiredA, ma, mb, mc, requiredB, md, ss, ms);
     }
@@ -1036,7 +1048,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&> ice_tuple() const
     {
         return std::tie(a, s);
     }
@@ -1076,7 +1088,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&> ice_tuple() const
     {
         return std::tie(req, a, b);
     }
@@ -1119,7 +1131,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&, const ::std::string&, const ::std::optional<::std::string>&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&, const ::std::string&, const ::std::optional<::std::string>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(req, a, b, d1, ss, d2);
     }
@@ -1160,7 +1172,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&, const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(req, a, b, ss);
     }
@@ -1202,7 +1214,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::Test::SmallStructList>&, const ::std::optional<::Test::SmallStructList>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::Test::SmallStructList>&, const ::std::optional<::Test::SmallStructList>&> ice_tuple() const
     {
         return std::tie(l, lp);
     }
@@ -1245,7 +1257,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::FixedStruct&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::FixedStruct&> ice_tuple() const
     {
         return std::tie(fse);
     }
@@ -1286,7 +1298,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::Test::FixedStruct&, const ::std::optional<::Test::FixedStruct>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::FixedStruct&, const ::std::optional<::Test::FixedStruct>&> ice_tuple() const
     {
         return std::tie(fse, fsf);
     }
@@ -1312,7 +1324,7 @@ struct G1
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(a);
     }
@@ -1324,7 +1336,7 @@ struct G2
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::int64_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int64_t&> ice_tuple() const
     {
         return std::tie(a);
     }
@@ -1353,7 +1365,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::Test::G1>&, const ::Test::G2&, const ::std::optional<::Test::G2>&, const ::Test::G1&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::Test::G1>&, const ::Test::G2&, const ::std::optional<::Test::G2>&, const ::Test::G1&> ice_tuple() const
     {
         return std::tie(gg1Opt, gg2, gg2Opt, gg1);
     }

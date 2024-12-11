@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __DBTypes_h__
-#define __DBTypes_h__
+#ifndef DBTypes_h_
+#define DBTypes_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -51,7 +51,7 @@ struct AllData
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::IceStormElection::StringLogUpdateDict&, const ::IceStorm::SubscriberRecordDict&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::IceStormElection::StringLogUpdateDict&, const ::IceStorm::SubscriberRecordDict&> ice_tuple() const
     {
         return std::tie(llus, subscribers);
     }

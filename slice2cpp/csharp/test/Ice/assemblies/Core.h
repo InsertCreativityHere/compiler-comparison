@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Core_h__
-#define __Core_h__
+#ifndef Core_h_
+#define Core_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>

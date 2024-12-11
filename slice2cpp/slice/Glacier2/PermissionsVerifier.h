@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __PermissionsVerifier_h__
-#define __PermissionsVerifier_h__
+#ifndef PermissionsVerifier_h_
+#define PermissionsVerifier_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -102,13 +102,19 @@ public:
 
     PermissionsVerifierPrx& operator=(const PermissionsVerifierPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     PermissionsVerifierPrx& operator=(PermissionsVerifierPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -181,13 +187,19 @@ public:
 
     SSLPermissionsVerifierPrx& operator=(const SSLPermissionsVerifierPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     SSLPermissionsVerifierPrx& operator=(SSLPermissionsVerifierPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 
@@ -228,7 +240,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::string&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
         return std::tie(reason);
     }

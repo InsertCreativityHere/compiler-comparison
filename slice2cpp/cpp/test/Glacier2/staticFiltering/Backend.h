@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __Backend_h__
-#define __Backend_h__
+#ifndef Backend_h_
+#define Backend_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -67,13 +67,19 @@ public:
 
     BackendPrx& operator=(const BackendPrx& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(rhs);
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(rhs);
+        }
         return *this;
     }
 
     BackendPrx& operator=(BackendPrx&& rhs) noexcept
     {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        if (this != &rhs)
+        {
+            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        }
         return *this;
     }
 

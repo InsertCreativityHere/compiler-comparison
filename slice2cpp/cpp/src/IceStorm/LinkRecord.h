@@ -13,8 +13,8 @@
 // </auto-generated>
 //
 
-#ifndef __LinkRecord_h__
-#define __LinkRecord_h__
+#ifndef LinkRecord_h_
+#define LinkRecord_h_
 
 #include <Ice/PushDisableWarnings.h>
 #include <Ice/Ice.h>
@@ -48,7 +48,7 @@ struct LinkRecord
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    std::tuple<const ::std::optional<::IceStorm::TopicLinkPrx>&, const ::std::int32_t&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::IceStorm::TopicLinkPrx>&, const ::std::int32_t&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
     {
         return std::tie(obj, cost, theTopic);
     }
