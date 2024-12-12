@@ -40,7 +40,7 @@ class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::NoNamespace::C1Ptr getNoNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::NoNamespace::C1Ptr getNoNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::NoNamespace::C1Ptr> getNoNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -51,7 +51,7 @@ public:
     void _iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::NoNamespace::C1Ptr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::NoNamespace::C2Ptr getNoNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::NoNamespace::C2Ptr getNoNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::NoNamespace::C2Ptr> getNoNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -95,7 +95,7 @@ public:
     void _iceI_throwNoNamespaceNotify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::WithNamespace::C1Ptr getWithNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::WithNamespace::C1Ptr getWithNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::WithNamespace::C1Ptr> getWithNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -106,7 +106,7 @@ public:
     void _iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::WithNamespace::C1Ptr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::WithNamespace::C2Ptr getWithNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::WithNamespace::C2Ptr getWithNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::WithNamespace::C2Ptr> getWithNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -211,12 +211,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

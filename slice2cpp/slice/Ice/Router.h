@@ -76,7 +76,7 @@ public:
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     /// @param context The Context map to send with the invocation.
     /// @return The router's server proxy.
-    ::std::optional<::Ice::ObjectPrx> getServerProxy(const Context& context = noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> getServerProxy(const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     /// @param context The Context map to send with the invocation.
@@ -100,7 +100,7 @@ public:
     /// @param proxies The proxies to add. Adding a null proxy is an error.
     /// @param context The Context map to send with the invocation.
     /// @return Proxies discarded by the router. These proxies are all non-null.
-    ObjectProxySeq addProxies(const ObjectProxySeq& proxies, const Context& context = noExplicitContext) const;
+    ObjectProxySeq addProxies(const ObjectProxySeq& proxies, const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Add new proxy information to the router's routing table.
     /// @param proxies The proxies to add. Adding a null proxy is an error.
@@ -180,7 +180,7 @@ public:
     /// replicas. This proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The router proxy.
-    ::std::optional<RouterPrx> getRouter(const Context& context = noExplicitContext) const;
+    ::std::optional<RouterPrx> getRouter(const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
     /// replicas. This proxy is never null.
@@ -265,12 +265,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -292,7 +292,7 @@ public:
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     /// @param current The Current object for the invocation.
     /// @return The router's server proxy.
-    virtual ::std::optional<::Ice::ObjectPrx> getServerProxy(const Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<::Ice::ObjectPrx> getServerProxy(const Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getServerProxy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -325,12 +325,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

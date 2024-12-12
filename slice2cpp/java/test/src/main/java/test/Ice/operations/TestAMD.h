@@ -138,67 +138,67 @@ namespace Test
 
     class MyDerivedClassPrx;
 
-    const ::std::string s0 = "\\";
+    const ::std::string s0 = "\\"; // NOLINT:cert-err58-cpp
 
-    const ::std::string s1 = "A";
+    const ::std::string s1 = "A"; // NOLINT:cert-err58-cpp
 
-    const ::std::string s2 = "Ice";
+    const ::std::string s2 = "Ice"; // NOLINT:cert-err58-cpp
 
-    const ::std::string s3 = "A21";
+    const ::std::string s3 = "A21"; // NOLINT:cert-err58-cpp
 
-    const ::std::string s4 = "\\u0041 \\U00000041";
+    const ::std::string s4 = "\\u0041 \\U00000041"; // NOLINT:cert-err58-cpp
 
-    const ::std::string s5 = "\303\277";
+    const ::std::string s5 = "\303\277"; // NOLINT:cert-err58-cpp
 
-    const ::std::string s6 = "\317\277";
+    const ::std::string s6 = "\317\277"; // NOLINT:cert-err58-cpp
 
-    const ::std::string s7 = "\327\260";
+    const ::std::string s7 = "\327\260"; // NOLINT:cert-err58-cpp
 
-    const ::std::string s8 = "\360\220\200\200";
+    const ::std::string s8 = "\360\220\200\200"; // NOLINT:cert-err58-cpp
 
-    const ::std::string s9 = "\360\237\215\214";
+    const ::std::string s9 = "\360\237\215\214"; // NOLINT:cert-err58-cpp
 
-    const ::std::string s10 = "\340\266\247";
+    const ::std::string s10 = "\340\266\247"; // NOLINT:cert-err58-cpp
 
-    const ::std::string sw0 = "\\";
+    const ::std::string sw0 = "\\"; // NOLINT:cert-err58-cpp
 
-    const ::std::string sw1 = "A";
+    const ::std::string sw1 = "A"; // NOLINT:cert-err58-cpp
 
-    const ::std::string sw2 = "Ice";
+    const ::std::string sw2 = "Ice"; // NOLINT:cert-err58-cpp
 
-    const ::std::string sw3 = "A21";
+    const ::std::string sw3 = "A21"; // NOLINT:cert-err58-cpp
 
-    const ::std::string sw4 = "\\u0041 \\U00000041";
+    const ::std::string sw4 = "\\u0041 \\U00000041"; // NOLINT:cert-err58-cpp
 
-    const ::std::string sw5 = "\303\277";
+    const ::std::string sw5 = "\303\277"; // NOLINT:cert-err58-cpp
 
-    const ::std::string sw6 = "\317\277";
+    const ::std::string sw6 = "\317\277"; // NOLINT:cert-err58-cpp
 
-    const ::std::string sw7 = "\327\260";
+    const ::std::string sw7 = "\327\260"; // NOLINT:cert-err58-cpp
 
-    const ::std::string sw8 = "\360\220\200\200";
+    const ::std::string sw8 = "\360\220\200\200"; // NOLINT:cert-err58-cpp
 
-    const ::std::string sw9 = "\360\237\215\214";
+    const ::std::string sw9 = "\360\237\215\214"; // NOLINT:cert-err58-cpp
 
-    const ::std::string sw10 = "\340\266\247";
+    const ::std::string sw10 = "\340\266\247"; // NOLINT:cert-err58-cpp
 
-    const ::std::string ss0 = "'\"\?\\\a\b\f\n\r\t\v\006";
+    const ::std::string ss0 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT:cert-err58-cpp
 
-    const ::std::string ss1 = "'\"\?\\\a\b\f\n\r\t\v\006";
+    const ::std::string ss1 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT:cert-err58-cpp
 
-    const ::std::string ss2 = "'\"\?\\\a\b\f\n\r\t\v\006";
+    const ::std::string ss2 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT:cert-err58-cpp
 
-    const ::std::string ss3 = "\\\\U\\u\\";
+    const ::std::string ss3 = "\\\\U\\u\\"; // NOLINT:cert-err58-cpp
 
-    const ::std::string ss4 = "\\A\\";
+    const ::std::string ss4 = "\\A\\"; // NOLINT:cert-err58-cpp
 
-    const ::std::string ss5 = "\\u0041\\";
+    const ::std::string ss5 = "\\u0041\\"; // NOLINT:cert-err58-cpp
 
-    const ::std::string su0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
+    const ::std::string su0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT:cert-err58-cpp
 
-    const ::std::string su1 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
+    const ::std::string su1 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT:cert-err58-cpp
 
-    const ::std::string su2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
+    const ::std::string su2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT:cert-err58-cpp
 
 }
 
@@ -220,7 +220,7 @@ public:
     void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    bool supportsCompress(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool supportsCompress(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<bool> supportsCompressAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -704,7 +704,7 @@ public:
     void _iceI_opMyEnumMyEnumSD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MyEnumMyEnumSD, MyEnumMyEnumSD>>>&, const MyEnumMyEnumSD&, const MyEnumMyEnumSD&, const ::Ice::Context&) const;
     /// \endcond
 
-    IntS opIntS(const IntS& s, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    IntS opIntS(const IntS& s, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<IntS> opIntSAsync(const IntS& s, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -726,7 +726,7 @@ public:
     void _iceI_opByteSOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ByteS&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t opByteSOnewayCallCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t opByteSOnewayCallCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> opByteSOnewayCallCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -737,7 +737,7 @@ public:
     void _iceI_opByteSOnewayCallCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Ice::Context opContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::Context opContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Ice::Context> opContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -770,7 +770,7 @@ public:
     void _iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::uint8_t opByte1(::std::uint8_t opByte1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::uint8_t opByte1(::std::uint8_t opByte1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::uint8_t> opByte1Async(::std::uint8_t opByte1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -781,7 +781,7 @@ public:
     void _iceI_opByte1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::uint8_t>>&, ::std::uint8_t, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int16_t opShort1(::std::int16_t opShort1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int16_t opShort1(::std::int16_t opShort1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int16_t> opShort1Async(::std::int16_t opShort1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -792,7 +792,7 @@ public:
     void _iceI_opShort1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int16_t>>&, ::std::int16_t, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t opInt1(::std::int32_t opInt1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t opInt1(::std::int32_t opInt1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> opInt1Async(::std::int32_t opInt1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -803,7 +803,7 @@ public:
     void _iceI_opInt1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int64_t opLong1(::std::int64_t opLong1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int64_t opLong1(::std::int64_t opLong1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int64_t> opLong1Async(::std::int64_t opLong1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -814,7 +814,7 @@ public:
     void _iceI_opLong1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int64_t>>&, ::std::int64_t, const ::Ice::Context&) const;
     /// \endcond
 
-    float opFloat1(float opFloat1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    float opFloat1(float opFloat1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<float> opFloat1Async(float opFloat1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -825,7 +825,7 @@ public:
     void _iceI_opFloat1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<float>>&, float, const ::Ice::Context&) const;
     /// \endcond
 
-    double opDouble1(double opDouble1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    double opDouble1(double opDouble1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<double> opDouble1Async(double opDouble1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -836,7 +836,7 @@ public:
     void _iceI_opDouble1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<double>>&, double, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string opString1(::std::string_view opString1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string opString1(::std::string_view opString1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> opString1Async(::std::string_view opString1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -847,7 +847,7 @@ public:
     void _iceI_opString1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    StringS opStringS1(const StringS& opStringS1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    StringS opStringS1(const StringS& opStringS1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<StringS> opStringS1Async(const StringS& opStringS1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -858,7 +858,7 @@ public:
     void _iceI_opStringS1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<StringS>>&, const StringS&, const ::Ice::Context&) const;
     /// \endcond
 
-    ByteBoolD opByteBoolD1(const ByteBoolD& opByteBoolD1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ByteBoolD opByteBoolD1(const ByteBoolD& opByteBoolD1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<ByteBoolD> opByteBoolD1Async(const ByteBoolD& opByteBoolD1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -869,7 +869,7 @@ public:
     void _iceI_opByteBoolD1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteBoolD>>&, const ByteBoolD&, const ::Ice::Context&) const;
     /// \endcond
 
-    StringS opStringS2(const StringS& stringS, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    StringS opStringS2(const StringS& stringS, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<StringS> opStringS2Async(const StringS& stringS, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -880,7 +880,7 @@ public:
     void _iceI_opStringS2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<StringS>>&, const StringS&, const ::Ice::Context&) const;
     /// \endcond
 
-    ByteBoolD opByteBoolD2(const ByteBoolD& byteBoolD, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ByteBoolD opByteBoolD2(const ByteBoolD& byteBoolD, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<ByteBoolD> opByteBoolD2Async(const ByteBoolD& byteBoolD, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -891,7 +891,7 @@ public:
     void _iceI_opByteBoolD2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteBoolD>>&, const ByteBoolD&, const ::Ice::Context&) const;
     /// \endcond
 
-    StringS opStringLiterals(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    StringS opStringLiterals(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<StringS> opStringLiteralsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -902,7 +902,7 @@ public:
     void _iceI_opStringLiterals(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<StringS>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    StringS opWStringLiterals(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    StringS opWStringLiterals(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<StringS> opWStringLiteralsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -913,7 +913,7 @@ public:
     void _iceI_opWStringLiterals(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<StringS>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    Structure opMStruct1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    Structure opMStruct1(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<Structure> opMStruct1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -935,7 +935,7 @@ public:
     void _iceI_opMStruct2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<Structure, Structure>>>&, const Structure&, const ::Ice::Context&) const;
     /// \endcond
 
-    StringS opMSeq1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    StringS opMSeq1(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<StringS> opMSeq1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -957,7 +957,7 @@ public:
     void _iceI_opMSeq2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<StringS, StringS>>>&, const StringS&, const ::Ice::Context&) const;
     /// \endcond
 
-    StringStringD opMDict1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    StringStringD opMDict1(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<StringStringD> opMDict1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -1041,7 +1041,7 @@ public:
     void _iceI_opDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    MyClass1Ptr opMyClass1(const MyClass1Ptr& opMyClass1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    MyClass1Ptr opMyClass1(const MyClass1Ptr& opMyClass1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<MyClass1Ptr> opMyClass1Async(const MyClass1Ptr& opMyClass1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -1052,7 +1052,7 @@ public:
     void _iceI_opMyClass1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass1Ptr>>&, const MyClass1Ptr&, const ::Ice::Context&) const;
     /// \endcond
 
-    MyStruct1 opMyStruct1(const MyStruct1& opMyStruct1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    MyStruct1 opMyStruct1(const MyStruct1& opMyStruct1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<MyStruct1> opMyStruct1Async(const MyStruct1& opMyStruct1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -1195,7 +1195,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1206,7 +1206,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    MyClass1Ptr ice_clone() const { return ::std::static_pointer_cast<MyClass1>(_iceCloneImpl()); }
+    [[nodiscard]] MyClass1Ptr ice_clone() const { return ::std::static_pointer_cast<MyClass1>(_iceCloneImpl()); }
 
     ::std::string tesT;
     ::std::optional<::Test::MyClassPrx> myClass;
@@ -1215,7 +1215,7 @@ public:
 protected:
     MyClass1(const MyClass1&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1242,12 +1242,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1673,12 +1673,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

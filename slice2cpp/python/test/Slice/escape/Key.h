@@ -249,7 +249,7 @@ class printPrx : public ::Ice::Proxy<printPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    assert raise(const _cpp_continue& _cpp_else, const forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    assert raise(const _cpp_continue& _cpp_else, const forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<assert> raiseAsync(const _cpp_continue& _cpp_else, const forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -342,7 +342,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -353,7 +353,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    forPtr ice_clone() const { return ::std::static_pointer_cast<_cpp_for>(_iceCloneImpl()); }
+    [[nodiscard]] forPtr ice_clone() const { return ::std::static_pointer_cast<_cpp_for>(_iceCloneImpl()); }
 
     ::std::int32_t lambda;
     ::std::optional<::_cpp_and::execPrx> from;
@@ -362,7 +362,7 @@ public:
 protected:
     _cpp_for(const _cpp_for&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -394,7 +394,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -434,7 +434,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -468,12 +468,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -500,12 +500,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -533,12 +533,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -560,12 +560,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

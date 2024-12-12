@@ -135,7 +135,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(LIBRARY_TEST_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(LIBRARY_TEST_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(LIBRARY_TEST_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(LIBRARY_TEST_API) void ice_throw() const override;
 
@@ -161,12 +161,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

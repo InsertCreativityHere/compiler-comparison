@@ -196,7 +196,7 @@ public:
     /// Returns a sequence of strings describing the constraints in this set.
     /// @param context The Context map to send with the invocation.
     /// @return The sequence of strings for this set.
-    ::Ice::StringSeq get(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::StringSeq get(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Returns a sequence of strings describing the constraints in this set.
     /// @param context The Context map to send with the invocation.
@@ -329,7 +329,7 @@ public:
     /// Returns a sequence of identities describing the constraints in this set.
     /// @param context The Context map to send with the invocation.
     /// @return The sequence of Ice identities for this set.
-    ::Ice::IdentitySeq get(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::IdentitySeq get(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Returns a sequence of identities describing the constraints in this set.
     /// @param context The Context map to send with the invocation.
@@ -405,7 +405,7 @@ public:
     /// Access the object that manages the allowable categories for object identities for this session.
     /// @param context The Context map to send with the invocation.
     /// @return A StringSet object. The returned proxy is never null.
-    ::std::optional<StringSetPrx> categories(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<StringSetPrx> categories(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Access the object that manages the allowable categories for object identities for this session.
     /// @param context The Context map to send with the invocation.
@@ -428,7 +428,7 @@ public:
     /// Access the object that manages the allowable adapter identities for objects for this session.
     /// @param context The Context map to send with the invocation.
     /// @return A StringSet object. The returned proxy is never null.
-    ::std::optional<StringSetPrx> adapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<StringSetPrx> adapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Access the object that manages the allowable adapter identities for objects for this session.
     /// @param context The Context map to send with the invocation.
@@ -451,7 +451,7 @@ public:
     /// Access the object that manages the allowable object identities for this session.
     /// @param context The Context map to send with the invocation.
     /// @return An IdentitySet object. The returned proxy is never null.
-    ::std::optional<IdentitySetPrx> identities(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<IdentitySetPrx> identities(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Access the object that manages the allowable object identities for this session.
     /// @param context The Context map to send with the invocation.
@@ -474,7 +474,7 @@ public:
     /// Get the session timeout.
     /// @param context The Context map to send with the invocation.
     /// @return The timeout.
-    ::std::int32_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the session timeout.
     /// @param context The Context map to send with the invocation.
@@ -581,7 +581,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to the newly created session.
     /// @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
-    ::std::optional<SessionPrx> create(::std::string_view userId, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<SessionPrx> create(::std::string_view userId, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Create a new session. The implementation must return a non-null proxy or raise
     /// {@link CannotCreateSessionException} if the session cannot be created.
@@ -671,7 +671,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to the newly created session.
     /// @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
-    ::std::optional<SessionPrx> create(const SSLInfo& info, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<SessionPrx> create(const SSLInfo& info, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Create a new session.
     /// @param info The SSL info.
@@ -775,7 +775,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(GLACIER2_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(GLACIER2_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(GLACIER2_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(GLACIER2_API) void ice_throw() const override;
 
@@ -805,12 +805,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -843,12 +843,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -898,12 +898,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -953,12 +953,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1025,12 +1025,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1070,12 +1070,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

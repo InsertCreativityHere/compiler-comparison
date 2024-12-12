@@ -56,7 +56,7 @@ public:
     /// are not set, the returned category is an empty string.
     /// @param context The Context map to send with the invocation.
     /// @return The category.
-    ::std::string getCategoryForClient(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getCategoryForClient(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// This category must be used in the identities of all of the client's callback objects. This is necessary in
     /// order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
@@ -96,7 +96,7 @@ public:
     /// @see Session
     /// @see SessionManager
     /// @see PermissionsVerifier
-    ::std::optional<SessionPrx> createSession(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<SessionPrx> createSession(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
     /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
@@ -151,7 +151,7 @@ public:
     /// @see Session
     /// @see SessionManager
     /// @see PermissionsVerifier
-    ::std::optional<SessionPrx> createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<SessionPrx> createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
     /// have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
@@ -241,7 +241,7 @@ public:
     /// Get the idle timeout used by the server-side of the connection.
     /// @param context The Context map to send with the invocation.
     /// @return The idle timeout (in seconds).
-    ::std::int64_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int64_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the idle timeout used by the server-side of the connection.
     /// @param context The Context map to send with the invocation.
@@ -264,7 +264,7 @@ public:
     /// Get the idle timeout used by the server-side of the connection.
     /// @param context The Context map to send with the invocation.
     /// @return The idle timeout (in seconds).
-    ::std::int32_t getACMTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getACMTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the idle timeout used by the server-side of the connection.
     /// @param context The Context map to send with the invocation.
@@ -355,7 +355,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(GLACIER2_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(GLACIER2_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(GLACIER2_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(GLACIER2_API) void ice_throw() const override;
 
@@ -380,12 +380,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -396,7 +396,7 @@ public:
     /// are not set, the returned category is an empty string.
     /// @param current The Current object for the invocation.
     /// @return The category.
-    virtual ::std::string getCategoryForClient(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::string getCategoryForClient(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getCategoryForClient(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -464,7 +464,7 @@ public:
     /// Get the idle timeout used by the server-side of the connection.
     /// @param current The Current object for the invocation.
     /// @return The idle timeout (in seconds).
-    virtual ::std::int64_t getSessionTimeout(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::int64_t getSessionTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getSessionTimeout(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -472,7 +472,7 @@ public:
     /// Get the idle timeout used by the server-side of the connection.
     /// @param current The Current object for the invocation.
     /// @return The idle timeout (in seconds).
-    virtual ::std::int32_t getACMTimeout(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::int32_t getACMTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getACMTimeout(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond

@@ -51,7 +51,7 @@ public:
     void _iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t getCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> getCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -73,7 +73,7 @@ public:
     void _iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -146,7 +146,7 @@ public:
     void _iceI_callCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t getCallbackCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getCallbackCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> getCallbackCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -179,7 +179,7 @@ public:
     void _iceI_waitCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t getConnectionCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getConnectionCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> getConnectionCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -190,7 +190,7 @@ public:
     void _iceI_getConnectionCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string getConnectionInfo(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getConnectionInfo(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> getConnectionInfoAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -223,7 +223,7 @@ public:
     void _iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> getDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -245,7 +245,7 @@ public:
     void _iceI_callDatagramCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t getCallbackDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getCallbackDatagramCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> getCallbackDatagramCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -328,12 +328,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -375,12 +375,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

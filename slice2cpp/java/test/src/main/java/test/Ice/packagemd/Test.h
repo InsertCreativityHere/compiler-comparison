@@ -40,7 +40,7 @@ class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::Test1::C1Ptr getTest1C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test1::C1Ptr getTest1C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Test1::C1Ptr> getTest1C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -51,7 +51,7 @@ public:
     void _iceI_getTest1C2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test1::C1Ptr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Test1::C2Ptr getTest1C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test1::C2Ptr getTest1C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Test1::C2Ptr> getTest1C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -95,7 +95,7 @@ public:
     void _iceI_throwTest1Notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Test2::C1Ptr getTest2C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test2::C1Ptr getTest2C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Test2::C1Ptr> getTest2C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -106,7 +106,7 @@ public:
     void _iceI_getTest2C2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test2::C1Ptr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Test2::C2Ptr getTest2C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test2::C2Ptr getTest2C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Test2::C2Ptr> getTest2C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -139,7 +139,7 @@ public:
     void _iceI_throwTest2E2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Test3::C1Ptr getTest3C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test3::C1Ptr getTest3C2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Test3::C1Ptr> getTest3C2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -150,7 +150,7 @@ public:
     void _iceI_getTest3C2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test3::C1Ptr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Test3::C2Ptr getTest3C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test3::C2Ptr getTest3C2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Test3::C2Ptr> getTest3C2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -255,12 +255,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

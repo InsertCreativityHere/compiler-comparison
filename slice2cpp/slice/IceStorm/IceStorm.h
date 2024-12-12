@@ -71,7 +71,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The name of the topic.
     /// @see TopicManager#create
-    ::std::string getName(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getName(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the name of this topic.
     /// @param context The Context map to send with the invocation.
@@ -98,7 +98,7 @@ public:
     /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to publish data on this topic.
-    ::std::optional<::Ice::ObjectPrx> getPublisher(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> getPublisher(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
     /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
@@ -127,7 +127,7 @@ public:
     /// never null.
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to publish data on this topic.
-    ::std::optional<::Ice::ObjectPrx> getNonReplicatedPublisher(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> getNonReplicatedPublisher(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
     /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
@@ -160,7 +160,7 @@ public:
     /// @throws IceStorm::BadQoS Raised if the requested quality of service is unavailable or invalid.
     /// @throws IceStorm::InvalidSubscriber Raised if the subscriber object is null.
     /// @see #unsubscribe
-    ::std::optional<::Ice::ObjectPrx> subscribeAndGetPublisher(const QoS& theQoS, const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> subscribeAndGetPublisher(const QoS& theQoS, const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
     /// @param theQoS The quality of service parameters for this subscription.
@@ -275,7 +275,7 @@ public:
     /// Retrieve information on the current links.
     /// @param context The Context map to send with the invocation.
     /// @return A sequence of LinkInfo objects.
-    LinkInfoSeq getLinkInfoSeq(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    LinkInfoSeq getLinkInfoSeq(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Retrieve information on the current links.
     /// @param context The Context map to send with the invocation.
@@ -298,7 +298,7 @@ public:
     /// Retrieve the list of subscribers for this topic.
     /// @param context The Context map to send with the invocation.
     /// @return The sequence of Ice identities for the subscriber objects.
-    ::Ice::IdentitySeq getSubscribers(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::IdentitySeq getSubscribers(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Retrieve the list of subscribers for this topic.
     /// @param context The Context map to send with the invocation.
@@ -398,7 +398,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to the topic instance. The returned proxy is never null.
     /// @throws IceStorm::TopicExists Raised if a topic with the same name already exists.
-    ::std::optional<TopicPrx> create(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<TopicPrx> create(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Create a new topic. The topic name must be unique.
     /// @param name The name of the topic.
@@ -425,7 +425,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to the topic instance. The returned proxy is never null.
     /// @throws IceStorm::NoSuchTopic Raised if the topic does not exist.
-    ::std::optional<TopicPrx> retrieve(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<TopicPrx> retrieve(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Retrieve a topic by name.
     /// @param name The name of the topic.
@@ -450,7 +450,7 @@ public:
     /// Retrieve all topics managed by this topic manager.
     /// @param context The Context map to send with the invocation.
     /// @return A dictionary of string, topic proxy pairs.
-    TopicDict retrieveAll(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    TopicDict retrieveAll(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Retrieve all topics managed by this topic manager.
     /// @param context The Context map to send with the invocation.
@@ -526,7 +526,7 @@ public:
     /// Get the topic manager proxy. The proxy might point to several replicas.
     /// @param context The Context map to send with the invocation.
     /// @return The topic manager proxy. The returned proxy is never null.
-    ::std::optional<TopicManagerPrx> getTopicManager(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<TopicManagerPrx> getTopicManager(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the topic manager proxy. The proxy might point to several replicas.
     /// @param context The Context map to send with the invocation.
@@ -644,7 +644,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICESTORM_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
 
@@ -685,7 +685,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICESTORM_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
 
@@ -706,7 +706,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICESTORM_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
 
@@ -744,7 +744,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICESTORM_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
 
@@ -785,7 +785,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICESTORM_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
 
@@ -826,7 +826,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICESTORM_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
 
@@ -867,7 +867,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICESTORM_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
 
@@ -903,12 +903,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -918,7 +918,7 @@ public:
     /// @param current The Current object for the invocation.
     /// @return The name of the topic.
     /// @see TopicManager#create
-    virtual ::std::string getName(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::string getName(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getName(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -928,7 +928,7 @@ public:
     /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
     /// @param current The Current object for the invocation.
     /// @return A proxy to publish data on this topic.
-    virtual ::std::optional<::Ice::ObjectPrx> getPublisher(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<::Ice::ObjectPrx> getPublisher(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getPublisher(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -938,7 +938,7 @@ public:
     /// never null.
     /// @param current The Current object for the invocation.
     /// @return A proxy to publish data on this topic.
-    virtual ::std::optional<::Ice::ObjectPrx> getNonReplicatedPublisher(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<::Ice::ObjectPrx> getNonReplicatedPublisher(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getNonReplicatedPublisher(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -989,7 +989,7 @@ public:
     /// Retrieve information on the current links.
     /// @param current The Current object for the invocation.
     /// @return A sequence of LinkInfo objects.
-    virtual LinkInfoSeq getLinkInfoSeq(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual LinkInfoSeq getLinkInfoSeq(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getLinkInfoSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -997,7 +997,7 @@ public:
     /// Retrieve the list of subscribers for this topic.
     /// @param current The Current object for the invocation.
     /// @return The sequence of Ice identities for the subscriber objects.
-    virtual ::Ice::IdentitySeq getSubscribers(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::Ice::IdentitySeq getSubscribers(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getSubscribers(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -1027,12 +1027,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1084,12 +1084,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

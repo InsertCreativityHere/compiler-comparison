@@ -74,7 +74,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICESTORM_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -85,7 +85,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    TopicMetricsPtr ice_clone() const { return ::std::static_pointer_cast<TopicMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] TopicMetricsPtr ice_clone() const { return ::std::static_pointer_cast<TopicMetrics>(_iceCloneImpl()); }
 
     /// Number of events published on the topic by publishers.
     ::std::int64_t published = INT64_C(0);
@@ -95,7 +95,7 @@ public:
 protected:
     TopicMetrics(const TopicMetrics&) = default;
 
-    ICE_MEMBER(ICESTORM_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICESTORM_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -129,7 +129,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICESTORM_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -140,7 +140,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    SubscriberMetricsPtr ice_clone() const { return ::std::static_pointer_cast<SubscriberMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] SubscriberMetricsPtr ice_clone() const { return ::std::static_pointer_cast<SubscriberMetrics>(_iceCloneImpl()); }
 
     /// Number of queued events.
     ::std::int32_t queued = 0;
@@ -152,7 +152,7 @@ public:
 protected:
     SubscriberMetrics(const SubscriberMetrics&) = default;
 
-    ICE_MEMBER(ICESTORM_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICESTORM_API) void _iceReadImpl(::Ice::InputStream*) override;

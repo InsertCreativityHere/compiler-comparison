@@ -50,7 +50,7 @@ public:
     void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Ice::Context getEndpointInfoAsContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::Context getEndpointInfoAsContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Ice::Context> getEndpointInfoAsContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -61,7 +61,7 @@ public:
     void _iceI_getEndpointInfoAsContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Context>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Ice::Context getConnectionInfoAsContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::Context getConnectionInfoAsContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Ice::Context> getConnectionInfoAsContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -133,12 +133,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

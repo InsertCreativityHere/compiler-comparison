@@ -285,7 +285,7 @@ public:
     void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    BPtr getB1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BPtr getB1(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<BPtr> getB1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -296,7 +296,7 @@ public:
     void _iceI_getB1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BPtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    BPtr getB2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BPtr getB2(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<BPtr> getB2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -307,7 +307,7 @@ public:
     void _iceI_getB2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BPtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    CPtr getC(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    CPtr getC(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<CPtr> getCAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -318,7 +318,7 @@ public:
     void _iceI_getC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<CPtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    DPtr getD(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    DPtr getD(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<DPtr> getDAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -329,7 +329,7 @@ public:
     void _iceI_getD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<DPtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    EPtr getE(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    EPtr getE(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<EPtr> getEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -340,7 +340,7 @@ public:
     void _iceI_getE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<EPtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    FPtr getF(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    FPtr getF(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<FPtr> getFAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -373,7 +373,7 @@ public:
     void _iceI_setCycle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const RecursivePtr&, const ::Ice::Context&) const;
     /// \endcond
 
-    bool acceptsClassCycles(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool acceptsClassCycles(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<bool> acceptsClassCyclesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -384,7 +384,7 @@ public:
     void _iceI_acceptsClassCycles(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    BPtr getMB(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BPtr getMB(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<BPtr> getMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -395,7 +395,7 @@ public:
     void _iceI_getMB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BPtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    BPtr getAMDMB(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BPtr getAMDMB(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<BPtr> getAMDMBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -417,7 +417,7 @@ public:
     void _iceI_getAll(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BPtr, BPtr, CPtr, DPtr>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    KPtr getK(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    KPtr getK(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<KPtr> getKAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -461,7 +461,7 @@ public:
     void _iceI_opValueMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ValueMap, ValueMap>>>&, const ValueMap&, const ::Ice::Context&) const;
     /// \endcond
 
-    D1Ptr getD1(const D1Ptr& d1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    D1Ptr getD1(const D1Ptr& d1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<D1Ptr> getD1Async(const D1Ptr& d1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -505,7 +505,7 @@ public:
     void _iceI_opBaseSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BaseSeq, BaseSeq>>>&, const BaseSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    CompactPtr getCompact(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    CompactPtr getCompact(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<CompactPtr> getCompactAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -516,7 +516,7 @@ public:
     void _iceI_getCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<CompactPtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Test::Inner::APtr getInnerA(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test::Inner::APtr getInnerA(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Test::Inner::APtr> getInnerAAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -527,7 +527,7 @@ public:
     void _iceI_getInnerA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Test::Inner::APtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Test::Inner::Sub::APtr getInnerSubA(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test::Inner::Sub::APtr getInnerSubA(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Test::Inner::Sub::APtr> getInnerSubAAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -593,7 +593,7 @@ public:
     void _iceI_opF2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<F2Prx>, ::std::optional<F2Prx>>>>&, const ::std::optional<F2Prx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    bool hasF3(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool hasF3(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<bool> hasF3Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -666,7 +666,7 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    BasePtr opDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BasePtr opDerived(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<BasePtr> opDerivedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -739,7 +739,7 @@ class UnexpectedObjectExceptionTestPrx : public ::Ice::Proxy<UnexpectedObjectExc
 {
 public:
 
-    EmptyPtr op(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    EmptyPtr op(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<EmptyPtr> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -831,7 +831,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -842,7 +842,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    BasePtr ice_clone() const { return ::std::static_pointer_cast<Base>(_iceCloneImpl()); }
+    [[nodiscard]] BasePtr ice_clone() const { return ::std::static_pointer_cast<Base>(_iceCloneImpl()); }
 
     ::Test::S theS;
     ::std::string str;
@@ -850,7 +850,7 @@ public:
 protected:
     Base(const Base&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -882,7 +882,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -913,7 +913,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -924,7 +924,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    APtr ice_clone() const { return ::std::static_pointer_cast<A>(_iceCloneImpl()); }
+    [[nodiscard]] APtr ice_clone() const { return ::std::static_pointer_cast<A>(_iceCloneImpl()); }
 
     ::Test::BPtr theB;
     ::Test::CPtr theC;
@@ -934,7 +934,7 @@ public:
 protected:
     A(const A&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -957,7 +957,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -968,14 +968,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    BPtr ice_clone() const { return ::std::static_pointer_cast<B>(_iceCloneImpl()); }
+    [[nodiscard]] BPtr ice_clone() const { return ::std::static_pointer_cast<B>(_iceCloneImpl()); }
 
     ::Test::APtr theA;
 
 protected:
     B(const B&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -999,7 +999,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1010,7 +1010,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
+    [[nodiscard]] CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
 
     ::Test::BPtr theB;
     bool preMarshalInvoked;
@@ -1019,7 +1019,7 @@ public:
 protected:
     C(const C&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1045,7 +1045,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1056,7 +1056,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    DPtr ice_clone() const { return ::std::static_pointer_cast<D>(_iceCloneImpl()); }
+    [[nodiscard]] DPtr ice_clone() const { return ::std::static_pointer_cast<D>(_iceCloneImpl()); }
 
     ::Test::APtr theA;
     ::Test::BPtr theB;
@@ -1067,7 +1067,7 @@ public:
 protected:
     D(const D&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1090,7 +1090,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1101,7 +1101,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    EPtr ice_clone() const { return ::std::static_pointer_cast<E>(_iceCloneImpl()); }
+    [[nodiscard]] EPtr ice_clone() const { return ::std::static_pointer_cast<E>(_iceCloneImpl()); }
 
 protected:
 
@@ -1110,7 +1110,7 @@ protected:
 
     E(const E&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1133,7 +1133,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1144,7 +1144,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    FPtr ice_clone() const { return ::std::static_pointer_cast<F>(_iceCloneImpl()); }
+    [[nodiscard]] FPtr ice_clone() const { return ::std::static_pointer_cast<F>(_iceCloneImpl()); }
 
 protected:
 
@@ -1157,7 +1157,7 @@ public:
 protected:
     F(const F&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1171,16 +1171,16 @@ public:using Base::Base;
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    GPtr ice_clone() const { return ::std::static_pointer_cast<G>(_iceCloneImpl()); }
+    [[nodiscard]] GPtr ice_clone() const { return ::std::static_pointer_cast<G>(_iceCloneImpl()); }
 
 protected:
     G(const G&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1196,16 +1196,16 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CompactPtr ice_clone() const { return ::std::static_pointer_cast<Compact>(_iceCloneImpl()); }
+    [[nodiscard]] CompactPtr ice_clone() const { return ::std::static_pointer_cast<Compact>(_iceCloneImpl()); }
 
 protected:
     Compact(const Compact&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1221,16 +1221,16 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CompactScopedPtr ice_clone() const { return ::std::static_pointer_cast<CompactScoped>(_iceCloneImpl()); }
+    [[nodiscard]] CompactScopedPtr ice_clone() const { return ::std::static_pointer_cast<CompactScoped>(_iceCloneImpl()); }
 
 protected:
     CompactScoped(const CompactScoped&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1244,16 +1244,16 @@ public:using Compact::Compact;
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CompactExtPtr ice_clone() const { return ::std::static_pointer_cast<CompactExt>(_iceCloneImpl()); }
+    [[nodiscard]] CompactExtPtr ice_clone() const { return ::std::static_pointer_cast<CompactExt>(_iceCloneImpl()); }
 
 protected:
     CompactExt(const CompactExt&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1278,7 +1278,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1289,14 +1289,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    APtr ice_clone() const { return ::std::static_pointer_cast<A>(_iceCloneImpl()); }
+    [[nodiscard]] APtr ice_clone() const { return ::std::static_pointer_cast<A>(_iceCloneImpl()); }
 
     ::Test::APtr theA;
 
 protected:
     A(const A&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1328,7 +1328,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -1359,7 +1359,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1370,14 +1370,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    APtr ice_clone() const { return ::std::static_pointer_cast<A>(_iceCloneImpl()); }
+    [[nodiscard]] APtr ice_clone() const { return ::std::static_pointer_cast<A>(_iceCloneImpl()); }
 
     ::Test::Inner::APtr theA;
 
 protected:
     A(const A&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1409,7 +1409,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -1441,7 +1441,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1452,14 +1452,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    A1Ptr ice_clone() const { return ::std::static_pointer_cast<A1>(_iceCloneImpl()); }
+    [[nodiscard]] A1Ptr ice_clone() const { return ::std::static_pointer_cast<A1>(_iceCloneImpl()); }
 
     ::std::string name;
 
 protected:
     A1(const A1&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1482,7 +1482,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1493,7 +1493,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    B1Ptr ice_clone() const { return ::std::static_pointer_cast<B1>(_iceCloneImpl()); }
+    [[nodiscard]] B1Ptr ice_clone() const { return ::std::static_pointer_cast<B1>(_iceCloneImpl()); }
 
     ::Test::A1Ptr a1;
     ::Test::A1Ptr a2;
@@ -1501,7 +1501,7 @@ public:
 protected:
     B1(const B1&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1525,7 +1525,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1536,7 +1536,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    D1Ptr ice_clone() const { return ::std::static_pointer_cast<D1>(_iceCloneImpl()); }
+    [[nodiscard]] D1Ptr ice_clone() const { return ::std::static_pointer_cast<D1>(_iceCloneImpl()); }
 
     ::Test::A1Ptr a3;
     ::Test::A1Ptr a4;
@@ -1544,7 +1544,7 @@ public:
 protected:
     D1(const D1&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1577,12 +1577,12 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
     /// \cond STREAM
-    bool _usesClasses() const override;
+    [[nodiscard]] bool _usesClasses() const override;
     /// \endcond
 
     ::Test::A1Ptr a1;
@@ -1622,7 +1622,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -1651,7 +1651,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1662,14 +1662,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    RecursivePtr ice_clone() const { return ::std::static_pointer_cast<Recursive>(_iceCloneImpl()); }
+    [[nodiscard]] RecursivePtr ice_clone() const { return ::std::static_pointer_cast<Recursive>(_iceCloneImpl()); }
 
     ::Test::RecursivePtr v;
 
 protected:
     Recursive(const Recursive&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1691,7 +1691,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1702,14 +1702,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    KPtr ice_clone() const { return ::std::static_pointer_cast<K>(_iceCloneImpl()); }
+    [[nodiscard]] KPtr ice_clone() const { return ::std::static_pointer_cast<K>(_iceCloneImpl()); }
 
     ::Ice::ValuePtr value;
 
 protected:
     K(const K&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1731,7 +1731,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1742,14 +1742,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    LPtr ice_clone() const { return ::std::static_pointer_cast<L>(_iceCloneImpl()); }
+    [[nodiscard]] LPtr ice_clone() const { return ::std::static_pointer_cast<L>(_iceCloneImpl()); }
 
     ::std::string data;
 
 protected:
     L(const L&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1784,7 +1784,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1795,14 +1795,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    MPtr ice_clone() const { return ::std::static_pointer_cast<M>(_iceCloneImpl()); }
+    [[nodiscard]] MPtr ice_clone() const { return ::std::static_pointer_cast<M>(_iceCloneImpl()); }
 
     ::Test::LMap v;
 
 protected:
     M(const M&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1825,7 +1825,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1836,7 +1836,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    F3Ptr ice_clone() const { return ::std::static_pointer_cast<F3>(_iceCloneImpl()); }
+    [[nodiscard]] F3Ptr ice_clone() const { return ::std::static_pointer_cast<F3>(_iceCloneImpl()); }
 
     ::Test::F1Ptr f1;
     ::std::optional<::Test::F2Prx> f2;
@@ -1844,7 +1844,7 @@ public:
 protected:
     F3(const F3&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1860,16 +1860,16 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    EmptyPtr ice_clone() const { return ::std::static_pointer_cast<Empty>(_iceCloneImpl()); }
+    [[nodiscard]] EmptyPtr ice_clone() const { return ::std::static_pointer_cast<Empty>(_iceCloneImpl()); }
 
 protected:
     Empty(const Empty&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1885,16 +1885,16 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    AlsoEmptyPtr ice_clone() const { return ::std::static_pointer_cast<AlsoEmpty>(_iceCloneImpl()); }
+    [[nodiscard]] AlsoEmptyPtr ice_clone() const { return ::std::static_pointer_cast<AlsoEmpty>(_iceCloneImpl()); }
 
 protected:
     AlsoEmpty(const AlsoEmpty&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1916,7 +1916,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1927,14 +1927,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    COneMemberPtr ice_clone() const { return ::std::static_pointer_cast<COneMember>(_iceCloneImpl()); }
+    [[nodiscard]] COneMemberPtr ice_clone() const { return ::std::static_pointer_cast<COneMember>(_iceCloneImpl()); }
 
     ::Test::EmptyPtr e;
 
 protected:
     COneMember(const COneMember&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1957,7 +1957,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1968,7 +1968,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CTwoMembersPtr ice_clone() const { return ::std::static_pointer_cast<CTwoMembers>(_iceCloneImpl()); }
+    [[nodiscard]] CTwoMembersPtr ice_clone() const { return ::std::static_pointer_cast<CTwoMembers>(_iceCloneImpl()); }
 
     ::Test::EmptyPtr e1;
     ::Test::EmptyPtr e2;
@@ -1976,7 +1976,7 @@ public:
 protected:
     CTwoMembers(const CTwoMembers&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -2008,12 +2008,12 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
     /// \cond STREAM
-    bool _usesClasses() const override;
+    [[nodiscard]] bool _usesClasses() const override;
     /// \endcond
 
     ::Test::EmptyPtr e;
@@ -2051,12 +2051,12 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
     /// \cond STREAM
-    bool _usesClasses() const override;
+    [[nodiscard]] bool _usesClasses() const override;
     /// \endcond
 
     ::Test::EmptyPtr e1;
@@ -2114,12 +2114,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2137,12 +2137,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2160,12 +2160,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2360,12 +2360,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2397,12 +2397,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

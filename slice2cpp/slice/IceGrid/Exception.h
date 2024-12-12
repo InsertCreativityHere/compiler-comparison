@@ -71,7 +71,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -112,7 +112,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -155,7 +155,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -200,7 +200,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -243,7 +243,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -284,7 +284,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -325,7 +325,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -366,7 +366,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -407,7 +407,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -448,7 +448,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -491,7 +491,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -536,7 +536,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -581,7 +581,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -624,7 +624,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -665,7 +665,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -706,7 +706,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -729,7 +729,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -767,7 +767,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -810,7 +810,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
@@ -857,7 +857,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 

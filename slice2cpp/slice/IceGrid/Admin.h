@@ -365,7 +365,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The application descriptor.
     /// @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
-    ApplicationInfo getApplicationInfo(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ApplicationInfo getApplicationInfo(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get an application descriptor.
     /// @param name The application name.
@@ -391,7 +391,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The default application descriptor.
     /// @throws IceGrid::DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
-    ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the default application descriptor.
     /// @param context The Context map to send with the invocation.
@@ -414,7 +414,7 @@ public:
     /// Get all the IceGrid applications currently registered.
     /// @param context The Context map to send with the invocation.
     /// @return The application names.
-    ::Ice::StringSeq getAllApplicationNames(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::StringSeq getAllApplicationNames(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get all the IceGrid applications currently registered.
     /// @param context The Context map to send with the invocation.
@@ -439,7 +439,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The server information.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    ServerInfo getServerInfo(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ServerInfo getServerInfo(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the server information for the server with the given id.
     /// @param id The server id.
@@ -468,7 +468,7 @@ public:
     /// @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    ServerState getServerState(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ServerState getServerState(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get a server's state.
     /// @param id The server id.
@@ -497,7 +497,7 @@ public:
     /// @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    ::std::int32_t getServerPid(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getServerPid(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get a server's system process id. The process id is operating system dependent.
     /// @param id The server id.
@@ -523,7 +523,7 @@ public:
     /// changing its identity: use the server ID as name and the returned category as category.
     /// @param context The Context map to send with the invocation.
     /// @return The category for server admin objects.
-    ::std::string getServerAdminCategory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getServerAdminCategory(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
     /// changing its identity: use the server ID as name and the returned category as category.
@@ -552,7 +552,7 @@ public:
     /// @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    ::std::optional<::Ice::ObjectPrx> getServerAdmin(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> getServerAdmin(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get a proxy to the server's admin object.
     /// @param id The server id.
@@ -618,7 +618,7 @@ public:
     /// @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    bool isServerEnabled(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool isServerEnabled(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Check if the server is enabled or disabled.
     /// @param id The server id.
@@ -733,7 +733,7 @@ public:
     /// Get all the server ids registered with IceGrid.
     /// @param context The Context map to send with the invocation.
     /// @return The server ids.
-    ::Ice::StringSeq getAllServerIds(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::StringSeq getAllServerIds(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get all the server ids registered with IceGrid.
     /// @param context The Context map to send with the invocation.
@@ -760,7 +760,7 @@ public:
     /// will contain only one element. If the given id refers to a replica group, the sequence will contain the
     /// adapter information of each member of the replica group.
     /// @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
-    AdapterInfoSeq getAdapterInfo(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    AdapterInfoSeq getAdapterInfo(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the adapter information for the replica group or adapter with the given id.
     /// @param id The adapter id.
@@ -812,7 +812,7 @@ public:
     /// Get all the adapter ids registered with IceGrid.
     /// @param context The Context map to send with the invocation.
     /// @return The adapter ids.
-    ::Ice::StringSeq getAllAdapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::StringSeq getAllAdapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get all the adapter ids registered with IceGrid.
     /// @param context The Context map to send with the invocation.
@@ -960,7 +960,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The object info.
     /// @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
-    ObjectInfo getObjectInfo(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ObjectInfo getObjectInfo(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the object info for the object with the given identity.
     /// @param id The identity of the object.
@@ -986,7 +986,7 @@ public:
     /// @param type The type of the object.
     /// @param context The Context map to send with the invocation.
     /// @return The object infos.
-    ObjectInfoSeq getObjectInfosByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ObjectInfoSeq getObjectInfosByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the object info of all the registered objects with the given type.
     /// @param type The type of the object.
@@ -1013,7 +1013,7 @@ public:
     /// may contain a trailing wildcard (<code>*</code>) character.
     /// @param context The Context map to send with the invocation.
     /// @return All the object infos with a stringified identity matching the given expression.
-    ObjectInfoSeq getAllObjectInfos(::std::string_view expr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ObjectInfoSeq getAllObjectInfos(::std::string_view expr, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the object info of all the registered objects whose stringified identities match the given expression.
     /// @param expr The expression to match against the stringified identities of registered objects. The expression
@@ -1042,7 +1042,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return true if the node ping succeeded, false otherwise.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-    bool pingNode(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool pingNode(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Ping an IceGrid node to see if it is active.
     /// @param name The node name.
@@ -1070,7 +1070,7 @@ public:
     /// @return The node load information.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-    LoadInfo getNodeLoad(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    LoadInfo getNodeLoad(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the load averages of the node.
     /// @param name The node name.
@@ -1098,7 +1098,7 @@ public:
     /// @return The node information.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-    NodeInfo getNodeInfo(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    NodeInfo getNodeInfo(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the node information for the node with the given name.
     /// @param name The node name.
@@ -1126,7 +1126,7 @@ public:
     /// @return A proxy to the IceGrid node's admin object. The returned proxy is never null.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-    ::std::optional<::Ice::ObjectPrx> getNodeAdmin(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> getNodeAdmin(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get a proxy to the IceGrid node's admin object.
     /// @param name The IceGrid node name
@@ -1156,7 +1156,7 @@ public:
     /// @return The number of processor sockets or 1 if the number of sockets can't determined.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-    ::std::int32_t getNodeProcessorSocketCount(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getNodeProcessorSocketCount(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the number of physical processor sockets for the machine running the node with the given name.
     /// Note that this method will return 1 on operating systems where this can't be automatically determined and
@@ -1215,7 +1215,7 @@ public:
     /// @return The node hostname.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-    ::std::string getNodeHostname(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getNodeHostname(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the hostname of this node.
     /// @param name The node name.
@@ -1240,7 +1240,7 @@ public:
     /// Get all the IceGrid nodes currently registered.
     /// @param context The Context map to send with the invocation.
     /// @return The node names.
-    ::Ice::StringSeq getAllNodeNames(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::StringSeq getAllNodeNames(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get all the IceGrid nodes currently registered.
     /// @param context The Context map to send with the invocation.
@@ -1265,7 +1265,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return true if the registry ping succeeded, false otherwise.
     /// @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-    bool pingRegistry(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool pingRegistry(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Ping an IceGrid registry to see if it is active.
     /// @param name The registry name.
@@ -1293,7 +1293,7 @@ public:
     /// @return The registry information.
     /// @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
     /// @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
-    RegistryInfo getRegistryInfo(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    RegistryInfo getRegistryInfo(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the registry information for the registry with the given name.
     /// @param name The registry name.
@@ -1320,7 +1320,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to the IceGrid registry's admin object. The returned proxy is never null.
     /// @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-    ::std::optional<::Ice::ObjectPrx> getRegistryAdmin(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> getRegistryAdmin(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get a proxy to the IceGrid registry's admin object.
     /// @param name The registry name
@@ -1372,7 +1372,7 @@ public:
     /// Get all the IceGrid registries currently registered.
     /// @param context The Context map to send with the invocation.
     /// @return The registry names.
-    ::Ice::StringSeq getAllRegistryNames(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::StringSeq getAllRegistryNames(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get all the IceGrid registries currently registered.
     /// @param context The Context map to send with the invocation.
@@ -2432,7 +2432,7 @@ public:
     /// Get the admin interface. The admin object returned by this operation can only be accessed by the session.
     /// @param context The Context map to send with the invocation.
     /// @return The admin interface proxy. The returned proxy is never null.
-    ::std::optional<AdminPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<AdminPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the admin interface. The admin object returned by this operation can only be accessed by the session.
     /// @param context The Context map to send with the invocation.
@@ -2456,7 +2456,7 @@ public:
     /// its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
     /// @param context The Context map to send with the invocation.
     /// @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
-    ::std::optional<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
     /// its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
@@ -2565,7 +2565,7 @@ public:
     /// @return The current serial.
     /// @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock
     /// is currently acquired by another session.
-    ::std::int32_t startUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t startUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Acquires an exclusive lock to start updating the registry applications.
     /// @param context The Context map to send with the invocation.
@@ -2611,7 +2611,7 @@ public:
     /// Get the name of the registry replica hosting this session.
     /// @param context The Context map to send with the invocation.
     /// @return The replica name of the registry.
-    ::std::string getReplicaName(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getReplicaName(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the name of the registry replica hosting this session.
     /// @param context The Context map to send with the invocation.
@@ -2643,7 +2643,7 @@ public:
     /// @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    ::std::optional<FileIteratorPrx> openServerLog(::std::string_view id, ::std::string_view path, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openServerLog(::std::string_view id, ::std::string_view path, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Open the given server log file for reading. The file can be read with the returned file iterator.
     /// @param id The server id.
@@ -2683,7 +2683,7 @@ public:
     /// @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    ::std::optional<FileIteratorPrx> openServerStdErr(::std::string_view id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openServerStdErr(::std::string_view id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Open the given server stderr file for reading. The file can be read with the returned file iterator.
     /// @param id The server id.
@@ -2719,7 +2719,7 @@ public:
     /// @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    ::std::optional<FileIteratorPrx> openServerStdOut(::std::string_view id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openServerStdOut(::std::string_view id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Open the given server stdout file for reading. The file can be read with the returned file iterator.
     /// @param id The server id.
@@ -2754,7 +2754,7 @@ public:
     /// @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-    ::std::optional<FileIteratorPrx> openNodeStdErr(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openNodeStdErr(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Open the given node stderr file for reading. The file can be read with the returned file iterator.
     /// @param name The node name.
@@ -2789,7 +2789,7 @@ public:
     /// @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-    ::std::optional<FileIteratorPrx> openNodeStdOut(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openNodeStdOut(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Open the given node stdout file for reading. The file can be read with the returned file iterator.
     /// @param name The node name.
@@ -2824,7 +2824,7 @@ public:
     /// @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
     /// @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
     /// @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
-    ::std::optional<FileIteratorPrx> openRegistryStdErr(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openRegistryStdErr(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Open the given registry stderr file for reading. The file can be read with the returned file iterator.
     /// @param name The registry name.
@@ -2859,7 +2859,7 @@ public:
     /// @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
     /// @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
     /// @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
-    ::std::optional<FileIteratorPrx> openRegistryStdOut(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openRegistryStdOut(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Open the given registry stdout file for reading. The file can be read with the returned file iterator.
     /// @param name The registry name.
@@ -3190,12 +3190,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -3297,7 +3297,7 @@ public:
     /// @param current The Current object for the invocation.
     /// @return The application descriptor.
     /// @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
-    virtual ApplicationInfo getApplicationInfo(::std::string name, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ApplicationInfo getApplicationInfo(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getApplicationInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3306,7 +3306,7 @@ public:
     /// @param current The Current object for the invocation.
     /// @return The default application descriptor.
     /// @throws IceGrid::DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
-    virtual ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getDefaultApplicationDescriptor(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3314,7 +3314,7 @@ public:
     /// Get all the IceGrid applications currently registered.
     /// @param current The Current object for the invocation.
     /// @return The application names.
-    virtual ::Ice::StringSeq getAllApplicationNames(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::Ice::StringSeq getAllApplicationNames(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getAllApplicationNames(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3324,7 +3324,7 @@ public:
     /// @param current The Current object for the invocation.
     /// @return The server information.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    virtual ServerInfo getServerInfo(::std::string id, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ServerInfo getServerInfo(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getServerInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3336,7 +3336,7 @@ public:
     /// @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    virtual ServerState getServerState(::std::string id, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ServerState getServerState(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getServerState(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3348,7 +3348,7 @@ public:
     /// @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    virtual ::std::int32_t getServerPid(::std::string id, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::int32_t getServerPid(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getServerPid(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3357,7 +3357,7 @@ public:
     /// changing its identity: use the server ID as name and the returned category as category.
     /// @param current The Current object for the invocation.
     /// @return The category for server admin objects.
-    virtual ::std::string getServerAdminCategory(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::string getServerAdminCategory(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getServerAdminCategory(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3369,7 +3369,7 @@ public:
     /// @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    virtual ::std::optional<::Ice::ObjectPrx> getServerAdmin(::std::string id, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<::Ice::ObjectPrx> getServerAdmin(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getServerAdmin(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3395,7 +3395,7 @@ public:
     /// @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
     /// @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-    virtual bool isServerEnabled(::std::string id, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual bool isServerEnabled(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_isServerEnabled(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3444,7 +3444,7 @@ public:
     /// Get all the server ids registered with IceGrid.
     /// @param current The Current object for the invocation.
     /// @return The server ids.
-    virtual ::Ice::StringSeq getAllServerIds(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::Ice::StringSeq getAllServerIds(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getAllServerIds(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3456,7 +3456,7 @@ public:
     /// will contain only one element. If the given id refers to a replica group, the sequence will contain the
     /// adapter information of each member of the replica group.
     /// @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
-    virtual AdapterInfoSeq getAdapterInfo(::std::string id, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual AdapterInfoSeq getAdapterInfo(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getAdapterInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3474,7 +3474,7 @@ public:
     /// Get all the adapter ids registered with IceGrid.
     /// @param current The Current object for the invocation.
     /// @return The adapter ids.
-    virtual ::Ice::StringSeq getAllAdapterIds(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::Ice::StringSeq getAllAdapterIds(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getAllAdapterIds(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3531,7 +3531,7 @@ public:
     /// @param current The Current object for the invocation.
     /// @return The object info.
     /// @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
-    virtual ObjectInfo getObjectInfo(::Ice::Identity id, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ObjectInfo getObjectInfo(::Ice::Identity id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getObjectInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3540,7 +3540,7 @@ public:
     /// @param type The type of the object.
     /// @param current The Current object for the invocation.
     /// @return The object infos.
-    virtual ObjectInfoSeq getObjectInfosByType(::std::string type, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ObjectInfoSeq getObjectInfosByType(::std::string type, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getObjectInfosByType(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3550,7 +3550,7 @@ public:
     /// may contain a trailing wildcard (<code>*</code>) character.
     /// @param current The Current object for the invocation.
     /// @return All the object infos with a stringified identity matching the given expression.
-    virtual ObjectInfoSeq getAllObjectInfos(::std::string expr, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ObjectInfoSeq getAllObjectInfos(::std::string expr, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getAllObjectInfos(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3560,7 +3560,7 @@ public:
     /// @param current The Current object for the invocation.
     /// @return true if the node ping succeeded, false otherwise.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-    virtual bool pingNode(::std::string name, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual bool pingNode(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_pingNode(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3571,7 +3571,7 @@ public:
     /// @return The node load information.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-    virtual LoadInfo getNodeLoad(::std::string name, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual LoadInfo getNodeLoad(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getNodeLoad(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3582,7 +3582,7 @@ public:
     /// @return The node information.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-    virtual NodeInfo getNodeInfo(::std::string name, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual NodeInfo getNodeInfo(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getNodeInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3593,7 +3593,7 @@ public:
     /// @return A proxy to the IceGrid node's admin object. The returned proxy is never null.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-    virtual ::std::optional<::Ice::ObjectPrx> getNodeAdmin(::std::string name, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<::Ice::ObjectPrx> getNodeAdmin(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getNodeAdmin(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3606,7 +3606,7 @@ public:
     /// @return The number of processor sockets or 1 if the number of sockets can't determined.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-    virtual ::std::int32_t getNodeProcessorSocketCount(::std::string name, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::int32_t getNodeProcessorSocketCount(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getNodeProcessorSocketCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3627,7 +3627,7 @@ public:
     /// @return The node hostname.
     /// @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
     /// @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-    virtual ::std::string getNodeHostname(::std::string name, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::string getNodeHostname(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getNodeHostname(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3635,7 +3635,7 @@ public:
     /// Get all the IceGrid nodes currently registered.
     /// @param current The Current object for the invocation.
     /// @return The node names.
-    virtual ::Ice::StringSeq getAllNodeNames(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::Ice::StringSeq getAllNodeNames(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getAllNodeNames(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3645,7 +3645,7 @@ public:
     /// @param current The Current object for the invocation.
     /// @return true if the registry ping succeeded, false otherwise.
     /// @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-    virtual bool pingRegistry(::std::string name, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual bool pingRegistry(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_pingRegistry(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3656,7 +3656,7 @@ public:
     /// @return The registry information.
     /// @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
     /// @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
-    virtual RegistryInfo getRegistryInfo(::std::string name, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual RegistryInfo getRegistryInfo(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getRegistryInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3666,7 +3666,7 @@ public:
     /// @param current The Current object for the invocation.
     /// @return A proxy to the IceGrid registry's admin object. The returned proxy is never null.
     /// @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-    virtual ::std::optional<::Ice::ObjectPrx> getRegistryAdmin(::std::string name, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<::Ice::ObjectPrx> getRegistryAdmin(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getRegistryAdmin(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3684,7 +3684,7 @@ public:
     /// Get all the IceGrid registries currently registered.
     /// @param current The Current object for the invocation.
     /// @return The registry names.
-    virtual ::Ice::StringSeq getAllRegistryNames(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::Ice::StringSeq getAllRegistryNames(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getAllRegistryNames(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -3713,12 +3713,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -3762,12 +3762,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -3816,12 +3816,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -3889,12 +3889,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -3957,12 +3957,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -4021,12 +4021,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -4089,12 +4089,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -4111,7 +4111,7 @@ public:
     /// Get the admin interface. The admin object returned by this operation can only be accessed by the session.
     /// @param current The Current object for the invocation.
     /// @return The admin interface proxy. The returned proxy is never null.
-    virtual ::std::optional<AdminPrx> getAdmin(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<AdminPrx> getAdmin(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getAdmin(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -4120,7 +4120,7 @@ public:
     /// its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
     /// @param current The Current object for the invocation.
     /// @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
-    virtual ::std::optional<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getAdminCallbackTemplate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -4174,7 +4174,7 @@ public:
     /// Get the name of the registry replica hosting this session.
     /// @param current The Current object for the invocation.
     /// @return The replica name of the registry.
-    virtual ::std::string getReplicaName(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::string getReplicaName(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getReplicaName(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond

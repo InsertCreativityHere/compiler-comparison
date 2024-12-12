@@ -102,7 +102,7 @@ public:
     /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
     /// adapter is inactive or the adapter direct proxy it's active.
     /// @param context The Context map to send with the invocation.
-    ::std::optional<::Ice::ObjectPrx> activate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> activate(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
     /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
@@ -130,7 +130,7 @@ public:
     /// contains the last known adapter endpoints.
     /// @param context The Context map to send with the invocation.
     /// @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
-    ::std::optional<::Ice::ObjectPrx> getDirectProxy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> getDirectProxy(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
     /// contains the last known adapter endpoints.
@@ -229,7 +229,7 @@ public:
 
     /// Count the number of given lines from the end of the file and return the file offset.
     /// @param context The Context map to send with the invocation.
-    ::std::int64_t getOffsetFromEnd(::std::string_view filename, ::std::int32_t lines, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int64_t getOffsetFromEnd(::std::string_view filename, ::std::int32_t lines, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Count the number of given lines from the end of the file and return the file offset.
     /// @param context The Context map to send with the invocation.
@@ -373,7 +373,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return True if the server is inactive.
     /// @throws IceGrid::DeploymentException Raised if the server can't be updated.
-    bool checkUpdate(const InternalServerDescriptorPtr& svr, bool noRestart, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool checkUpdate(const InternalServerDescriptorPtr& svr, bool noRestart, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Check if the given server can be loaded on this node.
     /// @param context The Context map to send with the invocation.
@@ -417,7 +417,7 @@ public:
 
     /// Check if the server is enabled.
     /// @param context The Context map to send with the invocation.
-    bool isEnabled(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool isEnabled(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Check if the server is enabled.
     /// @param context The Context map to send with the invocation.
@@ -485,7 +485,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The server state.
     /// @see ServerState
-    ServerState getState(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ServerState getState(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Return the server state.
     /// @param context The Context map to send with the invocation.
@@ -510,7 +510,7 @@ public:
     /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
     /// it's the pid value returned by the fork() system call and converted to an integer.
     /// @param context The Context map to send with the invocation.
-    ::std::int32_t getPid(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getPid(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
     /// it's the pid value returned by the fork() system call and converted to an integer.
@@ -855,7 +855,7 @@ public:
 
     /// Get the node name.
     /// @param context The Context map to send with the invocation.
-    ::std::string getName(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getName(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the node name.
     /// @param context The Context map to send with the invocation.
@@ -877,7 +877,7 @@ public:
 
     /// Get the node hostname.
     /// @param context The Context map to send with the invocation.
-    ::std::string getHostname(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getHostname(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the node hostname.
     /// @param context The Context map to send with the invocation.
@@ -899,7 +899,7 @@ public:
 
     /// Get the node load.
     /// @param context The Context map to send with the invocation.
-    LoadInfo getLoad(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    LoadInfo getLoad(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the node load.
     /// @param context The Context map to send with the invocation.
@@ -921,7 +921,7 @@ public:
 
     /// Get the number of processor sockets for the machine where this node is running.
     /// @param context The Context map to send with the invocation.
-    ::std::int32_t getProcessorSocketCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getProcessorSocketCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the number of processor sockets for the machine where this node is running.
     /// @param context The Context map to send with the invocation.
@@ -1072,7 +1072,7 @@ public:
 
     /// Return the node session timeout.
     /// @param context The Context map to send with the invocation.
-    ::std::int32_t getTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Return the node session timeout.
     /// @param context The Context map to send with the invocation.
@@ -1094,7 +1094,7 @@ public:
 
     /// Return the node observer.
     /// @param context The Context map to send with the invocation.
-    ::std::optional<NodeObserverPrx> getObserver(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<NodeObserverPrx> getObserver(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Return the node observer.
     /// @param context The Context map to send with the invocation.
@@ -1138,7 +1138,7 @@ public:
 
     /// Get the name of the servers deployed on the node.
     /// @param context The Context map to send with the invocation.
-    ::Ice::StringSeq getServers(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::StringSeq getServers(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the name of the servers deployed on the node.
     /// @param context The Context map to send with the invocation.
@@ -1343,7 +1343,7 @@ public:
 
     /// Return the replica session timeout.
     /// @param context The Context map to send with the invocation.
-    ::std::int32_t getTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Return the replica session timeout.
     /// @param context The Context map to send with the invocation.
@@ -1564,7 +1564,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The node session proxy.
     /// @throws IceGrid::NodeActiveException Raised if the node is already registered and currently active.
-    ::std::optional<NodeSessionPrx> registerNode(const InternalNodeInfoPtr& info, const ::std::optional<NodePrx>& prx, const LoadInfo& loadInf, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<NodeSessionPrx> registerNode(const InternalNodeInfoPtr& info, const ::std::optional<NodePrx>& prx, const LoadInfo& loadInf, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Register a node with the registry. If a node with the same name is already registered,
     /// <code>registerNode</code> overrides the existing registration only when the previously
@@ -1602,7 +1602,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The replica session proxy.
     /// @throws IceGrid::ReplicaActiveException Raised if the replica is already registered and currently active.
-    ::std::optional<ReplicaSessionPrx> registerReplica(const InternalReplicaInfoPtr& info, const ::std::optional<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ReplicaSessionPrx> registerReplica(const InternalReplicaInfoPtr& info, const ::std::optional<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Register a replica with the registry. If a replica with the same name is already registered,
     /// <code>registerReplica</code> overrides the existing registration only when the previously
@@ -1657,7 +1657,7 @@ public:
 
     /// Return the proxies of all the nodes known by this registry.
     /// @param context The Context map to send with the invocation.
-    NodePrxSeq getNodes(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    NodePrxSeq getNodes(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Return the proxies of all the nodes known by this registry.
     /// @param context The Context map to send with the invocation.
@@ -1679,7 +1679,7 @@ public:
 
     /// Return the proxies of all the registry replicas known by this registry.
     /// @param context The Context map to send with the invocation.
-    InternalRegistryPrxSeq getReplicas(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    InternalRegistryPrxSeq getReplicas(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Return the proxies of all the registry replicas known by this registry.
     /// @param context The Context map to send with the invocation.
@@ -1845,7 +1845,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1856,7 +1856,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    InternalDbEnvDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<InternalDbEnvDescriptor>(_iceCloneImpl()); }
+    [[nodiscard]] InternalDbEnvDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<InternalDbEnvDescriptor>(_iceCloneImpl()); }
 
     /// The name of the database environment.
     ::std::string name;
@@ -1866,7 +1866,7 @@ public:
 protected:
     InternalDbEnvDescriptor(const InternalDbEnvDescriptor&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1891,7 +1891,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1902,7 +1902,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    InternalAdapterDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<InternalAdapterDescriptor>(_iceCloneImpl()); }
+    [[nodiscard]] InternalAdapterDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<InternalAdapterDescriptor>(_iceCloneImpl()); }
 
     /// The identifier of the server.
     ::std::string id;
@@ -1912,7 +1912,7 @@ public:
 protected:
     InternalAdapterDescriptor(const InternalAdapterDescriptor&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1970,7 +1970,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -1981,7 +1981,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    InternalServerDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<InternalServerDescriptor>(_iceCloneImpl()); }
+    [[nodiscard]] InternalServerDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<InternalServerDescriptor>(_iceCloneImpl()); }
 
     /// The server ID.
     ::std::string id;
@@ -2024,7 +2024,7 @@ public:
 protected:
     InternalServerDescriptor(const InternalServerDescriptor&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -2038,7 +2038,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -2075,7 +2075,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -2115,7 +2115,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -2135,7 +2135,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -2153,7 +2153,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -2197,7 +2197,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -2208,7 +2208,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    InternalNodeInfoPtr ice_clone() const { return ::std::static_pointer_cast<InternalNodeInfo>(_iceCloneImpl()); }
+    [[nodiscard]] InternalNodeInfoPtr ice_clone() const { return ::std::static_pointer_cast<InternalNodeInfo>(_iceCloneImpl()); }
 
     /// The name of the node.
     ::std::string name;
@@ -2233,7 +2233,7 @@ public:
 protected:
     InternalNodeInfo(const InternalNodeInfo&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -2259,7 +2259,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -2270,7 +2270,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    InternalReplicaInfoPtr ice_clone() const { return ::std::static_pointer_cast<InternalReplicaInfo>(_iceCloneImpl()); }
+    [[nodiscard]] InternalReplicaInfoPtr ice_clone() const { return ::std::static_pointer_cast<InternalReplicaInfo>(_iceCloneImpl()); }
 
     /// The name of the registry.
     ::std::string name;
@@ -2280,7 +2280,7 @@ public:
 protected:
     InternalReplicaInfo(const InternalReplicaInfo&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -2300,12 +2300,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2326,7 +2326,7 @@ public:
     /// contains the last known adapter endpoints.
     /// @param current The Current object for the invocation.
     /// @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
-    virtual ::std::optional<::Ice::ObjectPrx> getDirectProxy(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<::Ice::ObjectPrx> getDirectProxy(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getDirectProxy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -2356,12 +2356,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2369,7 +2369,7 @@ public:
 
     /// Count the number of given lines from the end of the file and return the file offset.
     /// @param current The Current object for the invocation.
-    virtual ::std::int64_t getOffsetFromEnd(::std::string filename, ::std::int32_t lines, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::int64_t getOffsetFromEnd(::std::string filename, ::std::int32_t lines, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getOffsetFromEnd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -2397,12 +2397,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2445,7 +2445,7 @@ public:
 
     /// Check if the server is enabled.
     /// @param current The Current object for the invocation.
-    virtual bool isEnabled(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual bool isEnabled(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_isEnabled(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -2468,7 +2468,7 @@ public:
     /// @param current The Current object for the invocation.
     /// @return The server state.
     /// @see ServerState
-    virtual ServerState getState(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ServerState getState(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getState(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -2476,7 +2476,7 @@ public:
     /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
     /// it's the pid value returned by the fork() system call and converted to an integer.
     /// @param current The Current object for the invocation.
-    virtual ::std::int32_t getPid(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::int32_t getPid(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getPid(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -2506,12 +2506,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2555,12 +2555,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2615,28 +2615,28 @@ public:
 
     /// Get the node name.
     /// @param current The Current object for the invocation.
-    virtual ::std::string getName(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::string getName(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getName(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Get the node hostname.
     /// @param current The Current object for the invocation.
-    virtual ::std::string getHostname(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::string getHostname(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getHostname(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Get the node load.
     /// @param current The Current object for the invocation.
-    virtual LoadInfo getLoad(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual LoadInfo getLoad(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getLoad(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Get the number of processor sockets for the machine where this node is running.
     /// @param current The Current object for the invocation.
-    virtual ::std::int32_t getProcessorSocketCount(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::int32_t getProcessorSocketCount(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getProcessorSocketCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -2664,12 +2664,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2692,14 +2692,14 @@ public:
 
     /// Return the node session timeout.
     /// @param current The Current object for the invocation.
-    virtual ::std::int32_t getTimeout(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::int32_t getTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getTimeout(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Return the node observer.
     /// @param current The Current object for the invocation.
-    virtual ::std::optional<NodeObserverPrx> getObserver(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<NodeObserverPrx> getObserver(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getObserver(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -2715,7 +2715,7 @@ public:
 
     /// Get the name of the servers deployed on the node.
     /// @param current The Current object for the invocation.
-    virtual ::Ice::StringSeq getServers(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::Ice::StringSeq getServers(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getServers(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -2756,12 +2756,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2783,12 +2783,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2803,7 +2803,7 @@ public:
 
     /// Return the replica session timeout.
     /// @param current The Current object for the invocation.
-    virtual ::std::int32_t getTimeout(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::int32_t getTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getTimeout(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -2869,12 +2869,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -2917,14 +2917,14 @@ public:
 
     /// Return the proxies of all the nodes known by this registry.
     /// @param current The Current object for the invocation.
-    virtual NodePrxSeq getNodes(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual NodePrxSeq getNodes(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getNodes(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Return the proxies of all the registry replicas known by this registry.
     /// @param current The Current object for the invocation.
-    virtual InternalRegistryPrxSeq getReplicas(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual InternalRegistryPrxSeq getReplicas(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getReplicas(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond

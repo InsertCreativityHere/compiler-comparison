@@ -55,7 +55,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The proxy, or null if the object is not active.
     /// @throws Ice::ObjectNotFoundException Raised if the object cannot be found.
-    ::std::optional<::Ice::ObjectPrx> findObjectById(const Identity& id, const Context& context = noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> findObjectById(const Identity& id, const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
     /// access the object.
@@ -84,7 +84,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The adapter proxy, or null if the adapter is not active.
     /// @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found.
-    ::std::optional<::Ice::ObjectPrx> findAdapterById(::std::string_view id, const Context& context = noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> findAdapterById(::std::string_view id, const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Find an adapter by id and return a proxy that contains its endpoints.
     /// @param id The adapter id.
@@ -109,7 +109,7 @@ public:
     /// Get the locator registry.
     /// @param context The Context map to send with the invocation.
     /// @return The locator registry.
-    ::std::optional<LocatorRegistryPrx> getRegistry(const Context& context = noExplicitContext) const;
+    ::std::optional<LocatorRegistryPrx> getRegistry(const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the locator registry.
     /// @param context The Context map to send with the invocation.
@@ -344,7 +344,7 @@ public:
     /// several replicas. This proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The locator proxy.
-    ::std::optional<LocatorPrx> getLocator(const Context& context = noExplicitContext) const;
+    ::std::optional<LocatorPrx> getLocator(const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
     /// several replicas. This proxy is never null.
@@ -426,7 +426,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICE_API) void ice_throw() const override;
 
@@ -444,7 +444,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICE_API) void ice_throw() const override;
 
@@ -462,7 +462,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICE_API) void ice_throw() const override;
 
@@ -480,7 +480,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICE_API) void ice_throw() const override;
 
@@ -498,7 +498,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICE_API) void ice_throw() const override;
 
@@ -526,12 +526,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -563,7 +563,7 @@ public:
     /// Get the locator registry.
     /// @param current The Current object for the invocation.
     /// @return The locator registry.
-    virtual ::std::optional<LocatorRegistryPrx> getRegistry(const Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<LocatorRegistryPrx> getRegistry(const Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getRegistry(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -588,12 +588,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -663,12 +663,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

@@ -113,7 +113,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -124,14 +124,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    C1Ptr ice_clone() const { return ::std::static_pointer_cast<C1>(_iceCloneImpl()); }
+    [[nodiscard]] C1Ptr ice_clone() const { return ::std::static_pointer_cast<C1>(_iceCloneImpl()); }
 
     ::std::int32_t i;
 
 protected:
     C1(const C1&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -249,7 +249,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -260,14 +260,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CB1Ptr ice_clone() const { return ::std::static_pointer_cast<CB1>(_iceCloneImpl()); }
+    [[nodiscard]] CB1Ptr ice_clone() const { return ::std::static_pointer_cast<CB1>(_iceCloneImpl()); }
 
     ::LocalTest::S1 s1;
 
 protected:
     CB1(const CB1&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -289,7 +289,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -300,14 +300,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CB2Ptr ice_clone() const { return ::std::static_pointer_cast<CB2>(_iceCloneImpl()); }
+    [[nodiscard]] CB2Ptr ice_clone() const { return ::std::static_pointer_cast<CB2>(_iceCloneImpl()); }
 
     ::LocalTest::C1Seq c1seq;
 
 protected:
     CB2(const CB2&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -329,7 +329,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -340,14 +340,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CB3Ptr ice_clone() const { return ::std::static_pointer_cast<CB3>(_iceCloneImpl()); }
+    [[nodiscard]] CB3Ptr ice_clone() const { return ::std::static_pointer_cast<CB3>(_iceCloneImpl()); }
 
     ::LocalTest::S1Seq s1seq;
 
 protected:
     CB3(const CB3&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -369,7 +369,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -380,14 +380,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CB4Ptr ice_clone() const { return ::std::static_pointer_cast<CB4>(_iceCloneImpl()); }
+    [[nodiscard]] CB4Ptr ice_clone() const { return ::std::static_pointer_cast<CB4>(_iceCloneImpl()); }
 
     ::LocalTest::C1Dict c1dict;
 
 protected:
     CB4(const CB4&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -409,7 +409,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -420,14 +420,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CB5Ptr ice_clone() const { return ::std::static_pointer_cast<CB5>(_iceCloneImpl()); }
+    [[nodiscard]] CB5Ptr ice_clone() const { return ::std::static_pointer_cast<CB5>(_iceCloneImpl()); }
 
     ::LocalTest::S1Dict s1dict;
 
 protected:
     CB5(const CB5&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -449,7 +449,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -460,14 +460,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CB6Ptr ice_clone() const { return ::std::static_pointer_cast<CB6>(_iceCloneImpl()); }
+    [[nodiscard]] CB6Ptr ice_clone() const { return ::std::static_pointer_cast<CB6>(_iceCloneImpl()); }
 
     ::LocalTest::C1SeqSeq c1seqseq;
 
 protected:
     CB6(const CB6&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -489,7 +489,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -500,14 +500,14 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CB7Ptr ice_clone() const { return ::std::static_pointer_cast<CB7>(_iceCloneImpl()); }
+    [[nodiscard]] CB7Ptr ice_clone() const { return ::std::static_pointer_cast<CB7>(_iceCloneImpl()); }
 
     ::LocalTest::S1SeqSeq s1seqseq;
 
 protected:
     CB7(const CB7&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -531,7 +531,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -542,7 +542,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CB8Ptr ice_clone() const { return ::std::static_pointer_cast<CB8>(_iceCloneImpl()); }
+    [[nodiscard]] CB8Ptr ice_clone() const { return ::std::static_pointer_cast<CB8>(_iceCloneImpl()); }
 
     ::LocalTest::S1 s1;
     ::LocalTest::C1Seq c1seq;
@@ -551,7 +551,7 @@ public:
 protected:
     CB8(const CB8&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

@@ -252,7 +252,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -263,7 +263,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CommunicatorDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<CommunicatorDescriptor>(_iceCloneImpl()); }
+    [[nodiscard]] CommunicatorDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<CommunicatorDescriptor>(_iceCloneImpl()); }
 
     /// The object adapters.
     ::IceGrid::AdapterDescriptorSeq adapters;
@@ -277,7 +277,7 @@ public:
 protected:
     CommunicatorDescriptor(const CommunicatorDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -348,7 +348,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -359,7 +359,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    ServerDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<ServerDescriptor>(_iceCloneImpl()); }
+    [[nodiscard]] ServerDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<ServerDescriptor>(_iceCloneImpl()); }
 
     /// The server id.
     ::std::string id;
@@ -393,7 +393,7 @@ public:
 protected:
     ServerDescriptor(const ServerDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -424,7 +424,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -435,7 +435,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    ServiceDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<ServiceDescriptor>(_iceCloneImpl()); }
+    [[nodiscard]] ServiceDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<ServiceDescriptor>(_iceCloneImpl()); }
 
     /// The service name.
     ::std::string name;
@@ -445,7 +445,7 @@ public:
 protected:
     ServiceDescriptor(const ServiceDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -546,7 +546,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -557,7 +557,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    IceBoxDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<IceBoxDescriptor>(_iceCloneImpl()); }
+    [[nodiscard]] IceBoxDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<IceBoxDescriptor>(_iceCloneImpl()); }
 
     /// The service instances.
     ::IceGrid::ServiceInstanceDescriptorSeq services;
@@ -565,7 +565,7 @@ public:
 protected:
     IceBoxDescriptor(const IceBoxDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -613,7 +613,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -624,7 +624,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    LoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<LoadBalancingPolicy>(_iceCloneImpl()); }
+    [[nodiscard]] LoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<LoadBalancingPolicy>(_iceCloneImpl()); }
 
     /// The number of replicas that will be used to gather the endpoints of a replica group.
     ::std::string nReplicas;
@@ -632,7 +632,7 @@ public:
 protected:
     LoadBalancingPolicy(const LoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -647,16 +647,16 @@ public:using LoadBalancingPolicy::LoadBalancingPolicy;
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    RandomLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<RandomLoadBalancingPolicy>(_iceCloneImpl()); }
+    [[nodiscard]] RandomLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<RandomLoadBalancingPolicy>(_iceCloneImpl()); }
 
 protected:
     RandomLoadBalancingPolicy(const RandomLoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -671,16 +671,16 @@ public:using LoadBalancingPolicy::LoadBalancingPolicy;
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    OrderedLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<OrderedLoadBalancingPolicy>(_iceCloneImpl()); }
+    [[nodiscard]] OrderedLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<OrderedLoadBalancingPolicy>(_iceCloneImpl()); }
 
 protected:
     OrderedLoadBalancingPolicy(const OrderedLoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -695,16 +695,16 @@ public:using LoadBalancingPolicy::LoadBalancingPolicy;
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    RoundRobinLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<RoundRobinLoadBalancingPolicy>(_iceCloneImpl()); }
+    [[nodiscard]] RoundRobinLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<RoundRobinLoadBalancingPolicy>(_iceCloneImpl()); }
 
 protected:
     RoundRobinLoadBalancingPolicy(const RoundRobinLoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -730,7 +730,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -741,7 +741,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    AdaptiveLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<AdaptiveLoadBalancingPolicy>(_iceCloneImpl()); }
+    [[nodiscard]] AdaptiveLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<AdaptiveLoadBalancingPolicy>(_iceCloneImpl()); }
 
     /// The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
     /// representing respectively the load average over the past minute, the past 5 minutes and the past 15 minutes.
@@ -750,7 +750,7 @@ public:
 protected:
     AdaptiveLoadBalancingPolicy(const AdaptiveLoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -828,7 +828,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -839,7 +839,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    BoxedStringPtr ice_clone() const { return ::std::static_pointer_cast<BoxedString>(_iceCloneImpl()); }
+    [[nodiscard]] BoxedStringPtr ice_clone() const { return ::std::static_pointer_cast<BoxedString>(_iceCloneImpl()); }
 
     /// The value of the boxed string.
     ::std::string value;
@@ -847,7 +847,7 @@ public:
 protected:
     BoxedString(const BoxedString&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -903,7 +903,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -914,7 +914,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    BoxedDistributionDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<BoxedDistributionDescriptor>(_iceCloneImpl()); }
+    [[nodiscard]] BoxedDistributionDescriptorPtr ice_clone() const { return ::std::static_pointer_cast<BoxedDistributionDescriptor>(_iceCloneImpl()); }
 
     /// The value of the boxed distribution descriptor.
     ::IceGrid::DistributionDescriptor value;
@@ -922,7 +922,7 @@ public:
 protected:
     BoxedDistributionDescriptor(const BoxedDistributionDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;

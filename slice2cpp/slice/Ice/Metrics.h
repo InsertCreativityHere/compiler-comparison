@@ -197,7 +197,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The metrics failures associated with the map.
     /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-    MetricsFailuresSeq getMapMetricsFailures(::std::string_view view, ::std::string_view map, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    MetricsFailuresSeq getMapMetricsFailures(::std::string_view view, ::std::string_view map, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the metrics failures associated with the given view and map.
     /// @param view The name of the metrics view.
@@ -228,7 +228,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The metrics failures associated with the metrics.
     /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-    MetricsFailures getMetricsFailures(::std::string_view view, ::std::string_view map, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    MetricsFailures getMetricsFailures(::std::string_view view, ::std::string_view map, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the metrics failure associated for the given metrics.
     /// @param view The name of the metrics view.
@@ -333,7 +333,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -344,7 +344,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    MetricsPtr ice_clone() const { return ::std::static_pointer_cast<Metrics>(_iceCloneImpl()); }
+    [[nodiscard]] MetricsPtr ice_clone() const { return ::std::static_pointer_cast<Metrics>(_iceCloneImpl()); }
 
     /// The metrics identifier.
     ::std::string id;
@@ -362,7 +362,7 @@ public:
 protected:
     Metrics(const Metrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -392,7 +392,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     ICE_MEMBER(ICE_API) void ice_throw() const override;
 
@@ -430,7 +430,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -441,7 +441,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    ThreadMetricsPtr ice_clone() const { return ::std::static_pointer_cast<ThreadMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] ThreadMetricsPtr ice_clone() const { return ::std::static_pointer_cast<ThreadMetrics>(_iceCloneImpl()); }
 
     /// The number of threads which are currently performing socket read or writes.
     ::std::int32_t inUseForIO = 0;
@@ -454,7 +454,7 @@ public:
 protected:
     ThreadMetrics(const ThreadMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -488,7 +488,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -499,7 +499,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    DispatchMetricsPtr ice_clone() const { return ::std::static_pointer_cast<DispatchMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] DispatchMetricsPtr ice_clone() const { return ::std::static_pointer_cast<DispatchMetrics>(_iceCloneImpl()); }
 
     /// The number of dispatch that failed with a user exception.
     ::std::int32_t userException = 0;
@@ -511,7 +511,7 @@ public:
 protected:
     DispatchMetrics(const DispatchMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -545,7 +545,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -556,7 +556,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    ChildInvocationMetricsPtr ice_clone() const { return ::std::static_pointer_cast<ChildInvocationMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] ChildInvocationMetricsPtr ice_clone() const { return ::std::static_pointer_cast<ChildInvocationMetrics>(_iceCloneImpl()); }
 
     /// The size of the invocation. This corresponds to the size of the marshaled input parameters.
     ::std::int64_t size = INT64_C(0);
@@ -567,7 +567,7 @@ public:
 protected:
     ChildInvocationMetrics(const ChildInvocationMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -583,16 +583,16 @@ public:using ChildInvocationMetrics::ChildInvocationMetrics;
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CollocatedMetricsPtr ice_clone() const { return ::std::static_pointer_cast<CollocatedMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] CollocatedMetricsPtr ice_clone() const { return ::std::static_pointer_cast<CollocatedMetrics>(_iceCloneImpl()); }
 
 protected:
     CollocatedMetrics(const CollocatedMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -608,16 +608,16 @@ public:using ChildInvocationMetrics::ChildInvocationMetrics;
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    RemoteMetricsPtr ice_clone() const { return ::std::static_pointer_cast<RemoteMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] RemoteMetricsPtr ice_clone() const { return ::std::static_pointer_cast<RemoteMetrics>(_iceCloneImpl()); }
 
 protected:
     RemoteMetrics(const RemoteMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -653,7 +653,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -664,7 +664,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    InvocationMetricsPtr ice_clone() const { return ::std::static_pointer_cast<InvocationMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] InvocationMetricsPtr ice_clone() const { return ::std::static_pointer_cast<InvocationMetrics>(_iceCloneImpl()); }
 
     /// The number of retries for the invocation(s).
     ::std::int32_t retry = 0;
@@ -680,7 +680,7 @@ public:
 protected:
     InvocationMetrics(const InvocationMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -712,7 +712,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -723,7 +723,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    ConnectionMetricsPtr ice_clone() const { return ::std::static_pointer_cast<ConnectionMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] ConnectionMetricsPtr ice_clone() const { return ::std::static_pointer_cast<ConnectionMetrics>(_iceCloneImpl()); }
 
     /// The number of bytes received by the connection.
     ::std::int64_t receivedBytes = INT64_C(0);
@@ -733,7 +733,7 @@ public:
 protected:
     ConnectionMetrics(const ConnectionMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -762,12 +762,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

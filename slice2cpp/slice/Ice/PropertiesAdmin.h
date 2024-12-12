@@ -44,7 +44,7 @@ public:
     /// @param key The property key.
     /// @param context The Context map to send with the invocation.
     /// @return The property value.
-    ::std::string getProperty(::std::string_view key, const Context& context = noExplicitContext) const;
+    ::std::string getProperty(::std::string_view key, const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get a property by key. If the property is not set, an empty string is returned.
     /// @param key The property key.
@@ -71,7 +71,7 @@ public:
     /// @param prefix The prefix to search for (empty string if none).
     /// @param context The Context map to send with the invocation.
     /// @return The matching property set.
-    PropertyDict getPropertiesForPrefix(::std::string_view prefix, const Context& context = noExplicitContext) const;
+    PropertyDict getPropertiesForPrefix(::std::string_view prefix, const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
     /// properties are returned.
@@ -191,12 +191,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

@@ -138,7 +138,7 @@ public:
     void _iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::ByteSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t opWithResult(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t opWithResult(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> opWithResultAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -171,7 +171,7 @@ public:
     void _iceI_opBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t opBatchCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t opBatchCount(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> opBatchCountAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -182,7 +182,7 @@ public:
     void _iceI_opBatchCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    bool waitForBatch(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool waitForBatch(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<bool> waitForBatchAsync(::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -259,7 +259,7 @@ public:
     void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    bool supportsFunctionalTests(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool supportsFunctionalTests(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<bool> supportsFunctionalTestsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -270,7 +270,7 @@ public:
     void _iceI_supportsFunctionalTests(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    bool supportsBackPressureTests(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool supportsBackPressureTests(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<bool> supportsBackPressureTestsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -281,7 +281,7 @@ public:
     void _iceI_supportsBackPressureTests(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    bool opBool(bool b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool opBool(bool b, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<bool> opBoolAsync(bool b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -292,7 +292,7 @@ public:
     void _iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::uint8_t opByte(::std::uint8_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::uint8_t opByte(::std::uint8_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::uint8_t> opByteAsync(::std::uint8_t b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -303,7 +303,7 @@ public:
     void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::uint8_t>>&, ::std::uint8_t, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int16_t opShort(::std::int16_t s, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int16_t opShort(::std::int16_t s, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int16_t> opShortAsync(::std::int16_t s, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -314,7 +314,7 @@ public:
     void _iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int16_t>>&, ::std::int16_t, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t opInt(::std::int32_t i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t opInt(::std::int32_t i, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> opIntAsync(::std::int32_t i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -325,7 +325,7 @@ public:
     void _iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int64_t opLong(::std::int64_t l, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int64_t opLong(::std::int64_t l, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int64_t> opLongAsync(::std::int64_t l, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -336,7 +336,7 @@ public:
     void _iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int64_t>>&, ::std::int64_t, const ::Ice::Context&) const;
     /// \endcond
 
-    float opFloat(float f, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    float opFloat(float f, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<float> opFloatAsync(float f, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -347,7 +347,7 @@ public:
     void _iceI_opFloat(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<float>>&, float, const ::Ice::Context&) const;
     /// \endcond
 
-    double opDouble(double d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    double opDouble(double d, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<double> opDoubleAsync(double d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -573,7 +573,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -597,12 +597,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -629,12 +629,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -771,12 +771,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -814,12 +814,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

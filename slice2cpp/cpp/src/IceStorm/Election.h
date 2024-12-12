@@ -465,7 +465,7 @@ public:
     /// Determine if this node is a coordinator.
     /// @param context The Context map to send with the invocation.
     /// @return True if the node is a coordinator, false otherwise.
-    bool areYouCoordinator(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool areYouCoordinator(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Determine if this node is a coordinator.
     /// @param context The Context map to send with the invocation.
@@ -490,7 +490,7 @@ public:
     /// @param j The group coordinator.
     /// @param context The Context map to send with the invocation.
     /// @return True if the node is a member, false otherwise.
-    bool areYouThere(::std::string_view gn, ::std::int32_t j, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool areYouThere(::std::string_view gn, ::std::int32_t j, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Determine if the node is a member of the given group with the given coordinator.
     /// @param gn The group name.
@@ -517,7 +517,7 @@ public:
     /// Get the sync object for the replica hosted by this node.
     /// @param context The Context map to send with the invocation.
     /// @return The sync object.
-    ::std::optional<::Ice::ObjectPrx> sync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> sync(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the sync object for the replica hosted by this node.
     /// @param context The Context map to send with the invocation.
@@ -540,7 +540,7 @@ public:
     /// Get the replication group information.
     /// @param context The Context map to send with the invocation.
     /// @return The set of configured nodes and the associated priority.
-    NodeInfoSeq nodes(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    NodeInfoSeq nodes(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the replication group information.
     /// @param context The Context map to send with the invocation.
@@ -563,7 +563,7 @@ public:
     /// Get the query information for the given node.
     /// @param context The Context map to send with the invocation.
     /// @return The query information.
-    QueryInfo query(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    QueryInfo query(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Get the query information for the given node.
     /// @param context The Context map to send with the invocation.
@@ -679,7 +679,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -771,12 +771,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -854,12 +854,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -891,12 +891,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -939,7 +939,7 @@ public:
     /// Determine if this node is a coordinator.
     /// @param current The Current object for the invocation.
     /// @return True if the node is a coordinator, false otherwise.
-    virtual bool areYouCoordinator(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual bool areYouCoordinator(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_areYouCoordinator(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -949,7 +949,7 @@ public:
     /// @param j The group coordinator.
     /// @param current The Current object for the invocation.
     /// @return True if the node is a member, false otherwise.
-    virtual bool areYouThere(::std::string gn, ::std::int32_t j, const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual bool areYouThere(::std::string gn, ::std::int32_t j, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_areYouThere(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -957,7 +957,7 @@ public:
     /// Get the sync object for the replica hosted by this node.
     /// @param current The Current object for the invocation.
     /// @return The sync object.
-    virtual ::std::optional<::Ice::ObjectPrx> sync(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<::Ice::ObjectPrx> sync(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_sync(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -965,7 +965,7 @@ public:
     /// Get the replication group information.
     /// @param current The Current object for the invocation.
     /// @return The set of configured nodes and the associated priority.
-    virtual NodeInfoSeq nodes(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual NodeInfoSeq nodes(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_nodes(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
@@ -973,7 +973,7 @@ public:
     /// Get the query information for the given node.
     /// @param current The Current object for the invocation.
     /// @return The query information.
-    virtual QueryInfo query(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual QueryInfo query(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_query(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond

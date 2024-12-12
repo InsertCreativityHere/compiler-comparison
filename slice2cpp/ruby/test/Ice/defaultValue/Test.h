@@ -61,7 +61,7 @@ namespace Test
 
     constexpr double ConstDouble = 6.2;
 
-    const ::std::string ConstString = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
+    const ::std::string ConstString = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a"; // NOLINT:cert-err58-cpp
 
     constexpr Color ConstColor1 = ::Test::Color::red;
 
@@ -211,7 +211,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -222,7 +222,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    BasePtr ice_clone() const { return ::std::static_pointer_cast<Base>(_iceCloneImpl()); }
+    [[nodiscard]] BasePtr ice_clone() const { return ::std::static_pointer_cast<Base>(_iceCloneImpl()); }
 
     bool boolFalse = false;
     bool boolTrue = true;
@@ -244,7 +244,7 @@ public:
 protected:
     Base(const Base&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -272,7 +272,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -283,7 +283,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    DerivedPtr ice_clone() const { return ::std::static_pointer_cast<Derived>(_iceCloneImpl()); }
+    [[nodiscard]] DerivedPtr ice_clone() const { return ::std::static_pointer_cast<Derived>(_iceCloneImpl()); }
 
     ::Test::Color c1 = ::Test::Color::red;
     ::Test::Color c2 = ::Test::Color::green;
@@ -295,7 +295,7 @@ public:
 protected:
     Derived(const Derived&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -355,7 +355,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -366,7 +366,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    ClassNoDefaultsBasePtr ice_clone() const { return ::std::static_pointer_cast<ClassNoDefaultsBase>(_iceCloneImpl()); }
+    [[nodiscard]] ClassNoDefaultsBasePtr ice_clone() const { return ::std::static_pointer_cast<ClassNoDefaultsBase>(_iceCloneImpl()); }
 
     ::std::string str;
     ::Test::Color c1;
@@ -375,7 +375,7 @@ public:
 protected:
     ClassNoDefaultsBase(const ClassNoDefaultsBase&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -399,7 +399,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -410,7 +410,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    ClassNoDefaultsPtr ice_clone() const { return ::std::static_pointer_cast<ClassNoDefaults>(_iceCloneImpl()); }
+    [[nodiscard]] ClassNoDefaultsPtr ice_clone() const { return ::std::static_pointer_cast<ClassNoDefaults>(_iceCloneImpl()); }
 
     ::Test::InnerStruct st;
     ::Test::IntStringDict dict;
@@ -418,7 +418,7 @@ public:
 protected:
     ClassNoDefaults(const ClassNoDefaults&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

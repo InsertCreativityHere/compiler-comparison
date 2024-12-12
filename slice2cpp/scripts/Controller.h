@@ -65,7 +65,7 @@ class TestCasePrx : public ::Ice::Proxy<TestCasePrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::string startServerSide(const ConfigPtr& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string startServerSide(const ConfigPtr& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> startServerSideAsync(const ConfigPtr& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -76,7 +76,7 @@ public:
     void _iceI_startServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ConfigPtr&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string stopServerSide(bool success, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string stopServerSide(bool success, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> stopServerSideAsync(bool success, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -87,7 +87,7 @@ public:
     void _iceI_stopServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string runClientSide(::std::string_view host, const ConfigPtr& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string runClientSide(::std::string_view host, const ConfigPtr& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> runClientSideAsync(::std::string_view host, const ConfigPtr& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -160,7 +160,7 @@ class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::optional<TestCasePrx> runTestCase(::std::string_view mapping, ::std::string_view testsuite, ::std::string_view testcase, ::std::string_view cross, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<TestCasePrx> runTestCase(::std::string_view mapping, ::std::string_view testsuite, ::std::string_view testcase, ::std::string_view cross, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::optional<TestCasePrx>> runTestCaseAsync(::std::string_view mapping, ::std::string_view testsuite, ::std::string_view testcase, ::std::string_view cross, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -171,7 +171,7 @@ public:
     void _iceI_runTestCase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestCasePrx>>>&, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    OptionOverridesPtr getOptionOverrides(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    OptionOverridesPtr getOptionOverrides(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<OptionOverridesPtr> getOptionOverridesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -182,7 +182,7 @@ public:
     void _iceI_getOptionOverrides(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<OptionOverridesPtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    StringSeq getTestSuites(::std::string_view mapping, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    StringSeq getTestSuites(::std::string_view mapping, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<StringSeq> getTestSuitesAsync(::std::string_view mapping, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -193,7 +193,7 @@ public:
     void _iceI_getTestSuites(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<StringSeq>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string getHost(::std::string_view protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getHost(::std::string_view protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> getHostAsync(::std::string_view protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -266,7 +266,7 @@ public:
     void _iceI_waitReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t waitSuccess(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t waitSuccess(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> waitSuccessAsync(::std::int32_t timeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -277,7 +277,7 @@ public:
     void _iceI_waitSuccess(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string terminate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string terminate(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> terminateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -339,7 +339,7 @@ class ProcessControllerPrx : public ::Ice::Proxy<ProcessControllerPrx, ::Ice::Ob
 {
 public:
 
-    ::std::optional<ProcessPrx> start(::std::string_view testsuite, ::std::string_view exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ProcessPrx> start(::std::string_view testsuite, ::std::string_view exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::optional<ProcessPrx>> startAsync(::std::string_view testsuite, ::std::string_view exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -350,7 +350,7 @@ public:
     void _iceI_start(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ProcessPrx>>>&, ::std::string_view, ::std::string_view, const StringSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string getHost(::std::string_view protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getHost(::std::string_view protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> getHostAsync(::std::string_view protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -573,7 +573,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -584,7 +584,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    ConfigPtr ice_clone() const { return ::std::static_pointer_cast<Config>(_iceCloneImpl()); }
+    [[nodiscard]] ConfigPtr ice_clone() const { return ::std::static_pointer_cast<Config>(_iceCloneImpl()); }
 
     ::std::optional<::std::string> protocol;
     ::std::optional<bool> mx;
@@ -597,7 +597,7 @@ public:
 protected:
     Config(const Config&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -623,7 +623,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -634,7 +634,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    OptionOverridesPtr ice_clone() const { return ::std::static_pointer_cast<OptionOverrides>(_iceCloneImpl()); }
+    [[nodiscard]] OptionOverridesPtr ice_clone() const { return ::std::static_pointer_cast<OptionOverrides>(_iceCloneImpl()); }
 
     ::std::optional<::Test::Common::StringSeq> protocol;
     ::std::optional<::Test::Common::BoolSeq> mx;
@@ -645,7 +645,7 @@ public:
 protected:
     OptionOverrides(const OptionOverrides&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -677,7 +677,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -715,7 +715,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -753,7 +753,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -784,12 +784,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -831,12 +831,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -878,12 +878,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -920,12 +920,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -957,12 +957,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -989,12 +989,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

@@ -60,5 +60,5 @@ public class endwhile extends endif
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 1013273092730754606L;
+    private static final long serialVersionUID = -9044584416300748626L;
 }

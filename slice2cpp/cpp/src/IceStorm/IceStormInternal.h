@@ -135,7 +135,7 @@ public:
     /// Retrieve a proxy to the TopicLink interface.
     /// @param context The Context map to send with the invocation.
     /// @return The TopicLink for the Topic.
-    ::std::optional<TopicLinkPrx> getLinkProxy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<TopicLinkPrx> getLinkProxy(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Retrieve a proxy to the TopicLink interface.
     /// @param context The Context map to send with the invocation.
@@ -246,7 +246,7 @@ public:
     /// Return the replica node proxy for this topic manager.
     /// @param context The Context map to send with the invocation.
     /// @return The replica proxy, or null if this instance is not replicated.
-    ::std::optional<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Return the replica node proxy for this topic manager.
     /// @param context The Context map to send with the invocation.
@@ -355,7 +355,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     void ice_throw() const override;
 
@@ -388,12 +388,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -425,12 +425,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -471,12 +471,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -485,7 +485,7 @@ public:
     /// Return the replica node proxy for this topic manager.
     /// @param current The Current object for the invocation.
     /// @return The replica proxy, or null if this instance is not replicated.
-    virtual ::std::optional<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getReplicaNode(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond

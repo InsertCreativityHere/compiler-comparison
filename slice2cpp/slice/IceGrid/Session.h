@@ -87,7 +87,7 @@ public:
     /// the registry.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    ::std::optional<::Ice::ObjectPrx> allocateObjectById(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> allocateObjectById(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
     /// available or until the timeout is reached.
@@ -123,7 +123,7 @@ public:
     /// @throws IceGrid::AllocationException Raised if the object could not be allocated.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    ::std::optional<::Ice::ObjectPrx> allocateObjectByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> allocateObjectByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
     /// an object becomes available or until the timeout is reached.
@@ -287,12 +287,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

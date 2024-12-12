@@ -40,7 +40,7 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::string getAdapterName(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getAdapterName(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> getAdapterNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -51,7 +51,7 @@ public:
     void _iceI_getAdapterName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string getConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> getConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -62,7 +62,7 @@ public:
     void _iceI_getConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Ice::Identity getIdentity(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::Identity getIdentity(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Ice::Identity> getIdentityAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -73,7 +73,7 @@ public:
     void _iceI_getIdentity(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Identity>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string getFacet(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getFacet(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> getFacetAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -84,7 +84,7 @@ public:
     void _iceI_getFacet(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string getOperation(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getOperation(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> getOperationAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -95,7 +95,7 @@ public:
     void _iceI_getOperation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string getMode(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getMode(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> getModeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -106,7 +106,7 @@ public:
     void _iceI_getMode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Ice::Context getContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::Context getContext(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::Ice::Context> getContextAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -117,7 +117,7 @@ public:
     void _iceI_getContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Context>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t getRequestId(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getRequestId(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::int32_t> getRequestIdAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -128,7 +128,7 @@ public:
     void _iceI_getRequestId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string getEncoding(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getEncoding(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<::std::string> getEncodingAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -211,12 +211,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

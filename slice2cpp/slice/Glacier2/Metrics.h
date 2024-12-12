@@ -81,7 +81,7 @@ public:
     /// @return The fully-scoped type ID.
     ICE_MEMBER(GLACIER2_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(GLACIER2_API) const char* ice_id() const noexcept override;
+    ICE_MEMBER(GLACIER2_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -92,7 +92,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    SessionMetricsPtr ice_clone() const { return ::std::static_pointer_cast<SessionMetrics>(_iceCloneImpl()); }
+    [[nodiscard]] SessionMetricsPtr ice_clone() const { return ::std::static_pointer_cast<SessionMetrics>(_iceCloneImpl()); }
 
     /// Number of client requests forwarded.
     ::std::int32_t forwardedClient = 0;
@@ -112,7 +112,7 @@ public:
 protected:
     SessionMetrics(const SessionMetrics&) = default;
 
-    ICE_MEMBER(GLACIER2_API) ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(GLACIER2_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(GLACIER2_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(GLACIER2_API) void _iceReadImpl(::Ice::InputStream*) override;

@@ -60,7 +60,7 @@ namespace Test
 
     using ByteEnumSeq = ::std::vector<ByteEnum>;
 
-    enum class ShortEnum
+    enum class ShortEnum : ::std::int32_t // NOLINT:performance-enum-size
     {
         senum1 = 3,
         senum2 = 4,
@@ -77,7 +77,7 @@ namespace Test
 
     using ShortEnumSeq = ::std::vector<ShortEnum>;
 
-    enum class IntEnum
+    enum class IntEnum : ::std::int32_t
     {
         ienum1 = 0,
         ienum2 = 1,
@@ -275,12 +275,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.

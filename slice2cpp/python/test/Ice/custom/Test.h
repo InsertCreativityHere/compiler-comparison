@@ -269,7 +269,7 @@ public:
     void _iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleSeq1, DoubleSeq2>>>&, const DoubleSeq1&, const ::Ice::Context&) const;
     /// \endcond
 
-    BoolSeq1 opBogusArrayNotExistsFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BoolSeq1 opBogusArrayNotExistsFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<BoolSeq1> opBogusArrayNotExistsFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -280,7 +280,7 @@ public:
     void _iceI_opBogusArrayNotExistsFactory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    BoolSeq1 opBogusArrayThrowFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BoolSeq1 opBogusArrayThrowFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<BoolSeq1> opBogusArrayThrowFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -291,7 +291,7 @@ public:
     void _iceI_opBogusArrayThrowFactory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    BoolSeq1 opBogusArrayType(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BoolSeq1 opBogusArrayType(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<BoolSeq1> opBogusArrayTypeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -302,7 +302,7 @@ public:
     void _iceI_opBogusArrayType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    BoolSeq1 opBogusArrayNoneFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BoolSeq1 opBogusArrayNoneFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<BoolSeq1> opBogusArrayNoneFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -313,7 +313,7 @@ public:
     void _iceI_opBogusArrayNoneFactory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    BoolSeq1 opBogusArraySignatureFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BoolSeq1 opBogusArraySignatureFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<BoolSeq1> opBogusArraySignatureFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -324,7 +324,7 @@ public:
     void _iceI_opBogusArraySignatureFactory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    BoolSeq1 opBogusArrayNoCallableFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BoolSeq1 opBogusArrayNoCallableFactory(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<BoolSeq1> opBogusArrayNoCallableFactoryAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -335,7 +335,7 @@ public:
     void _iceI_opBogusArrayNoCallableFactory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    DPtr opD(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    DPtr opD(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
     [[nodiscard]] ::std::future<DPtr> opDAsync(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -451,7 +451,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -462,7 +462,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
+    [[nodiscard]] CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
 
     ::Test::ByteString b1;
     ::Test::ByteString b2;
@@ -476,7 +476,7 @@ public:
 protected:
     C(const C&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -504,7 +504,7 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    const char* ice_id() const noexcept override;
+    [[nodiscard]] const char* ice_id() const noexcept override;
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
@@ -515,7 +515,7 @@ public:
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    DPtr ice_clone() const { return ::std::static_pointer_cast<D>(_iceCloneImpl()); }
+    [[nodiscard]] DPtr ice_clone() const { return ::std::static_pointer_cast<D>(_iceCloneImpl()); }
 
     ::std::optional<::Test::BoolSeq1> boolSeq;
     ::std::optional<::Test::ByteSeq1> byteSeq;
@@ -528,7 +528,7 @@ public:
 protected:
     D(const D&) = default;
 
-    ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -555,12 +555,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
