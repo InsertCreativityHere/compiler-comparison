@@ -21,33 +21,30 @@ import { Ice } from "ice";
 
 export const Test = {};
 
-Test.Stock = class
+Test.Stock = class extends Ice.Value
 {
-    constructor(price = 0.0, lastBid = 0.0, laskAsk = 0.0)
+    constructor(price = 0.0, lastBid = 0.0, lastAsk = 0.0)
     {
+        super();
         this.price = price;
         this.lastBid = lastBid;
-        this.laskAsk = laskAsk;
+        this.lastAsk = lastAsk;
     }
 
-    _write(ostr)
+    _iceWriteMemberImpl(ostr)
     {
         ostr.writeFloat(this.price);
         ostr.writeFloat(this.lastBid);
-        ostr.writeFloat(this.laskAsk);
+        ostr.writeFloat(this.lastAsk);
     }
 
-    _read(istr)
+    _iceReadMemberImpl(istr)
     {
         this.price = istr.readFloat();
         this.lastBid = istr.readFloat();
-        this.laskAsk = istr.readFloat();
-    }
-
-    static get minWireSize()
-    {
-        return  12;
+        this.lastAsk = istr.readFloat();
     }
 };
 
-Ice.defineStruct(Test.Stock, false, false);
+Ice.defineValue(Test.Stock, "::Test::Stock");
+Ice.TypeRegistry.declareValueType("Test.Stock", Test.Stock);

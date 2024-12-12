@@ -16,68 +16,48 @@
 import Foundation
 import Ice
 
-public struct Stock {
+@_documentation(visibility: internal)
+public class Stock_TypeResolver: Ice.ValueTypeResolver {
+    public override func type() -> Ice.Value.Type {
+        return Stock.self
+    }
+}
+
+public extension Ice.ClassResolver {
+    @objc static func Test_Stock() -> Ice.ValueTypeResolver {
+        return Stock_TypeResolver()
+    }
+}
+
+open class Stock: Ice.Value {
     public var price: Swift.Float = 0.0
     public var lastBid: Swift.Float = 0.0
-    public var laskAsk: Swift.Float = 0.0
+    public var lastAsk: Swift.Float = 0.0
 
-    public init() {}
+    public required init() {}
 
-    public init(price: Swift.Float, lastBid: Swift.Float, laskAsk: Swift.Float) {
+    public init(price: Swift.Float, lastBid: Swift.Float, lastAsk: Swift.Float) {
         self.price = price
         self.lastBid = lastBid
-        self.laskAsk = laskAsk
-    }
-}
-
-/// An `Ice.InputStream` extension to read `Stock` structured values from the stream.
-public extension Ice.InputStream {
-    /// Read a `Stock` structured value from the stream.
-    ///
-    /// - Returns: The structured value read from the stream.
-    func read() throws -> Stock {
-        var v = Stock()
-        v.price = try self.read()
-        v.lastBid = try self.read()
-        v.laskAsk = try self.read()
-        return v
+        self.lastAsk = lastAsk
     }
 
-    /// Read an optional `Stock?` structured value from the stream.
-    ///
-    /// - Parameter tag: The numeric tag associated with the value.
-    ///
-    /// - Returns: The structured value read from the stream.
-    func read(tag: Swift.Int32) throws -> Stock? {
-        guard try readOptional(tag: tag, expectedFormat: .VSize) else {
-            return nil
-        }
-        try skipSize()
-        return try read() as Stock
-    }
-}
+    /// - Returns: The Slice type ID of the interface supported by this object.
+    open override class func ice_staticId() -> Swift.String { "::Test::Stock" }
 
-/// An `Ice.OutputStream` extension to write `Stock` structured values from the stream.
-public extension Ice.OutputStream {
-    /// Write a `Stock` structured value to the stream.
-    ///
-    /// - Parameter v: The value to write to the stream.
-    func write(_ v: Stock) {
-        self.write(v.price)
-        self.write(v.lastBid)
-        self.write(v.laskAsk)
+    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
+        _ = try istr.startSlice()
+        self.price = try istr.read()
+        self.lastBid = try istr.read()
+        self.lastAsk = try istr.read()
+        try istr.endSlice()
     }
 
-    /// Write an optional `Stock?` structured value to the stream.
-    ///
-    /// - Parameter tag: The numeric tag associated with the value.
-    /// - Parameter value: The value to write to the stream.
-    func write(tag: Swift.Int32, value: Stock?) {
-        if let v = value {
-            if writeOptional(tag: tag, format: .VSize) {
-                write(size: 12)
-                write(v)
-            }
-        }
+    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
+        ostr.startSlice(typeId: Stock.ice_staticId(), compactId: -1, last: true)
+        ostr.write(self.price)
+        ostr.write(self.lastBid)
+        ostr.write(self.lastAsk)
+        ostr.endSlice()
     }
 }

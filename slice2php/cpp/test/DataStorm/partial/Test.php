@@ -18,13 +18,23 @@
 namespace Test
 {
     global $Test__t_Stock;
-    class Stock
+    class Stock extends \Ice\Value
     {
-        public function __construct($price=0.0, $lastBid=0.0, $laskAsk=0.0)
+        public function __construct($price=0.0, $lastBid=0.0, $lastAsk=0.0)
         {
             $this->price = $price;
             $this->lastBid = $lastBid;
-            $this->laskAsk = $laskAsk;
+            $this->lastAsk = $lastAsk;
+        }
+
+        public function ice_id()
+        {
+            return '::Test::Stock';
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Test::Stock';
         }
 
         public function __toString(): string
@@ -35,13 +45,14 @@ namespace Test
 
         public $price;
         public $lastBid;
-        public $laskAsk;
+        public $lastAsk;
     }
 
+    global $Ice__t_Value;
     global $IcePHP__t_float;
-    $Test__t_Stock = IcePHP_defineStruct('::Test::Stock', '\\Test\\Stock', array(
-        array('price', $IcePHP__t_float),
-        array('lastBid', $IcePHP__t_float),
-        array('laskAsk', $IcePHP__t_float)));
+    $Test__t_Stock = IcePHP_defineClass('::Test::Stock', '\\Test\\Stock', -1, false, $Ice__t_Value, array(
+        array('price', $IcePHP__t_float, false, 0),
+        array('lastBid', $IcePHP__t_float, false, 0),
+        array('lastAsk', $IcePHP__t_float, false, 0)));
 }
 ?>

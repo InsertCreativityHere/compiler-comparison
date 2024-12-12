@@ -24,39 +24,30 @@ __name__ = 'Test'
 
 if 'Stock' not in _M_Test.__dict__:
     _M_Test.Stock = None
-    class Stock(object):
-        def __init__(self, price=0.0, lastBid=0.0, laskAsk=0.0):
+    class Stock(Ice.Value):
+        def __init__(self, price=0.0, lastBid=0.0, lastAsk=0.0):
             self.price = price
             self.lastBid = lastBid
-            self.laskAsk = laskAsk
+            self.lastAsk = lastAsk
 
-        def __eq__(self, other):
-            if other is None:
-                return False
-            elif not isinstance(other, _M_Test.Stock):
-                return NotImplemented
-            else:
-                if self.price != other.price:
-                    return False
-                if self.lastBid != other.lastBid:
-                    return False
-                if self.laskAsk != other.laskAsk:
-                    return False
-                return True
+        def ice_id(self):
+            return '::Test::Stock'
 
-        def __ne__(self, other):
-            return not self.__eq__(other)
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Stock'
 
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_Stock)
 
         __repr__ = __str__
 
-    _M_Test._t_Stock = IcePy.defineStruct('::Test::Stock', Stock, (), (
-        ('price', (), IcePy._t_float),
-        ('lastBid', (), IcePy._t_float),
-        ('laskAsk', (), IcePy._t_float)
+    _M_Test._t_Stock = IcePy.defineValue('::Test::Stock', Stock, -1, (), False, None, (
+        ('price', (), IcePy._t_float, False, 0),
+        ('lastBid', (), IcePy._t_float, False, 0),
+        ('lastAsk', (), IcePy._t_float, False, 0)
     ))
+    Stock._ice_type = _M_Test._t_Stock
 
     _M_Test.Stock = Stock
     del Stock

@@ -19,41 +19,25 @@ require 'Ice'
 module ::Test
 
     if not defined?(::Test::Stock)
-        class Stock
-            include ::Ice::Inspect_mixin
-            def initialize(price=0.0, lastBid=0.0, laskAsk=0.0)
+        class Stock < ::Ice::Value
+
+            def initialize(price=0.0, lastBid=0.0, lastAsk=0.0)
                 @price = price
                 @lastBid = lastBid
-                @laskAsk = laskAsk
+                @lastAsk = lastAsk
             end
 
-            def hash
-                _h = 0
-                _h = 5 * _h + @price.hash
-                _h = 5 * _h + @lastBid.hash
-                _h = 5 * _h + @laskAsk.hash
-                _h % 0x7fffffff
-            end
-
-            def ==(other)
-                return false if !other.is_a? ::Test::Stock or
-                    @price != other.price or
-                    @lastBid != other.lastBid or
-                    @laskAsk != other.laskAsk
-                true
-            end
-
-            def eql?(other)
-                return other.class == self.class && other == self
-            end
-
-            attr_accessor :price, :lastBid, :laskAsk
+            attr_accessor :price, :lastBid, :lastAsk
         end
 
-        T_Stock = ::Ice::__defineStruct('::Test::Stock', Stock, [
-            ["price", ::Ice::T_float],
-            ["lastBid", ::Ice::T_float],
-            ["laskAsk", ::Ice::T_float]
+        if not defined?(::Test::T_Stock)
+            T_Stock = ::Ice::__declareClass('::Test::Stock')
+        end
+
+        T_Stock.defineClass(Stock, -1, false, nil, [
+            ['price', ::Ice::T_float, false, 0],
+            ['lastBid', ::Ice::T_float, false, 0],
+            ['lastAsk', ::Ice::T_float, false, 0]
         ])
     end
 end

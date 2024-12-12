@@ -35,3 +35,43 @@
 #       error Ice version mismatch: an exact match is required for beta generated code
 #   endif
 #endif
+
+namespace
+{
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Stock> iceC_Test_Stock_init("::Test::Stock");
+}
+
+const char*
+Test::Stock::ice_staticId() noexcept
+{
+    return "::Test::Stock";
+}
+
+const char*
+Test::Stock::ice_id() const noexcept
+{
+    return ice_staticId();
+}
+
+::Ice::ValuePtr
+Test::Stock::_iceCloneImpl() const
+{
+    return CloneEnabler<Stock>::clone(*this);
+}
+
+void
+Test::Stock::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->writeAll(this->price, this->lastBid, this->lastAsk);
+    ostr->endSlice();
+}
+
+void
+Test::Stock::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->readAll(this->price, this->lastBid, this->lastAsk);
+    istr->endSlice();
+}

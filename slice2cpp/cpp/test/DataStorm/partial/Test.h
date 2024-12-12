@@ -27,56 +27,63 @@
 
 namespace Test
 {
-    struct Stock;
+    class Stock;
+    using StockPtr = ::std::shared_ptr<Stock>;
 
 }
 
 namespace Test
 {
 
-struct Stock
+class Stock : public ::Ice::Value
 {
-    float price;
-    float lastBid;
-    float laskAsk;
+public:
+    /// Default constructor.
+    Stock() noexcept = default;
 
-    /// Obtains a tuple containing all of the struct's data members.
+    /// One-shot constructor to initialize all data members.
+    Stock(float price, float lastBid, float lastAsk) noexcept :
+        price(price),
+        lastBid(lastBid),
+        lastAsk(lastAsk)
+    {
+    }
+
+    /// Obtains the Slice type ID of this value.
+    /// @return The fully-scoped type ID.
+    static const char* ice_staticId() noexcept;
+
+    const char* ice_id() const noexcept override;
+
+    /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
     [[nodiscard]] std::tuple<const float&, const float&, const float&> ice_tuple() const
     {
-        return std::tie(price, lastBid, laskAsk);
+        return std::tie(price, lastBid, lastAsk);
     }
-};
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
+    /// Creates a shallow polymorphic copy of this instance.
+    /// @return The cloned value.
+    StockPtr ice_clone() const { return ::std::static_pointer_cast<Stock>(_iceCloneImpl()); }
+
+    float price;
+    float lastBid;
+    float lastAsk;
+
+protected:
+    Stock(const Stock&) = default;
+
+    ::Ice::ValuePtr _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
+};
 
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::Test::Stock>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 12;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::Test::Stock>
-{
-    static void read(InputStream* istr, ::Test::Stock& v)
-    {
-        istr->readAll(v.price, v.lastBid, v.laskAsk);
-    }
-};
 
 }
 /// \endcond

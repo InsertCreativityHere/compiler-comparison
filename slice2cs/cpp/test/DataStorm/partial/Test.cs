@@ -25,44 +25,49 @@
 
 namespace Test
 {
-    public partial record struct Stock
+    [Ice.SliceTypeId("::Test::Stock")]
+    public partial class Stock : Ice.Value
     {
         public float price;
 
         public float lastBid;
 
-        public float laskAsk;
+        public float lastAsk;
 
         partial void ice_initialize();
 
-        public Stock(float price, float lastBid, float laskAsk)
+        public Stock(float price, float lastBid, float lastAsk)
         {
             this.price = price;
             this.lastBid = lastBid;
-            this.laskAsk = laskAsk;
+            this.lastAsk = lastAsk;
             ice_initialize();
         }
 
-        public Stock(Ice.InputStream istr)
+        public Stock()
         {
-            this.price = istr.readFloat();
-            this.lastBid = istr.readFloat();
-            this.laskAsk = istr.readFloat();
             ice_initialize();
         }
 
-        public void ice_writeMembers(Ice.OutputStream ostr)
+        public static new string ice_staticId() => "::Test::Stock";
+        public override string ice_id() => ice_staticId();
+
+        protected override void iceWriteImpl(Ice.OutputStream ostr_)
         {
-            ostr.writeFloat(this.price);
-            ostr.writeFloat(this.lastBid);
-            ostr.writeFloat(this.laskAsk);
+            ostr_.startSlice(ice_staticId(), -1, true);
+            ostr_.writeFloat(price);
+            ostr_.writeFloat(lastBid);
+            ostr_.writeFloat(lastAsk);
+            ostr_.endSlice();
         }
 
-        public static void ice_write(Ice.OutputStream ostr, Stock v)
+        protected override void iceReadImpl(Ice.InputStream istr_)
         {
-            v.ice_writeMembers(ostr);
+            istr_.startSlice();
+            price = istr_.readFloat();
+            lastBid = istr_.readFloat();
+            lastAsk = istr_.readFloat();
+            istr_.endSlice();
         }
-
-        public static Stock ice_read(Ice.InputStream istr) => new(istr);
     }
 }
