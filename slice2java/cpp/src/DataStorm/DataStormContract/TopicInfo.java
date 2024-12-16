@@ -167,5 +167,5 @@ public class TopicInfo implements java.lang.Cloneable,
     private static final TopicInfo _nullMarshalValue = new TopicInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 6485286178858223275L;
+    private static final long serialVersionUID = -1116971881664314623L;
 }
