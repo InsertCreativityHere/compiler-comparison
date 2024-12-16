@@ -138,5 +138,5 @@ public class ClassStruct implements java.lang.Cloneable,
     private static final ClassStruct _nullMarshalValue = new ClassStruct();
 
     /** @hidden */
-    private static final long serialVersionUID = 4995617340704609408L;
+    private static final long serialVersionUID = 4995619380129075446L;
 }
