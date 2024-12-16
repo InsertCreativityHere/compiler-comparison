@@ -14,10 +14,10 @@
 //
 
 package Test;
+
 /**
  * Helper class for marshaling/unmarshaling LongLongDict.
  **/
-
 public final class LongLongDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Long, java.lang.Long> v)

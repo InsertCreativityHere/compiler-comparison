@@ -14,10 +14,10 @@
 //
 
 package test.Ice.scope.Test;
+
 /**
  * Helper class for marshaling/unmarshaling CMap.
  **/
-
 public final class CMapHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, C> v)

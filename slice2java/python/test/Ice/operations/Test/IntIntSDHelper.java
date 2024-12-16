@@ -14,10 +14,10 @@
 //
 
 package Test;
+
 /**
  * Helper class for marshaling/unmarshaling IntIntSD.
  **/
-
 public final class IntIntSDHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Integer, int[]> v)

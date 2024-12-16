@@ -14,10 +14,10 @@
 //
 
 package Test;
+
 /**
  * Helper class for marshaling/unmarshaling NDAIS.
  **/
-
 public final class NDAISHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, int[]> v)

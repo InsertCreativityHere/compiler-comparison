@@ -14,10 +14,10 @@
 //
 
 package test.Ice.slicing.objects.serverAMD.Test;
+
 /**
  * Helper class for marshaling/unmarshaling BDict.
  **/
-
 public final class BDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Integer, B> v)

@@ -14,10 +14,10 @@
 //
 
 package classdef._break;
+
 /**
  * Helper class for marshaling/unmarshaling switch.
  **/
-
 public final class switchHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Integer, bitor> v)

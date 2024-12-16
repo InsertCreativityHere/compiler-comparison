@@ -14,10 +14,10 @@
 //
 
 package Test1;
+
 /**
  * Helper class for marshaling/unmarshaling WstringWStringDict.
  **/
-
 public final class WstringWStringDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, java.lang.String> v)

@@ -14,10 +14,10 @@
 //
 
 package Test;
+
 /**
  * Helper class for marshaling/unmarshaling DTwoMembers.
  **/
-
 public final class DTwoMembersHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Integer, CTwoMembers> v)

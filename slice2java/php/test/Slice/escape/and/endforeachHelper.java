@@ -14,10 +14,10 @@
 //
 
 package and;
+
 /**
  * Helper class for marshaling/unmarshaling endforeach.
  **/
-
 public final class endforeachHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, array> v)

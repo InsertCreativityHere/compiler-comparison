@@ -14,10 +14,10 @@
 //
 
 package Test.Inner;
+
 /**
  * Helper class for marshaling/unmarshaling CMap.
  **/
-
 public final class CMapHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, Test.Inner.Inner2.C> v)

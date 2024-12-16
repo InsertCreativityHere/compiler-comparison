@@ -14,10 +14,10 @@
 //
 
 package LocalTest;
+
 /**
  * Helper class for marshaling/unmarshaling StructDict2.
  **/
-
 public final class StructDict2Helper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<StructKey, S1> v)

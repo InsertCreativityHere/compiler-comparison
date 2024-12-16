@@ -14,10 +14,10 @@
 //
 
 package Test;
+
 /**
  * Helper class for marshaling/unmarshaling NDV.
  **/
-
 public final class NDVHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, java.util.Map<java.lang.Integer, java.lang.Integer>> v)

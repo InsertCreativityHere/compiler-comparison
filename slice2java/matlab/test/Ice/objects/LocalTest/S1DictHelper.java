@@ -14,10 +14,10 @@
 //
 
 package LocalTest;
+
 /**
  * Helper class for marshaling/unmarshaling S1Dict.
  **/
-
 public final class S1DictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Integer, S1> v)

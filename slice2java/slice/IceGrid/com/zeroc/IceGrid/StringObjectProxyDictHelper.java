@@ -14,10 +14,10 @@
 //
 
 package com.zeroc.IceGrid;
+
 /**
  * Helper class for marshaling/unmarshaling StringObjectProxyDict.
  **/
-
 public final class StringObjectProxyDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, com.zeroc.Ice.ObjectPrx> v)

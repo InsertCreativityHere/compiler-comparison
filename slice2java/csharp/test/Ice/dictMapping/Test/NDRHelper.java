@@ -14,10 +14,10 @@
 //
 
 package Test;
+
 /**
  * Helper class for marshaling/unmarshaling NDR.
  **/
-
 public final class NDRHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.String>> v)

@@ -14,10 +14,10 @@
 //
 
 package test.Ice.seqMapping.AMD.Test;
+
 /**
  * Helper class for marshaling/unmarshaling SLD.
  **/
-
 public final class SLDHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Integer, test.Ice.seqMapping.Serialize.Large> v)

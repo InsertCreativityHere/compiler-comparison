@@ -14,10 +14,10 @@
 //
 
 package _abstract;
+
 /**
  * Helper class for marshaling/unmarshaling while.
  **/
-
 public final class whileHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, _break> v)

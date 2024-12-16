@@ -14,10 +14,10 @@
 //
 
 package Test;
+
 /**
  * Helper class for marshaling/unmarshaling LMap.
  **/
-
 public final class LMapHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<StructKey, L> v)

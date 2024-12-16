@@ -14,10 +14,10 @@
 //
 
 package test.Ice.operations.Test;
+
 /**
  * Helper class for marshaling/unmarshaling MyEnumStringD.
  **/
-
 public final class MyEnumStringDHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<MyEnum, java.lang.String> v)

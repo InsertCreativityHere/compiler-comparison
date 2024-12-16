@@ -14,10 +14,10 @@
 //
 
 package test.Ice.operations.AMD.Test;
+
 /**
  * Helper class for marshaling/unmarshaling MyStructMyEnumD.
  **/
-
 public final class MyStructMyEnumDHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<MyStruct, MyEnum> v)

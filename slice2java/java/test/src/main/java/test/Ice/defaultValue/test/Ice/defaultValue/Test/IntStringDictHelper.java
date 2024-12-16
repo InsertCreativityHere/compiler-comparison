@@ -14,10 +14,10 @@
 //
 
 package test.Ice.defaultValue.Test;
+
 /**
  * Helper class for marshaling/unmarshaling IntStringDict.
  **/
-
 public final class IntStringDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Integer, java.lang.String> v)

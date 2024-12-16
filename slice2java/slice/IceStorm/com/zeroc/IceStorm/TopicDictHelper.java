@@ -14,10 +14,10 @@
 //
 
 package com.zeroc.IceStorm;
+
 /**
  * Helper class for marshaling/unmarshaling TopicDict.
  **/
-
 public final class TopicDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, TopicPrx> v)

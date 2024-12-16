@@ -14,10 +14,10 @@
 //
 
 package Test.Inner;
+
 /**
  * Helper class for marshaling/unmarshaling SMap.
  **/
-
 public final class SMapHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, Test.Inner.Inner2.S> v)

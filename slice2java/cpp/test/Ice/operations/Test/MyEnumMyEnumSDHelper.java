@@ -14,10 +14,10 @@
 //
 
 package Test;
+
 /**
  * Helper class for marshaling/unmarshaling MyEnumMyEnumSD.
  **/
-
 public final class MyEnumMyEnumSDHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<MyEnum, MyEnum[]> v)

@@ -14,10 +14,10 @@
 //
 
 package test.Slice.structure.Test;
+
 /**
  * Helper class for marshaling/unmarshaling StringDict.
  **/
-
 public final class StringDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, java.lang.String> v)

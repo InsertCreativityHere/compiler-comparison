@@ -14,10 +14,10 @@
 //
 
 package test.Ice.operations.AMD.Test;
+
 /**
  * Helper class for marshaling/unmarshaling LongFloatD.
  **/
-
 public final class LongFloatDHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Long, java.lang.Float> v)

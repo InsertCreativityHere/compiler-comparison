@@ -14,10 +14,10 @@
 //
 
 package test.Ice.operations.Test;
+
 /**
  * Helper class for marshaling/unmarshaling ByteBoolD.
  **/
-
 public final class ByteBoolDHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Byte, java.lang.Boolean> v)

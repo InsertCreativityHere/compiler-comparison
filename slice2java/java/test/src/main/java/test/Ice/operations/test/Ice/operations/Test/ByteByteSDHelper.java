@@ -14,10 +14,10 @@
 //
 
 package test.Ice.operations.Test;
+
 /**
  * Helper class for marshaling/unmarshaling ByteByteSD.
  **/
-
 public final class ByteByteSDHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Byte, byte[]> v)

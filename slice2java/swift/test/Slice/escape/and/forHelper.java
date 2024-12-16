@@ -14,10 +14,10 @@
 //
 
 package and;
+
 /**
  * Helper class for marshaling/unmarshaling for.
  **/
-
 public final class forHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, guard> v)

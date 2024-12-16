@@ -14,10 +14,10 @@
 //
 
 package IceGrid;
+
 /**
  * Helper class for marshaling/unmarshaling PropertyDescriptorSeqDict.
  **/
-
 public final class PropertyDescriptorSeqDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, java.util.List<com.zeroc.IceGrid.PropertyDescriptor>> v)

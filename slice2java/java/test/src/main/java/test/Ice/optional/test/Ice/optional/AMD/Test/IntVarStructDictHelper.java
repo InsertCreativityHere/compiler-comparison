@@ -14,10 +14,10 @@
 //
 
 package test.Ice.optional.AMD.Test;
+
 /**
  * Helper class for marshaling/unmarshaling IntVarStructDict.
  **/
-
 public final class IntVarStructDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Integer, VarStruct> v)

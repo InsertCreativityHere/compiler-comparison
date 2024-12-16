@@ -14,10 +14,10 @@
 //
 
 package com.zeroc.Ice.IceMX;
+
 /**
  * Helper class for marshaling/unmarshaling MetricsView.
  **/
-
 public final class MetricsViewHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, Metrics[]> v)

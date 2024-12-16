@@ -14,10 +14,10 @@
 //
 
 package IceStorm;
+
 /**
  * Helper class for marshaling/unmarshaling SubscriberRecordDict.
  **/
-
 public final class SubscriberRecordDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<SubscriberRecordKey, SubscriberRecord> v)

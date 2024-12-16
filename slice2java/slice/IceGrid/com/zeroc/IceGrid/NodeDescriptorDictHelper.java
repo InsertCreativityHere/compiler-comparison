@@ -14,10 +14,10 @@
 //
 
 package com.zeroc.IceGrid;
+
 /**
  * Helper class for marshaling/unmarshaling NodeDescriptorDict.
  **/
-
 public final class NodeDescriptorDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, NodeDescriptor> v)

@@ -14,10 +14,10 @@
 //
 
 package test.Ice.scope.Test;
+
 /**
  * Helper class for marshaling/unmarshaling IMap.
  **/
-
 public final class IMapHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, IPrx> v)

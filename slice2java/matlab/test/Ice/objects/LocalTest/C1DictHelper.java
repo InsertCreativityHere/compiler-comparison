@@ -14,10 +14,10 @@
 //
 
 package LocalTest;
+
 /**
  * Helper class for marshaling/unmarshaling C1Dict.
  **/
-
 public final class C1DictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Integer, C1> v)

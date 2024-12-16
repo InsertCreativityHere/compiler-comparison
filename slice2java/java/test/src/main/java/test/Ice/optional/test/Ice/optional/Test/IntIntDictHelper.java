@@ -14,10 +14,10 @@
 //
 
 package test.Ice.optional.Test;
+
 /**
  * Helper class for marshaling/unmarshaling IntIntDict.
  **/
-
 public final class IntIntDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Integer, java.lang.Integer> v)

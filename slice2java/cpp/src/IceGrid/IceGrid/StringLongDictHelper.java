@@ -14,10 +14,10 @@
 //
 
 package IceGrid;
+
 /**
  * Helper class for marshaling/unmarshaling StringLongDict.
  **/
-
 public final class StringLongDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, java.lang.Long> v)

@@ -14,10 +14,10 @@
 //
 
 package IceStormElection;
+
 /**
  * Helper class for marshaling/unmarshaling StringLogUpdateDict.
  **/
-
 public final class StringLogUpdateDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, LogUpdate> v)

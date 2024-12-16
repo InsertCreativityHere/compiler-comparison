@@ -14,10 +14,10 @@
 //
 
 package com.zeroc.Ice;
+
 /**
  * Helper class for marshaling/unmarshaling Context.
  **/
-
 public final class ContextHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, java.lang.String> v)

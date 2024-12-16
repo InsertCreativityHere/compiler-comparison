@@ -14,10 +14,10 @@
 //
 
 package BEGIN;
+
 /**
  * Helper class for marshaling/unmarshaling ensure.
  **/
-
 public final class ensureHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, END> v)

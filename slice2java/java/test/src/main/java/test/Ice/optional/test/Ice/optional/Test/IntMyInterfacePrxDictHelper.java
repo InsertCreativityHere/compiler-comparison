@@ -14,10 +14,10 @@
 //
 
 package test.Ice.optional.Test;
+
 /**
  * Helper class for marshaling/unmarshaling IntMyInterfacePrxDict.
  **/
-
 public final class IntMyInterfacePrxDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Integer, MyInterfacePrx> v)

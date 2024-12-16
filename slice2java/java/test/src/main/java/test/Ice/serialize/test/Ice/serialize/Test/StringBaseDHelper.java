@@ -14,10 +14,10 @@
 //
 
 package test.Ice.serialize.Test;
+
 /**
  * Helper class for marshaling/unmarshaling StringBaseD.
  **/
-
 public final class StringBaseDHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, Base> v)

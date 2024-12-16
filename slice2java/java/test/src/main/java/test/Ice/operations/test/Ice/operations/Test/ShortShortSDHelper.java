@@ -14,10 +14,10 @@
 //
 
 package test.Ice.operations.Test;
+
 /**
  * Helper class for marshaling/unmarshaling ShortShortSD.
  **/
-
 public final class ShortShortSDHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Short, short[]> v)

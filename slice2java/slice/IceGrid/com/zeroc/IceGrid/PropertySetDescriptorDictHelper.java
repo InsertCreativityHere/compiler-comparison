@@ -14,10 +14,10 @@
 //
 
 package com.zeroc.IceGrid;
+
 /**
  * Helper class for marshaling/unmarshaling PropertySetDescriptorDict.
  **/
-
 public final class PropertySetDescriptorDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, PropertySetDescriptor> v)

@@ -14,10 +14,10 @@
 //
 
 package test.Slice.escape._abstract;
+
 /**
  * Helper class for marshaling/unmarshaling goto.
  **/
-
 public final class gotoHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, _assert> v)

@@ -14,10 +14,10 @@
 //
 
 package com.zeroc.IceStorm;
+
 /**
  * Helper class for marshaling/unmarshaling QoS.
  **/
-
 public final class QoSHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, java.lang.String> v)

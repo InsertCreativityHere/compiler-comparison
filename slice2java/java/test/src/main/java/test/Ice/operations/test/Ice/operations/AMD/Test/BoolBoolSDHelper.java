@@ -14,10 +14,10 @@
 //
 
 package test.Ice.operations.AMD.Test;
+
 /**
  * Helper class for marshaling/unmarshaling BoolBoolSD.
  **/
-
 public final class BoolBoolSDHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Boolean, boolean[]> v)

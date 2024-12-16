@@ -14,10 +14,10 @@
 //
 
 package IceGrid;
+
 /**
  * Helper class for marshaling/unmarshaling AdapterPrxDict.
  **/
-
 public final class AdapterPrxDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, AdapterPrx> v)

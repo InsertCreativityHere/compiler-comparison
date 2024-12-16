@@ -14,10 +14,10 @@
 //
 
 package test.Ice.custom.Test;
+
 /**
  * Helper class for marshaling/unmarshaling D.
  **/
-
 public final class DHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.Integer, java.lang.String> v)

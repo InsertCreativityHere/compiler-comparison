@@ -14,10 +14,10 @@
 //
 
 package com.zeroc.IceGrid;
+
 /**
  * Helper class for marshaling/unmarshaling StringStringDict.
  **/
-
 public final class StringStringDictHelper
 {
     public static void write(com.zeroc.Ice.OutputStream ostr, java.util.Map<java.lang.String, java.lang.String> v)
