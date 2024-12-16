@@ -31,17 +31,16 @@
 
 namespace DataStormContract
 {
-    /// The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
-    /// history in response to various events.
+    /// Defines policies for clearing the data sample history of a reader in response to sample events.
     enum class ClearHistoryPolicy : ::std::uint8_t
     {
-        /// The reader clears its history when a new DataSample is added.
+        /// The reader clears its history when a new data sample is added.
         OnAdd,
-        /// The reader clears its history when a DataSample is removed.
+        /// The reader clears its history when a data sample is removed.
         OnRemove,
-        /// The reader clears its history when any DataSample event occurs.
+        /// The reader clears its history when any data sample event occurs.
         OnAll,
-        /// The reader clears its history when any DataSample event occurs, except for PartialUpdate events.
+        /// The reader clears its history for all data sample events except for partial update events.
         OnAllExceptPartialUpdate,
         /// The reader never clears its history.
         Never
@@ -63,7 +62,8 @@ namespace DataStormContract
 
     struct TopicInfo;
 
-    /// Represents a sequence of active topics used for transmitting topic information during session establishment.
+    /// Represents a sequence of active topics used for transmitting topic information between publisher and subscriber
+    /// sessions.
     /// @see Session#announceTopics
     using TopicInfoSeq = ::std::vector<TopicInfo>;
 
@@ -107,35 +107,35 @@ namespace DataStormContract
 
 /// The base interface for publisher and subscriber sessions.
 ///
-/// This interface enables nodes to exchange topic and element information, as well as data samples.
+/// This interface specifies the operations for communication between publisher and subscriber sessions.
 /// @see PublisherSession
 /// @see SubscriberSession
 class SessionPrx : public ::Ice::Proxy<SessionPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    /// Announces new and existing topics to the peer.
+    /// Announces topics to the peer during session establishment or when adding new topics.
     ///
-    /// - During session establishment, this operation announces existing topics.
-    /// - For already established sessions, it is used to announce new topics.
+    /// - During session establishment, announces existing topics.
+    /// - For established sessions, announces newly added topics.
     ///
-    /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+    /// A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
     ///
-    /// The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+    /// The receiving peer invokes attachTopic for topics it is interested in.
     /// @param topics The sequence of topics to announce.
     /// @param initialize Currently unused.
     /// @param context The Context map to send with the invocation.
     /// @see attachTopic
     void announceTopics(const TopicInfoSeq& topics, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Announces new and existing topics to the peer.
+    /// Announces topics to the peer during session establishment or when adding new topics.
     ///
-    /// - During session establishment, this operation announces existing topics.
-    /// - For already established sessions, it is used to announce new topics.
+    /// - During session establishment, announces existing topics.
+    /// - For established sessions, announces newly added topics.
     ///
-    /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+    /// A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
     ///
-    /// The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+    /// The receiving peer invokes attachTopic for topics it is interested in.
     /// @param topics The sequence of topics to announce.
     /// @param initialize Currently unused.
     /// @param context The Context map to send with the invocation.
@@ -143,14 +143,14 @@ public:
     /// @see attachTopic
     [[nodiscard]] ::std::future<void> announceTopicsAsync(const TopicInfoSeq& topics, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Announces new and existing topics to the peer.
+    /// Announces topics to the peer during session establishment or when adding new topics.
     ///
-    /// - During session establishment, this operation announces existing topics.
-    /// - For already established sessions, it is used to announce new topics.
+    /// - During session establishment, announces existing topics.
+    /// - For established sessions, announces newly added topics.
     ///
-    /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+    /// A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
     ///
-    /// The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+    /// The receiving peer invokes attachTopic for topics it is interested in.
     /// @param topics The sequence of topics to announce.
     /// @param initialize Currently unused.
     /// @param response The response callback.
@@ -166,34 +166,28 @@ public:
     void _iceI_announceTopics(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const TopicInfoSeq&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+    /// This operation is invoked if the session is interested in the announced topic. Which occurs when:
     ///
-    /// This operation is called if the session is interested in the announced topic, which occurs when:
-    ///
-    /// - The session has a reader for a topic that the peer has a writer for, or
-    /// - The session has a writer for a topic that the peer has a reader for.
-    /// @param topic The TopicSpec object describing the topic being attached to the remote topic.
+    /// - The session has a reader for a topic that the peer writes, or
+    /// - The session has a writer for a topic that the peer reads.
+    /// @param topic The TopicSpec describing the topic to attach.
     /// @param context The Context map to send with the invocation.
     void attachTopic(const TopicSpec& topic, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+    /// This operation is invoked if the session is interested in the announced topic. Which occurs when:
     ///
-    /// This operation is called if the session is interested in the announced topic, which occurs when:
-    ///
-    /// - The session has a reader for a topic that the peer has a writer for, or
-    /// - The session has a writer for a topic that the peer has a reader for.
-    /// @param topic The TopicSpec object describing the topic being attached to the remote topic.
+    /// - The session has a reader for a topic that the peer writes, or
+    /// - The session has a writer for a topic that the peer reads.
+    /// @param topic The TopicSpec describing the topic to attach.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<void> attachTopicAsync(const TopicSpec& topic, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+    /// This operation is invoked if the session is interested in the announced topic. Which occurs when:
     ///
-    /// This operation is called if the session is interested in the announced topic, which occurs when:
-    ///
-    /// - The session has a reader for a topic that the peer has a writer for, or
-    /// - The session has a writer for a topic that the peer has a reader for.
-    /// @param topic The TopicSpec object describing the topic being attached to the remote topic.
+    /// - The session has a reader for a topic that the peer writes, or
+    /// - The session has a writer for a topic that the peer reads.
+    /// @param topic The TopicSpec describing the topic to attach.
     /// @param response The response callback.
     /// @param ex The exception callback.
     /// @param sent The sent callback.
@@ -206,86 +200,138 @@ public:
     void _iceI_attachTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const TopicSpec&, const ::Ice::Context&) const;
     /// \endcond
 
-    /// Detaches a topic from the session.
+    /// Detaches a topic from the session, typically called when the topic is destroyed.
     ///
-    /// This operation is called by the topic on listener sessions when the topic is being destroyed.
-    /// @param topic The ID of the topic to detach.
+    /// This operation is invoked by the topic on listener sessions during its destruction.
+    /// @param topicId The unique identifier for the topic to detach.
     /// @param context The Context map to send with the invocation.
-    void detachTopic(::std::int64_t topic, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void detachTopic(::std::int64_t topicId, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Detaches a topic from the session.
+    /// Detaches a topic from the session, typically called when the topic is destroyed.
     ///
-    /// This operation is called by the topic on listener sessions when the topic is being destroyed.
-    /// @param topic The ID of the topic to detach.
+    /// This operation is invoked by the topic on listener sessions during its destruction.
+    /// @param topicId The unique identifier for the topic to detach.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> detachTopicAsync(::std::int64_t topic, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> detachTopicAsync(::std::int64_t topicId, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Detaches a topic from the session.
+    /// Detaches a topic from the session, typically called when the topic is destroyed.
     ///
-    /// This operation is called by the topic on listener sessions when the topic is being destroyed.
-    /// @param topic The ID of the topic to detach.
+    /// This operation is invoked by the topic on listener sessions during its destruction.
+    /// @param topicId The unique identifier for the topic to detach.
     /// @param response The response callback.
     /// @param ex The exception callback.
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
-    detachTopicAsync(::std::int64_t topic, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    detachTopicAsync(::std::int64_t topicId, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_detachTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ::Ice::Context&) const;
     /// \endcond
 
-    void attachTags(::std::int64_t topic, const ElementInfoSeq& tags, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /// Attaches the specified tags to the subscriber of a topic.
+    ///
+    /// Tags are used to support partial update samples.
+    /// @param topicId The unique identifier for the topic to which the tags will be attached.
+    /// @param tags The sequence of tags to attach, representing the partial update associations.
+    /// @param initialize Indicates whether the tags are being attached during session initialization.
+    /// @param context The Context map to send with the invocation.
+    void attachTags(::std::int64_t topicId, const ElementInfoSeq& tags, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> attachTagsAsync(::std::int64_t topic, const ElementInfoSeq& tags, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /// Attaches the specified tags to the subscriber of a topic.
+    ///
+    /// Tags are used to support partial update samples.
+    /// @param topicId The unique identifier for the topic to which the tags will be attached.
+    /// @param tags The sequence of tags to attach, representing the partial update associations.
+    /// @param initialize Indicates whether the tags are being attached during session initialization.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
+    [[nodiscard]] ::std::future<void> attachTagsAsync(::std::int64_t topicId, const ElementInfoSeq& tags, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /// Attaches the specified tags to the subscriber of a topic.
+    ///
+    /// Tags are used to support partial update samples.
+    /// @param topicId The unique identifier for the topic to which the tags will be attached.
+    /// @param tags The sequence of tags to attach, representing the partial update associations.
+    /// @param initialize Indicates whether the tags are being attached during session initialization.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
-    attachTagsAsync(::std::int64_t topic, const ElementInfoSeq& tags, bool initialize, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    attachTagsAsync(::std::int64_t topicId, const ElementInfoSeq& tags, bool initialize, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_attachTags(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ElementInfoSeq&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    void detachTags(::std::int64_t topic, const ::Ice::LongSeq& tags, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /// Detaches tags from the session.
+    /// @param topicId The unique identifier for the topic.
+    /// @param tags The sequence of tag identifiers to detach.
+    /// @param context The Context map to send with the invocation.
+    void detachTags(::std::int64_t topicId, const ::Ice::LongSeq& tags, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> detachTagsAsync(::std::int64_t topic, const ::Ice::LongSeq& tags, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /// Detaches tags from the session.
+    /// @param topicId The unique identifier for the topic.
+    /// @param tags The sequence of tag identifiers to detach.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
+    [[nodiscard]] ::std::future<void> detachTagsAsync(::std::int64_t topicId, const ::Ice::LongSeq& tags, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /// Detaches tags from the session.
+    /// @param topicId The unique identifier for the topic.
+    /// @param tags The sequence of tag identifiers to detach.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
-    detachTagsAsync(::std::int64_t topic, const ::Ice::LongSeq& tags, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    detachTagsAsync(::std::int64_t topicId, const ::Ice::LongSeq& tags, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_detachTags(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ::Ice::LongSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    /// Announces new elements to the peer.
+    /// Announces elements associated with a topic to the peer.
     ///
-    /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-    /// the readers and writers associated with the specified topic.
-    /// @param topic The ID of the topic associated with the elements.
-    /// @param elements The sequence of elements to announce.
+    /// This operation informs the peer about new data readers or data writers associated with the specified topic.
+    /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+    ///
+    /// - A publisher session announces its data writers.
+    /// - A subscriber session announces its data readers.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements The sequence of elements to announce, representing the data readers or data writers.
     /// @param context The Context map to send with the invocation.
     /// @see attachElements
-    void announceElements(::std::int64_t topic, const ElementInfoSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void announceElements(::std::int64_t topicId, const ElementInfoSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Announces new elements to the peer.
+    /// Announces elements associated with a topic to the peer.
     ///
-    /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-    /// the readers and writers associated with the specified topic.
-    /// @param topic The ID of the topic associated with the elements.
-    /// @param elements The sequence of elements to announce.
+    /// This operation informs the peer about new data readers or data writers associated with the specified topic.
+    /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+    ///
+    /// - A publisher session announces its data writers.
+    /// - A subscriber session announces its data readers.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements The sequence of elements to announce, representing the data readers or data writers.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     /// @see attachElements
-    [[nodiscard]] ::std::future<void> announceElementsAsync(::std::int64_t topic, const ElementInfoSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> announceElementsAsync(::std::int64_t topicId, const ElementInfoSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Announces new elements to the peer.
+    /// Announces elements associated with a topic to the peer.
     ///
-    /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-    /// the readers and writers associated with the specified topic.
-    /// @param topic The ID of the topic associated with the elements.
-    /// @param elements The sequence of elements to announce.
+    /// This operation informs the peer about new data readers or data writers associated with the specified topic.
+    /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+    ///
+    /// - A publisher session announces its data writers.
+    /// - A subscriber session announces its data readers.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements The sequence of elements to announce, representing the data readers or data writers.
     /// @param response The response callback.
     /// @param ex The exception callback.
     /// @param sent The sent callback.
@@ -293,31 +339,40 @@ public:
     /// @return A function that can be called to cancel the invocation locally.
     /// @see attachElements
     ::std::function<void()>
-    announceElementsAsync(::std::int64_t topic, const ElementInfoSeq& elements, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    announceElementsAsync(::std::int64_t topicId, const ElementInfoSeq& elements, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_announceElements(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ElementInfoSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    /// Attaches the given topic elements to all subscribers of the specified topic.
-    /// @param topicId The ID of the topic to which the elements belong.
-    /// @param elements The sequence of elements to attach to the topic's subscribers.
-    /// @param initialize True if called from attachTopic, false otherwise.
+    /// Attaches the specified elements to the subscribers of a topic.
+    ///
+    /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+    /// topic.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+    /// @param initialize Indicates whether the elements are being attached during session initialization.
     /// @param context The Context map to send with the invocation.
     void attachElements(::std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Attaches the given topic elements to all subscribers of the specified topic.
-    /// @param topicId The ID of the topic to which the elements belong.
-    /// @param elements The sequence of elements to attach to the topic's subscribers.
-    /// @param initialize True if called from attachTopic, false otherwise.
+    /// Attaches the specified elements to the subscribers of a topic.
+    ///
+    /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+    /// topic.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+    /// @param initialize Indicates whether the elements are being attached during session initialization.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<void> attachElementsAsync(::std::int64_t topicId, const ElementSpecSeq& elements, bool initialize, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Attaches the given topic elements to all subscribers of the specified topic.
-    /// @param topicId The ID of the topic to which the elements belong.
-    /// @param elements The sequence of elements to attach to the topic's subscribers.
-    /// @param initialize True if called from attachTopic, false otherwise.
+    /// Attaches the specified elements to the subscribers of a topic.
+    ///
+    /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+    /// topic.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+    /// @param initialize Indicates whether the elements are being attached during session initialization.
     /// @param response The response callback.
     /// @param ex The exception callback.
     /// @param sent The sent callback.
@@ -330,42 +385,109 @@ public:
     void _iceI_attachElements(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ElementSpecSeq&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    void attachElementsAck(::std::int64_t topic, const ElementSpecAckSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+    ///
+    /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
+    /// to the session.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+    /// @param context The Context map to send with the invocation.
+    void attachElementsAck(::std::int64_t topicId, const ElementSpecAckSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> attachElementsAckAsync(::std::int64_t topic, const ElementSpecAckSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+    ///
+    /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
+    /// to the session.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
+    [[nodiscard]] ::std::future<void> attachElementsAckAsync(::std::int64_t topicId, const ElementSpecAckSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+    ///
+    /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
+    /// to the session.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
-    attachElementsAckAsync(::std::int64_t topic, const ElementSpecAckSeq& elements, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    attachElementsAckAsync(::std::int64_t topicId, const ElementSpecAckSeq& elements, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_attachElementsAck(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ElementSpecAckSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    void detachElements(::std::int64_t topic, const ::Ice::LongSeq& keys, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /// Instructs the peer to detach specific elements associated with a topic.
+    ///
+    /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+    /// and should be removed from the peer's session.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements A sequence of element identifiers representing the keys or filters to detach.
+    /// @param context The Context map to send with the invocation.
+    void detachElements(::std::int64_t topicId, const ::Ice::LongSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> detachElementsAsync(::std::int64_t topic, const ::Ice::LongSeq& keys, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /// Instructs the peer to detach specific elements associated with a topic.
+    ///
+    /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+    /// and should be removed from the peer's session.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements A sequence of element identifiers representing the keys or filters to detach.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
+    [[nodiscard]] ::std::future<void> detachElementsAsync(::std::int64_t topicId, const ::Ice::LongSeq& elements, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /// Instructs the peer to detach specific elements associated with a topic.
+    ///
+    /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+    /// and should be removed from the peer's session.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements A sequence of element identifiers representing the keys or filters to detach.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
-    detachElementsAsync(::std::int64_t topic, const ::Ice::LongSeq& keys, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    detachElementsAsync(::std::int64_t topicId, const ::Ice::LongSeq& elements, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_detachElements(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const ::Ice::LongSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    void initSamples(::std::int64_t topic, const DataSamplesSeq& samples, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+    /// @param topicId The unique identifier for the topic.
+    /// @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+    /// @param context The Context map to send with the invocation.
+    void initSamples(::std::int64_t topicId, const DataSamplesSeq& samples, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> initSamplesAsync(::std::int64_t topic, const DataSamplesSeq& samples, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+    /// @param topicId The unique identifier for the topic.
+    /// @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+    /// @param context The Context map to send with the invocation.
+    /// @return The future object for the invocation.
+    [[nodiscard]] ::std::future<void> initSamplesAsync(::std::int64_t topicId, const DataSamplesSeq& samples, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
+    /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+    /// @param topicId The unique identifier for the topic.
+    /// @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+    /// @param response The response callback.
+    /// @param ex The exception callback.
+    /// @param sent The sent callback.
+    /// @param context The Context map to send with the invocation.
+    /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()>
-    initSamplesAsync(::std::int64_t topic, const DataSamplesSeq& samples, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    initSamplesAsync(::std::int64_t topicId, const DataSamplesSeq& samples, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_initSamples(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int64_t, const DataSamplesSeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /// Notifies the peer that the session is being disconnected.
-    ///
-    /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
     ///
     /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
     /// between the relay node and the target node is lost.
@@ -374,8 +496,6 @@ public:
 
     /// Notifies the peer that the session is being disconnected.
     ///
-    /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
-    ///
     /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
     /// between the relay node and the target node is lost.
     /// @param context The Context map to send with the invocation.
@@ -383,8 +503,6 @@ public:
     [[nodiscard]] ::std::future<void> disconnectedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// Notifies the peer that the session is being disconnected.
-    ///
-    /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
     ///
     /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
     /// between the relay node and the target node is lost.
@@ -514,23 +632,23 @@ class SubscriberSessionPrx : public ::Ice::Proxy<SubscriberSessionPrx, SessionPr
 public:
 
     /// Queue a sample with the subscribers of the topic element.
-    /// @param topicId The ID of the topic.
-    /// @param elementId The ID of the element.
+    /// @param topicId The unique identifier for the topic to which the sample belong.
+    /// @param elementId The unique identifier for the element to which the sample belong.
     /// @param sample The sample to queue.
     /// @param context The Context map to send with the invocation.
     void s(::std::int64_t topicId, ::std::int64_t elementId, const DataSample& sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// Queue a sample with the subscribers of the topic element.
-    /// @param topicId The ID of the topic.
-    /// @param elementId The ID of the element.
+    /// @param topicId The unique identifier for the topic to which the sample belong.
+    /// @param elementId The unique identifier for the element to which the sample belong.
     /// @param sample The sample to queue.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<void> sAsync(::std::int64_t topicId, ::std::int64_t elementId, const DataSample& sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// Queue a sample with the subscribers of the topic element.
-    /// @param topicId The ID of the topic.
-    /// @param elementId The ID of the element.
+    /// @param topicId The unique identifier for the topic to which the sample belong.
+    /// @param elementId The unique identifier for the element to which the sample belong.
     /// @param sample The sample to queue.
     /// @param response The response callback.
     /// @param ex The exception callback.
@@ -850,19 +968,19 @@ public:
     void _iceI_announceTopics(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::optional<NodePrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /// Establish a connection between this node and another node.
+    /// Establish a connection between this node and the caller node.
     /// @param node The node initiating the connection. The proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to this node. The proxy is never null.
     ::std::optional<NodePrx> createSession(const ::std::optional<NodePrx>& node, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
 
-    /// Establish a connection between this node and another node.
+    /// Establish a connection between this node and the caller node.
     /// @param node The node initiating the connection. The proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<::std::optional<NodePrx>> createSessionAsync(const ::std::optional<NodePrx>& node, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Establish a connection between this node and another node.
+    /// Establish a connection between this node and the caller node.
     /// @param node The node initiating the connection. The proxy is never null.
     /// @param response The response callback.
     /// @param ex The exception callback.
@@ -928,21 +1046,23 @@ protected:
 namespace DataStormContract
 {
 
+/// Represents a data sample, the fundamental unit of data exchanged between DataStorm readers and writers.
 struct DataSample
 {
-    /// The sample id.
+    /// The unique identifier for the sample.
     ::std::int64_t id;
-    /// The key id.
+    /// The unique identifier for the associated key.
+    /// A negative value (< 0) indicates a key filter.
     ::std::int64_t keyId;
-    /// The key value if the key ID <= 0.
+    /// The encoded key value, used when keyId < 0 (key filter).
     ::Ice::ByteSeq keyValue;
-    /// The timestamp of the sample (write time).
+    /// The timestamp when the sample was written, in milliseconds since the epoch.
     ::std::int64_t timestamp;
-    /// The update tag if the sample event is PartialUpdate.
+    /// An update tag, used for PartialUpdate sample events.
     ::std::int64_t tag;
-    /// The sample event.
+    /// The event type associated with this sample (e.g., Add, Update, PartialUpdate, Remove).
     ::DataStorm::SampleEvent event;
-    /// The value of the sample.
+    /// The payload data of the sample.
     ::Ice::ByteSeq value;
 
     /// Obtains a tuple containing all of the struct's data members.
@@ -953,11 +1073,12 @@ struct DataSample
     }
 };
 
+/// Represents a collection of data samples produced by a specific writer.
 struct DataSamples
 {
-    /// The id of the writer or reader.
+    /// The unique identifier for the writer.
     ::std::int64_t id;
-    /// The samples.
+    /// The sequence of samples produced by the writer.
     ::DataStormContract::DataSampleSeq samples;
 
     /// Obtains a tuple containing all of the struct's data members.
@@ -968,13 +1089,13 @@ struct DataSamples
     }
 };
 
-/// Provides information about an element, which can be a key, a filter, or a tag. Includes the element's ID, name,
-/// and encoded value.
+/// Provides metadata about an element, such as a key, filter, or tag.
 struct ElementInfo
 {
-    /// The ID of the element. Filter IDs are negative, while key and tag IDs are positive.
+    /// The unique identifier for the element.
+    /// Negative values indicate filter IDs; positive values indicate key or tag IDs.
     ::std::int64_t id;
-    /// The name of the filter. This field is empty for key and tag elements.
+    /// The name of the element. Empty for key and tag elements.
     ::std::string name;
     /// The encoded value of the element.
     ::Ice::ByteSeq value;
@@ -987,21 +1108,16 @@ struct ElementInfo
     }
 };
 
-/// Provides information about a topic, including its name and the list of active topic reader or topic writer IDs.
-///
-/// There is a unique `TopicInfo` for all topic instances with the same name, representing a single logical topic.
-/// Each instance has its own topic reader and topic writer, which are lazily initialized and have a unique ID.
+/// Contains metadata about a topic, including its name and associated reader/writer IDs.
 /// @see Session#announceTopics
 struct TopicInfo
 {
     /// The name of the topic.
     ::std::string name;
-    /// The list of active topic reader or topic writer IDs for the topic.
+    /// The list of active topic reader or writer IDs.
     ///
-    /// - In a publisher session announcing topics to a subscriber session, this contains the active topic writer
-    /// IDs.
-    /// - In a subscriber session announcing topics to a publisher session, this contains the active topic reader
-    /// IDs.
+    /// - In a publisher session,  the `ids` field contains the active topic writer IDs.
+    /// - In a subscriber session,  the `ids` field contains the active topic reader IDs.
     ::Ice::LongSeq ids;
 
     /// Obtains a tuple containing all of the struct's data members.
@@ -1017,7 +1133,8 @@ struct TopicInfo
 /// @see Session#attachTopic
 struct TopicSpec
 {
-    /// The ID of the topic.
+    /// The unique identifier for the topic.
+    /// The ID uniquely identifies a topic reader or topic writer within a node.
     ::std::int64_t id;
     /// The name of the topic.
     ::std::string name;
@@ -1034,9 +1151,12 @@ struct TopicSpec
     }
 };
 
+/// Represents a sample filter that specifies which samples should be sent to a data reader.
 struct FilterInfo
 {
+    /// The unique name of the filter, used for identification.
     ::std::string name;
+    /// The encoded criteria for instantiating the filter.
     ::Ice::ByteSeq criteria;
 
     /// Obtains a tuple containing all of the struct's data members.
@@ -1047,7 +1167,7 @@ struct FilterInfo
     }
 };
 
-/// Represents the configuration of a reader or writer.
+/// Represents the configuration of a data reader or data writer, including optional filters and priorities.
 class ElementConfig : public ::Ice::Value
 {
 public:
@@ -1055,6 +1175,7 @@ public:
     ElementConfig() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
+    /// @param facet A facet that is used to process the samples when sample filtering is enabled.
     /// @param sampleFilter An optional sample filter associated with the reader.
     /// @param name An optional name for the reader or writer.
     /// @param priority An optional priority for the writer.
@@ -1089,6 +1210,7 @@ public:
     /// @return The cloned value.
     [[nodiscard]] ElementConfigPtr ice_clone() const { return ::std::static_pointer_cast<ElementConfig>(_iceCloneImpl()); }
 
+    /// A facet that is used to process the samples when sample filtering is enabled.
     ::std::optional<::std::string> facet;
     /// An optional sample filter associated with the reader. Sample filters are specified on the reader side.
     ::std::optional<::DataStormContract::FilterInfo> sampleFilter;
@@ -1116,13 +1238,17 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
+/// Encapsulates the state and configuration data for a data reader or data writer.
 struct ElementData
 {
-    /// The id of the writer or reader.
+    /// The unique identifier for the data reader or data writer.
     ::std::int64_t id;
-    /// The config of the writer or reader.
+    /// The configuration settings for the data reader or data writer.
     ::DataStormContract::ElementConfigPtr config;
-    /// The lastIds received by the reader.
+    /// A mapping of data writer IDs to the last sample IDs received by the data reader.
+    ///
+    /// - The key represents the data writer ID.
+    /// - The value represents the last sample ID received from the corresponding data writer.
     ::DataStormContract::LongLongDict lastIds;
 
     /// Obtains a tuple containing all of the struct's data members.
@@ -1133,20 +1259,22 @@ struct ElementData
     }
 };
 
-/// Provides detailed information about elements that can be either a key or a filter.
+/// Represents detailed information about topic elements, which can be a key or a filter.
 struct ElementSpec
 {
-    /// The readers and writers associated with the key or filter.
+    /// A sequence of data readers and writers associated with the key or filter.
     ::DataStormContract::ElementDataSeq elements;
-    /// The id of the key or filter.
+    /// The unique identifier for the key or filter.
     ::std::int64_t id;
-    /// The name of the filter. This field is empty for key elements.
+    /// The name of the filter.
+    /// This field is empty if the element is a key.
     ::std::string name;
-    /// The value of the key or filter.
+    /// The encoded value of the key or filter.
     ::Ice::ByteSeq value;
-    /// The id of the key or filter from the peer.
+    /// The unique identifier for the key or filter on the peer.
     ::std::int64_t peerId;
-    /// The name of the filter from the peer.
+    /// The name of the filter on the peer.
+    /// This field is empty if the element is a key.
     ::std::string peerName;
 
     /// Obtains a tuple containing all of the struct's data members.
@@ -1157,17 +1285,24 @@ struct ElementSpec
     }
 };
 
+/// Represents an acknowledgment of the attachment of data readers or data writers associated with a key or filter.
 struct ElementDataAck
 {
-    /// The id of the writer or filter.
+    /// The unique identifier for the data reader or data writer.
     ::std::int64_t id;
-    /// The config of the writer or reader.
+    /// The configuration settings for the data reader or data writer.
     ::DataStormContract::ElementConfigPtr config;
-    /// The lastIds received by the reader.
+    /// A mapping of data writer IDs to the last sample IDs received by the data reader.
+    ///
+    /// - The key represents the data writer ID.
+    /// - The value represents the last sample ID received from the corresponding data writer.
     ::DataStormContract::LongLongDict lastIds;
-    /// The samples of the writer or reader.
+    /// A sequence of samples in the writer's queue, used to initialize the reader.
+    ///
+    /// - When this struct is sent from a subscriber to a publisher, this field is empty.
+    /// - When sent from a publisher to a subscriber, this field contains the queued samples.
     ::DataStormContract::DataSampleSeq samples;
-    /// The id of the writer or reader on the peer.
+    /// The unique identifier for the peer's data reader or data writer.
     ::std::int64_t peerId;
 
     /// Obtains a tuple containing all of the struct's data members.
@@ -1178,19 +1313,22 @@ struct ElementDataAck
     }
 };
 
+/// Represents an acknowledgment of the attachment of an element, which can be a key or a filter.
 struct ElementSpecAck
 {
-    /// The readers or writers associated with the key or filter.
+    /// A sequence of acknowledgments for the readers or writers associated with the key or filter.
     ::DataStormContract::ElementDataAckSeq elements;
-    /// The id of the key or filter.
+    /// The unique identifier for the key or filter.
     ::std::int64_t id;
     /// The name of the filter.
+    /// This field is empty if the element is a key.
     ::std::string name;
-    /// The key or filter value.
+    /// The encoded value of the key or filter.
     ::Ice::ByteSeq value;
-    /// The id of the key or filter on the peer.
+    /// The unique identifier for the key or filter on the peer.
     ::std::int64_t peerId;
     /// The name of the filter on the peer.
+    /// This field is empty if the element is a key.
     ::std::string peerName;
 
     /// Obtains a tuple containing all of the struct's data members.
@@ -1215,7 +1353,7 @@ namespace DataStormContract
 
 /// The base interface for publisher and subscriber sessions.
 ///
-/// This interface enables nodes to exchange topic and element information, as well as data samples.
+/// This interface specifies the operations for communication between publisher and subscriber sessions.
 /// @see PublisherSession
 /// @see SubscriberSession
 class Session : public virtual ::Ice::Object
@@ -1238,14 +1376,14 @@ public:
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    /// Announces new and existing topics to the peer.
+    /// Announces topics to the peer during session establishment or when adding new topics.
     ///
-    /// - During session establishment, this operation announces existing topics.
-    /// - For already established sessions, it is used to announce new topics.
+    /// - During session establishment, announces existing topics.
+    /// - For established sessions, announces newly added topics.
     ///
-    /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+    /// A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
     ///
-    /// The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+    /// The receiving peer invokes attachTopic for topics it is interested in.
     /// @param topics The sequence of topics to announce.
     /// @param initialize Currently unused.
     /// @param current The Current object for the invocation.
@@ -1255,80 +1393,111 @@ public:
     void _iceD_announceTopics(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+    /// This operation is invoked if the session is interested in the announced topic. Which occurs when:
     ///
-    /// This operation is called if the session is interested in the announced topic, which occurs when:
-    ///
-    /// - The session has a reader for a topic that the peer has a writer for, or
-    /// - The session has a writer for a topic that the peer has a reader for.
-    /// @param topic The TopicSpec object describing the topic being attached to the remote topic.
+    /// - The session has a reader for a topic that the peer writes, or
+    /// - The session has a writer for a topic that the peer reads.
+    /// @param topic The TopicSpec describing the topic to attach.
     /// @param current The Current object for the invocation.
     virtual void attachTopic(TopicSpec topic, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_attachTopic(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /// Detaches a topic from the session.
+    /// Detaches a topic from the session, typically called when the topic is destroyed.
     ///
-    /// This operation is called by the topic on listener sessions when the topic is being destroyed.
-    /// @param topic The ID of the topic to detach.
+    /// This operation is invoked by the topic on listener sessions during its destruction.
+    /// @param topicId The unique identifier for the topic to detach.
     /// @param current The Current object for the invocation.
-    virtual void detachTopic(::std::int64_t topic, const ::Ice::Current& current) = 0;
+    virtual void detachTopic(::std::int64_t topicId, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_detachTopic(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void attachTags(::std::int64_t topic, ElementInfoSeq tags, bool initialize, const ::Ice::Current& current) = 0;
+    /// Attaches the specified tags to the subscriber of a topic.
+    ///
+    /// Tags are used to support partial update samples.
+    /// @param topicId The unique identifier for the topic to which the tags will be attached.
+    /// @param tags The sequence of tags to attach, representing the partial update associations.
+    /// @param initialize Indicates whether the tags are being attached during session initialization.
+    /// @param current The Current object for the invocation.
+    virtual void attachTags(::std::int64_t topicId, ElementInfoSeq tags, bool initialize, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_attachTags(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void detachTags(::std::int64_t topic, ::Ice::LongSeq tags, const ::Ice::Current& current) = 0;
+    /// Detaches tags from the session.
+    /// @param topicId The unique identifier for the topic.
+    /// @param tags The sequence of tag identifiers to detach.
+    /// @param current The Current object for the invocation.
+    virtual void detachTags(::std::int64_t topicId, ::Ice::LongSeq tags, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_detachTags(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /// Announces new elements to the peer.
+    /// Announces elements associated with a topic to the peer.
     ///
-    /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-    /// the readers and writers associated with the specified topic.
-    /// @param topic The ID of the topic associated with the elements.
-    /// @param elements The sequence of elements to announce.
+    /// This operation informs the peer about new data readers or data writers associated with the specified topic.
+    /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+    ///
+    /// - A publisher session announces its data writers.
+    /// - A subscriber session announces its data readers.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements The sequence of elements to announce, representing the data readers or data writers.
     /// @param current The Current object for the invocation.
     /// @see attachElements
-    virtual void announceElements(::std::int64_t topic, ElementInfoSeq elements, const ::Ice::Current& current) = 0;
+    virtual void announceElements(::std::int64_t topicId, ElementInfoSeq elements, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_announceElements(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /// Attaches the given topic elements to all subscribers of the specified topic.
-    /// @param topicId The ID of the topic to which the elements belong.
-    /// @param elements The sequence of elements to attach to the topic's subscribers.
-    /// @param initialize True if called from attachTopic, false otherwise.
+    /// Attaches the specified elements to the subscribers of a topic.
+    ///
+    /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+    /// topic.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+    /// @param initialize Indicates whether the elements are being attached during session initialization.
     /// @param current The Current object for the invocation.
     virtual void attachElements(::std::int64_t topicId, ElementSpecSeq elements, bool initialize, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_attachElements(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void attachElementsAck(::std::int64_t topic, ElementSpecAckSeq elements, const ::Ice::Current& current) = 0;
+    /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+    ///
+    /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
+    /// to the session.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+    /// @param current The Current object for the invocation.
+    virtual void attachElementsAck(::std::int64_t topicId, ElementSpecAckSeq elements, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_attachElementsAck(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void detachElements(::std::int64_t topic, ::Ice::LongSeq keys, const ::Ice::Current& current) = 0;
+    /// Instructs the peer to detach specific elements associated with a topic.
+    ///
+    /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+    /// and should be removed from the peer's session.
+    /// @param topicId The unique identifier for the topic to which the elements belong.
+    /// @param elements A sequence of element identifiers representing the keys or filters to detach.
+    /// @param current The Current object for the invocation.
+    virtual void detachElements(::std::int64_t topicId, ::Ice::LongSeq elements, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_detachElements(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void initSamples(::std::int64_t topic, DataSamplesSeq samples, const ::Ice::Current& current) = 0;
+    /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+    /// @param topicId The unique identifier for the topic.
+    /// @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+    /// @param current The Current object for the invocation.
+    virtual void initSamples(::std::int64_t topicId, DataSamplesSeq samples, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_initSamples(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Notifies the peer that the session is being disconnected.
-    ///
-    /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
     ///
     /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
     /// between the relay node and the target node is lost.
@@ -1395,8 +1564,8 @@ public:
     static const char* ice_staticId() noexcept;
 
     /// Queue a sample with the subscribers of the topic element.
-    /// @param topicId The ID of the topic.
-    /// @param elementId The ID of the element.
+    /// @param topicId The unique identifier for the topic to which the sample belong.
+    /// @param elementId The unique identifier for the element to which the sample belong.
     /// @param sample The sample to queue.
     /// @param current The Current object for the invocation.
     virtual void s(::std::int64_t topicId, ::std::int64_t elementId, DataSample sample, const ::Ice::Current& current) = 0;
@@ -1529,7 +1698,7 @@ public:
     void _iceD_announceTopics(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /// Establish a connection between this node and another node.
+    /// Establish a connection between this node and the caller node.
     /// @param node The node initiating the connection. The proxy is never null.
     /// @param current The Current object for the invocation.
     /// @return A proxy to this node. The proxy is never null.

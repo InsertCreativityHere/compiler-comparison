@@ -1,12 +1,19 @@
+% DataSamples   Summary of DataSamples
+%
+% Represents a collection of data samples produced by a specific writer.
+%
+% DataSamples Properties:
+%   id - The unique identifier for the writer.
+%   samples - The sequence of samples produced by the writer.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef DataSamples
     properties
-        % id - The id of the writer or reader.
+        % id - The unique identifier for the writer.
         id int64
-        % samples - The samples.
+        % samples - The sequence of samples produced by the writer.
         samples
     end
     methods

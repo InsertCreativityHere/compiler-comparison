@@ -15,21 +15,27 @@
 
 package DataStormContract;
 
+/**
+ * Encapsulates the state and configuration data for a data reader or data writer.
+ **/
 public class ElementData implements java.lang.Cloneable,
                                     java.io.Serializable
 {
     /**
-     * The id of the writer or reader.
+     * The unique identifier for the data reader or data writer.
      **/
     public long id;
 
     /**
-     * The config of the writer or reader.
+     * The configuration settings for the data reader or data writer.
      **/
     public ElementConfig config;
 
     /**
-     * The lastIds received by the reader.
+     * A mapping of data writer IDs to the last sample IDs received by the data reader.
+     *
+     * - The key represents the data writer ID.
+     * - The value represents the last sample ID received from the corresponding data writer.
      **/
     public java.util.Map<java.lang.Long, java.lang.Long> lastIds;
 
@@ -174,5 +180,5 @@ public class ElementData implements java.lang.Cloneable,
     private static final ElementData _nullMarshalValue = new ElementData();
 
     /** @hidden */
-    private static final long serialVersionUID = 7578188053916209568L;
+    private static final long serialVersionUID = 3391623272991033305L;
 }

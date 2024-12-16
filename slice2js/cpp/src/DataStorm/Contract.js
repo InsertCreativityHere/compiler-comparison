@@ -28,14 +28,16 @@ const DataStorm = {
 export const DataStormContract = {};
 
 /**
- * The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
- * history in response to various events.
+ * Defines policies for clearing the data sample history of a reader in response to sample events.
  **/
 DataStormContract.ClearHistoryPolicy = Ice.defineEnum([
     ['OnAdd', 0], ['OnRemove', 1], ['OnAll', 2], ['OnAllExceptPartialUpdate', 3], ['Never', 4]]);
 
 [DataStormContract.LongLongDict, DataStormContract.LongLongDictHelper] = Ice.defineDictionary(Ice.LongHelper, Ice.LongHelper, true, Ice.HashMap.compareEquals);
 
+/**
+ * Represents a data sample, the fundamental unit of data exchanged between DataStorm readers and writers.
+ **/
 DataStormContract.DataSample = class
 {
     constructor(id = new Ice.Long(0, 0), keyId = new Ice.Long(0, 0), keyValue = null, timestamp = new Ice.Long(0, 0), tag = new Ice.Long(0, 0), event = DataStorm.SampleEvent.Add, value = null)
@@ -81,6 +83,9 @@ Ice.defineStruct(DataStormContract.DataSample, false, true);
 
 DataStormContract.DataSampleSeqHelper = Ice.StreamHelpers.generateSeqHelper(DataStormContract.DataSample, false);
 
+/**
+ * Represents a collection of data samples produced by a specific writer.
+ **/
 DataStormContract.DataSamples = class
 {
     constructor(id = new Ice.Long(0, 0), samples = null)
@@ -112,8 +117,7 @@ Ice.defineStruct(DataStormContract.DataSamples, false, true);
 DataStormContract.DataSamplesSeqHelper = Ice.StreamHelpers.generateSeqHelper(DataStormContract.DataSamples, false);
 
 /**
- * Provides information about an element, which can be a key, a filter, or a tag. Includes the element's ID, name,
- * and encoded value.
+ * Provides metadata about an element, such as a key, filter, or tag.
  **/
 DataStormContract.ElementInfo = class
 {
@@ -149,10 +153,7 @@ Ice.defineStruct(DataStormContract.ElementInfo, false, true);
 DataStormContract.ElementInfoSeqHelper = Ice.StreamHelpers.generateSeqHelper(DataStormContract.ElementInfo, false);
 
 /**
- * Provides information about a topic, including its name and the list of active topic reader or topic writer IDs.
- *
- * There is a unique `TopicInfo` for all topic instances with the same name, representing a single logical topic.
- * Each instance has its own topic reader and topic writer, which are lazily initialized and have a unique ID.
+ * Contains metadata about a topic, including its name and associated reader/writer IDs.
  * @see Session#announceTopics
  **/
 DataStormContract.TopicInfo = class
@@ -224,6 +225,9 @@ DataStormContract.TopicSpec = class
 
 Ice.defineStruct(DataStormContract.TopicSpec, false, true);
 
+/**
+ * Represents a sample filter that specifies which samples should be sent to a data reader.
+ **/
 DataStormContract.FilterInfo = class
 {
     constructor(name = "", criteria = null)
@@ -253,7 +257,7 @@ DataStormContract.FilterInfo = class
 Ice.defineStruct(DataStormContract.FilterInfo, false, true);
 
 /**
- * Represents the configuration of a reader or writer.
+ * Represents the configuration of a data reader or data writer, including optional filters and priorities.
  **/
 DataStormContract.ElementConfig = class extends Ice.Value
 {
@@ -300,6 +304,9 @@ DataStormContract.ElementConfig = class extends Ice.Value
 Ice.defineValue(DataStormContract.ElementConfig, "::DataStormContract::ElementConfig", 1);
 Ice.TypeRegistry.declareValueType("DataStormContract.ElementConfig", DataStormContract.ElementConfig);
 
+/**
+ * Encapsulates the state and configuration data for a data reader or data writer.
+ **/
 DataStormContract.ElementData = class
 {
     constructor(id = new Ice.Long(0, 0), config = null, lastIds = null)
@@ -334,7 +341,7 @@ Ice.defineStruct(DataStormContract.ElementData, false, true);
 DataStormContract.ElementDataSeqHelper = Ice.StreamHelpers.generateSeqHelper(DataStormContract.ElementData, false);
 
 /**
- * Provides detailed information about elements that can be either a key or a filter.
+ * Represents detailed information about topic elements, which can be a key or a filter.
  **/
 DataStormContract.ElementSpec = class
 {
@@ -378,6 +385,9 @@ Ice.defineStruct(DataStormContract.ElementSpec, false, true);
 
 DataStormContract.ElementSpecSeqHelper = Ice.StreamHelpers.generateSeqHelper(DataStormContract.ElementSpec, false);
 
+/**
+ * Represents an acknowledgment of the attachment of data readers or data writers associated with a key or filter.
+ **/
 DataStormContract.ElementDataAck = class
 {
     constructor(id = new Ice.Long(0, 0), config = null, lastIds = null, samples = null, peerId = new Ice.Long(0, 0))
@@ -417,6 +427,9 @@ Ice.defineStruct(DataStormContract.ElementDataAck, false, true);
 
 DataStormContract.ElementDataAckSeqHelper = Ice.StreamHelpers.generateSeqHelper(DataStormContract.ElementDataAck, false);
 
+/**
+ * Represents an acknowledgment of the attachment of an element, which can be a key or a filter.
+ **/
 DataStormContract.ElementSpecAck = class
 {
     constructor(elements = null, id = new Ice.Long(0, 0), name = "", value = null, peerId = new Ice.Long(0, 0), peerName = "")
@@ -467,7 +480,7 @@ const iceC_DataStormContract_Session_ids = [
 /**
  * The base interface for publisher and subscriber sessions.
  *
- * This interface enables nodes to exchange topic and element information, as well as data samples.
+ * This interface specifies the operations for communication between publisher and subscriber sessions.
  * @see PublisherSession
  * @see SubscriberSession
  **/
@@ -478,7 +491,7 @@ DataStormContract.Session = class extends Ice.Object
 /**
  * The base interface for publisher and subscriber sessions.
  *
- * This interface enables nodes to exchange topic and element information, as well as data samples.
+ * This interface specifies the operations for communication between publisher and subscriber sessions.
  * @see PublisherSession
  * @see SubscriberSession
  **/

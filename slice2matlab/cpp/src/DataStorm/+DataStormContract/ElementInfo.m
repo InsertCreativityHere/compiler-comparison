@@ -1,11 +1,10 @@
 % ElementInfo   Summary of ElementInfo
 %
-% Provides information about an element, which can be a key, a filter, or a tag. Includes the element's ID, name,
-% and encoded value.
+% Provides metadata about an element, such as a key, filter, or tag.
 %
 % ElementInfo Properties:
-%   id - The ID of the element.
-%   name - The name of the filter.
+%   id - The unique identifier for the element.
+%   name - The name of the element.
 %   value - The encoded value of the element.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
@@ -13,9 +12,10 @@
 
 classdef ElementInfo
     properties
-        % id - The ID of the element. Filter IDs are negative, while key and tag IDs are positive.
+        % id - The unique identifier for the element.
+        % Negative values indicate filter IDs; positive values indicate key or tag IDs.
         id int64
-        % name - The name of the filter. This field is empty for key and tag elements.
+        % name - The name of the element. Empty for key and tag elements.
         name char
         % value - The encoded value of the element.
         value

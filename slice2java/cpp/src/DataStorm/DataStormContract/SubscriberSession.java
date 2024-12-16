@@ -22,8 +22,8 @@ public interface SubscriberSession extends Session
 {
     /**
      * Queue a sample with the subscribers of the topic element.
-     * @param topicId The ID of the topic.
-     * @param elementId The ID of the element.
+     * @param topicId The unique identifier for the topic to which the sample belong.
+     * @param elementId The unique identifier for the element to which the sample belong.
      * @param sample The sample to queue.
      * @param current The Current object for the invocation.
      **/

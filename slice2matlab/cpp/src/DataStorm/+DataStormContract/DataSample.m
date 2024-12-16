@@ -1,22 +1,35 @@
+% DataSample   Summary of DataSample
+%
+% Represents a data sample, the fundamental unit of data exchanged between DataStorm readers and writers.
+%
+% DataSample Properties:
+%   id - The unique identifier for the sample.
+%   keyId - The unique identifier for the associated key.
+%   keyValue - The encoded key value, used when keyId < 0 (key filter).
+%   timestamp - The timestamp when the sample was written, in milliseconds since the epoch.
+%   tag - An update tag, used for PartialUpdate sample events.
+%   event - The event type associated with this sample (e.g., Add, Update, PartialUpdate, Remove).
+%   value - The payload data of the sample.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef DataSample
     properties
-        % id - The sample id.
+        % id - The unique identifier for the sample.
         id int64
-        % keyId - The key id.
+        % keyId - The unique identifier for the associated key.
+        % A negative value (< 0) indicates a key filter.
         keyId int64
-        % keyValue - The key value if the key ID <= 0.
+        % keyValue - The encoded key value, used when keyId < 0 (key filter).
         keyValue
-        % timestamp - The timestamp of the sample (write time).
+        % timestamp - The timestamp when the sample was written, in milliseconds since the epoch.
         timestamp int64
-        % tag - The update tag if the sample event is PartialUpdate.
+        % tag - An update tag, used for PartialUpdate sample events.
         tag int64
-        % event - The sample event.
+        % event - The event type associated with this sample (e.g., Add, Update, PartialUpdate, Remove).
         event DataStorm.SampleEvent
-        % value - The value of the sample.
+        % value - The payload data of the sample.
         value
     end
     methods

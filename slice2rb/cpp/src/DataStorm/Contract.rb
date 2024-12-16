@@ -581,36 +581,36 @@ module ::DataStormContract
                 SessionPrx_mixin::OP_attachTopic.invoke(self, [topic], context)
             end
 
-            def detachTopic(topic, context=nil)
-                SessionPrx_mixin::OP_detachTopic.invoke(self, [topic], context)
+            def detachTopic(topicId, context=nil)
+                SessionPrx_mixin::OP_detachTopic.invoke(self, [topicId], context)
             end
 
-            def attachTags(topic, tags, initialize, context=nil)
-                SessionPrx_mixin::OP_attachTags.invoke(self, [topic, tags, initialize], context)
+            def attachTags(topicId, tags, initialize, context=nil)
+                SessionPrx_mixin::OP_attachTags.invoke(self, [topicId, tags, initialize], context)
             end
 
-            def detachTags(topic, tags, context=nil)
-                SessionPrx_mixin::OP_detachTags.invoke(self, [topic, tags], context)
+            def detachTags(topicId, tags, context=nil)
+                SessionPrx_mixin::OP_detachTags.invoke(self, [topicId, tags], context)
             end
 
-            def announceElements(topic, elements, context=nil)
-                SessionPrx_mixin::OP_announceElements.invoke(self, [topic, elements], context)
+            def announceElements(topicId, elements, context=nil)
+                SessionPrx_mixin::OP_announceElements.invoke(self, [topicId, elements], context)
             end
 
             def attachElements(topicId, elements, initialize, context=nil)
                 SessionPrx_mixin::OP_attachElements.invoke(self, [topicId, elements, initialize], context)
             end
 
-            def attachElementsAck(topic, elements, context=nil)
-                SessionPrx_mixin::OP_attachElementsAck.invoke(self, [topic, elements], context)
+            def attachElementsAck(topicId, elements, context=nil)
+                SessionPrx_mixin::OP_attachElementsAck.invoke(self, [topicId, elements], context)
             end
 
-            def detachElements(topic, keys, context=nil)
-                SessionPrx_mixin::OP_detachElements.invoke(self, [topic, keys], context)
+            def detachElements(topicId, elements, context=nil)
+                SessionPrx_mixin::OP_detachElements.invoke(self, [topicId, elements], context)
             end
 
-            def initSamples(topic, samples, context=nil)
-                SessionPrx_mixin::OP_initSamples.invoke(self, [topic, samples], context)
+            def initSamples(topicId, samples, context=nil)
+                SessionPrx_mixin::OP_initSamples.invoke(self, [topicId, samples], context)
             end
 
             def disconnected(context=nil)

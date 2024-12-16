@@ -215,7 +215,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Establish a connection between this node and another node.
+     * Establish a connection between this node and the caller node.
      * @param node The node initiating the connection. The proxy is never null.
      * @return A proxy to this node. The proxy is never null.
      **/
@@ -225,7 +225,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Establish a connection between this node and another node.
+     * Establish a connection between this node and the caller node.
      * @param node The node initiating the connection. The proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return A proxy to this node. The proxy is never null.
@@ -236,7 +236,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Establish a connection between this node and another node.
+     * Establish a connection between this node and the caller node.
      * @param node The node initiating the connection. The proxy is never null.
      * @return A proxy to this node. The proxy is never null.
      **/
@@ -246,7 +246,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Establish a connection between this node and another node.
+     * Establish a connection between this node and the caller node.
      * @param node The node initiating the connection. The proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return A proxy to this node. The proxy is never null.

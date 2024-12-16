@@ -15,36 +15,41 @@
 
 package DataStormContract;
 
+/**
+ * Represents an acknowledgment of the attachment of an element, which can be a key or a filter.
+ **/
 public class ElementSpecAck implements java.lang.Cloneable,
                                        java.io.Serializable
 {
     /**
-     * The readers or writers associated with the key or filter.
+     * A sequence of acknowledgments for the readers or writers associated with the key or filter.
      **/
     public ElementDataAck[] elements;
 
     /**
-     * The id of the key or filter.
+     * The unique identifier for the key or filter.
      **/
     public long id;
 
     /**
      * The name of the filter.
+     * This field is empty if the element is a key.
      **/
     public String name;
 
     /**
-     * The key or filter value.
+     * The encoded value of the key or filter.
      **/
     public byte[] value;
 
     /**
-     * The id of the key or filter on the peer.
+     * The unique identifier for the key or filter on the peer.
      **/
     public long peerId;
 
     /**
      * The name of the filter on the peer.
+     * This field is empty if the element is a key.
      **/
     public String peerName;
 
@@ -215,5 +220,5 @@ public class ElementSpecAck implements java.lang.Cloneable,
     private static final ElementSpecAck _nullMarshalValue = new ElementSpecAck();
 
     /** @hidden */
-    private static final long serialVersionUID = 7483514078784154573L;
+    private static final long serialVersionUID = 6894895834167565862L;
 }

@@ -4,7 +4,7 @@
 % and tags.
 %
 % TopicSpec Properties:
-%   id - The ID of the topic.
+%   id - The unique identifier for the topic.
 %   name - The name of the topic.
 %   elements - The topic's keys and filters.
 %   tags - The topic update tags.
@@ -16,7 +16,8 @@
 
 classdef TopicSpec
     properties
-        % id - The ID of the topic.
+        % id - The unique identifier for the topic.
+        % The ID uniquely identifies a topic reader or topic writer within a node.
         id int64
         % name - The name of the topic.
         name char

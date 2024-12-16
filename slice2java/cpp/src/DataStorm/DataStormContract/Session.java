@@ -18,7 +18,7 @@ package DataStormContract;
 /**
  * The base interface for publisher and subscriber sessions.
  *
- * This interface enables nodes to exchange topic and element information, as well as data samples.
+ * This interface specifies the operations for communication between publisher and subscriber sessions.
  *
  * @see PublisherSession
  * @see SubscriberSession
@@ -26,14 +26,14 @@ package DataStormContract;
 public interface Session extends com.zeroc.Ice.Object
 {
     /**
-     * Announces new and existing topics to the peer.
+     * Announces topics to the peer during session establishment or when adding new topics.
      *
-     * - During session establishment, this operation announces existing topics.
-     * - For already established sessions, it is used to announce new topics.
+     * - During session establishment, announces existing topics.
+     * - For established sessions, announces newly added topics.
      *
-     * A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+     * A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
      *
-     * The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+     * The receiving peer invokes attachTopic for topics it is interested in.
      * @param topics The sequence of topics to announce.
      * @param initialize Currently unused.
      * @param current The Current object for the invocation.
@@ -43,62 +43,103 @@ public interface Session extends com.zeroc.Ice.Object
     void announceTopics(TopicInfo[] topics, boolean initialize, com.zeroc.Ice.Current current);
 
     /**
-     * Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+     * This operation is invoked if the session is interested in the announced topic. Which occurs when:
      *
-     * This operation is called if the session is interested in the announced topic, which occurs when:
-     *
-     * - The session has a reader for a topic that the peer has a writer for, or
-     * - The session has a writer for a topic that the peer has a reader for.
-     * @param topic The TopicSpec object describing the topic being attached to the remote topic.
+     * - The session has a reader for a topic that the peer writes, or
+     * - The session has a writer for a topic that the peer reads.
+     * @param topic The TopicSpec describing the topic to attach.
      * @param current The Current object for the invocation.
      **/
     void attachTopic(TopicSpec topic, com.zeroc.Ice.Current current);
 
     /**
-     * Detaches a topic from the session.
+     * Detaches a topic from the session, typically called when the topic is destroyed.
      *
-     * This operation is called by the topic on listener sessions when the topic is being destroyed.
-     * @param topic The ID of the topic to detach.
+     * This operation is invoked by the topic on listener sessions during its destruction.
+     * @param topicId The unique identifier for the topic to detach.
      * @param current The Current object for the invocation.
      **/
-    void detachTopic(long topic, com.zeroc.Ice.Current current);
-
-    void attachTags(long topic, ElementInfo[] tags, boolean initialize, com.zeroc.Ice.Current current);
-
-    void detachTags(long topic, long[] tags, com.zeroc.Ice.Current current);
+    void detachTopic(long topicId, com.zeroc.Ice.Current current);
 
     /**
-     * Announces new elements to the peer.
+     * Attaches the specified tags to the subscriber of a topic.
      *
-     * The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-     * the readers and writers associated with the specified topic.
-     * @param topic The ID of the topic associated with the elements.
-     * @param elements The sequence of elements to announce.
+     * Tags are used to support partial update samples.
+     * @param topicId The unique identifier for the topic to which the tags will be attached.
+     * @param tags The sequence of tags to attach, representing the partial update associations.
+     * @param initialize Indicates whether the tags are being attached during session initialization.
+     * @param current The Current object for the invocation.
+     **/
+    void attachTags(long topicId, ElementInfo[] tags, boolean initialize, com.zeroc.Ice.Current current);
+
+    /**
+     * Detaches tags from the session.
+     * @param topicId The unique identifier for the topic.
+     * @param tags The sequence of tag identifiers to detach.
+     * @param current The Current object for the invocation.
+     **/
+    void detachTags(long topicId, long[] tags, com.zeroc.Ice.Current current);
+
+    /**
+     * Announces elements associated with a topic to the peer.
+     *
+     * This operation informs the peer about new data readers or data writers associated with the specified topic.
+     * The receiving peer will invoke `attachElements` for any elements it is interested in.
+     *
+     * - A publisher session announces its data writers.
+     * - A subscriber session announces its data readers.
+     * @param topicId The unique identifier for the topic to which the elements belong.
+     * @param elements The sequence of elements to announce, representing the data readers or data writers.
      * @param current The Current object for the invocation.
      *
      * @see attachElements
      **/
-    void announceElements(long topic, ElementInfo[] elements, com.zeroc.Ice.Current current);
+    void announceElements(long topicId, ElementInfo[] elements, com.zeroc.Ice.Current current);
 
     /**
-     * Attaches the given topic elements to all subscribers of the specified topic.
-     * @param topicId The ID of the topic to which the elements belong.
-     * @param elements The sequence of elements to attach to the topic's subscribers.
-     * @param initialize True if called from attachTopic, false otherwise.
+     * Attaches the specified elements to the subscribers of a topic.
+     *
+     * This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+     * topic.
+     * @param topicId The unique identifier for the topic to which the elements belong.
+     * @param elements The sequence of `ElementSpec` objects representing the elements to attach.
+     * @param initialize Indicates whether the elements are being attached during session initialization.
      * @param current The Current object for the invocation.
      **/
     void attachElements(long topicId, ElementSpec[] elements, boolean initialize, com.zeroc.Ice.Current current);
 
-    void attachElementsAck(long topic, ElementSpecAck[] elements, com.zeroc.Ice.Current current);
+    /**
+     * Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+     *
+     * This method confirms that the specified elements, such as keys or filters, have been successfully attached
+     * to the session.
+     * @param topicId The unique identifier for the topic to which the elements belong.
+     * @param elements A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+     * @param current The Current object for the invocation.
+     **/
+    void attachElementsAck(long topicId, ElementSpecAck[] elements, com.zeroc.Ice.Current current);
 
-    void detachElements(long topic, long[] keys, com.zeroc.Ice.Current current);
+    /**
+     * Instructs the peer to detach specific elements associated with a topic.
+     *
+     * This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+     * and should be removed from the peer's session.
+     * @param topicId The unique identifier for the topic to which the elements belong.
+     * @param elements A sequence of element identifiers representing the keys or filters to detach.
+     * @param current The Current object for the invocation.
+     **/
+    void detachElements(long topicId, long[] elements, com.zeroc.Ice.Current current);
 
-    void initSamples(long topic, DataSamples[] samples, com.zeroc.Ice.Current current);
+    /**
+     * Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+     * @param topicId The unique identifier for the topic.
+     * @param samples A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+     * @param current The Current object for the invocation.
+     **/
+    void initSamples(long topicId, DataSamples[] samples, com.zeroc.Ice.Current current);
 
     /**
      * Notifies the peer that the session is being disconnected.
-     *
-     * This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
      *
      * For sessions established through a relay node, this operation is invoked by the relay node if the connection
      * between the relay node and the target node is lost.
@@ -164,10 +205,10 @@ public interface Session extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        long iceP_topic;
-        iceP_topic = istr.readLong();
+        long iceP_topicId;
+        iceP_topicId = istr.readLong();
         istr.endEncapsulation();
-        obj.detachTopic(iceP_topic, request.current);
+        obj.detachTopic(iceP_topicId, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
@@ -177,14 +218,14 @@ public interface Session extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        long iceP_topic;
+        long iceP_topicId;
         ElementInfo[] iceP_tags;
         boolean iceP_initialize;
-        iceP_topic = istr.readLong();
+        iceP_topicId = istr.readLong();
         iceP_tags = ElementInfoSeqHelper.read(istr);
         iceP_initialize = istr.readBool();
         istr.endEncapsulation();
-        obj.attachTags(iceP_topic, iceP_tags, iceP_initialize, request.current);
+        obj.attachTags(iceP_topicId, iceP_tags, iceP_initialize, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
@@ -194,12 +235,12 @@ public interface Session extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        long iceP_topic;
+        long iceP_topicId;
         long[] iceP_tags;
-        iceP_topic = istr.readLong();
+        iceP_topicId = istr.readLong();
         iceP_tags = istr.readLongSeq();
         istr.endEncapsulation();
-        obj.detachTags(iceP_topic, iceP_tags, request.current);
+        obj.detachTags(iceP_topicId, iceP_tags, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
@@ -209,12 +250,12 @@ public interface Session extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        long iceP_topic;
+        long iceP_topicId;
         ElementInfo[] iceP_elements;
-        iceP_topic = istr.readLong();
+        iceP_topicId = istr.readLong();
         iceP_elements = ElementInfoSeqHelper.read(istr);
         istr.endEncapsulation();
-        obj.announceElements(iceP_topic, iceP_elements, request.current);
+        obj.announceElements(iceP_topicId, iceP_elements, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
@@ -242,13 +283,13 @@ public interface Session extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        long iceP_topic;
+        long iceP_topicId;
         ElementSpecAck[] iceP_elements;
-        iceP_topic = istr.readLong();
+        iceP_topicId = istr.readLong();
         iceP_elements = ElementSpecAckSeqHelper.read(istr);
         istr.readPendingValues();
         istr.endEncapsulation();
-        obj.attachElementsAck(iceP_topic, iceP_elements, request.current);
+        obj.attachElementsAck(iceP_topicId, iceP_elements, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
@@ -258,12 +299,12 @@ public interface Session extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        long iceP_topic;
-        long[] iceP_keys;
-        iceP_topic = istr.readLong();
-        iceP_keys = istr.readLongSeq();
+        long iceP_topicId;
+        long[] iceP_elements;
+        iceP_topicId = istr.readLong();
+        iceP_elements = istr.readLongSeq();
         istr.endEncapsulation();
-        obj.detachElements(iceP_topic, iceP_keys, request.current);
+        obj.detachElements(iceP_topicId, iceP_elements, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 
@@ -273,12 +314,12 @@ public interface Session extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         com.zeroc.Ice.InputStream istr = request.inputStream;
         istr.startEncapsulation();
-        long iceP_topic;
+        long iceP_topicId;
         DataSamples[] iceP_samples;
-        iceP_topic = istr.readLong();
+        iceP_topicId = istr.readLong();
         iceP_samples = DataSamplesSeqHelper.read(istr);
         istr.endEncapsulation();
-        obj.initSamples(iceP_topic, iceP_samples, request.current);
+        obj.initSamples(iceP_topicId, iceP_samples, request.current);
         return java.util.concurrent.CompletableFuture.completedFuture(request.current.createEmptyOutgoingResponse());
     }
 

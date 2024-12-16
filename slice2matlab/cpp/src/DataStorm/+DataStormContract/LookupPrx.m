@@ -11,8 +11,8 @@
 %   announceTopicWriterAsync - Announce a topic writer.
 %   announceTopics - Announce a set of topic readers and writers.
 %   announceTopicsAsync - Announce a set of topic readers and writers.
-%   createSession - Establish a connection between this node and another node.
-%   createSessionAsync - Establish a connection between this node and another node.
+%   createSession - Establish a connection between this node and the caller node.
+%   createSessionAsync - Establish a connection between this node and the caller node.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -116,7 +116,7 @@ classdef LookupPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('announceTopics', 2, false, os_, 0, [], {}, varargin{:});
         end
         function result = createSession(obj, node, varargin)
-            % createSession   Establish a connection between this node and another node.
+            % createSession   Establish a connection between this node and the caller node.
             %
             % Parameters:
             %   node (DataStormContract.NodePrx) - The node initiating the connection. The proxy is never null.
@@ -133,7 +133,7 @@ classdef LookupPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = createSessionAsync(obj, node, varargin)
-            % createSessionAsync   Establish a connection between this node and another node.
+            % createSessionAsync   Establish a connection between this node and the caller node.
             %
             % Parameters:
             %   node (DataStormContract.NodePrx) - The node initiating the connection. The proxy is never null.

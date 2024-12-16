@@ -48,7 +48,7 @@ public interface Lookup extends com.zeroc.Ice.Object
     void announceTopics(String[] readers, String[] writers, NodePrx node, com.zeroc.Ice.Current current);
 
     /**
-     * Establish a connection between this node and another node.
+     * Establish a connection between this node and the caller node.
      * @param node The node initiating the connection. The proxy is never null.
      * @param current The Current object for the invocation.
      * @return A proxy to this node. The proxy is never null.

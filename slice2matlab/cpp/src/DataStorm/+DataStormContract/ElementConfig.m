@@ -1,9 +1,9 @@
 % ElementConfig   Summary of ElementConfig
 %
-% Represents the configuration of a reader or writer.
+% Represents the configuration of a data reader or data writer, including optional filters and priorities.
 %
 % ElementConfig Properties:
-%   facet
+%   facet - A facet that is used to process the samples when sample filtering is enabled.
 %   sampleFilter - An optional sample filter associated with the reader.
 %   name - An optional name for the reader or writer.
 %   priority - An optional priority for the writer.
@@ -16,6 +16,7 @@
 
 classdef ElementConfig < Ice.Value
     properties
+        % facet - A facet that is used to process the samples when sample filtering is enabled.
         facet
         % sampleFilter - An optional sample filter associated with the reader. Sample filters are specified on the reader side.
         sampleFilter

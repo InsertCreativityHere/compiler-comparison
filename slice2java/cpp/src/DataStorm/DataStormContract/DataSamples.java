@@ -15,16 +15,19 @@
 
 package DataStormContract;
 
+/**
+ * Represents a collection of data samples produced by a specific writer.
+ **/
 public class DataSamples implements java.lang.Cloneable,
                                     java.io.Serializable
 {
     /**
-     * The id of the writer or reader.
+     * The unique identifier for the writer.
      **/
     public long id;
 
     /**
-     * The samples.
+     * The sequence of samples produced by the writer.
      **/
     public DataSample[] samples;
 
@@ -155,5 +158,5 @@ public class DataSamples implements java.lang.Cloneable,
     private static final DataSamples _nullMarshalValue = new DataSamples();
 
     /** @hidden */
-    private static final long serialVersionUID = 5618386083306177357L;
+    private static final long serialVersionUID = 547167287518512714L;
 }

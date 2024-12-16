@@ -25,7 +25,8 @@ public class TopicSpec implements java.lang.Cloneable,
                                   java.io.Serializable
 {
     /**
-     * The ID of the topic.
+     * The unique identifier for the topic.
+     * The ID uniquely identifies a topic reader or topic writer within a node.
      **/
     public long id;
 
@@ -191,5 +192,5 @@ public class TopicSpec implements java.lang.Cloneable,
     private static final TopicSpec _nullMarshalValue = new TopicSpec();
 
     /** @hidden */
-    private static final long serialVersionUID = -2901322240767863162L;
+    private static final long serialVersionUID = -8055674964059437112L;
 }

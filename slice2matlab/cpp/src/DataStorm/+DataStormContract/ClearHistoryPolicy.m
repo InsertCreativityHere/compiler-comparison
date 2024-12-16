@@ -1,13 +1,12 @@
 % ClearHistoryPolicy   Summary of ClearHistoryPolicy
 %
-% The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
-% history in response to various events.
+% Defines policies for clearing the data sample history of a reader in response to sample events.
 %
 % ClearHistoryPolicy Properties:
-%   OnAdd - The reader clears its history when a new DataSample is added.
-%   OnRemove - The reader clears its history when a DataSample is removed.
-%   OnAll - The reader clears its history when any DataSample event occurs.
-%   OnAllExceptPartialUpdate - The reader clears its history when any DataSample event occurs, except for PartialUpdate events.
+%   OnAdd - The reader clears its history when a new data sample is added.
+%   OnRemove - The reader clears its history when a data sample is removed.
+%   OnAll - The reader clears its history when any data sample event occurs.
+%   OnAllExceptPartialUpdate - The reader clears its history for all data sample events except for partial update events.
 %   Never - The reader never clears its history.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
@@ -16,19 +15,19 @@
 classdef ClearHistoryPolicy < uint8
     enumeration% OnAdd   Summary of OnAdd
         %
-        % The reader clears its history when a new DataSample is added.
+        % The reader clears its history when a new data sample is added.
         
         OnAdd (0)% OnRemove   Summary of OnRemove
         %
-        % The reader clears its history when a DataSample is removed.
+        % The reader clears its history when a data sample is removed.
         
         OnRemove (1)% OnAll   Summary of OnAll
         %
-        % The reader clears its history when any DataSample event occurs.
+        % The reader clears its history when any data sample event occurs.
         
         OnAll (2)% OnAllExceptPartialUpdate   Summary of OnAllExceptPartialUpdate
         %
-        % The reader clears its history when any DataSample event occurs, except for PartialUpdate events.
+        % The reader clears its history for all data sample events except for partial update events.
         
         OnAllExceptPartialUpdate (3)% Never   Summary of Never
         %

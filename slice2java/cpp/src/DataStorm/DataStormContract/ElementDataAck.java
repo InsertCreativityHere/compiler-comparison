@@ -15,31 +15,40 @@
 
 package DataStormContract;
 
+/**
+ * Represents an acknowledgment of the attachment of data readers or data writers associated with a key or filter.
+ **/
 public class ElementDataAck implements java.lang.Cloneable,
                                        java.io.Serializable
 {
     /**
-     * The id of the writer or filter.
+     * The unique identifier for the data reader or data writer.
      **/
     public long id;
 
     /**
-     * The config of the writer or reader.
+     * The configuration settings for the data reader or data writer.
      **/
     public ElementConfig config;
 
     /**
-     * The lastIds received by the reader.
+     * A mapping of data writer IDs to the last sample IDs received by the data reader.
+     *
+     * - The key represents the data writer ID.
+     * - The value represents the last sample ID received from the corresponding data writer.
      **/
     public java.util.Map<java.lang.Long, java.lang.Long> lastIds;
 
     /**
-     * The samples of the writer or reader.
+     * A sequence of samples in the writer's queue, used to initialize the reader.
+     *
+     * - When this struct is sent from a subscriber to a publisher, this field is empty.
+     * - When sent from a publisher to a subscriber, this field contains the queued samples.
      **/
     public DataSample[] samples;
 
     /**
-     * The id of the writer or reader on the peer.
+     * The unique identifier for the peer's data reader or data writer.
      **/
     public long peerId;
 
@@ -200,5 +209,5 @@ public class ElementDataAck implements java.lang.Cloneable,
     private static final ElementDataAck _nullMarshalValue = new ElementDataAck();
 
     /** @hidden */
-    private static final long serialVersionUID = -7686362511568835683L;
+    private static final long serialVersionUID = -7603847513270523773L;
 }

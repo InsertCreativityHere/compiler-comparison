@@ -17,16 +17,15 @@ import Foundation
 import Ice
 import DataStorm
 
-/// The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
-/// history in response to various events.
+/// Defines policies for clearing the data sample history of a reader in response to sample events.
 public enum ClearHistoryPolicy: Swift.UInt8 {
-    /// The reader clears its history when a new DataSample is added.
+    /// The reader clears its history when a new data sample is added.
     case OnAdd = 0
-    /// The reader clears its history when a DataSample is removed.
+    /// The reader clears its history when a data sample is removed.
     case OnRemove = 1
-    /// The reader clears its history when any DataSample event occurs.
+    /// The reader clears its history when any data sample event occurs.
     case OnAll = 2
-    /// The reader clears its history when any DataSample event occurs, except for PartialUpdate events.
+    /// The reader clears its history for all data sample events except for partial update events.
     case OnAllExceptPartialUpdate = 3
     /// The reader never clears its history.
     case Never = 4
@@ -145,20 +144,22 @@ public struct LongLongDictHelper {
     }
 }
 
+/// Represents a data sample, the fundamental unit of data exchanged between DataStorm readers and writers.
 public struct DataSample {
-    /// The sample id.
+    /// The unique identifier for the sample.
     public var id: Swift.Int64 = 0
-    /// The key id.
+    /// The unique identifier for the associated key.
+    /// A negative value (< 0) indicates a key filter.
     public var keyId: Swift.Int64 = 0
-    /// The key value if the key ID <= 0.
+    /// The encoded key value, used when keyId < 0 (key filter).
     public var keyValue: Ice.ByteSeq = Ice.ByteSeq()
-    /// The timestamp of the sample (write time).
+    /// The timestamp when the sample was written, in milliseconds since the epoch.
     public var timestamp: Swift.Int64 = 0
-    /// The update tag if the sample event is PartialUpdate.
+    /// An update tag, used for PartialUpdate sample events.
     public var tag: Swift.Int64 = 0
-    /// The sample event.
+    /// The event type associated with this sample (e.g., Add, Update, PartialUpdate, Remove).
     public var event: DataStorm.SampleEvent = .Add
-    /// The value of the sample.
+    /// The payload data of the sample.
     public var value: Ice.ByteSeq = Ice.ByteSeq()
 
     public init() {}
@@ -299,10 +300,11 @@ public struct DataSampleSeqHelper {
     }
 }
 
+/// Represents a collection of data samples produced by a specific writer.
 public struct DataSamples {
-    /// The id of the writer or reader.
+    /// The unique identifier for the writer.
     public var id: Swift.Int64 = 0
-    /// The samples.
+    /// The sequence of samples produced by the writer.
     public var samples: DataSampleSeq = DataSampleSeq()
 
     public init() {}
@@ -428,12 +430,12 @@ public struct DataSamplesSeqHelper {
     }
 }
 
-/// Provides information about an element, which can be a key, a filter, or a tag. Includes the element's ID, name,
-/// and encoded value.
+/// Provides metadata about an element, such as a key, filter, or tag.
 public struct ElementInfo {
-    /// The ID of the element. Filter IDs are negative, while key and tag IDs are positive.
+    /// The unique identifier for the element.
+    /// Negative values indicate filter IDs; positive values indicate key or tag IDs.
     public var id: Swift.Int64 = 0
-    /// The name of the filter. This field is empty for key and tag elements.
+    /// The name of the element. Empty for key and tag elements.
     public var name: Swift.String = ""
     /// The encoded value of the element.
     public var value: Ice.ByteSeq = Ice.ByteSeq()
@@ -564,19 +566,14 @@ public struct ElementInfoSeqHelper {
     }
 }
 
-/// Provides information about a topic, including its name and the list of active topic reader or topic writer IDs.
-///
-/// There is a unique `TopicInfo` for all topic instances with the same name, representing a single logical topic.
-/// Each instance has its own topic reader and topic writer, which are lazily initialized and have a unique ID.
+/// Contains metadata about a topic, including its name and associated reader/writer IDs.
 public struct TopicInfo {
     /// The name of the topic.
     public var name: Swift.String = ""
-    /// The list of active topic reader or topic writer IDs for the topic.
+    /// The list of active topic reader or writer IDs.
     ///
-    /// - In a publisher session announcing topics to a subscriber session, this contains the active topic writer
-    /// IDs.
-    /// - In a subscriber session announcing topics to a publisher session, this contains the active topic reader
-    /// IDs.
+    /// - In a publisher session,  the `ids` field contains the active topic writer IDs.
+    /// - In a subscriber session,  the `ids` field contains the active topic reader IDs.
     public var ids: Ice.LongSeq = Ice.LongSeq()
 
     public init() {}
@@ -638,7 +635,8 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Represents a sequence of active topics used for transmitting topic information during session establishment.
+/// Represents a sequence of active topics used for transmitting topic information between publisher and subscriber
+/// sessions.
 public typealias TopicInfoSeq = [TopicInfo]
 
 /// Helper class to read and write `TopicInfoSeq` sequence values from
@@ -706,7 +704,8 @@ public struct TopicInfoSeqHelper {
 /// Provides detailed information about topic readers and topic writers, including its ID, name, keys, filters,
 /// and tags.
 public struct TopicSpec {
-    /// The ID of the topic.
+    /// The unique identifier for the topic.
+    /// The ID uniquely identifies a topic reader or topic writer within a node.
     public var id: Swift.Int64 = 0
     /// The name of the topic.
     public var name: Swift.String = ""
@@ -780,8 +779,11 @@ public extension Ice.OutputStream {
     }
 }
 
+/// Represents a sample filter that specifies which samples should be sent to a data reader.
 public struct FilterInfo {
+    /// The unique name of the filter, used for identification.
     public var name: Swift.String = ""
+    /// The encoded criteria for instantiating the filter.
     public var criteria: Ice.ByteSeq = Ice.ByteSeq()
 
     public init() {}
@@ -843,12 +845,16 @@ public extension Ice.OutputStream {
     }
 }
 
+/// Encapsulates the state and configuration data for a data reader or data writer.
 public class ElementData {
-    /// The id of the writer or reader.
+    /// The unique identifier for the data reader or data writer.
     public var id: Swift.Int64 = 0
-    /// The config of the writer or reader.
+    /// The configuration settings for the data reader or data writer.
     public var config: ElementConfig? = nil
-    /// The lastIds received by the reader.
+    /// A mapping of data writer IDs to the last sample IDs received by the data reader.
+    ///
+    /// - The key represents the data writer ID.
+    /// - The value represents the last sample ID received from the corresponding data writer.
     public var lastIds: LongLongDict = LongLongDict()
 
     public init() {}
@@ -977,19 +983,21 @@ public struct ElementDataSeqHelper {
     }
 }
 
-/// Provides detailed information about elements that can be either a key or a filter.
+/// Represents detailed information about topic elements, which can be a key or a filter.
 public class ElementSpec {
-    /// The readers and writers associated with the key or filter.
+    /// A sequence of data readers and writers associated with the key or filter.
     public var elements: ElementDataSeq = ElementDataSeq()
-    /// The id of the key or filter.
+    /// The unique identifier for the key or filter.
     public var id: Swift.Int64 = 0
-    /// The name of the filter. This field is empty for key elements.
+    /// The name of the filter.
+    /// This field is empty if the element is a key.
     public var name: Swift.String = ""
-    /// The value of the key or filter.
+    /// The encoded value of the key or filter.
     public var value: Ice.ByteSeq = Ice.ByteSeq()
-    /// The id of the key or filter from the peer.
+    /// The unique identifier for the key or filter on the peer.
     public var peerId: Swift.Int64 = 0
-    /// The name of the filter from the peer.
+    /// The name of the filter on the peer.
+    /// This field is empty if the element is a key.
     public var peerName: Swift.String = ""
 
     public init() {}
@@ -1127,16 +1135,23 @@ public struct ElementSpecSeqHelper {
     }
 }
 
+/// Represents an acknowledgment of the attachment of data readers or data writers associated with a key or filter.
 public class ElementDataAck {
-    /// The id of the writer or filter.
+    /// The unique identifier for the data reader or data writer.
     public var id: Swift.Int64 = 0
-    /// The config of the writer or reader.
+    /// The configuration settings for the data reader or data writer.
     public var config: ElementConfig? = nil
-    /// The lastIds received by the reader.
+    /// A mapping of data writer IDs to the last sample IDs received by the data reader.
+    ///
+    /// - The key represents the data writer ID.
+    /// - The value represents the last sample ID received from the corresponding data writer.
     public var lastIds: LongLongDict = LongLongDict()
-    /// The samples of the writer or reader.
+    /// A sequence of samples in the writer's queue, used to initialize the reader.
+    ///
+    /// - When this struct is sent from a subscriber to a publisher, this field is empty.
+    /// - When sent from a publisher to a subscriber, this field contains the queued samples.
     public var samples: DataSampleSeq = DataSampleSeq()
-    /// The id of the writer or reader on the peer.
+    /// The unique identifier for the peer's data reader or data writer.
     public var peerId: Swift.Int64 = 0
 
     public init() {}
@@ -1271,18 +1286,21 @@ public struct ElementDataAckSeqHelper {
     }
 }
 
+/// Represents an acknowledgment of the attachment of an element, which can be a key or a filter.
 public class ElementSpecAck {
-    /// The readers or writers associated with the key or filter.
+    /// A sequence of acknowledgments for the readers or writers associated with the key or filter.
     public var elements: ElementDataAckSeq = ElementDataAckSeq()
-    /// The id of the key or filter.
+    /// The unique identifier for the key or filter.
     public var id: Swift.Int64 = 0
     /// The name of the filter.
+    /// This field is empty if the element is a key.
     public var name: Swift.String = ""
-    /// The key or filter value.
+    /// The encoded value of the key or filter.
     public var value: Ice.ByteSeq = Ice.ByteSeq()
-    /// The id of the key or filter on the peer.
+    /// The unique identifier for the key or filter on the peer.
     public var peerId: Swift.Int64 = 0
     /// The name of the filter on the peer.
+    /// This field is empty if the element is a key.
     public var peerName: Swift.String = ""
 
     public init() {}
@@ -1452,29 +1470,29 @@ public struct LookupTraits: Ice.SliceTraits {
 
 /// The base interface for publisher and subscriber sessions.
 ///
-/// This interface enables nodes to exchange topic and element information, as well as data samples.
+/// This interface specifies the operations for communication between publisher and subscriber sessions.
 ///
 /// SessionPrx Methods:
-///  - announceTopics: Announces new and existing topics to the peer.
-///  - announceTopicsAsync: Announces new and existing topics to the peer.
-///  - attachTopic: Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-///  - attachTopicAsync: Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-///  - detachTopic: Detaches a topic from the session.
-///  - detachTopicAsync: Detaches a topic from the session.
-///  - attachTags
-///  - attachTagsAsync
-///  - detachTags
-///  - detachTagsAsync
-///  - announceElements: Announces new elements to the peer.
-///  - announceElementsAsync: Announces new elements to the peer.
-///  - attachElements: Attaches the given topic elements to all subscribers of the specified topic.
-///  - attachElementsAsync: Attaches the given topic elements to all subscribers of the specified topic.
-///  - attachElementsAck
-///  - attachElementsAckAsync
-///  - detachElements
-///  - detachElementsAsync
-///  - initSamples
-///  - initSamplesAsync
+///  - announceTopics: Announces topics to the peer during session establishment or when adding new topics.
+///  - announceTopicsAsync: Announces topics to the peer during session establishment or when adding new topics.
+///  - attachTopic: This operation is invoked if the session is interested in the announced topic.
+///  - attachTopicAsync: This operation is invoked if the session is interested in the announced topic.
+///  - detachTopic: Detaches a topic from the session, typically called when the topic is destroyed.
+///  - detachTopicAsync: Detaches a topic from the session, typically called when the topic is destroyed.
+///  - attachTags: Attaches the specified tags to the subscriber of a topic.
+///  - attachTagsAsync: Attaches the specified tags to the subscriber of a topic.
+///  - detachTags: Detaches tags from the session.
+///  - detachTagsAsync: Detaches tags from the session.
+///  - announceElements: Announces elements associated with a topic to the peer.
+///  - announceElementsAsync: Announces elements associated with a topic to the peer.
+///  - attachElements: Attaches the specified elements to the subscribers of a topic.
+///  - attachElementsAsync: Attaches the specified elements to the subscribers of a topic.
+///  - attachElementsAck: Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+///  - attachElementsAckAsync: Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+///  - detachElements: Instructs the peer to detach specific elements associated with a topic.
+///  - detachElementsAsync: Instructs the peer to detach specific elements associated with a topic.
+///  - initSamples: Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+///  - initSamplesAsync: Initializes the subscriber with the publisher queued samples for a topic during session establishment.
 ///  - disconnected: Notifies the peer that the session is being disconnected.
 ///  - disconnectedAsync: Notifies the peer that the session is being disconnected.
 public protocol SessionPrx: Ice.ObjectPrx {}
@@ -1563,40 +1581,40 @@ public extension Ice.InputStream {
 
 /// The base interface for publisher and subscriber sessions.
 ///
-/// This interface enables nodes to exchange topic and element information, as well as data samples.
+/// This interface specifies the operations for communication between publisher and subscriber sessions.
 ///
 /// SessionPrx Methods:
-///  - announceTopics: Announces new and existing topics to the peer.
-///  - announceTopicsAsync: Announces new and existing topics to the peer.
-///  - attachTopic: Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-///  - attachTopicAsync: Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-///  - detachTopic: Detaches a topic from the session.
-///  - detachTopicAsync: Detaches a topic from the session.
-///  - attachTags
-///  - attachTagsAsync
-///  - detachTags
-///  - detachTagsAsync
-///  - announceElements: Announces new elements to the peer.
-///  - announceElementsAsync: Announces new elements to the peer.
-///  - attachElements: Attaches the given topic elements to all subscribers of the specified topic.
-///  - attachElementsAsync: Attaches the given topic elements to all subscribers of the specified topic.
-///  - attachElementsAck
-///  - attachElementsAckAsync
-///  - detachElements
-///  - detachElementsAsync
-///  - initSamples
-///  - initSamplesAsync
+///  - announceTopics: Announces topics to the peer during session establishment or when adding new topics.
+///  - announceTopicsAsync: Announces topics to the peer during session establishment or when adding new topics.
+///  - attachTopic: This operation is invoked if the session is interested in the announced topic.
+///  - attachTopicAsync: This operation is invoked if the session is interested in the announced topic.
+///  - detachTopic: Detaches a topic from the session, typically called when the topic is destroyed.
+///  - detachTopicAsync: Detaches a topic from the session, typically called when the topic is destroyed.
+///  - attachTags: Attaches the specified tags to the subscriber of a topic.
+///  - attachTagsAsync: Attaches the specified tags to the subscriber of a topic.
+///  - detachTags: Detaches tags from the session.
+///  - detachTagsAsync: Detaches tags from the session.
+///  - announceElements: Announces elements associated with a topic to the peer.
+///  - announceElementsAsync: Announces elements associated with a topic to the peer.
+///  - attachElements: Attaches the specified elements to the subscribers of a topic.
+///  - attachElementsAsync: Attaches the specified elements to the subscribers of a topic.
+///  - attachElementsAck: Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+///  - attachElementsAckAsync: Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+///  - detachElements: Instructs the peer to detach specific elements associated with a topic.
+///  - detachElementsAsync: Instructs the peer to detach specific elements associated with a topic.
+///  - initSamples: Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+///  - initSamplesAsync: Initializes the subscriber with the publisher queued samples for a topic during session establishment.
 ///  - disconnected: Notifies the peer that the session is being disconnected.
 ///  - disconnectedAsync: Notifies the peer that the session is being disconnected.
 public extension SessionPrx {
-    /// Announces new and existing topics to the peer.
+    /// Announces topics to the peer during session establishment or when adding new topics.
     ///
-    /// - During session establishment, this operation announces existing topics.
-    /// - For already established sessions, it is used to announce new topics.
+    /// - During session establishment, announces existing topics.
+    /// - For established sessions, announces newly added topics.
     ///
-    /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+    /// A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
     ///
-    /// The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+    /// The receiving peer invokes attachTopic for topics it is interested in.
     ///
     /// - Parameters:
     ///   - iceP_topics: The sequence of topics to announce.
@@ -1612,15 +1630,13 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+    /// This operation is invoked if the session is interested in the announced topic. Which occurs when:
     ///
-    /// This operation is called if the session is interested in the announced topic, which occurs when:
-    ///
-    /// - The session has a reader for a topic that the peer has a writer for, or
-    /// - The session has a writer for a topic that the peer has a reader for.
+    /// - The session has a reader for a topic that the peer writes, or
+    /// - The session has a writer for a topic that the peer reads.
     ///
     /// - Parameters:
-    ///   - iceP_topic: The TopicSpec object describing the topic being attached to the remote topic.
+    ///   - iceP_topic: The TopicSpec describing the topic to attach.
     ///   - context: Optional request context.
     func attachTopic(_ iceP_topic: TopicSpec, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "attachTopic",
@@ -1631,68 +1647,89 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    /// Detaches a topic from the session.
+    /// Detaches a topic from the session, typically called when the topic is destroyed.
     ///
-    /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+    /// This operation is invoked by the topic on listener sessions during its destruction.
     ///
     /// - Parameters:
-    ///   - iceP_topic: The ID of the topic to detach.
+    ///   - iceP_topicId: The unique identifier for the topic to detach.
     ///   - context: Optional request context.
-    func detachTopic(_ iceP_topic: Swift.Int64, context: Ice.Context? = nil) async throws -> Swift.Void {
+    func detachTopic(_ iceP_topicId: Swift.Int64, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "detachTopic",
                                        mode: .Normal,
                                        write: { ostr in
-                                           ostr.write(iceP_topic)
+                                           ostr.write(iceP_topicId)
                                        },
                                        context: context)
     }
 
-    func attachTags(topic iceP_topic: Swift.Int64, tags iceP_tags: ElementInfoSeq, initialize iceP_initialize: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
+    /// Attaches the specified tags to the subscriber of a topic.
+    ///
+    /// Tags are used to support partial update samples.
+    ///
+    /// - Parameters:
+    ///   - iceP_topicId: The unique identifier for the topic to which the tags will be attached.
+    ///   - iceP_tags: The sequence of tags to attach, representing the partial update associations.
+    ///   - iceP_initialize: Indicates whether the tags are being attached during session initialization.
+    ///   - context: Optional request context.
+    func attachTags(topicId iceP_topicId: Swift.Int64, tags iceP_tags: ElementInfoSeq, initialize iceP_initialize: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "attachTags",
                                        mode: .Normal,
                                        write: { ostr in
-                                           ostr.write(iceP_topic)
+                                           ostr.write(iceP_topicId)
                                            ElementInfoSeqHelper.write(to: ostr, value: iceP_tags)
                                            ostr.write(iceP_initialize)
                                        },
                                        context: context)
     }
 
-    func detachTags(topic iceP_topic: Swift.Int64, tags iceP_tags: Ice.LongSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+    /// Detaches tags from the session.
+    ///
+    /// - Parameters:
+    ///   - iceP_topicId: The unique identifier for the topic.
+    ///   - iceP_tags: The sequence of tag identifiers to detach.
+    ///   - context: Optional request context.
+    func detachTags(topicId iceP_topicId: Swift.Int64, tags iceP_tags: Ice.LongSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "detachTags",
                                        mode: .Normal,
                                        write: { ostr in
-                                           ostr.write(iceP_topic)
+                                           ostr.write(iceP_topicId)
                                            ostr.write(iceP_tags)
                                        },
                                        context: context)
     }
 
-    /// Announces new elements to the peer.
+    /// Announces elements associated with a topic to the peer.
     ///
-    /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-    /// the readers and writers associated with the specified topic.
+    /// This operation informs the peer about new data readers or data writers associated with the specified topic.
+    /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+    ///
+    /// - A publisher session announces its data writers.
+    /// - A subscriber session announces its data readers.
     ///
     /// - Parameters:
-    ///   - iceP_topic: The ID of the topic associated with the elements.
-    ///   - iceP_elements: The sequence of elements to announce.
+    ///   - iceP_topicId: The unique identifier for the topic to which the elements belong.
+    ///   - iceP_elements: The sequence of elements to announce, representing the data readers or data writers.
     ///   - context: Optional request context.
-    func announceElements(topic iceP_topic: Swift.Int64, elements iceP_elements: ElementInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+    func announceElements(topicId iceP_topicId: Swift.Int64, elements iceP_elements: ElementInfoSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "announceElements",
                                        mode: .Normal,
                                        write: { ostr in
-                                           ostr.write(iceP_topic)
+                                           ostr.write(iceP_topicId)
                                            ElementInfoSeqHelper.write(to: ostr, value: iceP_elements)
                                        },
                                        context: context)
     }
 
-    /// Attaches the given topic elements to all subscribers of the specified topic.
+    /// Attaches the specified elements to the subscribers of a topic.
+    ///
+    /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+    /// topic.
     ///
     /// - Parameters:
-    ///   - iceP_topicId: The ID of the topic to which the elements belong.
-    ///   - iceP_elements: The sequence of elements to attach to the topic's subscribers.
-    ///   - iceP_initialize: True if called from attachTopic, false otherwise.
+    ///   - iceP_topicId: The unique identifier for the topic to which the elements belong.
+    ///   - iceP_elements: The sequence of `ElementSpec` objects representing the elements to attach.
+    ///   - iceP_initialize: Indicates whether the elements are being attached during session initialization.
     ///   - context: Optional request context.
     func attachElements(topicId iceP_topicId: Swift.Int64, elements iceP_elements: ElementSpecSeq, initialize iceP_initialize: Swift.Bool, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "attachElements",
@@ -1706,40 +1743,62 @@ public extension SessionPrx {
                                        context: context)
     }
 
-    func attachElementsAck(topic iceP_topic: Swift.Int64, elements iceP_elements: ElementSpecAckSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+    /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+    ///
+    /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
+    /// to the session.
+    ///
+    /// - Parameters:
+    ///   - iceP_topicId: The unique identifier for the topic to which the elements belong.
+    ///   - iceP_elements: A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+    ///   - context: Optional request context.
+    func attachElementsAck(topicId iceP_topicId: Swift.Int64, elements iceP_elements: ElementSpecAckSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "attachElementsAck",
                                        mode: .Normal,
                                        write: { ostr in
-                                           ostr.write(iceP_topic)
+                                           ostr.write(iceP_topicId)
                                            ElementSpecAckSeqHelper.write(to: ostr, value: iceP_elements)
                                            ostr.writePendingValues()
                                        },
                                        context: context)
     }
 
-    func detachElements(topic iceP_topic: Swift.Int64, keys iceP_keys: Ice.LongSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+    /// Instructs the peer to detach specific elements associated with a topic.
+    ///
+    /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+    /// and should be removed from the peer's session.
+    ///
+    /// - Parameters:
+    ///   - iceP_topicId: The unique identifier for the topic to which the elements belong.
+    ///   - iceP_elements: A sequence of element identifiers representing the keys or filters to detach.
+    ///   - context: Optional request context.
+    func detachElements(topicId iceP_topicId: Swift.Int64, elements iceP_elements: Ice.LongSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "detachElements",
                                        mode: .Normal,
                                        write: { ostr in
-                                           ostr.write(iceP_topic)
-                                           ostr.write(iceP_keys)
+                                           ostr.write(iceP_topicId)
+                                           ostr.write(iceP_elements)
                                        },
                                        context: context)
     }
 
-    func initSamples(topic iceP_topic: Swift.Int64, samples iceP_samples: DataSamplesSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
+    /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+    ///
+    /// - Parameters:
+    ///   - iceP_topicId: The unique identifier for the topic.
+    ///   - iceP_samples: A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+    ///   - context: Optional request context.
+    func initSamples(topicId iceP_topicId: Swift.Int64, samples iceP_samples: DataSamplesSeq, context: Ice.Context? = nil) async throws -> Swift.Void {
         return try await _impl._invoke(operation: "initSamples",
                                        mode: .Normal,
                                        write: { ostr in
-                                           ostr.write(iceP_topic)
+                                           ostr.write(iceP_topicId)
                                            DataSamplesSeqHelper.write(to: ostr, value: iceP_samples)
                                        },
                                        context: context)
     }
 
     /// Notifies the peer that the session is being disconnected.
-    ///
-    /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
     ///
     /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
     /// between the relay node and the target node is lost.
@@ -1938,8 +1997,8 @@ public extension SubscriberSessionPrx {
     /// Queue a sample with the subscribers of the topic element.
     ///
     /// - Parameters:
-    ///   - iceP_topicId: The ID of the topic.
-    ///   - iceP_elementId: The ID of the element.
+    ///   - iceP_topicId: The unique identifier for the topic to which the sample belong.
+    ///   - iceP_elementId: The unique identifier for the element to which the sample belong.
     ///   - iceP_sample: The sample to queue.
     ///   - context: Optional request context.
     func s(topicId iceP_topicId: Swift.Int64, elementId iceP_elementId: Swift.Int64, sample iceP_sample: DataSample, context: Ice.Context? = nil) async throws -> Swift.Void {
@@ -2136,8 +2195,8 @@ public extension NodePrx {
 ///  - announceTopicWriterAsync: Announce a topic writer.
 ///  - announceTopics: Announce a set of topic readers and writers.
 ///  - announceTopicsAsync: Announce a set of topic readers and writers.
-///  - createSession: Establish a connection between this node and another node.
-///  - createSessionAsync: Establish a connection between this node and another node.
+///  - createSession: Establish a connection between this node and the caller node.
+///  - createSessionAsync: Establish a connection between this node and the caller node.
 public protocol LookupPrx: Ice.ObjectPrx {}
 
 private final class LookupPrxI: Ice.ObjectPrxI, LookupPrx {
@@ -2233,8 +2292,8 @@ public extension Ice.InputStream {
 ///  - announceTopicWriterAsync: Announce a topic writer.
 ///  - announceTopics: Announce a set of topic readers and writers.
 ///  - announceTopicsAsync: Announce a set of topic readers and writers.
-///  - createSession: Establish a connection between this node and another node.
-///  - createSessionAsync: Establish a connection between this node and another node.
+///  - createSession: Establish a connection between this node and the caller node.
+///  - createSessionAsync: Establish a connection between this node and the caller node.
 public extension LookupPrx {
     /// Announce a topic reader.
     ///
@@ -2286,7 +2345,7 @@ public extension LookupPrx {
                                        context: context)
     }
 
-    /// Establish a connection between this node and another node.
+    /// Establish a connection between this node and the caller node.
     ///
     /// - Parameters:
     ///   - iceP_node: The node initiating the connection. The proxy is never null.
@@ -2326,8 +2385,9 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// Represents the configuration of a reader or writer.
+/// Represents the configuration of a data reader or data writer, including optional filters and priorities.
 open class ElementConfig: Ice.Value {
+    /// A facet that is used to process the samples when sample filtering is enabled.
     public var facet: Swift.String? = nil
     /// An optional sample filter associated with the reader. Sample filters are specified on the reader side.
     public var sampleFilter: FilterInfo? = nil
@@ -2436,16 +2496,16 @@ public struct SessionDisp: Ice.Dispatcher {
 
 /// The base interface for publisher and subscriber sessions.
 ///
-/// This interface enables nodes to exchange topic and element information, as well as data samples.
+/// This interface specifies the operations for communication between publisher and subscriber sessions.
 public protocol Session {
-    /// Announces new and existing topics to the peer.
+    /// Announces topics to the peer during session establishment or when adding new topics.
     ///
-    /// - During session establishment, this operation announces existing topics.
-    /// - For already established sessions, it is used to announce new topics.
+    /// - During session establishment, announces existing topics.
+    /// - For established sessions, announces newly added topics.
     ///
-    /// A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+    /// A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
     ///
-    /// The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+    /// The receiving peer invokes attachTopic for topics it is interested in.
     ///
     /// - Parameters:
     ///   - topics: The sequence of topics to announce.
@@ -2453,60 +2513,101 @@ public protocol Session {
     ///   - current: The Current object for the dispatch.
     func announceTopics(topics: TopicInfoSeq, initialize: Swift.Bool, current: Ice.Current) async throws
 
-    /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+    /// This operation is invoked if the session is interested in the announced topic. Which occurs when:
     ///
-    /// This operation is called if the session is interested in the announced topic, which occurs when:
-    ///
-    /// - The session has a reader for a topic that the peer has a writer for, or
-    /// - The session has a writer for a topic that the peer has a reader for.
+    /// - The session has a reader for a topic that the peer writes, or
+    /// - The session has a writer for a topic that the peer reads.
     ///
     /// - Parameters:
-    ///   - topic: The TopicSpec object describing the topic being attached to the remote topic.
+    ///   - topic: The TopicSpec describing the topic to attach.
     ///   - current: The Current object for the dispatch.
     func attachTopic(topic: TopicSpec, current: Ice.Current) async throws
 
-    /// Detaches a topic from the session.
+    /// Detaches a topic from the session, typically called when the topic is destroyed.
     ///
-    /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+    /// This operation is invoked by the topic on listener sessions during its destruction.
     ///
     /// - Parameters:
-    ///   - topic: The ID of the topic to detach.
+    ///   - topicId: The unique identifier for the topic to detach.
     ///   - current: The Current object for the dispatch.
-    func detachTopic(topic: Swift.Int64, current: Ice.Current) async throws
+    func detachTopic(topicId: Swift.Int64, current: Ice.Current) async throws
 
-    func attachTags(topic: Swift.Int64, tags: ElementInfoSeq, initialize: Swift.Bool, current: Ice.Current) async throws
-
-    func detachTags(topic: Swift.Int64, tags: Ice.LongSeq, current: Ice.Current) async throws
-
-    /// Announces new elements to the peer.
+    /// Attaches the specified tags to the subscriber of a topic.
     ///
-    /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-    /// the readers and writers associated with the specified topic.
+    /// Tags are used to support partial update samples.
     ///
     /// - Parameters:
-    ///   - topic: The ID of the topic associated with the elements.
-    ///   - elements: The sequence of elements to announce.
+    ///   - topicId: The unique identifier for the topic to which the tags will be attached.
+    ///   - tags: The sequence of tags to attach, representing the partial update associations.
+    ///   - initialize: Indicates whether the tags are being attached during session initialization.
     ///   - current: The Current object for the dispatch.
-    func announceElements(topic: Swift.Int64, elements: ElementInfoSeq, current: Ice.Current) async throws
+    func attachTags(topicId: Swift.Int64, tags: ElementInfoSeq, initialize: Swift.Bool, current: Ice.Current) async throws
 
-    /// Attaches the given topic elements to all subscribers of the specified topic.
+    /// Detaches tags from the session.
     ///
     /// - Parameters:
-    ///   - topicId: The ID of the topic to which the elements belong.
-    ///   - elements: The sequence of elements to attach to the topic's subscribers.
-    ///   - initialize: True if called from attachTopic, false otherwise.
+    ///   - topicId: The unique identifier for the topic.
+    ///   - tags: The sequence of tag identifiers to detach.
+    ///   - current: The Current object for the dispatch.
+    func detachTags(topicId: Swift.Int64, tags: Ice.LongSeq, current: Ice.Current) async throws
+
+    /// Announces elements associated with a topic to the peer.
+    ///
+    /// This operation informs the peer about new data readers or data writers associated with the specified topic.
+    /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+    ///
+    /// - A publisher session announces its data writers.
+    /// - A subscriber session announces its data readers.
+    ///
+    /// - Parameters:
+    ///   - topicId: The unique identifier for the topic to which the elements belong.
+    ///   - elements: The sequence of elements to announce, representing the data readers or data writers.
+    ///   - current: The Current object for the dispatch.
+    func announceElements(topicId: Swift.Int64, elements: ElementInfoSeq, current: Ice.Current) async throws
+
+    /// Attaches the specified elements to the subscribers of a topic.
+    ///
+    /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+    /// topic.
+    ///
+    /// - Parameters:
+    ///   - topicId: The unique identifier for the topic to which the elements belong.
+    ///   - elements: The sequence of `ElementSpec` objects representing the elements to attach.
+    ///   - initialize: Indicates whether the elements are being attached during session initialization.
     ///   - current: The Current object for the dispatch.
     func attachElements(topicId: Swift.Int64, elements: ElementSpecSeq, initialize: Swift.Bool, current: Ice.Current) async throws
 
-    func attachElementsAck(topic: Swift.Int64, elements: ElementSpecAckSeq, current: Ice.Current) async throws
+    /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+    ///
+    /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
+    /// to the session.
+    ///
+    /// - Parameters:
+    ///   - topicId: The unique identifier for the topic to which the elements belong.
+    ///   - elements: A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+    ///   - current: The Current object for the dispatch.
+    func attachElementsAck(topicId: Swift.Int64, elements: ElementSpecAckSeq, current: Ice.Current) async throws
 
-    func detachElements(topic: Swift.Int64, keys: Ice.LongSeq, current: Ice.Current) async throws
+    /// Instructs the peer to detach specific elements associated with a topic.
+    ///
+    /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+    /// and should be removed from the peer's session.
+    ///
+    /// - Parameters:
+    ///   - topicId: The unique identifier for the topic to which the elements belong.
+    ///   - elements: A sequence of element identifiers representing the keys or filters to detach.
+    ///   - current: The Current object for the dispatch.
+    func detachElements(topicId: Swift.Int64, elements: Ice.LongSeq, current: Ice.Current) async throws
 
-    func initSamples(topic: Swift.Int64, samples: DataSamplesSeq, current: Ice.Current) async throws
+    /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+    ///
+    /// - Parameters:
+    ///   - topicId: The unique identifier for the topic.
+    ///   - samples: A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+    ///   - current: The Current object for the dispatch.
+    func initSamples(topicId: Swift.Int64, samples: DataSamplesSeq, current: Ice.Current) async throws
 
     /// Notifies the peer that the session is being disconnected.
-    ///
-    /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
     ///
     /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
     /// between the relay node and the target node is lost.
@@ -2621,8 +2722,8 @@ public protocol SubscriberSession: Session {
     /// Queue a sample with the subscribers of the topic element.
     ///
     /// - Parameters:
-    ///   - topicId: The ID of the topic.
-    ///   - elementId: The ID of the element.
+    ///   - topicId: The unique identifier for the topic to which the sample belong.
+    ///   - elementId: The unique identifier for the element to which the sample belong.
     ///   - sample: The sample to queue.
     ///   - current: The Current object for the dispatch.
     func s(topicId: Swift.Int64, elementId: Swift.Int64, sample: DataSample, current: Ice.Current) async throws
@@ -2761,7 +2862,7 @@ public protocol Lookup {
     ///   - current: The Current object for the dispatch.
     func announceTopics(readers: Ice.StringSeq, writers: Ice.StringSeq, node: NodePrx?, current: Ice.Current) async throws
 
-    /// Establish a connection between this node and another node.
+    /// Establish a connection between this node and the caller node.
     ///
     /// - Parameters:
     ///   - node: The node initiating the connection. The proxy is never null.
@@ -2773,19 +2874,19 @@ public protocol Lookup {
 
 /// The base interface for publisher and subscriber sessions.
 ///
-/// This interface enables nodes to exchange topic and element information, as well as data samples.
+/// This interface specifies the operations for communication between publisher and subscriber sessions.
 ///
 /// Session Methods:
-///  - announceTopics: Announces new and existing topics to the peer.
-///  - attachTopic: Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-///  - detachTopic: Detaches a topic from the session.
-///  - attachTags
-///  - detachTags
-///  - announceElements: Announces new elements to the peer.
-///  - attachElements: Attaches the given topic elements to all subscribers of the specified topic.
-///  - attachElementsAck
-///  - detachElements
-///  - initSamples
+///  - announceTopics: Announces topics to the peer during session establishment or when adding new topics.
+///  - attachTopic: This operation is invoked if the session is interested in the announced topic.
+///  - detachTopic: Detaches a topic from the session, typically called when the topic is destroyed.
+///  - attachTags: Attaches the specified tags to the subscriber of a topic.
+///  - detachTags: Detaches tags from the session.
+///  - announceElements: Announces elements associated with a topic to the peer.
+///  - attachElements: Attaches the specified elements to the subscribers of a topic.
+///  - attachElementsAck: Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+///  - detachElements: Instructs the peer to detach specific elements associated with a topic.
+///  - initSamples: Initializes the subscriber with the publisher queued samples for a topic during session establishment.
 ///  - disconnected: Notifies the peer that the session is being disconnected.
 extension Session {
     public func _iceD_announceTopics(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
@@ -2811,8 +2912,8 @@ extension Session {
         
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
-        let iceP_topic: Swift.Int64 = try istr.read()
-        try await self.detachTopic(topic: iceP_topic, current: request.current)
+        let iceP_topicId: Swift.Int64 = try istr.read()
+        try await self.detachTopic(topicId: iceP_topicId, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2820,10 +2921,10 @@ extension Session {
         
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
-        let iceP_topic: Swift.Int64 = try istr.read()
+        let iceP_topicId: Swift.Int64 = try istr.read()
         let iceP_tags: ElementInfoSeq = try ElementInfoSeqHelper.read(from: istr)
         let iceP_initialize: Swift.Bool = try istr.read()
-        try await self.attachTags(topic: iceP_topic, tags: iceP_tags, initialize: iceP_initialize, current: request.current)
+        try await self.attachTags(topicId: iceP_topicId, tags: iceP_tags, initialize: iceP_initialize, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2831,9 +2932,9 @@ extension Session {
         
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
-        let iceP_topic: Swift.Int64 = try istr.read()
+        let iceP_topicId: Swift.Int64 = try istr.read()
         let iceP_tags: Ice.LongSeq = try istr.read()
-        try await self.detachTags(topic: iceP_topic, tags: iceP_tags, current: request.current)
+        try await self.detachTags(topicId: iceP_topicId, tags: iceP_tags, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2841,9 +2942,9 @@ extension Session {
         
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
-        let iceP_topic: Swift.Int64 = try istr.read()
+        let iceP_topicId: Swift.Int64 = try istr.read()
         let iceP_elements: ElementInfoSeq = try ElementInfoSeqHelper.read(from: istr)
-        try await self.announceElements(topic: iceP_topic, elements: iceP_elements, current: request.current)
+        try await self.announceElements(topicId: iceP_topicId, elements: iceP_elements, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2863,10 +2964,10 @@ extension Session {
         
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
-        let iceP_topic: Swift.Int64 = try istr.read()
+        let iceP_topicId: Swift.Int64 = try istr.read()
         let iceP_elements: ElementSpecAckSeq = try ElementSpecAckSeqHelper.read(from: istr)
         try istr.readPendingValues()
-        try await self.attachElementsAck(topic: iceP_topic, elements: iceP_elements, current: request.current)
+        try await self.attachElementsAck(topicId: iceP_topicId, elements: iceP_elements, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2874,9 +2975,9 @@ extension Session {
         
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
-        let iceP_topic: Swift.Int64 = try istr.read()
-        let iceP_keys: Ice.LongSeq = try istr.read()
-        try await self.detachElements(topic: iceP_topic, keys: iceP_keys, current: request.current)
+        let iceP_topicId: Swift.Int64 = try istr.read()
+        let iceP_elements: Ice.LongSeq = try istr.read()
+        try await self.detachElements(topicId: iceP_topicId, elements: iceP_elements, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2884,9 +2985,9 @@ extension Session {
         
         let istr = request.inputStream
         _ = try istr.startEncapsulation()
-        let iceP_topic: Swift.Int64 = try istr.read()
+        let iceP_topicId: Swift.Int64 = try istr.read()
         let iceP_samples: DataSamplesSeq = try DataSamplesSeqHelper.read(from: istr)
-        try await self.initSamples(topic: iceP_topic, samples: iceP_samples, current: request.current)
+        try await self.initSamples(topicId: iceP_topicId, samples: iceP_samples, current: request.current)
         return request.current.makeEmptyOutgoingResponse()
     }
 
@@ -2972,7 +3073,7 @@ extension Node {
 ///  - announceTopicReader: Announce a topic reader.
 ///  - announceTopicWriter: Announce a topic writer.
 ///  - announceTopics: Announce a set of topic readers and writers.
-///  - createSession: Establish a connection between this node and another node.
+///  - createSession: Establish a connection between this node and the caller node.
 extension Lookup {
     public func _iceD_announceTopicReader(_ request: Ice.IncomingRequest) async throws -> Ice.OutgoingResponse {
         

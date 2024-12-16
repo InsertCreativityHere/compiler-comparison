@@ -35,13 +35,12 @@ if 'ClearHistoryPolicy' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ClearHistoryPolicy = None
     class ClearHistoryPolicy(Ice.EnumBase):
         """
-        The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
-        history in response to various events.
+        Defines policies for clearing the data sample history of a reader in response to sample events.
         Enumerators:
-        OnAdd -- The reader clears its history when a new DataSample is added.
-        OnRemove -- The reader clears its history when a DataSample is removed.
-        OnAll -- The reader clears its history when any DataSample event occurs.
-        OnAllExceptPartialUpdate -- The reader clears its history when any DataSample event occurs, except for PartialUpdate events.
+        OnAdd -- The reader clears its history when a new data sample is added.
+        OnRemove -- The reader clears its history when a data sample is removed.
+        OnAll -- The reader clears its history when any data sample event occurs.
+        OnAllExceptPartialUpdate -- The reader clears its history for all data sample events except for partial update events.
         Never -- The reader never clears its history.
         """
 
@@ -72,6 +71,27 @@ if '_t_LongLongDict' not in _M_DataStormContract.__dict__:
 if 'DataSample' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.DataSample = None
     class DataSample(object):
+        """
+        Represents a data sample, the fundamental unit of data exchanged between DataStorm readers and writers.
+        
+        Attributes
+        ----------
+        id : int
+            The unique identifier for the sample.
+        keyId : int
+            The unique identifier for the associated key.
+            A negative value (< 0) indicates a key filter.
+        keyValue : int[]
+            The encoded key value, used when keyId < 0 (key filter).
+        timestamp : int
+            The timestamp when the sample was written, in milliseconds since the epoch.
+        tag : int
+            An update tag, used for PartialUpdate sample events.
+        event : DataStorm.SampleEvent
+            The event type associated with this sample (e.g., Add, Update, PartialUpdate, Remove).
+        value : int[]
+            The payload data of the sample.
+        """
         def __init__(self, id=0, keyId=0, keyValue=None, timestamp=0, tag=0, event=_M_DataStorm.SampleEvent.Add, value=None):
             self.id = id
             self.keyId = keyId
@@ -130,6 +150,16 @@ if '_t_DataSampleSeq' not in _M_DataStormContract.__dict__:
 if 'DataSamples' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.DataSamples = None
     class DataSamples(object):
+        """
+        Represents a collection of data samples produced by a specific writer.
+        
+        Attributes
+        ----------
+        id : int
+            The unique identifier for the writer.
+        samples : DataStormContract.DataSample[]
+            The sequence of samples produced by the writer.
+        """
         def __init__(self, id=0, samples=None):
             self.id = id
             self.samples = samples
@@ -169,15 +199,15 @@ if 'ElementInfo' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ElementInfo = None
     class ElementInfo(object):
         """
-        Provides information about an element, which can be a key, a filter, or a tag. Includes the element's ID, name,
-        and encoded value.
+        Provides metadata about an element, such as a key, filter, or tag.
         
         Attributes
         ----------
         id : int
-            The ID of the element. Filter IDs are negative, while key and tag IDs are positive.
+            The unique identifier for the element.
+            Negative values indicate filter IDs; positive values indicate key or tag IDs.
         name : str
-            The name of the filter. This field is empty for key and tag elements.
+            The name of the element. Empty for key and tag elements.
         value : int[]
             The encoded value of the element.
         """
@@ -224,20 +254,16 @@ if 'TopicInfo' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.TopicInfo = None
     class TopicInfo(object):
         """
-        Provides information about a topic, including its name and the list of active topic reader or topic writer IDs.
-        There is a unique `TopicInfo` for all topic instances with the same name, representing a single logical topic.
-        Each instance has its own topic reader and topic writer, which are lazily initialized and have a unique ID.
+        Contains metadata about a topic, including its name and associated reader/writer IDs.
         
         Attributes
         ----------
         name : str
             The name of the topic.
         ids : int[]
-            The list of active topic reader or topic writer IDs for the topic.
-            - In a publisher session announcing topics to a subscriber session, this contains the active topic writer
-            IDs.
-            - In a subscriber session announcing topics to a publisher session, this contains the active topic reader
-            IDs.
+            The list of active topic reader or writer IDs.
+            - In a publisher session,  the `ids` field contains the active topic writer IDs.
+            - In a subscriber session,  the `ids` field contains the active topic reader IDs.
         """
         def __init__(self, name='', ids=None):
             self.name = name
@@ -284,7 +310,8 @@ if 'TopicSpec' not in _M_DataStormContract.__dict__:
         Attributes
         ----------
         id : int
-            The ID of the topic.
+            The unique identifier for the topic.
+            The ID uniquely identifies a topic reader or topic writer within a node.
         name : str
             The name of the topic.
         elements : DataStormContract.ElementInfo[]
@@ -335,6 +362,16 @@ if 'TopicSpec' not in _M_DataStormContract.__dict__:
 if 'FilterInfo' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.FilterInfo = None
     class FilterInfo(object):
+        """
+        Represents a sample filter that specifies which samples should be sent to a data reader.
+        
+        Attributes
+        ----------
+        name : str
+            The unique name of the filter, used for identification.
+        criteria : int[]
+            The encoded criteria for instantiating the filter.
+        """
         def __init__(self, name='', criteria=None):
             self.name = name
             self.criteria = criteria
@@ -371,11 +408,12 @@ if 'ElementConfig' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ElementConfig = None
     class ElementConfig(Ice.Value):
         """
-        Represents the configuration of a reader or writer.
+        Represents the configuration of a data reader or data writer, including optional filters and priorities.
         
         Attributes
         ----------
         facet : (str or None)
+            A facet that is used to process the samples when sample filtering is enabled.
         sampleFilter : (DataStormContract.FilterInfo or None)
             An optional sample filter associated with the reader. Sample filters are specified on the reader side.
         name : (str or None)
@@ -431,6 +469,20 @@ if 'ElementConfig' not in _M_DataStormContract.__dict__:
 if 'ElementData' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ElementData = None
     class ElementData(object):
+        """
+        Encapsulates the state and configuration data for a data reader or data writer.
+        
+        Attributes
+        ----------
+        id : int
+            The unique identifier for the data reader or data writer.
+        config : DataStormContract.ElementConfig
+            The configuration settings for the data reader or data writer.
+        lastIds : dict where keys are int and values are int
+            A mapping of data writer IDs to the last sample IDs received by the data reader.
+            - The key represents the data writer ID.
+            - The value represents the last sample ID received from the corresponding data writer.
+        """
         def __init__(self, id=0, config=None, lastIds=None):
             self.id = id
             self.config = config
@@ -474,22 +526,24 @@ if 'ElementSpec' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ElementSpec = None
     class ElementSpec(object):
         """
-        Provides detailed information about elements that can be either a key or a filter.
+        Represents detailed information about topic elements, which can be a key or a filter.
         
         Attributes
         ----------
         elements : DataStormContract.ElementData[]
-            The readers and writers associated with the key or filter.
+            A sequence of data readers and writers associated with the key or filter.
         id : int
-            The id of the key or filter.
+            The unique identifier for the key or filter.
         name : str
-            The name of the filter. This field is empty for key elements.
+            The name of the filter.
+            This field is empty if the element is a key.
         value : int[]
-            The value of the key or filter.
+            The encoded value of the key or filter.
         peerId : int
-            The id of the key or filter from the peer.
+            The unique identifier for the key or filter on the peer.
         peerName : str
-            The name of the filter from the peer.
+            The name of the filter on the peer.
+            This field is empty if the element is a key.
         """
         def __init__(self, elements=None, id=0, name='', value=None, peerId=0, peerName=''):
             self.elements = elements
@@ -545,6 +599,26 @@ if '_t_ElementSpecSeq' not in _M_DataStormContract.__dict__:
 if 'ElementDataAck' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ElementDataAck = None
     class ElementDataAck(object):
+        """
+        Represents an acknowledgment of the attachment of data readers or data writers associated with a key or filter.
+        
+        Attributes
+        ----------
+        id : int
+            The unique identifier for the data reader or data writer.
+        config : DataStormContract.ElementConfig
+            The configuration settings for the data reader or data writer.
+        lastIds : dict where keys are int and values are int
+            A mapping of data writer IDs to the last sample IDs received by the data reader.
+            - The key represents the data writer ID.
+            - The value represents the last sample ID received from the corresponding data writer.
+        samples : DataStormContract.DataSample[]
+            A sequence of samples in the writer's queue, used to initialize the reader.
+            - When this struct is sent from a subscriber to a publisher, this field is empty.
+            - When sent from a publisher to a subscriber, this field contains the queued samples.
+        peerId : int
+            The unique identifier for the peer's data reader or data writer.
+        """
         def __init__(self, id=0, config=None, lastIds=None, samples=None, peerId=0):
             self.id = id
             self.config = config
@@ -595,6 +669,26 @@ if '_t_ElementDataAckSeq' not in _M_DataStormContract.__dict__:
 if 'ElementSpecAck' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ElementSpecAck = None
     class ElementSpecAck(object):
+        """
+        Represents an acknowledgment of the attachment of an element, which can be a key or a filter.
+        
+        Attributes
+        ----------
+        elements : DataStormContract.ElementDataAck[]
+            A sequence of acknowledgments for the readers or writers associated with the key or filter.
+        id : int
+            The unique identifier for the key or filter.
+        name : str
+            The name of the filter.
+            This field is empty if the element is a key.
+        value : int[]
+            The encoded value of the key or filter.
+        peerId : int
+            The unique identifier for the key or filter on the peer.
+        peerName : str
+            The name of the filter on the peer.
+            This field is empty if the element is a key.
+        """
         def __init__(self, elements=None, id=0, name='', value=None, peerId=0, peerName=''):
             self.elements = elements
             self.id = id
@@ -670,11 +764,11 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def announceTopics(self, topics, initialize, context=None):
             """
-            Announces new and existing topics to the peer.
-            - During session establishment, this operation announces existing topics.
-            - For already established sessions, it is used to announce new topics.
-            A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
-            The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+            Announces topics to the peer during session establishment or when adding new topics.
+            - During session establishment, announces existing topics.
+            - For established sessions, announces newly added topics.
+            A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
+            The receiving peer invokes attachTopic for topics it is interested in.
             
             Parameters
             ----------
@@ -689,11 +783,11 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def announceTopicsAsync(self, topics, initialize, context=None):
             """
-            Announces new and existing topics to the peer.
-            - During session establishment, this operation announces existing topics.
-            - For already established sessions, it is used to announce new topics.
-            A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
-            The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+            Announces topics to the peer during session establishment or when adding new topics.
+            - During session establishment, announces existing topics.
+            - For established sessions, announces newly added topics.
+            A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
+            The receiving peer invokes attachTopic for topics it is interested in.
             
             Parameters
             ----------
@@ -713,15 +807,14 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def attachTopic(self, topic, context=None):
             """
-            Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-            This operation is called if the session is interested in the announced topic, which occurs when:
-            - The session has a reader for a topic that the peer has a writer for, or
-            - The session has a writer for a topic that the peer has a reader for.
+            This operation is invoked if the session is interested in the announced topic. Which occurs when:
+            - The session has a reader for a topic that the peer writes, or
+            - The session has a writer for a topic that the peer reads.
             
             Parameters
             ----------
             topic : DataStormContract.TopicSpec
-                The TopicSpec object describing the topic being attached to the remote topic.
+                The TopicSpec describing the topic to attach.
             context : Ice.Context
                 The request context for the invocation.
             """
@@ -729,15 +822,14 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def attachTopicAsync(self, topic, context=None):
             """
-            Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-            This operation is called if the session is interested in the announced topic, which occurs when:
-            - The session has a reader for a topic that the peer has a writer for, or
-            - The session has a writer for a topic that the peer has a reader for.
+            This operation is invoked if the session is interested in the announced topic. Which occurs when:
+            - The session has a reader for a topic that the peer writes, or
+            - The session has a writer for a topic that the peer reads.
             
             Parameters
             ----------
             topic : DataStormContract.TopicSpec
-                The TopicSpec object describing the topic being attached to the remote topic.
+                The TopicSpec describing the topic to attach.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -748,102 +840,172 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             """
             return _M_DataStormContract.Session._op_attachTopic.invokeAsync(self, ((topic, ), context))
 
-        def detachTopic(self, topic, context=None):
+        def detachTopic(self, topicId, context=None):
             """
-            Detaches a topic from the session.
-            This operation is called by the topic on listener sessions when the topic is being destroyed.
-            
-            Parameters
-            ----------
-            topic : int
-                The ID of the topic to detach.
-            context : Ice.Context
-                The request context for the invocation.
-            """
-            return _M_DataStormContract.Session._op_detachTopic.invoke(self, ((topic, ), context))
-
-        def detachTopicAsync(self, topic, context=None):
-            """
-            Detaches a topic from the session.
-            This operation is called by the topic on listener sessions when the topic is being destroyed.
-            
-            Parameters
-            ----------
-            topic : int
-                The ID of the topic to detach.
-            context : Ice.Context
-                The request context for the invocation.
-            
-            Returns
-            -------
-            Ice.Future
-                A future object that is completed with the result of the invocation.
-            """
-            return _M_DataStormContract.Session._op_detachTopic.invokeAsync(self, ((topic, ), context))
-
-        def attachTags(self, topic, tags, initialize, context=None):
-            return _M_DataStormContract.Session._op_attachTags.invoke(self, ((topic, tags, initialize), context))
-
-        def attachTagsAsync(self, topic, tags, initialize, context=None):
-            return _M_DataStormContract.Session._op_attachTags.invokeAsync(self, ((topic, tags, initialize), context))
-
-        def detachTags(self, topic, tags, context=None):
-            return _M_DataStormContract.Session._op_detachTags.invoke(self, ((topic, tags), context))
-
-        def detachTagsAsync(self, topic, tags, context=None):
-            return _M_DataStormContract.Session._op_detachTags.invokeAsync(self, ((topic, tags), context))
-
-        def announceElements(self, topic, elements, context=None):
-            """
-            Announces new elements to the peer.
-            The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-            the readers and writers associated with the specified topic.
-            
-            Parameters
-            ----------
-            topic : int
-                The ID of the topic associated with the elements.
-            elements : DataStormContract.ElementInfo[]
-                The sequence of elements to announce.
-            context : Ice.Context
-                The request context for the invocation.
-            """
-            return _M_DataStormContract.Session._op_announceElements.invoke(self, ((topic, elements), context))
-
-        def announceElementsAsync(self, topic, elements, context=None):
-            """
-            Announces new elements to the peer.
-            The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-            the readers and writers associated with the specified topic.
-            
-            Parameters
-            ----------
-            topic : int
-                The ID of the topic associated with the elements.
-            elements : DataStormContract.ElementInfo[]
-                The sequence of elements to announce.
-            context : Ice.Context
-                The request context for the invocation.
-            
-            Returns
-            -------
-            Ice.Future
-                A future object that is completed with the result of the invocation.
-            """
-            return _M_DataStormContract.Session._op_announceElements.invokeAsync(self, ((topic, elements), context))
-
-        def attachElements(self, topicId, elements, initialize, context=None):
-            """
-            Attaches the given topic elements to all subscribers of the specified topic.
+            Detaches a topic from the session, typically called when the topic is destroyed.
+            This operation is invoked by the topic on listener sessions during its destruction.
             
             Parameters
             ----------
             topicId : int
-                The ID of the topic to which the elements belong.
-            elements : DataStormContract.ElementSpec[]
-                The sequence of elements to attach to the topic's subscribers.
+                The unique identifier for the topic to detach.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_DataStormContract.Session._op_detachTopic.invoke(self, ((topicId, ), context))
+
+        def detachTopicAsync(self, topicId, context=None):
+            """
+            Detaches a topic from the session, typically called when the topic is destroyed.
+            This operation is invoked by the topic on listener sessions during its destruction.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to detach.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_DataStormContract.Session._op_detachTopic.invokeAsync(self, ((topicId, ), context))
+
+        def attachTags(self, topicId, tags, initialize, context=None):
+            """
+            Attaches the specified tags to the subscriber of a topic.
+            Tags are used to support partial update samples.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to which the tags will be attached.
+            tags : DataStormContract.ElementInfo[]
+                The sequence of tags to attach, representing the partial update associations.
             initialize : bool
-                True if called from attachTopic, false otherwise.
+                Indicates whether the tags are being attached during session initialization.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_DataStormContract.Session._op_attachTags.invoke(self, ((topicId, tags, initialize), context))
+
+        def attachTagsAsync(self, topicId, tags, initialize, context=None):
+            """
+            Attaches the specified tags to the subscriber of a topic.
+            Tags are used to support partial update samples.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to which the tags will be attached.
+            tags : DataStormContract.ElementInfo[]
+                The sequence of tags to attach, representing the partial update associations.
+            initialize : bool
+                Indicates whether the tags are being attached during session initialization.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_DataStormContract.Session._op_attachTags.invokeAsync(self, ((topicId, tags, initialize), context))
+
+        def detachTags(self, topicId, tags, context=None):
+            """
+            Detaches tags from the session.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic.
+            tags : int[]
+                The sequence of tag identifiers to detach.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_DataStormContract.Session._op_detachTags.invoke(self, ((topicId, tags), context))
+
+        def detachTagsAsync(self, topicId, tags, context=None):
+            """
+            Detaches tags from the session.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic.
+            tags : int[]
+                The sequence of tag identifiers to detach.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_DataStormContract.Session._op_detachTags.invokeAsync(self, ((topicId, tags), context))
+
+        def announceElements(self, topicId, elements, context=None):
+            """
+            Announces elements associated with a topic to the peer.
+            This operation informs the peer about new data readers or data writers associated with the specified topic.
+            The receiving peer will invoke `attachElements` for any elements it is interested in.
+            - A publisher session announces its data writers.
+            - A subscriber session announces its data readers.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to which the elements belong.
+            elements : DataStormContract.ElementInfo[]
+                The sequence of elements to announce, representing the data readers or data writers.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_DataStormContract.Session._op_announceElements.invoke(self, ((topicId, elements), context))
+
+        def announceElementsAsync(self, topicId, elements, context=None):
+            """
+            Announces elements associated with a topic to the peer.
+            This operation informs the peer about new data readers or data writers associated with the specified topic.
+            The receiving peer will invoke `attachElements` for any elements it is interested in.
+            - A publisher session announces its data writers.
+            - A subscriber session announces its data readers.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to which the elements belong.
+            elements : DataStormContract.ElementInfo[]
+                The sequence of elements to announce, representing the data readers or data writers.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_DataStormContract.Session._op_announceElements.invokeAsync(self, ((topicId, elements), context))
+
+        def attachElements(self, topicId, elements, initialize, context=None):
+            """
+            Attaches the specified elements to the subscribers of a topic.
+            This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+            topic.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to which the elements belong.
+            elements : DataStormContract.ElementSpec[]
+                The sequence of `ElementSpec` objects representing the elements to attach.
+            initialize : bool
+                Indicates whether the elements are being attached during session initialization.
             context : Ice.Context
                 The request context for the invocation.
             """
@@ -851,16 +1013,18 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def attachElementsAsync(self, topicId, elements, initialize, context=None):
             """
-            Attaches the given topic elements to all subscribers of the specified topic.
+            Attaches the specified elements to the subscribers of a topic.
+            This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+            topic.
             
             Parameters
             ----------
             topicId : int
-                The ID of the topic to which the elements belong.
+                The unique identifier for the topic to which the elements belong.
             elements : DataStormContract.ElementSpec[]
-                The sequence of elements to attach to the topic's subscribers.
+                The sequence of `ElementSpec` objects representing the elements to attach.
             initialize : bool
-                True if called from attachTopic, false otherwise.
+                Indicates whether the elements are being attached during session initialization.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -871,28 +1035,122 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             """
             return _M_DataStormContract.Session._op_attachElements.invokeAsync(self, ((topicId, elements, initialize), context))
 
-        def attachElementsAck(self, topic, elements, context=None):
-            return _M_DataStormContract.Session._op_attachElementsAck.invoke(self, ((topic, elements), context))
+        def attachElementsAck(self, topicId, elements, context=None):
+            """
+            Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+            This method confirms that the specified elements, such as keys or filters, have been successfully attached
+            to the session.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to which the elements belong.
+            elements : DataStormContract.ElementSpecAck[]
+                A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_DataStormContract.Session._op_attachElementsAck.invoke(self, ((topicId, elements), context))
 
-        def attachElementsAckAsync(self, topic, elements, context=None):
-            return _M_DataStormContract.Session._op_attachElementsAck.invokeAsync(self, ((topic, elements), context))
+        def attachElementsAckAsync(self, topicId, elements, context=None):
+            """
+            Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+            This method confirms that the specified elements, such as keys or filters, have been successfully attached
+            to the session.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to which the elements belong.
+            elements : DataStormContract.ElementSpecAck[]
+                A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_DataStormContract.Session._op_attachElementsAck.invokeAsync(self, ((topicId, elements), context))
 
-        def detachElements(self, topic, keys, context=None):
-            return _M_DataStormContract.Session._op_detachElements.invoke(self, ((topic, keys), context))
+        def detachElements(self, topicId, elements, context=None):
+            """
+            Instructs the peer to detach specific elements associated with a topic.
+            This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+            and should be removed from the peer's session.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to which the elements belong.
+            elements : int[]
+                A sequence of element identifiers representing the keys or filters to detach.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_DataStormContract.Session._op_detachElements.invoke(self, ((topicId, elements), context))
 
-        def detachElementsAsync(self, topic, keys, context=None):
-            return _M_DataStormContract.Session._op_detachElements.invokeAsync(self, ((topic, keys), context))
+        def detachElementsAsync(self, topicId, elements, context=None):
+            """
+            Instructs the peer to detach specific elements associated with a topic.
+            This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+            and should be removed from the peer's session.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to which the elements belong.
+            elements : int[]
+                A sequence of element identifiers representing the keys or filters to detach.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_DataStormContract.Session._op_detachElements.invokeAsync(self, ((topicId, elements), context))
 
-        def initSamples(self, topic, samples, context=None):
-            return _M_DataStormContract.Session._op_initSamples.invoke(self, ((topic, samples), context))
+        def initSamples(self, topicId, samples, context=None):
+            """
+            Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic.
+            samples : DataStormContract.DataSamples[]
+                A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_DataStormContract.Session._op_initSamples.invoke(self, ((topicId, samples), context))
 
-        def initSamplesAsync(self, topic, samples, context=None):
-            return _M_DataStormContract.Session._op_initSamples.invokeAsync(self, ((topic, samples), context))
+        def initSamplesAsync(self, topicId, samples, context=None):
+            """
+            Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic.
+            samples : DataStormContract.DataSamples[]
+                A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_DataStormContract.Session._op_initSamples.invokeAsync(self, ((topicId, samples), context))
 
         def disconnected(self, context=None):
             """
             Notifies the peer that the session is being disconnected.
-            This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
             For sessions established through a relay node, this operation is invoked by the relay node if the connection
             between the relay node and the target node is lost.
             
@@ -906,7 +1164,6 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def disconnectedAsync(self, context=None):
             """
             Notifies the peer that the session is being disconnected.
-            This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
             For sessions established through a relay node, this operation is invoked by the relay node if the connection
             between the relay node and the target node is lost.
             
@@ -953,11 +1210,11 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def announceTopics(self, topics, initialize, current=None):
             """
-            Announces new and existing topics to the peer.
-            - During session establishment, this operation announces existing topics.
-            - For already established sessions, it is used to announce new topics.
-            A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
-            The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+            Announces topics to the peer during session establishment or when adding new topics.
+            - During session establishment, announces existing topics.
+            - For established sessions, announces newly added topics.
+            A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
+            The receiving peer invokes attachTopic for topics it is interested in.
             
             Parameters
             ----------
@@ -977,15 +1234,14 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def attachTopic(self, topic, current=None):
             """
-            Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-            This operation is called if the session is interested in the announced topic, which occurs when:
-            - The session has a reader for a topic that the peer has a writer for, or
-            - The session has a writer for a topic that the peer has a reader for.
+            This operation is invoked if the session is interested in the announced topic. Which occurs when:
+            - The session has a reader for a topic that the peer writes, or
+            - The session has a writer for a topic that the peer reads.
             
             Parameters
             ----------
             topic : DataStormContract.TopicSpec
-                The TopicSpec object describing the topic being attached to the remote topic.
+                The TopicSpec describing the topic to attach.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -996,15 +1252,15 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             """
             raise NotImplementedError("servant method 'attachTopic' not implemented")
 
-        def detachTopic(self, topic, current=None):
+        def detachTopic(self, topicId, current=None):
             """
-            Detaches a topic from the session.
-            This operation is called by the topic on listener sessions when the topic is being destroyed.
+            Detaches a topic from the session, typically called when the topic is destroyed.
+            This operation is invoked by the topic on listener sessions during its destruction.
             
             Parameters
             ----------
-            topic : int
-                The ID of the topic to detach.
+            topicId : int
+                The unique identifier for the topic to detach.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -1015,24 +1271,63 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             """
             raise NotImplementedError("servant method 'detachTopic' not implemented")
 
-        def attachTags(self, topic, tags, initialize, current=None):
-            raise NotImplementedError("servant method 'attachTags' not implemented")
-
-        def detachTags(self, topic, tags, current=None):
-            raise NotImplementedError("servant method 'detachTags' not implemented")
-
-        def announceElements(self, topic, elements, current=None):
+        def attachTags(self, topicId, tags, initialize, current=None):
             """
-            Announces new elements to the peer.
-            The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-            the readers and writers associated with the specified topic.
+            Attaches the specified tags to the subscriber of a topic.
+            Tags are used to support partial update samples.
             
             Parameters
             ----------
-            topic : int
-                The ID of the topic associated with the elements.
+            topicId : int
+                The unique identifier for the topic to which the tags will be attached.
+            tags : DataStormContract.ElementInfo[]
+                The sequence of tags to attach, representing the partial update associations.
+            initialize : bool
+                Indicates whether the tags are being attached during session initialization.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'attachTags' not implemented")
+
+        def detachTags(self, topicId, tags, current=None):
+            """
+            Detaches tags from the session.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic.
+            tags : int[]
+                The sequence of tag identifiers to detach.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'detachTags' not implemented")
+
+        def announceElements(self, topicId, elements, current=None):
+            """
+            Announces elements associated with a topic to the peer.
+            This operation informs the peer about new data readers or data writers associated with the specified topic.
+            The receiving peer will invoke `attachElements` for any elements it is interested in.
+            - A publisher session announces its data writers.
+            - A subscriber session announces its data readers.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to which the elements belong.
             elements : DataStormContract.ElementInfo[]
-                The sequence of elements to announce.
+                The sequence of elements to announce, representing the data readers or data writers.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -1045,16 +1340,18 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
 
         def attachElements(self, topicId, elements, initialize, current=None):
             """
-            Attaches the given topic elements to all subscribers of the specified topic.
+            Attaches the specified elements to the subscribers of a topic.
+            This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+            topic.
             
             Parameters
             ----------
             topicId : int
-                The ID of the topic to which the elements belong.
+                The unique identifier for the topic to which the elements belong.
             elements : DataStormContract.ElementSpec[]
-                The sequence of elements to attach to the topic's subscribers.
+                The sequence of `ElementSpec` objects representing the elements to attach.
             initialize : bool
-                True if called from attachTopic, false otherwise.
+                Indicates whether the elements are being attached during session initialization.
             current : Ice.Current
                 The Current object for the dispatch.
             
@@ -1065,19 +1362,73 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
             """
             raise NotImplementedError("servant method 'attachElements' not implemented")
 
-        def attachElementsAck(self, topic, elements, current=None):
+        def attachElementsAck(self, topicId, elements, current=None):
+            """
+            Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+            This method confirms that the specified elements, such as keys or filters, have been successfully attached
+            to the session.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to which the elements belong.
+            elements : DataStormContract.ElementSpecAck[]
+                A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'attachElementsAck' not implemented")
 
-        def detachElements(self, topic, keys, current=None):
+        def detachElements(self, topicId, elements, current=None):
+            """
+            Instructs the peer to detach specific elements associated with a topic.
+            This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+            and should be removed from the peer's session.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic to which the elements belong.
+            elements : int[]
+                A sequence of element identifiers representing the keys or filters to detach.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'detachElements' not implemented")
 
-        def initSamples(self, topic, samples, current=None):
+        def initSamples(self, topicId, samples, current=None):
+            """
+            Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+            
+            Parameters
+            ----------
+            topicId : int
+                The unique identifier for the topic.
+            samples : DataStormContract.DataSamples[]
+                A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
             raise NotImplementedError("servant method 'initSamples' not implemented")
 
         def disconnected(self, current=None):
             """
             Notifies the peer that the session is being disconnected.
-            This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
             For sessions established through a relay node, this operation is invoked by the relay node if the connection
             between the relay node and the target node is lost.
             
@@ -1201,9 +1552,9 @@ if 'SubscriberSessionPrx' not in _M_DataStormContract.__dict__:
             Parameters
             ----------
             topicId : int
-                The ID of the topic.
+                The unique identifier for the topic to which the sample belong.
             elementId : int
-                The ID of the element.
+                The unique identifier for the element to which the sample belong.
             sample : DataStormContract.DataSample
                 The sample to queue.
             context : Ice.Context
@@ -1218,9 +1569,9 @@ if 'SubscriberSessionPrx' not in _M_DataStormContract.__dict__:
             Parameters
             ----------
             topicId : int
-                The ID of the topic.
+                The unique identifier for the topic to which the sample belong.
             elementId : int
-                The ID of the element.
+                The unique identifier for the element to which the sample belong.
             sample : DataStormContract.DataSample
                 The sample to queue.
             context : Ice.Context
@@ -1269,9 +1620,9 @@ if 'SubscriberSessionPrx' not in _M_DataStormContract.__dict__:
             Parameters
             ----------
             topicId : int
-                The ID of the topic.
+                The unique identifier for the topic to which the sample belong.
             elementId : int
-                The ID of the element.
+                The unique identifier for the element to which the sample belong.
             sample : DataStormContract.DataSample
                 The sample to queue.
             current : Ice.Current
@@ -1664,7 +2015,7 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
 
         def createSession(self, node, context=None):
             """
-            Establish a connection between this node and another node.
+            Establish a connection between this node and the caller node.
             
             Parameters
             ----------
@@ -1682,7 +2033,7 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
 
         def createSessionAsync(self, node, context=None):
             """
-            Establish a connection between this node and another node.
+            Establish a connection between this node and the caller node.
             
             Parameters
             ----------
@@ -1791,7 +2142,7 @@ if 'LookupPrx' not in _M_DataStormContract.__dict__:
 
         def createSession(self, node, current=None):
             """
-            Establish a connection between this node and another node.
+            Establish a connection between this node and the caller node.
             
             Parameters
             ----------

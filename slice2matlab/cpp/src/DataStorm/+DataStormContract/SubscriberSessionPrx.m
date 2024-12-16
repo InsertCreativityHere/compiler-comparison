@@ -17,8 +17,8 @@ classdef SubscriberSessionPrx < DataStormContract.SessionPrx
             % s   Queue a sample with the subscribers of the topic element.
             %
             % Parameters:
-            %   topicId (int64) - The ID of the topic.
-            %   elementId (int64) - The ID of the element.
+            %   topicId (int64) - The unique identifier for the topic to which the sample belong.
+            %   elementId (int64) - The unique identifier for the element to which the sample belong.
             %   sample (DataStormContract.DataSample) - The sample to queue.
             %   context (containers.Map) - Optional request context.
             
@@ -33,8 +33,8 @@ classdef SubscriberSessionPrx < DataStormContract.SessionPrx
             % sAsync   Queue a sample with the subscribers of the topic element.
             %
             % Parameters:
-            %   topicId (int64) - The ID of the topic.
-            %   elementId (int64) - The ID of the element.
+            %   topicId (int64) - The unique identifier for the topic to which the sample belong.
+            %   elementId (int64) - The unique identifier for the element to which the sample belong.
             %   sample (DataStormContract.DataSample) - The sample to queue.
             %   context (containers.Map) - Optional request context.
             %

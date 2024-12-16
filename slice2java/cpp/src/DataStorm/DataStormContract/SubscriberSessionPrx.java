@@ -22,8 +22,8 @@ public interface SubscriberSessionPrx extends SessionPrx
 {
     /**
      * Queue a sample with the subscribers of the topic element.
-     * @param topicId The ID of the topic.
-     * @param elementId The ID of the element.
+     * @param topicId The unique identifier for the topic to which the sample belong.
+     * @param elementId The unique identifier for the element to which the sample belong.
      * @param sample The sample to queue.
      **/
     default void s(long topicId, long elementId, DataSample sample)
@@ -33,8 +33,8 @@ public interface SubscriberSessionPrx extends SessionPrx
 
     /**
      * Queue a sample with the subscribers of the topic element.
-     * @param topicId The ID of the topic.
-     * @param elementId The ID of the element.
+     * @param topicId The unique identifier for the topic to which the sample belong.
+     * @param elementId The unique identifier for the element to which the sample belong.
      * @param sample The sample to queue.
      * @param context The Context map to send with the invocation.
      **/
@@ -45,8 +45,8 @@ public interface SubscriberSessionPrx extends SessionPrx
 
     /**
      * Queue a sample with the subscribers of the topic element.
-     * @param topicId The ID of the topic.
-     * @param elementId The ID of the element.
+     * @param topicId The unique identifier for the topic to which the sample belong.
+     * @param elementId The unique identifier for the element to which the sample belong.
      * @param sample The sample to queue.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -57,8 +57,8 @@ public interface SubscriberSessionPrx extends SessionPrx
 
     /**
      * Queue a sample with the subscribers of the topic element.
-     * @param topicId The ID of the topic.
-     * @param elementId The ID of the element.
+     * @param topicId The unique identifier for the topic to which the sample belong.
+     * @param elementId The unique identifier for the element to which the sample belong.
      * @param sample The sample to queue.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.

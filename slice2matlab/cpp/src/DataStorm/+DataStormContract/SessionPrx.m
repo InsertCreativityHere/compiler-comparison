@@ -2,29 +2,29 @@
 %
 % The base interface for publisher and subscriber sessions.
 %
-% This interface enables nodes to exchange topic and element information, as well as data samples.
+% This interface specifies the operations for communication between publisher and subscriber sessions.
 %
 % SessionPrx Methods:
-%   announceTopics - Announces new and existing topics to the peer.
-%   announceTopicsAsync - Announces new and existing topics to the peer.
-%   attachTopic - Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-%   attachTopicAsync - Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-%   detachTopic - Detaches a topic from the session.
-%   detachTopicAsync - Detaches a topic from the session.
-%   attachTags
-%   attachTagsAsync
-%   detachTags
-%   detachTagsAsync
-%   announceElements - Announces new elements to the peer.
-%   announceElementsAsync - Announces new elements to the peer.
-%   attachElements - Attaches the given topic elements to all subscribers of the specified topic.
-%   attachElementsAsync - Attaches the given topic elements to all subscribers of the specified topic.
-%   attachElementsAck
-%   attachElementsAckAsync
-%   detachElements
-%   detachElementsAsync
-%   initSamples
-%   initSamplesAsync
+%   announceTopics - Announces topics to the peer during session establishment or when adding new topics.
+%   announceTopicsAsync - Announces topics to the peer during session establishment or when adding new topics.
+%   attachTopic - This operation is invoked if the session is interested in the announced topic.
+%   attachTopicAsync - This operation is invoked if the session is interested in the announced topic.
+%   detachTopic - Detaches a topic from the session, typically called when the topic is destroyed.
+%   detachTopicAsync - Detaches a topic from the session, typically called when the topic is destroyed.
+%   attachTags - Attaches the specified tags to the subscriber of a topic.
+%   attachTagsAsync - Attaches the specified tags to the subscriber of a topic.
+%   detachTags - Detaches tags from the session.
+%   detachTagsAsync - Detaches tags from the session.
+%   announceElements - Announces elements associated with a topic to the peer.
+%   announceElementsAsync - Announces elements associated with a topic to the peer.
+%   attachElements - Attaches the specified elements to the subscribers of a topic.
+%   attachElementsAsync - Attaches the specified elements to the subscribers of a topic.
+%   attachElementsAck - Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+%   attachElementsAckAsync - Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+%   detachElements - Instructs the peer to detach specific elements associated with a topic.
+%   detachElementsAsync - Instructs the peer to detach specific elements associated with a topic.
+%   initSamples - Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+%   initSamplesAsync - Initializes the subscriber with the publisher queued samples for a topic during session establishment.
 %   disconnected - Notifies the peer that the session is being disconnected.
 %   disconnectedAsync - Notifies the peer that the session is being disconnected.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
@@ -38,14 +38,14 @@
 classdef SessionPrx < Ice.ObjectPrx
     methods
         function announceTopics(obj, topics, initialize, varargin)
-            % announceTopics   Announces new and existing topics to the peer.
+            % announceTopics   Announces topics to the peer during session establishment or when adding new topics.
             %
-            % - During session establishment, this operation announces existing topics.
-            % - For already established sessions, it is used to announce new topics.
+            % - During session establishment, announces existing topics.
+            % - For established sessions, announces newly added topics.
             %
-            % A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+            % A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
             %
-            % The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+            % The receiving peer invokes attachTopic for topics it is interested in.
             %
             % Parameters:
             %   topics (DataStormContract.TopicInfoSeq) - The sequence of topics to announce.
@@ -61,14 +61,14 @@ classdef SessionPrx < Ice.ObjectPrx
             obj.iceInvoke('announceTopics', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = announceTopicsAsync(obj, topics, initialize, varargin)
-            % announceTopicsAsync   Announces new and existing topics to the peer.
+            % announceTopicsAsync   Announces topics to the peer during session establishment or when adding new topics.
             %
-            % - During session establishment, this operation announces existing topics.
-            % - For already established sessions, it is used to announce new topics.
+            % - During session establishment, announces existing topics.
+            % - For established sessions, announces newly added topics.
             %
-            % A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+            % A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
             %
-            % The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+            % The receiving peer invokes attachTopic for topics it is interested in.
             %
             % Parameters:
             %   topics (DataStormContract.TopicInfoSeq) - The sequence of topics to announce.
@@ -86,15 +86,13 @@ classdef SessionPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('announceTopics', 0, false, os_, 0, [], {}, varargin{:});
         end
         function attachTopic(obj, topic, varargin)
-            % attachTopic   Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+            % attachTopic   This operation is invoked if the session is interested in the announced topic. Which occurs when:
             %
-            % This operation is called if the session is interested in the announced topic, which occurs when:
-            %
-            % - The session has a reader for a topic that the peer has a writer for, or
-            % - The session has a writer for a topic that the peer has a reader for.
+            % - The session has a reader for a topic that the peer writes, or
+            % - The session has a writer for a topic that the peer reads.
             %
             % Parameters:
-            %   topic (DataStormContract.TopicSpec) - The TopicSpec object describing the topic being attached to the remote topic.
+            %   topic (DataStormContract.TopicSpec) - The TopicSpec describing the topic to attach.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -103,15 +101,13 @@ classdef SessionPrx < Ice.ObjectPrx
             obj.iceInvoke('attachTopic', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = attachTopicAsync(obj, topic, varargin)
-            % attachTopicAsync   Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
+            % attachTopicAsync   This operation is invoked if the session is interested in the announced topic. Which occurs when:
             %
-            % This operation is called if the session is interested in the announced topic, which occurs when:
-            %
-            % - The session has a reader for a topic that the peer has a writer for, or
-            % - The session has a writer for a topic that the peer has a reader for.
+            % - The session has a reader for a topic that the peer writes, or
+            % - The session has a writer for a topic that the peer reads.
             %
             % Parameters:
-            %   topic (DataStormContract.TopicSpec) - The TopicSpec object describing the topic being attached to the remote topic.
+            %   topic (DataStormContract.TopicSpec) - The TopicSpec describing the topic to attach.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -121,94 +117,138 @@ classdef SessionPrx < Ice.ObjectPrx
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('attachTopic', 0, false, os_, 0, [], {}, varargin{:});
         end
-        function detachTopic(obj, topic, varargin)
-            % detachTopic   Detaches a topic from the session.
+        function detachTopic(obj, topicId, varargin)
+            % detachTopic   Detaches a topic from the session, typically called when the topic is destroyed.
             %
-            % This operation is called by the topic on listener sessions when the topic is being destroyed.
+            % This operation is invoked by the topic on listener sessions during its destruction.
             %
             % Parameters:
-            %   topic (int64) - The ID of the topic to detach.
+            %   topicId (int64) - The unique identifier for the topic to detach.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('detachTopic', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = detachTopicAsync(obj, topic, varargin)
-            % detachTopicAsync   Detaches a topic from the session.
+        function r_ = detachTopicAsync(obj, topicId, varargin)
+            % detachTopicAsync   Detaches a topic from the session, typically called when the topic is destroyed.
             %
-            % This operation is called by the topic on listener sessions when the topic is being destroyed.
+            % This operation is invoked by the topic on listener sessions during its destruction.
             %
             % Parameters:
-            %   topic (int64) - The ID of the topic to detach.
+            %   topicId (int64) - The unique identifier for the topic to detach.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('detachTopic', 0, false, os_, 0, [], {}, varargin{:});
         end
-        function attachTags(obj, topic, tags, initialize, varargin)
+        function attachTags(obj, topicId, tags, initialize, varargin)
+            % attachTags   Attaches the specified tags to the subscriber of a topic.
+            %
+            % Tags are used to support partial update samples.
+            %
+            % Parameters:
+            %   topicId (int64) - The unique identifier for the topic to which the tags will be attached.
+            %   tags (DataStormContract.ElementInfoSeq) - The sequence of tags to attach, representing the partial update associations.
+            %   initialize (logical) - Indicates whether the tags are being attached during session initialization.
+            %   context (containers.Map) - Optional request context.
+            
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             DataStormContract.ElementInfoSeq.write(os_, tags);
             os_.writeBool(initialize);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('attachTags', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = attachTagsAsync(obj, topic, tags, initialize, varargin)
+        function r_ = attachTagsAsync(obj, topicId, tags, initialize, varargin)
+            % attachTagsAsync   Attaches the specified tags to the subscriber of a topic.
+            %
+            % Tags are used to support partial update samples.
+            %
+            % Parameters:
+            %   topicId (int64) - The unique identifier for the topic to which the tags will be attached.
+            %   tags (DataStormContract.ElementInfoSeq) - The sequence of tags to attach, representing the partial update associations.
+            %   initialize (logical) - Indicates whether the tags are being attached during session initialization.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             DataStormContract.ElementInfoSeq.write(os_, tags);
             os_.writeBool(initialize);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('attachTags', 0, false, os_, 0, [], {}, varargin{:});
         end
-        function detachTags(obj, topic, tags, varargin)
+        function detachTags(obj, topicId, tags, varargin)
+            % detachTags   Detaches tags from the session.
+            %
+            % Parameters:
+            %   topicId (int64) - The unique identifier for the topic.
+            %   tags (Ice.LongSeq) - The sequence of tag identifiers to detach.
+            %   context (containers.Map) - Optional request context.
+            
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             os_.writeLongSeq(tags);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('detachTags', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = detachTagsAsync(obj, topic, tags, varargin)
+        function r_ = detachTagsAsync(obj, topicId, tags, varargin)
+            % detachTagsAsync   Detaches tags from the session.
+            %
+            % Parameters:
+            %   topicId (int64) - The unique identifier for the topic.
+            %   tags (Ice.LongSeq) - The sequence of tag identifiers to detach.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             os_.writeLongSeq(tags);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('detachTags', 0, false, os_, 0, [], {}, varargin{:});
         end
-        function announceElements(obj, topic, elements, varargin)
-            % announceElements   Announces new elements to the peer.
+        function announceElements(obj, topicId, elements, varargin)
+            % announceElements   Announces elements associated with a topic to the peer.
             %
-            % The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-            % the readers and writers associated with the specified topic.
+            % This operation informs the peer about new data readers or data writers associated with the specified topic.
+            % The receiving peer will invoke `attachElements` for any elements it is interested in.
+            %
+            % - A publisher session announces its data writers.
+            % - A subscriber session announces its data readers.
             %
             % Parameters:
-            %   topic (int64) - The ID of the topic associated with the elements.
-            %   elements (DataStormContract.ElementInfoSeq) - The sequence of elements to announce.
+            %   topicId (int64) - The unique identifier for the topic to which the elements belong.
+            %   elements (DataStormContract.ElementInfoSeq) - The sequence of elements to announce, representing the data readers or data writers.
             %   context (containers.Map) - Optional request context.
             %
             % See also DataStormContract.Session.attachElements
             
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             DataStormContract.ElementInfoSeq.write(os_, elements);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('announceElements', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = announceElementsAsync(obj, topic, elements, varargin)
-            % announceElementsAsync   Announces new elements to the peer.
+        function r_ = announceElementsAsync(obj, topicId, elements, varargin)
+            % announceElementsAsync   Announces elements associated with a topic to the peer.
             %
-            % The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-            % the readers and writers associated with the specified topic.
+            % This operation informs the peer about new data readers or data writers associated with the specified topic.
+            % The receiving peer will invoke `attachElements` for any elements it is interested in.
+            %
+            % - A publisher session announces its data writers.
+            % - A subscriber session announces its data readers.
             %
             % Parameters:
-            %   topic (int64) - The ID of the topic associated with the elements.
-            %   elements (DataStormContract.ElementInfoSeq) - The sequence of elements to announce.
+            %   topicId (int64) - The unique identifier for the topic to which the elements belong.
+            %   elements (DataStormContract.ElementInfoSeq) - The sequence of elements to announce, representing the data readers or data writers.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -216,18 +256,21 @@ classdef SessionPrx < Ice.ObjectPrx
             % See also DataStormContract.Session.attachElements
             
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             DataStormContract.ElementInfoSeq.write(os_, elements);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('announceElements', 0, false, os_, 0, [], {}, varargin{:});
         end
         function attachElements(obj, topicId, elements, initialize, varargin)
-            % attachElements   Attaches the given topic elements to all subscribers of the specified topic.
+            % attachElements   Attaches the specified elements to the subscribers of a topic.
+            %
+            % This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+            % topic.
             %
             % Parameters:
-            %   topicId (int64) - The ID of the topic to which the elements belong.
-            %   elements (DataStormContract.ElementSpecSeq) - The sequence of elements to attach to the topic's subscribers.
-            %   initialize (logical) - True if called from attachTopic, false otherwise.
+            %   topicId (int64) - The unique identifier for the topic to which the elements belong.
+            %   elements (DataStormContract.ElementSpecSeq) - The sequence of `ElementSpec` objects representing the elements to attach.
+            %   initialize (logical) - Indicates whether the elements are being attached during session initialization.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -239,12 +282,15 @@ classdef SessionPrx < Ice.ObjectPrx
             obj.iceInvoke('attachElements', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = attachElementsAsync(obj, topicId, elements, initialize, varargin)
-            % attachElementsAsync   Attaches the given topic elements to all subscribers of the specified topic.
+            % attachElementsAsync   Attaches the specified elements to the subscribers of a topic.
+            %
+            % This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+            % topic.
             %
             % Parameters:
-            %   topicId (int64) - The ID of the topic to which the elements belong.
-            %   elements (DataStormContract.ElementSpecSeq) - The sequence of elements to attach to the topic's subscribers.
-            %   initialize (logical) - True if called from attachTopic, false otherwise.
+            %   topicId (int64) - The unique identifier for the topic to which the elements belong.
+            %   elements (DataStormContract.ElementSpecSeq) - The sequence of `ElementSpec` objects representing the elements to attach.
+            %   initialize (logical) - Indicates whether the elements are being attached during session initialization.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -257,54 +303,112 @@ classdef SessionPrx < Ice.ObjectPrx
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('attachElements', 0, false, os_, 0, [], {}, varargin{:});
         end
-        function attachElementsAck(obj, topic, elements, varargin)
+        function attachElementsAck(obj, topicId, elements, varargin)
+            % attachElementsAck   Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+            %
+            % This method confirms that the specified elements, such as keys or filters, have been successfully attached
+            % to the session.
+            %
+            % Parameters:
+            %   topicId (int64) - The unique identifier for the topic to which the elements belong.
+            %   elements (DataStormContract.ElementSpecAckSeq) - A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+            %   context (containers.Map) - Optional request context.
+            
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             DataStormContract.ElementSpecAckSeq.write(os_, elements);
             os_.writePendingValues();
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('attachElementsAck', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = attachElementsAckAsync(obj, topic, elements, varargin)
+        function r_ = attachElementsAckAsync(obj, topicId, elements, varargin)
+            % attachElementsAckAsync   Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+            %
+            % This method confirms that the specified elements, such as keys or filters, have been successfully attached
+            % to the session.
+            %
+            % Parameters:
+            %   topicId (int64) - The unique identifier for the topic to which the elements belong.
+            %   elements (DataStormContract.ElementSpecAckSeq) - A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             DataStormContract.ElementSpecAckSeq.write(os_, elements);
             os_.writePendingValues();
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('attachElementsAck', 0, false, os_, 0, [], {}, varargin{:});
         end
-        function detachElements(obj, topic, keys, varargin)
+        function detachElements(obj, topicId, elements, varargin)
+            % detachElements   Instructs the peer to detach specific elements associated with a topic.
+            %
+            % This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+            % and should be removed from the peer's session.
+            %
+            % Parameters:
+            %   topicId (int64) - The unique identifier for the topic to which the elements belong.
+            %   elements (Ice.LongSeq) - A sequence of element identifiers representing the keys or filters to detach.
+            %   context (containers.Map) - Optional request context.
+            
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
-            os_.writeLongSeq(keys);
+            os_.writeLong(topicId);
+            os_.writeLongSeq(elements);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('detachElements', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = detachElementsAsync(obj, topic, keys, varargin)
+        function r_ = detachElementsAsync(obj, topicId, elements, varargin)
+            % detachElementsAsync   Instructs the peer to detach specific elements associated with a topic.
+            %
+            % This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+            % and should be removed from the peer's session.
+            %
+            % Parameters:
+            %   topicId (int64) - The unique identifier for the topic to which the elements belong.
+            %   elements (Ice.LongSeq) - A sequence of element identifiers representing the keys or filters to detach.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
-            os_.writeLongSeq(keys);
+            os_.writeLong(topicId);
+            os_.writeLongSeq(elements);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('detachElements', 0, false, os_, 0, [], {}, varargin{:});
         end
-        function initSamples(obj, topic, samples, varargin)
+        function initSamples(obj, topicId, samples, varargin)
+            % initSamples   Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+            %
+            % Parameters:
+            %   topicId (int64) - The unique identifier for the topic.
+            %   samples (DataStormContract.DataSamplesSeq) - A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+            %   context (containers.Map) - Optional request context.
+            
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             DataStormContract.DataSamplesSeq.write(os_, samples);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('initSamples', 0, false, os_, false, {}, varargin{:});
         end
-        function r_ = initSamplesAsync(obj, topic, samples, varargin)
+        function r_ = initSamplesAsync(obj, topicId, samples, varargin)
+            % initSamplesAsync   Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+            %
+            % Parameters:
+            %   topicId (int64) - The unique identifier for the topic.
+            %   samples (DataStormContract.DataSamplesSeq) - A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+            %   context (containers.Map) - Optional request context.
+            %
+            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
+            
             os_ = obj.iceStartWriteParams([]);
-            os_.writeLong(topic);
+            os_.writeLong(topicId);
             DataStormContract.DataSamplesSeq.write(os_, samples);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('initSamples', 0, false, os_, 0, [], {}, varargin{:});
         end
         function disconnected(obj, varargin)
             % disconnected   Notifies the peer that the session is being disconnected.
-            %
-            % This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
             %
             % For sessions established through a relay node, this operation is invoked by the relay node if the connection
             % between the relay node and the target node is lost.
@@ -316,8 +420,6 @@ classdef SessionPrx < Ice.ObjectPrx
         end
         function r_ = disconnectedAsync(obj, varargin)
             % disconnectedAsync   Notifies the peer that the session is being disconnected.
-            %
-            % This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
             %
             % For sessions established through a relay node, this operation is invoked by the relay node if the connection
             % between the relay node and the target node is lost.

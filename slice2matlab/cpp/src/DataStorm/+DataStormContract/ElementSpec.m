@@ -1,31 +1,33 @@
 % ElementSpec   Summary of ElementSpec
 %
-% Provides detailed information about elements that can be either a key or a filter.
+% Represents detailed information about topic elements, which can be a key or a filter.
 %
 % ElementSpec Properties:
-%   elements - The readers and writers associated with the key or filter.
-%   id - The id of the key or filter.
+%   elements - A sequence of data readers and writers associated with the key or filter.
+%   id - The unique identifier for the key or filter.
 %   name - The name of the filter.
-%   value - The value of the key or filter.
-%   peerId - The id of the key or filter from the peer.
-%   peerName - The name of the filter from the peer.
+%   value - The encoded value of the key or filter.
+%   peerId - The unique identifier for the key or filter on the peer.
+%   peerName - The name of the filter on the peer.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ElementSpec
     properties
-        % elements - The readers and writers associated with the key or filter.
+        % elements - A sequence of data readers and writers associated with the key or filter.
         elements
-        % id - The id of the key or filter.
+        % id - The unique identifier for the key or filter.
         id int64
-        % name - The name of the filter. This field is empty for key elements.
+        % name - The name of the filter.
+        % This field is empty if the element is a key.
         name char
-        % value - The value of the key or filter.
+        % value - The encoded value of the key or filter.
         value
-        % peerId - The id of the key or filter from the peer.
+        % peerId - The unique identifier for the key or filter on the peer.
         peerId int64
-        % peerName - The name of the filter from the peer.
+        % peerName - The name of the filter on the peer.
+        % This field is empty if the element is a key.
         peerName char
     end
     methods

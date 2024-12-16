@@ -1,10 +1,19 @@
+% FilterInfo   Summary of FilterInfo
+%
+% Represents a sample filter that specifies which samples should be sent to a data reader.
+%
+% FilterInfo Properties:
+%   name - The unique name of the filter, used for identification.
+%   criteria - The encoded criteria for instantiating the filter.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef FilterInfo
     properties
+        % name - The unique name of the filter, used for identification.
         name char
+        % criteria - The encoded criteria for instantiating the filter.
         criteria
     end
     methods

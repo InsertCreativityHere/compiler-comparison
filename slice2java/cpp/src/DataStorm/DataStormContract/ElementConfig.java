@@ -16,7 +16,7 @@
 package DataStormContract;
 
 /**
- * Represents the configuration of a reader or writer.
+ * Represents the configuration of a data reader or data writer, including optional filters and priorities.
  **/
 public class ElementConfig extends com.zeroc.Ice.Value
 {
@@ -39,9 +39,15 @@ public class ElementConfig extends com.zeroc.Ice.Value
         setClearHistory(clearHistory);
     }
 
+    /**
+     * A facet that is used to process the samples when sample filtering is enabled.
+     **/
     private String facet;
     private boolean _facet;
 
+    /**
+     * A facet that is used to process the samples when sample filtering is enabled.
+     **/
     public String getFacet()
     {
         if(!_facet)
@@ -51,22 +57,34 @@ public class ElementConfig extends com.zeroc.Ice.Value
         return facet;
     }
 
+    /**
+     * A facet that is used to process the samples when sample filtering is enabled.
+     **/
     public void setFacet(String facet)
     {
         _facet = true;
         this.facet = facet;
     }
 
+    /**
+     * A facet that is used to process the samples when sample filtering is enabled.
+     **/
     public boolean hasFacet()
     {
         return _facet;
     }
 
+    /**
+     * A facet that is used to process the samples when sample filtering is enabled.
+     **/
     public void clearFacet()
     {
         _facet = false;
     }
 
+    /**
+     * A facet that is used to process the samples when sample filtering is enabled.
+     **/
     public void optionalFacet(java.util.Optional<java.lang.String> v)
     {
         if(v == null || !v.isPresent())
@@ -80,6 +98,9 @@ public class ElementConfig extends com.zeroc.Ice.Value
         }
     }
 
+    /**
+     * A facet that is used to process the samples when sample filtering is enabled.
+     **/
     public java.util.Optional<java.lang.String> optionalFacet()
     {
         if(_facet)
@@ -581,7 +602,7 @@ public class ElementConfig extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 4659581545395633051L;
+    private static final long serialVersionUID = 1746565742291292077L;
 
     /** @hidden */
     @Override

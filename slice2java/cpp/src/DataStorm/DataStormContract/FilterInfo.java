@@ -15,11 +15,20 @@
 
 package DataStormContract;
 
+/**
+ * Represents a sample filter that specifies which samples should be sent to a data reader.
+ **/
 public class FilterInfo implements java.lang.Cloneable,
                                    java.io.Serializable
 {
+    /**
+     * The unique name of the filter, used for identification.
+     **/
     public String name;
 
+    /**
+     * The encoded criteria for instantiating the filter.
+     **/
     public byte[] criteria;
 
     public FilterInfo()
@@ -153,5 +162,5 @@ public class FilterInfo implements java.lang.Cloneable,
     private static final FilterInfo _nullMarshalValue = new FilterInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = -9152184836507625698L;
+    private static final long serialVersionUID = 6742283942066293865L;
 }

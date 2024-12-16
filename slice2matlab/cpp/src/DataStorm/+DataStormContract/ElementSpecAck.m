@@ -1,20 +1,33 @@
+% ElementSpecAck   Summary of ElementSpecAck
+%
+% Represents an acknowledgment of the attachment of an element, which can be a key or a filter.
+%
+% ElementSpecAck Properties:
+%   elements - A sequence of acknowledgments for the readers or writers associated with the key or filter.
+%   id - The unique identifier for the key or filter.
+%   name - The name of the filter.
+%   value - The encoded value of the key or filter.
+%   peerId - The unique identifier for the key or filter on the peer.
+%   peerName - The name of the filter on the peer.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ElementSpecAck
     properties
-        % elements - The readers or writers associated with the key or filter.
+        % elements - A sequence of acknowledgments for the readers or writers associated with the key or filter.
         elements
-        % id - The id of the key or filter.
+        % id - The unique identifier for the key or filter.
         id int64
         % name - The name of the filter.
+        % This field is empty if the element is a key.
         name char
-        % value - The key or filter value.
+        % value - The encoded value of the key or filter.
         value
-        % peerId - The id of the key or filter on the peer.
+        % peerId - The unique identifier for the key or filter on the peer.
         peerId int64
         % peerName - The name of the filter on the peer.
+        % This field is empty if the element is a key.
         peerName char
     end
     methods

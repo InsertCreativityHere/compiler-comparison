@@ -15,41 +15,45 @@
 
 package DataStormContract;
 
+/**
+ * Represents a data sample, the fundamental unit of data exchanged between DataStorm readers and writers.
+ **/
 public class DataSample implements java.lang.Cloneable,
                                    java.io.Serializable
 {
     /**
-     * The sample id.
+     * The unique identifier for the sample.
      **/
     public long id;
 
     /**
-     * The key id.
+     * The unique identifier for the associated key.
+     * A negative value (< 0) indicates a key filter.
      **/
     public long keyId;
 
     /**
-     * The key value if the key ID <= 0.
+     * The encoded key value, used when keyId < 0 (key filter).
      **/
     public byte[] keyValue;
 
     /**
-     * The timestamp of the sample (write time).
+     * The timestamp when the sample was written, in milliseconds since the epoch.
      **/
     public long timestamp;
 
     /**
-     * The update tag if the sample event is PartialUpdate.
+     * An update tag, used for PartialUpdate sample events.
      **/
     public long tag;
 
     /**
-     * The sample event.
+     * The event type associated with this sample (e.g., Add, Update, PartialUpdate, Remove).
      **/
     public DataStorm.SampleEvent event;
 
     /**
-     * The value of the sample.
+     * The payload data of the sample.
      **/
     public byte[] value;
 
@@ -224,5 +228,5 @@ public class DataSample implements java.lang.Cloneable,
     private static final DataSample _nullMarshalValue = new DataSample();
 
     /** @hidden */
-    private static final long serialVersionUID = -7400217936121232515L;
+    private static final long serialVersionUID = 5577407319834438207L;
 }

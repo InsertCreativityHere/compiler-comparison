@@ -1,18 +1,34 @@
+% ElementDataAck   Summary of ElementDataAck
+%
+% Represents an acknowledgment of the attachment of data readers or data writers associated with a key or filter.
+%
+% ElementDataAck Properties:
+%   id - The unique identifier for the data reader or data writer.
+%   config - The configuration settings for the data reader or data writer.
+%   lastIds - A mapping of data writer IDs to the last sample IDs received by the data reader.
+%   samples - A sequence of samples in the writer's queue, used to initialize the reader.
+%   peerId - The unique identifier for the peer's data reader or data writer.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ElementDataAck
     properties
-        % id - The id of the writer or filter.
+        % id - The unique identifier for the data reader or data writer.
         id int64
-        % config - The config of the writer or reader.
+        % config - The configuration settings for the data reader or data writer.
         config
-        % lastIds - The lastIds received by the reader.
+        % lastIds - A mapping of data writer IDs to the last sample IDs received by the data reader.
+        %
+        % - The key represents the data writer ID.
+        % - The value represents the last sample ID received from the corresponding data writer.
         lastIds containers.Map
-        % samples - The samples of the writer or reader.
+        % samples - A sequence of samples in the writer's queue, used to initialize the reader.
+        %
+        % - When this struct is sent from a subscriber to a publisher, this field is empty.
+        % - When sent from a publisher to a subscriber, this field contains the queued samples.
         samples
-        % peerId - The id of the writer or reader on the peer.
+        % peerId - The unique identifier for the peer's data reader or data writer.
         peerId int64
     end
     methods

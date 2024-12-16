@@ -26,29 +26,28 @@
 namespace DataStormContract
 {
     /// <summary>
-    /// The ClearHistoryPolicy enumeration defines the policy that determines when a reader clears its DataSample
-    ///  history in response to various events.
+    /// Defines policies for clearing the data sample history of a reader in response to sample events.
     /// </summary>
 
     public enum ClearHistoryPolicy
     {
         /// <summary>
-        /// The reader clears its history when a new DataSample is added.
+        /// The reader clears its history when a new data sample is added.
         /// </summary>
 
         OnAdd,
         /// <summary>
-        /// The reader clears its history when a DataSample is removed.
+        /// The reader clears its history when a data sample is removed.
         /// </summary>
 
         OnRemove,
         /// <summary>
-        /// The reader clears its history when any DataSample event occurs.
+        /// The reader clears its history when any data sample event occurs.
         /// </summary>
 
         OnAll,
         /// <summary>
-        /// The reader clears its history when any DataSample event occurs, except for PartialUpdate events.
+        /// The reader clears its history for all data sample events except for partial update events.
         /// </summary>
 
         OnAllExceptPartialUpdate,
@@ -735,13 +734,13 @@ namespace DataStormContract
     public partial interface Session : Ice.Object
     {
         /// <summary>
-        /// Announces new and existing topics to the peer.
-        /// - During session establishment, this operation announces existing topics.
-        ///  - For already established sessions, it is used to announce new topics.
+        /// Announces topics to the peer during session establishment or when adding new topics.
+        /// - During session establishment, announces existing topics.
+        ///  - For established sessions, announces newly added topics.
         ///
-        ///  A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+        ///  A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
         ///
-        ///  The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+        ///  The receiving peer invokes attachTopic for topics it is interested in.
         ///
         /// </summary>
         ///  <param name="topics">The sequence of topics to announce.
@@ -753,69 +752,123 @@ namespace DataStormContract
         void announceTopics(TopicInfo[] topics, bool initialize, Ice.Current current);
 
         /// <summary>
-        /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-        /// This operation is called if the session is interested in the announced topic, which occurs when:
+        /// This operation is invoked if the session is interested in the announced topic.
+        /// Which occurs when:
         ///
-        ///  - The session has a reader for a topic that the peer has a writer for, or
-        ///  - The session has a writer for a topic that the peer has a reader for.
+        ///  - The session has a reader for a topic that the peer writes, or
+        ///  - The session has a writer for a topic that the peer reads.
         ///
         /// </summary>
-        ///  <param name="topic">The TopicSpec object describing the topic being attached to the remote topic.</param>
+        ///  <param name="topic">The TopicSpec describing the topic to attach.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
         void attachTopic(TopicSpec topic, Ice.Current current);
 
         /// <summary>
-        /// Detaches a topic from the session.
-        /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+        /// Detaches a topic from the session, typically called when the topic is destroyed.
+        /// This operation is invoked by the topic on listener sessions during its destruction.
         ///
         /// </summary>
-        ///  <param name="topic">The ID of the topic to detach.</param>
+        ///  <param name="topicId">The unique identifier for the topic to detach.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        void detachTopic(long topic, Ice.Current current);
-
-        void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
-
-        void detachTags(long topic, long[] tags, Ice.Current current);
+        void detachTopic(long topicId, Ice.Current current);
 
         /// <summary>
-        /// Announces new elements to the peer.
-        /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-        ///  the readers and writers associated with the specified topic.
+        /// Attaches the specified tags to the subscriber of a topic.
+        /// Tags are used to support partial update samples.
         ///
         /// </summary>
-        ///  <param name="topic">The ID of the topic associated with the elements.
+        ///  <param name="topicId">The unique identifier for the topic to which the tags will be attached.
         ///  </param>
-        /// <param name="elements">The sequence of elements to announce.
+        /// <param name="tags">The sequence of tags to attach, representing the partial update associations.
+        ///  </param>
+        /// <param name="initialize">Indicates whether the tags are being attached during session initialization.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        void attachTags(long topicId, ElementInfo[] tags, bool initialize, Ice.Current current);
+
+        /// <summary>
+        /// Detaches tags from the session.
+        /// </summary>
+        /// <param name="topicId">The unique identifier for the topic.
+        ///  </param>
+        /// <param name="tags">The sequence of tag identifiers to detach.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        void detachTags(long topicId, long[] tags, Ice.Current current);
+
+        /// <summary>
+        /// Announces elements associated with a topic to the peer.
+        /// This operation informs the peer about new data readers or data writers associated with the specified topic.
+        ///  The receiving peer will invoke `attachElements` for any elements it is interested in.
+        ///
+        ///  - A publisher session announces its data writers.
+        ///  - A subscriber session announces its data readers.
+        ///
+        /// </summary>
+        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
+        ///  </param>
+        /// <param name="elements">The sequence of elements to announce, representing the data readers or data writers.
         ///  </param>
         /// <param name="current">The Current object for the dispatch.</param>
 
-        void announceElements(long topic, ElementInfo[] elements, Ice.Current current);
+        void announceElements(long topicId, ElementInfo[] elements, Ice.Current current);
 
         /// <summary>
-        /// Attaches the given topic elements to all subscribers of the specified topic.
+        /// Attaches the specified elements to the subscribers of a topic.
+        /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+        ///  topic.
+        ///
         /// </summary>
-        /// <param name="topicId">The ID of the topic to which the elements belong.
+        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
         ///  </param>
-        /// <param name="elements">The sequence of elements to attach to the topic's subscribers.
+        /// <param name="elements">The sequence of `ElementSpec` objects representing the elements to attach.
         ///  </param>
-        /// <param name="initialize">True if called from attachTopic, false otherwise.</param>
+        /// <param name="initialize">Indicates whether the elements are being attached during session initialization.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
         void attachElements(long topicId, ElementSpec[] elements, bool initialize, Ice.Current current);
 
-        void attachElementsAck(long topic, ElementSpecAck[] elements, Ice.Current current);
+        /// <summary>
+        /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+        /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
+        ///  to the session.
+        ///
+        /// </summary>
+        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
+        ///  </param>
+        /// <param name="elements">A sequence of `ElementSpecAck` objects representing the confirmed attachments.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
 
-        void detachElements(long topic, long[] keys, Ice.Current current);
+        void attachElementsAck(long topicId, ElementSpecAck[] elements, Ice.Current current);
 
-        void initSamples(long topic, DataSamples[] samples, Ice.Current current);
+        /// <summary>
+        /// Instructs the peer to detach specific elements associated with a topic.
+        /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+        ///  and should be removed from the peer's session.
+        ///
+        /// </summary>
+        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
+        ///  </param>
+        /// <param name="elements">A sequence of element identifiers representing the keys or filters to detach.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        void detachElements(long topicId, long[] elements, Ice.Current current);
+
+        /// <summary>
+        /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+        /// </summary>
+        /// <param name="topicId">The unique identifier for the topic.
+        ///  </param>
+        /// <param name="samples">A sequence of `DataSamples` containing the queued samples to initialize the subscriber.</param>
+        /// <param name="current">The Current object for the dispatch.</param>
+
+        void initSamples(long topicId, DataSamples[] samples, Ice.Current current);
 
         /// <summary>
         /// Notifies the peer that the session is being disconnected.
-        /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
-        ///
-        ///  For sessions established through a relay node, this operation is invoked by the relay node if the connection
+        /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
         ///  between the relay node and the target node is lost.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
@@ -834,9 +887,9 @@ namespace DataStormContract
         /// <summary>
         /// Queue a sample with the subscribers of the topic element.
         /// </summary>
-        /// <param name="topicId">The ID of the topic.
+        /// <param name="topicId">The unique identifier for the topic to which the sample belong.
         ///  </param>
-        /// <param name="elementId">The ID of the element.
+        /// <param name="elementId">The unique identifier for the element to which the sample belong.
         ///  </param>
         /// <param name="sample">The sample to queue.</param>
         /// <param name="current">The Current object for the dispatch.</param>
@@ -918,7 +971,7 @@ namespace DataStormContract
         void announceTopics(string[] readers, string[] writers, NodePrx? node, Ice.Current current);
 
         /// <summary>
-        /// Establish a connection between this node and another node.
+        /// Establish a connection between this node and the caller node.
         /// </summary>
         /// <param name="node">The node initiating the connection. The proxy is never null.
         ///  </param>
@@ -933,20 +986,20 @@ namespace DataStormContract
 {
     /// <summary>
     /// The base interface for publisher and subscriber sessions.
-    /// This interface enables nodes to exchange topic and element information, as well as data samples.
+    /// This interface specifies the operations for communication between publisher and subscriber sessions.
     ///
     /// </summary>
 
     public interface SessionPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Announces new and existing topics to the peer.
-        /// - During session establishment, this operation announces existing topics.
-        ///  - For already established sessions, it is used to announce new topics.
+        /// Announces topics to the peer during session establishment or when adding new topics.
+        /// - During session establishment, announces existing topics.
+        ///  - For established sessions, announces newly added topics.
         ///
-        ///  A publisher session announces the topics it writes, while a subscriber session announces the topics it reads.
+        ///  A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
         ///
-        ///  The peer receiving the announcement will invoke `attachTopic` for any topics it is interested in.
+        ///  The receiving peer invokes attachTopic for topics it is interested in.
         ///
         /// </summary>
         ///  <param name="topics">The sequence of topics to announce.
@@ -958,8 +1011,8 @@ namespace DataStormContract
         void announceTopics(TopicInfo[] topics, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Announces new and existing topics to the peer.
-        /// - During session establishment, this operation announces existing topics.
+        /// Announces topics to the peer during session establishment or when adding new topics.
+        /// - During session establishment, announces existing topics.
         /// </summary>
         ///  <param name="topics">The sequence of topics to announce.
         ///  </param>
@@ -972,23 +1025,23 @@ namespace DataStormContract
         global::System.Threading.Tasks.Task announceTopicsAsync(TopicInfo[] topics, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-        /// This operation is called if the session is interested in the announced topic, which occurs when:
+        /// This operation is invoked if the session is interested in the announced topic.
+        /// Which occurs when:
         ///
-        ///  - The session has a reader for a topic that the peer has a writer for, or
-        ///  - The session has a writer for a topic that the peer has a reader for.
+        ///  - The session has a reader for a topic that the peer writes, or
+        ///  - The session has a writer for a topic that the peer reads.
         ///
         /// </summary>
-        ///  <param name="topic">The TopicSpec object describing the topic being attached to the remote topic.</param>
+        ///  <param name="topic">The TopicSpec describing the topic to attach.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void attachTopic(TopicSpec topic, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Attaches a local topic to a remote topic when a session receives a topic announcement from a peer.
-        /// This operation is called if the session is interested in the announced topic, which occurs when:
+        /// This operation is invoked if the session is interested in the announced topic.
+        /// Which occurs when:
         /// </summary>
-        ///  <param name="topic">The TopicSpec object describing the topic being attached to the remote topic.</param>
+        ///  <param name="topic">The TopicSpec describing the topic to attach.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -996,105 +1049,215 @@ namespace DataStormContract
         global::System.Threading.Tasks.Task attachTopicAsync(TopicSpec topic, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Detaches a topic from the session.
-        /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+        /// Detaches a topic from the session, typically called when the topic is destroyed.
+        /// This operation is invoked by the topic on listener sessions during its destruction.
         ///
         /// </summary>
-        ///  <param name="topic">The ID of the topic to detach.</param>
+        ///  <param name="topicId">The unique identifier for the topic to detach.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void detachTopic(long topic, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void detachTopic(long topicId, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Detaches a topic from the session.
-        /// This operation is called by the topic on listener sessions when the topic is being destroyed.
+        /// Detaches a topic from the session, typically called when the topic is destroyed.
+        /// This operation is invoked by the topic on listener sessions during its destruction.
         /// </summary>
-        ///  <param name="topic">The ID of the topic to detach.</param>
+        ///  <param name="topicId">The unique identifier for the topic to detach.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task detachTopicAsync(long topic, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void attachTags(long topic, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task attachTagsAsync(long topic, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void detachTags(long topic, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task detachTagsAsync(long topic, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task detachTopicAsync(long topicId, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Announces new elements to the peer.
-        /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
-        ///  the readers and writers associated with the specified topic.
+        /// Attaches the specified tags to the subscriber of a topic.
+        /// Tags are used to support partial update samples.
         ///
         /// </summary>
-        ///  <param name="topic">The ID of the topic associated with the elements.
+        ///  <param name="topicId">The unique identifier for the topic to which the tags will be attached.
         ///  </param>
-        /// <param name="elements">The sequence of elements to announce.
+        /// <param name="tags">The sequence of tags to attach, representing the partial update associations.
+        ///  </param>
+        /// <param name="initialize">Indicates whether the tags are being attached during session initialization.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+
+        void attachTags(long topicId, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Attaches the specified tags to the subscriber of a topic.
+        /// Tags are used to support partial update samples.
+        /// </summary>
+        ///  <param name="topicId">The unique identifier for the topic to which the tags will be attached.
+        ///  </param>
+        /// <param name="tags">The sequence of tags to attach, representing the partial update associations.
+        ///  </param>
+        /// <param name="initialize">Indicates whether the tags are being attached during session initialization.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task attachTagsAsync(long topicId, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Detaches tags from the session.
+        /// </summary>
+        /// <param name="topicId">The unique identifier for the topic.
+        ///  </param>
+        /// <param name="tags">The sequence of tag identifiers to detach.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+
+        void detachTags(long topicId, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Detaches tags from the session.
+        /// </summary>
+        /// <param name="topicId">The unique identifier for the topic.
+        ///  </param>
+        /// <param name="tags">The sequence of tag identifiers to detach.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task detachTagsAsync(long topicId, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Announces elements associated with a topic to the peer.
+        /// This operation informs the peer about new data readers or data writers associated with the specified topic.
+        ///  The receiving peer will invoke `attachElements` for any elements it is interested in.
+        ///
+        ///  - A publisher session announces its data writers.
+        ///  - A subscriber session announces its data readers.
+        ///
+        /// </summary>
+        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
+        ///  </param>
+        /// <param name="elements">The sequence of elements to announce, representing the data readers or data writers.
         ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void announceElements(long topic, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void announceElements(long topicId, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Announces new elements to the peer.
-        /// The peer will invoke `attachElements` for the elements it is interested in. The announced elements include
+        /// Announces elements associated with a topic to the peer.
+        /// This operation informs the peer about new data readers or data writers associated with the specified topic.
         /// </summary>
-        ///  <param name="topic">The ID of the topic associated with the elements.
+        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
         ///  </param>
-        /// <param name="elements">The sequence of elements to announce.
+        /// <param name="elements">The sequence of elements to announce, representing the data readers or data writers.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task announceElementsAsync(long topic, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        global::System.Threading.Tasks.Task announceElementsAsync(long topicId, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Attaches the given topic elements to all subscribers of the specified topic.
+        /// Attaches the specified elements to the subscribers of a topic.
+        /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+        ///  topic.
+        ///
         /// </summary>
-        /// <param name="topicId">The ID of the topic to which the elements belong.
+        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
         ///  </param>
-        /// <param name="elements">The sequence of elements to attach to the topic's subscribers.
+        /// <param name="elements">The sequence of `ElementSpec` objects representing the elements to attach.
         ///  </param>
-        /// <param name="initialize">True if called from attachTopic, false otherwise.</param>
+        /// <param name="initialize">Indicates whether the elements are being attached during session initialization.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void attachElements(long topicId, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Attaches the given topic elements to all subscribers of the specified topic.
+        /// Attaches the specified elements to the subscribers of a topic.
+        /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
         /// </summary>
-        /// <param name="topicId">The ID of the topic to which the elements belong.
+        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
         ///  </param>
-        /// <param name="elements">The sequence of elements to attach to the topic's subscribers.
+        /// <param name="elements">The sequence of `ElementSpec` objects representing the elements to attach.
         ///  </param>
-        /// <param name="initialize">True if called from attachTopic, false otherwise.</param>
+        /// <param name="initialize">Indicates whether the elements are being attached during session initialization.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task attachElementsAsync(long topicId, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        void attachElementsAck(long topic, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        /// <summary>
+        /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+        /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
+        ///  to the session.
+        ///
+        /// </summary>
+        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
+        ///  </param>
+        /// <param name="elements">A sequence of `ElementSpecAck` objects representing the confirmed attachments.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
 
-        global::System.Threading.Tasks.Task attachElementsAckAsync(long topic, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        void attachElementsAck(long topicId, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        void detachElements(long topic, long[] keys, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        /// <summary>
+        /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+        /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
+        /// </summary>
+        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
+        ///  </param>
+        /// <param name="elements">A sequence of `ElementSpecAck` objects representing the confirmed attachments.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task attachElementsAckAsync(long topicId, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        global::System.Threading.Tasks.Task detachElementsAsync(long topic, long[] keys, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        /// <summary>
+        /// Instructs the peer to detach specific elements associated with a topic.
+        /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+        ///  and should be removed from the peer's session.
+        ///
+        /// </summary>
+        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
+        ///  </param>
+        /// <param name="elements">A sequence of element identifiers representing the keys or filters to detach.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
 
-        void initSamples(long topic, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+        void detachElements(long topicId, long[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
-        global::System.Threading.Tasks.Task initSamplesAsync(long topic, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+        /// <summary>
+        /// Instructs the peer to detach specific elements associated with a topic.
+        /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+        /// </summary>
+        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
+        ///  </param>
+        /// <param name="elements">A sequence of element identifiers representing the keys or filters to detach.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task detachElementsAsync(long topicId, long[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
+
+        /// <summary>
+        /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+        /// </summary>
+        /// <param name="topicId">The unique identifier for the topic.
+        ///  </param>
+        /// <param name="samples">A sequence of `DataSamples` containing the queued samples to initialize the subscriber.</param>
+        /// <param name="context">The Context map to send with the invocation.</param>
+
+        void initSamples(long topicId, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null);
+
+        /// <summary>
+        /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
+        /// </summary>
+        /// <param name="topicId">The unique identifier for the topic.
+        ///  </param>
+        /// <param name="samples">A sequence of `DataSamples` containing the queued samples to initialize the subscriber.</param>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        global::System.Threading.Tasks.Task initSamplesAsync(long topicId, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Notifies the peer that the session is being disconnected.
-        /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
-        ///
-        ///  For sessions established through a relay node, this operation is invoked by the relay node if the connection
+        /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
         ///  between the relay node and the target node is lost.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -1103,7 +1266,7 @@ namespace DataStormContract
 
         /// <summary>
         /// Notifies the peer that the session is being disconnected.
-        /// This operation is called by the DataStorm node during shutdown to inform established sessions of the disconnection.
+        /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -1129,9 +1292,9 @@ namespace DataStormContract
         /// <summary>
         /// Queue a sample with the subscribers of the topic element.
         /// </summary>
-        /// <param name="topicId">The ID of the topic.
+        /// <param name="topicId">The unique identifier for the topic to which the sample belong.
         ///  </param>
-        /// <param name="elementId">The ID of the element.
+        /// <param name="elementId">The unique identifier for the element to which the sample belong.
         ///  </param>
         /// <param name="sample">The sample to queue.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -1141,9 +1304,9 @@ namespace DataStormContract
         /// <summary>
         /// Queue a sample with the subscribers of the topic element.
         /// </summary>
-        /// <param name="topicId">The ID of the topic.
+        /// <param name="topicId">The unique identifier for the topic to which the sample belong.
         ///  </param>
-        /// <param name="elementId">The ID of the element.
+        /// <param name="elementId">The unique identifier for the element to which the sample belong.
         ///  </param>
         /// <param name="sample">The sample to queue.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -1321,7 +1484,7 @@ namespace DataStormContract
         global::System.Threading.Tasks.Task announceTopicsAsync(string[] readers, string[] writers, NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Establish a connection between this node and another node.
+        /// Establish a connection between this node and the caller node.
         /// </summary>
         /// <param name="node">The node initiating the connection. The proxy is never null.
         ///  </param>
@@ -1331,7 +1494,7 @@ namespace DataStormContract
         NodePrx? createSession(NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Establish a connection between this node and another node.
+        /// Establish a connection between this node and the caller node.
         /// </summary>
         /// <param name="node">The node initiating the connection. The proxy is never null.
         ///  </param>
@@ -1671,11 +1834,11 @@ namespace DataStormContract
             }
         }
 
-        public void detachTopic(long topic, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void detachTopic(long topicId, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_detachTopicAsync(topic, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_detachTopicAsync(topicId, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1683,11 +1846,11 @@ namespace DataStormContract
             }
         }
 
-        public void attachTags(long topic, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void attachTags(long topicId, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_attachTagsAsync(topic, tags, initialize, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_attachTagsAsync(topicId, tags, initialize, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1695,11 +1858,11 @@ namespace DataStormContract
             }
         }
 
-        public void detachTags(long topic, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void detachTags(long topicId, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_detachTagsAsync(topic, tags, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_detachTagsAsync(topicId, tags, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1707,11 +1870,11 @@ namespace DataStormContract
             }
         }
 
-        public void announceElements(long topic, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void announceElements(long topicId, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_announceElementsAsync(topic, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_announceElementsAsync(topicId, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1731,11 +1894,11 @@ namespace DataStormContract
             }
         }
 
-        public void attachElementsAck(long topic, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void attachElementsAck(long topicId, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_attachElementsAckAsync(topic, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_attachElementsAckAsync(topicId, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1743,11 +1906,11 @@ namespace DataStormContract
             }
         }
 
-        public void detachElements(long topic, long[] keys, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void detachElements(long topicId, long[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_detachElementsAsync(topic, keys, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_detachElementsAsync(topicId, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1755,11 +1918,11 @@ namespace DataStormContract
             }
         }
 
-        public void initSamples(long topic, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void initSamples(long topicId, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_initSamplesAsync(topic, samples, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_initSamplesAsync(topicId, samples, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1838,21 +2001,21 @@ namespace DataStormContract
                 });
         }
 
-        public global::System.Threading.Tasks.Task detachTopicAsync(long topic, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task detachTopicAsync(long topicId, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_detachTopicAsync(topic, context, progress, cancel, false);
+            return _iceI_detachTopicAsync(topicId, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_detachTopicAsync(long iceP_topic, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_detachTopicAsync(long iceP_topicId, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_detachTopic(iceP_topic, context, synchronous, completed);
+            _iceI_detachTopic(iceP_topicId, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _detachTopic_name = "detachTopic";
 
-        private void _iceI_detachTopic(long iceP_topic, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_detachTopic(long iceP_topicId, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1863,25 +2026,25 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                 });
         }
 
-        public global::System.Threading.Tasks.Task attachTagsAsync(long topic, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task attachTagsAsync(long topicId, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_attachTagsAsync(topic, tags, initialize, context, progress, cancel, false);
+            return _iceI_attachTagsAsync(topicId, tags, initialize, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_attachTagsAsync(long iceP_topic, ElementInfo[] iceP_tags, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_attachTagsAsync(long iceP_topicId, ElementInfo[] iceP_tags, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_attachTags(iceP_topic, iceP_tags, iceP_initialize, context, synchronous, completed);
+            _iceI_attachTags(iceP_topicId, iceP_tags, iceP_initialize, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _attachTags_name = "attachTags";
 
-        private void _iceI_attachTags(long iceP_topic, ElementInfo[] iceP_tags, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_attachTags(long iceP_topicId, ElementInfo[] iceP_tags, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1892,27 +2055,27 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     ElementInfoSeqHelper.write(ostr, iceP_tags);
                     ostr.writeBool(iceP_initialize);
                 });
         }
 
-        public global::System.Threading.Tasks.Task detachTagsAsync(long topic, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task detachTagsAsync(long topicId, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_detachTagsAsync(topic, tags, context, progress, cancel, false);
+            return _iceI_detachTagsAsync(topicId, tags, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_detachTagsAsync(long iceP_topic, long[] iceP_tags, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_detachTagsAsync(long iceP_topicId, long[] iceP_tags, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_detachTags(iceP_topic, iceP_tags, context, synchronous, completed);
+            _iceI_detachTags(iceP_topicId, iceP_tags, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _detachTags_name = "detachTags";
 
-        private void _iceI_detachTags(long iceP_topic, long[] iceP_tags, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_detachTags(long iceP_topicId, long[] iceP_tags, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1923,26 +2086,26 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     global::Ice.LongSeqHelper.write(ostr, iceP_tags);
                 });
         }
 
-        public global::System.Threading.Tasks.Task announceElementsAsync(long topic, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task announceElementsAsync(long topicId, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_announceElementsAsync(topic, elements, context, progress, cancel, false);
+            return _iceI_announceElementsAsync(topicId, elements, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_announceElementsAsync(long iceP_topic, ElementInfo[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_announceElementsAsync(long iceP_topicId, ElementInfo[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_announceElements(iceP_topic, iceP_elements, context, synchronous, completed);
+            _iceI_announceElements(iceP_topicId, iceP_elements, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _announceElements_name = "announceElements";
 
-        private void _iceI_announceElements(long iceP_topic, ElementInfo[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_announceElements(long iceP_topicId, ElementInfo[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1953,7 +2116,7 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     ElementInfoSeqHelper.write(ostr, iceP_elements);
                 });
         }
@@ -1990,21 +2153,21 @@ namespace DataStormContract
                 });
         }
 
-        public global::System.Threading.Tasks.Task attachElementsAckAsync(long topic, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task attachElementsAckAsync(long topicId, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_attachElementsAckAsync(topic, elements, context, progress, cancel, false);
+            return _iceI_attachElementsAckAsync(topicId, elements, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_attachElementsAckAsync(long iceP_topic, ElementSpecAck[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_attachElementsAckAsync(long iceP_topicId, ElementSpecAck[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_attachElementsAck(iceP_topic, iceP_elements, context, synchronous, completed);
+            _iceI_attachElementsAck(iceP_topicId, iceP_elements, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _attachElementsAck_name = "attachElementsAck";
 
-        private void _iceI_attachElementsAck(long iceP_topic, ElementSpecAck[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_attachElementsAck(long iceP_topicId, ElementSpecAck[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2015,27 +2178,27 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     ElementSpecAckSeqHelper.write(ostr, iceP_elements);
                     ostr.writePendingValues();
                 });
         }
 
-        public global::System.Threading.Tasks.Task detachElementsAsync(long topic, long[] keys, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task detachElementsAsync(long topicId, long[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_detachElementsAsync(topic, keys, context, progress, cancel, false);
+            return _iceI_detachElementsAsync(topicId, elements, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_detachElementsAsync(long iceP_topic, long[] iceP_keys, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_detachElementsAsync(long iceP_topicId, long[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_detachElements(iceP_topic, iceP_keys, context, synchronous, completed);
+            _iceI_detachElements(iceP_topicId, iceP_elements, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _detachElements_name = "detachElements";
 
-        private void _iceI_detachElements(long iceP_topic, long[] iceP_keys, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_detachElements(long iceP_topicId, long[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2046,26 +2209,26 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
-                    global::Ice.LongSeqHelper.write(ostr, iceP_keys);
+                    ostr.writeLong(iceP_topicId);
+                    global::Ice.LongSeqHelper.write(ostr, iceP_elements);
                 });
         }
 
-        public global::System.Threading.Tasks.Task initSamplesAsync(long topic, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task initSamplesAsync(long topicId, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_initSamplesAsync(topic, samples, context, progress, cancel, false);
+            return _iceI_initSamplesAsync(topicId, samples, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_initSamplesAsync(long iceP_topic, DataSamples[] iceP_samples, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_initSamplesAsync(long iceP_topicId, DataSamples[] iceP_samples, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_initSamples(iceP_topic, iceP_samples, context, synchronous, completed);
+            _iceI_initSamples(iceP_topicId, iceP_samples, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _initSamples_name = "initSamples";
 
-        private void _iceI_initSamples(long iceP_topic, DataSamples[] iceP_samples, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_initSamples(long iceP_topicId, DataSamples[] iceP_samples, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2076,7 +2239,7 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     DataSamplesSeqHelper.write(ostr, iceP_samples);
                 });
         }
@@ -2180,11 +2343,11 @@ namespace DataStormContract
             }
         }
 
-        public void detachTopic(long topic, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void detachTopic(long topicId, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_detachTopicAsync(topic, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_detachTopicAsync(topicId, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2192,11 +2355,11 @@ namespace DataStormContract
             }
         }
 
-        public void attachTags(long topic, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void attachTags(long topicId, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_attachTagsAsync(topic, tags, initialize, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_attachTagsAsync(topicId, tags, initialize, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2204,11 +2367,11 @@ namespace DataStormContract
             }
         }
 
-        public void detachTags(long topic, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void detachTags(long topicId, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_detachTagsAsync(topic, tags, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_detachTagsAsync(topicId, tags, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2216,11 +2379,11 @@ namespace DataStormContract
             }
         }
 
-        public void announceElements(long topic, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void announceElements(long topicId, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_announceElementsAsync(topic, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_announceElementsAsync(topicId, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2240,11 +2403,11 @@ namespace DataStormContract
             }
         }
 
-        public void attachElementsAck(long topic, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void attachElementsAck(long topicId, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_attachElementsAckAsync(topic, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_attachElementsAckAsync(topicId, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2252,11 +2415,11 @@ namespace DataStormContract
             }
         }
 
-        public void detachElements(long topic, long[] keys, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void detachElements(long topicId, long[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_detachElementsAsync(topic, keys, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_detachElementsAsync(topicId, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2264,11 +2427,11 @@ namespace DataStormContract
             }
         }
 
-        public void initSamples(long topic, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void initSamples(long topicId, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_initSamplesAsync(topic, samples, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_initSamplesAsync(topicId, samples, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2347,21 +2510,21 @@ namespace DataStormContract
                 });
         }
 
-        public global::System.Threading.Tasks.Task detachTopicAsync(long topic, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task detachTopicAsync(long topicId, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_detachTopicAsync(topic, context, progress, cancel, false);
+            return _iceI_detachTopicAsync(topicId, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_detachTopicAsync(long iceP_topic, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_detachTopicAsync(long iceP_topicId, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_detachTopic(iceP_topic, context, synchronous, completed);
+            _iceI_detachTopic(iceP_topicId, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _detachTopic_name = "detachTopic";
 
-        private void _iceI_detachTopic(long iceP_topic, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_detachTopic(long iceP_topicId, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2372,25 +2535,25 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                 });
         }
 
-        public global::System.Threading.Tasks.Task attachTagsAsync(long topic, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task attachTagsAsync(long topicId, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_attachTagsAsync(topic, tags, initialize, context, progress, cancel, false);
+            return _iceI_attachTagsAsync(topicId, tags, initialize, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_attachTagsAsync(long iceP_topic, ElementInfo[] iceP_tags, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_attachTagsAsync(long iceP_topicId, ElementInfo[] iceP_tags, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_attachTags(iceP_topic, iceP_tags, iceP_initialize, context, synchronous, completed);
+            _iceI_attachTags(iceP_topicId, iceP_tags, iceP_initialize, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _attachTags_name = "attachTags";
 
-        private void _iceI_attachTags(long iceP_topic, ElementInfo[] iceP_tags, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_attachTags(long iceP_topicId, ElementInfo[] iceP_tags, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2401,27 +2564,27 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     ElementInfoSeqHelper.write(ostr, iceP_tags);
                     ostr.writeBool(iceP_initialize);
                 });
         }
 
-        public global::System.Threading.Tasks.Task detachTagsAsync(long topic, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task detachTagsAsync(long topicId, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_detachTagsAsync(topic, tags, context, progress, cancel, false);
+            return _iceI_detachTagsAsync(topicId, tags, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_detachTagsAsync(long iceP_topic, long[] iceP_tags, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_detachTagsAsync(long iceP_topicId, long[] iceP_tags, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_detachTags(iceP_topic, iceP_tags, context, synchronous, completed);
+            _iceI_detachTags(iceP_topicId, iceP_tags, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _detachTags_name = "detachTags";
 
-        private void _iceI_detachTags(long iceP_topic, long[] iceP_tags, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_detachTags(long iceP_topicId, long[] iceP_tags, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2432,26 +2595,26 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     global::Ice.LongSeqHelper.write(ostr, iceP_tags);
                 });
         }
 
-        public global::System.Threading.Tasks.Task announceElementsAsync(long topic, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task announceElementsAsync(long topicId, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_announceElementsAsync(topic, elements, context, progress, cancel, false);
+            return _iceI_announceElementsAsync(topicId, elements, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_announceElementsAsync(long iceP_topic, ElementInfo[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_announceElementsAsync(long iceP_topicId, ElementInfo[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_announceElements(iceP_topic, iceP_elements, context, synchronous, completed);
+            _iceI_announceElements(iceP_topicId, iceP_elements, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _announceElements_name = "announceElements";
 
-        private void _iceI_announceElements(long iceP_topic, ElementInfo[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_announceElements(long iceP_topicId, ElementInfo[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2462,7 +2625,7 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     ElementInfoSeqHelper.write(ostr, iceP_elements);
                 });
         }
@@ -2499,21 +2662,21 @@ namespace DataStormContract
                 });
         }
 
-        public global::System.Threading.Tasks.Task attachElementsAckAsync(long topic, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task attachElementsAckAsync(long topicId, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_attachElementsAckAsync(topic, elements, context, progress, cancel, false);
+            return _iceI_attachElementsAckAsync(topicId, elements, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_attachElementsAckAsync(long iceP_topic, ElementSpecAck[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_attachElementsAckAsync(long iceP_topicId, ElementSpecAck[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_attachElementsAck(iceP_topic, iceP_elements, context, synchronous, completed);
+            _iceI_attachElementsAck(iceP_topicId, iceP_elements, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _attachElementsAck_name = "attachElementsAck";
 
-        private void _iceI_attachElementsAck(long iceP_topic, ElementSpecAck[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_attachElementsAck(long iceP_topicId, ElementSpecAck[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2524,27 +2687,27 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     ElementSpecAckSeqHelper.write(ostr, iceP_elements);
                     ostr.writePendingValues();
                 });
         }
 
-        public global::System.Threading.Tasks.Task detachElementsAsync(long topic, long[] keys, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task detachElementsAsync(long topicId, long[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_detachElementsAsync(topic, keys, context, progress, cancel, false);
+            return _iceI_detachElementsAsync(topicId, elements, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_detachElementsAsync(long iceP_topic, long[] iceP_keys, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_detachElementsAsync(long iceP_topicId, long[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_detachElements(iceP_topic, iceP_keys, context, synchronous, completed);
+            _iceI_detachElements(iceP_topicId, iceP_elements, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _detachElements_name = "detachElements";
 
-        private void _iceI_detachElements(long iceP_topic, long[] iceP_keys, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_detachElements(long iceP_topicId, long[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2555,26 +2718,26 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
-                    global::Ice.LongSeqHelper.write(ostr, iceP_keys);
+                    ostr.writeLong(iceP_topicId);
+                    global::Ice.LongSeqHelper.write(ostr, iceP_elements);
                 });
         }
 
-        public global::System.Threading.Tasks.Task initSamplesAsync(long topic, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task initSamplesAsync(long topicId, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_initSamplesAsync(topic, samples, context, progress, cancel, false);
+            return _iceI_initSamplesAsync(topicId, samples, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_initSamplesAsync(long iceP_topic, DataSamples[] iceP_samples, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_initSamplesAsync(long iceP_topicId, DataSamples[] iceP_samples, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_initSamples(iceP_topic, iceP_samples, context, synchronous, completed);
+            _iceI_initSamples(iceP_topicId, iceP_samples, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _initSamples_name = "initSamples";
 
-        private void _iceI_initSamples(long iceP_topic, DataSamples[] iceP_samples, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_initSamples(long iceP_topicId, DataSamples[] iceP_samples, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2585,7 +2748,7 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     DataSamplesSeqHelper.write(ostr, iceP_samples);
                 });
         }
@@ -2690,11 +2853,11 @@ namespace DataStormContract
             }
         }
 
-        public void detachTopic(long topic, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void detachTopic(long topicId, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_detachTopicAsync(topic, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_detachTopicAsync(topicId, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2702,11 +2865,11 @@ namespace DataStormContract
             }
         }
 
-        public void attachTags(long topic, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void attachTags(long topicId, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_attachTagsAsync(topic, tags, initialize, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_attachTagsAsync(topicId, tags, initialize, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2714,11 +2877,11 @@ namespace DataStormContract
             }
         }
 
-        public void detachTags(long topic, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void detachTags(long topicId, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_detachTagsAsync(topic, tags, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_detachTagsAsync(topicId, tags, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2726,11 +2889,11 @@ namespace DataStormContract
             }
         }
 
-        public void announceElements(long topic, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void announceElements(long topicId, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_announceElementsAsync(topic, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_announceElementsAsync(topicId, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2750,11 +2913,11 @@ namespace DataStormContract
             }
         }
 
-        public void attachElementsAck(long topic, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void attachElementsAck(long topicId, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_attachElementsAckAsync(topic, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_attachElementsAckAsync(topicId, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2762,11 +2925,11 @@ namespace DataStormContract
             }
         }
 
-        public void detachElements(long topic, long[] keys, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void detachElements(long topicId, long[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_detachElementsAsync(topic, keys, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_detachElementsAsync(topicId, elements, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2774,11 +2937,11 @@ namespace DataStormContract
             }
         }
 
-        public void initSamples(long topic, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null)
+        public void initSamples(long topicId, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null)
         {
             try
             {
-                _iceI_initSamplesAsync(topic, samples, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_initSamplesAsync(topicId, samples, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2869,21 +3032,21 @@ namespace DataStormContract
                 });
         }
 
-        public global::System.Threading.Tasks.Task detachTopicAsync(long topic, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task detachTopicAsync(long topicId, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_detachTopicAsync(topic, context, progress, cancel, false);
+            return _iceI_detachTopicAsync(topicId, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_detachTopicAsync(long iceP_topic, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_detachTopicAsync(long iceP_topicId, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_detachTopic(iceP_topic, context, synchronous, completed);
+            _iceI_detachTopic(iceP_topicId, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _detachTopic_name = "detachTopic";
 
-        private void _iceI_detachTopic(long iceP_topic, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_detachTopic(long iceP_topicId, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2894,25 +3057,25 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                 });
         }
 
-        public global::System.Threading.Tasks.Task attachTagsAsync(long topic, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task attachTagsAsync(long topicId, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_attachTagsAsync(topic, tags, initialize, context, progress, cancel, false);
+            return _iceI_attachTagsAsync(topicId, tags, initialize, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_attachTagsAsync(long iceP_topic, ElementInfo[] iceP_tags, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_attachTagsAsync(long iceP_topicId, ElementInfo[] iceP_tags, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_attachTags(iceP_topic, iceP_tags, iceP_initialize, context, synchronous, completed);
+            _iceI_attachTags(iceP_topicId, iceP_tags, iceP_initialize, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _attachTags_name = "attachTags";
 
-        private void _iceI_attachTags(long iceP_topic, ElementInfo[] iceP_tags, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_attachTags(long iceP_topicId, ElementInfo[] iceP_tags, bool iceP_initialize, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2923,27 +3086,27 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     ElementInfoSeqHelper.write(ostr, iceP_tags);
                     ostr.writeBool(iceP_initialize);
                 });
         }
 
-        public global::System.Threading.Tasks.Task detachTagsAsync(long topic, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task detachTagsAsync(long topicId, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_detachTagsAsync(topic, tags, context, progress, cancel, false);
+            return _iceI_detachTagsAsync(topicId, tags, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_detachTagsAsync(long iceP_topic, long[] iceP_tags, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_detachTagsAsync(long iceP_topicId, long[] iceP_tags, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_detachTags(iceP_topic, iceP_tags, context, synchronous, completed);
+            _iceI_detachTags(iceP_topicId, iceP_tags, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _detachTags_name = "detachTags";
 
-        private void _iceI_detachTags(long iceP_topic, long[] iceP_tags, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_detachTags(long iceP_topicId, long[] iceP_tags, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2954,26 +3117,26 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     global::Ice.LongSeqHelper.write(ostr, iceP_tags);
                 });
         }
 
-        public global::System.Threading.Tasks.Task announceElementsAsync(long topic, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task announceElementsAsync(long topicId, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_announceElementsAsync(topic, elements, context, progress, cancel, false);
+            return _iceI_announceElementsAsync(topicId, elements, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_announceElementsAsync(long iceP_topic, ElementInfo[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_announceElementsAsync(long iceP_topicId, ElementInfo[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_announceElements(iceP_topic, iceP_elements, context, synchronous, completed);
+            _iceI_announceElements(iceP_topicId, iceP_elements, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _announceElements_name = "announceElements";
 
-        private void _iceI_announceElements(long iceP_topic, ElementInfo[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_announceElements(long iceP_topicId, ElementInfo[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -2984,7 +3147,7 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     ElementInfoSeqHelper.write(ostr, iceP_elements);
                 });
         }
@@ -3021,21 +3184,21 @@ namespace DataStormContract
                 });
         }
 
-        public global::System.Threading.Tasks.Task attachElementsAckAsync(long topic, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task attachElementsAckAsync(long topicId, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_attachElementsAckAsync(topic, elements, context, progress, cancel, false);
+            return _iceI_attachElementsAckAsync(topicId, elements, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_attachElementsAckAsync(long iceP_topic, ElementSpecAck[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_attachElementsAckAsync(long iceP_topicId, ElementSpecAck[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_attachElementsAck(iceP_topic, iceP_elements, context, synchronous, completed);
+            _iceI_attachElementsAck(iceP_topicId, iceP_elements, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _attachElementsAck_name = "attachElementsAck";
 
-        private void _iceI_attachElementsAck(long iceP_topic, ElementSpecAck[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_attachElementsAck(long iceP_topicId, ElementSpecAck[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3046,27 +3209,27 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     ElementSpecAckSeqHelper.write(ostr, iceP_elements);
                     ostr.writePendingValues();
                 });
         }
 
-        public global::System.Threading.Tasks.Task detachElementsAsync(long topic, long[] keys, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task detachElementsAsync(long topicId, long[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_detachElementsAsync(topic, keys, context, progress, cancel, false);
+            return _iceI_detachElementsAsync(topicId, elements, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_detachElementsAsync(long iceP_topic, long[] iceP_keys, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_detachElementsAsync(long iceP_topicId, long[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_detachElements(iceP_topic, iceP_keys, context, synchronous, completed);
+            _iceI_detachElements(iceP_topicId, iceP_elements, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _detachElements_name = "detachElements";
 
-        private void _iceI_detachElements(long iceP_topic, long[] iceP_keys, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_detachElements(long iceP_topicId, long[] iceP_elements, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3077,26 +3240,26 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
-                    global::Ice.LongSeqHelper.write(ostr, iceP_keys);
+                    ostr.writeLong(iceP_topicId);
+                    global::Ice.LongSeqHelper.write(ostr, iceP_elements);
                 });
         }
 
-        public global::System.Threading.Tasks.Task initSamplesAsync(long topic, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
+        public global::System.Threading.Tasks.Task initSamplesAsync(long topicId, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
         {
-            return _iceI_initSamplesAsync(topic, samples, context, progress, cancel, false);
+            return _iceI_initSamplesAsync(topicId, samples, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_initSamplesAsync(long iceP_topic, DataSamples[] iceP_samples, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_initSamplesAsync(long iceP_topicId, DataSamples[] iceP_samples, global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_initSamples(iceP_topic, iceP_samples, context, synchronous, completed);
+            _iceI_initSamples(iceP_topicId, iceP_samples, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _initSamples_name = "initSamples";
 
-        private void _iceI_initSamples(long iceP_topic, DataSamples[] iceP_samples, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_initSamples(long iceP_topicId, DataSamples[] iceP_samples, global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -3107,7 +3270,7 @@ namespace DataStormContract
                 synchronous,
                 write: (Ice.OutputStream ostr) =>
                 {
-                    ostr.writeLong(iceP_topic);
+                    ostr.writeLong(iceP_topicId);
                     DataSamplesSeqHelper.write(ostr, iceP_samples);
                 });
         }
@@ -3627,21 +3790,21 @@ namespace DataStormContract
 
         public abstract void attachTopic(TopicSpec topic, Ice.Current current);
 
-        public abstract void detachTopic(long topic, Ice.Current current);
+        public abstract void detachTopic(long topicId, Ice.Current current);
 
-        public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
+        public abstract void attachTags(long topicId, ElementInfo[] tags, bool initialize, Ice.Current current);
 
-        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
+        public abstract void detachTags(long topicId, long[] tags, Ice.Current current);
 
-        public abstract void announceElements(long topic, ElementInfo[] elements, Ice.Current current);
+        public abstract void announceElements(long topicId, ElementInfo[] elements, Ice.Current current);
 
         public abstract void attachElements(long topicId, ElementSpec[] elements, bool initialize, Ice.Current current);
 
-        public abstract void attachElementsAck(long topic, ElementSpecAck[] elements, Ice.Current current);
+        public abstract void attachElementsAck(long topicId, ElementSpecAck[] elements, Ice.Current current);
 
-        public abstract void detachElements(long topic, long[] keys, Ice.Current current);
+        public abstract void detachElements(long topicId, long[] elements, Ice.Current current);
 
-        public abstract void initSamples(long topic, DataSamples[] samples, Ice.Current current);
+        public abstract void initSamples(long topicId, DataSamples[] samples, Ice.Current current);
 
         public abstract void disconnected(Ice.Current current);
 
@@ -3677,21 +3840,21 @@ namespace DataStormContract
 
         public abstract void attachTopic(TopicSpec topic, Ice.Current current);
 
-        public abstract void detachTopic(long topic, Ice.Current current);
+        public abstract void detachTopic(long topicId, Ice.Current current);
 
-        public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
+        public abstract void attachTags(long topicId, ElementInfo[] tags, bool initialize, Ice.Current current);
 
-        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
+        public abstract void detachTags(long topicId, long[] tags, Ice.Current current);
 
-        public abstract void announceElements(long topic, ElementInfo[] elements, Ice.Current current);
+        public abstract void announceElements(long topicId, ElementInfo[] elements, Ice.Current current);
 
         public abstract void attachElements(long topicId, ElementSpec[] elements, bool initialize, Ice.Current current);
 
-        public abstract void attachElementsAck(long topic, ElementSpecAck[] elements, Ice.Current current);
+        public abstract void attachElementsAck(long topicId, ElementSpecAck[] elements, Ice.Current current);
 
-        public abstract void detachElements(long topic, long[] keys, Ice.Current current);
+        public abstract void detachElements(long topicId, long[] elements, Ice.Current current);
 
-        public abstract void initSamples(long topic, DataSamples[] samples, Ice.Current current);
+        public abstract void initSamples(long topicId, DataSamples[] samples, Ice.Current current);
 
         public abstract void disconnected(Ice.Current current);
 
@@ -3729,21 +3892,21 @@ namespace DataStormContract
 
         public abstract void attachTopic(TopicSpec topic, Ice.Current current);
 
-        public abstract void detachTopic(long topic, Ice.Current current);
+        public abstract void detachTopic(long topicId, Ice.Current current);
 
-        public abstract void attachTags(long topic, ElementInfo[] tags, bool initialize, Ice.Current current);
+        public abstract void attachTags(long topicId, ElementInfo[] tags, bool initialize, Ice.Current current);
 
-        public abstract void detachTags(long topic, long[] tags, Ice.Current current);
+        public abstract void detachTags(long topicId, long[] tags, Ice.Current current);
 
-        public abstract void announceElements(long topic, ElementInfo[] elements, Ice.Current current);
+        public abstract void announceElements(long topicId, ElementInfo[] elements, Ice.Current current);
 
         public abstract void attachElements(long topicId, ElementSpec[] elements, bool initialize, Ice.Current current);
 
-        public abstract void attachElementsAck(long topic, ElementSpecAck[] elements, Ice.Current current);
+        public abstract void attachElementsAck(long topicId, ElementSpecAck[] elements, Ice.Current current);
 
-        public abstract void detachElements(long topic, long[] keys, Ice.Current current);
+        public abstract void detachElements(long topicId, long[] elements, Ice.Current current);
 
-        public abstract void initSamples(long topic, DataSamples[] samples, Ice.Current current);
+        public abstract void initSamples(long topicId, DataSamples[] samples, Ice.Current current);
 
         public abstract void disconnected(Ice.Current current);
 
@@ -3871,10 +4034,10 @@ namespace DataStormContract
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            long iceP_topic;
-            iceP_topic = istr.readLong();
+            long iceP_topicId;
+            iceP_topicId = istr.readLong();
             istr.endEncapsulation();
-            obj.detachTopic(iceP_topic, request.current);
+            obj.detachTopic(iceP_topicId, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
@@ -3885,14 +4048,14 @@ namespace DataStormContract
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            long iceP_topic;
+            long iceP_topicId;
             ElementInfo[] iceP_tags;
             bool iceP_initialize;
-            iceP_topic = istr.readLong();
+            iceP_topicId = istr.readLong();
             iceP_tags = ElementInfoSeqHelper.read(istr);
             iceP_initialize = istr.readBool();
             istr.endEncapsulation();
-            obj.attachTags(iceP_topic, iceP_tags, iceP_initialize, request.current);
+            obj.attachTags(iceP_topicId, iceP_tags, iceP_initialize, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
@@ -3903,12 +4066,12 @@ namespace DataStormContract
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            long iceP_topic;
+            long iceP_topicId;
             long[] iceP_tags;
-            iceP_topic = istr.readLong();
+            iceP_topicId = istr.readLong();
             iceP_tags = global::Ice.LongSeqHelper.read(istr);
             istr.endEncapsulation();
-            obj.detachTags(iceP_topic, iceP_tags, request.current);
+            obj.detachTags(iceP_topicId, iceP_tags, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
@@ -3919,12 +4082,12 @@ namespace DataStormContract
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            long iceP_topic;
+            long iceP_topicId;
             ElementInfo[] iceP_elements;
-            iceP_topic = istr.readLong();
+            iceP_topicId = istr.readLong();
             iceP_elements = ElementInfoSeqHelper.read(istr);
             istr.endEncapsulation();
-            obj.announceElements(iceP_topic, iceP_elements, request.current);
+            obj.announceElements(iceP_topicId, iceP_elements, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
@@ -3954,13 +4117,13 @@ namespace DataStormContract
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            long iceP_topic;
+            long iceP_topicId;
             ElementSpecAck[] iceP_elements;
-            iceP_topic = istr.readLong();
+            iceP_topicId = istr.readLong();
             iceP_elements = ElementSpecAckSeqHelper.read(istr);
             istr.readPendingValues();
             istr.endEncapsulation();
-            obj.attachElementsAck(iceP_topic, iceP_elements, request.current);
+            obj.attachElementsAck(iceP_topicId, iceP_elements, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
@@ -3971,12 +4134,12 @@ namespace DataStormContract
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            long iceP_topic;
-            long[] iceP_keys;
-            iceP_topic = istr.readLong();
-            iceP_keys = global::Ice.LongSeqHelper.read(istr);
+            long iceP_topicId;
+            long[] iceP_elements;
+            iceP_topicId = istr.readLong();
+            iceP_elements = global::Ice.LongSeqHelper.read(istr);
             istr.endEncapsulation();
-            obj.detachElements(iceP_topic, iceP_keys, request.current);
+            obj.detachElements(iceP_topicId, iceP_elements, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 
@@ -3987,12 +4150,12 @@ namespace DataStormContract
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             var istr = request.inputStream;
             istr.startEncapsulation();
-            long iceP_topic;
+            long iceP_topicId;
             DataSamples[] iceP_samples;
-            iceP_topic = istr.readLong();
+            iceP_topicId = istr.readLong();
             iceP_samples = DataSamplesSeqHelper.read(istr);
             istr.endEncapsulation();
-            obj.initSamples(iceP_topic, iceP_samples, request.current);
+            obj.initSamples(iceP_topicId, iceP_samples, request.current);
             return new(Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current));
         }
 

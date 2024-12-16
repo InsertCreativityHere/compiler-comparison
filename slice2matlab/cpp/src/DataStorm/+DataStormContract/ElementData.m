@@ -1,14 +1,25 @@
+% ElementData   Summary of ElementData
+%
+% Encapsulates the state and configuration data for a data reader or data writer.
+%
+% ElementData Properties:
+%   id - The unique identifier for the data reader or data writer.
+%   config - The configuration settings for the data reader or data writer.
+%   lastIds - A mapping of data writer IDs to the last sample IDs received by the data reader.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ElementData
     properties
-        % id - The id of the writer or reader.
+        % id - The unique identifier for the data reader or data writer.
         id int64
-        % config - The config of the writer or reader.
+        % config - The configuration settings for the data reader or data writer.
         config
-        % lastIds - The lastIds received by the reader.
+        % lastIds - A mapping of data writer IDs to the last sample IDs received by the data reader.
+        %
+        % - The key represents the data writer ID.
+        % - The value represents the last sample ID received from the corresponding data writer.
         lastIds containers.Map
     end
     methods

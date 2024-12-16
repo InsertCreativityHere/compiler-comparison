@@ -16,38 +16,40 @@
 package DataStormContract;
 
 /**
- * Provides detailed information about elements that can be either a key or a filter.
+ * Represents detailed information about topic elements, which can be a key or a filter.
  **/
 public class ElementSpec implements java.lang.Cloneable,
                                     java.io.Serializable
 {
     /**
-     * The readers and writers associated with the key or filter.
+     * A sequence of data readers and writers associated with the key or filter.
      **/
     public ElementData[] elements;
 
     /**
-     * The id of the key or filter.
+     * The unique identifier for the key or filter.
      **/
     public long id;
 
     /**
-     * The name of the filter. This field is empty for key elements.
+     * The name of the filter.
+     * This field is empty if the element is a key.
      **/
     public String name;
 
     /**
-     * The value of the key or filter.
+     * The encoded value of the key or filter.
      **/
     public byte[] value;
 
     /**
-     * The id of the key or filter from the peer.
+     * The unique identifier for the key or filter on the peer.
      **/
     public long peerId;
 
     /**
-     * The name of the filter from the peer.
+     * The name of the filter on the peer.
+     * This field is empty if the element is a key.
      **/
     public String peerName;
 
@@ -218,5 +220,5 @@ public class ElementSpec implements java.lang.Cloneable,
     private static final ElementSpec _nullMarshalValue = new ElementSpec();
 
     /** @hidden */
-    private static final long serialVersionUID = -892360108573238258L;
+    private static final long serialVersionUID = 9094132708534404318L;
 }
