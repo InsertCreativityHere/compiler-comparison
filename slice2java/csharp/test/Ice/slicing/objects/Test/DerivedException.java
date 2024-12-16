@@ -61,5 +61,5 @@ public class DerivedException extends BaseException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 7085578592730728949L;
+    private static final long serialVersionUID = -8677988778620791851L;
 }
