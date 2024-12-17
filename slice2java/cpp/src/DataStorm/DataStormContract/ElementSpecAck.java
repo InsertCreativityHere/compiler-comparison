@@ -220,5 +220,5 @@ public class ElementSpecAck implements java.lang.Cloneable,
     private static final ElementSpecAck _nullMarshalValue = new ElementSpecAck();
 
     /** @hidden */
-    private static final long serialVersionUID = -3322109642493862233L;
+    private static final long serialVersionUID = 18403474396441062L;
 }
