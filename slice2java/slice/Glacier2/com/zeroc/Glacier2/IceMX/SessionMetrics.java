@@ -96,7 +96,7 @@ public class SessionMetrics extends com.zeroc.Ice.IceMX.Metrics
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 4918313145116620194L;
+    private static final long serialVersionUID = -7040951680509202940L;
 
     /** @hidden */
     @Override
