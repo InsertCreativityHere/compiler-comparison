@@ -13533,16 +13533,6 @@ namespace Ice.operations
 
             public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
 
-            public abstract void opDoubleMarshaling(double p1, double[] p2, Ice.Current current);
-
-            public abstract void opIdempotent(Ice.Current current);
-
-            public abstract byte opByte1(byte opByte1, Ice.Current current);
-
-            public abstract short opShort1(short opShort1, Ice.Current current);
-
-            public abstract int opInt1(int opInt1, Ice.Current current);
-
             public abstract long opLong1(long opLong1, Ice.Current current);
 
             public abstract float opFloat1(float opFloat1, Ice.Current current);
@@ -13574,6 +13564,16 @@ namespace Ice.operations
             public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
             public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+            public abstract void opDoubleMarshaling(double p1, double[] p2, Ice.Current current);
+
+            public abstract void opIdempotent(Ice.Current current);
+
+            public abstract byte opByte1(byte opByte1, Ice.Current current);
+
+            public abstract short opShort1(short opShort1, Ice.Current current);
+
+            public abstract int opInt1(int opInt1, Ice.Current current);
 
             public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -13767,16 +13767,6 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(Ice.Current current);
 
-        public abstract void opDoubleMarshaling(double p1, double[] p2, Ice.Current current);
-
-        public abstract void opIdempotent(Ice.Current current);
-
-        public abstract byte opByte1(byte opByte1, Ice.Current current);
-
-        public abstract short opShort1(short opShort1, Ice.Current current);
-
-        public abstract int opInt1(int opInt1, Ice.Current current);
-
         public abstract long opLong1(long opLong1, Ice.Current current);
 
         public abstract float opFloat1(float opFloat1, Ice.Current current);
@@ -13808,6 +13798,16 @@ namespace Test2
         public abstract global::Ice.operations.Test.MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract global::Ice.operations.Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+        public abstract void opDoubleMarshaling(double p1, double[] p2, Ice.Current current);
+
+        public abstract void opIdempotent(Ice.Current current);
+
+        public abstract byte opByte1(byte opByte1, Ice.Current current);
+
+        public abstract short opShort1(short opShort1, Ice.Current current);
+
+        public abstract int opInt1(int opInt1, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
