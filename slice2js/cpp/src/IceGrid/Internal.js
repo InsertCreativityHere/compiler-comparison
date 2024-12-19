@@ -753,8 +753,8 @@ Ice.defineOperations(
         ], true, ],
         "registerReplica": [, , , ["IceGrid.ReplicaSessionPrx"], [["IceGrid.InternalReplicaInfo", true], ["IceGrid.InternalRegistryPrx"]], ,
         [
-            IceGrid.PermissionDeniedException,
-            IceGrid.ReplicaActiveException
+            IceGrid.ReplicaActiveException,
+            IceGrid.PermissionDeniedException
         ], true, ],
         "registerWithReplica": [, , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
         "getNodes": [, 2, , [IceGrid.NodePrxSeqHelper], , , , , ],
