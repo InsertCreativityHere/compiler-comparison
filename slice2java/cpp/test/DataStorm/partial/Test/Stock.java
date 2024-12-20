@@ -51,7 +51,7 @@ public class Stock extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8762687593486489564L;
+    private static final long serialVersionUID = 839836606287816611L;
 
     /** @hidden */
     @Override
