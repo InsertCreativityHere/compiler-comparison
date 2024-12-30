@@ -3487,11 +3487,11 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr(const ::std::shared_ptr<::Ice
             {
                 throw;
             }
-            catch(const RegistryUnreachableException&)
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
+            catch(const RegistryUnreachableException&)
             {
                 throw;
             }
@@ -3540,11 +3540,11 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut(const ::std::shared_ptr<::Ice
             {
                 throw;
             }
-            catch(const RegistryUnreachableException&)
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
-            catch(const FileNotAvailableException&)
+            catch(const RegistryUnreachableException&)
             {
                 throw;
             }
