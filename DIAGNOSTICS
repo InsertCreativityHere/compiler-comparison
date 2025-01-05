@@ -1,74 +1,22 @@
-/Users/austin/Code/zeroc/ice/python/test/Ice/objects/Test.ice:170: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/python/test/Ice/operations/Test.ice:68: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/js/test/Ice/objects/Test.ice:170: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/js/test/Ice/operations/Test.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/objects/Test.ice:172: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/operations/TestAMD.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/operations/Test.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/cpp/test/Ice/objects/Test.ice:192: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/cpp/test/Ice/operations/TestAMD.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/cpp/test/Ice/operations/Test.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/cpp/src/IceStorm/DBTypes.ice:19: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/swift/test/Ice/objects/Test.ice:174: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/swift/test/Ice/operations/Test.ice:69: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/matlab/test/Ice/objects/LocalTest.ice:111: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/matlab/test/Ice/objects/LocalTest.ice:112: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/matlab/test/Ice/objects/Test.ice:170: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/matlab/test/Ice/operations/Test.ice:69: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/csharp/test/Ice/objects/Test.ice:170: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/csharp/test/Ice/operations/TestAMD.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/csharp/test/Ice/operations/Test.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/ruby/test/Ice/objects/Test.ice:140: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/ruby/test/Ice/operations/Test.ice:67: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/python/test/Ice/packagemd/Package.ice:32: invalid module mapping:
- Slice module `::Test3' should map to Swift module `Test2'
-Package.ice:32: invalid module mapping:
- Slice module `::Test3' should map to Swift module `Test2'
-/Users/austin/Code/zeroc/ice/python/test/Ice/scope/Test.ice:147: invalid module mapping:
- Slice module `::Inner' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/python/test/Ice/operations/Test.ice:348: invalid module mapping:
- Slice module `::Test2' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/js/test/Slice/escape/Key.ice:148: invalid module mapping:
- Slice module `::System' should map to Swift module ``await`'
-/Users/austin/Code/zeroc/ice/js/test/Ice/scope/Test.ice:147: invalid module mapping:
- Slice module `::Inner' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/js/test/Ice/operations/Test.ice:358: invalid module mapping:
- Slice module `::Test2' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Slice/generation/File1.ice:20: invalid module mapping:
- Slice module `::Test2' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/packagemd/Package.ice:33: invalid module mapping:
- Slice module `::Test3' should map to Swift module `Test2'
-Package.ice:33: invalid module mapping:
- Slice module `::Test3' should map to Swift module `Test2'
-/Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/scope/Test.ice:148: invalid module mapping:
- Slice module `::Inner' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/operations/Test.ice:350: invalid module mapping:
- Slice module `::Test2' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/php/test/Ice/scope/Test.ice:147: invalid module mapping:
- Slice module `::Inner' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/php/test/Ice/operations/Test.ice:327: invalid module mapping:
- Slice module `::Test2' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/cpp/test/Ice/stream/Test.ice:127: invalid module mapping:
- Slice module `::Test2' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/cpp/test/Ice/scope/Test.ice:147: invalid module mapping:
- Slice module `::Inner' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/cpp/test/Ice/operations/Test.ice:421: invalid module mapping:
- Slice module `::Test2' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/cpp/test/Ice/custom/Wstring.ice:36: invalid module mapping:
- Slice module `::Test2' should map to Swift module `Test1'
-/Users/austin/Code/zeroc/ice/cpp/test/Ice/custom/WstringAMD.ice:36: invalid module mapping:
- Slice module `::Test2' should map to Swift module `Test1'
-/Users/austin/Code/zeroc/ice/cpp/src/IceStorm/DBTypes.ice:17: invalid module mapping:
- Slice module `::IceStorm' should map to Swift module `IceStormElection'
-/Users/austin/Code/zeroc/ice/matlab/test/Ice/operations/Test.ice:359: invalid module mapping:
- Slice module `::Test2' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/csharp/test/Slice/escape/Key.ice:133: invalid module mapping:
- Slice module `::System' should map to Swift module `abstract'
-/Users/austin/Code/zeroc/ice/csharp/test/Ice/scope/Test.ice:147: invalid module mapping:
- Slice module `::Inner' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/csharp/test/Ice/operations/Test.ice:352: invalid module mapping:
- Slice module `::Test2' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/ruby/test/Ice/scope/Test.ice:147: invalid module mapping:
- Slice module `::Inner' should map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/ruby/test/Ice/operations/Test.ice:344: invalid module mapping:
- Slice module `::Test2' should map to Swift module `Test'
+REPO_ROOT/cpp/src/IceStorm/DBTypes.ice:19: warning: dictionary key type not supported in PHP
+REPO_ROOT/cpp/test/Ice/objects/Test.ice:192: warning: dictionary key type not supported in PHP
+REPO_ROOT/cpp/test/Ice/operations/Test.ice:70: warning: dictionary key type not supported in PHP
+REPO_ROOT/cpp/test/Ice/operations/TestAMD.ice:70: warning: dictionary key type not supported in PHP
+REPO_ROOT/csharp/test/Ice/objects/Test.ice:170: warning: dictionary key type not supported in PHP
+REPO_ROOT/csharp/test/Ice/operations/Test.ice:70: warning: dictionary key type not supported in PHP
+REPO_ROOT/csharp/test/Ice/operations/TestAMD.ice:70: warning: dictionary key type not supported in PHP
+REPO_ROOT/java/test/src/main/java/test/Ice/objects/Test.ice:172: warning: dictionary key type not supported in PHP
+REPO_ROOT/java/test/src/main/java/test/Ice/operations/Test.ice:70: warning: dictionary key type not supported in PHP
+REPO_ROOT/java/test/src/main/java/test/Ice/operations/TestAMD.ice:70: warning: dictionary key type not supported in PHP
+REPO_ROOT/js/test/Ice/objects/Test.ice:170: warning: dictionary key type not supported in PHP
+REPO_ROOT/js/test/Ice/operations/Test.ice:70: warning: dictionary key type not supported in PHP
+REPO_ROOT/matlab/test/Ice/objects/LocalTest.ice:111: warning: dictionary key type not supported in PHP
+REPO_ROOT/matlab/test/Ice/objects/LocalTest.ice:112: warning: dictionary key type not supported in PHP
+REPO_ROOT/matlab/test/Ice/objects/Test.ice:170: warning: dictionary key type not supported in PHP
+REPO_ROOT/matlab/test/Ice/operations/Test.ice:69: warning: dictionary key type not supported in PHP
+REPO_ROOT/python/test/Ice/objects/Test.ice:170: warning: dictionary key type not supported in PHP
+REPO_ROOT/python/test/Ice/operations/Test.ice:68: warning: dictionary key type not supported in PHP
+REPO_ROOT/ruby/test/Ice/objects/Test.ice:140: warning: dictionary key type not supported in PHP
+REPO_ROOT/ruby/test/Ice/operations/Test.ice:67: warning: dictionary key type not supported in PHP
+REPO_ROOT/swift/test/Ice/objects/Test.ice:174: warning: dictionary key type not supported in PHP
+REPO_ROOT/swift/test/Ice/operations/Test.ice:69: warning: dictionary key type not supported in PHP

@@ -115,8 +115,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openServerLog(String id, String path, int count, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
-               DeploymentException,
                NodeUnreachableException,
+               DeploymentException,
                FileNotAvailableException;
 
     /**
@@ -133,8 +133,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openServerStdErr(String id, int count, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
-               DeploymentException,
                NodeUnreachableException,
+               DeploymentException,
                FileNotAvailableException;
 
     /**
@@ -151,8 +151,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openServerStdOut(String id, int count, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
-               DeploymentException,
                NodeUnreachableException,
+               DeploymentException,
                FileNotAvailableException;
 
     /**
@@ -167,8 +167,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     FileIteratorPrx openNodeStdErr(String name, int count, com.zeroc.Ice.Current current)
-        throws NodeNotExistException,
-               NodeUnreachableException,
+        throws NodeUnreachableException,
+               NodeNotExistException,
                FileNotAvailableException;
 
     /**
@@ -183,8 +183,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     FileIteratorPrx openNodeStdOut(String name, int count, com.zeroc.Ice.Current current)
-        throws NodeNotExistException,
-               NodeUnreachableException,
+        throws NodeUnreachableException,
+               NodeNotExistException,
                FileNotAvailableException;
 
     /**

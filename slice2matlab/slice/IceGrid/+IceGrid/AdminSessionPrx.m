@@ -739,8 +739,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
         openServerLog_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException', 'IceGrid.FileNotAvailableException' }
         openServerStdErr_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException', 'IceGrid.FileNotAvailableException' }
         openServerStdOut_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException', 'IceGrid.FileNotAvailableException' }
-        openNodeStdErr_ex_ = { 'IceGrid.NodeNotExistException', 'IceGrid.NodeUnreachableException', 'IceGrid.FileNotAvailableException' }
-        openNodeStdOut_ex_ = { 'IceGrid.NodeNotExistException', 'IceGrid.NodeUnreachableException', 'IceGrid.FileNotAvailableException' }
+        openNodeStdErr_ex_ = { 'IceGrid.NodeUnreachableException', 'IceGrid.NodeNotExistException', 'IceGrid.FileNotAvailableException' }
+        openNodeStdOut_ex_ = { 'IceGrid.NodeUnreachableException', 'IceGrid.NodeNotExistException', 'IceGrid.FileNotAvailableException' }
         openRegistryStdErr_ex_ = { 'IceGrid.RegistryNotExistException', 'IceGrid.RegistryUnreachableException', 'IceGrid.FileNotAvailableException' }
         openRegistryStdOut_ex_ = { 'IceGrid.RegistryNotExistException', 'IceGrid.RegistryUnreachableException', 'IceGrid.FileNotAvailableException' }
     end

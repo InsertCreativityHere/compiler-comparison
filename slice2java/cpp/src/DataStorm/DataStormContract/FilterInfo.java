@@ -162,5 +162,5 @@ public class FilterInfo implements java.lang.Cloneable,
     private static final FilterInfo _nullMarshalValue = new FilterInfo();
 
     /** @hidden */
-    private static final long serialVersionUID = 2025861452402708457L;
+    private static final long serialVersionUID = 7702463082043339609L;
 }

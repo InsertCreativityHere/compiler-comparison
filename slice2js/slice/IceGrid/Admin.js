@@ -533,8 +533,8 @@ Ice.defineOperations(
         "getAllAdapterIds": [, 2, , [Ice.StringSeqHelper], , , , , ],
         "addObject": [, , , , [[9]], ,
         [
-            IceGrid.ObjectExistsException,
-            IceGrid.DeploymentException
+            IceGrid.DeploymentException,
+            IceGrid.ObjectExistsException
         ], , ],
         "updateObject": [, , , , [[9]], ,
         [
@@ -543,8 +543,8 @@ Ice.defineOperations(
         ], , ],
         "addObjectWithType": [, , , , [[9], [7]], ,
         [
-            IceGrid.ObjectExistsException,
-            IceGrid.DeploymentException
+            IceGrid.DeploymentException,
+            IceGrid.ObjectExistsException
         ], , ],
         "removeObject": [, , , , [[Ice.Identity]], ,
         [
@@ -1019,13 +1019,13 @@ Ice.defineOperations(
         "openRegistryStdErr": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
         [
             IceGrid.RegistryNotExistException,
-            IceGrid.RegistryUnreachableException,
-            IceGrid.FileNotAvailableException
+            IceGrid.FileNotAvailableException,
+            IceGrid.RegistryUnreachableException
         ], , ],
         "openRegistryStdOut": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
         [
             IceGrid.RegistryNotExistException,
-            IceGrid.RegistryUnreachableException,
-            IceGrid.FileNotAvailableException
+            IceGrid.FileNotAvailableException,
+            IceGrid.RegistryUnreachableException
         ], , ]
     });

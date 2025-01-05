@@ -302,5 +302,4 @@ if 'AdapterPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
-            proxy : (Ice.ObjectPrx or None)
             

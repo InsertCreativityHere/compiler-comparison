@@ -1,6 +1,6 @@
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
+% Generated from TestAMD.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ThrowerPrx < Ice.ObjectPrx
     methods
@@ -253,6 +253,18 @@ classdef ThrowerPrx < Ice.ObjectPrx
         function r_ = throwAfterExceptionAsync(obj, varargin)
             r_ = obj.iceInvokeAsync('throwAfterException', 0, true, [], 0, [], Test.ThrowerPrx.throwAfterException_ex_, varargin{:});
         end
+        function throwE(obj, varargin)
+            obj.iceInvoke('throwE', 0, true, [], false, Test.ThrowerPrx.throwE_ex_, varargin{:});
+        end
+        function r_ = throwEAsync(obj, varargin)
+            r_ = obj.iceInvokeAsync('throwE', 0, true, [], 0, [], Test.ThrowerPrx.throwE_ex_, varargin{:});
+        end
+        function throwF(obj, varargin)
+            obj.iceInvoke('throwF', 0, true, [], false, Test.ThrowerPrx.throwF_ex_, varargin{:});
+        end
+        function r_ = throwFAsync(obj, varargin)
+            r_ = obj.iceInvokeAsync('throwF', 0, true, [], 0, [], Test.ThrowerPrx.throwF_ex_, varargin{:});
+        end
     end
     methods(Static)
         function id = ice_staticId()
@@ -296,5 +308,7 @@ classdef ThrowerPrx < Ice.ObjectPrx
         throwCasC_ex_ = { 'Test.C' }
         throwModA_ex_ = { 'Test.Mod.A' }
         throwAfterException_ex_ = { 'Test.A' }
+        throwE_ex_ = { 'Test.E' }
+        throwF_ex_ = { 'Test.F' }
     end
 end

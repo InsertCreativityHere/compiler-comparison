@@ -5,8 +5,8 @@ import Ice
 Ice.updateModule("Test")
 
 # Modules:
-import TestNumPy_ice
 import Test_ice
+import TestNumPy_ice
 
 # Submodules:
 from . import NumPy

@@ -1,6 +1,6 @@
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
+% Generated from TestAMD.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef MultiOptional < Ice.Value
     properties
@@ -30,10 +30,9 @@ classdef MultiOptional < Ice.Value
         ivsd
         imipd
         bos
-        plainProxy
     end
     methods
-        function obj = MultiOptional(a, b, c, d, e, f, g, h, i, j, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, mips, ied, ifsd, ivsd, imipd, bos, plainProxy)
+        function obj = MultiOptional(a, b, c, d, e, f, g, h, i, j, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, mips, ied, ifsd, ivsd, imipd, bos)
             if nargin == 0
                 obj.a = IceInternal.UnsetI.Instance;
                 obj.b = IceInternal.UnsetI.Instance;
@@ -61,7 +60,6 @@ classdef MultiOptional < Ice.Value
                 obj.ivsd = IceInternal.UnsetI.Instance;
                 obj.imipd = IceInternal.UnsetI.Instance;
                 obj.bos = IceInternal.UnsetI.Instance;
-                obj.plainProxy = [];
             elseif ne(a, IceInternal.NoInit.Instance)
                 obj.a = a;
                 obj.b = b;
@@ -89,7 +87,6 @@ classdef MultiOptional < Ice.Value
                 obj.ivsd = ivsd;
                 obj.imipd = imipd;
                 obj.bos = bos;
-                obj.plainProxy = plainProxy;
             end
         end
         function id = ice_id(obj)
@@ -125,7 +122,6 @@ classdef MultiOptional < Ice.Value
             Test.IntVarStructDict.writeOpt(os, 26, obj.ivsd);
             Test.IntMyInterfacePrxDict.writeOpt(os, 28, obj.imipd);
             os.writeBoolSeqOpt(29, obj.bos);
-            os.writeProxyOpt(30, obj.plainProxy);
             os.endSlice();
         end
         function iceReadImpl(obj, is)
@@ -156,7 +152,6 @@ classdef MultiOptional < Ice.Value
             obj.ivsd = Test.IntVarStructDict.readOpt(is, 26);
             obj.imipd = Test.IntMyInterfacePrxDict.readOpt(is, 28);
             obj.bos = is.readBoolSeqOpt(29);
-            obj.plainProxy = is.readProxyOpt(30);
             is.endSlice();
         end
     end

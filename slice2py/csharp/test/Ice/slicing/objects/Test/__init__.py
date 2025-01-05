@@ -6,9 +6,9 @@ Ice.updateModule("Test")
 
 # Modules:
 import ClientPrivate_ice
-import TestAMD_ice
+import ServerPrivate_ice
 import ServerPrivateAMD_ice
 import Test_ice
-import ServerPrivate_ice
+import TestAMD_ice
 
 # Submodules:

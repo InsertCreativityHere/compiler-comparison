@@ -310,5 +310,4 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             ----------
             llu : IceStormElection.LogUpdate
                 The log update token.
-            topic : str
             

@@ -397,7 +397,7 @@ classdef TopicPrx < Ice.ObjectPrx
         end
     end
     properties(Constant,Access=private)
-        subscribeAndGetPublisher_ex_ = { 'IceStorm.AlreadySubscribed', 'IceStorm.InvalidSubscriber', 'IceStorm.BadQoS' }
+        subscribeAndGetPublisher_ex_ = { 'IceStorm.BadQoS', 'IceStorm.AlreadySubscribed', 'IceStorm.InvalidSubscriber' }
         link_ex_ = { 'IceStorm.LinkExists' }
         unlink_ex_ = { 'IceStorm.NoSuchLink' }
     end

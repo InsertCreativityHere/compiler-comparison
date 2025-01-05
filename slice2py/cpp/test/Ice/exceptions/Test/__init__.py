@@ -5,8 +5,8 @@ import Ice
 Ice.updateModule("Test")
 
 # Modules:
-import TestAMD_ice
 import Test_ice
+import TestAMD_ice
 
 # Submodules:
 from . import Mod

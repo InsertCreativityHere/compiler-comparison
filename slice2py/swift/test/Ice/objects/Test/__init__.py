@@ -6,9 +6,9 @@ Ice.updateModule("Test")
 
 # Modules:
 import Derived_ice
+import DerivedEx_ice
 import Forward_ice
 import Test_ice
-import DerivedEx_ice
 
 # Submodules:
 from . import Inner
