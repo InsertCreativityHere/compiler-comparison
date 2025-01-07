@@ -1042,8 +1042,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default ServerState getServerState(String id)
         throws ServerNotExistException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         return getServerState(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1059,8 +1059,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default ServerState getServerState(String id, java.util.Map<String, String> context)
         throws ServerNotExistException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
@@ -1070,11 +1070,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(NodeUnreachableException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -1129,8 +1129,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_getServerState =
     {
         ServerNotExistException.class,
-        NodeUnreachableException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        NodeUnreachableException.class
     };
 
     /**
@@ -1143,8 +1143,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default int getServerPid(String id)
         throws ServerNotExistException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         return getServerPid(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1160,8 +1160,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default int getServerPid(String id, java.util.Map<String, String> context)
         throws ServerNotExistException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
@@ -1171,11 +1171,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(NodeUnreachableException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -1230,8 +1230,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_getServerPid =
     {
         ServerNotExistException.class,
-        NodeUnreachableException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        NodeUnreachableException.class
     };
 
     /**
@@ -1303,8 +1303,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.Ice.ObjectPrx getServerAdmin(String id)
         throws ServerNotExistException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         return getServerAdmin(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1320,8 +1320,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.Ice.ObjectPrx getServerAdmin(String id, java.util.Map<String, String> context)
         throws ServerNotExistException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
@@ -1331,11 +1331,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(NodeUnreachableException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -1390,8 +1390,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_getServerAdmin =
     {
         ServerNotExistException.class,
-        NodeUnreachableException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        NodeUnreachableException.class
     };
 
     /**
@@ -1406,8 +1406,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void enableServer(String id, boolean enabled)
         throws ServerNotExistException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         enableServer(id, enabled, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1425,8 +1425,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void enableServer(String id, boolean enabled, java.util.Map<String, String> context)
         throws ServerNotExistException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
@@ -1436,11 +1436,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(NodeUnreachableException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -1499,8 +1499,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_enableServer =
     {
         ServerNotExistException.class,
-        NodeUnreachableException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        NodeUnreachableException.class
     };
 
     /**
@@ -1513,8 +1513,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default boolean isServerEnabled(String id)
         throws ServerNotExistException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         return isServerEnabled(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1530,8 +1530,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default boolean isServerEnabled(String id, java.util.Map<String, String> context)
         throws ServerNotExistException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
@@ -1541,11 +1541,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(NodeUnreachableException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -1600,8 +1600,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_isServerEnabled =
     {
         ServerNotExistException.class,
-        NodeUnreachableException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        NodeUnreachableException.class
     };
 
     /**
@@ -1615,8 +1615,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     default void startServer(String id)
         throws ServerNotExistException,
                ServerStartException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         startServer(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1633,8 +1633,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     default void startServer(String id, java.util.Map<String, String> context)
         throws ServerNotExistException,
                ServerStartException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
@@ -1648,11 +1648,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(NodeUnreachableException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -1704,8 +1704,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     {
         ServerNotExistException.class,
         ServerStartException.class,
-        NodeUnreachableException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        NodeUnreachableException.class
     };
 
     /**
@@ -1719,8 +1719,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     default void stopServer(String id)
         throws ServerNotExistException,
                ServerStopException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         stopServer(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1737,8 +1737,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     default void stopServer(String id, java.util.Map<String, String> context)
         throws ServerNotExistException,
                ServerStopException,
-               NodeUnreachableException,
-               DeploymentException
+               DeploymentException,
+               NodeUnreachableException
     {
         try
         {
@@ -1752,11 +1752,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(NodeUnreachableException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -1808,8 +1808,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     {
         ServerNotExistException.class,
         ServerStopException.class,
-        NodeUnreachableException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        NodeUnreachableException.class
     };
 
     /**
@@ -1823,8 +1823,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void sendSignal(String id, String signal)
         throws ServerNotExistException,
-               NodeUnreachableException,
                DeploymentException,
+               NodeUnreachableException,
                BadSignalException
     {
         sendSignal(id, signal, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -1842,8 +1842,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void sendSignal(String id, String signal, java.util.Map<String, String> context)
         throws ServerNotExistException,
-               NodeUnreachableException,
                DeploymentException,
+               NodeUnreachableException,
                BadSignalException
     {
         try
@@ -1854,11 +1854,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(NodeUnreachableException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -1917,8 +1917,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_sendSignal =
     {
         ServerNotExistException.class,
-        NodeUnreachableException.class,
         DeploymentException.class,
+        NodeUnreachableException.class,
         BadSignalException.class
     };
 
@@ -2075,8 +2075,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void removeAdapter(String id)
-        throws AdapterNotExistException,
-               DeploymentException
+        throws DeploymentException,
+               AdapterNotExistException
     {
         removeAdapter(id, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -2089,18 +2089,18 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void removeAdapter(String id, java.util.Map<String, String> context)
-        throws AdapterNotExistException,
-               DeploymentException
+        throws DeploymentException,
+               AdapterNotExistException
     {
         try
         {
             _iceI_removeAdapterAsync(id, context, true).waitForResponseOrUserEx();
         }
-        catch(AdapterNotExistException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(AdapterNotExistException ex)
         {
             throw ex;
         }
@@ -2150,8 +2150,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_removeAdapter =
     {
-        AdapterNotExistException.class,
-        DeploymentException.class
+        DeploymentException.class,
+        AdapterNotExistException.class
     };
 
     /**

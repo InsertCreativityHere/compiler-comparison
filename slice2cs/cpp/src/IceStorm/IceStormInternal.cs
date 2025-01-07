@@ -653,15 +653,15 @@ namespace IceStorm
                     {
                         throw ex;
                     }
+                    catch(BadQoS)
+                    {
+                        throw;
+                    }
                     catch(InvalidSubscriber)
                     {
                         throw;
                     }
                     catch(AlreadySubscribed)
-                    {
-                        throw;
-                    }
-                    catch(BadQoS)
                     {
                         throw;
                     }
@@ -1354,9 +1354,9 @@ namespace IceStorm
 
         public abstract TopicPrx? retrieve(string name, Ice.Current current);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(Ice.Current current);
-
         public abstract TopicPrx? create(string name, Ice.Current current);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

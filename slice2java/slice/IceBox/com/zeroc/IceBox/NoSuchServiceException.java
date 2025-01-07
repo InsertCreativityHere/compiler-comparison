@@ -46,5 +46,5 @@ public class NoSuchServiceException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 813433973997849659L;
+    private static final long serialVersionUID = 1400724958124047000L;
 }

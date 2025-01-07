@@ -115,8 +115,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openServerLog(String id, String path, int count, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
-               NodeUnreachableException,
                DeploymentException,
+               NodeUnreachableException,
                FileNotAvailableException;
 
     /**
@@ -133,8 +133,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openServerStdErr(String id, int count, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
-               NodeUnreachableException,
                DeploymentException,
+               NodeUnreachableException,
                FileNotAvailableException;
 
     /**
@@ -151,8 +151,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openServerStdOut(String id, int count, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
-               NodeUnreachableException,
                DeploymentException,
+               NodeUnreachableException,
                FileNotAvailableException;
 
     /**

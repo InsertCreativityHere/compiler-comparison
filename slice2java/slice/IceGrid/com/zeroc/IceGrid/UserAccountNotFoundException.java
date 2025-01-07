@@ -46,5 +46,5 @@ public class UserAccountNotFoundException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -1502480029411462668L;
+    private static final long serialVersionUID = -7812309038320118729L;
 }

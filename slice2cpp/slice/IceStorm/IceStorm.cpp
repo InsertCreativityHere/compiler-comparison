@@ -177,11 +177,11 @@ IceStorm::TopicPrx::_iceI_subscribeAndGetPublisher(const ::std::shared_ptr<::Ice
             {
                 throw;
             }
-            catch(const InvalidSubscriber&)
+            catch(const BadQoS&)
             {
                 throw;
             }
-            catch(const BadQoS&)
+            catch(const InvalidSubscriber&)
             {
                 throw;
             }

@@ -43,5 +43,5 @@ public class CannotInterruptException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8369669149470806184L;
+    private static final long serialVersionUID = -1772790537335362885L;
 }

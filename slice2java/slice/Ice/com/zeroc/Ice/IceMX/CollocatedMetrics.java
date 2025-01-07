@@ -48,7 +48,7 @@ public class CollocatedMetrics extends ChildInvocationMetrics
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -8802859984903052816L;
+    private static final long serialVersionUID = -3124924636123977574L;
 
     /** @hidden */
     @Override

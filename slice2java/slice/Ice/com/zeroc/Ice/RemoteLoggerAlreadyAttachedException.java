@@ -46,5 +46,5 @@ public class RemoteLoggerAlreadyAttachedException extends com.zeroc.Ice.UserExce
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 8261337785094940035L;
+    private static final long serialVersionUID = 2245526408600146624L;
 }

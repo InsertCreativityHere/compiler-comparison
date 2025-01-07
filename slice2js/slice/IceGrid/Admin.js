@@ -527,8 +527,8 @@ Ice.defineOperations(
         ], , ],
         "removeAdapter": [, , , , [[7]], ,
         [
-            IceGrid.AdapterNotExistException,
-            IceGrid.DeploymentException
+            IceGrid.DeploymentException,
+            IceGrid.AdapterNotExistException
         ], , ],
         "getAllAdapterIds": [, 2, , [Ice.StringSeqHelper], , , , , ],
         "addObject": [, , , , [[9]], ,
@@ -538,8 +538,8 @@ Ice.defineOperations(
         ], , ],
         "updateObject": [, , , , [[9]], ,
         [
-            IceGrid.ObjectNotRegisteredException,
-            IceGrid.DeploymentException
+            IceGrid.DeploymentException,
+            IceGrid.ObjectNotRegisteredException
         ], , ],
         "addObjectWithType": [, , , , [[9], [7]], ,
         [
@@ -548,8 +548,8 @@ Ice.defineOperations(
         ], , ],
         "removeObject": [, , , , [[Ice.Identity]], ,
         [
-            IceGrid.ObjectNotRegisteredException,
-            IceGrid.DeploymentException
+            IceGrid.DeploymentException,
+            IceGrid.ObjectNotRegisteredException
         ], , ],
         "getObjectInfo": [, 2, , [IceGrid.ObjectInfo], [[Ice.Identity]], ,
         [
@@ -563,33 +563,33 @@ Ice.defineOperations(
         ], , ],
         "getNodeLoad": [, 2, , [IceGrid.LoadInfo], [[7]], ,
         [
-            IceGrid.NodeNotExistException,
-            IceGrid.NodeUnreachableException
+            IceGrid.NodeUnreachableException,
+            IceGrid.NodeNotExistException
         ], , ],
         "getNodeInfo": [, 2, , [IceGrid.NodeInfo], [[7]], ,
         [
-            IceGrid.NodeNotExistException,
-            IceGrid.NodeUnreachableException
+            IceGrid.NodeUnreachableException,
+            IceGrid.NodeNotExistException
         ], , ],
         "getNodeAdmin": [, 2, , [9], [[7]], ,
         [
-            IceGrid.NodeNotExistException,
-            IceGrid.NodeUnreachableException
+            IceGrid.NodeUnreachableException,
+            IceGrid.NodeNotExistException
         ], , ],
         "getNodeProcessorSocketCount": [, 2, , [3], [[7]], ,
         [
-            IceGrid.NodeNotExistException,
-            IceGrid.NodeUnreachableException
+            IceGrid.NodeUnreachableException,
+            IceGrid.NodeNotExistException
         ], , ],
         "shutdownNode": [, , , , [[7]], ,
         [
-            IceGrid.NodeNotExistException,
-            IceGrid.NodeUnreachableException
+            IceGrid.NodeUnreachableException,
+            IceGrid.NodeNotExistException
         ], , ],
         "getNodeHostname": [, 2, , [7], [[7]], ,
         [
-            IceGrid.NodeNotExistException,
-            IceGrid.NodeUnreachableException
+            IceGrid.NodeUnreachableException,
+            IceGrid.NodeNotExistException
         ], , ],
         "getAllNodeNames": [, 2, , [Ice.StringSeqHelper], , , , , ],
         "pingRegistry": [, 2, , [1], [[7]], ,
@@ -1006,14 +1006,14 @@ Ice.defineOperations(
         ], , ],
         "openNodeStdErr": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
         [
-            IceGrid.NodeNotExistException,
             IceGrid.NodeUnreachableException,
+            IceGrid.NodeNotExistException,
             IceGrid.FileNotAvailableException
         ], , ],
         "openNodeStdOut": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
         [
-            IceGrid.NodeNotExistException,
             IceGrid.NodeUnreachableException,
+            IceGrid.NodeNotExistException,
             IceGrid.FileNotAvailableException
         ], , ],
         "openRegistryStdErr": [, , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,

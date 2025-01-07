@@ -47,7 +47,7 @@ public class RandomLoadBalancingPolicy extends LoadBalancingPolicy
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 3772898459289222197L;
+    private static final long serialVersionUID = -2093710475217267457L;
 
     /** @hidden */
     @Override

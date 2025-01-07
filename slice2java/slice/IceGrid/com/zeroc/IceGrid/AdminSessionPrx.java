@@ -619,8 +619,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default FileIteratorPrx openServerLog(String id, String path, int count)
         throws ServerNotExistException,
-               NodeUnreachableException,
                DeploymentException,
+               NodeUnreachableException,
                FileNotAvailableException
     {
         return openServerLog(id, path, count, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -642,8 +642,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default FileIteratorPrx openServerLog(String id, String path, int count, java.util.Map<String, String> context)
         throws ServerNotExistException,
-               NodeUnreachableException,
                DeploymentException,
+               NodeUnreachableException,
                FileNotAvailableException
     {
         try
@@ -654,11 +654,11 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
         {
             throw ex;
         }
-        catch(NodeUnreachableException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -729,8 +729,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     static final Class<?>[] _iceE_openServerLog =
     {
         ServerNotExistException.class,
-        NodeUnreachableException.class,
         DeploymentException.class,
+        NodeUnreachableException.class,
         FileNotAvailableException.class
     };
 
@@ -747,8 +747,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default FileIteratorPrx openServerStdErr(String id, int count)
         throws ServerNotExistException,
-               NodeUnreachableException,
                DeploymentException,
+               NodeUnreachableException,
                FileNotAvailableException
     {
         return openServerStdErr(id, count, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -768,8 +768,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default FileIteratorPrx openServerStdErr(String id, int count, java.util.Map<String, String> context)
         throws ServerNotExistException,
-               NodeUnreachableException,
                DeploymentException,
+               NodeUnreachableException,
                FileNotAvailableException
     {
         try
@@ -780,11 +780,11 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
         {
             throw ex;
         }
-        catch(NodeUnreachableException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -849,8 +849,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     static final Class<?>[] _iceE_openServerStdErr =
     {
         ServerNotExistException.class,
-        NodeUnreachableException.class,
         DeploymentException.class,
+        NodeUnreachableException.class,
         FileNotAvailableException.class
     };
 
@@ -867,8 +867,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default FileIteratorPrx openServerStdOut(String id, int count)
         throws ServerNotExistException,
-               NodeUnreachableException,
                DeploymentException,
+               NodeUnreachableException,
                FileNotAvailableException
     {
         return openServerStdOut(id, count, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -888,8 +888,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default FileIteratorPrx openServerStdOut(String id, int count, java.util.Map<String, String> context)
         throws ServerNotExistException,
-               NodeUnreachableException,
                DeploymentException,
+               NodeUnreachableException,
                FileNotAvailableException
     {
         try
@@ -900,11 +900,11 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
         {
             throw ex;
         }
-        catch(NodeUnreachableException ex)
+        catch(DeploymentException ex)
         {
             throw ex;
         }
-        catch(DeploymentException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -969,8 +969,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     static final Class<?>[] _iceE_openServerStdOut =
     {
         ServerNotExistException.class,
-        NodeUnreachableException.class,
         DeploymentException.class,
+        NodeUnreachableException.class,
         FileNotAvailableException.class
     };
 
