@@ -223,9 +223,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @see #unsubscribe
      **/
     default com.zeroc.Ice.ObjectPrx subscribeAndGetPublisher(java.util.Map<java.lang.String, java.lang.String> theQoS, com.zeroc.Ice.ObjectPrx subscriber)
-        throws BadQoS,
+        throws AlreadySubscribed,
                InvalidSubscriber,
-               AlreadySubscribed
+               BadQoS
     {
         return subscribeAndGetPublisher(theQoS, subscriber, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -243,15 +243,15 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
      * @see #unsubscribe
      **/
     default com.zeroc.Ice.ObjectPrx subscribeAndGetPublisher(java.util.Map<java.lang.String, java.lang.String> theQoS, com.zeroc.Ice.ObjectPrx subscriber, java.util.Map<String, String> context)
-        throws BadQoS,
+        throws AlreadySubscribed,
                InvalidSubscriber,
-               AlreadySubscribed
+               BadQoS
     {
         try
         {
             return _iceI_subscribeAndGetPublisherAsync(theQoS, subscriber, context, true).waitForResponseOrUserEx();
         }
-        catch(BadQoS ex)
+        catch(AlreadySubscribed ex)
         {
             throw ex;
         }
@@ -259,7 +259,7 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(AlreadySubscribed ex)
+        catch(BadQoS ex)
         {
             throw ex;
         }
@@ -321,9 +321,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     /** @hidden */
     static final Class<?>[] _iceE_subscribeAndGetPublisher =
     {
-        BadQoS.class,
+        AlreadySubscribed.class,
         InvalidSubscriber.class,
-        AlreadySubscribed.class
+        BadQoS.class
     };
 
     /**

@@ -657,11 +657,11 @@ namespace IceStorm
                     {
                         throw;
                     }
-                    catch(InvalidSubscriber)
+                    catch(AlreadySubscribed)
                     {
                         throw;
                     }
-                    catch(AlreadySubscribed)
+                    catch(InvalidSubscriber)
                     {
                         throw;
                     }
@@ -1317,9 +1317,9 @@ namespace IceStorm
 
         public abstract LinkInfo[] getLinkInfoSeq(Ice.Current current);
 
-        public abstract global::Ice.Identity[] getSubscribers(Ice.Current current);
-
         public abstract void destroy(Ice.Current current);
+
+        public abstract global::Ice.Identity[] getSubscribers(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1352,11 +1352,11 @@ namespace IceStorm
     {
         public abstract global::IceStormElection.NodePrx? getReplicaNode(Ice.Current current);
 
-        public abstract TopicPrx? retrieve(string name, Ice.Current current);
-
         public abstract TopicPrx? create(string name, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(Ice.Current current);
+
+        public abstract TopicPrx? retrieve(string name, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

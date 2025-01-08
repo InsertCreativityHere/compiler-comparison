@@ -736,9 +736,9 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
         setObserversByIdentity_ex_ = { 'IceGrid.ObserverAlreadyRegisteredException' }
         startUpdate_ex_ = { 'IceGrid.AccessDeniedException' }
         finishUpdate_ex_ = { 'IceGrid.AccessDeniedException' }
-        openServerLog_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException', 'IceGrid.FileNotAvailableException' }
-        openServerStdErr_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException', 'IceGrid.FileNotAvailableException' }
-        openServerStdOut_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException', 'IceGrid.FileNotAvailableException' }
+        openServerLog_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.NodeUnreachableException', 'IceGrid.DeploymentException', 'IceGrid.FileNotAvailableException' }
+        openServerStdErr_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.NodeUnreachableException', 'IceGrid.DeploymentException', 'IceGrid.FileNotAvailableException' }
+        openServerStdOut_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.NodeUnreachableException', 'IceGrid.DeploymentException', 'IceGrid.FileNotAvailableException' }
         openNodeStdErr_ex_ = { 'IceGrid.NodeNotExistException', 'IceGrid.NodeUnreachableException', 'IceGrid.FileNotAvailableException' }
         openNodeStdOut_ex_ = { 'IceGrid.NodeNotExistException', 'IceGrid.NodeUnreachableException', 'IceGrid.FileNotAvailableException' }
         openRegistryStdErr_ex_ = { 'IceGrid.RegistryNotExistException', 'IceGrid.RegistryUnreachableException', 'IceGrid.FileNotAvailableException' }

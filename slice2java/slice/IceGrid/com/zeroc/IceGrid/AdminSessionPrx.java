@@ -985,8 +985,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default FileIteratorPrx openNodeStdErr(String name, int count)
-        throws NodeUnreachableException,
-               NodeNotExistException,
+        throws NodeNotExistException,
+               NodeUnreachableException,
                FileNotAvailableException
     {
         return openNodeStdErr(name, count, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -1004,19 +1004,19 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default FileIteratorPrx openNodeStdErr(String name, int count, java.util.Map<String, String> context)
-        throws NodeUnreachableException,
-               NodeNotExistException,
+        throws NodeNotExistException,
+               NodeUnreachableException,
                FileNotAvailableException
     {
         try
         {
             return _iceI_openNodeStdErrAsync(name, count, context, true).waitForResponseOrUserEx();
         }
-        catch(NodeUnreachableException ex)
+        catch(NodeNotExistException ex)
         {
             throw ex;
         }
-        catch(NodeNotExistException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -1080,8 +1080,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     /** @hidden */
     static final Class<?>[] _iceE_openNodeStdErr =
     {
-        NodeUnreachableException.class,
         NodeNotExistException.class,
+        NodeUnreachableException.class,
         FileNotAvailableException.class
     };
 
@@ -1096,8 +1096,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default FileIteratorPrx openNodeStdOut(String name, int count)
-        throws NodeUnreachableException,
-               NodeNotExistException,
+        throws NodeNotExistException,
+               NodeUnreachableException,
                FileNotAvailableException
     {
         return openNodeStdOut(name, count, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -1115,19 +1115,19 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default FileIteratorPrx openNodeStdOut(String name, int count, java.util.Map<String, String> context)
-        throws NodeUnreachableException,
-               NodeNotExistException,
+        throws NodeNotExistException,
+               NodeUnreachableException,
                FileNotAvailableException
     {
         try
         {
             return _iceI_openNodeStdOutAsync(name, count, context, true).waitForResponseOrUserEx();
         }
-        catch(NodeUnreachableException ex)
+        catch(NodeNotExistException ex)
         {
             throw ex;
         }
-        catch(NodeNotExistException ex)
+        catch(NodeUnreachableException ex)
         {
             throw ex;
         }
@@ -1191,8 +1191,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     /** @hidden */
     static final Class<?>[] _iceE_openNodeStdOut =
     {
-        NodeUnreachableException.class,
         NodeNotExistException.class,
+        NodeUnreachableException.class,
         FileNotAvailableException.class
     };
 
@@ -1208,8 +1208,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default FileIteratorPrx openRegistryStdErr(String name, int count)
         throws RegistryNotExistException,
-               RegistryUnreachableException,
-               FileNotAvailableException
+               FileNotAvailableException,
+               RegistryUnreachableException
     {
         return openRegistryStdErr(name, count, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1227,8 +1227,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default FileIteratorPrx openRegistryStdErr(String name, int count, java.util.Map<String, String> context)
         throws RegistryNotExistException,
-               RegistryUnreachableException,
-               FileNotAvailableException
+               FileNotAvailableException,
+               RegistryUnreachableException
     {
         try
         {
@@ -1238,11 +1238,11 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
         {
             throw ex;
         }
-        catch(RegistryUnreachableException ex)
+        catch(FileNotAvailableException ex)
         {
             throw ex;
         }
-        catch(FileNotAvailableException ex)
+        catch(RegistryUnreachableException ex)
         {
             throw ex;
         }
@@ -1303,8 +1303,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     static final Class<?>[] _iceE_openRegistryStdErr =
     {
         RegistryNotExistException.class,
-        RegistryUnreachableException.class,
-        FileNotAvailableException.class
+        FileNotAvailableException.class,
+        RegistryUnreachableException.class
     };
 
     /**
@@ -1319,8 +1319,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default FileIteratorPrx openRegistryStdOut(String name, int count)
         throws RegistryNotExistException,
-               RegistryUnreachableException,
-               FileNotAvailableException
+               FileNotAvailableException,
+               RegistryUnreachableException
     {
         return openRegistryStdOut(name, count, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -1338,8 +1338,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default FileIteratorPrx openRegistryStdOut(String name, int count, java.util.Map<String, String> context)
         throws RegistryNotExistException,
-               RegistryUnreachableException,
-               FileNotAvailableException
+               FileNotAvailableException,
+               RegistryUnreachableException
     {
         try
         {
@@ -1349,11 +1349,11 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
         {
             throw ex;
         }
-        catch(RegistryUnreachableException ex)
+        catch(FileNotAvailableException ex)
         {
             throw ex;
         }
-        catch(FileNotAvailableException ex)
+        catch(RegistryUnreachableException ex)
         {
             throw ex;
         }
@@ -1414,8 +1414,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     static final Class<?>[] _iceE_openRegistryStdOut =
     {
         RegistryNotExistException.class,
-        RegistryUnreachableException.class,
-        FileNotAvailableException.class
+        FileNotAvailableException.class,
+        RegistryUnreachableException.class
     };
 
     /**

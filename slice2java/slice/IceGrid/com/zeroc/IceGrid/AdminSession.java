@@ -167,8 +167,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     FileIteratorPrx openNodeStdErr(String name, int count, com.zeroc.Ice.Current current)
-        throws NodeUnreachableException,
-               NodeNotExistException,
+        throws NodeNotExistException,
+               NodeUnreachableException,
                FileNotAvailableException;
 
     /**
@@ -183,8 +183,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     FileIteratorPrx openNodeStdOut(String name, int count, com.zeroc.Ice.Current current)
-        throws NodeUnreachableException,
-               NodeNotExistException,
+        throws NodeNotExistException,
+               NodeUnreachableException,
                FileNotAvailableException;
 
     /**
@@ -200,8 +200,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openRegistryStdErr(String name, int count, com.zeroc.Ice.Current current)
         throws RegistryNotExistException,
-               RegistryUnreachableException,
-               FileNotAvailableException;
+               FileNotAvailableException,
+               RegistryUnreachableException;
 
     /**
      * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
@@ -216,8 +216,8 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      **/
     FileIteratorPrx openRegistryStdOut(String name, int count, com.zeroc.Ice.Current current)
         throws RegistryNotExistException,
-               RegistryUnreachableException,
-               FileNotAvailableException;
+               FileNotAvailableException,
+               RegistryUnreachableException;
 
     /** @hidden */
     static final String[] _iceIds =
