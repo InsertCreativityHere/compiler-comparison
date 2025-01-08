@@ -1088,9 +1088,9 @@ namespace Ice.inheritance
         {
             public abstract class IB1Disp_ : Ice.ObjectImpl, IB1
             {
-                public abstract IB1Prx? ib1op(IB1Prx? p, Ice.Current current);
-
                 public abstract global::Ice.inheritance.Test.MA.IAPrx? iaop(global::Ice.inheritance.Test.MA.IAPrx? p, Ice.Current current);
+
+                public abstract IB1Prx? ib1op(IB1Prx? p, Ice.Current current);
 
                 public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1111,9 +1111,9 @@ namespace Ice.inheritance
 
             public abstract class IB2Disp_ : Ice.ObjectImpl, IB2
             {
-                public abstract IB2Prx? ib2op(IB2Prx? p, Ice.Current current);
-
                 public abstract global::Ice.inheritance.Test.MA.IAPrx? iaop(global::Ice.inheritance.Test.MA.IAPrx? p, Ice.Current current);
+
+                public abstract IB2Prx? ib2op(IB2Prx? p, Ice.Current current);
 
                 public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1137,13 +1137,13 @@ namespace Ice.inheritance
         {
             public abstract class ICDisp_ : Ice.ObjectImpl, IC
             {
-                public abstract ICPrx? icop(ICPrx? p, Ice.Current current);
+                public abstract IAPrx? iaop(IAPrx? p, Ice.Current current);
 
                 public abstract global::Ice.inheritance.Test.MB.IB1Prx? ib1op(global::Ice.inheritance.Test.MB.IB1Prx? p, Ice.Current current);
 
                 public abstract global::Ice.inheritance.Test.MB.IB2Prx? ib2op(global::Ice.inheritance.Test.MB.IB2Prx? p, Ice.Current current);
 
-                public abstract IAPrx? iaop(IAPrx? p, Ice.Current current);
+                public abstract ICPrx? icop(ICPrx? p, Ice.Current current);
 
                 public override string ice_id(Ice.Current current) => ice_staticId();
 

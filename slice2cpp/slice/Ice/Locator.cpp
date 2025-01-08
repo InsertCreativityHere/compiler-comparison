@@ -263,11 +263,11 @@ Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shar
             {
                 throw;
             }
-            catch(const InvalidReplicaGroupIdException&)
+            catch(const AdapterAlreadyActiveException&)
             {
                 throw;
             }
-            catch(const AdapterAlreadyActiveException&)
+            catch(const InvalidReplicaGroupIdException&)
             {
                 throw;
             }

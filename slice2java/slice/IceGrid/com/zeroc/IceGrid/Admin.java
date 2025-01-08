@@ -30,8 +30,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws DeploymentException Raised if application deployment failed.
      **/
     void addApplication(ApplicationDescriptor descriptor, com.zeroc.Ice.Current current)
-        throws DeploymentException,
-               AccessDeniedException;
+        throws AccessDeniedException,
+               DeploymentException;
 
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -44,9 +44,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws DeploymentException Raised if application deployment failed.
      **/
     void syncApplication(ApplicationDescriptor descriptor, com.zeroc.Ice.Current current)
-        throws ApplicationNotExistException,
+        throws AccessDeniedException,
                DeploymentException,
-               AccessDeniedException;
+               ApplicationNotExistException;
 
     /**
      * Update a deployed application with the given update application descriptor.
@@ -58,9 +58,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws DeploymentException Raised if application deployment failed.
      **/
     void updateApplication(ApplicationUpdateDescriptor descriptor, com.zeroc.Ice.Current current)
-        throws ApplicationNotExistException,
+        throws AccessDeniedException,
                DeploymentException,
-               AccessDeniedException;
+               ApplicationNotExistException;
 
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
@@ -75,9 +75,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws DeploymentException Raised if application deployment failed.
      **/
     void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, com.zeroc.Ice.Current current)
-        throws ApplicationNotExistException,
+        throws AccessDeniedException,
                DeploymentException,
-               AccessDeniedException;
+               ApplicationNotExistException;
 
     /**
      * Update a deployed application with the given update application descriptor only if no server restarts are
@@ -91,9 +91,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws DeploymentException Raised if application deployment failed.
      **/
     void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, com.zeroc.Ice.Current current)
-        throws ApplicationNotExistException,
+        throws AccessDeniedException,
                DeploymentException,
-               AccessDeniedException;
+               ApplicationNotExistException;
 
     /**
      * Remove an application from IceGrid.
@@ -105,9 +105,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws DeploymentException Raised if application deployment failed.
      **/
     void removeApplication(String name, com.zeroc.Ice.Current current)
-        throws ApplicationNotExistException,
+        throws AccessDeniedException,
                DeploymentException,
-               AccessDeniedException;
+               ApplicationNotExistException;
 
     /**
      * Instantiate a server template from an application on the given node.
@@ -121,9 +121,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws DeploymentException Raised if server instantiation failed.
      **/
     void instantiateServer(String application, String node, ServerInstanceDescriptor desc, com.zeroc.Ice.Current current)
-        throws ApplicationNotExistException,
-               DeploymentException,
-               AccessDeniedException;
+        throws AccessDeniedException,
+               ApplicationNotExistException,
+               DeploymentException;
 
     /**
      * Get an application descriptor.
@@ -172,8 +172,8 @@ public interface Admin extends com.zeroc.Ice.Object
      **/
     ServerState getServerState(String id, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
-               DeploymentException,
-               NodeUnreachableException;
+               NodeUnreachableException,
+               DeploymentException;
 
     /**
      * Get a server's system process id. The process id is operating system dependent.
@@ -186,8 +186,8 @@ public interface Admin extends com.zeroc.Ice.Object
      **/
     int getServerPid(String id, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
-               DeploymentException,
-               NodeUnreachableException;
+               NodeUnreachableException,
+               DeploymentException;
 
     /**
      * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
@@ -208,8 +208,8 @@ public interface Admin extends com.zeroc.Ice.Object
      **/
     com.zeroc.Ice.ObjectPrx getServerAdmin(String id, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
-               DeploymentException,
-               NodeUnreachableException;
+               NodeUnreachableException,
+               DeploymentException;
 
     /**
      * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
@@ -224,8 +224,8 @@ public interface Admin extends com.zeroc.Ice.Object
      **/
     void enableServer(String id, boolean enabled, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
-               DeploymentException,
-               NodeUnreachableException;
+               NodeUnreachableException,
+               DeploymentException;
 
     /**
      * Check if the server is enabled or disabled.
@@ -238,8 +238,8 @@ public interface Admin extends com.zeroc.Ice.Object
      **/
     boolean isServerEnabled(String id, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
-               DeploymentException,
-               NodeUnreachableException;
+               NodeUnreachableException,
+               DeploymentException;
 
     /**
      * Start a server and wait for its activation.
@@ -254,8 +254,8 @@ public interface Admin extends com.zeroc.Ice.Object
     java.util.concurrent.CompletionStage<Void> startServerAsync(String id, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
                ServerStartException,
-               DeploymentException,
-               NodeUnreachableException;
+               NodeUnreachableException,
+               DeploymentException;
 
     /**
      * Stop a server.
@@ -270,8 +270,8 @@ public interface Admin extends com.zeroc.Ice.Object
     java.util.concurrent.CompletionStage<Void> stopServerAsync(String id, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
                ServerStopException,
-               DeploymentException,
-               NodeUnreachableException;
+               NodeUnreachableException,
+               DeploymentException;
 
     /**
      * Send signal to a server.
@@ -285,8 +285,8 @@ public interface Admin extends com.zeroc.Ice.Object
      **/
     void sendSignal(String id, String signal, com.zeroc.Ice.Current current)
         throws ServerNotExistException,
-               DeploymentException,
                NodeUnreachableException,
+               DeploymentException,
                BadSignalException;
 
     /**
@@ -316,8 +316,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws DeploymentException Raised if application deployment failed.
      **/
     void removeAdapter(String id, com.zeroc.Ice.Current current)
-        throws DeploymentException,
-               AdapterNotExistException;
+        throws AdapterNotExistException,
+               DeploymentException;
 
     /**
      * Get all the adapter ids registered with IceGrid.
@@ -336,8 +336,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws ObjectExistsException Raised if the object is already registered.
      **/
     void addObject(com.zeroc.Ice.ObjectPrx obj, com.zeroc.Ice.Current current)
-        throws DeploymentException,
-               ObjectExistsException;
+        throws ObjectExistsException,
+               DeploymentException;
 
     /**
      * Update an object in the object registry. Only objects added with this interface can be updated with this
@@ -361,8 +361,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * @throws ObjectExistsException Raised if the object is already registered.
      **/
     void addObjectWithType(com.zeroc.Ice.ObjectPrx obj, String type, com.zeroc.Ice.Current current)
-        throws DeploymentException,
-               ObjectExistsException;
+        throws ObjectExistsException,
+               DeploymentException;
 
     /**
      * Remove an object from the object registry. Only objects added with this interface can be removed with this

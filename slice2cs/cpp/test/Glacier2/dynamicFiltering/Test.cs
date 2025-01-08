@@ -603,9 +603,9 @@ namespace Test
 
     public abstract class TestSessionDisp_ : Ice.ObjectImpl, TestSession
     {
-        public abstract void shutdown(Ice.Current current);
-
         public abstract void destroy(Ice.Current current);
+
+        public abstract void shutdown(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

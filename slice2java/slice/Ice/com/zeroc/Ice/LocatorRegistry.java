@@ -54,8 +54,8 @@ public interface LocatorRegistry extends com.zeroc.Ice.Object
      **/
     java.util.concurrent.CompletionStage<Void> setReplicatedAdapterDirectProxyAsync(String adapterId, String replicaGroupId, ObjectPrx proxy, com.zeroc.Ice.Current current)
         throws AdapterNotFoundException,
-               InvalidReplicaGroupIdException,
-               AdapterAlreadyActiveException;
+               AdapterAlreadyActiveException,
+               InvalidReplicaGroupIdException;
 
     /**
      * Set the process proxy for a server.

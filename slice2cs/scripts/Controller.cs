@@ -1738,11 +1738,11 @@ namespace Test
 
         public abstract class BrowserProcessControllerDisp_ : Ice.ObjectImpl, BrowserProcessController
         {
-            public abstract void redirect(string url, Ice.Current current);
-
             public abstract ProcessPrx? start(string testsuite, string exe, string[] args, Ice.Current current);
 
             public abstract string getHost(string protocol, bool ipv6, Ice.Current current);
+
+            public abstract void redirect(string url, Ice.Current current);
 
             public override string ice_id(Ice.Current current) => ice_staticId();
 

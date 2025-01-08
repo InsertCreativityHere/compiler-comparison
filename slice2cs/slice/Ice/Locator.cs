@@ -781,11 +781,11 @@ namespace Ice
                     {
                         throw;
                     }
-                    catch(InvalidReplicaGroupIdException)
+                    catch(AdapterAlreadyActiveException)
                     {
                         throw;
                     }
-                    catch(AdapterAlreadyActiveException)
+                    catch(InvalidReplicaGroupIdException)
                     {
                         throw;
                     }

@@ -585,11 +585,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
@@ -635,11 +635,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
@@ -853,6 +853,12 @@ namespace Glacier2
 {
     public abstract class RouterDisp_ : Ice.ObjectImpl, Router
     {
+        public abstract global::Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
+
+        public abstract global::Ice.ObjectPrx? getServerProxy(Ice.Current current);
+
+        public abstract global::Ice.ObjectPrx?[] addProxies(global::Ice.ObjectPrx?[] proxies, Ice.Current current);
+
         public abstract string getCategoryForClient(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, Ice.Current current);
@@ -866,12 +872,6 @@ namespace Glacier2
         public abstract long getSessionTimeout(Ice.Current current);
 
         public abstract int getACMTimeout(Ice.Current current);
-
-        public abstract global::Ice.ObjectPrx? getClientProxy(out bool? hasRoutingTable, Ice.Current current);
-
-        public abstract global::Ice.ObjectPrx? getServerProxy(Ice.Current current);
-
-        public abstract global::Ice.ObjectPrx?[] addProxies(global::Ice.ObjectPrx?[] proxies, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

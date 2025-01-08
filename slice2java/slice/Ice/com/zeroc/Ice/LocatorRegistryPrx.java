@@ -135,8 +135,8 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void setReplicatedAdapterDirectProxy(String adapterId, String replicaGroupId, ObjectPrx proxy)
         throws AdapterNotFoundException,
-               InvalidReplicaGroupIdException,
-               AdapterAlreadyActiveException
+               AdapterAlreadyActiveException,
+               InvalidReplicaGroupIdException
     {
         setReplicatedAdapterDirectProxy(adapterId, replicaGroupId, proxy, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
@@ -156,8 +156,8 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default void setReplicatedAdapterDirectProxy(String adapterId, String replicaGroupId, ObjectPrx proxy, java.util.Map<String, String> context)
         throws AdapterNotFoundException,
-               InvalidReplicaGroupIdException,
-               AdapterAlreadyActiveException
+               AdapterAlreadyActiveException,
+               InvalidReplicaGroupIdException
     {
         try
         {
@@ -167,11 +167,11 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
         {
             throw ex;
         }
-        catch(InvalidReplicaGroupIdException ex)
+        catch(AdapterAlreadyActiveException ex)
         {
             throw ex;
         }
-        catch(AdapterAlreadyActiveException ex)
+        catch(InvalidReplicaGroupIdException ex)
         {
             throw ex;
         }
@@ -232,8 +232,8 @@ public interface LocatorRegistryPrx extends com.zeroc.Ice.ObjectPrx
     static final Class<?>[] _iceE_setReplicatedAdapterDirectProxy =
     {
         AdapterNotFoundException.class,
-        InvalidReplicaGroupIdException.class,
-        AdapterAlreadyActiveException.class
+        AdapterAlreadyActiveException.class,
+        InvalidReplicaGroupIdException.class
     };
 
     /**

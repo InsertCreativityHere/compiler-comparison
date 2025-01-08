@@ -653,15 +653,15 @@ namespace IceStorm
                     {
                         throw ex;
                     }
-                    catch(BadQoS)
-                    {
-                        throw;
-                    }
                     catch(AlreadySubscribed)
                     {
                         throw;
                     }
                     catch(InvalidSubscriber)
+                    {
+                        throw;
+                    }
+                    catch(BadQoS)
                     {
                         throw;
                     }
@@ -1297,10 +1297,6 @@ namespace IceStorm
 
     public abstract class TopicInternalDisp_ : Ice.ObjectImpl, TopicInternal
     {
-        public abstract TopicLinkPrx? getLinkProxy(Ice.Current current);
-
-        public abstract void reap(global::Ice.Identity[] id, Ice.Current current);
-
         public abstract string getName(Ice.Current current);
 
         public abstract global::Ice.ObjectPrx? getPublisher(Ice.Current current);
@@ -1317,9 +1313,13 @@ namespace IceStorm
 
         public abstract LinkInfo[] getLinkInfoSeq(Ice.Current current);
 
+        public abstract global::Ice.Identity[] getSubscribers(Ice.Current current);
+
         public abstract void destroy(Ice.Current current);
 
-        public abstract global::Ice.Identity[] getSubscribers(Ice.Current current);
+        public abstract TopicLinkPrx? getLinkProxy(Ice.Current current);
+
+        public abstract void reap(global::Ice.Identity[] id, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1350,13 +1350,13 @@ namespace IceStorm
 
     public abstract class TopicManagerInternalDisp_ : Ice.ObjectImpl, TopicManagerInternal
     {
-        public abstract global::IceStormElection.NodePrx? getReplicaNode(Ice.Current current);
-
         public abstract TopicPrx? create(string name, Ice.Current current);
+
+        public abstract TopicPrx? retrieve(string name, Ice.Current current);
 
         public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(Ice.Current current);
 
-        public abstract TopicPrx? retrieve(string name, Ice.Current current);
+        public abstract global::IceStormElection.NodePrx? getReplicaNode(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

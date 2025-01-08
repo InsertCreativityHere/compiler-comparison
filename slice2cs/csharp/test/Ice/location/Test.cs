@@ -267,11 +267,11 @@ namespace Ice.location
                         {
                             throw;
                         }
-                        catch(global::Ice.InvalidReplicaGroupIdException)
+                        catch(global::Ice.AdapterAlreadyActiveException)
                         {
                             throw;
                         }
-                        catch(global::Ice.AdapterAlreadyActiveException)
+                        catch(global::Ice.InvalidReplicaGroupIdException)
                         {
                             throw;
                         }
@@ -1098,13 +1098,13 @@ namespace Ice.location
     {
         public abstract class TestLocatorRegistryDisp_ : Ice.ObjectImpl, TestLocatorRegistry
         {
-            public abstract void addObject(global::Ice.ObjectPrx? obj, Ice.Current current);
-
             public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, global::Ice.ObjectPrx? proxy, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx? proxy, Ice.Current current);
+
+            public abstract void addObject(global::Ice.ObjectPrx? obj, Ice.Current current);
 
             public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -1127,13 +1127,13 @@ namespace Ice.location
 
         public abstract class TestLocatorDisp_ : Ice.ObjectImpl, TestLocator
         {
-            public abstract int getRequestCount(Ice.Current current);
-
             public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findAdapterByIdAsync(string id, Ice.Current current);
 
             public abstract global::Ice.LocatorRegistryPrx? getRegistry(Ice.Current current);
+
+            public abstract int getRequestCount(Ice.Current current);
 
             public override string ice_id(Ice.Current current) => ice_staticId();
 

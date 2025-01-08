@@ -5403,11 +5403,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(DeploymentException)
+                    catch(ObserverAlreadyRegisteredException)
                     {
                         throw;
                     }
-                    catch(ObserverAlreadyRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -5914,11 +5914,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -5970,11 +5970,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -6311,6 +6311,10 @@ namespace IceGrid
 
     public abstract class ServerDisp_ : Ice.ObjectImpl, Server
     {
+        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
+
         public abstract global::System.Threading.Tasks.Task startAsync(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task stopAsync(Ice.Current current);
@@ -6330,10 +6334,6 @@ namespace IceGrid
         public abstract int getPid(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task setProcessAsync(global::Ice.ProcessPrx? proc, Ice.Current current);
-
-        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
-
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -6390,6 +6390,16 @@ namespace IceGrid
 
     public abstract class NodeDisp_ : Ice.ObjectImpl, Node
     {
+        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
+
+        public abstract void replicaInit(InternalRegistryPrx?[] replicas, Ice.Current current);
+
+        public abstract void replicaAdded(InternalRegistryPrx? replica, Ice.Current current);
+
+        public abstract void replicaRemoved(InternalRegistryPrx? replica, Ice.Current current);
+
         public abstract global::System.Threading.Tasks.Task<Node_LoadServerResult> loadServerAsync(InternalServerDescriptor? svr, string replicaName, Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<Node_LoadServerWithoutRestartResult> loadServerWithoutRestartAsync(InternalServerDescriptor? svr, string replicaName, Ice.Current current);
@@ -6409,16 +6419,6 @@ namespace IceGrid
         public abstract int getProcessorSocketCount(Ice.Current current);
 
         public abstract void shutdown(Ice.Current current);
-
-        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
-
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
-
-        public abstract void replicaAdded(InternalRegistryPrx? replica, Ice.Current current);
-
-        public abstract void replicaRemoved(InternalRegistryPrx? replica, Ice.Current current);
-
-        public abstract void replicaInit(InternalRegistryPrx?[] replicas, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -6495,27 +6495,27 @@ namespace IceGrid
     {
         public abstract void applicationInit(int serial, ApplicationInfo[] applications, Ice.Current current);
 
+        public abstract void applicationAdded(int serial, ApplicationInfo desc, Ice.Current current);
+
+        public abstract void applicationRemoved(int serial, string name, Ice.Current current);
+
         public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, Ice.Current current);
 
-        public abstract void applicationAdded(int serial, ApplicationInfo desc, Ice.Current current);
+        public abstract void objectInit(ObjectInfo[] objects, Ice.Current current);
+
+        public abstract void objectAdded(ObjectInfo info, Ice.Current current);
+
+        public abstract void objectUpdated(ObjectInfo info, Ice.Current current);
+
+        public abstract void objectRemoved(global::Ice.Identity id, Ice.Current current);
+
+        public abstract void adapterInit(AdapterInfo[] adpts, Ice.Current current);
+
+        public abstract void adapterAdded(AdapterInfo info, Ice.Current current);
 
         public abstract void adapterUpdated(AdapterInfo info, Ice.Current current);
 
         public abstract void adapterRemoved(string id, Ice.Current current);
-
-        public abstract void objectUpdated(ObjectInfo info, Ice.Current current);
-
-        public abstract void adapterAdded(AdapterInfo info, Ice.Current current);
-
-        public abstract void objectAdded(ObjectInfo info, Ice.Current current);
-
-        public abstract void applicationRemoved(int serial, string name, Ice.Current current);
-
-        public abstract void adapterInit(AdapterInfo[] adpts, Ice.Current current);
-
-        public abstract void objectRemoved(global::Ice.Identity id, Ice.Current current);
-
-        public abstract void objectInit(ObjectInfo[] objects, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
@@ -6587,6 +6587,10 @@ namespace IceGrid
 
     public abstract class InternalRegistryDisp_ : Ice.ObjectImpl, InternalRegistry
     {
+        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
+
         public abstract NodeSessionPrx? registerNode(InternalNodeInfo? info, NodePrx? prx, LoadInfo loadInf, Ice.Current current);
 
         public abstract ReplicaSessionPrx? registerReplica(InternalReplicaInfo? info, InternalRegistryPrx? prx, Ice.Current current);
@@ -6604,10 +6608,6 @@ namespace IceGrid
         public abstract ObjectInfo[] getObjects(out long serial, Ice.Current current);
 
         public abstract void shutdown(Ice.Current current);
-
-        public abstract long getOffsetFromEnd(string filename, int lines, Ice.Current current);
-
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 
