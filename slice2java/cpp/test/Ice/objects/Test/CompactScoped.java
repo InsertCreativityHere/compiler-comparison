@@ -34,7 +34,7 @@ public class CompactScoped extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -423043124027305647L;
+    private static final long serialVersionUID = 3703815935627556539L;
 
     /** @hidden */
     @Override

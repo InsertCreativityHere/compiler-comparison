@@ -1,6 +1,6 @@
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
+% Generated from TestAMD.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef TestIntfPrx < Ice.ObjectPrx
     methods
@@ -173,54 +173,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
                 varargout{2} = outSeq;
             end
             r_ = obj.iceInvokeAsync('opBoolList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, outSeq] = opBoolDequeList(obj, inSeq, varargin)
-            os_ = obj.iceStartWriteParams([]);
-            Test.BoolDequeList.write(os_, inSeq);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opBoolDequeList', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            outSeq = Test.BoolDequeList.read(is_);
-            result = Test.BoolDequeList.read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = opBoolDequeListAsync(obj, inSeq, varargin)
-            os_ = obj.iceStartWriteParams([]);
-            Test.BoolDequeList.write(os_, inSeq);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                outSeq = Test.BoolDequeList.read(is_);
-                result = Test.BoolDequeList.read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = outSeq;
-            end
-            r_ = obj.iceInvokeAsync('opBoolDequeList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, outSeq] = opBoolDequeListArray(obj, inSeq, varargin)
-            os_ = obj.iceStartWriteParams([]);
-            Test.BoolDequeList.write(os_, inSeq);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opBoolDequeListArray', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            outSeq = Test.BoolDequeList.read(is_);
-            result = Test.BoolDequeList.read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = opBoolDequeListArrayAsync(obj, inSeq, varargin)
-            os_ = obj.iceStartWriteParams([]);
-            Test.BoolDequeList.write(os_, inSeq);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                outSeq = Test.BoolDequeList.read(is_);
-                result = Test.BoolDequeList.read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = outSeq;
-            end
-            r_ = obj.iceInvokeAsync('opBoolDequeListArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opByteSeq(obj, inSeq, varargin)
             os_ = obj.iceStartWriteParams([]);

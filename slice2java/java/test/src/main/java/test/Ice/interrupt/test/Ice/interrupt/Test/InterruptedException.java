@@ -43,5 +43,5 @@ public class InterruptedException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5901122535827811808L;
+    private static final long serialVersionUID = -1644013227132040829L;
 }

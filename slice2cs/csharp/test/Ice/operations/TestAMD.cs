@@ -9862,12 +9862,6 @@ namespace Ice.operations.AMD
 
         public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
         {
-            public abstract global::System.Threading.Tasks.Task opDerivedAsync(Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass1?> opMyClass1Async(MyClass1? opMyClass1, Ice.Current current);
-
-            public abstract global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, Ice.Current current);
-
             public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(Ice.Current current);
@@ -10007,6 +10001,12 @@ namespace Ice.operations.AMD
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(Ice.Current current);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task opDerivedAsync(Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass1?> opMyClass1Async(MyClass1? opMyClass1, Ice.Current current);
+
+            public abstract global::System.Threading.Tasks.Task<MyStruct1> opMyStruct1Async(MyStruct1 opMyStruct1, Ice.Current current);
 
             public override string ice_id(Ice.Current current) => ice_staticId();
 

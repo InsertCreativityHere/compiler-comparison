@@ -5,18 +5,18 @@ import Ice
 Ice.updateModule("Ice")
 
 # Modules:
-import Ice.SliceChecksumDict_ice
-import Ice.RemoteLogger_ice
-import Ice.PropertiesAdmin_ice
-import Ice.Locator_ice
 import Ice.BuiltinSequences_ice
-import Ice.Version_ice
 import Ice.Context_ice
-import Ice.OperationMode_ice
-import Ice.Router_ice
-import Ice.PropertyDict_ice
-import Ice.Identity_ice
 import Ice.EndpointTypes_ice
+import Ice.Identity_ice
+import Ice.Locator_ice
+import Ice.OperationMode_ice
 import Ice.Process_ice
+import Ice.PropertiesAdmin_ice
+import Ice.PropertyDict_ice
+import Ice.RemoteLogger_ice
+import Ice.Router_ice
+import Ice.SliceChecksumDict_ice
+import Ice.Version_ice
 
 # Submodules:

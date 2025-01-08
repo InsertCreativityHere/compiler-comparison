@@ -43,5 +43,5 @@ public class ArgumentException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -3473428134093904328L;
+    private static final long serialVersionUID = 677807875121036155L;
 }

@@ -5,8 +5,8 @@ import Ice
 Ice.updateModule("Test")
 
 # Modules:
-import Test2_ice
 import Test1_ice
+import Test2_ice
 
 # Submodules:
 from . import SubA

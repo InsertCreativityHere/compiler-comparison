@@ -48,7 +48,7 @@ public class RemoteMetrics extends ChildInvocationMetrics
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 4541668783287397120L;
+    private static final long serialVersionUID = 8279412220484004906L;
 
     /** @hidden */
     @Override

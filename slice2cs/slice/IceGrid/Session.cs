@@ -584,6 +584,8 @@ namespace IceGrid
 {
     public abstract class SessionDisp_ : Ice.ObjectImpl, Session
     {
+        public abstract void destroy(Ice.Current current);
+
         public abstract void keepAlive(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByIdAsync(global::Ice.Identity id, Ice.Current current);
@@ -593,8 +595,6 @@ namespace IceGrid
         public abstract void releaseObject(global::Ice.Identity id, Ice.Current current);
 
         public abstract void setAllocationTimeout(int timeout, Ice.Current current);
-
-        public abstract void destroy(Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

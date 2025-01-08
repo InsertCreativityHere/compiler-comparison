@@ -46,5 +46,5 @@ public class ReapWouldBlock extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -6835688639689047467L;
+    private static final long serialVersionUID = 5367272736398480822L;
 }

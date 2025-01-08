@@ -5,9 +5,9 @@ import Ice
 Ice.updateModule("IceStorm")
 
 # Modules:
-import IceStormInternal_ice
-import SubscriberRecord_ice
-import LinkRecord_ice
 import DBTypes_ice
+import IceStormInternal_ice
+import LinkRecord_ice
+import SubscriberRecord_ice
 
 # Submodules:

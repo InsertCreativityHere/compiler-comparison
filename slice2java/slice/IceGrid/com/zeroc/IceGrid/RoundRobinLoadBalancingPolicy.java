@@ -47,7 +47,7 @@ public class RoundRobinLoadBalancingPolicy extends LoadBalancingPolicy
     }
 
     /** @hidden */
-    private static final long serialVersionUID = -5299406688731094060L;
+    private static final long serialVersionUID = 5683162543748451454L;
 
     /** @hidden */
     @Override

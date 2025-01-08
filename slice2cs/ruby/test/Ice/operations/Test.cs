@@ -13055,12 +13055,6 @@ namespace Test
 
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
-        public abstract void opDerived(Ice.Current current);
-
-        public abstract MyClass1? opMyClass1(MyClass1? opMyClass1, Ice.Current current);
-
-        public abstract MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, Ice.Current current);
-
         public abstract void shutdown(Ice.Current current);
 
         public abstract bool supportsCompress(Ice.Current current);
@@ -13196,6 +13190,12 @@ namespace Test
         public abstract MyClass_OpMDict1MarshaledResult opMDict1(Ice.Current current);
 
         public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, Ice.Current current);
+
+        public abstract void opDerived(Ice.Current current);
+
+        public abstract MyClass1? opMyClass1(MyClass1? opMyClass1, Ice.Current current);
+
+        public abstract MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

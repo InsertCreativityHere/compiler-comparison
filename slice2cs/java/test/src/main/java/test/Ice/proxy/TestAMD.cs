@@ -734,11 +734,11 @@ namespace Test
 
     public abstract class MyDerivedClassDisp_ : Ice.ObjectImpl, MyDerivedClass
     {
-        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> echoAsync(global::Ice.ObjectPrx? obj, Ice.Current current);
-
         public abstract global::System.Threading.Tasks.Task shutdownAsync(Ice.Current current);
 
         public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(Ice.Current current);
+
+        public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> echoAsync(global::Ice.ObjectPrx? obj, Ice.Current current);
 
         public override string ice_id(Ice.Current current) => ice_staticId();
 

@@ -5,7 +5,7 @@ import Ice
 Ice.updateModule("Test.SubA.SubSubA1")
 
 # Modules:
-import Test2_ice
 import Test1_ice
+import Test2_ice
 
 # Submodules:
