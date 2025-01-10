@@ -53,7 +53,7 @@ public:
 
     [[nodiscard]] ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -64,7 +64,7 @@ public:
 
     [[nodiscard]] ::std::future<void> opWithPayloadAsync(const ::Ice::ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opWithPayloadAsync(const ::Ice::ByteSeq& seq, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -75,7 +75,7 @@ public:
 
     [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -137,7 +137,7 @@ public:
 
     [[nodiscard]] ::std::future<void> pauseCallAsync(::std::string_view call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     pauseCallAsync(::std::string_view call, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -148,7 +148,7 @@ public:
 
     [[nodiscard]] ::std::future<void> resumeCallAsync(::std::string_view call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     resumeCallAsync(::std::string_view call, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -159,7 +159,7 @@ public:
 
     [[nodiscard]] ::std::future<void> holdAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     holdAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -170,7 +170,7 @@ public:
 
     [[nodiscard]] ::std::future<void> resumeAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     resumeAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -181,7 +181,7 @@ public:
 
     [[nodiscard]] ::std::future<void> initializeSocketOperationAsync(::std::int32_t status, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     initializeSocketOperationAsync(::std::int32_t status, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -192,7 +192,7 @@ public:
 
     [[nodiscard]] ::std::future<void> initializeExceptionAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     initializeExceptionAsync(bool enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -203,7 +203,7 @@ public:
 
     [[nodiscard]] ::std::future<void> readReadyAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     readReadyAsync(bool enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -214,7 +214,7 @@ public:
 
     [[nodiscard]] ::std::future<void> readExceptionAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     readExceptionAsync(bool enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -225,7 +225,7 @@ public:
 
     [[nodiscard]] ::std::future<void> writeReadyAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     writeReadyAsync(bool enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -236,7 +236,7 @@ public:
 
     [[nodiscard]] ::std::future<void> writeExceptionAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     writeExceptionAsync(bool enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -247,7 +247,7 @@ public:
 
     [[nodiscard]] ::std::future<void> bufferedAsync(bool enable, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     bufferedAsync(bool enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL

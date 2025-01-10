@@ -73,7 +73,7 @@ public:
 
     [[nodiscard]] ::std::future<ByteS> getStruct1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     getStruct1Async(::std::function<void(::Test::ByteS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -84,7 +84,7 @@ public:
 
     [[nodiscard]] ::std::future<ByteS> getBaseAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     getBaseAsync(::std::function<void(::Test::ByteS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -95,7 +95,7 @@ public:
 
     [[nodiscard]] ::std::future<ByteS> getExAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     getExAsync(::std::function<void(::Test::ByteS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -106,7 +106,7 @@ public:
 
     [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL

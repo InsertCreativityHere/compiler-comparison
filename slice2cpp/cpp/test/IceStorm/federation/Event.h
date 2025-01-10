@@ -42,7 +42,7 @@ public:
 
     [[nodiscard]] ::std::future<void> pubAsync(::std::string_view data, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     pubAsync(::std::string_view data, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL

@@ -43,7 +43,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::string> getPropertyAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     getPropertyAsync(::std::string_view name, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -54,7 +54,7 @@ public:
 
     [[nodiscard]] ::std::future<::Ice::StringSeq> getArgsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     getArgsAsync(::std::function<void(::Ice::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL

@@ -62,7 +62,7 @@ public:
 
     [[nodiscard]] ::std::future<EmptyPtr> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAsync(::std::function<void(::Test::EmptyPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL

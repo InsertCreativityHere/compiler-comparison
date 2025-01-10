@@ -131,7 +131,7 @@ public:
 
     [[nodiscard]] ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -193,7 +193,7 @@ public:
 
     [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -204,7 +204,7 @@ public:
 
     [[nodiscard]] ::std::future<::Ice::ValuePtr> pingPongAsync(const ::Ice::ValuePtr& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     pingPongAsync(const ::Ice::ValuePtr& o, ::std::function<void(::Ice::ValuePtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -215,7 +215,7 @@ public:
 
     [[nodiscard]] ::std::future<void> opOptionalExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptionalExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -226,7 +226,7 @@ public:
 
     [[nodiscard]] ::std::future<void> opDerivedExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opDerivedExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -237,7 +237,7 @@ public:
 
     [[nodiscard]] ::std::future<void> opRequiredExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opRequiredExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -248,7 +248,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<::std::uint8_t>, ::std::optional<::std::uint8_t>>> opByteAsync(::std::optional<::std::uint8_t> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opByteAsync(::std::optional<::std::uint8_t> p1, ::std::function<void(::std::optional<::std::uint8_t>, ::std::optional<::std::uint8_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -259,7 +259,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<bool>, ::std::optional<bool>>> opBoolAsync(::std::optional<bool> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opBoolAsync(::std::optional<bool> p1, ::std::function<void(::std::optional<bool>, ::std::optional<bool>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -270,7 +270,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<::std::int16_t>, ::std::optional<::std::int16_t>>> opShortAsync(::std::optional<::std::int16_t> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opShortAsync(::std::optional<::std::int16_t> p1, ::std::function<void(::std::optional<::std::int16_t>, ::std::optional<::std::int16_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -281,7 +281,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<::std::int32_t>, ::std::optional<::std::int32_t>>> opIntAsync(::std::optional<::std::int32_t> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opIntAsync(::std::optional<::std::int32_t> p1, ::std::function<void(::std::optional<::std::int32_t>, ::std::optional<::std::int32_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -292,7 +292,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<::std::int64_t>, ::std::optional<::std::int64_t>>> opLongAsync(::std::optional<::std::int64_t> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLongAsync(::std::optional<::std::int64_t> p1, ::std::function<void(::std::optional<::std::int64_t>, ::std::optional<::std::int64_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -303,7 +303,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<float>, ::std::optional<float>>> opFloatAsync(::std::optional<float> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opFloatAsync(::std::optional<float> p1, ::std::function<void(::std::optional<float>, ::std::optional<float>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -314,7 +314,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<double>, ::std::optional<double>>> opDoubleAsync(::std::optional<double> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opDoubleAsync(::std::optional<double> p1, ::std::function<void(::std::optional<double>, ::std::optional<double>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -325,7 +325,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>> opStringAsync(::std::optional<::std::string_view> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opStringAsync(::std::optional<::std::string_view> p1, ::std::function<void(::std::optional<::std::string>, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -336,7 +336,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<MyEnum>, ::std::optional<MyEnum>>> opMyEnumAsync(::std::optional<MyEnum> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opMyEnumAsync(::std::optional<MyEnum> p1, ::std::function<void(::std::optional<::Test::MyEnum>, ::std::optional<::Test::MyEnum>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -347,7 +347,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<SmallStruct>, ::std::optional<SmallStruct>>> opSmallStructAsync(const ::std::optional<SmallStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSmallStructAsync(const ::std::optional<SmallStruct>& p1, ::std::function<void(::std::optional<::Test::SmallStruct>, ::std::optional<::Test::SmallStruct>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -358,7 +358,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<FixedStruct>, ::std::optional<FixedStruct>>> opFixedStructAsync(const ::std::optional<FixedStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opFixedStructAsync(const ::std::optional<FixedStruct>& p1, ::std::function<void(::std::optional<::Test::FixedStruct>, ::std::optional<::Test::FixedStruct>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -369,7 +369,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<VarStruct>, ::std::optional<VarStruct>>> opVarStructAsync(const ::std::optional<VarStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opVarStructAsync(const ::std::optional<VarStruct>& p1, ::std::function<void(::std::optional<::Test::VarStruct>, ::std::optional<::Test::VarStruct>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -380,7 +380,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<MyInterfacePrx>, ::std::optional<MyInterfacePrx>>> opMyInterfaceProxyAsync(const ::std::optional<MyInterfacePrx>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opMyInterfaceProxyAsync(const ::std::optional<MyInterfacePrx>& p1, ::std::function<void(::std::optional<::Test::MyInterfacePrx>, ::std::optional<::Test::MyInterfacePrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -391,7 +391,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<OneOptionalPtr, OneOptionalPtr>> opOneOptionalAsync(const OneOptionalPtr& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOneOptionalAsync(const OneOptionalPtr& p1, ::std::function<void(::Test::OneOptionalPtr, ::Test::OneOptionalPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -402,7 +402,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>> opByteSeqAsync(const ::std::optional<ByteSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opByteSeqAsync(const ::std::optional<ByteSeq>& p1, ::std::function<void(::std::optional<::Test::ByteSeq>, ::std::optional<::Test::ByteSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -413,7 +413,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>> opBoolSeqAsync(const ::std::optional<BoolSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opBoolSeqAsync(const ::std::optional<BoolSeq>& p1, ::std::function<void(::std::optional<::Test::BoolSeq>, ::std::optional<::Test::BoolSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -424,7 +424,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>> opShortSeqAsync(const ::std::optional<ShortSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opShortSeqAsync(const ::std::optional<ShortSeq>& p1, ::std::function<void(::std::optional<::Test::ShortSeq>, ::std::optional<::Test::ShortSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -435,7 +435,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>> opIntSeqAsync(const ::std::optional<IntSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opIntSeqAsync(const ::std::optional<IntSeq>& p1, ::std::function<void(::std::optional<::Test::IntSeq>, ::std::optional<::Test::IntSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -446,7 +446,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>> opLongSeqAsync(const ::std::optional<LongSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLongSeqAsync(const ::std::optional<LongSeq>& p1, ::std::function<void(::std::optional<::Test::LongSeq>, ::std::optional<::Test::LongSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -457,7 +457,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>> opFloatSeqAsync(const ::std::optional<FloatSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opFloatSeqAsync(const ::std::optional<FloatSeq>& p1, ::std::function<void(::std::optional<::Test::FloatSeq>, ::std::optional<::Test::FloatSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -468,7 +468,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>> opDoubleSeqAsync(const ::std::optional<DoubleSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opDoubleSeqAsync(const ::std::optional<DoubleSeq>& p1, ::std::function<void(::std::optional<::Test::DoubleSeq>, ::std::optional<::Test::DoubleSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -479,7 +479,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>> opStringSeqAsync(const ::std::optional<StringSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opStringSeqAsync(const ::std::optional<StringSeq>& p1, ::std::function<void(::std::optional<::Test::StringSeq>, ::std::optional<::Test::StringSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -490,7 +490,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>> opSmallStructSeqAsync(const ::std::optional<SmallStructSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSmallStructSeqAsync(const ::std::optional<SmallStructSeq>& p1, ::std::function<void(::std::optional<::Test::SmallStructSeq>, ::std::optional<::Test::SmallStructSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -501,7 +501,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>> opSmallStructListAsync(const ::std::optional<SmallStructList>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSmallStructListAsync(const ::std::optional<SmallStructList>& p1, ::std::function<void(::std::optional<::Test::SmallStructList>, ::std::optional<::Test::SmallStructList>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -512,7 +512,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>> opFixedStructSeqAsync(const ::std::optional<FixedStructSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opFixedStructSeqAsync(const ::std::optional<FixedStructSeq>& p1, ::std::function<void(::std::optional<::Test::FixedStructSeq>, ::std::optional<::Test::FixedStructSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -523,7 +523,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>> opFixedStructListAsync(const ::std::optional<FixedStructList>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opFixedStructListAsync(const ::std::optional<FixedStructList>& p1, ::std::function<void(::std::optional<::Test::FixedStructList>, ::std::optional<::Test::FixedStructList>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -534,7 +534,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<VarStructSeq>, ::std::optional<VarStructSeq>>> opVarStructSeqAsync(const ::std::optional<VarStructSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opVarStructSeqAsync(const ::std::optional<VarStructSeq>& p1, ::std::function<void(::std::optional<::Test::VarStructSeq>, ::std::optional<::Test::VarStructSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -545,7 +545,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<IntIntDict>, ::std::optional<IntIntDict>>> opIntIntDictAsync(const ::std::optional<IntIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opIntIntDictAsync(const ::std::optional<IntIntDict>& p1, ::std::function<void(::std::optional<::Test::IntIntDict>, ::std::optional<::Test::IntIntDict>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -556,7 +556,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<StringIntDict>, ::std::optional<StringIntDict>>> opStringIntDictAsync(const ::std::optional<StringIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opStringIntDictAsync(const ::std::optional<StringIntDict>& p1, ::std::function<void(::std::optional<::Test::StringIntDict>, ::std::optional<::Test::StringIntDict>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -567,7 +567,7 @@ public:
 
     [[nodiscard]] ::std::future<void> opClassAndUnknownOptionalAsync(const APtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opClassAndUnknownOptionalAsync(const APtr& p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -578,7 +578,7 @@ public:
 
     [[nodiscard]] ::std::future<GPtr> opGAsync(const GPtr& g, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opGAsync(const GPtr& g, ::std::function<void(::Test::GPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -589,7 +589,7 @@ public:
 
     [[nodiscard]] ::std::future<void> opVoidAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opVoidAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -600,7 +600,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::optional<SmallStruct>> opMStruct1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opMStruct1Async(::std::function<void(::std::optional<::Test::SmallStruct>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -611,7 +611,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<SmallStruct>, ::std::optional<SmallStruct>>> opMStruct2Async(const ::std::optional<SmallStruct>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opMStruct2Async(const ::std::optional<SmallStruct>& p1, ::std::function<void(::std::optional<::Test::SmallStruct>, ::std::optional<::Test::SmallStruct>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -622,7 +622,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::optional<StringSeq>> opMSeq1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opMSeq1Async(::std::function<void(::std::optional<::Test::StringSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -633,7 +633,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>> opMSeq2Async(const ::std::optional<StringSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opMSeq2Async(const ::std::optional<StringSeq>& p1, ::std::function<void(::std::optional<::Test::StringSeq>, ::std::optional<::Test::StringSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -644,7 +644,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::optional<StringIntDict>> opMDict1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opMDict1Async(::std::function<void(::std::optional<::Test::StringIntDict>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -655,7 +655,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<StringIntDict>, ::std::optional<StringIntDict>>> opMDict2Async(const ::std::optional<StringIntDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opMDict2Async(const ::std::optional<StringIntDict>& p1, ::std::function<void(::std::optional<::Test::StringIntDict>, ::std::optional<::Test::StringIntDict>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -666,7 +666,7 @@ public:
 
     [[nodiscard]] ::std::future<bool> supportsJavaSerializableAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     supportsJavaSerializableAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL

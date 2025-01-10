@@ -63,7 +63,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     foundObjectByIdAsync(const ::Ice::Identity& id, const ::std::optional<::Ice::ObjectPrx>& prx, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -97,7 +97,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     foundAdapterByIdAsync(::std::string_view id, const ::std::optional<::Ice::ObjectPrx>& prx, bool isReplicaGroup, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -186,7 +186,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     findObjectByIdAsync(::std::string_view domainId, const ::Ice::Identity& id, const ::std::optional<LookupReplyPrx>& reply, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -223,7 +223,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     findAdapterByIdAsync(::std::string_view domainId, ::std::string_view id, const ::std::optional<LookupReplyPrx>& reply, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL

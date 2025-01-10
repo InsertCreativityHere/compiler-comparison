@@ -79,7 +79,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::int32_t> caseAsync(::std::int32_t _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     caseAsync(::std::int32_t _cpp_catch, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -141,7 +141,7 @@ public:
 
     [[nodiscard]] ::std::future<void> publicAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     publicAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -263,7 +263,7 @@ public:
 
     [[nodiscard]] ::std::future<guard> gotoAsync(_cpp_continue _cpp_if, const guard& d, const defer& _cpp_inline, const switchPtr& _cpp_private, const ::std::optional<doPrx>& _cpp_mutable, const ::std::optional<breakPrx>& _cpp_namespace, const ::std::optional<funcPrx>& _cpp_new, const switchPtr& _cpp_not, const ::std::optional<doPrx>& _cpp_operator, ::std::int32_t _cpp_or, ::std::int32_t _cpp_protected, ::std::int32_t _cpp_public, ::std::int32_t _cpp_register, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     gotoAsync(_cpp_continue _cpp_if, const guard& d, const defer& _cpp_inline, const switchPtr& _cpp_private, const ::std::optional<doPrx>& _cpp_mutable, const ::std::optional<breakPrx>& _cpp_namespace, const ::std::optional<funcPrx>& _cpp_new, const switchPtr& _cpp_not, const ::std::optional<doPrx>& _cpp_operator, ::std::int32_t _cpp_or, ::std::int32_t _cpp_protected, ::std::int32_t _cpp_public, ::std::int32_t _cpp_register, ::std::function<void(::_cpp_and::guard)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL

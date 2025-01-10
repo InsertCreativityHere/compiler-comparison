@@ -98,7 +98,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ASeq, ASeq>> opASeqAsync(const ASeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opASeqAsync(const ASeq& inSeq, ::std::function<void(::Test::ASeq, ::Test::ASeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -109,7 +109,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AArray, AArray>> opAArrayAsync(const AArray& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAArrayAsync(const AArray& inSeq, ::std::function<void(::Test::AArray, ::Test::AArray)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -120,7 +120,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AList, AList>> opAListAsync(const AList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAListAsync(const AList& inSeq, ::std::function<void(::Test::AList, ::Test::AList)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -131,7 +131,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolSeqAsync(const BoolSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opBoolSeqAsync(const BoolSeq& inSeq, ::std::function<void(::Test::BoolSeq, ::Test::BoolSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -142,7 +142,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ByteSeq, ByteSeq>> opByteSeqAsync(const ByteSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opByteSeqAsync(const ByteSeq& inSeq, ::std::function<void(::Test::ByteSeq, ::Test::ByteSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -153,7 +153,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ShortSeq, ShortSeq>> opShortSeqAsync(const ShortSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opShortSeqAsync(const ShortSeq& inSeq, ::std::function<void(::Test::ShortSeq, ::Test::ShortSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -164,7 +164,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<IntSeq, IntSeq>> opIntSeqAsync(const IntSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opIntSeqAsync(const IntSeq& inSeq, ::std::function<void(::Test::IntSeq, ::Test::IntSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -175,7 +175,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LongSeq, LongSeq>> opLongSeqAsync(const LongSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLongSeqAsync(const LongSeq& inSeq, ::std::function<void(::Test::LongSeq, ::Test::LongSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -186,7 +186,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<FloatSeq, FloatSeq>> opFloatSeqAsync(const FloatSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opFloatSeqAsync(const FloatSeq& inSeq, ::std::function<void(::Test::FloatSeq, ::Test::FloatSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -197,7 +197,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<DoubleSeq, DoubleSeq>> opDoubleSeqAsync(const DoubleSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opDoubleSeqAsync(const DoubleSeq& inSeq, ::std::function<void(::Test::DoubleSeq, ::Test::DoubleSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -208,7 +208,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<StringSeq, StringSeq>> opStringSeqAsync(const StringSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opStringSeqAsync(const StringSeq& inSeq, ::std::function<void(::Test::StringSeq, ::Test::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -219,7 +219,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ESeq, ESeq>> opESeqAsync(const ESeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opESeqAsync(const ESeq& inSeq, ::std::function<void(::Test::ESeq, ::Test::ESeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -230,7 +230,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSSeqAsync(const SSeq& inSeq, ::std::function<void(::Test::SSeq, ::Test::SSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -241,7 +241,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<DSeq, DSeq>> opDSeqAsync(const DSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opDSeqAsync(const DSeq& inSeq, ::std::function<void(::Test::DSeq, ::Test::DSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -252,7 +252,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<StringSeqSeq, StringSeqSeq>> opStringSeqSeqAsync(const StringSeqSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opStringSeqSeqAsync(const StringSeqSeq& inSeq, ::std::function<void(::Test::StringSeqSeq, ::Test::StringSeqSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -263,7 +263,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ByteBuffer, ByteBuffer>> opByteBufferSeqAsync(const ByteBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opByteBufferSeqAsync(const ByteBuffer& inSeq, ::std::function<void(::Test::ByteBuffer, ::Test::ByteBuffer)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -274,7 +274,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ShortBuffer, ShortBuffer>> opShortBufferSeqAsync(const ShortBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opShortBufferSeqAsync(const ShortBuffer& inSeq, ::std::function<void(::Test::ShortBuffer, ::Test::ShortBuffer)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -285,7 +285,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<IntBuffer, IntBuffer>> opIntBufferSeqAsync(const IntBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opIntBufferSeqAsync(const IntBuffer& inSeq, ::std::function<void(::Test::IntBuffer, ::Test::IntBuffer)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -296,7 +296,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LongBuffer, LongBuffer>> opLongBufferSeqAsync(const LongBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLongBufferSeqAsync(const LongBuffer& inSeq, ::std::function<void(::Test::LongBuffer, ::Test::LongBuffer)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -307,7 +307,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<FloatBuffer, FloatBuffer>> opFloatBufferSeqAsync(const FloatBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opFloatBufferSeqAsync(const FloatBuffer& inSeq, ::std::function<void(::Test::FloatBuffer, ::Test::FloatBuffer)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -318,7 +318,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<DoubleBuffer, DoubleBuffer>> opDoubleBufferSeqAsync(const DoubleBuffer& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opDoubleBufferSeqAsync(const DoubleBuffer& inSeq, ::std::function<void(::Test::DoubleBuffer, ::Test::DoubleBuffer)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -329,7 +329,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<ASeq>, ::std::optional<ASeq>>> opOptASeqAsync(const ::std::optional<ASeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptASeqAsync(const ::std::optional<ASeq>& inSeq, ::std::function<void(::std::optional<::Test::ASeq>, ::std::optional<::Test::ASeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -340,7 +340,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<AArray>, ::std::optional<AArray>>> opOptAArrayAsync(const ::std::optional<AArray>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptAArrayAsync(const ::std::optional<AArray>& inSeq, ::std::function<void(::std::optional<::Test::AArray>, ::std::optional<::Test::AArray>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -351,7 +351,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<AList>, ::std::optional<AList>>> opOptAListAsync(const ::std::optional<AList>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptAListAsync(const ::std::optional<AList>& inSeq, ::std::function<void(::std::optional<::Test::AList>, ::std::optional<::Test::AList>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -362,7 +362,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>> opOptBoolSeqAsync(const ::std::optional<BoolSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptBoolSeqAsync(const ::std::optional<BoolSeq>& inSeq, ::std::function<void(::std::optional<::Test::BoolSeq>, ::std::optional<::Test::BoolSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -373,7 +373,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>> opOptByteSeqAsync(const ::std::optional<ByteSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptByteSeqAsync(const ::std::optional<ByteSeq>& inSeq, ::std::function<void(::std::optional<::Test::ByteSeq>, ::std::optional<::Test::ByteSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -384,7 +384,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>> opOptShortSeqAsync(const ::std::optional<ShortSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptShortSeqAsync(const ::std::optional<ShortSeq>& inSeq, ::std::function<void(::std::optional<::Test::ShortSeq>, ::std::optional<::Test::ShortSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -395,7 +395,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>> opOptIntSeqAsync(const ::std::optional<IntSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptIntSeqAsync(const ::std::optional<IntSeq>& inSeq, ::std::function<void(::std::optional<::Test::IntSeq>, ::std::optional<::Test::IntSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -406,7 +406,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>> opOptLongSeqAsync(const ::std::optional<LongSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptLongSeqAsync(const ::std::optional<LongSeq>& inSeq, ::std::function<void(::std::optional<::Test::LongSeq>, ::std::optional<::Test::LongSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -417,7 +417,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>> opOptFloatSeqAsync(const ::std::optional<FloatSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptFloatSeqAsync(const ::std::optional<FloatSeq>& inSeq, ::std::function<void(::std::optional<::Test::FloatSeq>, ::std::optional<::Test::FloatSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -428,7 +428,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>> opOptDoubleSeqAsync(const ::std::optional<DoubleSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptDoubleSeqAsync(const ::std::optional<DoubleSeq>& inSeq, ::std::function<void(::std::optional<::Test::DoubleSeq>, ::std::optional<::Test::DoubleSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -439,7 +439,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>> opOptStringSeqAsync(const ::std::optional<StringSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptStringSeqAsync(const ::std::optional<StringSeq>& inSeq, ::std::function<void(::std::optional<::Test::StringSeq>, ::std::optional<::Test::StringSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -450,7 +450,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<ESeq>, ::std::optional<ESeq>>> opOptESeqAsync(const ::std::optional<ESeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptESeqAsync(const ::std::optional<ESeq>& inSeq, ::std::function<void(::std::optional<::Test::ESeq>, ::std::optional<::Test::ESeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -461,7 +461,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<SSeq>, ::std::optional<SSeq>>> opOptSSeqAsync(const ::std::optional<SSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptSSeqAsync(const ::std::optional<SSeq>& inSeq, ::std::function<void(::std::optional<::Test::SSeq>, ::std::optional<::Test::SSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -472,7 +472,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<DSeq>, ::std::optional<DSeq>>> opOptDSeqAsync(const ::std::optional<DSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptDSeqAsync(const ::std::optional<DSeq>& inSeq, ::std::function<void(::std::optional<::Test::DSeq>, ::std::optional<::Test::DSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -483,7 +483,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<StringSeqSeq>, ::std::optional<StringSeqSeq>>> opOptStringSeqSeqAsync(const ::std::optional<StringSeqSeq>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptStringSeqSeqAsync(const ::std::optional<StringSeqSeq>& inSeq, ::std::function<void(::std::optional<::Test::StringSeqSeq>, ::std::optional<::Test::StringSeqSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -494,7 +494,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<ByteBuffer>, ::std::optional<ByteBuffer>>> opOptByteBufferSeqAsync(const ::std::optional<ByteBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptByteBufferSeqAsync(const ::std::optional<ByteBuffer>& inSeq, ::std::function<void(::std::optional<::Test::ByteBuffer>, ::std::optional<::Test::ByteBuffer>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -505,7 +505,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<ShortBuffer>, ::std::optional<ShortBuffer>>> opOptShortBufferSeqAsync(const ::std::optional<ShortBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptShortBufferSeqAsync(const ::std::optional<ShortBuffer>& inSeq, ::std::function<void(::std::optional<::Test::ShortBuffer>, ::std::optional<::Test::ShortBuffer>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -516,7 +516,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<IntBuffer>, ::std::optional<IntBuffer>>> opOptIntBufferSeqAsync(const ::std::optional<IntBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptIntBufferSeqAsync(const ::std::optional<IntBuffer>& inSeq, ::std::function<void(::std::optional<::Test::IntBuffer>, ::std::optional<::Test::IntBuffer>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -527,7 +527,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<LongBuffer>, ::std::optional<LongBuffer>>> opOptLongBufferSeqAsync(const ::std::optional<LongBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptLongBufferSeqAsync(const ::std::optional<LongBuffer>& inSeq, ::std::function<void(::std::optional<::Test::LongBuffer>, ::std::optional<::Test::LongBuffer>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -538,7 +538,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<FloatBuffer>, ::std::optional<FloatBuffer>>> opOptFloatBufferSeqAsync(const ::std::optional<FloatBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptFloatBufferSeqAsync(const ::std::optional<FloatBuffer>& inSeq, ::std::function<void(::std::optional<::Test::FloatBuffer>, ::std::optional<::Test::FloatBuffer>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -549,7 +549,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<::std::optional<DoubleBuffer>, ::std::optional<DoubleBuffer>>> opOptDoubleBufferSeqAsync(const ::std::optional<DoubleBuffer>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opOptDoubleBufferSeqAsync(const ::std::optional<DoubleBuffer>& inSeq, ::std::function<void(::std::optional<::Test::DoubleBuffer>, ::std::optional<::Test::DoubleBuffer>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -560,7 +560,7 @@ public:
 
     [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL

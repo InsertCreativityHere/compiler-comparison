@@ -262,7 +262,7 @@ public:
 
     [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -273,7 +273,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AByteS, AByteS>> opAByteSAsync(const AByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAByteSAsync(const AByteS& i, ::std::function<void(::Test::AByteS, ::Test::AByteS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -284,7 +284,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LByteS, LByteS>> opLByteSAsync(const LByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLByteSAsync(const LByteS& i, ::std::function<void(::Test::LByteS, ::Test::LByteS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -295,7 +295,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KByteS, KByteS>> opKByteSAsync(const KByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKByteSAsync(const KByteS& i, ::std::function<void(::Test::KByteS, ::Test::KByteS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -306,7 +306,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QByteS, QByteS>> opQByteSAsync(const QByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQByteSAsync(const QByteS& i, ::std::function<void(::Test::QByteS, ::Test::QByteS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -317,7 +317,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SByteS, SByteS>> opSByteSAsync(const SByteS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSByteSAsync(const SByteS& i, ::std::function<void(::Test::SByteS, ::Test::SByteS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -328,7 +328,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ABoolS, ABoolS>> opABoolSAsync(const ABoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opABoolSAsync(const ABoolS& i, ::std::function<void(::Test::ABoolS, ::Test::ABoolS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -339,7 +339,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LBoolS, LBoolS>> opLBoolSAsync(const LBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLBoolSAsync(const LBoolS& i, ::std::function<void(::Test::LBoolS, ::Test::LBoolS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -350,7 +350,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KBoolS, KBoolS>> opKBoolSAsync(const KBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKBoolSAsync(const KBoolS& i, ::std::function<void(::Test::KBoolS, ::Test::KBoolS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -361,7 +361,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QBoolS, QBoolS>> opQBoolSAsync(const QBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQBoolSAsync(const QBoolS& i, ::std::function<void(::Test::QBoolS, ::Test::QBoolS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -372,7 +372,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SBoolS, SBoolS>> opSBoolSAsync(const SBoolS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSBoolSAsync(const SBoolS& i, ::std::function<void(::Test::SBoolS, ::Test::SBoolS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -383,7 +383,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AShortS, AShortS>> opAShortSAsync(const AShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAShortSAsync(const AShortS& i, ::std::function<void(::Test::AShortS, ::Test::AShortS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -394,7 +394,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LShortS, LShortS>> opLShortSAsync(const LShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLShortSAsync(const LShortS& i, ::std::function<void(::Test::LShortS, ::Test::LShortS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -405,7 +405,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KShortS, KShortS>> opKShortSAsync(const KShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKShortSAsync(const KShortS& i, ::std::function<void(::Test::KShortS, ::Test::KShortS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -416,7 +416,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QShortS, QShortS>> opQShortSAsync(const QShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQShortSAsync(const QShortS& i, ::std::function<void(::Test::QShortS, ::Test::QShortS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -427,7 +427,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SShortS, SShortS>> opSShortSAsync(const SShortS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSShortSAsync(const SShortS& i, ::std::function<void(::Test::SShortS, ::Test::SShortS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -438,7 +438,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AIntS, AIntS>> opAIntSAsync(const AIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAIntSAsync(const AIntS& i, ::std::function<void(::Test::AIntS, ::Test::AIntS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -449,7 +449,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LIntS, LIntS>> opLIntSAsync(const LIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLIntSAsync(const LIntS& i, ::std::function<void(::Test::LIntS, ::Test::LIntS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -460,7 +460,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KIntS, KIntS>> opKIntSAsync(const KIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKIntSAsync(const KIntS& i, ::std::function<void(::Test::KIntS, ::Test::KIntS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -471,7 +471,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QIntS, QIntS>> opQIntSAsync(const QIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQIntSAsync(const QIntS& i, ::std::function<void(::Test::QIntS, ::Test::QIntS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -482,7 +482,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SIntS, SIntS>> opSIntSAsync(const SIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSIntSAsync(const SIntS& i, ::std::function<void(::Test::SIntS, ::Test::SIntS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -493,7 +493,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ALongS, ALongS>> opALongSAsync(const ALongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opALongSAsync(const ALongS& i, ::std::function<void(::Test::ALongS, ::Test::ALongS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -504,7 +504,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LLongS, LLongS>> opLLongSAsync(const LLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLLongSAsync(const LLongS& i, ::std::function<void(::Test::LLongS, ::Test::LLongS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -515,7 +515,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KLongS, KLongS>> opKLongSAsync(const KLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKLongSAsync(const KLongS& i, ::std::function<void(::Test::KLongS, ::Test::KLongS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -526,7 +526,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QLongS, QLongS>> opQLongSAsync(const QLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQLongSAsync(const QLongS& i, ::std::function<void(::Test::QLongS, ::Test::QLongS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -537,7 +537,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SLongS, SLongS>> opSLongSAsync(const SLongS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSLongSAsync(const SLongS& i, ::std::function<void(::Test::SLongS, ::Test::SLongS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -548,7 +548,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AFloatS, AFloatS>> opAFloatSAsync(const AFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAFloatSAsync(const AFloatS& i, ::std::function<void(::Test::AFloatS, ::Test::AFloatS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -559,7 +559,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LFloatS, LFloatS>> opLFloatSAsync(const LFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLFloatSAsync(const LFloatS& i, ::std::function<void(::Test::LFloatS, ::Test::LFloatS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -570,7 +570,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KFloatS, KFloatS>> opKFloatSAsync(const KFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKFloatSAsync(const KFloatS& i, ::std::function<void(::Test::KFloatS, ::Test::KFloatS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -581,7 +581,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QFloatS, QFloatS>> opQFloatSAsync(const QFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQFloatSAsync(const QFloatS& i, ::std::function<void(::Test::QFloatS, ::Test::QFloatS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -592,7 +592,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SFloatS, SFloatS>> opSFloatSAsync(const SFloatS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSFloatSAsync(const SFloatS& i, ::std::function<void(::Test::SFloatS, ::Test::SFloatS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -603,7 +603,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ADoubleS, ADoubleS>> opADoubleSAsync(const ADoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opADoubleSAsync(const ADoubleS& i, ::std::function<void(::Test::ADoubleS, ::Test::ADoubleS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -614,7 +614,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LDoubleS, LDoubleS>> opLDoubleSAsync(const LDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLDoubleSAsync(const LDoubleS& i, ::std::function<void(::Test::LDoubleS, ::Test::LDoubleS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -625,7 +625,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KDoubleS, KDoubleS>> opKDoubleSAsync(const KDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKDoubleSAsync(const KDoubleS& i, ::std::function<void(::Test::KDoubleS, ::Test::KDoubleS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -636,7 +636,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QDoubleS, QDoubleS>> opQDoubleSAsync(const QDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQDoubleSAsync(const QDoubleS& i, ::std::function<void(::Test::QDoubleS, ::Test::QDoubleS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -647,7 +647,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SDoubleS, SDoubleS>> opSDoubleSAsync(const SDoubleS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSDoubleSAsync(const SDoubleS& i, ::std::function<void(::Test::SDoubleS, ::Test::SDoubleS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -658,7 +658,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AStringS, AStringS>> opAStringSAsync(const AStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAStringSAsync(const AStringS& i, ::std::function<void(::Test::AStringS, ::Test::AStringS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -669,7 +669,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LStringS, LStringS>> opLStringSAsync(const LStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLStringSAsync(const LStringS& i, ::std::function<void(::Test::LStringS, ::Test::LStringS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -680,7 +680,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KStringS, KStringS>> opKStringSAsync(const KStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKStringSAsync(const KStringS& i, ::std::function<void(::Test::KStringS, ::Test::KStringS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -691,7 +691,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QStringS, QStringS>> opQStringSAsync(const QStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQStringSAsync(const QStringS& i, ::std::function<void(::Test::QStringS, ::Test::QStringS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -702,7 +702,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SStringS, SStringS>> opSStringSAsync(const SStringS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSStringSAsync(const SStringS& i, ::std::function<void(::Test::SStringS, ::Test::SStringS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -713,7 +713,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AObjectS, AObjectS>> opAObjectSAsync(const AObjectS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAObjectSAsync(const AObjectS& i, ::std::function<void(::Test::AObjectS, ::Test::AObjectS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -724,7 +724,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LObjectS, LObjectS>> opLObjectSAsync(const LObjectS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLObjectSAsync(const LObjectS& i, ::std::function<void(::Test::LObjectS, ::Test::LObjectS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -735,7 +735,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AObjectPrxS, AObjectPrxS>> opAObjectPrxSAsync(const AObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAObjectPrxSAsync(const AObjectPrxS& i, ::std::function<void(::Test::AObjectPrxS, ::Test::AObjectPrxS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -746,7 +746,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LObjectPrxS, LObjectPrxS>> opLObjectPrxSAsync(const LObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLObjectPrxSAsync(const LObjectPrxS& i, ::std::function<void(::Test::LObjectPrxS, ::Test::LObjectPrxS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -757,7 +757,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KObjectPrxS, KObjectPrxS>> opKObjectPrxSAsync(const KObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKObjectPrxSAsync(const KObjectPrxS& i, ::std::function<void(::Test::KObjectPrxS, ::Test::KObjectPrxS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -768,7 +768,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QObjectPrxS, QObjectPrxS>> opQObjectPrxSAsync(const QObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQObjectPrxSAsync(const QObjectPrxS& i, ::std::function<void(::Test::QObjectPrxS, ::Test::QObjectPrxS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -779,7 +779,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SObjectPrxS, SObjectPrxS>> opSObjectPrxSAsync(const SObjectPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSObjectPrxSAsync(const SObjectPrxS& i, ::std::function<void(::Test::SObjectPrxS, ::Test::SObjectPrxS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -790,7 +790,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AStructS, AStructS>> opAStructSAsync(const AStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAStructSAsync(const AStructS& i, ::std::function<void(::Test::AStructS, ::Test::AStructS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -801,7 +801,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LStructS, LStructS>> opLStructSAsync(const LStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLStructSAsync(const LStructS& i, ::std::function<void(::Test::LStructS, ::Test::LStructS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -812,7 +812,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KStructS, KStructS>> opKStructSAsync(const KStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKStructSAsync(const KStructS& i, ::std::function<void(::Test::KStructS, ::Test::KStructS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -823,7 +823,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QStructS, QStructS>> opQStructSAsync(const QStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQStructSAsync(const QStructS& i, ::std::function<void(::Test::QStructS, ::Test::QStructS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -834,7 +834,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SStructS, SStructS>> opSStructSAsync(const SStructS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSStructSAsync(const SStructS& i, ::std::function<void(::Test::SStructS, ::Test::SStructS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -845,7 +845,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AStructSD, AStructSD>> opAStructSDAsync(const AStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAStructSDAsync(const AStructSD& i, ::std::function<void(::Test::AStructSD, ::Test::AStructSD)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -856,7 +856,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LStructSD, LStructSD>> opLStructSDAsync(const LStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLStructSDAsync(const LStructSD& i, ::std::function<void(::Test::LStructSD, ::Test::LStructSD)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -867,7 +867,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KStructSD, KStructSD>> opKStructSDAsync(const KStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKStructSDAsync(const KStructSD& i, ::std::function<void(::Test::KStructSD, ::Test::KStructSD)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -878,7 +878,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QStructSD, QStructSD>> opQStructSDAsync(const QStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQStructSDAsync(const QStructSD& i, ::std::function<void(::Test::QStructSD, ::Test::QStructSD)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -889,7 +889,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SStructSD, SStructSD>> opSStructSDAsync(const SStructSD& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSStructSDAsync(const SStructSD& i, ::std::function<void(::Test::SStructSD, ::Test::SStructSD)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -900,7 +900,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ACVS, ACVS>> opACVSAsync(const ACVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opACVSAsync(const ACVS& i, ::std::function<void(::Test::ACVS, ::Test::ACVS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -911,7 +911,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LCVS, LCVS>> opLCVSAsync(const LCVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLCVSAsync(const LCVS& i, ::std::function<void(::Test::LCVS, ::Test::LCVS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -922,7 +922,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ACRS, ACRS>> opACRSAsync(const ACRS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opACRSAsync(const ACRS& i, ::std::function<void(::Test::ACRS, ::Test::ACRS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -933,7 +933,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LCRS, LCRS>> opLCRSAsync(const LCRS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLCRSAsync(const LCRS& i, ::std::function<void(::Test::LCRS, ::Test::LCRS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -944,7 +944,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AEnS, AEnS>> opAEnSAsync(const AEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAEnSAsync(const AEnS& i, ::std::function<void(::Test::AEnS, ::Test::AEnS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -955,7 +955,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LEnS, LEnS>> opLEnSAsync(const LEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLEnSAsync(const LEnS& i, ::std::function<void(::Test::LEnS, ::Test::LEnS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -966,7 +966,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KEnS, KEnS>> opKEnSAsync(const KEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKEnSAsync(const KEnS& i, ::std::function<void(::Test::KEnS, ::Test::KEnS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -977,7 +977,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QEnS, QEnS>> opQEnSAsync(const QEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQEnSAsync(const QEnS& i, ::std::function<void(::Test::QEnS, ::Test::QEnS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -988,7 +988,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SEnS, SEnS>> opSEnSAsync(const SEnS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSEnSAsync(const SEnS& i, ::std::function<void(::Test::SEnS, ::Test::SEnS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -999,7 +999,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<AIPrxS, AIPrxS>> opAIPrxSAsync(const AIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opAIPrxSAsync(const AIPrxS& i, ::std::function<void(::Test::AIPrxS, ::Test::AIPrxS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -1010,7 +1010,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LIPrxS, LIPrxS>> opLIPrxSAsync(const LIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opLIPrxSAsync(const LIPrxS& i, ::std::function<void(::Test::LIPrxS, ::Test::LIPrxS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -1021,7 +1021,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<KIPrxS, KIPrxS>> opKIPrxSAsync(const KIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opKIPrxSAsync(const KIPrxS& i, ::std::function<void(::Test::KIPrxS, ::Test::KIPrxS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -1032,7 +1032,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<QIPrxS, QIPrxS>> opQIPrxSAsync(const QIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opQIPrxSAsync(const QIPrxS& i, ::std::function<void(::Test::QIPrxS, ::Test::QIPrxS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -1043,7 +1043,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SIPrxS, SIPrxS>> opSIPrxSAsync(const SIPrxS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opSIPrxSAsync(const SIPrxS& i, ::std::function<void(::Test::SIPrxS, ::Test::SIPrxS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -1054,7 +1054,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<CustomIntS, CustomIntS>> opCustomIntSAsync(const CustomIntS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opCustomIntSAsync(const CustomIntS& i, ::std::function<void(::Test::CustomIntS, ::Test::CustomIntS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -1065,7 +1065,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<CustomCVS, CustomCVS>> opCustomCVSAsync(const CustomCVS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opCustomCVSAsync(const CustomCVS& i, ::std::function<void(::Test::CustomCVS, ::Test::CustomCVS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -1076,7 +1076,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<CustomIntSS, CustomIntSS>> opCustomIntSSAsync(const CustomIntSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opCustomIntSSAsync(const CustomIntSS& i, ::std::function<void(::Test::CustomIntSS, ::Test::CustomIntSS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -1087,7 +1087,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<CustomCVSS, CustomCVSS>> opCustomCVSSAsync(const CustomCVSS& i, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     opCustomCVSSAsync(const CustomCVSS& i, ::std::function<void(::Test::CustomCVSS, ::Test::CustomCVSS)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL

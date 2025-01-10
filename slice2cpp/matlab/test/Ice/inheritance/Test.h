@@ -77,7 +77,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::optional<IAPrx>> iaopAsync(const ::std::optional<IAPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     iaopAsync(const ::std::optional<IAPrx>& p, ::std::function<void(::std::optional<::Test::MA::IAPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -149,7 +149,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::optional<IB1Prx>> ib1opAsync(const ::std::optional<IB1Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     ib1opAsync(const ::std::optional<IB1Prx>& p, ::std::function<void(::std::optional<::Test::MB::IB1Prx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -220,7 +220,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::optional<IB2Prx>> ib2opAsync(const ::std::optional<IB2Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     ib2opAsync(const ::std::optional<IB2Prx>& p, ::std::function<void(::std::optional<::Test::MB::IB2Prx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -301,7 +301,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::optional<ICPrx>> icopAsync(const ::std::optional<ICPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     icopAsync(const ::std::optional<ICPrx>& p, ::std::function<void(::std::optional<::Test::MA::ICPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -379,7 +379,7 @@ public:
 
     [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -390,7 +390,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::optional<::Test::MA::IAPrx>> iaopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     iaopAsync(::std::function<void(::std::optional<::Test::MA::IAPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -401,7 +401,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::optional<::Test::MB::IB1Prx>> ib1opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     ib1opAsync(::std::function<void(::std::optional<::Test::MB::IB1Prx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -412,7 +412,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::optional<::Test::MB::IB2Prx>> ib2opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     ib2opAsync(::std::function<void(::std::optional<::Test::MB::IB2Prx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -423,7 +423,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::optional<::Test::MA::ICPrx>> icopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()>
+    ::std::function<void()> // NOLINT:modernize-use-nodiscard
     icopAsync(::std::function<void(::std::optional<::Test::MA::ICPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
