@@ -56,18 +56,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    DelayedTestIntfPrx(const DelayedTestIntfPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    DelayedTestIntfPrx(DelayedTestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    DelayedTestIntfPrx(const DelayedTestIntfPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    DelayedTestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    DelayedTestIntfPrx(DelayedTestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    DelayedTestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     DelayedTestIntfPrx& operator=(const DelayedTestIntfPrx& rhs) noexcept
     {
@@ -82,19 +76,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static DelayedTestIntfPrx _fromReference(::IceInternal::ReferencePtr ref) { return DelayedTestIntfPrx(::std::move(ref)); }
+    static DelayedTestIntfPrx _fromReference(::IceInternal::ReferencePtr ref) { return DelayedTestIntfPrx(std::move(ref)); }
 
 protected:
 
     DelayedTestIntfPrx() = default;
 
-    explicit DelayedTestIntfPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit DelayedTestIntfPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -123,18 +117,12 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-    TestIntfPrx(const TestIntfPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    TestIntfPrx(TestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    TestIntfPrx(const TestIntfPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    TestIntfPrx(TestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
     {
@@ -149,19 +137,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static TestIntfPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestIntfPrx(::std::move(ref)); }
+    static TestIntfPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestIntfPrx(std::move(ref)); }
 
 protected:
 
     TestIntfPrx() = default;
 
-    explicit TestIntfPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit TestIntfPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -189,18 +177,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    TestIntfBidirPrx(const TestIntfBidirPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    TestIntfBidirPrx(TestIntfBidirPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    TestIntfBidirPrx(const TestIntfBidirPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    TestIntfBidirPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    TestIntfBidirPrx(TestIntfBidirPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    TestIntfBidirPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     TestIntfBidirPrx& operator=(const TestIntfBidirPrx& rhs) noexcept
     {
@@ -215,19 +197,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static TestIntfBidirPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestIntfBidirPrx(::std::move(ref)); }
+    static TestIntfBidirPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestIntfBidirPrx(std::move(ref)); }
 
 protected:
 
     TestIntfBidirPrx() = default;
 
-    explicit TestIntfBidirPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit TestIntfBidirPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

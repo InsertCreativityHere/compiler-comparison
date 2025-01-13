@@ -56,18 +56,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    RegistryPrx(const RegistryPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    RegistryPrx(RegistryPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    RegistryPrx(const RegistryPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    RegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    RegistryPrx(RegistryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    RegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     RegistryPrx& operator=(const RegistryPrx& rhs) noexcept
     {
@@ -82,19 +76,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static RegistryPrx _fromReference(::IceInternal::ReferencePtr ref) { return RegistryPrx(::std::move(ref)); }
+    static RegistryPrx _fromReference(::IceInternal::ReferencePtr ref) { return RegistryPrx(std::move(ref)); }
 
 protected:
 
     RegistryPrx() = default;
 
-    explicit RegistryPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit RegistryPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

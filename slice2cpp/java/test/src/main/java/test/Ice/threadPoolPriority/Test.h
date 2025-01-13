@@ -63,18 +63,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    PriorityPrx(const PriorityPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    PriorityPrx(PriorityPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    PriorityPrx(const PriorityPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    PriorityPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    PriorityPrx(PriorityPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    PriorityPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     PriorityPrx& operator=(const PriorityPrx& rhs) noexcept
     {
@@ -89,19 +83,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static PriorityPrx _fromReference(::IceInternal::ReferencePtr ref) { return PriorityPrx(::std::move(ref)); }
+    static PriorityPrx _fromReference(::IceInternal::ReferencePtr ref) { return PriorityPrx(std::move(ref)); }
 
 protected:
 
     PriorityPrx() = default;
 
-    explicit PriorityPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit PriorityPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

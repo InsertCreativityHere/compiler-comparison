@@ -96,18 +96,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    catchPrx(const catchPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    catchPrx(catchPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    catchPrx(const catchPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    catchPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    catchPrx(catchPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    catchPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     catchPrx& operator=(const catchPrx& rhs) noexcept
     {
@@ -122,19 +116,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static catchPrx _fromReference(::IceInternal::ReferencePtr ref) { return catchPrx(::std::move(ref)); }
+    static catchPrx _fromReference(::IceInternal::ReferencePtr ref) { return catchPrx(std::move(ref)); }
 
 protected:
 
     catchPrx() = default;
 
-    explicit catchPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit catchPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -158,18 +152,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    defaultPrx(const defaultPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    defaultPrx(defaultPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    defaultPrx(const defaultPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    defaultPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    defaultPrx(defaultPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    defaultPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     defaultPrx& operator=(const defaultPrx& rhs) noexcept
     {
@@ -184,19 +172,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static defaultPrx _fromReference(::IceInternal::ReferencePtr ref) { return defaultPrx(::std::move(ref)); }
+    static defaultPrx _fromReference(::IceInternal::ReferencePtr ref) { return defaultPrx(std::move(ref)); }
 
 protected:
 
     defaultPrx() = default;
 
-    explicit defaultPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit defaultPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -214,18 +202,12 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-    finalizePrx(const finalizePrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    finalizePrx(finalizePrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    finalizePrx(const finalizePrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    finalizePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    finalizePrx(finalizePrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    finalizePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     finalizePrx& operator=(const finalizePrx& rhs) noexcept
     {
@@ -240,19 +222,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static finalizePrx _fromReference(::IceInternal::ReferencePtr ref) { return finalizePrx(::std::move(ref)); }
+    static finalizePrx _fromReference(::IceInternal::ReferencePtr ref) { return finalizePrx(std::move(ref)); }
 
 protected:
 
     finalizePrx() = default;
 
-    explicit finalizePrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit finalizePrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -280,18 +262,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    newPrx(const newPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    newPrx(newPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    newPrx(const newPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    newPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    newPrx(newPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    newPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     newPrx& operator=(const newPrx& rhs) noexcept
     {
@@ -306,19 +282,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static newPrx _fromReference(::IceInternal::ReferencePtr ref) { return newPrx(::std::move(ref)); }
+    static newPrx _fromReference(::IceInternal::ReferencePtr ref) { return newPrx(std::move(ref)); }
 
 protected:
 
     newPrx() = default;
 
-    explicit newPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit newPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

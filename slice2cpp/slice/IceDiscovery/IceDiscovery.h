@@ -107,18 +107,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    LookupReplyPrx(const LookupReplyPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    LookupReplyPrx(LookupReplyPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    LookupReplyPrx(const LookupReplyPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    LookupReplyPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    LookupReplyPrx(LookupReplyPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    LookupReplyPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     LookupReplyPrx& operator=(const LookupReplyPrx& rhs) noexcept
     {
@@ -133,19 +127,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static LookupReplyPrx _fromReference(::IceInternal::ReferencePtr ref) { return LookupReplyPrx(::std::move(ref)); }
+    static LookupReplyPrx _fromReference(::IceInternal::ReferencePtr ref) { return LookupReplyPrx(std::move(ref)); }
 
 protected:
 
     LookupReplyPrx() = default;
 
-    explicit LookupReplyPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit LookupReplyPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -233,18 +227,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    LookupPrx(const LookupPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    LookupPrx(LookupPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    LookupPrx(const LookupPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    LookupPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    LookupPrx(LookupPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    LookupPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     LookupPrx& operator=(const LookupPrx& rhs) noexcept
     {
@@ -259,19 +247,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static LookupPrx _fromReference(::IceInternal::ReferencePtr ref) { return LookupPrx(::std::move(ref)); }
+    static LookupPrx _fromReference(::IceInternal::ReferencePtr ref) { return LookupPrx(std::move(ref)); }
 
 protected:
 
     LookupPrx() = default;
 
-    explicit LookupPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit LookupPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

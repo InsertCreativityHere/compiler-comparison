@@ -77,18 +77,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    BackendPrx(const BackendPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    BackendPrx(BackendPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    BackendPrx(const BackendPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    BackendPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    BackendPrx(BackendPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    BackendPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     BackendPrx& operator=(const BackendPrx& rhs) noexcept
     {
@@ -103,19 +97,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static BackendPrx _fromReference(::IceInternal::ReferencePtr ref) { return BackendPrx(::std::move(ref)); }
+    static BackendPrx _fromReference(::IceInternal::ReferencePtr ref) { return BackendPrx(std::move(ref)); }
 
 protected:
 
     BackendPrx() = default;
 
-    explicit BackendPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit BackendPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -150,18 +144,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    TestControllerPrx(const TestControllerPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    TestControllerPrx(TestControllerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    TestControllerPrx(const TestControllerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    TestControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    TestControllerPrx(TestControllerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    TestControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     TestControllerPrx& operator=(const TestControllerPrx& rhs) noexcept
     {
@@ -176,19 +164,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static TestControllerPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestControllerPrx(::std::move(ref)); }
+    static TestControllerPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestControllerPrx(std::move(ref)); }
 
 protected:
 
     TestControllerPrx() = default;
 
-    explicit TestControllerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit TestControllerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -217,18 +205,12 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-    TestSessionPrx(const TestSessionPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    TestSessionPrx(TestSessionPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    TestSessionPrx(const TestSessionPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    TestSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    TestSessionPrx(TestSessionPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    TestSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     TestSessionPrx& operator=(const TestSessionPrx& rhs) noexcept
     {
@@ -243,19 +225,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static TestSessionPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestSessionPrx(::std::move(ref)); }
+    static TestSessionPrx _fromReference(::IceInternal::ReferencePtr ref) { return TestSessionPrx(std::move(ref)); }
 
 protected:
 
     TestSessionPrx() = default;
 
-    explicit TestSessionPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit TestSessionPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

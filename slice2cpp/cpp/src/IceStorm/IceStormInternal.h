@@ -82,18 +82,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    TopicLinkPrx(const TopicLinkPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    TopicLinkPrx(TopicLinkPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    TopicLinkPrx(const TopicLinkPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    TopicLinkPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    TopicLinkPrx(TopicLinkPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    TopicLinkPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     TopicLinkPrx& operator=(const TopicLinkPrx& rhs) noexcept
     {
@@ -108,19 +102,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static TopicLinkPrx _fromReference(::IceInternal::ReferencePtr ref) { return TopicLinkPrx(::std::move(ref)); }
+    static TopicLinkPrx _fromReference(::IceInternal::ReferencePtr ref) { return TopicLinkPrx(std::move(ref)); }
 
 protected:
 
     TopicLinkPrx() = default;
 
-    explicit TopicLinkPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit TopicLinkPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -189,18 +183,12 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-    TopicInternalPrx(const TopicInternalPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    TopicInternalPrx(TopicInternalPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    TopicInternalPrx(const TopicInternalPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    TopicInternalPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    TopicInternalPrx(TopicInternalPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    TopicInternalPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     TopicInternalPrx& operator=(const TopicInternalPrx& rhs) noexcept
     {
@@ -215,19 +203,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static TopicInternalPrx _fromReference(::IceInternal::ReferencePtr ref) { return TopicInternalPrx(::std::move(ref)); }
+    static TopicInternalPrx _fromReference(::IceInternal::ReferencePtr ref) { return TopicInternalPrx(std::move(ref)); }
 
 protected:
 
     TopicInternalPrx() = default;
 
-    explicit TopicInternalPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit TopicInternalPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -274,18 +262,12 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-    TopicManagerInternalPrx(const TopicManagerInternalPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    TopicManagerInternalPrx(TopicManagerInternalPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    TopicManagerInternalPrx(const TopicManagerInternalPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    TopicManagerInternalPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    TopicManagerInternalPrx(TopicManagerInternalPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    TopicManagerInternalPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     TopicManagerInternalPrx& operator=(const TopicManagerInternalPrx& rhs) noexcept
     {
@@ -300,19 +282,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static TopicManagerInternalPrx _fromReference(::IceInternal::ReferencePtr ref) { return TopicManagerInternalPrx(::std::move(ref)); }
+    static TopicManagerInternalPrx _fromReference(::IceInternal::ReferencePtr ref) { return TopicManagerInternalPrx(std::move(ref)); }
 
 protected:
 
     TopicManagerInternalPrx() = default;
 
-    explicit TopicManagerInternalPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit TopicManagerInternalPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

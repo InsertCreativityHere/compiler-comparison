@@ -87,18 +87,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    PermissionsVerifierPrx(const PermissionsVerifierPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    PermissionsVerifierPrx(PermissionsVerifierPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    PermissionsVerifierPrx(const PermissionsVerifierPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    PermissionsVerifierPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    PermissionsVerifierPrx(PermissionsVerifierPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    PermissionsVerifierPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     PermissionsVerifierPrx& operator=(const PermissionsVerifierPrx& rhs) noexcept
     {
@@ -113,19 +107,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static PermissionsVerifierPrx _fromReference(::IceInternal::ReferencePtr ref) { return PermissionsVerifierPrx(::std::move(ref)); }
+    static PermissionsVerifierPrx _fromReference(::IceInternal::ReferencePtr ref) { return PermissionsVerifierPrx(std::move(ref)); }
 
 protected:
 
     PermissionsVerifierPrx() = default;
 
-    explicit PermissionsVerifierPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit PermissionsVerifierPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -172,18 +166,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    SSLPermissionsVerifierPrx(const SSLPermissionsVerifierPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    SSLPermissionsVerifierPrx(SSLPermissionsVerifierPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    SSLPermissionsVerifierPrx(const SSLPermissionsVerifierPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    SSLPermissionsVerifierPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    SSLPermissionsVerifierPrx(SSLPermissionsVerifierPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    SSLPermissionsVerifierPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     SSLPermissionsVerifierPrx& operator=(const SSLPermissionsVerifierPrx& rhs) noexcept
     {
@@ -198,19 +186,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static SSLPermissionsVerifierPrx _fromReference(::IceInternal::ReferencePtr ref) { return SSLPermissionsVerifierPrx(::std::move(ref)); }
+    static SSLPermissionsVerifierPrx _fromReference(::IceInternal::ReferencePtr ref) { return SSLPermissionsVerifierPrx(std::move(ref)); }
 
 protected:
 
     SSLPermissionsVerifierPrx() = default;
 
-    explicit SSLPermissionsVerifierPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit SSLPermissionsVerifierPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

@@ -132,18 +132,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    PropertiesAdminPrx(const PropertiesAdminPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    PropertiesAdminPrx(PropertiesAdminPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    PropertiesAdminPrx(const PropertiesAdminPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    PropertiesAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    PropertiesAdminPrx(PropertiesAdminPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    PropertiesAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     PropertiesAdminPrx& operator=(const PropertiesAdminPrx& rhs) noexcept
     {
@@ -158,19 +152,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static PropertiesAdminPrx _fromReference(::IceInternal::ReferencePtr ref) { return PropertiesAdminPrx(::std::move(ref)); }
+    static PropertiesAdminPrx _fromReference(::IceInternal::ReferencePtr ref) { return PropertiesAdminPrx(std::move(ref)); }
 
 protected:
 
     PropertiesAdminPrx() = default;
 
-    explicit PropertiesAdminPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit PropertiesAdminPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

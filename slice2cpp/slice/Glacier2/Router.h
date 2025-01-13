@@ -292,18 +292,12 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-    RouterPrx(const RouterPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    RouterPrx(RouterPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    RouterPrx(const RouterPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    RouterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    RouterPrx(RouterPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    RouterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     RouterPrx& operator=(const RouterPrx& rhs) noexcept
     {
@@ -318,19 +312,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static RouterPrx _fromReference(::IceInternal::ReferencePtr ref) { return RouterPrx(::std::move(ref)); }
+    static RouterPrx _fromReference(::IceInternal::ReferencePtr ref) { return RouterPrx(std::move(ref)); }
 
 protected:
 
     RouterPrx() = default;
 
-    explicit RouterPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit RouterPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

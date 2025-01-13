@@ -87,18 +87,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    UserAccountMapperPrx(const UserAccountMapperPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    UserAccountMapperPrx(UserAccountMapperPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    UserAccountMapperPrx(const UserAccountMapperPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    UserAccountMapperPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    UserAccountMapperPrx(UserAccountMapperPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    UserAccountMapperPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     UserAccountMapperPrx& operator=(const UserAccountMapperPrx& rhs) noexcept
     {
@@ -113,19 +107,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static UserAccountMapperPrx _fromReference(::IceInternal::ReferencePtr ref) { return UserAccountMapperPrx(::std::move(ref)); }
+    static UserAccountMapperPrx _fromReference(::IceInternal::ReferencePtr ref) { return UserAccountMapperPrx(std::move(ref)); }
 
 protected:
 
     UserAccountMapperPrx() = default;
 
-    explicit UserAccountMapperPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit UserAccountMapperPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

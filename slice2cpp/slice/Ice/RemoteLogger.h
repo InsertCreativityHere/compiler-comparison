@@ -121,18 +121,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    RemoteLoggerPrx(const RemoteLoggerPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    RemoteLoggerPrx(RemoteLoggerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    RemoteLoggerPrx(const RemoteLoggerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    RemoteLoggerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    RemoteLoggerPrx(RemoteLoggerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    RemoteLoggerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     RemoteLoggerPrx& operator=(const RemoteLoggerPrx& rhs) noexcept
     {
@@ -147,19 +141,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static RemoteLoggerPrx _fromReference(::IceInternal::ReferencePtr ref) { return RemoteLoggerPrx(::std::move(ref)); }
+    static RemoteLoggerPrx _fromReference(::IceInternal::ReferencePtr ref) { return RemoteLoggerPrx(std::move(ref)); }
 
 protected:
 
     RemoteLoggerPrx() = default;
 
-    explicit RemoteLoggerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit RemoteLoggerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -296,18 +290,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    LoggerAdminPrx(const LoggerAdminPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    LoggerAdminPrx(LoggerAdminPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    LoggerAdminPrx(const LoggerAdminPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    LoggerAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    LoggerAdminPrx(LoggerAdminPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    LoggerAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     LoggerAdminPrx& operator=(const LoggerAdminPrx& rhs) noexcept
     {
@@ -322,19 +310,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static LoggerAdminPrx _fromReference(::IceInternal::ReferencePtr ref) { return LoggerAdminPrx(::std::move(ref)); }
+    static LoggerAdminPrx _fromReference(::IceInternal::ReferencePtr ref) { return LoggerAdminPrx(std::move(ref)); }
 
 protected:
 
     LoggerAdminPrx() = default;
 
-    explicit LoggerAdminPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit LoggerAdminPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

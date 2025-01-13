@@ -64,18 +64,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    Initial2Prx(const Initial2Prx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    Initial2Prx(Initial2Prx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    Initial2Prx(const Initial2Prx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    Initial2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    Initial2Prx(Initial2Prx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    Initial2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     Initial2Prx& operator=(const Initial2Prx& rhs) noexcept
     {
@@ -90,19 +84,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static Initial2Prx _fromReference(::IceInternal::ReferencePtr ref) { return Initial2Prx(::std::move(ref)); }
+    static Initial2Prx _fromReference(::IceInternal::ReferencePtr ref) { return Initial2Prx(std::move(ref)); }
 
 protected:
 
     Initial2Prx() = default;
 
-    explicit Initial2Prx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit Initial2Prx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

@@ -105,18 +105,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    ServiceObserverPrx(const ServiceObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    ServiceObserverPrx(ServiceObserverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    ServiceObserverPrx(const ServiceObserverPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    ServiceObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    ServiceObserverPrx(ServiceObserverPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    ServiceObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     ServiceObserverPrx& operator=(const ServiceObserverPrx& rhs) noexcept
     {
@@ -131,19 +125,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static ServiceObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return ServiceObserverPrx(::std::move(ref)); }
+    static ServiceObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return ServiceObserverPrx(std::move(ref)); }
 
 protected:
 
     ServiceObserverPrx() = default;
 
-    explicit ServiceObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit ServiceObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -259,18 +253,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    ServiceManagerPrx(const ServiceManagerPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    ServiceManagerPrx(ServiceManagerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    ServiceManagerPrx(const ServiceManagerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    ServiceManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    ServiceManagerPrx(ServiceManagerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    ServiceManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     ServiceManagerPrx& operator=(const ServiceManagerPrx& rhs) noexcept
     {
@@ -285,19 +273,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static ServiceManagerPrx _fromReference(::IceInternal::ReferencePtr ref) { return ServiceManagerPrx(::std::move(ref)); }
+    static ServiceManagerPrx _fromReference(::IceInternal::ReferencePtr ref) { return ServiceManagerPrx(std::move(ref)); }
 
 protected:
 
     ServiceManagerPrx() = default;
 
-    explicit ServiceManagerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit ServiceManagerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

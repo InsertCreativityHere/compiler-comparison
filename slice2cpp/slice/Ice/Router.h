@@ -125,18 +125,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    RouterPrx(const RouterPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    RouterPrx(RouterPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    RouterPrx(const RouterPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    RouterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    RouterPrx(RouterPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    RouterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     RouterPrx& operator=(const RouterPrx& rhs) noexcept
     {
@@ -151,19 +145,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static RouterPrx _fromReference(::IceInternal::ReferencePtr ref) { return RouterPrx(::std::move(ref)); }
+    static RouterPrx _fromReference(::IceInternal::ReferencePtr ref) { return RouterPrx(std::move(ref)); }
 
 protected:
 
     RouterPrx() = default;
 
-    explicit RouterPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit RouterPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -205,18 +199,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    RouterFinderPrx(const RouterFinderPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    RouterFinderPrx(RouterFinderPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    RouterFinderPrx(const RouterFinderPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    RouterFinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    RouterFinderPrx(RouterFinderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    RouterFinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     RouterFinderPrx& operator=(const RouterFinderPrx& rhs) noexcept
     {
@@ -231,19 +219,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static RouterFinderPrx _fromReference(::IceInternal::ReferencePtr ref) { return RouterFinderPrx(::std::move(ref)); }
+    static RouterFinderPrx _fromReference(::IceInternal::ReferencePtr ref) { return RouterFinderPrx(std::move(ref)); }
 
 protected:
 
     RouterFinderPrx() = default;
 
-    explicit RouterFinderPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit RouterFinderPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

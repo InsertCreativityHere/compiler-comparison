@@ -88,18 +88,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    SessionPrx(const SessionPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    SessionPrx(SessionPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    SessionPrx(const SessionPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    SessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    SessionPrx(SessionPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    SessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     SessionPrx& operator=(const SessionPrx& rhs) noexcept
     {
@@ -114,19 +108,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static SessionPrx _fromReference(::IceInternal::ReferencePtr ref) { return SessionPrx(::std::move(ref)); }
+    static SessionPrx _fromReference(::IceInternal::ReferencePtr ref) { return SessionPrx(std::move(ref)); }
 
 protected:
 
     SessionPrx() = default;
 
-    explicit SessionPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit SessionPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -219,18 +213,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    StringSetPrx(const StringSetPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    StringSetPrx(StringSetPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    StringSetPrx(const StringSetPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    StringSetPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    StringSetPrx(StringSetPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    StringSetPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     StringSetPrx& operator=(const StringSetPrx& rhs) noexcept
     {
@@ -245,19 +233,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static StringSetPrx _fromReference(::IceInternal::ReferencePtr ref) { return StringSetPrx(::std::move(ref)); }
+    static StringSetPrx _fromReference(::IceInternal::ReferencePtr ref) { return StringSetPrx(std::move(ref)); }
 
 protected:
 
     StringSetPrx() = default;
 
-    explicit StringSetPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit StringSetPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -352,18 +340,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    IdentitySetPrx(const IdentitySetPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    IdentitySetPrx(IdentitySetPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    IdentitySetPrx(const IdentitySetPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    IdentitySetPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    IdentitySetPrx(IdentitySetPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    IdentitySetPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     IdentitySetPrx& operator=(const IdentitySetPrx& rhs) noexcept
     {
@@ -378,19 +360,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static IdentitySetPrx _fromReference(::IceInternal::ReferencePtr ref) { return IdentitySetPrx(::std::move(ref)); }
+    static IdentitySetPrx _fromReference(::IceInternal::ReferencePtr ref) { return IdentitySetPrx(std::move(ref)); }
 
 protected:
 
     IdentitySetPrx() = default;
 
-    explicit IdentitySetPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit IdentitySetPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -519,18 +501,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    SessionControlPrx(const SessionControlPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    SessionControlPrx(SessionControlPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    SessionControlPrx(const SessionControlPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    SessionControlPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    SessionControlPrx(SessionControlPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    SessionControlPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     SessionControlPrx& operator=(const SessionControlPrx& rhs) noexcept
     {
@@ -545,19 +521,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static SessionControlPrx _fromReference(::IceInternal::ReferencePtr ref) { return SessionControlPrx(::std::move(ref)); }
+    static SessionControlPrx _fromReference(::IceInternal::ReferencePtr ref) { return SessionControlPrx(std::move(ref)); }
 
 protected:
 
     SessionControlPrx() = default;
 
-    explicit SessionControlPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit SessionControlPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -612,18 +588,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    SessionManagerPrx(const SessionManagerPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    SessionManagerPrx(SessionManagerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    SessionManagerPrx(const SessionManagerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    SessionManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    SessionManagerPrx(SessionManagerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    SessionManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     SessionManagerPrx& operator=(const SessionManagerPrx& rhs) noexcept
     {
@@ -638,19 +608,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static SessionManagerPrx _fromReference(::IceInternal::ReferencePtr ref) { return SessionManagerPrx(::std::move(ref)); }
+    static SessionManagerPrx _fromReference(::IceInternal::ReferencePtr ref) { return SessionManagerPrx(std::move(ref)); }
 
 protected:
 
     SessionManagerPrx() = default;
 
-    explicit SessionManagerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit SessionManagerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -698,18 +668,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    SSLSessionManagerPrx(const SSLSessionManagerPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    SSLSessionManagerPrx(SSLSessionManagerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    SSLSessionManagerPrx(const SSLSessionManagerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    SSLSessionManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    SSLSessionManagerPrx(SSLSessionManagerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    SSLSessionManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     SSLSessionManagerPrx& operator=(const SSLSessionManagerPrx& rhs) noexcept
     {
@@ -724,19 +688,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static SSLSessionManagerPrx _fromReference(::IceInternal::ReferencePtr ref) { return SSLSessionManagerPrx(::std::move(ref)); }
+    static SSLSessionManagerPrx _fromReference(::IceInternal::ReferencePtr ref) { return SSLSessionManagerPrx(std::move(ref)); }
 
 protected:
 
     SSLSessionManagerPrx() = default;
 
-    explicit SSLSessionManagerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit SSLSessionManagerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

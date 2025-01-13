@@ -257,18 +257,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    MetricsAdminPrx(const MetricsAdminPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    MetricsAdminPrx(MetricsAdminPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    MetricsAdminPrx(const MetricsAdminPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    MetricsAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    MetricsAdminPrx(MetricsAdminPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    MetricsAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     MetricsAdminPrx& operator=(const MetricsAdminPrx& rhs) noexcept
     {
@@ -283,19 +277,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static MetricsAdminPrx _fromReference(::IceInternal::ReferencePtr ref) { return MetricsAdminPrx(::std::move(ref)); }
+    static MetricsAdminPrx _fromReference(::IceInternal::ReferencePtr ref) { return MetricsAdminPrx(std::move(ref)); }
 
 protected:
 
     MetricsAdminPrx() = default;
 
-    explicit MetricsAdminPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit MetricsAdminPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

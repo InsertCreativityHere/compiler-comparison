@@ -77,18 +77,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    BackgroundPrx(const BackgroundPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    BackgroundPrx(BackgroundPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    BackgroundPrx(const BackgroundPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    BackgroundPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    BackgroundPrx(BackgroundPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    BackgroundPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     BackgroundPrx& operator=(const BackgroundPrx& rhs) noexcept
     {
@@ -103,19 +97,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static BackgroundPrx _fromReference(::IceInternal::ReferencePtr ref) { return BackgroundPrx(::std::move(ref)); }
+    static BackgroundPrx _fromReference(::IceInternal::ReferencePtr ref) { return BackgroundPrx(std::move(ref)); }
 
 protected:
 
     BackgroundPrx() = default;
 
-    explicit BackgroundPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit BackgroundPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -238,18 +232,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    BackgroundControllerPrx(const BackgroundControllerPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    BackgroundControllerPrx(BackgroundControllerPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    BackgroundControllerPrx(const BackgroundControllerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    BackgroundControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    BackgroundControllerPrx(BackgroundControllerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    BackgroundControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     BackgroundControllerPrx& operator=(const BackgroundControllerPrx& rhs) noexcept
     {
@@ -264,19 +252,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static BackgroundControllerPrx _fromReference(::IceInternal::ReferencePtr ref) { return BackgroundControllerPrx(::std::move(ref)); }
+    static BackgroundControllerPrx _fromReference(::IceInternal::ReferencePtr ref) { return BackgroundControllerPrx(std::move(ref)); }
 
 protected:
 
     BackgroundControllerPrx() = default;
 
-    explicit BackgroundControllerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit BackgroundControllerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

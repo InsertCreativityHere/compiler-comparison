@@ -992,18 +992,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    MyClassPrx(const MyClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    MyClassPrx(MyClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    MyClassPrx(const MyClassPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    MyClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    MyClassPrx(MyClassPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    MyClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     MyClassPrx& operator=(const MyClassPrx& rhs) noexcept
     {
@@ -1018,19 +1012,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static MyClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyClassPrx(::std::move(ref)); }
+    static MyClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyClassPrx(std::move(ref)); }
 
 protected:
 
     MyClassPrx() = default;
 
-    explicit MyClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit MyClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -1081,18 +1075,12 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-    MyDerivedClassPrx(const MyDerivedClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    MyDerivedClassPrx(MyDerivedClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    MyDerivedClassPrx(const MyDerivedClassPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    MyDerivedClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    MyDerivedClassPrx(MyDerivedClassPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    MyDerivedClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     MyDerivedClassPrx& operator=(const MyDerivedClassPrx& rhs) noexcept
     {
@@ -1107,19 +1095,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static MyDerivedClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyDerivedClassPrx(::std::move(ref)); }
+    static MyDerivedClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyDerivedClassPrx(std::move(ref)); }
 
 protected:
 
     MyDerivedClassPrx() = default;
 
-    explicit MyDerivedClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit MyDerivedClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -1191,18 +1179,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    EchoPrx(const EchoPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    EchoPrx(EchoPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    EchoPrx(const EchoPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    EchoPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    EchoPrx(EchoPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    EchoPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     EchoPrx& operator=(const EchoPrx& rhs) noexcept
     {
@@ -1217,19 +1199,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static EchoPrx _fromReference(::IceInternal::ReferencePtr ref) { return EchoPrx(::std::move(ref)); }
+    static EchoPrx _fromReference(::IceInternal::ReferencePtr ref) { return EchoPrx(std::move(ref)); }
 
 protected:
 
     EchoPrx() = default;
 
-    explicit EchoPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit EchoPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -1252,18 +1234,12 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-    MyDerivedClassPrx(const MyDerivedClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    MyDerivedClassPrx(MyDerivedClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    MyDerivedClassPrx(const MyDerivedClassPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    MyDerivedClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    MyDerivedClassPrx(MyDerivedClassPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    MyDerivedClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     MyDerivedClassPrx& operator=(const MyDerivedClassPrx& rhs) noexcept
     {
@@ -1278,19 +1254,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static MyDerivedClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyDerivedClassPrx(::std::move(ref)); }
+    static MyDerivedClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return MyDerivedClassPrx(std::move(ref)); }
 
 protected:
 
     MyDerivedClassPrx() = default;
 
-    explicit MyDerivedClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit MyDerivedClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

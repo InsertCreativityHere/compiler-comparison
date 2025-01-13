@@ -55,18 +55,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    F2Prx(const F2Prx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    F2Prx(F2Prx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    F2Prx(const F2Prx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    F2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    F2Prx(F2Prx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    F2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     F2Prx& operator=(const F2Prx& rhs) noexcept
     {
@@ -81,19 +75,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static F2Prx _fromReference(::IceInternal::ReferencePtr ref) { return F2Prx(::std::move(ref)); }
+    static F2Prx _fromReference(::IceInternal::ReferencePtr ref) { return F2Prx(std::move(ref)); }
 
 protected:
 
     F2Prx() = default;
 
-    explicit F2Prx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit F2Prx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

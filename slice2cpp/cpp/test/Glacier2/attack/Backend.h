@@ -52,18 +52,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    BackendPrx(const BackendPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    BackendPrx(BackendPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    BackendPrx(const BackendPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    BackendPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    BackendPrx(BackendPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    BackendPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     BackendPrx& operator=(const BackendPrx& rhs) noexcept
     {
@@ -78,19 +72,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static BackendPrx _fromReference(::IceInternal::ReferencePtr ref) { return BackendPrx(::std::move(ref)); }
+    static BackendPrx _fromReference(::IceInternal::ReferencePtr ref) { return BackendPrx(std::move(ref)); }
 
 protected:
 
     BackendPrx() = default;
 
-    explicit BackendPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit BackendPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

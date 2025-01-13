@@ -132,18 +132,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    LocatorPrx(const LocatorPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    LocatorPrx(LocatorPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    LocatorPrx(const LocatorPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    LocatorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    LocatorPrx(LocatorPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    LocatorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     LocatorPrx& operator=(const LocatorPrx& rhs) noexcept
     {
@@ -158,19 +152,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static LocatorPrx _fromReference(::IceInternal::ReferencePtr ref) { return LocatorPrx(::std::move(ref)); }
+    static LocatorPrx _fromReference(::IceInternal::ReferencePtr ref) { return LocatorPrx(std::move(ref)); }
 
 protected:
 
     LocatorPrx() = default;
 
-    explicit LocatorPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit LocatorPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -289,18 +283,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    LocatorRegistryPrx(const LocatorRegistryPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    LocatorRegistryPrx(LocatorRegistryPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    LocatorRegistryPrx(const LocatorRegistryPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    LocatorRegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    LocatorRegistryPrx(LocatorRegistryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    LocatorRegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     LocatorRegistryPrx& operator=(const LocatorRegistryPrx& rhs) noexcept
     {
@@ -315,19 +303,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static LocatorRegistryPrx _fromReference(::IceInternal::ReferencePtr ref) { return LocatorRegistryPrx(::std::move(ref)); }
+    static LocatorRegistryPrx _fromReference(::IceInternal::ReferencePtr ref) { return LocatorRegistryPrx(std::move(ref)); }
 
 protected:
 
     LocatorRegistryPrx() = default;
 
-    explicit LocatorRegistryPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit LocatorRegistryPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -369,18 +357,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    LocatorFinderPrx(const LocatorFinderPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    LocatorFinderPrx(LocatorFinderPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    LocatorFinderPrx(const LocatorFinderPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    LocatorFinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    LocatorFinderPrx(LocatorFinderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    LocatorFinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     LocatorFinderPrx& operator=(const LocatorFinderPrx& rhs) noexcept
     {
@@ -395,19 +377,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static LocatorFinderPrx _fromReference(::IceInternal::ReferencePtr ref) { return LocatorFinderPrx(::std::move(ref)); }
+    static LocatorFinderPrx _fromReference(::IceInternal::ReferencePtr ref) { return LocatorFinderPrx(std::move(ref)); }
 
 protected:
 
     LocatorFinderPrx() = default;
 
-    explicit LocatorFinderPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit LocatorFinderPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

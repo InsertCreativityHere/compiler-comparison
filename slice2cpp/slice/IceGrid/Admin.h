@@ -1417,18 +1417,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    AdminPrx(const AdminPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    AdminPrx(AdminPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    AdminPrx(const AdminPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    AdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    AdminPrx(AdminPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    AdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     AdminPrx& operator=(const AdminPrx& rhs) noexcept
     {
@@ -1443,19 +1437,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static AdminPrx _fromReference(::IceInternal::ReferencePtr ref) { return AdminPrx(::std::move(ref)); }
+    static AdminPrx _fromReference(::IceInternal::ReferencePtr ref) { return AdminPrx(std::move(ref)); }
 
 protected:
 
     AdminPrx() = default;
 
-    explicit AdminPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit AdminPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -1524,18 +1518,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    FileIteratorPrx(const FileIteratorPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    FileIteratorPrx(FileIteratorPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    FileIteratorPrx(const FileIteratorPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    FileIteratorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    FileIteratorPrx(FileIteratorPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    FileIteratorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     FileIteratorPrx& operator=(const FileIteratorPrx& rhs) noexcept
     {
@@ -1550,19 +1538,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static FileIteratorPrx _fromReference(::IceInternal::ReferencePtr ref) { return FileIteratorPrx(::std::move(ref)); }
+    static FileIteratorPrx _fromReference(::IceInternal::ReferencePtr ref) { return FileIteratorPrx(std::move(ref)); }
 
 protected:
 
     FileIteratorPrx() = default;
 
-    explicit FileIteratorPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit FileIteratorPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -1654,18 +1642,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    RegistryObserverPrx(const RegistryObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    RegistryObserverPrx(RegistryObserverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    RegistryObserverPrx(const RegistryObserverPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    RegistryObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    RegistryObserverPrx(RegistryObserverPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    RegistryObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     RegistryObserverPrx& operator=(const RegistryObserverPrx& rhs) noexcept
     {
@@ -1680,19 +1662,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static RegistryObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return RegistryObserverPrx(::std::move(ref)); }
+    static RegistryObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return RegistryObserverPrx(std::move(ref)); }
 
 protected:
 
     RegistryObserverPrx() = default;
 
-    explicit RegistryObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit RegistryObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -1844,18 +1826,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    NodeObserverPrx(const NodeObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    NodeObserverPrx(NodeObserverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    NodeObserverPrx(const NodeObserverPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    NodeObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    NodeObserverPrx(NodeObserverPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    NodeObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     NodeObserverPrx& operator=(const NodeObserverPrx& rhs) noexcept
     {
@@ -1870,19 +1846,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static NodeObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return NodeObserverPrx(::std::move(ref)); }
+    static NodeObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return NodeObserverPrx(std::move(ref)); }
 
 protected:
 
     NodeObserverPrx() = default;
 
-    explicit NodeObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit NodeObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -2021,18 +1997,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    ApplicationObserverPrx(const ApplicationObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    ApplicationObserverPrx(ApplicationObserverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    ApplicationObserverPrx(const ApplicationObserverPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    ApplicationObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    ApplicationObserverPrx(ApplicationObserverPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    ApplicationObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     ApplicationObserverPrx& operator=(const ApplicationObserverPrx& rhs) noexcept
     {
@@ -2047,19 +2017,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static ApplicationObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return ApplicationObserverPrx(::std::move(ref)); }
+    static ApplicationObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return ApplicationObserverPrx(std::move(ref)); }
 
 protected:
 
     ApplicationObserverPrx() = default;
 
-    explicit ApplicationObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit ApplicationObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -2185,18 +2155,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    AdapterObserverPrx(const AdapterObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    AdapterObserverPrx(AdapterObserverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    AdapterObserverPrx(const AdapterObserverPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    AdapterObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    AdapterObserverPrx(AdapterObserverPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    AdapterObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     AdapterObserverPrx& operator=(const AdapterObserverPrx& rhs) noexcept
     {
@@ -2211,19 +2175,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static AdapterObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return AdapterObserverPrx(::std::move(ref)); }
+    static AdapterObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return AdapterObserverPrx(std::move(ref)); }
 
 protected:
 
     AdapterObserverPrx() = default;
 
-    explicit AdapterObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit AdapterObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -2352,18 +2316,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    ObjectObserverPrx(const ObjectObserverPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    ObjectObserverPrx(ObjectObserverPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    ObjectObserverPrx(const ObjectObserverPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    ObjectObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    ObjectObserverPrx(ObjectObserverPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    ObjectObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     ObjectObserverPrx& operator=(const ObjectObserverPrx& rhs) noexcept
     {
@@ -2378,19 +2336,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static ObjectObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return ObjectObserverPrx(::std::move(ref)); }
+    static ObjectObserverPrx _fromReference(::IceInternal::ReferencePtr ref) { return ObjectObserverPrx(std::move(ref)); }
 
 protected:
 
     ObjectObserverPrx() = default;
 
-    explicit ObjectObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit ObjectObserverPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -2893,18 +2851,12 @@ public:
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
-    AdminSessionPrx(const AdminSessionPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    AdminSessionPrx(AdminSessionPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    AdminSessionPrx(const AdminSessionPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    AdminSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    AdminSessionPrx(AdminSessionPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    AdminSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     AdminSessionPrx& operator=(const AdminSessionPrx& rhs) noexcept
     {
@@ -2919,19 +2871,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static AdminSessionPrx _fromReference(::IceInternal::ReferencePtr ref) { return AdminSessionPrx(::std::move(ref)); }
+    static AdminSessionPrx _fromReference(::IceInternal::ReferencePtr ref) { return AdminSessionPrx(std::move(ref)); }
 
 protected:
 
     AdminSessionPrx() = default;
 
-    explicit AdminSessionPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit AdminSessionPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

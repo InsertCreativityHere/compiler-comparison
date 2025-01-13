@@ -52,18 +52,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    ClockPrx(const ClockPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    ClockPrx(ClockPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    ClockPrx(const ClockPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    ClockPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    ClockPrx(ClockPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    ClockPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     ClockPrx& operator=(const ClockPrx& rhs) noexcept
     {
@@ -78,19 +72,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static ClockPrx _fromReference(::IceInternal::ReferencePtr ref) { return ClockPrx(::std::move(ref)); }
+    static ClockPrx _fromReference(::IceInternal::ReferencePtr ref) { return ClockPrx(std::move(ref)); }
 
 protected:
 
     ClockPrx() = default;
 
-    explicit ClockPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit ClockPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

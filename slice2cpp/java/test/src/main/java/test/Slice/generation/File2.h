@@ -52,18 +52,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    Interface2Prx(const Interface2Prx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    Interface2Prx(Interface2Prx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    Interface2Prx(const Interface2Prx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    Interface2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    Interface2Prx(Interface2Prx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    Interface2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     Interface2Prx& operator=(const Interface2Prx& rhs) noexcept
     {
@@ -78,19 +72,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static Interface2Prx _fromReference(::IceInternal::ReferencePtr ref) { return Interface2Prx(::std::move(ref)); }
+    static Interface2Prx _fromReference(::IceInternal::ReferencePtr ref) { return Interface2Prx(std::move(ref)); }
 
 protected:
 
     Interface2Prx() = default;
 
-    explicit Interface2Prx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit Interface2Prx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond

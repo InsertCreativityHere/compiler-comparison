@@ -92,18 +92,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    WstringClassPrx(const WstringClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    WstringClassPrx(WstringClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    WstringClassPrx(const WstringClassPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    WstringClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    WstringClassPrx(WstringClassPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    WstringClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     WstringClassPrx& operator=(const WstringClassPrx& rhs) noexcept
     {
@@ -118,19 +112,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static WstringClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return WstringClassPrx(::std::move(ref)); }
+    static WstringClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return WstringClassPrx(std::move(ref)); }
 
 protected:
 
     WstringClassPrx() = default;
 
-    explicit WstringClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit WstringClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -181,18 +175,12 @@ public:
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
-    WstringClassPrx(const WstringClassPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
 
-    WstringClassPrx(WstringClassPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
+    WstringClassPrx(const WstringClassPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
 
-    WstringClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
+    WstringClassPrx(WstringClassPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+
+    WstringClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
 
     WstringClassPrx& operator=(const WstringClassPrx& rhs) noexcept
     {
@@ -207,19 +195,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(::std::move(rhs));
+            ::Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static WstringClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return WstringClassPrx(::std::move(ref)); }
+    static WstringClassPrx _fromReference(::IceInternal::ReferencePtr ref) { return WstringClassPrx(std::move(ref)); }
 
 protected:
 
     WstringClassPrx() = default;
 
-    explicit WstringClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    explicit WstringClassPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
