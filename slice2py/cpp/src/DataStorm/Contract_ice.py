@@ -1702,18 +1702,23 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
 
         def createSession(self, subscriber, session, fromRelay, context=None):
             """
-            Initiate the creation of a subscriber session with a node, after the target node has announced a topic
-            writer for which this node has a corresponding topic reader, or after the node has called
-            Node::initiateCreateSession.
+            Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
+            publisher node in one of the following scenarios:
+            - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+            reader.
+            - The publisher node has previously sent a initiateCreateSession request.
+            The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+            to continue session establishment. If an active session already exists with the subscriber node, the
+            request is ignored.
             
             Parameters
             ----------
             subscriber : (DataStormContract.NodePrx or None)
-                The subscriber node initiating the session. The proxy is never null.
+                The subscriber node initiating the session. This proxy is never null.
             session : (DataStormContract.SubscriberSessionPrx or None)
-                The subscriber session being created. The proxy is never null.
+                The subscriber session being created. This proxy is never null.
             fromRelay : bool
-                Indicates if the session is being created from a relay node.
+                Indicates whether the session is being created from a relay node.
             context : Ice.Context
                 The request context for the invocation.
             """
@@ -1721,18 +1726,23 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
 
         def createSessionAsync(self, subscriber, session, fromRelay, context=None):
             """
-            Initiate the creation of a subscriber session with a node, after the target node has announced a topic
-            writer for which this node has a corresponding topic reader, or after the node has called
-            Node::initiateCreateSession.
+            Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
+            publisher node in one of the following scenarios:
+            - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+            reader.
+            - The publisher node has previously sent a initiateCreateSession request.
+            The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+            to continue session establishment. If an active session already exists with the subscriber node, the
+            request is ignored.
             
             Parameters
             ----------
             subscriber : (DataStormContract.NodePrx or None)
-                The subscriber node initiating the session. The proxy is never null.
+                The subscriber node initiating the session. This proxy is never null.
             session : (DataStormContract.SubscriberSessionPrx or None)
-                The subscriber session being created. The proxy is never null.
+                The subscriber session being created. This proxy is never null.
             fromRelay : bool
-                Indicates if the session is being created from a relay node.
+                Indicates whether the session is being created from a relay node.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -1828,18 +1838,23 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
 
         def createSession(self, subscriber, session, fromRelay, current=None):
             """
-            Initiate the creation of a subscriber session with a node, after the target node has announced a topic
-            writer for which this node has a corresponding topic reader, or after the node has called
-            Node::initiateCreateSession.
+            Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
+            publisher node in one of the following scenarios:
+            - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+            reader.
+            - The publisher node has previously sent a initiateCreateSession request.
+            The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+            to continue session establishment. If an active session already exists with the subscriber node, the
+            request is ignored.
             
             Parameters
             ----------
             subscriber : (DataStormContract.NodePrx or None)
-                The subscriber node initiating the session. The proxy is never null.
+                The subscriber node initiating the session. This proxy is never null.
             session : (DataStormContract.SubscriberSessionPrx or None)
-                The subscriber session being created. The proxy is never null.
+                The subscriber session being created. This proxy is never null.
             fromRelay : bool
-                Indicates if the session is being created from a relay node.
+                Indicates whether the session is being created from a relay node.
             current : Ice.Current
                 The Current object for the dispatch.
             

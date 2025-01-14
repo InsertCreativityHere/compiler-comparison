@@ -13,8 +13,8 @@
 % NodePrx Methods:
 %   initiateCreateSession - Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
 %   initiateCreateSessionAsync - Initiate the creation of a publisher session with a node, after the target node has announced a topic reader for which this node has a corresponding topic writer.
-%   createSession - Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
-%   createSessionAsync - Initiate the creation of a subscriber session with a node, after the target node has announced a topic writer for which this node has a corresponding topic reader, or after the node has called Node::initiateCreateSession.
+%   createSession - Initiates the creation of a subscriber session with a node.
+%   createSessionAsync - Initiates the creation of a subscriber session with a node.
 %   confirmCreateSession - Confirm the creation of a publisher session with a node.
 %   confirmCreateSessionAsync - Confirm the creation of a publisher session with a node.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
@@ -58,14 +58,21 @@ classdef NodePrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('initiateCreateSession', 0, false, os_, 0, [], {}, varargin{:});
         end
         function createSession(obj, subscriber, session, fromRelay, varargin)
-            % createSession   Initiate the creation of a subscriber session with a node, after the target node has announced a topic
-            % writer for which this node has a corresponding topic reader, or after the node has called
-            % Node::initiateCreateSession.
+            % createSession   Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
+            % publisher node in one of the following scenarios:
+            %
+            % - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+            % reader.
+            % - The publisher node has previously sent a initiateCreateSession request.
+            %
+            % The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+            % to continue session establishment. If an active session already exists with the subscriber node, the
+            % request is ignored.
             %
             % Parameters:
-            %   subscriber (DataStormContract.NodePrx) - The subscriber node initiating the session. The proxy is never null.
-            %   session (DataStormContract.SubscriberSessionPrx) - The subscriber session being created. The proxy is never null.
-            %   fromRelay (logical) - Indicates if the session is being created from a relay node.
+            %   subscriber (DataStormContract.NodePrx) - The subscriber node initiating the session. This proxy is never null.
+            %   session (DataStormContract.SubscriberSessionPrx) - The subscriber session being created. This proxy is never null.
+            %   fromRelay (logical) - Indicates whether the session is being created from a relay node.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -76,14 +83,21 @@ classdef NodePrx < Ice.ObjectPrx
             obj.iceInvoke('createSession', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = createSessionAsync(obj, subscriber, session, fromRelay, varargin)
-            % createSessionAsync   Initiate the creation of a subscriber session with a node, after the target node has announced a topic
-            % writer for which this node has a corresponding topic reader, or after the node has called
-            % Node::initiateCreateSession.
+            % createSessionAsync   Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
+            % publisher node in one of the following scenarios:
+            %
+            % - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+            % reader.
+            % - The publisher node has previously sent a initiateCreateSession request.
+            %
+            % The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+            % to continue session establishment. If an active session already exists with the subscriber node, the
+            % request is ignored.
             %
             % Parameters:
-            %   subscriber (DataStormContract.NodePrx) - The subscriber node initiating the session. The proxy is never null.
-            %   session (DataStormContract.SubscriberSessionPrx) - The subscriber session being created. The proxy is never null.
-            %   fromRelay (logical) - Indicates if the session is being created from a relay node.
+            %   subscriber (DataStormContract.NodePrx) - The subscriber node initiating the session. This proxy is never null.
+            %   session (DataStormContract.SubscriberSessionPrx) - The subscriber session being created. This proxy is never null.
+            %   fromRelay (logical) - Indicates whether the session is being created from a relay node.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

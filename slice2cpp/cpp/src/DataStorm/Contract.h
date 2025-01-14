@@ -744,31 +744,52 @@ public:
     void _iceI_initiateCreateSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<NodePrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /// Initiate the creation of a subscriber session with a node, after the target node has announced a topic
-    /// writer for which this node has a corresponding topic reader, or after the node has called
-    /// Node::initiateCreateSession.
-    /// @param subscriber The subscriber node initiating the session. The proxy is never null.
-    /// @param session The subscriber session being created. The proxy is never null.
-    /// @param fromRelay Indicates if the session is being created from a relay node.
+    /// Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
+    /// publisher node in one of the following scenarios:
+    ///
+    /// - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+    /// reader.
+    /// - The publisher node has previously sent a initiateCreateSession request.
+    ///
+    /// The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+    /// to continue session establishment. If an active session already exists with the subscriber node, the
+    /// request is ignored.
+    /// @param subscriber The subscriber node initiating the session. This proxy is never null.
+    /// @param session The subscriber session being created. This proxy is never null.
+    /// @param fromRelay Indicates whether the session is being created from a relay node.
     /// @param context The Context map to send with the invocation.
     void createSession(const ::std::optional<NodePrx>& subscriber, const ::std::optional<SubscriberSessionPrx>& session, bool fromRelay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Initiate the creation of a subscriber session with a node, after the target node has announced a topic
-    /// writer for which this node has a corresponding topic reader, or after the node has called
-    /// Node::initiateCreateSession.
-    /// @param subscriber The subscriber node initiating the session. The proxy is never null.
-    /// @param session The subscriber session being created. The proxy is never null.
-    /// @param fromRelay Indicates if the session is being created from a relay node.
+    /// Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
+    /// publisher node in one of the following scenarios:
+    ///
+    /// - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+    /// reader.
+    /// - The publisher node has previously sent a initiateCreateSession request.
+    ///
+    /// The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+    /// to continue session establishment. If an active session already exists with the subscriber node, the
+    /// request is ignored.
+    /// @param subscriber The subscriber node initiating the session. This proxy is never null.
+    /// @param session The subscriber session being created. This proxy is never null.
+    /// @param fromRelay Indicates whether the session is being created from a relay node.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     [[nodiscard]] ::std::future<void> createSessionAsync(const ::std::optional<NodePrx>& subscriber, const ::std::optional<SubscriberSessionPrx>& session, bool fromRelay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    /// Initiate the creation of a subscriber session with a node, after the target node has announced a topic
-    /// writer for which this node has a corresponding topic reader, or after the node has called
-    /// Node::initiateCreateSession.
-    /// @param subscriber The subscriber node initiating the session. The proxy is never null.
-    /// @param session The subscriber session being created. The proxy is never null.
-    /// @param fromRelay Indicates if the session is being created from a relay node.
+    /// Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
+    /// publisher node in one of the following scenarios:
+    ///
+    /// - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+    /// reader.
+    /// - The publisher node has previously sent a initiateCreateSession request.
+    ///
+    /// The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+    /// to continue session establishment. If an active session already exists with the subscriber node, the
+    /// request is ignored.
+    /// @param subscriber The subscriber node initiating the session. This proxy is never null.
+    /// @param session The subscriber session being created. This proxy is never null.
+    /// @param fromRelay Indicates whether the session is being created from a relay node.
     /// @param response The response callback.
     /// @param ex The exception callback.
     /// @param sent The sent callback.
@@ -1589,12 +1610,19 @@ public:
     void _iceD_initiateCreateSession(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    /// Initiate the creation of a subscriber session with a node, after the target node has announced a topic
-    /// writer for which this node has a corresponding topic reader, or after the node has called
-    /// Node::initiateCreateSession.
-    /// @param subscriber The subscriber node initiating the session. The proxy is never null.
-    /// @param session The subscriber session being created. The proxy is never null.
-    /// @param fromRelay Indicates if the session is being created from a relay node.
+    /// Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
+    /// publisher node in one of the following scenarios:
+    ///
+    /// - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+    /// reader.
+    /// - The publisher node has previously sent a initiateCreateSession request.
+    ///
+    /// The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+    /// to continue session establishment. If an active session already exists with the subscriber node, the
+    /// request is ignored.
+    /// @param subscriber The subscriber node initiating the session. This proxy is never null.
+    /// @param session The subscriber session being created. This proxy is never null.
+    /// @param fromRelay Indicates whether the session is being created from a relay node.
     /// @param current The Current object for the invocation.
     virtual void createSession(::std::optional<NodePrx> subscriber, ::std::optional<SubscriberSessionPrx> session, bool fromRelay, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

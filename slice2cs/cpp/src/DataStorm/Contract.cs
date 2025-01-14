@@ -911,15 +911,24 @@ namespace DataStormContract
         void initiateCreateSession(NodePrx? publisher, Ice.Current current);
 
         /// <summary>
-        /// Initiate the creation of a subscriber session with a node, after the target node has announced a topic
-        ///  writer for which this node has a corresponding topic reader, or after the node has called
-        ///  Node::initiateCreateSession.
+        /// Initiates the creation of a subscriber session with a node.
+        /// The subscriber node sends this request to a
+        ///  publisher node in one of the following scenarios:
+        ///
+        ///  - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+        ///  reader.
+        ///  - The publisher node has previously sent a initiateCreateSession request.
+        ///
+        ///  The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+        ///  to continue session establishment. If an active session already exists with the subscriber node, the
+        ///  request is ignored.
+        ///
         /// </summary>
-        /// <param name="subscriber">The subscriber node initiating the session. The proxy is never null.
+        ///  <param name="subscriber">The subscriber node initiating the session. This proxy is never null.
         ///  </param>
-        /// <param name="session">The subscriber session being created. The proxy is never null.
+        /// <param name="session">The subscriber session being created. This proxy is never null.
         ///  </param>
-        /// <param name="fromRelay">Indicates if the session is being created from a relay node.</param>
+        /// <param name="fromRelay">Indicates whether the session is being created from a relay node.</param>
         /// <param name="current">The Current object for the dispatch.</param>
 
         void createSession(NodePrx? subscriber, SubscriberSessionPrx? session, bool fromRelay, Ice.Current current);
@@ -1352,29 +1361,37 @@ namespace DataStormContract
         global::System.Threading.Tasks.Task initiateCreateSessionAsync(NodePrx? publisher, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Initiate the creation of a subscriber session with a node, after the target node has announced a topic
-        ///  writer for which this node has a corresponding topic reader, or after the node has called
-        ///  Node::initiateCreateSession.
+        /// Initiates the creation of a subscriber session with a node.
+        /// The subscriber node sends this request to a
+        ///  publisher node in one of the following scenarios:
+        ///
+        ///  - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+        ///  reader.
+        ///  - The publisher node has previously sent a initiateCreateSession request.
+        ///
+        ///  The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+        ///  to continue session establishment. If an active session already exists with the subscriber node, the
+        ///  request is ignored.
+        ///
         /// </summary>
-        /// <param name="subscriber">The subscriber node initiating the session. The proxy is never null.
+        ///  <param name="subscriber">The subscriber node initiating the session. This proxy is never null.
         ///  </param>
-        /// <param name="session">The subscriber session being created. The proxy is never null.
+        /// <param name="session">The subscriber session being created. This proxy is never null.
         ///  </param>
-        /// <param name="fromRelay">Indicates if the session is being created from a relay node.</param>
+        /// <param name="fromRelay">Indicates whether the session is being created from a relay node.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void createSession(NodePrx? subscriber, SubscriberSessionPrx? session, bool fromRelay, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Initiate the creation of a subscriber session with a node, after the target node has announced a topic
-        ///  writer for which this node has a corresponding topic reader, or after the node has called
-        ///  Node::initiateCreateSession.
+        /// Initiates the creation of a subscriber session with a node.
+        /// The subscriber node sends this request to a
         /// </summary>
-        /// <param name="subscriber">The subscriber node initiating the session. The proxy is never null.
+        ///  <param name="subscriber">The subscriber node initiating the session. This proxy is never null.
         ///  </param>
-        /// <param name="session">The subscriber session being created. The proxy is never null.
+        /// <param name="session">The subscriber session being created. This proxy is never null.
         ///  </param>
-        /// <param name="fromRelay">Indicates if the session is being created from a relay node.</param>
+        /// <param name="fromRelay">Indicates whether the session is being created from a relay node.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
