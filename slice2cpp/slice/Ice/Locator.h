@@ -55,7 +55,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The proxy, or null if the object is not active.
     /// @throws Ice::ObjectNotFoundException Raised if the object cannot be found.
-    ::std::optional<::Ice::ObjectPrx> findObjectById(const Identity& id, const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Ice::ObjectPrx> findObjectById(const Identity& id, const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
     /// access the object.
@@ -72,7 +72,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     findObjectByIdAsync(const Identity& id, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -84,7 +84,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The adapter proxy, or null if the adapter is not active.
     /// @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found.
-    ::std::optional<::Ice::ObjectPrx> findAdapterById(::std::string_view id, const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Ice::ObjectPrx> findAdapterById(::std::string_view id, const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Find an adapter by id and return a proxy that contains its endpoints.
     /// @param id The adapter id.
@@ -99,7 +99,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     findAdapterByIdAsync(::std::string_view id, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -109,7 +109,7 @@ public:
     /// Get the locator registry.
     /// @param context The Context map to send with the invocation.
     /// @return The locator registry.
-    ::std::optional<LocatorRegistryPrx> getRegistry(const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<LocatorRegistryPrx> getRegistry(const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the locator registry.
     /// @param context The Context map to send with the invocation.
@@ -122,7 +122,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getRegistryAsync(::std::function<void(::std::optional<::Ice::LocatorRegistryPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -133,11 +133,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    LocatorPrx(const LocatorPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    LocatorPrx(const LocatorPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    LocatorPrx(LocatorPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    LocatorPrx(LocatorPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    LocatorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    LocatorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     LocatorPrx& operator=(const LocatorPrx& rhs) noexcept
     {
@@ -205,7 +205,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     setAdapterDirectProxyAsync(::std::string_view id, const ::std::optional<::Ice::ObjectPrx>& proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -244,7 +244,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     setReplicatedAdapterDirectProxyAsync(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -273,7 +273,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     setServerProcessProxyAsync(::std::string_view id, const ::std::optional<ProcessPrx>& proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -284,11 +284,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    LocatorRegistryPrx(const LocatorRegistryPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    LocatorRegistryPrx(const LocatorRegistryPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    LocatorRegistryPrx(LocatorRegistryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    LocatorRegistryPrx(LocatorRegistryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    LocatorRegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    LocatorRegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     LocatorRegistryPrx& operator=(const LocatorRegistryPrx& rhs) noexcept
     {
@@ -332,7 +332,7 @@ public:
     /// several replicas. This proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The locator proxy.
-    ::std::optional<LocatorPrx> getLocator(const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<LocatorPrx> getLocator(const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
     /// several replicas. This proxy is never null.
@@ -347,7 +347,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getLocatorAsync(::std::function<void(::std::optional<::Ice::LocatorPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -358,11 +358,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    LocatorFinderPrx(const LocatorFinderPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    LocatorFinderPrx(const LocatorFinderPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    LocatorFinderPrx(LocatorFinderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    LocatorFinderPrx(LocatorFinderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    LocatorFinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    LocatorFinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     LocatorFinderPrx& operator=(const LocatorFinderPrx& rhs) noexcept
     {

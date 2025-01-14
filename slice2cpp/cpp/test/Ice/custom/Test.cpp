@@ -1714,7 +1714,7 @@ Test::TestIntf::ice_staticId() noexcept
 void
 Test::TestIntf::_iceD_opShortArray(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1736,7 +1736,7 @@ Test::TestIntf::_iceD_opShortArray(
 void
 Test::TestIntf::_iceD_opDoubleArray(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1759,7 +1759,7 @@ Test::TestIntf::_iceD_opDoubleArray(
 void
 Test::TestIntf::_iceD_opBoolArray(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1781,7 +1781,7 @@ Test::TestIntf::_iceD_opBoolArray(
 void
 Test::TestIntf::_iceD_opByteArray(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1803,7 +1803,7 @@ Test::TestIntf::_iceD_opByteArray(
 void
 Test::TestIntf::_iceD_opVariableArray(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1825,7 +1825,7 @@ Test::TestIntf::_iceD_opVariableArray(
 void
 Test::TestIntf::_iceD_opBoolSeq(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1847,7 +1847,7 @@ Test::TestIntf::_iceD_opBoolSeq(
 void
 Test::TestIntf::_iceD_opBoolList(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1869,7 +1869,7 @@ Test::TestIntf::_iceD_opBoolList(
 void
 Test::TestIntf::_iceD_opBoolDequeList(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1891,7 +1891,7 @@ Test::TestIntf::_iceD_opBoolDequeList(
 void
 Test::TestIntf::_iceD_opBoolDequeListArray(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1913,7 +1913,7 @@ Test::TestIntf::_iceD_opBoolDequeListArray(
 void
 Test::TestIntf::_iceD_opByteSeq(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1935,7 +1935,7 @@ Test::TestIntf::_iceD_opByteSeq(
 void
 Test::TestIntf::_iceD_opByteList(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1957,7 +1957,7 @@ Test::TestIntf::_iceD_opByteList(
 void
 Test::TestIntf::_iceD_opMyByteSeq(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -1979,7 +1979,7 @@ Test::TestIntf::_iceD_opMyByteSeq(
 void
 Test::TestIntf::_iceD_opStringSeq(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2001,7 +2001,7 @@ Test::TestIntf::_iceD_opStringSeq(
 void
 Test::TestIntf::_iceD_opStringList(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2023,7 +2023,7 @@ Test::TestIntf::_iceD_opStringList(
 void
 Test::TestIntf::_iceD_opFixedSeq(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2045,7 +2045,7 @@ Test::TestIntf::_iceD_opFixedSeq(
 void
 Test::TestIntf::_iceD_opFixedList(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2067,7 +2067,7 @@ Test::TestIntf::_iceD_opFixedList(
 void
 Test::TestIntf::_iceD_opVariableSeq(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2089,7 +2089,7 @@ Test::TestIntf::_iceD_opVariableSeq(
 void
 Test::TestIntf::_iceD_opVariableList(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2111,7 +2111,7 @@ Test::TestIntf::_iceD_opVariableList(
 void
 Test::TestIntf::_iceD_opStringStringDictSeq(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2133,7 +2133,7 @@ Test::TestIntf::_iceD_opStringStringDictSeq(
 void
 Test::TestIntf::_iceD_opStringStringDictList(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2155,7 +2155,7 @@ Test::TestIntf::_iceD_opStringStringDictList(
 void
 Test::TestIntf::_iceD_opESeq(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2177,7 +2177,7 @@ Test::TestIntf::_iceD_opESeq(
 void
 Test::TestIntf::_iceD_opEList(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2199,7 +2199,7 @@ Test::TestIntf::_iceD_opEList(
 void
 Test::TestIntf::_iceD_opDPrxSeq(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2221,7 +2221,7 @@ Test::TestIntf::_iceD_opDPrxSeq(
 void
 Test::TestIntf::_iceD_opDPrxList(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2243,7 +2243,7 @@ Test::TestIntf::_iceD_opDPrxList(
 void
 Test::TestIntf::_iceD_opCSeq(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2267,7 +2267,7 @@ Test::TestIntf::_iceD_opCSeq(
 void
 Test::TestIntf::_iceD_opCList(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2291,7 +2291,7 @@ Test::TestIntf::_iceD_opCList(
 void
 Test::TestIntf::_iceD_opOutArrayByteSeq(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2313,7 +2313,7 @@ Test::TestIntf::_iceD_opOutArrayByteSeq(
 void
 Test::TestIntf::_iceD_opIntStringDict(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2335,7 +2335,7 @@ Test::TestIntf::_iceD_opIntStringDict(
 void
 Test::TestIntf::_iceD_opVarDict(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2357,7 +2357,7 @@ Test::TestIntf::_iceD_opVarDict(
 void
 Test::TestIntf::_iceD_opShortBuffer(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2379,7 +2379,7 @@ Test::TestIntf::_iceD_opShortBuffer(
 void
 Test::TestIntf::_iceD_opBoolBuffer(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2401,7 +2401,7 @@ Test::TestIntf::_iceD_opBoolBuffer(
 void
 Test::TestIntf::_iceD_opBufferStruct(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -2422,7 +2422,7 @@ Test::TestIntf::_iceD_opBufferStruct(
 void
 Test::TestIntf::_iceD_shutdown(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

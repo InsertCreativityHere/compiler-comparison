@@ -580,7 +580,7 @@ Test::Metrics::_iceD_opByteS(
 void
 Test::Metrics::_iceD_getAdmin(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -597,7 +597,7 @@ Test::Metrics::_iceD_getAdmin(
 void
 Test::Metrics::_iceD_shutdown(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -719,7 +719,7 @@ Test::Controller::ice_staticId() noexcept
 void
 Test::Controller::_iceD_hold(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -732,7 +732,7 @@ Test::Controller::_iceD_hold(
 void
 Test::Controller::_iceD_resume(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

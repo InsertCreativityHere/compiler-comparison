@@ -245,7 +245,7 @@ Test::Initial::ice_staticId() noexcept
 void
 Test::Initial::_iceD_getConcreteClass(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -263,7 +263,7 @@ Test::Initial::_iceD_getConcreteClass(
 void
 Test::Initial::_iceD_throwException(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -276,7 +276,7 @@ Test::Initial::_iceD_throwException(
 void
 Test::Initial::_iceD_shutdown(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

@@ -42,18 +42,18 @@ public:
 
     [[nodiscard]] ::std::future<void> opAsync(bool kill, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opAsync(bool kill, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::int32_t opIdempotent(::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::int32_t opIdempotent(::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<::std::int32_t> opIdempotentAsync(::std::int32_t c, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opIdempotentAsync(::std::int32_t c, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -64,7 +64,7 @@ public:
 
     [[nodiscard]] ::std::future<void> opNotIdempotentAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opNotIdempotentAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -75,7 +75,7 @@ public:
 
     [[nodiscard]] ::std::future<void> sleepAsync(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     sleepAsync(::std::int32_t delay, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -86,7 +86,7 @@ public:
 
     [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -97,11 +97,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    RetryPrx(const RetryPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    RetryPrx(const RetryPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    RetryPrx(RetryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    RetryPrx(RetryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    RetryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    RetryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     RetryPrx& operator=(const RetryPrx& rhs) noexcept
     {

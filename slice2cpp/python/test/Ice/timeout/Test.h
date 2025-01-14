@@ -46,7 +46,7 @@ public:
 
     [[nodiscard]] ::std::future<void> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -57,7 +57,7 @@ public:
 
     [[nodiscard]] ::std::future<void> sendDataAsync(const ByteSeq& seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     sendDataAsync(const ByteSeq& seq, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -68,7 +68,7 @@ public:
 
     [[nodiscard]] ::std::future<void> sleepAsync(::std::int32_t to, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     sleepAsync(::std::int32_t to, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -79,11 +79,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    TimeoutPrx(const TimeoutPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    TimeoutPrx(const TimeoutPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    TimeoutPrx(TimeoutPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    TimeoutPrx(TimeoutPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    TimeoutPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    TimeoutPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     TimeoutPrx& operator=(const TimeoutPrx& rhs) noexcept
     {
@@ -124,7 +124,7 @@ public:
 
     [[nodiscard]] ::std::future<void> holdAdapterAsync(::std::int32_t to, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     holdAdapterAsync(::std::int32_t to, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -135,7 +135,7 @@ public:
 
     [[nodiscard]] ::std::future<void> resumeAdapterAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     resumeAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -146,7 +146,7 @@ public:
 
     [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -157,11 +157,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    ControllerPrx(const ControllerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    ControllerPrx(const ControllerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    ControllerPrx(ControllerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    ControllerPrx(ControllerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    ControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    ControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ControllerPrx& operator=(const ControllerPrx& rhs) noexcept
     {

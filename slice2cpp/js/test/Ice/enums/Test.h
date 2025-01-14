@@ -58,7 +58,7 @@ namespace Test
         benum11 = 126
     };
 
-    enum class ShortEnum : ::std::int32_t // NOLINT:performance-enum-size
+    enum class ShortEnum : ::std::int32_t // NOLINT(performance-enum-size)
     {
         senum1 = 3,
         senum2 = 4,
@@ -111,7 +111,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ByteEnum, ByteEnum>> opByteAsync(ByteEnum b1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opByteAsync(ByteEnum b1, ::std::function<void(::Test::ByteEnum, ::Test::ByteEnum)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -122,7 +122,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ShortEnum, ShortEnum>> opShortAsync(ShortEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opShortAsync(ShortEnum s1, ::std::function<void(::Test::ShortEnum, ::Test::ShortEnum)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -133,7 +133,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<IntEnum, IntEnum>> opIntAsync(IntEnum i1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opIntAsync(IntEnum i1, ::std::function<void(::Test::IntEnum, ::Test::IntEnum)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -144,7 +144,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<SimpleEnum, SimpleEnum>> opSimpleAsync(SimpleEnum s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opSimpleAsync(SimpleEnum s1, ::std::function<void(::Test::SimpleEnum, ::Test::SimpleEnum)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -155,7 +155,7 @@ public:
 
     [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -166,11 +166,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    TestIntfPrx(const TestIntfPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    TestIntfPrx(const TestIntfPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    TestIntfPrx(TestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    TestIntfPrx(TestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
     {

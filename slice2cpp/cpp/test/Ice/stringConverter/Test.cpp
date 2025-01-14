@@ -209,7 +209,7 @@ Test::MyObject::ice_staticId() noexcept
 void
 Test::MyObject::_iceD_widen(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -230,7 +230,7 @@ Test::MyObject::_iceD_widen(
 void
 Test::MyObject::_iceD_narrow(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -251,7 +251,7 @@ Test::MyObject::_iceD_narrow(
 void
 Test::MyObject::_iceD_shutdown(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

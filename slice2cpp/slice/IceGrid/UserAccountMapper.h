@@ -56,7 +56,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The user account name.
     /// @throws IceGrid::UserAccountNotFoundException Raised if no user account is found for the given user.
-    ::std::string getUserAccount(::std::string_view user, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::string getUserAccount(::std::string_view user, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
     /// account to use to run servers.
@@ -77,7 +77,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getUserAccountAsync(::std::string_view user, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -88,11 +88,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    UserAccountMapperPrx(const UserAccountMapperPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    UserAccountMapperPrx(const UserAccountMapperPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    UserAccountMapperPrx(UserAccountMapperPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    UserAccountMapperPrx(UserAccountMapperPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    UserAccountMapperPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    UserAccountMapperPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     UserAccountMapperPrx& operator=(const UserAccountMapperPrx& rhs) noexcept
     {

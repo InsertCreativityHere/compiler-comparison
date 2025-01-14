@@ -60,7 +60,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     /// @see Communicator#shutdown
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -88,7 +88,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     writeMessageAsync(::std::string_view message, ::std::int32_t fd, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -99,11 +99,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    ProcessPrx(const ProcessPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    ProcessPrx(const ProcessPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    ProcessPrx(ProcessPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    ProcessPrx(ProcessPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    ProcessPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    ProcessPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ProcessPrx& operator=(const ProcessPrx& rhs) noexcept
     {

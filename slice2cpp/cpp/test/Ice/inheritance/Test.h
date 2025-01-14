@@ -157,11 +157,11 @@ class IAPrx : public ::Ice::Proxy<IAPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::optional<IAPrx> iaop(const ::std::optional<IAPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<IAPrx> iaop(const ::std::optional<IAPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<::std::optional<IAPrx>> iaopAsync(const ::std::optional<IAPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     iaopAsync(const ::std::optional<IAPrx>& p, ::std::function<void(::std::optional<::Test::MA::IAPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -172,11 +172,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    IAPrx(const IAPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    IAPrx(const IAPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    IAPrx(IAPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    IAPrx(IAPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    IAPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    IAPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     IAPrx& operator=(const IAPrx& rhs) noexcept
     {
@@ -218,11 +218,11 @@ class IB1Prx : public ::Ice::Proxy<IB1Prx, ::Test::MA::IAPrx>
 {
 public:
 
-    ::std::optional<IB1Prx> ib1op(const ::std::optional<IB1Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<IB1Prx> ib1op(const ::std::optional<IB1Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<::std::optional<IB1Prx>> ib1opAsync(const ::std::optional<IB1Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     ib1opAsync(const ::std::optional<IB1Prx>& p, ::std::function<void(::std::optional<::Test::MB::IB1Prx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -238,11 +238,11 @@ public:
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
 
-    IB1Prx(const IB1Prx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    IB1Prx(const IB1Prx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    IB1Prx(IB1Prx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    IB1Prx(IB1Prx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    IB1Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    IB1Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     IB1Prx& operator=(const IB1Prx& rhs) noexcept
     {
@@ -283,11 +283,11 @@ class IB2Prx : public ::Ice::Proxy<IB2Prx, ::Test::MA::IAPrx>
 {
 public:
 
-    ::std::optional<IB2Prx> ib2op(const ::std::optional<IB2Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<IB2Prx> ib2op(const ::std::optional<IB2Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<::std::optional<IB2Prx>> ib2opAsync(const ::std::optional<IB2Prx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     ib2opAsync(const ::std::optional<IB2Prx>& p, ::std::function<void(::std::optional<::Test::MB::IB2Prx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -303,11 +303,11 @@ public:
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
 
-    IB2Prx(const IB2Prx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    IB2Prx(const IB2Prx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    IB2Prx(IB2Prx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    IB2Prx(IB2Prx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    IB2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    IB2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     IB2Prx& operator=(const IB2Prx& rhs) noexcept
     {
@@ -353,11 +353,11 @@ class ICPrx : public ::Ice::Proxy<ICPrx, ::Test::MB::IB1Prx, ::Test::MB::IB2Prx>
 {
 public:
 
-    ::std::optional<ICPrx> icop(const ::std::optional<ICPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<ICPrx> icop(const ::std::optional<ICPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<::std::optional<ICPrx>> icopAsync(const ::std::optional<ICPrx>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     icopAsync(const ::std::optional<ICPrx>& p, ::std::function<void(::std::optional<::Test::MA::ICPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -373,11 +373,11 @@ public:
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
 
-    ICPrx(const ICPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    ICPrx(const ICPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    ICPrx(ICPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    ICPrx(ICPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    ICPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    ICPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ICPrx& operator=(const ICPrx& rhs) noexcept
     {
@@ -424,51 +424,51 @@ public:
 
     [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::Test::MA::IAPrx> iaop(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Test::MA::IAPrx> iaop(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<::std::optional<::Test::MA::IAPrx>> iaopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     iaopAsync(::std::function<void(::std::optional<::Test::MA::IAPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::IAPrx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::Test::MB::IB1Prx> ib1op(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Test::MB::IB1Prx> ib1op(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<::std::optional<::Test::MB::IB1Prx>> ib1opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     ib1opAsync(::std::function<void(::std::optional<::Test::MB::IB1Prx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB1Prx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::Test::MB::IB2Prx> ib2op(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Test::MB::IB2Prx> ib2op(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<::std::optional<::Test::MB::IB2Prx>> ib2opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     ib2opAsync(::std::function<void(::std::optional<::Test::MB::IB2Prx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB2Prx>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::Test::MA::ICPrx> icop(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Test::MA::ICPrx> icop(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<::std::optional<::Test::MA::ICPrx>> icopAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     icopAsync(::std::function<void(::std::optional<::Test::MA::ICPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -479,11 +479,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    InitialPrx(const InitialPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    InitialPrx(const InitialPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    InitialPrx(InitialPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    InitialPrx(InitialPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    InitialPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    InitialPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     InitialPrx& operator=(const InitialPrx& rhs) noexcept
     {

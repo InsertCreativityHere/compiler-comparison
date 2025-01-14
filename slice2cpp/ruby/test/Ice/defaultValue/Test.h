@@ -61,7 +61,7 @@ namespace Test
 
     constexpr double ConstDouble = 6.2;
 
-    const ::std::string ConstString = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a"; // NOLINT:cert-err58-cpp
+    const ::std::string ConstString = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a"; // NOLINT(cert-err58-cpp)
 
     constexpr Color ConstColor1 = ::Test::Color::red;
 

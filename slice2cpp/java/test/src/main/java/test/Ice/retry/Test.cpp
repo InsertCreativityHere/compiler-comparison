@@ -216,7 +216,7 @@ Test::Retry::ice_staticId() noexcept
 void
 Test::Retry::_iceD_op(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
@@ -233,7 +233,7 @@ Test::Retry::_iceD_op(
 void
 Test::Retry::_iceD_opIdempotent(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -254,7 +254,7 @@ Test::Retry::_iceD_opIdempotent(
 void
 Test::Retry::_iceD_opNotIdempotent(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -267,7 +267,7 @@ Test::Retry::_iceD_opNotIdempotent(
 void
 Test::Retry::_iceD_sleep(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -284,7 +284,7 @@ Test::Retry::_iceD_sleep(
 void
 Test::Retry::_iceD_shutdown(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

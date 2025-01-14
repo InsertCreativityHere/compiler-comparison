@@ -66,7 +66,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getClientProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -76,7 +76,7 @@ public:
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     /// @param context The Context map to send with the invocation.
     /// @return The router's server proxy.
-    ::std::optional<::Ice::ObjectPrx> getServerProxy(const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Ice::ObjectPrx> getServerProxy(const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     /// @param context The Context map to send with the invocation.
@@ -89,7 +89,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getServerProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -100,7 +100,7 @@ public:
     /// @param proxies The proxies to add. Adding a null proxy is an error.
     /// @param context The Context map to send with the invocation.
     /// @return Proxies discarded by the router. These proxies are all non-null.
-    ObjectProxySeq addProxies(const ObjectProxySeq& proxies, const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ObjectProxySeq addProxies(const ObjectProxySeq& proxies, const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Add new proxy information to the router's routing table.
     /// @param proxies The proxies to add. Adding a null proxy is an error.
@@ -115,7 +115,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     addProxiesAsync(const ObjectProxySeq& proxies, ::std::function<void(::Ice::ObjectProxySeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -126,11 +126,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    RouterPrx(const RouterPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    RouterPrx(const RouterPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    RouterPrx(RouterPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    RouterPrx(RouterPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    RouterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    RouterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     RouterPrx& operator=(const RouterPrx& rhs) noexcept
     {
@@ -174,7 +174,7 @@ public:
     /// replicas. This proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The router proxy.
-    ::std::optional<RouterPrx> getRouter(const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<RouterPrx> getRouter(const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
     /// replicas. This proxy is never null.
@@ -189,7 +189,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getRouterAsync(::std::function<void(::std::optional<::Ice::RouterPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -200,11 +200,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    RouterFinderPrx(const RouterFinderPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    RouterFinderPrx(const RouterFinderPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    RouterFinderPrx(RouterFinderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    RouterFinderPrx(RouterFinderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    RouterFinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    RouterFinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     RouterFinderPrx& operator=(const RouterFinderPrx& rhs) noexcept
     {

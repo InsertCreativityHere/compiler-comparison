@@ -161,7 +161,7 @@ IceGrid::FileParser::ice_staticId() noexcept
 void
 IceGrid::FileParser::_iceD_parse(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();

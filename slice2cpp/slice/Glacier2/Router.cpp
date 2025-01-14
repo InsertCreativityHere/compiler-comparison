@@ -373,7 +373,7 @@ Glacier2::Router::ice_staticId() noexcept
 void
 Glacier2::Router::_iceD_getCategoryForClient(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -451,7 +451,7 @@ Glacier2::Router::_iceD_createSessionFromSecureConnection(
 void
 Glacier2::Router::_iceD_refreshSession(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -464,7 +464,7 @@ Glacier2::Router::_iceD_refreshSession(
 void
 Glacier2::Router::_iceD_destroySession(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -477,7 +477,7 @@ Glacier2::Router::_iceD_destroySession(
 void
 Glacier2::Router::_iceD_getSessionTimeout(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
@@ -494,7 +494,7 @@ Glacier2::Router::_iceD_getSessionTimeout(
 void
 Glacier2::Router::_iceD_getACMTimeout(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();

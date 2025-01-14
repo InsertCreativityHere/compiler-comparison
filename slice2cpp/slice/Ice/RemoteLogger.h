@@ -86,7 +86,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     initAsync(::std::string_view prefix, const LogMessageSeq& logMessages, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -111,7 +111,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     logAsync(const LogMessage& message, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -122,11 +122,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    RemoteLoggerPrx(const RemoteLoggerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    RemoteLoggerPrx(const RemoteLoggerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    RemoteLoggerPrx(RemoteLoggerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    RemoteLoggerPrx(RemoteLoggerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    RemoteLoggerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    RemoteLoggerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     RemoteLoggerPrx& operator=(const RemoteLoggerPrx& rhs) noexcept
     {
@@ -209,7 +209,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, ::std::int32_t messageMax, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -220,7 +220,7 @@ public:
     /// @param prx A proxy to the remote logger.
     /// @param context The Context map to send with the invocation.
     /// @return True if the provided remote logger proxy was detached, and false otherwise.
-    bool detachRemoteLogger(const ::std::optional<RemoteLoggerPrx>& prx, const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    bool detachRemoteLogger(const ::std::optional<RemoteLoggerPrx>& prx, const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Detaches a RemoteLogger object from the local logger.
     /// @param prx A proxy to the remote logger.
@@ -235,7 +235,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     detachRemoteLoggerAsync(const ::std::optional<RemoteLoggerPrx>& prx, ::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -280,7 +280,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getLogAsync(const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, ::std::int32_t messageMax, ::std::function<void(::Ice::LogMessageSeq, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -291,11 +291,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    LoggerAdminPrx(const LoggerAdminPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    LoggerAdminPrx(const LoggerAdminPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    LoggerAdminPrx(LoggerAdminPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    LoggerAdminPrx(LoggerAdminPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    LoggerAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    LoggerAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     LoggerAdminPrx& operator=(const LoggerAdminPrx& rhs) noexcept
     {

@@ -229,7 +229,7 @@ Glacier2::PermissionsVerifier::ice_staticId() noexcept
 void
 Glacier2::PermissionsVerifier::_iceD_checkPermissions(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
@@ -321,7 +321,7 @@ Glacier2::SSLPermissionsVerifier::ice_staticId() noexcept
 void
 Glacier2::SSLPermissionsVerifier::_iceD_authorize(
     ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT:performance-unnecessary-value-param
+    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();

@@ -72,7 +72,7 @@ public:
     /// @param id The identity.
     /// @param context The Context map to send with the invocation.
     /// @return The proxy or null if no such object has been found.
-    ::std::optional<::Ice::ObjectPrx> findObjectById(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Ice::ObjectPrx> findObjectById(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Find a well-known object by identity.
     /// @param id The identity.
@@ -87,7 +87,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     findObjectByIdAsync(const ::Ice::Identity& id, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -99,7 +99,7 @@ public:
     /// @param type The object type.
     /// @param context The Context map to send with the invocation.
     /// @return The proxy or null, if no such object has been found.
-    ::std::optional<::Ice::ObjectPrx> findObjectByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Ice::ObjectPrx> findObjectByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Find a well-known object by type. If there are several objects registered for the given type, the object is
     /// randomly selected.
@@ -116,7 +116,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     findObjectByTypeAsync(::std::string_view type, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -130,7 +130,7 @@ public:
     /// @param sample The sampling interval.
     /// @param context The Context map to send with the invocation.
     /// @return The proxy or null, if no such object has been found.
-    ::std::optional<::Ice::ObjectPrx> findObjectByTypeOnLeastLoadedNode(::std::string_view type, LoadSample sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Ice::ObjectPrx> findObjectByTypeOnLeastLoadedNode(::std::string_view type, LoadSample sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
     /// the object (for example, because the object was registered with a direct proxy), the registry assumes the
@@ -151,7 +151,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     findObjectByTypeOnLeastLoadedNodeAsync(::std::string_view type, LoadSample sample, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -162,7 +162,7 @@ public:
     /// @param type The object type.
     /// @param context The Context map to send with the invocation.
     /// @return The proxies or an empty sequence, if no such objects have been found.
-    ::Ice::ObjectProxySeq findAllObjectsByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::Ice::ObjectProxySeq findAllObjectsByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Find all the well-known objects with the given type.
     /// @param type The object type.
@@ -177,7 +177,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     findAllObjectsByTypeAsync(::std::string_view type, ::std::function<void(::Ice::ObjectProxySeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -190,7 +190,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
     /// group.
-    ::Ice::ObjectProxySeq findAllReplicas(const ::std::optional<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::Ice::ObjectProxySeq findAllReplicas(const ::std::optional<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
     /// from a replica group, an empty sequence is returned.
@@ -207,7 +207,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     findAllReplicasAsync(const ::std::optional<::Ice::ObjectPrx>& proxy, ::std::function<void(::Ice::ObjectProxySeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -218,11 +218,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    QueryPrx(const QueryPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    QueryPrx(const QueryPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    QueryPrx(QueryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    QueryPrx(QueryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    QueryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    QueryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     QueryPrx& operator=(const QueryPrx& rhs) noexcept
     {
@@ -269,7 +269,7 @@ public:
     /// @return A proxy for the newly created session. The returned proxy is never null.
     /// @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
     /// user is not allowed access.
-    ::std::optional<SessionPrx> createSession(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<SessionPrx> createSession(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Create a client session.
     /// @param userId The user id.
@@ -286,7 +286,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     createSessionAsync(::std::string_view userId, ::std::string_view password, ::std::function<void(::std::optional<::IceGrid::SessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -300,7 +300,7 @@ public:
     /// @return A proxy for the newly created session. The returned proxy is never null.
     /// @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
     /// user is not allowed access.
-    ::std::optional<AdminSessionPrx> createAdminSession(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<AdminSessionPrx> createAdminSession(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Create an administrative session.
     /// @param userId The user id.
@@ -317,7 +317,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     createAdminSessionAsync(::std::string_view userId, ::std::string_view password, ::std::function<void(::std::optional<::IceGrid::AdminSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -329,7 +329,7 @@ public:
     /// @return A proxy for the newly created session. The returned proxy is never null.
     /// @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
     /// user is not allowed access.
-    ::std::optional<SessionPrx> createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<SessionPrx> createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Create a client session from a secure connection.
     /// @param context The Context map to send with the invocation.
@@ -342,7 +342,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     createSessionFromSecureConnectionAsync(::std::function<void(::std::optional<::IceGrid::SessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -354,7 +354,7 @@ public:
     /// @return A proxy for the newly created session. The returned proxy is never null.
     /// @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
     /// user is not allowed access.
-    ::std::optional<AdminSessionPrx> createAdminSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<AdminSessionPrx> createAdminSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Create an administrative session from a secure connection.
     /// @param context The Context map to send with the invocation.
@@ -367,7 +367,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     createAdminSessionFromSecureConnectionAsync(::std::function<void(::std::optional<::IceGrid::AdminSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -379,7 +379,7 @@ public:
     /// a session alive in the IceGrid registry.
     /// @param context The Context map to send with the invocation.
     /// @return The session timeout (in seconds).
-    [[deprecated]] ::std::int32_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    [[deprecated]] ::std::int32_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
     /// send heartbeats (using ACM) or call {@link Session#keepAlive} (resp. {@link AdminSession#keepAlive}) to keep
@@ -396,7 +396,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    [[deprecated]] ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    [[deprecated]] ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getSessionTimeoutAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -407,11 +407,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    RegistryPrx(const RegistryPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    RegistryPrx(const RegistryPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    RegistryPrx(RegistryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    RegistryPrx(RegistryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    RegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    RegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     RegistryPrx& operator=(const RegistryPrx& rhs) noexcept
     {
@@ -455,7 +455,7 @@ public:
     /// Get the proxy of the registry object hosted by this IceGrid registry.
     /// @param context The Context map to send with the invocation.
     /// @return The proxy of the registry object. The returned proxy is never null.
-    ::std::optional<RegistryPrx> getLocalRegistry(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<RegistryPrx> getLocalRegistry(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the proxy of the registry object hosted by this IceGrid registry.
     /// @param context The Context map to send with the invocation.
@@ -468,7 +468,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getLocalRegistryAsync(::std::function<void(::std::optional<::IceGrid::RegistryPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -478,7 +478,7 @@ public:
     /// Get the proxy of the query object hosted by this IceGrid registry.
     /// @param context The Context map to send with the invocation.
     /// @return The proxy of the query object. The returned proxy is never null.
-    ::std::optional<QueryPrx> getLocalQuery(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<QueryPrx> getLocalQuery(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the proxy of the query object hosted by this IceGrid registry.
     /// @param context The Context map to send with the invocation.
@@ -491,7 +491,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getLocalQueryAsync(::std::function<void(::std::optional<::IceGrid::QueryPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -507,11 +507,11 @@ public:
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
 
-    LocatorPrx(const LocatorPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    LocatorPrx(const LocatorPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    LocatorPrx(LocatorPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    LocatorPrx(LocatorPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    LocatorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    LocatorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     LocatorPrx& operator=(const LocatorPrx& rhs) noexcept
     {

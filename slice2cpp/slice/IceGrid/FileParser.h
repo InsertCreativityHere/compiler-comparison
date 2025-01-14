@@ -56,7 +56,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The application descriptor.
     /// @throws IceGrid::ParseException Raised if an error occurred during parsing.
-    ApplicationDescriptor parse(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ApplicationDescriptor parse(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Parse a file.
     /// @param xmlFile Full pathname to the file.
@@ -73,7 +73,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     parseAsync(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy, ::std::function<void(::IceGrid::ApplicationDescriptor)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -84,11 +84,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    FileParserPrx(const FileParserPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    FileParserPrx(const FileParserPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    FileParserPrx(FileParserPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    FileParserPrx(FileParserPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    FileParserPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    FileParserPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     FileParserPrx& operator=(const FileParserPrx& rhs) noexcept
     {

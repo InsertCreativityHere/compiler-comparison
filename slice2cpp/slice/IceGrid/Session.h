@@ -70,7 +70,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    [[deprecated]] ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    [[deprecated]] ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     keepAliveAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -87,7 +87,7 @@ public:
     /// the registry.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    ::std::optional<::Ice::ObjectPrx> allocateObjectById(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Ice::ObjectPrx> allocateObjectById(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
     /// available or until the timeout is reached.
@@ -108,7 +108,7 @@ public:
     /// @return A function that can be called to cancel the invocation locally.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     allocateObjectByIdAsync(const ::Ice::Identity& id, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -123,7 +123,7 @@ public:
     /// @throws IceGrid::AllocationException Raised if the object could not be allocated.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    ::std::optional<::Ice::ObjectPrx> allocateObjectByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Ice::ObjectPrx> allocateObjectByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
     /// an object becomes available or until the timeout is reached.
@@ -144,7 +144,7 @@ public:
     /// @return A function that can be called to cancel the invocation locally.
     /// @see #setAllocationTimeout
     /// @see #releaseObject
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     allocateObjectByTypeAsync(::std::string_view type, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -176,7 +176,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     releaseObjectAsync(const ::Ice::Identity& id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -207,7 +207,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     setAllocationTimeoutAsync(::std::int32_t timeout, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -223,11 +223,11 @@ public:
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
 
-    SessionPrx(const SessionPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    SessionPrx(const SessionPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    SessionPrx(SessionPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    SessionPrx(SessionPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    SessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    SessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     SessionPrx& operator=(const SessionPrx& rhs) noexcept
     {

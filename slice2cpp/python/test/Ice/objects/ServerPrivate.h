@@ -58,11 +58,11 @@ class UnexpectedObjectExceptionTestPrx : public ::Ice::Proxy<UnexpectedObjectExc
 {
 public:
 
-    AlsoEmptyPtr op(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    AlsoEmptyPtr op(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<AlsoEmptyPtr> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opAsync(::std::function<void(::Test::AlsoEmptyPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -73,11 +73,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    UnexpectedObjectExceptionTestPrx(const UnexpectedObjectExceptionTestPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    UnexpectedObjectExceptionTestPrx(const UnexpectedObjectExceptionTestPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    UnexpectedObjectExceptionTestPrx(UnexpectedObjectExceptionTestPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    UnexpectedObjectExceptionTestPrx(UnexpectedObjectExceptionTestPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    UnexpectedObjectExceptionTestPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    UnexpectedObjectExceptionTestPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     UnexpectedObjectExceptionTestPrx& operator=(const UnexpectedObjectExceptionTestPrx& rhs) noexcept
     {

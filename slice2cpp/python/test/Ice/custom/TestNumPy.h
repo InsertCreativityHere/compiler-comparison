@@ -82,7 +82,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<BoolSeq1, BoolSeq2>> opBoolSeqAsync(const BoolSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opBoolSeqAsync(const BoolSeq1& v1, ::std::function<void(::Test::NumPy::BoolSeq1, ::Test::NumPy::BoolSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -93,7 +93,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ByteSeq1, ByteSeq2>> opByteSeqAsync(const ByteSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opByteSeqAsync(const ByteSeq1& v1, ::std::function<void(::Test::NumPy::ByteSeq1, ::Test::NumPy::ByteSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -104,7 +104,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<ShortSeq1, ShortSeq2>> opShortSeqAsync(const ShortSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opShortSeqAsync(const ShortSeq1& v1, ::std::function<void(::Test::NumPy::ShortSeq1, ::Test::NumPy::ShortSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -115,7 +115,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<IntSeq1, IntSeq2>> opIntSeqAsync(const IntSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opIntSeqAsync(const IntSeq1& v1, ::std::function<void(::Test::NumPy::IntSeq1, ::Test::NumPy::IntSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -126,7 +126,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<LongSeq1, LongSeq2>> opLongSeqAsync(const LongSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opLongSeqAsync(const LongSeq1& v1, ::std::function<void(::Test::NumPy::LongSeq1, ::Test::NumPy::LongSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -137,7 +137,7 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<FloatSeq1, FloatSeq2>> opFloatSeqAsync(const FloatSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opFloatSeqAsync(const FloatSeq1& v1, ::std::function<void(::Test::NumPy::FloatSeq1, ::Test::NumPy::FloatSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -148,117 +148,117 @@ public:
 
     [[nodiscard]] ::std::future<::std::tuple<DoubleSeq1, DoubleSeq2>> opDoubleSeqAsync(const DoubleSeq1& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opDoubleSeqAsync(const DoubleSeq1& v1, ::std::function<void(::Test::NumPy::DoubleSeq1, ::Test::NumPy::DoubleSeq2)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleSeq1, DoubleSeq2>>>&, const DoubleSeq1&, const ::Ice::Context&) const;
     /// \endcond
 
-    Complex128Seq opComplex128Seq(const Complex128Seq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    Complex128Seq opComplex128Seq(const Complex128Seq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<Complex128Seq> opComplex128SeqAsync(const Complex128Seq& v1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opComplex128SeqAsync(const Complex128Seq& v1, ::std::function<void(::Test::NumPy::Complex128Seq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_opComplex128Seq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Complex128Seq>>&, const Complex128Seq&, const ::Ice::Context&) const;
     /// \endcond
 
-    BoolSeq1 opBoolMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    BoolSeq1 opBoolMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<BoolSeq1> opBoolMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opBoolMatrixAsync(::std::function<void(::Test::NumPy::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_opBoolMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ByteSeq1 opByteMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ByteSeq1 opByteMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<ByteSeq1> opByteMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opByteMatrixAsync(::std::function<void(::Test::NumPy::ByteSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_opByteMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ShortSeq1 opShortMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ShortSeq1 opShortMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<ShortSeq1> opShortMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opShortMatrixAsync(::std::function<void(::Test::NumPy::ShortSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_opShortMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ShortSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    IntSeq1 opIntMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    IntSeq1 opIntMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<IntSeq1> opIntMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opIntMatrixAsync(::std::function<void(::Test::NumPy::IntSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_opIntMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<IntSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    LongSeq1 opLongMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    LongSeq1 opLongMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<LongSeq1> opLongMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opLongMatrixAsync(::std::function<void(::Test::NumPy::LongSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_opLongMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LongSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    FloatSeq1 opFloatMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    FloatSeq1 opFloatMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<FloatSeq1> opFloatMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opFloatMatrixAsync(::std::function<void(::Test::NumPy::FloatSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_opFloatMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FloatSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    DoubleSeq1 opDoubleMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    DoubleSeq1 opDoubleMatrix(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<DoubleSeq1> opDoubleMatrixAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opDoubleMatrixAsync(::std::function<void(::Test::NumPy::DoubleSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_opDoubleMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<DoubleSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    BoolSeq1 opBogusNumpyArrayType(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    BoolSeq1 opBogusNumpyArrayType(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<BoolSeq1> opBogusNumpyArrayTypeAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opBogusNumpyArrayTypeAsync(::std::function<void(::Test::NumPy::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_opBogusNumpyArrayType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    DPtr opD(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    DPtr opD(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     [[nodiscard]] ::std::future<DPtr> opDAsync(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     opDAsync(const DPtr& d, ::std::function<void(::Test::NumPy::DPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -269,7 +269,7 @@ public:
 
     [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -280,11 +280,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    CustomPrx(const CustomPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    CustomPrx(const CustomPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    CustomPrx(CustomPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    CustomPrx(CustomPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    CustomPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    CustomPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     CustomPrx& operator=(const CustomPrx& rhs) noexcept
     {

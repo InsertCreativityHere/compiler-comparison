@@ -71,7 +71,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The name of the topic.
     /// @see TopicManager#create
-    ::std::string getName(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::string getName(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the name of this topic.
     /// @param context The Context map to send with the invocation.
@@ -86,7 +86,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     /// @see TopicManager#create
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getNameAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -98,7 +98,7 @@ public:
     /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to publish data on this topic.
-    ::std::optional<::Ice::ObjectPrx> getPublisher(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Ice::ObjectPrx> getPublisher(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
     /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
@@ -115,7 +115,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getPublisherAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -127,7 +127,7 @@ public:
     /// never null.
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to publish data on this topic.
-    ::std::optional<::Ice::ObjectPrx> getNonReplicatedPublisher(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Ice::ObjectPrx> getNonReplicatedPublisher(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
     /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
@@ -144,7 +144,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getNonReplicatedPublisherAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -160,7 +160,7 @@ public:
     /// @throws IceStorm::BadQoS Raised if the requested quality of service is unavailable or invalid.
     /// @throws IceStorm::InvalidSubscriber Raised if the subscriber object is null.
     /// @see #unsubscribe
-    ::std::optional<::Ice::ObjectPrx> subscribeAndGetPublisher(const QoS& theQoS, const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<::Ice::ObjectPrx> subscribeAndGetPublisher(const QoS& theQoS, const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
     /// @param theQoS The quality of service parameters for this subscription.
@@ -179,7 +179,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     /// @see #unsubscribe
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     subscribeAndGetPublisherAsync(const QoS& theQoS, const ::std::optional<::Ice::ObjectPrx>& subscriber, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -207,7 +207,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     /// @see #subscribeAndGetPublisher
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     unsubscribeAsync(const ::std::optional<::Ice::ObjectPrx>& subscriber, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -239,7 +239,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     linkAsync(const ::std::optional<TopicPrx>& linkTo, ::std::int32_t cost, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -265,7 +265,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     unlinkAsync(const ::std::optional<TopicPrx>& linkTo, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -275,7 +275,7 @@ public:
     /// Retrieve information on the current links.
     /// @param context The Context map to send with the invocation.
     /// @return A sequence of LinkInfo objects.
-    LinkInfoSeq getLinkInfoSeq(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    LinkInfoSeq getLinkInfoSeq(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Retrieve information on the current links.
     /// @param context The Context map to send with the invocation.
@@ -288,7 +288,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getLinkInfoSeqAsync(::std::function<void(::IceStorm::LinkInfoSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -298,7 +298,7 @@ public:
     /// Retrieve the list of subscribers for this topic.
     /// @param context The Context map to send with the invocation.
     /// @return The sequence of Ice identities for the subscriber objects.
-    ::Ice::IdentitySeq getSubscribers(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::Ice::IdentitySeq getSubscribers(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Retrieve the list of subscribers for this topic.
     /// @param context The Context map to send with the invocation.
@@ -311,7 +311,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getSubscribersAsync(::std::function<void(::Ice::IdentitySeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -333,7 +333,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     destroyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -344,11 +344,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    TopicPrx(const TopicPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    TopicPrx(const TopicPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    TopicPrx(TopicPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    TopicPrx(TopicPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    TopicPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    TopicPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     TopicPrx& operator=(const TopicPrx& rhs) noexcept
     {
@@ -392,7 +392,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to the topic instance. The returned proxy is never null.
     /// @throws IceStorm::TopicExists Raised if a topic with the same name already exists.
-    ::std::optional<TopicPrx> create(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<TopicPrx> create(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Create a new topic. The topic name must be unique.
     /// @param name The name of the topic.
@@ -407,7 +407,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     createAsync(::std::string_view name, ::std::function<void(::std::optional<::IceStorm::TopicPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -419,7 +419,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to the topic instance. The returned proxy is never null.
     /// @throws IceStorm::NoSuchTopic Raised if the topic does not exist.
-    ::std::optional<TopicPrx> retrieve(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<TopicPrx> retrieve(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Retrieve a topic by name.
     /// @param name The name of the topic.
@@ -434,7 +434,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     retrieveAsync(::std::string_view name, ::std::function<void(::std::optional<::IceStorm::TopicPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -444,7 +444,7 @@ public:
     /// Retrieve all topics managed by this topic manager.
     /// @param context The Context map to send with the invocation.
     /// @return A dictionary of string, topic proxy pairs.
-    TopicDict retrieveAll(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    TopicDict retrieveAll(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Retrieve all topics managed by this topic manager.
     /// @param context The Context map to send with the invocation.
@@ -457,7 +457,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     retrieveAllAsync(::std::function<void(::IceStorm::TopicDict)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -468,11 +468,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    TopicManagerPrx(const TopicManagerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    TopicManagerPrx(const TopicManagerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    TopicManagerPrx(TopicManagerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    TopicManagerPrx(TopicManagerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    TopicManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    TopicManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     TopicManagerPrx& operator=(const TopicManagerPrx& rhs) noexcept
     {
@@ -514,7 +514,7 @@ public:
     /// Get the topic manager proxy. The proxy might point to several replicas.
     /// @param context The Context map to send with the invocation.
     /// @return The topic manager proxy. The returned proxy is never null.
-    ::std::optional<TopicManagerPrx> getTopicManager(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::optional<TopicManagerPrx> getTopicManager(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the topic manager proxy. The proxy might point to several replicas.
     /// @param context The Context map to send with the invocation.
@@ -527,7 +527,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getTopicManagerAsync(::std::function<void(::std::optional<::IceStorm::TopicManagerPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -538,11 +538,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    FinderPrx(const FinderPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    FinderPrx(const FinderPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    FinderPrx(FinderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    FinderPrx(FinderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    FinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    FinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     FinderPrx& operator=(const FinderPrx& rhs) noexcept
     {

@@ -44,7 +44,7 @@ public:
     /// @param key The property key.
     /// @param context The Context map to send with the invocation.
     /// @return The property value.
-    ::std::string getProperty(::std::string_view key, const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    ::std::string getProperty(::std::string_view key, const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get a property by key. If the property is not set, an empty string is returned.
     /// @param key The property key.
@@ -59,7 +59,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getPropertyAsync(::std::string_view key, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -71,7 +71,7 @@ public:
     /// @param prefix The prefix to search for (empty string if none).
     /// @param context The Context map to send with the invocation.
     /// @return The matching property set.
-    PropertyDict getPropertiesForPrefix(::std::string_view prefix, const Context& context = noExplicitContext) const; // NOLINT:modernize-use-nodiscard
+    PropertyDict getPropertiesForPrefix(::std::string_view prefix, const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
     /// properties are returned.
@@ -88,7 +88,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     getPropertiesForPrefixAsync(::std::string_view prefix, ::std::function<void(::Ice::PropertyDict)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -122,7 +122,7 @@ public:
     /// @param sent The sent callback.
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
-    ::std::function<void()> // NOLINT:modernize-use-nodiscard
+    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
     setPropertiesAsync(const PropertyDict& newProperties, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
@@ -133,11 +133,11 @@ public:
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    PropertiesAdminPrx(const PropertiesAdminPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT:modernize-use-equals-default
+    PropertiesAdminPrx(const PropertiesAdminPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    PropertiesAdminPrx(PropertiesAdminPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT:modernize-use-equals-default
+    PropertiesAdminPrx(PropertiesAdminPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    PropertiesAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT:modernize-use-equals-default
+    PropertiesAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     PropertiesAdminPrx& operator=(const PropertiesAdminPrx& rhs) noexcept
     {
