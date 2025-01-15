@@ -25,9 +25,9 @@
 #   endif
 #endif
 
-namespace _cpp_and
+namespace and
 {
-    enum class _cpp_continue : ::std::uint8_t
+    enum class continue : ::std::uint8_t
     {
         let,
         var
@@ -41,14 +41,14 @@ namespace _cpp_and
 
     class funcPrx;
 
-    class _cpp_switch;
-    using switchPtr = ::std::shared_ptr<_cpp_switch>;
+    class switch;
+    using switchPtr = ::std::shared_ptr<switch>;
 
     class doPrx;
 
     using fileprivate = ::std::vector<guard>;
 
-    using _cpp_for = ::std::map<::std::string, guard>;
+    using for = ::std::map<::std::string, guard>;
 
     class friendPrx;
 
@@ -56,31 +56,31 @@ namespace _cpp_and
 
     constexpr ::std::int32_t self = 0;
 
-    constexpr ::std::int32_t _cpp_throw = 0;
+    constexpr ::std::int32_t throw = 0;
 
     constexpr ::std::int32_t typealias = 0;
 
     constexpr ::std::int32_t internal = 0;
 
-    constexpr ::std::int32_t _cpp_while = 0;
+    constexpr ::std::int32_t while = 0;
 
-    constexpr ::std::int32_t _cpp_import = 0;
+    constexpr ::std::int32_t import = 0;
 
 }
 
-namespace _cpp_and
+namespace and
 {
 
 class breakPrx : public ::Ice::Proxy<breakPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void _cpp_case(::std::int32_t _cpp_catch, ::std::int32_t& _cpp_try, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void case(::std::int32_t catch, ::std::int32_t& try, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::int32_t> caseAsync(::std::int32_t _cpp_catch, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> caseAsync(::std::int32_t catch, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    caseAsync(::std::int32_t _cpp_catch, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    caseAsync(::std::int32_t catch, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
@@ -131,7 +131,7 @@ class funcPrx : public ::Ice::Proxy<funcPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void _cpp_public(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void public(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     [[nodiscard]] ::std::future<void> publicAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -241,15 +241,15 @@ class friendPrx : public ::Ice::Proxy<friendPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    guard _cpp_goto(_cpp_continue _cpp_if, const guard& d, const defer& _cpp_inline, const switchPtr& _cpp_private, const ::std::optional<doPrx>& _cpp_mutable, const ::std::optional<breakPrx>& _cpp_namespace, const ::std::optional<funcPrx>& _cpp_new, const switchPtr& _cpp_not, const ::std::optional<doPrx>& _cpp_operator, ::std::int32_t _cpp_or, ::std::int32_t _cpp_protected, ::std::int32_t _cpp_public, ::std::int32_t _cpp_register, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    guard goto(continue if, const guard& d, const defer& inline, const switchPtr& private, const ::std::optional<doPrx>& mutable, const ::std::optional<breakPrx>& namespace, const ::std::optional<funcPrx>& new, const switchPtr& not, const ::std::optional<doPrx>& operator, ::std::int32_t or, ::std::int32_t protected, ::std::int32_t public, ::std::int32_t register, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<guard> gotoAsync(_cpp_continue _cpp_if, const guard& d, const defer& _cpp_inline, const switchPtr& _cpp_private, const ::std::optional<doPrx>& _cpp_mutable, const ::std::optional<breakPrx>& _cpp_namespace, const ::std::optional<funcPrx>& _cpp_new, const switchPtr& _cpp_not, const ::std::optional<doPrx>& _cpp_operator, ::std::int32_t _cpp_or, ::std::int32_t _cpp_protected, ::std::int32_t _cpp_public, ::std::int32_t _cpp_register, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<guard> gotoAsync(continue if, const guard& d, const defer& inline, const switchPtr& private, const ::std::optional<doPrx>& mutable, const ::std::optional<breakPrx>& namespace, const ::std::optional<funcPrx>& new, const switchPtr& not, const ::std::optional<doPrx>& operator, ::std::int32_t or, ::std::int32_t protected, ::std::int32_t public, ::std::int32_t register, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    gotoAsync(_cpp_continue _cpp_if, const guard& d, const defer& _cpp_inline, const switchPtr& _cpp_private, const ::std::optional<doPrx>& _cpp_mutable, const ::std::optional<breakPrx>& _cpp_namespace, const ::std::optional<funcPrx>& _cpp_new, const switchPtr& _cpp_not, const ::std::optional<doPrx>& _cpp_operator, ::std::int32_t _cpp_or, ::std::int32_t _cpp_protected, ::std::int32_t _cpp_public, ::std::int32_t _cpp_register, ::std::function<void(::_cpp_and::guard)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    gotoAsync(continue if, const guard& d, const defer& inline, const switchPtr& private, const ::std::optional<doPrx>& mutable, const ::std::optional<breakPrx>& namespace, const ::std::optional<funcPrx>& new, const switchPtr& not, const ::std::optional<doPrx>& operator, ::std::int32_t or, ::std::int32_t protected, ::std::int32_t public, ::std::int32_t register, ::std::function<void(::and::guard)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_goto(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<guard>>&, _cpp_continue, const guard&, const defer&, const switchPtr&, const ::std::optional<doPrx>&, const ::std::optional<breakPrx>&, const ::std::optional<funcPrx>&, const switchPtr&, const ::std::optional<doPrx>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_goto(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<guard>>&, continue, const guard&, const defer&, const switchPtr&, const ::std::optional<doPrx>&, const ::std::optional<breakPrx>&, const ::std::optional<funcPrx>&, const switchPtr&, const ::std::optional<doPrx>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -295,44 +295,44 @@ protected:
 
 }
 
-namespace _cpp_and
+namespace and
 {
 
 struct guard
 {
-    ::std::int32_t _cpp_default;
+    ::std::int32_t default;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
     [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
-        return std::tie(_cpp_default);
+        return std::tie(default);
     }
 };
 
 struct defer
 {
-    ::std::string _cpp_else;
+    ::std::string else;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
     [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
     {
-        return std::tie(_cpp_else);
+        return std::tie(else);
     }
 };
 
-class _cpp_switch : public ::Ice::Value
+class switch : public ::Ice::Value
 {
 public:
     /// Default constructor.
-    _cpp_switch() noexcept = default;
+    switch() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    _cpp_switch(::std::int32_t _cpp_if, ::std::optional<::_cpp_and::funcPrx> _cpp_export, ::std::int32_t _cpp_volatile) noexcept :
-        _cpp_if(_cpp_if),
-        _cpp_export(::std::move(_cpp_export)),
-        _cpp_volatile(_cpp_volatile)
+    switch(::std::int32_t if, ::std::optional<::and::funcPrx> export, ::std::int32_t volatile) noexcept :
+        if(if),
+        export(::std::move(export)),
+        volatile(volatile)
     {
     }
 
@@ -344,21 +344,21 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::optional<::_cpp_and::funcPrx>&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::optional<::and::funcPrx>&, const ::std::int32_t&> ice_tuple() const
     {
-        return std::tie(_cpp_if, _cpp_export, _cpp_volatile);
+        return std::tie(if, export, volatile);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] switchPtr ice_clone() const { return ::std::static_pointer_cast<_cpp_switch>(_iceCloneImpl()); }
+    [[nodiscard]] switchPtr ice_clone() const { return ::std::static_pointer_cast<switch>(_iceCloneImpl()); }
 
-    ::std::int32_t _cpp_if;
-    ::std::optional<::_cpp_and::funcPrx> _cpp_export;
-    ::std::int32_t _cpp_volatile;
+    ::std::int32_t if;
+    ::std::optional<::and::funcPrx> export;
+    ::std::int32_t volatile;
 
 protected:
-    _cpp_switch(const _cpp_switch&) = default;
+    switch(const switch&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
@@ -366,20 +366,20 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class _cpp_return : public ::Ice::UserException
+class return : public ::Ice::UserException
 {
 public:
     /// Default constructor.
-    _cpp_return() noexcept = default;
+    return() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    _cpp_return(::std::int32_t Int32) noexcept :
+    return(::std::int32_t Int32) noexcept :
         Int32(Int32)
     {
     }
 
     /// Copy constructor.
-    _cpp_return(const _cpp_return&) noexcept = default;
+    return(const return&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
@@ -404,17 +404,17 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-class as : public _cpp_return
+class as : public return
 {
 public:
     /// Default constructor.
     as() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    as(::std::int32_t Int32, ::std::int32_t _cpp_static, ::std::int32_t _cpp_switch) noexcept :
-        _cpp_return(Int32),
-        _cpp_static(_cpp_static),
-        _cpp_switch(_cpp_switch)
+    as(::std::int32_t Int32, ::std::int32_t static, ::std::int32_t switch) noexcept :
+        return(Int32),
+        static(static),
+        switch(switch)
     {
     }
 
@@ -425,7 +425,7 @@ public:
     /// @return The data members in a tuple.
     [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
-        return std::tie(Int32, _cpp_static, _cpp_switch);
+        return std::tie(Int32, static, switch);
     }
 
     /// Obtains the Slice type ID of this exception.
@@ -436,8 +436,8 @@ public:
 
     void ice_throw() const override;
 
-    ::std::int32_t _cpp_static;
-    ::std::int32_t _cpp_switch;
+    ::std::int32_t static;
+    ::std::int32_t switch;
 
 protected:
     void _writeImpl(::Ice::OutputStream*) const override;
@@ -454,10 +454,10 @@ using Ice::Tuple::operator!=;
 
 }
 
-namespace _cpp_and
+namespace and
 {
 
-class _cpp_break : public virtual ::Ice::Object
+class break : public virtual ::Ice::Object
 {
 public:
 
@@ -477,7 +477,7 @@ public:
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual void caseAsync(::std::int32_t _cpp_catch, ::std::function<void(::std::int32_t _cpp_try)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void caseAsync(::std::int32_t catch, ::std::function<void(::std::int32_t try)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_case(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -487,7 +487,7 @@ public:
     /// \endcond
 };
 
-using breakPtr = ::std::shared_ptr<_cpp_break>;
+using breakPtr = ::std::shared_ptr<break>;
 
 class func : public virtual ::Ice::Object
 {
@@ -509,7 +509,7 @@ public:
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual void _cpp_public(const ::Ice::Current& current) = 0;
+    virtual void public(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_public(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -521,8 +521,8 @@ public:
 
 using funcPtr = ::std::shared_ptr<func>;
 
-class _cpp_do : public virtual func,
-                public virtual _cpp_break
+class do : public virtual func,
+           public virtual break
 {
 public:
 
@@ -547,9 +547,9 @@ public:
     /// \endcond
 };
 
-using doPtr = ::std::shared_ptr<_cpp_do>;
+using doPtr = ::std::shared_ptr<do>;
 
-class _cpp_friend : public virtual ::Ice::Object
+class friend : public virtual ::Ice::Object
 {
 public:
 
@@ -569,7 +569,7 @@ public:
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual guard _cpp_goto(_cpp_continue _cpp_if, guard d, defer _cpp_inline, switchPtr _cpp_private, ::std::optional<doPrx> _cpp_mutable, ::std::optional<breakPrx> _cpp_namespace, ::std::optional<funcPrx> _cpp_new, switchPtr _cpp_not, ::std::optional<doPrx> _cpp_operator, ::std::int32_t _cpp_or, ::std::int32_t _cpp_protected, ::std::int32_t _cpp_public, ::std::int32_t _cpp_register, const ::Ice::Current& current) = 0;
+    virtual guard goto(continue if, guard d, defer inline, switchPtr private, ::std::optional<doPrx> mutable, ::std::optional<breakPrx> namespace, ::std::optional<funcPrx> new, switchPtr not, ::std::optional<doPrx> operator, ::std::int32_t or, ::std::int32_t protected, ::std::int32_t public, ::std::int32_t register, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_goto(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -579,7 +579,7 @@ public:
     /// \endcond
 };
 
-using friendPtr = ::std::shared_ptr<_cpp_friend>;
+using friendPtr = ::std::shared_ptr<friend>;
 
 }
 
@@ -588,7 +588,7 @@ namespace Ice
 {
 
 template<>
-struct StreamableTraits< ::_cpp_and::_cpp_continue>
+struct StreamableTraits< ::and::continue>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryEnum;
     static const int minValue = 0;
@@ -598,7 +598,7 @@ struct StreamableTraits< ::_cpp_and::_cpp_continue>
 };
 
 template<>
-struct StreamableTraits<::_cpp_and::guard>
+struct StreamableTraits<::and::guard>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
     static const int minWireSize = 4;
@@ -606,16 +606,16 @@ struct StreamableTraits<::_cpp_and::guard>
 };
 
 template<>
-struct StreamReader<::_cpp_and::guard>
+struct StreamReader<::and::guard>
 {
-    static void read(InputStream* istr, ::_cpp_and::guard& v)
+    static void read(InputStream* istr, ::and::guard& v)
     {
-        istr->readAll(v._cpp_default);
+        istr->readAll(v.default);
     }
 };
 
 template<>
-struct StreamableTraits<::_cpp_and::defer>
+struct StreamableTraits<::and::defer>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
     static const int minWireSize = 1;
@@ -623,11 +623,11 @@ struct StreamableTraits<::_cpp_and::defer>
 };
 
 template<>
-struct StreamReader<::_cpp_and::defer>
+struct StreamReader<::and::defer>
 {
-    static void read(InputStream* istr, ::_cpp_and::defer& v)
+    static void read(InputStream* istr, ::and::defer& v)
     {
-        istr->readAll(v._cpp_else);
+        istr->readAll(v.else);
     }
 };
 

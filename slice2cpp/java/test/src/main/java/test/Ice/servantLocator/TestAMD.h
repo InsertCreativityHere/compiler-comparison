@@ -117,23 +117,23 @@ public:
     void _iceI_unknownExceptionWithServantException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string impossibleException(bool _cpp_throw, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::string impossibleException(bool throw, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::string> impossibleExceptionAsync(bool _cpp_throw, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> impossibleExceptionAsync(bool throw, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    impossibleExceptionAsync(bool _cpp_throw, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    impossibleExceptionAsync(bool throw, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_impossibleException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string intfUserException(bool _cpp_throw, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::string intfUserException(bool throw, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<::std::string> intfUserExceptionAsync(bool _cpp_throw, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> intfUserExceptionAsync(bool throw, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    intfUserExceptionAsync(bool _cpp_throw, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    intfUserExceptionAsync(bool throw, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_intfUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, bool, const ::Ice::Context&) const;
@@ -368,12 +368,12 @@ public:
     void _iceD_unknownExceptionWithServantException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void impossibleExceptionAsync(bool _cpp_throw, ::std::function<void(::std::string_view returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void impossibleExceptionAsync(bool throw, ::std::function<void(::std::string_view returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_impossibleException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void intfUserExceptionAsync(bool _cpp_throw, ::std::function<void(::std::string_view returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void intfUserExceptionAsync(bool throw, ::std::function<void(::std::string_view returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_intfUserException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

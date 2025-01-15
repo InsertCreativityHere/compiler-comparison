@@ -40,9 +40,9 @@
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::abstract::_cpp_else> iceC_abstract_else_init("::abstract::else");
+    const ::IceInternal::DefaultValueFactoryInit<::abstract::else> iceC_abstract_else_init("::abstract::else");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::hashCode> iceC_abstract_hashCode_init("::abstract::hashCode");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::_cpp_import> iceC_abstract_import_init("::abstract::import");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::import> iceC_abstract_import_init("::abstract::import");
 }
 
 void
@@ -84,7 +84,7 @@ abstract::catchPrx::ice_staticId() noexcept
 }
 
 void
-abstract::defaultPrx::_cpp_do(const ::Ice::Context& context) const
+abstract::defaultPrx::do(const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &defaultPrx::_iceI_do, context).get();
 }
@@ -124,25 +124,25 @@ abstract::finalizePrx::ice_staticId() noexcept
 }
 
 ::abstract::assert
-abstract::newPrx::notify(const _cpp_break& iceP_notifyAll, const elsePtr& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
+abstract::newPrx::notify(const break& iceP_notifyAll, const elsePtr& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<assert>(true, this, &newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context).get();
 }
 
 ::std::future<::abstract::assert>
-abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const elsePtr& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
+abstract::newPrx::notifyAsync(const break& iceP_notifyAll, const elsePtr& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<assert>(false, this, &newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context);
 }
 
 ::std::function<void()>
-abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const elsePtr& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, ::std::function<void(::abstract::assert)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+abstract::newPrx::notifyAsync(const break& iceP_notifyAll, const elsePtr& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, ::std::function<void(::abstract::assert)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<assert>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &abstract::newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context);
 }
 
 void
-abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>& outAsync, const _cpp_break& iceP_notifyAll, const elsePtr& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
+abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>& outAsync, const break& iceP_notifyAll, const elsePtr& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "notify";
 
@@ -159,7 +159,7 @@ abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAs
             {
                 ex.ice_throw();
             }
-            catch(const _cpp_import&)
+            catch(const import&)
             {
                 throw;
             }
@@ -180,36 +180,36 @@ abstract::newPrx::ice_staticId() noexcept
 }
 
 const char*
-abstract::_cpp_else::ice_staticId() noexcept
+abstract::else::ice_staticId() noexcept
 {
     return "::abstract::else";
 }
 
 const char*
-abstract::_cpp_else::ice_id() const noexcept
+abstract::else::ice_id() const noexcept
 {
     return ice_staticId();
 }
 
 ::Ice::ValuePtr
-abstract::_cpp_else::_iceCloneImpl() const
+abstract::else::_iceCloneImpl() const
 {
-    return CloneEnabler<_cpp_else>::clone(*this);
+    return CloneEnabler<else>::clone(*this);
 }
 
 void
-abstract::_cpp_else::_iceWriteImpl(::Ice::OutputStream* ostr) const
+abstract::else::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll(this->_cpp_if, this->equals, this->_cpp_final);
+    ostr->writeAll(this->if, this->equals, this->final);
     ostr->endSlice();
 }
 
 void
-abstract::_cpp_else::_iceReadImpl(::Ice::InputStream* istr)
+abstract::else::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll(this->_cpp_if, this->equals, this->_cpp_final);
+    istr->readAll(this->if, this->equals, this->final);
     istr->endSlice();
 }
 
@@ -235,7 +235,7 @@ void
 abstract::hashCode::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll(this->_cpp_if);
+    ostr->writeAll(this->if);
     ostr->endSlice();
 }
 
@@ -243,30 +243,30 @@ void
 abstract::hashCode::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll(this->_cpp_if);
+    istr->readAll(this->if);
     istr->endSlice();
 }
 
 const char*
-abstract::_cpp_import::ice_staticId() noexcept
+abstract::import::ice_staticId() noexcept
 {
     return "::abstract::import";
 }
 
 const char*
-abstract::_cpp_import::ice_id() const noexcept
+abstract::import::ice_id() const noexcept
 {
     return ice_staticId();
 }
 
 void
-abstract::_cpp_import::ice_throw() const
+abstract::import::ice_throw() const
 {
     throw *this;
 }
 
 void
-abstract::_cpp_import::_writeImpl(::Ice::OutputStream* ostr) const
+abstract::import::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->instanceof, this->native);
@@ -275,7 +275,7 @@ abstract::_cpp_import::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-abstract::_cpp_import::_readImpl(::Ice::InputStream* istr)
+abstract::import::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->instanceof, this->native);
@@ -284,27 +284,27 @@ abstract::_cpp_import::_readImpl(::Ice::InputStream* istr)
 }
 
 ::std::vector<::std::string>
-abstract::_cpp_catch::ice_ids(const ::Ice::Current&) const
+abstract::catch::ice_ids(const ::Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::abstract::catch"};
     return allTypeIds;
 }
 
 ::std::string
-abstract::_cpp_catch::ice_id(const ::Ice::Current&) const
+abstract::catch::ice_id(const ::Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
 
 const char*
-abstract::_cpp_catch::ice_staticId() noexcept
+abstract::catch::ice_staticId() noexcept
 {
     return "::abstract::catch";
 }
 
 /// \cond INTERNAL
 void
-abstract::_cpp_catch::_iceD_checkedCast(
+abstract::catch::_iceD_checkedCast(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
@@ -336,7 +336,7 @@ abstract::_cpp_catch::_iceD_checkedCast(
 
 /// \cond INTERNAL
 void
-abstract::_cpp_catch::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::catch::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"checkedCast", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
@@ -385,40 +385,40 @@ abstract::_cpp_catch::dispatch(::Ice::IncomingRequest& request, ::std::function<
 /// \endcond
 
 ::std::vector<::std::string>
-abstract::_cpp_default::ice_ids(const ::Ice::Current&) const
+abstract::default::ice_ids(const ::Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::abstract::default"};
     return allTypeIds;
 }
 
 ::std::string
-abstract::_cpp_default::ice_id(const ::Ice::Current&) const
+abstract::default::ice_id(const ::Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
 
 const char*
-abstract::_cpp_default::ice_staticId() noexcept
+abstract::default::ice_staticId() noexcept
 {
     return "::abstract::default";
 }
 
 /// \cond INTERNAL
 void
-abstract::_cpp_default::_iceD_do(
+abstract::default::_iceD_do(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    this->_cpp_do(request.current());
+    this->do(request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-abstract::_cpp_default::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::default::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"do", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
@@ -541,34 +541,34 @@ abstract::finalize::dispatch(::Ice::IncomingRequest& request, ::std::function<vo
 /// \endcond
 
 ::std::vector<::std::string>
-abstract::_cpp_new::ice_ids(const ::Ice::Current&) const
+abstract::new::ice_ids(const ::Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::abstract::new"};
     return allTypeIds;
 }
 
 ::std::string
-abstract::_cpp_new::ice_id(const ::Ice::Current&) const
+abstract::new::ice_id(const ::Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
 
 const char*
-abstract::_cpp_new::ice_staticId() noexcept
+abstract::new::ice_staticId() noexcept
 {
     return "::abstract::new";
 }
 
 /// \cond INTERNAL
 void
-abstract::_cpp_new::_iceD_notify(
+abstract::new::_iceD_notify(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    _cpp_break iceP_notifyAll;
+    break iceP_notifyAll;
     elsePtr iceP_null;
     ::std::optional<finalizePrx> iceP_package;
     ::std::optional<catchPrx> iceP_public;
@@ -590,7 +590,7 @@ abstract::_cpp_new::_iceD_notify(
 
 /// \cond INTERNAL
 void
-abstract::_cpp_new::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+abstract::new::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "notify"};
 

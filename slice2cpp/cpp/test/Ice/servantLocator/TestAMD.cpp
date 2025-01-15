@@ -297,25 +297,25 @@ Test::TestIntfPrx::_iceI_unknownExceptionWithServantException(const ::std::share
 }
 
 ::std::string
-Test::TestIntfPrx::impossibleException(bool iceP_throw, const ::Ice::Context& context) const
+Test::TestIntfPrx::impossibleException(bool iceP_shouldThrow, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_impossibleException, iceP_throw, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_impossibleException, iceP_shouldThrow, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::impossibleExceptionAsync(bool iceP_throw, const ::Ice::Context& context) const
+Test::TestIntfPrx::impossibleExceptionAsync(bool iceP_shouldThrow, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_impossibleException, iceP_throw, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_impossibleException, iceP_shouldThrow, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::impossibleExceptionAsync(bool iceP_throw, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::impossibleExceptionAsync(bool iceP_shouldThrow, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_impossibleException, iceP_throw, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_impossibleException, iceP_shouldThrow, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_impossibleException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_throw, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_impossibleException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_shouldThrow, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "impossibleException";
 
@@ -323,7 +323,7 @@ Test::TestIntfPrx::_iceI_impossibleException(const ::std::shared_ptr<::IceIntern
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
-            ostr->writeAll(iceP_throw);
+            ostr->writeAll(iceP_shouldThrow);
         },
         [](const ::Ice::UserException& ex)
         {
@@ -342,25 +342,25 @@ Test::TestIntfPrx::_iceI_impossibleException(const ::std::shared_ptr<::IceIntern
 }
 
 ::std::string
-Test::TestIntfPrx::intfUserException(bool iceP_throw, const ::Ice::Context& context) const
+Test::TestIntfPrx::intfUserException(bool iceP_shouldThrow, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_intfUserException, iceP_throw, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_intfUserException, iceP_shouldThrow, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::intfUserExceptionAsync(bool iceP_throw, const ::Ice::Context& context) const
+Test::TestIntfPrx::intfUserExceptionAsync(bool iceP_shouldThrow, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_intfUserException, iceP_throw, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_intfUserException, iceP_shouldThrow, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::intfUserExceptionAsync(bool iceP_throw, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::intfUserExceptionAsync(bool iceP_shouldThrow, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_intfUserException, iceP_throw, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_intfUserException, iceP_shouldThrow, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_intfUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_throw, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_intfUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_shouldThrow, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "intfUserException";
 
@@ -368,7 +368,7 @@ Test::TestIntfPrx::_iceI_intfUserException(const ::std::shared_ptr<::IceInternal
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
         [&](::Ice::OutputStream* ostr)
         {
-            ostr->writeAll(iceP_throw);
+            ostr->writeAll(iceP_shouldThrow);
         },
         [](const ::Ice::UserException& ex)
         {
@@ -825,8 +825,8 @@ Test::TestIntf::_iceD_impossibleException(
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    bool iceP_throw;
-    istr->readAll(iceP_throw);
+    bool iceP_shouldThrow;
+    istr->readAll(iceP_shouldThrow);
     istr->endEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     auto responseCb = [responseHandler](::std::string_view ret)
@@ -839,7 +839,7 @@ Test::TestIntf::_iceD_impossibleException(
     };
     try
     {
-        this->impossibleExceptionAsync(iceP_throw, ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
+        this->impossibleExceptionAsync(iceP_shouldThrow, ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
@@ -857,8 +857,8 @@ Test::TestIntf::_iceD_intfUserException(
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    bool iceP_throw;
-    istr->readAll(iceP_throw);
+    bool iceP_shouldThrow;
+    istr->readAll(iceP_shouldThrow);
     istr->endEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     auto responseCb = [responseHandler](::std::string_view ret)
@@ -871,7 +871,7 @@ Test::TestIntf::_iceD_intfUserException(
     };
     try
     {
-        this->intfUserExceptionAsync(iceP_throw, ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
+        this->intfUserExceptionAsync(iceP_shouldThrow, ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {

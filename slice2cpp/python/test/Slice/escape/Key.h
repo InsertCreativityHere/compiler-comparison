@@ -25,25 +25,25 @@
 #   endif
 #endif
 
-namespace _cpp_and
+namespace and
 {
     enum class assert : ::std::uint8_t
     {
-        _cpp_break
+        break
     };
 
-    struct _cpp_continue;
+    struct continue;
 
     class delPrx;
 
     class execPrx;
 
-    class _cpp_for;
-    using forPtr = ::std::shared_ptr<_cpp_for>;
+    class for;
+    using forPtr = ::std::shared_ptr<for>;
 
     class ifPrx;
 
-    using _cpp_import = ::std::vector<assert>;
+    using import = ::std::vector<assert>;
 
     using in = ::std::map<::std::string, assert>;
 
@@ -58,19 +58,19 @@ namespace _cpp_and
 
 }
 
-namespace _cpp_and
+namespace and
 {
 
 class delPrx : public ::Ice::Proxy<delPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void elif(::std::int32_t _cpp_else, ::std::int32_t& except, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void elif(::std::int32_t else, ::std::int32_t& except, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<::std::int32_t> elifAsync(::std::int32_t _cpp_else, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> elifAsync(::std::int32_t else, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    elifAsync(::std::int32_t _cpp_else, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    elifAsync(::std::int32_t else, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_elif(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::int32_t, const ::Ice::Context&) const;
@@ -231,15 +231,15 @@ class printPrx : public ::Ice::Proxy<printPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    assert raise(const _cpp_continue& _cpp_else, const forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    assert raise(const continue& else, const forPtr& return, const ::std::optional<delPrx>& while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<assert> raiseAsync(const _cpp_continue& _cpp_else, const forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<assert> raiseAsync(const continue& else, const forPtr& return, const ::std::optional<delPrx>& while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    raiseAsync(const _cpp_continue& _cpp_else, const forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, ::std::function<void(::_cpp_and::assert)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    raiseAsync(const continue& else, const forPtr& return, const ::std::optional<delPrx>& while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& or, ::std::int32_t global, ::std::function<void(::and::assert)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_continue&, const forPtr&, const ::std::optional<delPrx>&, const ::std::optional<execPrx>&, const ::std::optional<ifPrx>&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const continue&, const forPtr&, const ::std::optional<delPrx>&, const ::std::optional<execPrx>&, const ::std::optional<ifPrx>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -285,10 +285,10 @@ protected:
 
 }
 
-namespace _cpp_and
+namespace and
 {
 
-struct _cpp_continue
+struct continue
 {
     ::std::int32_t def;
 
@@ -300,14 +300,14 @@ struct _cpp_continue
     }
 };
 
-class _cpp_for : public ::Ice::Value
+class for : public ::Ice::Value
 {
 public:
     /// Default constructor.
-    _cpp_for() noexcept = default;
+    for() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    _cpp_for(::std::int32_t lambda, ::std::optional<::_cpp_and::execPrx> from, ::std::int32_t global) noexcept :
+    for(::std::int32_t lambda, ::std::optional<::and::execPrx> from, ::std::int32_t global) noexcept :
         lambda(lambda),
         from(::std::move(from)),
         global(global)
@@ -322,21 +322,21 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::optional<::_cpp_and::execPrx>&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::optional<::and::execPrx>&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(lambda, from, global);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] forPtr ice_clone() const { return ::std::static_pointer_cast<_cpp_for>(_iceCloneImpl()); }
+    [[nodiscard]] forPtr ice_clone() const { return ::std::static_pointer_cast<for>(_iceCloneImpl()); }
 
     ::std::int32_t lambda;
-    ::std::optional<::_cpp_and::execPrx> from;
+    ::std::optional<::and::execPrx> from;
     ::std::int32_t global;
 
 protected:
-    _cpp_for(const _cpp_for&) = default;
+    for(const for&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
@@ -382,28 +382,28 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-class _cpp_not : public is
+class not : public is
 {
 public:
     /// Default constructor.
-    _cpp_not() noexcept = default;
+    not() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    _cpp_not(::std::int32_t lambda, ::std::int32_t _cpp_or, ::std::int32_t pass) noexcept :
+    not(::std::int32_t lambda, ::std::int32_t or, ::std::int32_t pass) noexcept :
         is(lambda),
-        _cpp_or(_cpp_or),
+        or(or),
         pass(pass)
     {
     }
 
     /// Copy constructor.
-    _cpp_not(const _cpp_not&) noexcept = default;
+    not(const not&) noexcept = default;
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
     [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
-        return std::tie(lambda, _cpp_or, pass);
+        return std::tie(lambda, or, pass);
     }
 
     /// Obtains the Slice type ID of this exception.
@@ -414,7 +414,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::int32_t _cpp_or;
+    ::std::int32_t or;
     ::std::int32_t pass;
 
 protected:
@@ -432,7 +432,7 @@ using Ice::Tuple::operator!=;
 
 }
 
-namespace _cpp_and
+namespace and
 {
 
 class del : public virtual ::Ice::Object
@@ -455,7 +455,7 @@ public:
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual void elifAsync(::std::int32_t _cpp_else, ::std::function<void(::std::int32_t except)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void elifAsync(::std::int32_t else, ::std::function<void(::std::int32_t except)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_elif(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -499,8 +499,8 @@ public:
 
 using execPtr = ::std::shared_ptr<exec>;
 
-class _cpp_if : public virtual exec,
-                public virtual del
+class if : public virtual exec,
+           public virtual del
 {
 public:
 
@@ -525,7 +525,7 @@ public:
     /// \endcond
 };
 
-using ifPtr = ::std::shared_ptr<_cpp_if>;
+using ifPtr = ::std::shared_ptr<if>;
 
 class print : public virtual ::Ice::Object
 {
@@ -547,7 +547,7 @@ public:
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual assert raise(_cpp_continue _cpp_else, forPtr _cpp_return, ::std::optional<delPrx> _cpp_while, ::std::optional<execPrx> yield, ::std::optional<ifPrx> _cpp_or, ::std::int32_t global, const ::Ice::Current& current) = 0;
+    virtual assert raise(continue else, forPtr return, ::std::optional<delPrx> while, ::std::optional<execPrx> yield, ::std::optional<ifPrx> or, ::std::int32_t global, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_raise(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -566,7 +566,7 @@ namespace Ice
 {
 
 template<>
-struct StreamableTraits< ::_cpp_and::assert>
+struct StreamableTraits< ::and::assert>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryEnum;
     static const int minValue = 0;
@@ -576,7 +576,7 @@ struct StreamableTraits< ::_cpp_and::assert>
 };
 
 template<>
-struct StreamableTraits<::_cpp_and::_cpp_continue>
+struct StreamableTraits<::and::continue>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
     static const int minWireSize = 4;
@@ -584,16 +584,16 @@ struct StreamableTraits<::_cpp_and::_cpp_continue>
 };
 
 template<>
-struct StreamReader<::_cpp_and::_cpp_continue>
+struct StreamReader<::and::continue>
 {
-    static void read(InputStream* istr, ::_cpp_and::_cpp_continue& v)
+    static void read(InputStream* istr, ::and::continue& v)
     {
         istr->readAll(v.def);
     }
 };
 
 template<>
-struct StreamableTraits< ::_cpp_and::EnumNone>
+struct StreamableTraits< ::and::EnumNone>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryEnum;
     static const int minValue = 0;

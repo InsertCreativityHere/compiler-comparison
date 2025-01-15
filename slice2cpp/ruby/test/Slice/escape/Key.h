@@ -32,7 +32,7 @@ namespace BEGIN
         alias
     };
 
-    struct _cpp_and;
+    struct and;
 
     class breakPrx;
 
@@ -58,7 +58,7 @@ class breakPrx : public ::Ice::Proxy<breakPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void _cpp_case(::std::int32_t clone, ::std::int32_t def, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void case(::std::int32_t clone, ::std::int32_t def, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     [[nodiscard]] ::std::future<void> caseAsync(::std::int32_t clone, ::std::int32_t def, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -201,12 +201,12 @@ class extendPrx : public ::Ice::Proxy<extendPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    END _cpp_for(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    END for(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<END> forAsync(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<END> forAsync(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    forAsync(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, ::std::function<void(::BEGIN::END)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    forAsync(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, ::std::function<void(::BEGIN::END)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>&, const displayPtr&, const ::std::optional<elsifPrx>&, const ::std::optional<breakPrx>&, const displayPtr&, const ::std::optional<elsifPrx>&, ::std::int32_t, const ::Ice::Context&) const;
@@ -258,7 +258,7 @@ protected:
 namespace BEGIN
 {
 
-struct _cpp_and
+struct and
 {
     ::std::int32_t begin;
 
@@ -277,11 +277,11 @@ public:
     display() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    display(::std::int32_t when, ::std::int32_t _cpp_do, ::std::optional<::BEGIN::breakPrx> dup, ::std::int32_t _cpp_else) noexcept :
+    display(::std::int32_t when, ::std::int32_t do, ::std::optional<::BEGIN::breakPrx> dup, ::std::int32_t else) noexcept :
         when(when),
-        _cpp_do(_cpp_do),
+        do(do),
         dup(::std::move(dup)),
-        _cpp_else(_cpp_else)
+        else(else)
     {
     }
 
@@ -295,7 +295,7 @@ public:
     /// @return The data members in a tuple.
     [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::optional<::BEGIN::breakPrx>&, const ::std::int32_t&> ice_tuple() const
     {
-        return std::tie(when, _cpp_do, dup, _cpp_else);
+        return std::tie(when, do, dup, else);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
@@ -303,9 +303,9 @@ public:
     [[nodiscard]] displayPtr ice_clone() const { return ::std::static_pointer_cast<display>(_iceCloneImpl()); }
 
     ::std::int32_t when;
-    ::std::int32_t _cpp_do;
+    ::std::int32_t do;
     ::std::optional<::BEGIN::breakPrx> dup;
-    ::std::int32_t _cpp_else;
+    ::std::int32_t else;
 
 protected:
     display(const display&) = default;
@@ -323,8 +323,8 @@ public:
     next() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    next(::std::int32_t _cpp_new) noexcept :
-        _cpp_new(_cpp_new)
+    next(::std::int32_t new) noexcept :
+        new(new)
     {
     }
 
@@ -335,7 +335,7 @@ public:
     /// @return The data members in a tuple.
     [[nodiscard]] std::tuple<const ::std::int32_t&> ice_tuple() const
     {
-        return std::tie(_cpp_new);
+        return std::tie(new);
     }
 
     /// Obtains the Slice type ID of this exception.
@@ -346,7 +346,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::int32_t _cpp_new;
+    ::std::int32_t new;
 
 protected:
     void _writeImpl(::Ice::OutputStream*) const override;
@@ -361,10 +361,10 @@ public:
     nil() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    nil(::std::int32_t _cpp_new, ::std::int32_t _cpp_not, ::std::int32_t _cpp_or) noexcept :
-        next(_cpp_new),
-        _cpp_not(_cpp_not),
-        _cpp_or(_cpp_or)
+    nil(::std::int32_t new, ::std::int32_t not, ::std::int32_t or) noexcept :
+        next(new),
+        not(not),
+        or(or)
     {
     }
 
@@ -375,7 +375,7 @@ public:
     /// @return The data members in a tuple.
     [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
-        return std::tie(_cpp_new, _cpp_not, _cpp_or);
+        return std::tie(new, not, or);
     }
 
     /// Obtains the Slice type ID of this exception.
@@ -386,8 +386,8 @@ public:
 
     void ice_throw() const override;
 
-    ::std::int32_t _cpp_not;
-    ::std::int32_t _cpp_or;
+    ::std::int32_t not;
+    ::std::int32_t or;
 
 protected:
     void _writeImpl(::Ice::OutputStream*) const override;
@@ -407,7 +407,7 @@ using Ice::Tuple::operator!=;
 namespace BEGIN
 {
 
-class _cpp_break : public virtual ::Ice::Object
+class break : public virtual ::Ice::Object
 {
 public:
 
@@ -427,7 +427,7 @@ public:
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual void _cpp_case(::std::int32_t clone, ::std::int32_t def, const ::Ice::Current& current) = 0;
+    virtual void case(::std::int32_t clone, ::std::int32_t def, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_case(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -452,9 +452,9 @@ public:
     /// \endcond
 };
 
-using breakPtr = ::std::shared_ptr<_cpp_break>;
+using breakPtr = ::std::shared_ptr<break>;
 
-class elsif : public virtual _cpp_break
+class elsif : public virtual break
 {
 public:
 
@@ -501,7 +501,7 @@ public:
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual END _cpp_for(displayPtr freeze, ::std::optional<elsifPrx> hash, ::std::optional<breakPrx> _cpp_if, displayPtr inspect, ::std::optional<elsifPrx> method, ::std::int32_t methods, const ::Ice::Current& current) = 0;
+    virtual END for(displayPtr freeze, ::std::optional<elsifPrx> hash, ::std::optional<breakPrx> if, displayPtr inspect, ::std::optional<elsifPrx> method, ::std::int32_t methods, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_for(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -530,7 +530,7 @@ struct StreamableTraits< ::BEGIN::END>
 };
 
 template<>
-struct StreamableTraits<::BEGIN::_cpp_and>
+struct StreamableTraits<::BEGIN::and>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
     static const int minWireSize = 4;
@@ -538,9 +538,9 @@ struct StreamableTraits<::BEGIN::_cpp_and>
 };
 
 template<>
-struct StreamReader<::BEGIN::_cpp_and>
+struct StreamReader<::BEGIN::and>
 {
-    static void read(InputStream* istr, ::BEGIN::_cpp_and& v)
+    static void read(InputStream* istr, ::BEGIN::and& v)
     {
         istr->readAll(v.begin);
     }

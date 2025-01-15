@@ -455,7 +455,7 @@ protected:
 struct ServerInstanceDescriptor
 {
     /// The template used by this instance.
-    ::std::string _cpp_template;
+    ::std::string templateName;
     /// The template parameter values.
     ::IceGrid::StringStringDict parameterValues;
     /// The property set.
@@ -468,7 +468,7 @@ struct ServerInstanceDescriptor
     /// @return The data members in a tuple.
     [[nodiscard]] std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::PropertySetDescriptor&, const ::IceGrid::PropertySetDescriptorDict&> ice_tuple() const
     {
-        return std::tie(_cpp_template, parameterValues, propertySet, servicePropertySets);
+        return std::tie(templateName, parameterValues, propertySet, servicePropertySets);
     }
 };
 
@@ -494,7 +494,7 @@ struct TemplateDescriptor
 struct ServiceInstanceDescriptor
 {
     /// The template used by this instance.
-    ::std::string _cpp_template;
+    ::std::string templateName;
     /// The template parameter values.
     ::IceGrid::StringStringDict parameterValues;
     /// The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
@@ -506,7 +506,7 @@ struct ServiceInstanceDescriptor
     /// @return The data members in a tuple.
     [[nodiscard]] std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::ServiceDescriptorPtr&, const ::IceGrid::PropertySetDescriptor&> ice_tuple() const
     {
-        return std::tie(_cpp_template, parameterValues, descriptor, propertySet);
+        return std::tie(templateName, parameterValues, descriptor, propertySet);
     }
 };
 
@@ -1081,7 +1081,7 @@ struct StreamReader<::IceGrid::ServerInstanceDescriptor>
 {
     static void read(InputStream* istr, ::IceGrid::ServerInstanceDescriptor& v)
     {
-        istr->readAll(v._cpp_template, v.parameterValues, v.propertySet, v.servicePropertySets);
+        istr->readAll(v.templateName, v.parameterValues, v.propertySet, v.servicePropertySets);
     }
 };
 
@@ -1115,7 +1115,7 @@ struct StreamReader<::IceGrid::ServiceInstanceDescriptor>
 {
     static void read(InputStream* istr, ::IceGrid::ServiceInstanceDescriptor& v)
     {
-        istr->readAll(v._cpp_template, v.parameterValues, v.descriptor, v.propertySet);
+        istr->readAll(v.templateName, v.parameterValues, v.descriptor, v.propertySet);
     }
 };
 

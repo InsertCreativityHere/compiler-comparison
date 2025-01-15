@@ -28,58 +28,58 @@
 namespace classdef
 {
 
-    namespace _cpp_break
+    namespace break
     {
-        enum class _cpp_bitand : ::std::uint8_t
+        enum class bitand : ::std::uint8_t
         {
-            _cpp_break,
-            _cpp_case,
-            _cpp_catch,
+            break,
+            case,
+            catch,
             classdef,
-            _cpp_continue,
-            _cpp_else,
+            continue,
+            else,
             elseif,
             end,
             enumeration,
             events,
-            _cpp_for,
+            for,
             function,
             global,
-            _cpp_if,
+            if,
             methods,
             otherwise,
             parfor,
             persistent,
             properties,
-            _cpp_return,
+            return,
             spmd,
-            _cpp_switch,
-            _cpp_try,
-            _cpp_while,
+            switch,
+            try,
+            while,
             abs,
-            _cpp_and,
-            _cpp_char,
+            and,
+            char,
             eq,
             length,
             size,
-            _cpp_xor,
+            xor,
             LAST
         };
 
-        struct _cpp_bitor;
+        struct bitor;
 
         class logical;
         using logicalPtr = ::std::shared_ptr<logical>;
 
-        class _cpp_xor;
-        using xorPtr = ::std::shared_ptr<_cpp_xor>;
+        class xor;
+        using xorPtr = ::std::shared_ptr<xor>;
 
-        using parfor = ::std::vector<_cpp_bitor>;
+        using parfor = ::std::vector<bitor>;
 
-        using _cpp_switch = ::std::map<::std::int32_t, _cpp_bitor>;
+        using switch = ::std::map<::std::int32_t, bitor>;
 
-        class _cpp_try;
-        using tryPtr = ::std::shared_ptr<_cpp_try>;
+        class try;
+        using tryPtr = ::std::shared_ptr<try>;
 
         class properties;
         using propertiesPtr = ::std::shared_ptr<properties>;
@@ -94,7 +94,7 @@ namespace classdef
 namespace classdef
 {
 
-namespace _cpp_break
+namespace break
 {
 
 class elseifPrx : public ::Ice::Proxy<elseifPrx, ::Ice::ObjectPrx>
@@ -123,7 +123,7 @@ public:
     void _iceI_function(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void _cpp_delete(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void delete(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     [[nodiscard]] ::std::future<void> deleteAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -193,21 +193,21 @@ protected:
 namespace classdef
 {
 
-namespace _cpp_break
+namespace break
 {
 
-struct _cpp_bitor
+struct bitor
 {
-    ::classdef::_cpp_break::_cpp_bitand _cpp_case = ::classdef::_cpp_break::_cpp_bitand::_cpp_catch;
-    ::std::int32_t _cpp_continue = 1;
+    ::classdef::break::bitand case = ::classdef::break::bitand::catch;
+    ::std::int32_t continue = 1;
     ::std::int32_t eq = 2;
     ::std::int32_t ne = 3;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::classdef::break::bitand&, const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
-        return std::tie(_cpp_case, _cpp_continue, eq, ne);
+        return std::tie(case, continue, eq, ne);
     }
 };
 
@@ -218,9 +218,9 @@ public:
     logical() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    logical(::classdef::_cpp_break::_cpp_bitand _cpp_else, ::classdef::_cpp_break::_cpp_bitor _cpp_for, bool int64) noexcept :
-        _cpp_else(_cpp_else),
-        _cpp_for(_cpp_for),
+    logical(::classdef::break::bitand else, ::classdef::break::bitor for, bool int64) noexcept :
+        else(else),
+        for(for),
         int64(int64)
     {
     }
@@ -233,17 +233,17 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::classdef::_cpp_break::_cpp_bitor&, const bool&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::classdef::break::bitand&, const ::classdef::break::bitor&, const bool&> ice_tuple() const
     {
-        return std::tie(_cpp_else, _cpp_for, int64);
+        return std::tie(else, for, int64);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
     [[nodiscard]] logicalPtr ice_clone() const { return ::std::static_pointer_cast<logical>(_iceCloneImpl()); }
 
-    ::classdef::_cpp_break::_cpp_bitand _cpp_else = ::classdef::_cpp_break::_cpp_bitand::enumeration;
-    ::classdef::_cpp_break::_cpp_bitor _cpp_for;
+    ::classdef::break::bitand else = ::classdef::break::bitand::enumeration;
+    ::classdef::break::bitor for;
     bool int64 = true;
 
 protected:
@@ -255,16 +255,16 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class _cpp_xor : public logical
+class xor : public logical
 {
 public:
     /// Default constructor.
-    _cpp_xor() noexcept = default;
+    xor() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    _cpp_xor(::classdef::_cpp_break::_cpp_bitand _cpp_else, ::classdef::_cpp_break::_cpp_bitor _cpp_for, bool int64, ::std::int32_t _cpp_return) noexcept :
-        logical(_cpp_else, _cpp_for, int64),
-        _cpp_return(_cpp_return)
+    xor(::classdef::break::bitand else, ::classdef::break::bitor for, bool int64, ::std::int32_t return) noexcept :
+        logical(else, for, int64),
+        return(return)
     {
     }
 
@@ -276,19 +276,19 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::classdef::_cpp_break::_cpp_bitand&, const ::classdef::_cpp_break::_cpp_bitor&, const bool&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::classdef::break::bitand&, const ::classdef::break::bitor&, const bool&, const ::std::int32_t&> ice_tuple() const
     {
-        return std::tie(_cpp_else, _cpp_for, int64, _cpp_return);
+        return std::tie(else, for, int64, return);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] xorPtr ice_clone() const { return ::std::static_pointer_cast<_cpp_xor>(_iceCloneImpl()); }
+    [[nodiscard]] xorPtr ice_clone() const { return ::std::static_pointer_cast<xor>(_iceCloneImpl()); }
 
-    ::std::int32_t _cpp_return = 1;
+    ::std::int32_t return = 1;
 
 protected:
-    _cpp_xor(const _cpp_xor&) = default;
+    xor(const xor&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
@@ -296,16 +296,16 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class _cpp_try : public ::Ice::Value
+class try : public ::Ice::Value
 {
 public:
     /// Default constructor.
-    _cpp_try() noexcept = default;
+    try() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    _cpp_try(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete) noexcept :
-        _cpp_while(_cpp_while),
-        _cpp_delete(_cpp_delete)
+    try(::std::int32_t while, ::std::int32_t delete) noexcept :
+        while(while),
+        delete(delete)
     {
     }
 
@@ -319,18 +319,18 @@ public:
     /// @return The data members in a tuple.
     [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&> ice_tuple() const
     {
-        return std::tie(_cpp_while, _cpp_delete);
+        return std::tie(while, delete);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
-    [[nodiscard]] tryPtr ice_clone() const { return ::std::static_pointer_cast<_cpp_try>(_iceCloneImpl()); }
+    [[nodiscard]] tryPtr ice_clone() const { return ::std::static_pointer_cast<try>(_iceCloneImpl()); }
 
-    ::std::int32_t _cpp_while = 1;
-    ::std::int32_t _cpp_delete = 2;
+    ::std::int32_t while = 1;
+    ::std::int32_t delete = 2;
 
 protected:
-    _cpp_try(const _cpp_try&) = default;
+    try(const try&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
@@ -338,17 +338,17 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class properties : public _cpp_try
+class properties : public try
 {
 public:
     /// Default constructor.
     properties() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    properties(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete, ::std::int32_t _cpp_if, ::classdef::_cpp_break::xorPtr _cpp_catch, ::classdef::_cpp_break::parfor spmd, ::classdef::_cpp_break::_cpp_switch otherwise) noexcept :
-        _cpp_try(_cpp_while, _cpp_delete),
-        _cpp_if(_cpp_if),
-        _cpp_catch(::std::move(_cpp_catch)),
+    properties(::std::int32_t while, ::std::int32_t delete, ::std::int32_t if, ::classdef::break::xorPtr catch, ::classdef::break::parfor spmd, ::classdef::break::switch otherwise) noexcept :
+        try(while, delete),
+        if(if),
+        catch(::std::move(catch)),
         spmd(::std::move(spmd)),
         otherwise(::std::move(otherwise))
     {
@@ -362,19 +362,19 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::classdef::_cpp_break::xorPtr&, const ::classdef::_cpp_break::parfor&, const ::classdef::_cpp_break::_cpp_switch&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::int32_t&, const ::std::int32_t&, const ::classdef::break::xorPtr&, const ::classdef::break::parfor&, const ::classdef::break::switch&> ice_tuple() const
     {
-        return std::tie(_cpp_while, _cpp_delete, _cpp_if, _cpp_catch, spmd, otherwise);
+        return std::tie(while, delete, if, catch, spmd, otherwise);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
     /// @return The cloned value.
     [[nodiscard]] propertiesPtr ice_clone() const { return ::std::static_pointer_cast<properties>(_iceCloneImpl()); }
 
-    ::std::int32_t _cpp_if = 2;
-    ::classdef::_cpp_break::xorPtr _cpp_catch;
-    ::classdef::_cpp_break::parfor spmd;
-    ::classdef::_cpp_break::_cpp_switch otherwise;
+    ::std::int32_t if = 2;
+    ::classdef::break::xorPtr catch;
+    ::classdef::break::parfor spmd;
+    ::classdef::break::switch otherwise;
 
 protected:
     properties(const properties&) = default;
@@ -407,7 +407,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::_cpp_break::logicalPtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::break::logicalPtr&> ice_tuple() const
     {
         return std::tie(identifier, message, stack, cause, type, end);
     }
@@ -429,7 +429,7 @@ public:
     ::std::string stack = "3";
     ::std::string cause = "4";
     ::std::string type = "5";
-    ::classdef::_cpp_break::logicalPtr end;
+    ::classdef::break::logicalPtr end;
 
 protected:
     void _writeImpl(::Ice::OutputStream*) const override;
@@ -455,7 +455,7 @@ public:
 
     /// Obtains a tuple containing all of the exception's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::_cpp_break::logicalPtr&, const ::std::int32_t&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::classdef::break::logicalPtr&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(identifier, message, stack, cause, type, end, enumeration);
     }
@@ -497,7 +497,7 @@ using Ice::Tuple::operator!=;
 namespace classdef
 {
 
-namespace _cpp_break
+namespace break
 {
 
 class elseif : public virtual ::Ice::Object
@@ -530,7 +530,7 @@ public:
     void _iceD_function(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void _cpp_delete(const ::Ice::Current& current) = 0;
+    virtual void delete(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_delete(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -556,7 +556,7 @@ namespace Ice
 {
 
 template<>
-struct StreamableTraits< ::classdef::_cpp_break::_cpp_bitand>
+struct StreamableTraits< ::classdef::break::bitand>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryEnum;
     static const int minValue = 0;
@@ -566,7 +566,7 @@ struct StreamableTraits< ::classdef::_cpp_break::_cpp_bitand>
 };
 
 template<>
-struct StreamableTraits<::classdef::_cpp_break::_cpp_bitor>
+struct StreamableTraits<::classdef::break::bitor>
 {
     static const StreamHelperCategory helper = StreamHelperCategoryStruct;
     static const int minWireSize = 13;
@@ -574,11 +574,11 @@ struct StreamableTraits<::classdef::_cpp_break::_cpp_bitor>
 };
 
 template<>
-struct StreamReader<::classdef::_cpp_break::_cpp_bitor>
+struct StreamReader<::classdef::break::bitor>
 {
-    static void read(InputStream* istr, ::classdef::_cpp_break::_cpp_bitor& v)
+    static void read(InputStream* istr, ::classdef::break::bitor& v)
     {
-        istr->readAll(v._cpp_case, v._cpp_continue, v.eq, v.ne);
+        istr->readAll(v.case, v.continue, v.eq, v.ne);
     }
 };
 

@@ -40,31 +40,31 @@
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::_cpp_and::_cpp_switch> iceC_and_switch_init("::and::switch");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::_cpp_return> iceC_and_return_init("::and::return");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::as> iceC_and_as_init("::and::as");
+    const ::IceInternal::DefaultValueFactoryInit<::and::switch> iceC_and_switch_init("::and::switch");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::and::return> iceC_and_return_init("::and::return");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::and::as> iceC_and_as_init("::and::as");
 }
 
 void
-_cpp_and::breakPrx::_cpp_case(::std::int32_t iceP_catch, ::std::int32_t& iceP_try, const ::Ice::Context& context) const
+and::breakPrx::case(::std::int32_t iceP_catch, ::std::int32_t& iceP_try, const ::Ice::Context& context) const
 {
     iceP_try = ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &breakPrx::_iceI_case, iceP_catch, context).get();
 }
 
 ::std::future<::std::int32_t>
-_cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch, const ::Ice::Context& context) const
+and::breakPrx::caseAsync(::std::int32_t iceP_catch, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &breakPrx::_iceI_case, iceP_catch, context);
 }
 
 ::std::function<void()>
-_cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+and::breakPrx::caseAsync(::std::int32_t iceP_catch, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &_cpp_and::breakPrx::_iceI_case, iceP_catch, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &and::breakPrx::_iceI_case, iceP_catch, context);
 }
 
 void
-_cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_catch, const ::Ice::Context& context) const
+and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_catch, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "case";
 
@@ -78,31 +78,31 @@ _cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 
 const char*
-_cpp_and::breakPrx::ice_staticId() noexcept
+and::breakPrx::ice_staticId() noexcept
 {
     return "::and::break";
 }
 
 void
-_cpp_and::funcPrx::_cpp_public(const ::Ice::Context& context) const
+and::funcPrx::public(const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &funcPrx::_iceI_public, context).get();
 }
 
 ::std::future<void>
-_cpp_and::funcPrx::publicAsync(const ::Ice::Context& context) const
+and::funcPrx::publicAsync(const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &funcPrx::_iceI_public, context);
 }
 
 ::std::function<void()>
-_cpp_and::funcPrx::publicAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+and::funcPrx::publicAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &_cpp_and::funcPrx::_iceI_public, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &and::funcPrx::_iceI_public, context);
 }
 
 void
-_cpp_and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "public";
 
@@ -112,37 +112,37 @@ _cpp_and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 
 const char*
-_cpp_and::funcPrx::ice_staticId() noexcept
+and::funcPrx::ice_staticId() noexcept
 {
     return "::and::func";
 }
 
 const char*
-_cpp_and::doPrx::ice_staticId() noexcept
+and::doPrx::ice_staticId() noexcept
 {
     return "::and::do";
 }
 
-::_cpp_and::guard
-_cpp_and::friendPrx::_cpp_goto(_cpp_continue iceP_if, const guard& iceP_d, const defer& iceP_inline, const switchPtr& iceP_private, const ::std::optional<doPrx>& iceP_mutable, const ::std::optional<breakPrx>& iceP_namespace, const ::std::optional<funcPrx>& iceP_new, const switchPtr& iceP_not, const ::std::optional<doPrx>& iceP_operator, ::std::int32_t iceP_or, ::std::int32_t iceP_protected, ::std::int32_t iceP_public, ::std::int32_t iceP_register, const ::Ice::Context& context) const
+::and::guard
+and::friendPrx::goto(continue iceP_if, const guard& iceP_d, const defer& iceP_inline, const switchPtr& iceP_private, const ::std::optional<doPrx>& iceP_mutable, const ::std::optional<breakPrx>& iceP_namespace, const ::std::optional<funcPrx>& iceP_new, const switchPtr& iceP_not, const ::std::optional<doPrx>& iceP_operator, ::std::int32_t iceP_or, ::std::int32_t iceP_protected, ::std::int32_t iceP_public, ::std::int32_t iceP_register, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<guard>(true, this, &friendPrx::_iceI_goto, iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, context).get();
 }
 
-::std::future<::_cpp_and::guard>
-_cpp_and::friendPrx::gotoAsync(_cpp_continue iceP_if, const guard& iceP_d, const defer& iceP_inline, const switchPtr& iceP_private, const ::std::optional<doPrx>& iceP_mutable, const ::std::optional<breakPrx>& iceP_namespace, const ::std::optional<funcPrx>& iceP_new, const switchPtr& iceP_not, const ::std::optional<doPrx>& iceP_operator, ::std::int32_t iceP_or, ::std::int32_t iceP_protected, ::std::int32_t iceP_public, ::std::int32_t iceP_register, const ::Ice::Context& context) const
+::std::future<::and::guard>
+and::friendPrx::gotoAsync(continue iceP_if, const guard& iceP_d, const defer& iceP_inline, const switchPtr& iceP_private, const ::std::optional<doPrx>& iceP_mutable, const ::std::optional<breakPrx>& iceP_namespace, const ::std::optional<funcPrx>& iceP_new, const switchPtr& iceP_not, const ::std::optional<doPrx>& iceP_operator, ::std::int32_t iceP_or, ::std::int32_t iceP_protected, ::std::int32_t iceP_public, ::std::int32_t iceP_register, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<guard>(false, this, &friendPrx::_iceI_goto, iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, context);
 }
 
 ::std::function<void()>
-_cpp_and::friendPrx::gotoAsync(_cpp_continue iceP_if, const guard& iceP_d, const defer& iceP_inline, const switchPtr& iceP_private, const ::std::optional<doPrx>& iceP_mutable, const ::std::optional<breakPrx>& iceP_namespace, const ::std::optional<funcPrx>& iceP_new, const switchPtr& iceP_not, const ::std::optional<doPrx>& iceP_operator, ::std::int32_t iceP_or, ::std::int32_t iceP_protected, ::std::int32_t iceP_public, ::std::int32_t iceP_register, ::std::function<void(::_cpp_and::guard)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+and::friendPrx::gotoAsync(continue iceP_if, const guard& iceP_d, const defer& iceP_inline, const switchPtr& iceP_private, const ::std::optional<doPrx>& iceP_mutable, const ::std::optional<breakPrx>& iceP_namespace, const ::std::optional<funcPrx>& iceP_new, const switchPtr& iceP_not, const ::std::optional<doPrx>& iceP_operator, ::std::int32_t iceP_or, ::std::int32_t iceP_protected, ::std::int32_t iceP_public, ::std::int32_t iceP_register, ::std::function<void(::and::guard)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<guard>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &_cpp_and::friendPrx::_iceI_goto, iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, context);
+    return ::IceInternal::makeLambdaOutgoing<guard>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &and::friendPrx::_iceI_goto, iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, context);
 }
 
 void
-_cpp_and::friendPrx::_iceI_goto(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<guard>>& outAsync, _cpp_continue iceP_if, const guard& iceP_d, const defer& iceP_inline, const switchPtr& iceP_private, const ::std::optional<doPrx>& iceP_mutable, const ::std::optional<breakPrx>& iceP_namespace, const ::std::optional<funcPrx>& iceP_new, const switchPtr& iceP_not, const ::std::optional<doPrx>& iceP_operator, ::std::int32_t iceP_or, ::std::int32_t iceP_protected, ::std::int32_t iceP_public, ::std::int32_t iceP_register, const ::Ice::Context& context) const
+and::friendPrx::_iceI_goto(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<guard>>& outAsync, continue iceP_if, const guard& iceP_d, const defer& iceP_inline, const switchPtr& iceP_private, const ::std::optional<doPrx>& iceP_mutable, const ::std::optional<breakPrx>& iceP_namespace, const ::std::optional<funcPrx>& iceP_new, const switchPtr& iceP_not, const ::std::optional<doPrx>& iceP_operator, ::std::int32_t iceP_or, ::std::int32_t iceP_protected, ::std::int32_t iceP_public, ::std::int32_t iceP_register, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "goto";
 
@@ -163,7 +163,7 @@ _cpp_and::friendPrx::_iceI_goto(const ::std::shared_ptr<::IceInternal::OutgoingA
             {
                 throw;
             }
-            catch(const _cpp_return&)
+            catch(const return&)
             {
                 throw;
             }
@@ -174,65 +174,65 @@ _cpp_and::friendPrx::_iceI_goto(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 
 const char*
-_cpp_and::friendPrx::ice_staticId() noexcept
+and::friendPrx::ice_staticId() noexcept
 {
     return "::and::friend";
 }
 
 const char*
-_cpp_and::_cpp_switch::ice_staticId() noexcept
+and::switch::ice_staticId() noexcept
 {
     return "::and::switch";
 }
 
 const char*
-_cpp_and::_cpp_switch::ice_id() const noexcept
+and::switch::ice_id() const noexcept
 {
     return ice_staticId();
 }
 
 ::Ice::ValuePtr
-_cpp_and::_cpp_switch::_iceCloneImpl() const
+and::switch::_iceCloneImpl() const
 {
-    return CloneEnabler<_cpp_switch>::clone(*this);
+    return CloneEnabler<switch>::clone(*this);
 }
 
 void
-_cpp_and::_cpp_switch::_iceWriteImpl(::Ice::OutputStream* ostr) const
+and::switch::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll(this->_cpp_if, this->_cpp_export, this->_cpp_volatile);
+    ostr->writeAll(this->if, this->export, this->volatile);
     ostr->endSlice();
 }
 
 void
-_cpp_and::_cpp_switch::_iceReadImpl(::Ice::InputStream* istr)
+and::switch::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll(this->_cpp_if, this->_cpp_export, this->_cpp_volatile);
+    istr->readAll(this->if, this->export, this->volatile);
     istr->endSlice();
 }
 
 const char*
-_cpp_and::_cpp_return::ice_staticId() noexcept
+and::return::ice_staticId() noexcept
 {
     return "::and::return";
 }
 
 const char*
-_cpp_and::_cpp_return::ice_id() const noexcept
+and::return::ice_id() const noexcept
 {
     return ice_staticId();
 }
 
 void
-_cpp_and::_cpp_return::ice_throw() const
+and::return::ice_throw() const
 {
     throw *this;
 }
 
 void
-_cpp_and::_cpp_return::_writeImpl(::Ice::OutputStream* ostr) const
+and::return::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->Int32);
@@ -240,7 +240,7 @@ _cpp_and::_cpp_return::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-_cpp_and::_cpp_return::_readImpl(::Ice::InputStream* istr)
+and::return::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->Int32);
@@ -248,63 +248,63 @@ _cpp_and::_cpp_return::_readImpl(::Ice::InputStream* istr)
 }
 
 const char*
-_cpp_and::as::ice_staticId() noexcept
+and::as::ice_staticId() noexcept
 {
     return "::and::as";
 }
 
 const char*
-_cpp_and::as::ice_id() const noexcept
+and::as::ice_id() const noexcept
 {
     return ice_staticId();
 }
 
 void
-_cpp_and::as::ice_throw() const
+and::as::ice_throw() const
 {
     throw *this;
 }
 
 void
-_cpp_and::as::_writeImpl(::Ice::OutputStream* ostr) const
+and::as::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ostr->writeAll(this->_cpp_static, this->_cpp_switch);
+    ostr->writeAll(this->static, this->switch);
     ostr->endSlice();
-    _cpp_return::_writeImpl(ostr);
+    return::_writeImpl(ostr);
 }
 
 void
-_cpp_and::as::_readImpl(::Ice::InputStream* istr)
+and::as::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll(this->_cpp_static, this->_cpp_switch);
+    istr->readAll(this->static, this->switch);
     istr->endSlice();
-    _cpp_return::_readImpl(istr);
+    return::_readImpl(istr);
 }
 
 ::std::vector<::std::string>
-_cpp_and::_cpp_break::ice_ids(const ::Ice::Current&) const
+and::break::ice_ids(const ::Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::and::break"};
     return allTypeIds;
 }
 
 ::std::string
-_cpp_and::_cpp_break::ice_id(const ::Ice::Current&) const
+and::break::ice_id(const ::Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
 
 const char*
-_cpp_and::_cpp_break::ice_staticId() noexcept
+and::break::ice_staticId() noexcept
 {
     return "::and::break";
 }
 
 /// \cond INTERNAL
 void
-_cpp_and::_cpp_break::_iceD_case(
+and::break::_iceD_case(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
@@ -336,7 +336,7 @@ _cpp_and::_cpp_break::_iceD_case(
 
 /// \cond INTERNAL
 void
-_cpp_and::_cpp_break::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+and::break::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"case", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
@@ -385,40 +385,40 @@ _cpp_and::_cpp_break::dispatch(::Ice::IncomingRequest& request, ::std::function<
 /// \endcond
 
 ::std::vector<::std::string>
-_cpp_and::func::ice_ids(const ::Ice::Current&) const
+and::func::ice_ids(const ::Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::and::func"};
     return allTypeIds;
 }
 
 ::std::string
-_cpp_and::func::ice_id(const ::Ice::Current&) const
+and::func::ice_id(const ::Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
 
 const char*
-_cpp_and::func::ice_staticId() noexcept
+and::func::ice_staticId() noexcept
 {
     return "::and::func";
 }
 
 /// \cond INTERNAL
 void
-_cpp_and::func::_iceD_public(
+and::func::_iceD_public(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    this->_cpp_public(request.current());
+    this->public(request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-_cpp_and::func::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+and::func::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "public"};
 
@@ -467,27 +467,27 @@ _cpp_and::func::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
 /// \endcond
 
 ::std::vector<::std::string>
-_cpp_and::_cpp_do::ice_ids(const ::Ice::Current&) const
+and::do::ice_ids(const ::Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::and::break", "::and::do", "::and::func"};
     return allTypeIds;
 }
 
 ::std::string
-_cpp_and::_cpp_do::ice_id(const ::Ice::Current&) const
+and::do::ice_id(const ::Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
 
 const char*
-_cpp_and::_cpp_do::ice_staticId() noexcept
+and::do::ice_staticId() noexcept
 {
     return "::and::do";
 }
 
 /// \cond INTERNAL
 void
-_cpp_and::_cpp_do::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+and::do::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"case", "ice_id", "ice_ids", "ice_isA", "ice_ping", "public"};
 
@@ -541,34 +541,34 @@ _cpp_and::_cpp_do::dispatch(::Ice::IncomingRequest& request, ::std::function<voi
 /// \endcond
 
 ::std::vector<::std::string>
-_cpp_and::_cpp_friend::ice_ids(const ::Ice::Current&) const
+and::friend::ice_ids(const ::Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::and::friend"};
     return allTypeIds;
 }
 
 ::std::string
-_cpp_and::_cpp_friend::ice_id(const ::Ice::Current&) const
+and::friend::ice_id(const ::Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
 
 const char*
-_cpp_and::_cpp_friend::ice_staticId() noexcept
+and::friend::ice_staticId() noexcept
 {
     return "::and::friend";
 }
 
 /// \cond INTERNAL
 void
-_cpp_and::_cpp_friend::_iceD_goto(
+and::friend::_iceD_goto(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    _cpp_continue iceP_if;
+    continue iceP_if;
     guard iceP_d;
     defer iceP_inline;
     switchPtr iceP_private;
@@ -584,7 +584,7 @@ _cpp_and::_cpp_friend::_iceD_goto(
     istr->readAll(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register);
     istr->readPendingValues();
     istr->endEncapsulation();
-    const guard ret = this->_cpp_goto(iceP_if, iceP_d, ::std::move(iceP_inline), ::std::move(iceP_private), ::std::move(iceP_mutable), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_not), ::std::move(iceP_operator), iceP_or, iceP_protected, iceP_public, iceP_register, request.current());
+    const guard ret = this->goto(iceP_if, iceP_d, ::std::move(iceP_inline), ::std::move(iceP_private), ::std::move(iceP_mutable), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_not), ::std::move(iceP_operator), iceP_or, iceP_protected, iceP_public, iceP_register, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -595,7 +595,7 @@ _cpp_and::_cpp_friend::_iceD_goto(
 
 /// \cond INTERNAL
 void
-_cpp_and::_cpp_friend::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+and::friend::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"goto", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 

@@ -46,7 +46,7 @@ namespace
 }
 
 void
-BEGIN::breakPrx::_cpp_case(::std::int32_t iceP_clone, ::std::int32_t iceP_def, const ::Ice::Context& context) const
+BEGIN::breakPrx::case(::std::int32_t iceP_clone, ::std::int32_t iceP_def, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &breakPrx::_iceI_case, iceP_clone, iceP_def, context).get();
 }
@@ -173,7 +173,7 @@ BEGIN::elsifPrx::ice_staticId() noexcept
 }
 
 ::BEGIN::END
-BEGIN::extendPrx::_cpp_for(const displayPtr& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const displayPtr& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
+BEGIN::extendPrx::for(const displayPtr& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const displayPtr& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<END>(true, this, &extendPrx::_iceI_for, iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, context).get();
 }
@@ -246,7 +246,7 @@ void
 BEGIN::display::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll(this->when, this->_cpp_do, this->dup, this->_cpp_else);
+    ostr->writeAll(this->when, this->do, this->dup, this->else);
     ostr->endSlice();
 }
 
@@ -254,7 +254,7 @@ void
 BEGIN::display::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll(this->when, this->_cpp_do, this->dup, this->_cpp_else);
+    istr->readAll(this->when, this->do, this->dup, this->else);
     istr->endSlice();
 }
 
@@ -280,7 +280,7 @@ void
 BEGIN::next::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll(this->_cpp_new);
+    ostr->writeAll(this->new);
     ostr->endSlice();
 }
 
@@ -288,7 +288,7 @@ void
 BEGIN::next::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll(this->_cpp_new);
+    istr->readAll(this->new);
     istr->endSlice();
 }
 
@@ -314,7 +314,7 @@ void
 BEGIN::nil::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ostr->writeAll(this->_cpp_not, this->_cpp_or);
+    ostr->writeAll(this->not, this->or);
     ostr->endSlice();
     next::_writeImpl(ostr);
 }
@@ -323,33 +323,33 @@ void
 BEGIN::nil::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll(this->_cpp_not, this->_cpp_or);
+    istr->readAll(this->not, this->or);
     istr->endSlice();
     next::_readImpl(istr);
 }
 
 ::std::vector<::std::string>
-BEGIN::_cpp_break::ice_ids(const ::Ice::Current&) const
+BEGIN::break::ice_ids(const ::Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::BEGIN::break", "::Ice::Object"};
     return allTypeIds;
 }
 
 ::std::string
-BEGIN::_cpp_break::ice_id(const ::Ice::Current&) const
+BEGIN::break::ice_id(const ::Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
 
 const char*
-BEGIN::_cpp_break::ice_staticId() noexcept
+BEGIN::break::ice_staticId() noexcept
 {
     return "::BEGIN::break";
 }
 
 /// \cond INTERNAL
 void
-BEGIN::_cpp_break::_iceD_case(
+BEGIN::break::_iceD_case(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
@@ -360,14 +360,14 @@ BEGIN::_cpp_break::_iceD_case(
     ::std::int32_t iceP_def;
     istr->readAll(iceP_clone, iceP_def);
     istr->endEncapsulation();
-    this->_cpp_case(iceP_clone, iceP_def, request.current());
+    this->case(iceP_clone, iceP_def, request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-BEGIN::_cpp_break::_iceD_to_a(
+BEGIN::break::_iceD_to_a(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
@@ -380,7 +380,7 @@ BEGIN::_cpp_break::_iceD_to_a(
 
 /// \cond INTERNAL
 void
-BEGIN::_cpp_break::_iceD_instance_variable_set(
+BEGIN::break::_iceD_instance_variable_set(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
@@ -393,7 +393,7 @@ BEGIN::_cpp_break::_iceD_instance_variable_set(
 
 /// \cond INTERNAL
 void
-BEGIN::_cpp_break::_iceD_instance_variables(
+BEGIN::break::_iceD_instance_variables(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
@@ -406,7 +406,7 @@ BEGIN::_cpp_break::_iceD_instance_variables(
 
 /// \cond INTERNAL
 void
-BEGIN::_cpp_break::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+BEGIN::break::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"case", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instance_variable_set", "instance_variables", "to_a"};
 
@@ -590,7 +590,7 @@ BEGIN::extend::_iceD_for(
     istr->readAll(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods);
     istr->readPendingValues();
     istr->endEncapsulation();
-    const END ret = this->_cpp_for(::std::move(iceP_freeze), ::std::move(iceP_hash), ::std::move(iceP_if), ::std::move(iceP_inspect), ::std::move(iceP_method), iceP_methods, request.current());
+    const END ret = this->for(::std::move(iceP_freeze), ::std::move(iceP_hash), ::std::move(iceP_if), ::std::move(iceP_inspect), ::std::move(iceP_method), iceP_methods, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

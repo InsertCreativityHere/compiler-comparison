@@ -40,34 +40,34 @@
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::logical> iceC_classdef_break_logical_init("::classdef::break::logical");
-    const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::_cpp_xor> iceC_classdef_break_xor_init("::classdef::break::xor");
-    const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::_cpp_try> iceC_classdef_break_try_init("::classdef::break::try");
-    const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::properties> iceC_classdef_break_properties_init("::classdef::break::properties");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::classdef::_cpp_break::persistent> iceC_classdef_break_persistent_init("::classdef::break::persistent");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::classdef::_cpp_break::global> iceC_classdef_break_global_init("::classdef::break::global");
+    const ::IceInternal::DefaultValueFactoryInit<::classdef::break::logical> iceC_classdef_break_logical_init("::classdef::break::logical");
+    const ::IceInternal::DefaultValueFactoryInit<::classdef::break::xor> iceC_classdef_break_xor_init("::classdef::break::xor");
+    const ::IceInternal::DefaultValueFactoryInit<::classdef::break::try> iceC_classdef_break_try_init("::classdef::break::try");
+    const ::IceInternal::DefaultValueFactoryInit<::classdef::break::properties> iceC_classdef_break_properties_init("::classdef::break::properties");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::classdef::break::persistent> iceC_classdef_break_persistent_init("::classdef::break::persistent");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::classdef::break::global> iceC_classdef_break_global_init("::classdef::break::global");
 }
 
 void
-classdef::_cpp_break::elseifPrx::events(const ::Ice::Context& context) const
+classdef::break::elseifPrx::events(const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_events, context).get();
 }
 
 ::std::future<void>
-classdef::_cpp_break::elseifPrx::eventsAsync(const ::Ice::Context& context) const
+classdef::break::elseifPrx::eventsAsync(const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &elseifPrx::_iceI_events, context);
 }
 
 ::std::function<void()>
-classdef::_cpp_break::elseifPrx::eventsAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+classdef::break::elseifPrx::eventsAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_events, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &classdef::break::elseifPrx::_iceI_events, context);
 }
 
 void
-classdef::_cpp_break::elseifPrx::_iceI_events(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+classdef::break::elseifPrx::_iceI_events(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "events";
 
@@ -77,25 +77,25 @@ classdef::_cpp_break::elseifPrx::_iceI_events(const ::std::shared_ptr<::IceInter
 }
 
 void
-classdef::_cpp_break::elseifPrx::function(const ::Ice::Context& context) const
+classdef::break::elseifPrx::function(const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_function, context).get();
 }
 
 ::std::future<void>
-classdef::_cpp_break::elseifPrx::functionAsync(const ::Ice::Context& context) const
+classdef::break::elseifPrx::functionAsync(const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &elseifPrx::_iceI_function, context);
 }
 
 ::std::function<void()>
-classdef::_cpp_break::elseifPrx::functionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+classdef::break::elseifPrx::functionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_function, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &classdef::break::elseifPrx::_iceI_function, context);
 }
 
 void
-classdef::_cpp_break::elseifPrx::_iceI_function(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+classdef::break::elseifPrx::_iceI_function(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "function";
 
@@ -105,25 +105,25 @@ classdef::_cpp_break::elseifPrx::_iceI_function(const ::std::shared_ptr<::IceInt
 }
 
 void
-classdef::_cpp_break::elseifPrx::_cpp_delete(const ::Ice::Context& context) const
+classdef::break::elseifPrx::delete(const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_delete, context).get();
 }
 
 ::std::future<void>
-classdef::_cpp_break::elseifPrx::deleteAsync(const ::Ice::Context& context) const
+classdef::break::elseifPrx::deleteAsync(const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &elseifPrx::_iceI_delete, context);
 }
 
 ::std::function<void()>
-classdef::_cpp_break::elseifPrx::deleteAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+classdef::break::elseifPrx::deleteAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_delete, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &classdef::break::elseifPrx::_iceI_delete, context);
 }
 
 void
-classdef::_cpp_break::elseifPrx::_iceI_delete(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+classdef::break::elseifPrx::_iceI_delete(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "delete";
 
@@ -133,25 +133,25 @@ classdef::_cpp_break::elseifPrx::_iceI_delete(const ::std::shared_ptr<::IceInter
 }
 
 void
-classdef::_cpp_break::elseifPrx::checkedCast(const ::Ice::Context& context) const
+classdef::break::elseifPrx::checkedCast(const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_checkedCast, context).get();
 }
 
 ::std::future<void>
-classdef::_cpp_break::elseifPrx::checkedCastAsync(const ::Ice::Context& context) const
+classdef::break::elseifPrx::checkedCastAsync(const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &elseifPrx::_iceI_checkedCast, context);
 }
 
 ::std::function<void()>
-classdef::_cpp_break::elseifPrx::checkedCastAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+classdef::break::elseifPrx::checkedCastAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_checkedCast, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &classdef::break::elseifPrx::_iceI_checkedCast, context);
 }
 
 void
-classdef::_cpp_break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+classdef::break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "checkedCast";
 
@@ -161,179 +161,179 @@ classdef::_cpp_break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::Ice
 }
 
 const char*
-classdef::_cpp_break::elseifPrx::ice_staticId() noexcept
+classdef::break::elseifPrx::ice_staticId() noexcept
 {
     return "::classdef::break::elseif";
 }
 
 const char*
-classdef::_cpp_break::logical::ice_staticId() noexcept
+classdef::break::logical::ice_staticId() noexcept
 {
     return "::classdef::break::logical";
 }
 
 const char*
-classdef::_cpp_break::logical::ice_id() const noexcept
+classdef::break::logical::ice_id() const noexcept
 {
     return ice_staticId();
 }
 
 ::Ice::ValuePtr
-classdef::_cpp_break::logical::_iceCloneImpl() const
+classdef::break::logical::_iceCloneImpl() const
 {
     return CloneEnabler<logical>::clone(*this);
 }
 
 void
-classdef::_cpp_break::logical::_iceWriteImpl(::Ice::OutputStream* ostr) const
+classdef::break::logical::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll(this->_cpp_else, this->_cpp_for, this->int64);
+    ostr->writeAll(this->else, this->for, this->int64);
     ostr->endSlice();
 }
 
 void
-classdef::_cpp_break::logical::_iceReadImpl(::Ice::InputStream* istr)
+classdef::break::logical::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll(this->_cpp_else, this->_cpp_for, this->int64);
+    istr->readAll(this->else, this->for, this->int64);
     istr->endSlice();
 }
 
 const char*
-classdef::_cpp_break::_cpp_xor::ice_staticId() noexcept
+classdef::break::xor::ice_staticId() noexcept
 {
     return "::classdef::break::xor";
 }
 
 const char*
-classdef::_cpp_break::_cpp_xor::ice_id() const noexcept
+classdef::break::xor::ice_id() const noexcept
 {
     return ice_staticId();
 }
 
 ::Ice::ValuePtr
-classdef::_cpp_break::_cpp_xor::_iceCloneImpl() const
+classdef::break::xor::_iceCloneImpl() const
 {
-    return CloneEnabler<_cpp_xor>::clone(*this);
+    return CloneEnabler<xor>::clone(*this);
 }
 
 void
-classdef::_cpp_break::_cpp_xor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+classdef::break::xor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ostr->writeAll(this->_cpp_return);
+    ostr->writeAll(this->return);
     ostr->endSlice();
     logical::_iceWriteImpl(ostr);
 }
 
 void
-classdef::_cpp_break::_cpp_xor::_iceReadImpl(::Ice::InputStream* istr)
+classdef::break::xor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll(this->_cpp_return);
+    istr->readAll(this->return);
     istr->endSlice();
     logical::_iceReadImpl(istr);
 }
 
 const char*
-classdef::_cpp_break::_cpp_try::ice_staticId() noexcept
+classdef::break::try::ice_staticId() noexcept
 {
     return "::classdef::break::try";
 }
 
 const char*
-classdef::_cpp_break::_cpp_try::ice_id() const noexcept
+classdef::break::try::ice_id() const noexcept
 {
     return ice_staticId();
 }
 
 ::Ice::ValuePtr
-classdef::_cpp_break::_cpp_try::_iceCloneImpl() const
+classdef::break::try::_iceCloneImpl() const
 {
-    return CloneEnabler<_cpp_try>::clone(*this);
+    return CloneEnabler<try>::clone(*this);
 }
 
 void
-classdef::_cpp_break::_cpp_try::_iceWriteImpl(::Ice::OutputStream* ostr) const
+classdef::break::try::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll(this->_cpp_while, this->_cpp_delete);
+    ostr->writeAll(this->while, this->delete);
     ostr->endSlice();
 }
 
 void
-classdef::_cpp_break::_cpp_try::_iceReadImpl(::Ice::InputStream* istr)
+classdef::break::try::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll(this->_cpp_while, this->_cpp_delete);
+    istr->readAll(this->while, this->delete);
     istr->endSlice();
 }
 
 const char*
-classdef::_cpp_break::properties::ice_staticId() noexcept
+classdef::break::properties::ice_staticId() noexcept
 {
     return "::classdef::break::properties";
 }
 
 const char*
-classdef::_cpp_break::properties::ice_id() const noexcept
+classdef::break::properties::ice_id() const noexcept
 {
     return ice_staticId();
 }
 
 ::Ice::ValuePtr
-classdef::_cpp_break::properties::_iceCloneImpl() const
+classdef::break::properties::_iceCloneImpl() const
 {
     return CloneEnabler<properties>::clone(*this);
 }
 
 void
-classdef::_cpp_break::properties::_iceWriteImpl(::Ice::OutputStream* ostr) const
+classdef::break::properties::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ostr->writeAll(this->_cpp_if, this->_cpp_catch, this->spmd, this->otherwise);
+    ostr->writeAll(this->if, this->catch, this->spmd, this->otherwise);
     ostr->endSlice();
-    _cpp_try::_iceWriteImpl(ostr);
+    try::_iceWriteImpl(ostr);
 }
 
 void
-classdef::_cpp_break::properties::_iceReadImpl(::Ice::InputStream* istr)
+classdef::break::properties::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll(this->_cpp_if, this->_cpp_catch, this->spmd, this->otherwise);
+    istr->readAll(this->if, this->catch, this->spmd, this->otherwise);
     istr->endSlice();
-    _cpp_try::_iceReadImpl(istr);
+    try::_iceReadImpl(istr);
 }
 
 const char*
-classdef::_cpp_break::persistent::ice_staticId() noexcept
+classdef::break::persistent::ice_staticId() noexcept
 {
     return "::classdef::break::persistent";
 }
 
 const char*
-classdef::_cpp_break::persistent::ice_id() const noexcept
+classdef::break::persistent::ice_id() const noexcept
 {
     return ice_staticId();
 }
 
 void
-classdef::_cpp_break::persistent::ice_throw() const
+classdef::break::persistent::ice_throw() const
 {
     throw *this;
 }
 
 /// \cond STREAM
 bool
-classdef::_cpp_break::persistent::_usesClasses() const
+classdef::break::persistent::_usesClasses() const
 {
     return true;
 }
 /// \endcond
 
 void
-classdef::_cpp_break::persistent::_writeImpl(::Ice::OutputStream* ostr) const
+classdef::break::persistent::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->identifier, this->message, this->stack, this->cause, this->type, this->end);
@@ -341,7 +341,7 @@ classdef::_cpp_break::persistent::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-classdef::_cpp_break::persistent::_readImpl(::Ice::InputStream* istr)
+classdef::break::persistent::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->identifier, this->message, this->stack, this->cause, this->type, this->end);
@@ -349,25 +349,25 @@ classdef::_cpp_break::persistent::_readImpl(::Ice::InputStream* istr)
 }
 
 const char*
-classdef::_cpp_break::global::ice_staticId() noexcept
+classdef::break::global::ice_staticId() noexcept
 {
     return "::classdef::break::global";
 }
 
 const char*
-classdef::_cpp_break::global::ice_id() const noexcept
+classdef::break::global::ice_id() const noexcept
 {
     return ice_staticId();
 }
 
 void
-classdef::_cpp_break::global::ice_throw() const
+classdef::break::global::ice_throw() const
 {
     throw *this;
 }
 
 void
-classdef::_cpp_break::global::_writeImpl(::Ice::OutputStream* ostr) const
+classdef::break::global::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->enumeration);
@@ -376,7 +376,7 @@ classdef::_cpp_break::global::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-classdef::_cpp_break::global::_readImpl(::Ice::InputStream* istr)
+classdef::break::global::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->enumeration);
@@ -385,27 +385,27 @@ classdef::_cpp_break::global::_readImpl(::Ice::InputStream* istr)
 }
 
 ::std::vector<::std::string>
-classdef::_cpp_break::elseif::ice_ids(const ::Ice::Current&) const
+classdef::break::elseif::ice_ids(const ::Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::classdef::break::elseif"};
     return allTypeIds;
 }
 
 ::std::string
-classdef::_cpp_break::elseif::ice_id(const ::Ice::Current&) const
+classdef::break::elseif::ice_id(const ::Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
 
 const char*
-classdef::_cpp_break::elseif::ice_staticId() noexcept
+classdef::break::elseif::ice_staticId() noexcept
 {
     return "::classdef::break::elseif";
 }
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::elseif::_iceD_events(
+classdef::break::elseif::_iceD_events(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
@@ -418,7 +418,7 @@ classdef::_cpp_break::elseif::_iceD_events(
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::elseif::_iceD_function(
+classdef::break::elseif::_iceD_function(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
@@ -431,20 +431,20 @@ classdef::_cpp_break::elseif::_iceD_function(
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::elseif::_iceD_delete(
+classdef::break::elseif::_iceD_delete(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    this->_cpp_delete(request.current());
+    this->delete(request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::elseif::_iceD_checkedCast(
+classdef::break::elseif::_iceD_checkedCast(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
@@ -457,7 +457,7 @@ classdef::_cpp_break::elseif::_iceD_checkedCast(
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::elseif::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+classdef::break::elseif::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"checkedCast", "delete", "events", "function", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
