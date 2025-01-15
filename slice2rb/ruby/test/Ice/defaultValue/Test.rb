@@ -383,6 +383,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_Base)
+        T_Base = ::Ice::__declareClass('::Test::Base')
+    end
+
     if not defined?(::Test::Base)
         class Base < ::Ice::Value
 
@@ -408,10 +412,6 @@ module ::Test
             attr_accessor :boolFalse, :boolTrue, :b, :s, :i, :l, :f, :d, :str, :noDefault, :zeroI, :zeroL, :zeroF, :zeroDotF, :zeroD, :zeroDotD
         end
 
-        if not defined?(::Test::T_Base)
-            T_Base = ::Ice::__declareClass('::Test::Base')
-        end
-
         T_Base.defineClass(Base, -1, false, nil, [
             ['boolFalse', ::Ice::T_bool, false, 0],
             ['boolTrue', ::Ice::T_bool, false, 0],
@@ -432,6 +432,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_Derived)
+        T_Derived = ::Ice::__declareClass('::Test::Derived')
+    end
+
     if not defined?(::Test::Derived)
         class Derived < ::Test::Base
 
@@ -446,10 +450,6 @@ module ::Test
             end
 
             attr_accessor :c1, :c2, :c3, :nc1, :nc2, :nc3
-        end
-
-        if not defined?(::Test::T_Derived)
-            T_Derived = ::Ice::__declareClass('::Test::Derived')
         end
 
         T_Derived.defineClass(Derived, -1, false, ::Test::T_Base, [
@@ -582,6 +582,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_ClassNoDefaultsBase)
+        T_ClassNoDefaultsBase = ::Ice::__declareClass('::Test::ClassNoDefaultsBase')
+    end
+
     if not defined?(::Test::ClassNoDefaultsBase)
         class ClassNoDefaultsBase < ::Ice::Value
 
@@ -594,15 +598,15 @@ module ::Test
             attr_accessor :str, :c1, :bs
         end
 
-        if not defined?(::Test::T_ClassNoDefaultsBase)
-            T_ClassNoDefaultsBase = ::Ice::__declareClass('::Test::ClassNoDefaultsBase')
-        end
-
         T_ClassNoDefaultsBase.defineClass(ClassNoDefaultsBase, -1, false, nil, [
             ['str', ::Ice::T_string, false, 0],
             ['c1', ::Test::T_Color, false, 0],
             ['bs', ::Test::T_ByteSeq, false, 0]
         ])
+    end
+
+    if not defined?(::Test::T_ClassNoDefaults)
+        T_ClassNoDefaults = ::Ice::__declareClass('::Test::ClassNoDefaults')
     end
 
     if not defined?(::Test::ClassNoDefaults)
@@ -615,10 +619,6 @@ module ::Test
             end
 
             attr_accessor :st, :dict
-        end
-
-        if not defined?(::Test::T_ClassNoDefaults)
-            T_ClassNoDefaults = ::Ice::__declareClass('::Test::ClassNoDefaults')
         end
 
         T_ClassNoDefaults.defineClass(ClassNoDefaults, -1, false, ::Test::T_ClassNoDefaultsBase, [

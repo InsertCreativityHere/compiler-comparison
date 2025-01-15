@@ -122,6 +122,9 @@ if '_and' not in _M_BEGIN.__dict__:
     _M_BEGIN._and = _and
     del _and
 
+if '_break' not in _M_BEGIN.__dict__:
+    _M_BEGIN._t_breakPrx = IcePy.declareProxy('::BEGIN::break')
+
 if 'breakPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN.breakPrx = None
     class breakPrx(Ice.ObjectPrx):
@@ -223,6 +226,9 @@ if 'breakPrx' not in _M_BEGIN.__dict__:
     del _break
 
 if 'display' not in _M_BEGIN.__dict__:
+    _M_BEGIN._t_display = IcePy.declareValue('::BEGIN::display')
+
+if 'display' not in _M_BEGIN.__dict__:
     _M_BEGIN.display = None
     class display(Ice.Value):
         def __init__(self, when=0, do=0, dup=None, _else=0):
@@ -253,6 +259,9 @@ if 'display' not in _M_BEGIN.__dict__:
 
     _M_BEGIN.display = display
     del display
+
+if 'elsif' not in _M_BEGIN.__dict__:
+    _M_BEGIN._t_elsifPrx = IcePy.declareProxy('::BEGIN::elsif')
 
 if 'elsifPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN.elsifPrx = None
@@ -361,6 +370,9 @@ if 'nil' not in _M_BEGIN.__dict__:
 
     _M_BEGIN.nil = nil
     del nil
+
+if 'extend' not in _M_BEGIN.__dict__:
+    _M_BEGIN._t_extendPrx = IcePy.declareProxy('::BEGIN::extend')
 
 if 'extendPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN.extendPrx = None

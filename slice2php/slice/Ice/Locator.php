@@ -24,10 +24,7 @@ namespace Ice
 {
     global $Ice__t_Process;
     global $Ice__t_ProcessPrx;
-    if(!isset($Ice__t_Process))
-    {
-        $Ice__t_ProcessPrx = IcePHP_declareProxy('::Ice::Process');
-    }
+    $Ice__t_ProcessPrx = IcePHP_declareProxy('::Ice::Process');
 }
 
 namespace Ice
@@ -134,10 +131,14 @@ namespace Ice
 {
     global $Ice__t_LocatorRegistry;
     global $Ice__t_LocatorRegistryPrx;
-    if(!isset($Ice__t_LocatorRegistry))
-    {
-        $Ice__t_LocatorRegistryPrx = IcePHP_declareProxy('::Ice::LocatorRegistry');
-    }
+    $Ice__t_LocatorRegistryPrx = IcePHP_declareProxy('::Ice::LocatorRegistry');
+}
+
+namespace Ice
+{
+    global $Ice__t_Locator;
+    global $Ice__t_LocatorPrx;
+    $Ice__t_LocatorPrx = IcePHP_declareProxy('::Ice::Locator');
 }
 
 namespace Ice
@@ -217,6 +218,13 @@ namespace Ice
     IcePHP_defineOperation($Ice__t_LocatorRegistryPrx, 'setAdapterDirectProxy', 2, -1, array(array($IcePHP__t_string), array($Ice__t_ObjectPrx)), null, null, array($Ice__t_AdapterNotFoundException, $Ice__t_AdapterAlreadyActiveException));
     IcePHP_defineOperation($Ice__t_LocatorRegistryPrx, 'setReplicatedAdapterDirectProxy', 2, -1, array(array($IcePHP__t_string), array($IcePHP__t_string), array($Ice__t_ObjectPrx)), null, null, array($Ice__t_AdapterNotFoundException, $Ice__t_AdapterAlreadyActiveException, $Ice__t_InvalidReplicaGroupIdException));
     IcePHP_defineOperation($Ice__t_LocatorRegistryPrx, 'setServerProcessProxy', 2, -1, array(array($IcePHP__t_string), array($Ice__t_ProcessPrx)), null, null, array($Ice__t_ServerNotFoundException));
+}
+
+namespace Ice
+{
+    global $Ice__t_LocatorFinder;
+    global $Ice__t_LocatorFinderPrx;
+    $Ice__t_LocatorFinderPrx = IcePHP_declareProxy('::Ice::LocatorFinder');
 }
 
 namespace Ice

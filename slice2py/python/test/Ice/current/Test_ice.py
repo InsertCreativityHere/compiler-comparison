@@ -27,6 +27,9 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'TestIntf' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfPrx = IcePy.declareProxy('::Test::TestIntf')
+
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(Ice.ObjectPrx):

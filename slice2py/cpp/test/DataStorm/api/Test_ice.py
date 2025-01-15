@@ -102,6 +102,9 @@ if 'StructKey' not in _M_Test.__dict__:
     del StructKey
 
 if 'ClassKey' not in _M_Test.__dict__:
+    _M_Test._t_ClassKey = IcePy.declareValue('::Test::ClassKey')
+
+if 'ClassKey' not in _M_Test.__dict__:
     _M_Test.ClassKey = None
     class ClassKey(Ice.Value):
         def __init__(self, value=0):

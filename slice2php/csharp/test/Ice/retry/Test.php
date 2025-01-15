@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Retry;
     global $Test__t_RetryPrx;
+    $Test__t_RetryPrx = IcePHP_declareProxy('::Test::Retry');
+}
+
+namespace Test
+{
+    global $Test__t_Retry;
+    global $Test__t_RetryPrx;
 
     class RetryPrxHelper
     {

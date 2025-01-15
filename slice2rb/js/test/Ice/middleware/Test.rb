@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_EchoPrx)
+        T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
+    end
+
     if not defined?(::Test::EchoPrx)
         module EchoPrx_mixin
 
@@ -47,10 +51,6 @@ module ::Test
             include EchoPrx_mixin
         end
 
-        if not defined?(::Test::T_EchoPrx)
-            T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
-        end
-
         T_EchoPrx.defineProxy(EchoPrx, nil, [])
 
         EchoPrx_mixin::OP_setConnection = ::Ice::__defineOperation('setConnection', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -58,6 +58,10 @@ module ::Test
         EchoPrx_mixin::OP_flushBatch = ::Ice::__defineOperation('flushBatch', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         EchoPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         EchoPrx_mixin::OP_supportsCompress = ::Ice::__defineOperation('supportsCompress', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])
+    end
+
+    if not defined?(::Test::T_MyObjectPrx)
+        T_MyObjectPrx = ::Ice::__declareProxy('::Test::MyObject')
     end
 
     if not defined?(::Test::MyObjectPrx)
@@ -75,10 +79,6 @@ module ::Test
         class MyObjectPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include MyObjectPrx_mixin
-        end
-
-        if not defined?(::Test::T_MyObjectPrx)
-            T_MyObjectPrx = ::Ice::__declareProxy('::Test::MyObject')
         end
 
         T_MyObjectPrx.defineProxy(MyObjectPrx, nil, [])

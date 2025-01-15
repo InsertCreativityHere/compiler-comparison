@@ -291,6 +291,12 @@ namespace DataStormContract
 namespace DataStormContract
 {
     global $DataStormContract__t_ElementConfig;
+    $DataStormContract__t_ElementConfig = IcePHP_declareClass('::DataStormContract::ElementConfig');
+}
+
+namespace DataStormContract
+{
+    global $DataStormContract__t_ElementConfig;
     class ElementConfig extends \Ice\Value
     {
         public function __construct($facet=\Ice\None, $sampleFilter=\Ice\None, $name=\Ice\None, $priority=\Ice\None, $sampleCount=\Ice\None, $sampleLifetime=\Ice\None, $clearHistory=\Ice\None)
@@ -547,6 +553,13 @@ namespace DataStormContract
 {
     global $DataStormContract__t_Session;
     global $DataStormContract__t_SessionPrx;
+    $DataStormContract__t_SessionPrx = IcePHP_declareProxy('::DataStormContract::Session');
+}
+
+namespace DataStormContract
+{
+    global $DataStormContract__t_Session;
+    global $DataStormContract__t_SessionPrx;
 
     class SessionPrxHelper
     {
@@ -600,6 +613,13 @@ namespace DataStormContract
 {
     global $DataStormContract__t_PublisherSession;
     global $DataStormContract__t_PublisherSessionPrx;
+    $DataStormContract__t_PublisherSessionPrx = IcePHP_declareProxy('::DataStormContract::PublisherSession');
+}
+
+namespace DataStormContract
+{
+    global $DataStormContract__t_PublisherSession;
+    global $DataStormContract__t_PublisherSessionPrx;
 
     class PublisherSessionPrxHelper
     {
@@ -626,6 +646,13 @@ namespace DataStormContract
 
     global $Ice__t_ObjectPrx;
     $DataStormContract__t_PublisherSessionPrx = IcePHP_defineProxy('::DataStormContract::PublisherSession', $Ice__t_ObjectPrx, array($DataStormContract__t_SessionPrx));
+}
+
+namespace DataStormContract
+{
+    global $DataStormContract__t_SubscriberSession;
+    global $DataStormContract__t_SubscriberSessionPrx;
+    $DataStormContract__t_SubscriberSessionPrx = IcePHP_declareProxy('::DataStormContract::SubscriberSession');
 }
 
 namespace DataStormContract
@@ -668,6 +695,13 @@ namespace DataStormContract
 {
     global $DataStormContract__t_Node;
     global $DataStormContract__t_NodePrx;
+    $DataStormContract__t_NodePrx = IcePHP_declareProxy('::DataStormContract::Node');
+}
+
+namespace DataStormContract
+{
+    global $DataStormContract__t_Node;
+    global $DataStormContract__t_NodePrx;
 
     class NodePrxHelper
     {
@@ -702,6 +736,13 @@ namespace DataStormContract
     IcePHP_defineOperation($DataStormContract__t_NodePrx, 'initiateCreateSession', 0, -1, array(array($DataStormContract__t_NodePrx)), null, null, null);
     IcePHP_defineOperation($DataStormContract__t_NodePrx, 'createSession', 0, -1, array(array($DataStormContract__t_NodePrx), array($DataStormContract__t_SubscriberSessionPrx), array($IcePHP__t_bool)), null, null, null);
     IcePHP_defineOperation($DataStormContract__t_NodePrx, 'confirmCreateSession', 0, -1, array(array($DataStormContract__t_NodePrx), array($DataStormContract__t_PublisherSessionPrx)), null, null, null);
+}
+
+namespace DataStormContract
+{
+    global $DataStormContract__t_Lookup;
+    global $DataStormContract__t_LookupPrx;
+    $DataStormContract__t_LookupPrx = IcePHP_declareProxy('::DataStormContract::Lookup');
 }
 
 namespace DataStormContract

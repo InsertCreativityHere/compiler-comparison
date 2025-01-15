@@ -26,6 +26,9 @@ __name__ = 'Test'
 _M_Test.MA = Ice.openModule('Test.MA')
 __name__ = 'Test.MA'
 
+if 'IA' not in _M_Test.MA.__dict__:
+    _M_Test.MA._t_IAPrx = IcePy.declareProxy('::Test::MA::IA')
+
 if 'IAPrx' not in _M_Test.MA.__dict__:
     _M_Test.MA.IAPrx = None
     class IAPrx(Ice.ObjectPrx):
@@ -104,6 +107,9 @@ __name__ = 'Test'
 _M_Test.MB = Ice.openModule('Test.MB')
 __name__ = 'Test.MB'
 
+if 'IB1' not in _M_Test.MB.__dict__:
+    _M_Test.MB._t_IB1Prx = IcePy.declareProxy('::Test::MB::IB1')
+
 if 'IB1Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB.IB1Prx = None
     class IB1Prx(_M_Test.MA.IAPrx):
@@ -173,6 +179,9 @@ if 'IB1Prx' not in _M_Test.MB.__dict__:
 
     _M_Test.MB.IB1 = IB1
     del IB1
+
+if 'IB2' not in _M_Test.MB.__dict__:
+    _M_Test.MB._t_IB2Prx = IcePy.declareProxy('::Test::MB::IB2')
 
 if 'IB2Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB.IB2Prx = None
@@ -251,6 +260,9 @@ __name__ = 'Test'
 # Start of module Test.MA
 __name__ = 'Test.MA'
 
+if 'IC' not in _M_Test.MA.__dict__:
+    _M_Test.MA._t_ICPrx = IcePy.declareProxy('::Test::MA::IC')
+
 if 'ICPrx' not in _M_Test.MA.__dict__:
     _M_Test.MA.ICPrx = None
     class ICPrx(_M_Test.MB.IB1Prx, _M_Test.MB.IB2Prx):
@@ -324,6 +336,9 @@ if 'ICPrx' not in _M_Test.MA.__dict__:
 # End of module Test.MA
 
 __name__ = 'Test'
+
+if 'Initial' not in _M_Test.__dict__:
+    _M_Test._t_InitialPrx = IcePy.declareProxy('::Test::Initial')
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None

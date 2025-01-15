@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Server' not in _M_Test.__dict__:
+    _M_Test._t_ServerPrx = IcePy.declareProxy('::Test::Server')
+
 if 'ServerPrx' not in _M_Test.__dict__:
     _M_Test.ServerPrx = None
     class ServerPrx(Ice.ObjectPrx):
@@ -104,6 +107,9 @@ if 'ServerPrx' not in _M_Test.__dict__:
 
 if '_t_Properties' not in _M_Test.__dict__:
     _M_Test._t_Properties = IcePy.defineDictionary('::Test::Properties', (), IcePy._t_string, IcePy._t_string)
+
+if 'ServerFactory' not in _M_Test.__dict__:
+    _M_Test._t_ServerFactoryPrx = IcePy.declareProxy('::Test::ServerFactory')
 
 if 'ServerFactoryPrx' not in _M_Test.__dict__:
     _M_Test.ServerFactoryPrx = None

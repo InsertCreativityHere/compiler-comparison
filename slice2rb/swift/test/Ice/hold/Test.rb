@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_HoldPrx)
+        T_HoldPrx = ::Ice::__declareProxy('::Test::Hold')
+    end
+
     if not defined?(::Test::HoldPrx)
         module HoldPrx_mixin
 
@@ -37,10 +41,6 @@ module ::Test
         class HoldPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include HoldPrx_mixin
-        end
-
-        if not defined?(::Test::T_HoldPrx)
-            T_HoldPrx = ::Ice::__declareProxy('::Test::Hold')
         end
 
         T_HoldPrx.defineProxy(HoldPrx, nil, [])

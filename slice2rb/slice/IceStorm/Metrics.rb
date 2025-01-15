@@ -19,6 +19,10 @@ require 'Ice/Metrics.rb'
 
 module ::IceMX
 
+    if not defined?(::IceMX::T_TopicMetrics)
+        T_TopicMetrics = ::Ice::__declareClass('::IceMX::TopicMetrics')
+    end
+
     if not defined?(::IceMX::TopicMetrics)
         class TopicMetrics < ::IceMX::Metrics
 
@@ -31,14 +35,14 @@ module ::IceMX
             attr_accessor :published, :forwarded
         end
 
-        if not defined?(::IceMX::T_TopicMetrics)
-            T_TopicMetrics = ::Ice::__declareClass('::IceMX::TopicMetrics')
-        end
-
         T_TopicMetrics.defineClass(TopicMetrics, -1, false, ::IceMX::T_Metrics, [
             ['published', ::Ice::T_long, false, 0],
             ['forwarded', ::Ice::T_long, false, 0]
         ])
+    end
+
+    if not defined?(::IceMX::T_SubscriberMetrics)
+        T_SubscriberMetrics = ::Ice::__declareClass('::IceMX::SubscriberMetrics')
     end
 
     if not defined?(::IceMX::SubscriberMetrics)
@@ -52,10 +56,6 @@ module ::IceMX
             end
 
             attr_accessor :queued, :outstanding, :delivered
-        end
-
-        if not defined?(::IceMX::T_SubscriberMetrics)
-            T_SubscriberMetrics = ::Ice::__declareClass('::IceMX::SubscriberMetrics')
         end
 
         T_SubscriberMetrics.defineClass(SubscriberMetrics, -1, false, ::IceMX::T_Metrics, [

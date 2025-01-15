@@ -105,6 +105,10 @@ module ::Test
         T_NDGSS = ::Ice::__defineDictionary('::Test::NDGSS', ::Ice::T_string, ::Test::T_GSS)
     end
 
+    if not defined?(::Test::T_MyClassPrx)
+        T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
+    end
+
     if not defined?(::Test::MyClassPrx)
         module MyClassPrx_mixin
 
@@ -148,10 +152,6 @@ module ::Test
         class MyClassPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include MyClassPrx_mixin
-        end
-
-        if not defined?(::Test::T_MyClassPrx)
-            T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])

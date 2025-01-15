@@ -48,6 +48,13 @@ namespace IceGrid
 {
     global $IceGrid__t_FileParser;
     global $IceGrid__t_FileParserPrx;
+    $IceGrid__t_FileParserPrx = IcePHP_declareProxy('::IceGrid::FileParser');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_FileParser;
+    global $IceGrid__t_FileParserPrx;
 
     class FileParserPrxHelper
     {

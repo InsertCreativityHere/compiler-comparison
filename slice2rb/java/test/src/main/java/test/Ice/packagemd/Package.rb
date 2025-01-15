@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test2
 
+    if not defined?(::Test2::T_C1)
+        T_C1 = ::Ice::__declareClass('::Test2::C1')
+    end
+
     if not defined?(::Test2::C1)
         class C1 < ::Ice::Value
 
@@ -28,11 +32,11 @@ module ::Test2
             attr_accessor :i
         end
 
-        if not defined?(::Test2::T_C1)
-            T_C1 = ::Ice::__declareClass('::Test2::C1')
-        end
-
         T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
+    end
+
+    if not defined?(::Test2::T_C2)
+        T_C2 = ::Ice::__declareClass('::Test2::C2')
     end
 
     if not defined?(::Test2::C2)
@@ -44,10 +48,6 @@ module ::Test2
             end
 
             attr_accessor :l
-        end
-
-        if not defined?(::Test2::T_C2)
-            T_C2 = ::Ice::__declareClass('::Test2::C2')
         end
 
         T_C2.defineClass(C2, -1, false, ::Test2::T_C1, [['l', ::Ice::T_long, false, 0]])
@@ -80,6 +80,10 @@ end
 
 module ::Test3
 
+    if not defined?(::Test3::T_C1)
+        T_C1 = ::Ice::__declareClass('::Test3::C1')
+    end
+
     if not defined?(::Test3::C1)
         class C1 < ::Ice::Value
 
@@ -90,11 +94,11 @@ module ::Test3
             attr_accessor :i
         end
 
-        if not defined?(::Test3::T_C1)
-            T_C1 = ::Ice::__declareClass('::Test3::C1')
-        end
-
         T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
+    end
+
+    if not defined?(::Test3::T_C2)
+        T_C2 = ::Ice::__declareClass('::Test3::C2')
     end
 
     if not defined?(::Test3::C2)
@@ -106,10 +110,6 @@ module ::Test3
             end
 
             attr_accessor :l
-        end
-
-        if not defined?(::Test3::T_C2)
-            T_C2 = ::Ice::__declareClass('::Test3::C2')
         end
 
         T_C2.defineClass(C2, -1, false, ::Test3::T_C1, [['l', ::Ice::T_long, false, 0]])

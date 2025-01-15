@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_SinglePrx)
+        T_SinglePrx = ::Ice::__declareProxy('::Test::Single')
+    end
+
     if not defined?(::Test::SinglePrx)
         module SinglePrx_mixin
 
@@ -29,10 +33,6 @@ module ::Test
         class SinglePrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include SinglePrx_mixin
-        end
-
-        if not defined?(::Test::T_SinglePrx)
-            T_SinglePrx = ::Ice::__declareProxy('::Test::Single')
         end
 
         T_SinglePrx.defineProxy(SinglePrx, nil, [])

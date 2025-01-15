@@ -32,6 +32,10 @@ module ::Test
         T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
     end
 
+    if not defined?(::Test::T_MetricsPrx)
+        T_MetricsPrx = ::Ice::__declareProxy('::Test::Metrics')
+    end
+
     if not defined?(::Test::MetricsPrx)
         module MetricsPrx_mixin
 
@@ -77,10 +81,6 @@ module ::Test
             include MetricsPrx_mixin
         end
 
-        if not defined?(::Test::T_MetricsPrx)
-            T_MetricsPrx = ::Ice::__declareProxy('::Test::Metrics')
-        end
-
         T_MetricsPrx.defineProxy(MetricsPrx, nil, [])
 
         MetricsPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -92,6 +92,10 @@ module ::Test
         MetricsPrx_mixin::OP_opByteS = ::Ice::__defineOperation('opByteS', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq, false, 0]], [], nil, [])
         MetricsPrx_mixin::OP_getAdmin = ::Ice::__defineOperation('getAdmin', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
         MetricsPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::Test::T_ControllerPrx)
+        T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
     end
 
     if not defined?(::Test::ControllerPrx)
@@ -109,10 +113,6 @@ module ::Test
         class ControllerPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include ControllerPrx_mixin
-        end
-
-        if not defined?(::Test::T_ControllerPrx)
-            T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end
 
         T_ControllerPrx.defineProxy(ControllerPrx, nil, [])

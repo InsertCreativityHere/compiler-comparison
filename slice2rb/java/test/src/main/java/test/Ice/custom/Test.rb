@@ -215,6 +215,10 @@ module ::Test
         T_StringSeqSeq = ::Ice::__defineSequence('::Test::StringSeqSeq', ::Test::T_StringSeq)
     end
 
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+    end
+
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
@@ -394,10 +398,6 @@ module ::Test
         class TestIntfPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include TestIntfPrx_mixin
-        end
-
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])

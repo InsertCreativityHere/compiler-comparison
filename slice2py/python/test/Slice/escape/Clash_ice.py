@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Clash = Ice.openModule('Clash')
 __name__ = 'Clash'
 
+if 'Intf' not in _M_Clash.__dict__:
+    _M_Clash._t_IntfPrx = IcePy.declareProxy('::Clash::Intf')
+
 if 'IntfPrx' not in _M_Clash.__dict__:
     _M_Clash.IntfPrx = None
     class IntfPrx(Ice.ObjectPrx):
@@ -201,6 +204,9 @@ if 'IntfPrx' not in _M_Clash.__dict__:
 
     _M_Clash.Intf = Intf
     del Intf
+
+if 'Cls' not in _M_Clash.__dict__:
+    _M_Clash._t_Cls = IcePy.declareValue('::Clash::Cls')
 
 if 'Cls' not in _M_Clash.__dict__:
     _M_Clash.Cls = None

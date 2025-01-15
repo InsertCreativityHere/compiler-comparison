@@ -19,6 +19,10 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+    end
+
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
@@ -44,16 +48,16 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
-        end
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
         TestIntfPrx_mixin::OP_opWithPayload = ::Ice::__defineOperation('opWithPayload', ::Ice::OperationMode::Normal, nil, [[::Ice::T_ByteSeq, false, 0]], [], nil, [])
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::Test::T_TestIntfControllerPrx)
+        T_TestIntfControllerPrx = ::Ice::__declareProxy('::Test::TestIntfController')
     end
 
     if not defined?(::Test::TestIntfControllerPrx)
@@ -71,10 +75,6 @@ module ::Test
         class TestIntfControllerPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include TestIntfControllerPrx_mixin
-        end
-
-        if not defined?(::Test::T_TestIntfControllerPrx)
-            T_TestIntfControllerPrx = ::Ice::__declareProxy('::Test::TestIntfController')
         end
 
         T_TestIntfControllerPrx.defineProxy(TestIntfControllerPrx, nil, [])

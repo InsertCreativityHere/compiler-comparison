@@ -42,6 +42,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_ClassKey;
+    $Test__t_ClassKey = IcePHP_declareClass('::Test::ClassKey');
+}
+
+namespace Test
+{
+    global $Test__t_ClassKey;
     class ClassKey extends \Ice\Value
     {
         public function __construct($value=0)

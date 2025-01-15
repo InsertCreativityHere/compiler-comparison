@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'MyObject' not in _M_Test.__dict__:
+    _M_Test._t_MyObjectPrx = IcePy.declareProxy('::Test::MyObject')
+
 if 'MyObjectPrx' not in _M_Test.__dict__:
     _M_Test.MyObjectPrx = None
     class MyObjectPrx(Ice.ObjectPrx):

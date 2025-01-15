@@ -189,6 +189,9 @@ if 'Base' not in _M_Test.__dict__:
     del Base
 
 if 'Derived' not in _M_Test.__dict__:
+    _M_Test._t_Derived = IcePy.declareValue('::Test::Derived')
+
+if 'Derived' not in _M_Test.__dict__:
     _M_Test.Derived = None
     class Derived(_M_Test.Base):
         def __init__(self, b=None, o=None, s=None, seq1=None, seq2=None, seq3=None, seq4=None, d1=None, d2=None, d3=None, d4=None, p=None):
@@ -206,8 +209,6 @@ if 'Derived' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_Derived)
 
         __repr__ = __str__
-
-    _M_Test._t_Derived = IcePy.declareValue('::Test::Derived')
 
     _M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, _M_Test._t_Base, (('p', (), IcePy._t_ObjectPrx, False, 0),))
     Derived._ice_type = _M_Test._t_Derived

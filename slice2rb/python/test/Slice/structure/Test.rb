@@ -114,6 +114,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_C)
+        T_C = ::Ice::__declareClass('::Test::C')
+    end
+
     if not defined?(::Test::C)
         class C < ::Ice::Value
 
@@ -122,10 +126,6 @@ module ::Test
             end
 
             attr_accessor :name
-        end
-
-        if not defined?(::Test::T_C)
-            T_C = ::Ice::__declareClass('::Test::C')
         end
 
         T_C.defineClass(C, -1, false, nil, [['name', ::Ice::T_string, false, 0]])

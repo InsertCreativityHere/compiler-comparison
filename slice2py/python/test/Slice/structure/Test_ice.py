@@ -167,6 +167,9 @@ if 'S2' not in _M_Test.__dict__:
     del S2
 
 if 'C' not in _M_Test.__dict__:
+    _M_Test._t_C = IcePy.declareValue('::Test::C')
+
+if 'C' not in _M_Test.__dict__:
     _M_Test.C = None
     class C(Ice.Value):
         def __init__(self, name=''):

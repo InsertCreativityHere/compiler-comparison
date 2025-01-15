@@ -22,6 +22,10 @@ module ::Test
         T_Context = ::Ice::__defineDictionary('::Test::Context', ::Ice::T_string, ::Ice::T_string)
     end
 
+    if not defined?(::Test::T_MyClassPrx)
+        T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
+    end
+
     if not defined?(::Test::MyClassPrx)
         module MyClassPrx_mixin
 
@@ -39,14 +43,14 @@ module ::Test
             include MyClassPrx_mixin
         end
 
-        if not defined?(::Test::T_MyClassPrx)
-            T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
-        end
-
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 
         MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         MyClassPrx_mixin::OP_getContext = ::Ice::__defineOperation('getContext', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_Context, false, 0], [])
+    end
+
+    if not defined?(::Test::T_MyDerivedClassPrx)
+        T_MyDerivedClassPrx = ::Ice::__declareProxy('::Test::MyDerivedClass')
     end
 
     if not defined?(::Test::MyDerivedClassPrx)
@@ -61,10 +65,6 @@ module ::Test
         class MyDerivedClassPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include MyDerivedClassPrx_mixin
-        end
-
-        if not defined?(::Test::T_MyDerivedClassPrx)
-            T_MyDerivedClassPrx = ::Ice::__declareProxy('::Test::MyDerivedClass')
         end
 
         T_MyDerivedClassPrx.defineProxy(MyDerivedClassPrx, nil, [::Test::T_MyClassPrx])

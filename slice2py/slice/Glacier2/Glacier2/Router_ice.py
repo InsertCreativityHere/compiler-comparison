@@ -58,6 +58,9 @@ if 'SessionNotExistException' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionNotExistException = SessionNotExistException
     del SessionNotExistException
 
+if 'Router' not in _M_Glacier2.__dict__:
+    _M_Glacier2._t_RouterPrx = IcePy.declareProxy('::Glacier2::Router')
+
 if 'RouterPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.RouterPrx = None
     class RouterPrx(_M_Ice.RouterPrx):

@@ -202,6 +202,9 @@ if 'ClassStruct' not in _M_Test.__dict__:
     del ClassStruct
 
 if 'OptionalClass' not in _M_Test.__dict__:
+    _M_Test._t_OptionalClass = IcePy.declareValue('::Test::OptionalClass')
+
+if 'OptionalClass' not in _M_Test.__dict__:
     _M_Test.OptionalClass = None
     class OptionalClass(Ice.Value):
         def __init__(self, bo=False, by=0, sh=None, i=None):

@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Controller;
     global $Test__t_ControllerPrx;
+    $Test__t_ControllerPrx = IcePHP_declareProxy('::Test::Controller');
+}
+
+namespace Test
+{
+    global $Test__t_Controller;
+    global $Test__t_ControllerPrx;
 
     class ControllerPrxHelper
     {

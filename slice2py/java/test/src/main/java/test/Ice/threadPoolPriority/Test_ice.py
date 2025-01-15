@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Priority' not in _M_Test.__dict__:
+    _M_Test._t_PriorityPrx = IcePy.declareProxy('::Test::Priority')
+
 if 'PriorityPrx' not in _M_Test.__dict__:
     _M_Test.PriorityPrx = None
     class PriorityPrx(Ice.ObjectPrx):

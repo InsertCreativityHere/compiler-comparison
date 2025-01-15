@@ -20,6 +20,10 @@ module ::Test
 
     module MA
 
+        if not defined?(::Test::MA::T_IAPrx)
+            T_IAPrx = ::Ice::__declareProxy('::Test::MA::IA')
+        end
+
         if not defined?(::Test::MA::IAPrx)
             module IAPrx_mixin
 
@@ -33,10 +37,6 @@ module ::Test
                 include IAPrx_mixin
             end
 
-            if not defined?(::Test::MA::T_IAPrx)
-                T_IAPrx = ::Ice::__declareProxy('::Test::MA::IA')
-            end
-
             T_IAPrx.defineProxy(IAPrx, nil, [])
 
             IAPrx_mixin::OP_iaop = ::Ice::__defineOperation('iaop', ::Ice::OperationMode::Normal, nil, [[::Test::MA::T_IAPrx, false, 0]], [], [::Test::MA::T_IAPrx, false, 0], [])
@@ -44,6 +44,10 @@ module ::Test
     end
 
     module MB
+
+        if not defined?(::Test::MB::T_IB1Prx)
+            T_IB1Prx = ::Ice::__declareProxy('::Test::MB::IB1')
+        end
 
         if not defined?(::Test::MB::IB1Prx)
             module IB1Prx_mixin
@@ -59,13 +63,13 @@ module ::Test
                 include IB1Prx_mixin
             end
 
-            if not defined?(::Test::MB::T_IB1Prx)
-                T_IB1Prx = ::Ice::__declareProxy('::Test::MB::IB1')
-            end
-
             T_IB1Prx.defineProxy(IB1Prx, nil, [::Test::MA::T_IAPrx])
 
             IB1Prx_mixin::OP_ib1op = ::Ice::__defineOperation('ib1op', ::Ice::OperationMode::Normal, nil, [[::Test::MB::T_IB1Prx, false, 0]], [], [::Test::MB::T_IB1Prx, false, 0], [])
+        end
+
+        if not defined?(::Test::MB::T_IB2Prx)
+            T_IB2Prx = ::Ice::__declareProxy('::Test::MB::IB2')
         end
 
         if not defined?(::Test::MB::IB2Prx)
@@ -82,10 +86,6 @@ module ::Test
                 include IB2Prx_mixin
             end
 
-            if not defined?(::Test::MB::T_IB2Prx)
-                T_IB2Prx = ::Ice::__declareProxy('::Test::MB::IB2')
-            end
-
             T_IB2Prx.defineProxy(IB2Prx, nil, [::Test::MA::T_IAPrx])
 
             IB2Prx_mixin::OP_ib2op = ::Ice::__defineOperation('ib2op', ::Ice::OperationMode::Normal, nil, [[::Test::MB::T_IB2Prx, false, 0]], [], [::Test::MB::T_IB2Prx, false, 0], [])
@@ -93,6 +93,10 @@ module ::Test
     end
 
     module MA
+
+        if not defined?(::Test::MA::T_ICPrx)
+            T_ICPrx = ::Ice::__declareProxy('::Test::MA::IC')
+        end
 
         if not defined?(::Test::MA::ICPrx)
             module ICPrx_mixin
@@ -109,14 +113,14 @@ module ::Test
                 include ICPrx_mixin
             end
 
-            if not defined?(::Test::MA::T_ICPrx)
-                T_ICPrx = ::Ice::__declareProxy('::Test::MA::IC')
-            end
-
             T_ICPrx.defineProxy(ICPrx, nil, [::Test::MB::T_IB1Prx, ::Test::MB::T_IB2Prx])
 
             ICPrx_mixin::OP_icop = ::Ice::__defineOperation('icop', ::Ice::OperationMode::Normal, nil, [[::Test::MA::T_ICPrx, false, 0]], [], [::Test::MA::T_ICPrx, false, 0], [])
         end
+    end
+
+    if not defined?(::Test::T_InitialPrx)
+        T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
     end
 
     if not defined?(::Test::InitialPrx)
@@ -146,10 +150,6 @@ module ::Test
         class InitialPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include InitialPrx_mixin
-        end
-
-        if not defined?(::Test::T_InitialPrx)
-            T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])

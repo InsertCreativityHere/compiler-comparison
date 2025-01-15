@@ -24,10 +24,7 @@ namespace Test
 {
     global $Test__t_Thrower;
     global $Test__t_ThrowerPrx;
-    if(!isset($Test__t_Thrower))
-    {
-        $Test__t_ThrowerPrx = IcePHP_declareProxy('::Test::Thrower');
-    }
+    $Test__t_ThrowerPrx = IcePHP_declareProxy('::Test::Thrower');
 }
 
 namespace Test
@@ -180,6 +177,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwLocalExceptionIdempotent', 2, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAfterResponse', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAfterException', 0, -1, null, null, null, array($Test__t_A));
+}
+
+namespace Test
+{
+    global $Test__t_WrongOperation;
+    global $Test__t_WrongOperationPrx;
+    $Test__t_WrongOperationPrx = IcePHP_declareProxy('::Test::WrongOperation');
 }
 
 namespace Test

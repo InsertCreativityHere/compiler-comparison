@@ -304,6 +304,10 @@ module ::Test
         T_SStructSD = ::Ice::__defineSequence('::Test::SStructSD', ::Test::T_SD)
     end
 
+    if not defined?(::Test::T_CV)
+        T_CV = ::Ice::__declareClass('::Test::CV')
+    end
+
     if not defined?(::Test::CV)
         class CV < ::Ice::Value
 
@@ -312,10 +316,6 @@ module ::Test
             end
 
             attr_accessor :i
-        end
-
-        if not defined?(::Test::T_CV)
-            T_CV = ::Ice::__declareClass('::Test::CV')
         end
 
         T_CV.defineClass(CV, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
@@ -329,6 +329,10 @@ module ::Test
         T_LCVS = ::Ice::__defineSequence('::Test::LCVS', ::Test::T_CV)
     end
 
+    if not defined?(::Test::T_IPrx)
+        T_IPrx = ::Ice::__declareProxy('::Test::I')
+    end
+
     if not defined?(::Test::IPrx)
         module IPrx_mixin
         end
@@ -336,10 +340,6 @@ module ::Test
         class IPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include IPrx_mixin
-        end
-
-        if not defined?(::Test::T_IPrx)
-            T_IPrx = ::Ice::__declareProxy('::Test::I')
         end
 
         T_IPrx.defineProxy(IPrx, nil, [])
@@ -365,6 +365,10 @@ module ::Test
         T_SIPrxS = ::Ice::__defineSequence('::Test::SIPrxS', ::Test::T_IPrx)
     end
 
+    if not defined?(::Test::T_CR)
+        T_CR = ::Ice::__declareClass('::Test::CR')
+    end
+
     if not defined?(::Test::CR)
         class CR < ::Ice::Value
 
@@ -373,10 +377,6 @@ module ::Test
             end
 
             attr_accessor :v
-        end
-
-        if not defined?(::Test::T_CR)
-            T_CR = ::Ice::__declareClass('::Test::CR')
         end
 
         T_CR.defineClass(CR, -1, false, nil, [['v', ::Test::T_CV, false, 0]])
@@ -474,6 +474,10 @@ module ::Test
 
     if not defined?(::Test::T_CustomCVSS)
         T_CustomCVSS = ::Ice::__defineSequence('::Test::CustomCVSS', ::Test::T_CustomCVS)
+    end
+
+    if not defined?(::Test::T_MyClassPrx)
+        T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
     end
 
     if not defined?(::Test::MyClassPrx)
@@ -787,10 +791,6 @@ module ::Test
         class MyClassPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include MyClassPrx_mixin
-        end
-
-        if not defined?(::Test::T_MyClassPrx)
-            T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])

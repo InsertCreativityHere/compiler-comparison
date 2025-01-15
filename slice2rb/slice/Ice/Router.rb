@@ -19,6 +19,10 @@ require_relative 'BuiltinSequences.rb'
 
 module ::Ice
 
+    if not defined?(::Ice::T_RouterPrx)
+        T_RouterPrx = ::Ice::__declareProxy('::Ice::Router')
+    end
+
     if not defined?(::Ice::RouterPrx)
         module RouterPrx_mixin
 
@@ -40,15 +44,15 @@ module ::Ice
             include RouterPrx_mixin
         end
 
-        if not defined?(::Ice::T_RouterPrx)
-            T_RouterPrx = ::Ice::__declareProxy('::Ice::Router')
-        end
-
         T_RouterPrx.defineProxy(RouterPrx, nil, [])
 
         RouterPrx_mixin::OP_getClientProxy = ::Ice::__defineOperation('getClientProxy', ::Ice::OperationMode::Idempotent, nil, [], [[::Ice::T_bool, true, 1]], [::Ice::T_ObjectPrx, false, 0], [])
         RouterPrx_mixin::OP_getServerProxy = ::Ice::__defineOperation('getServerProxy', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
         RouterPrx_mixin::OP_addProxies = ::Ice::__defineOperation('addProxies', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_ObjectProxySeq, false, 0]], [], [::Ice::T_ObjectProxySeq, false, 0], [])
+    end
+
+    if not defined?(::Ice::T_RouterFinderPrx)
+        T_RouterFinderPrx = ::Ice::__declareProxy('::Ice::RouterFinder')
     end
 
     if not defined?(::Ice::RouterFinderPrx)
@@ -62,10 +66,6 @@ module ::Ice
         class RouterFinderPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include RouterFinderPrx_mixin
-        end
-
-        if not defined?(::Ice::T_RouterFinderPrx)
-            T_RouterFinderPrx = ::Ice::__declareProxy('::Ice::RouterFinder')
         end
 
         T_RouterFinderPrx.defineProxy(RouterFinderPrx, nil, [])

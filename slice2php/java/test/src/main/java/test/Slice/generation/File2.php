@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Interface2;
     global $Test__t_Interface2Prx;
+    $Test__t_Interface2Prx = IcePHP_declareProxy('::Test::Interface2');
+}
+
+namespace Test
+{
+    global $Test__t_Interface2;
+    global $Test__t_Interface2Prx;
 
     class Interface2PrxHelper
     {

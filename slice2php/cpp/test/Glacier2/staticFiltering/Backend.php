@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Backend;
     global $Test__t_BackendPrx;
+    $Test__t_BackendPrx = IcePHP_declareProxy('::Test::Backend');
+}
+
+namespace Test
+{
+    global $Test__t_Backend;
+    global $Test__t_BackendPrx;
 
     class BackendPrxHelper
     {

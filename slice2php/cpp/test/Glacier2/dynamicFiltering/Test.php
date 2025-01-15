@@ -24,6 +24,13 @@ namespace Test
 {
     global $Test__t_Backend;
     global $Test__t_BackendPrx;
+    $Test__t_BackendPrx = IcePHP_declareProxy('::Test::Backend');
+}
+
+namespace Test
+{
+    global $Test__t_Backend;
+    global $Test__t_BackendPrx;
 
     class BackendPrxHelper
     {
@@ -114,6 +121,13 @@ namespace Test
 {
     global $Test__t_TestController;
     global $Test__t_TestControllerPrx;
+    $Test__t_TestControllerPrx = IcePHP_declareProxy('::Test::TestController');
+}
+
+namespace Test
+{
+    global $Test__t_TestController;
+    global $Test__t_TestControllerPrx;
 
     class TestControllerPrxHelper
     {
@@ -145,6 +159,13 @@ namespace Test
     global $Test__t_TestToken;
     IcePHP_defineOperation($Test__t_TestControllerPrx, 'step', 0, -1, array(array($Glacier2__t_SessionPrx), array($Test__t_TestToken)), array(array($Test__t_TestToken)), null, null);
     IcePHP_defineOperation($Test__t_TestControllerPrx, 'shutdown', 0, -1, null, null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_TestSession;
+    global $Test__t_TestSessionPrx;
+    $Test__t_TestSessionPrx = IcePHP_declareProxy('::Test::TestSession');
 }
 
 namespace Test

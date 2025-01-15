@@ -23,6 +23,9 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 if 'Default' not in _M_Test.__dict__:
+    _M_Test._t_Default = IcePy.declareValue('::Test::Default')
+
+if 'Default' not in _M_Test.__dict__:
     _M_Test.Default = None
     class Default(Ice.Value):
         def __init__(self, x=10, y=10):
@@ -51,6 +54,9 @@ if 'Default' not in _M_Test.__dict__:
     del Default
 
 if 'NoDefault' not in _M_Test.__dict__:
+    _M_Test._t_NoDefault = IcePy.declareValue('::Test::NoDefault')
+
+if 'NoDefault' not in _M_Test.__dict__:
     _M_Test.NoDefault = None
     class NoDefault(Ice.Value):
         def __init__(self, x=0, y=0):
@@ -77,6 +83,9 @@ if 'NoDefault' not in _M_Test.__dict__:
 
     _M_Test.NoDefault = NoDefault
     del NoDefault
+
+if 'PythonOnly' not in _M_Test.__dict__:
+    _M_Test._t_PythonOnly = IcePy.declareValue('::Test::PythonOnly')
 
 if 'PythonOnly' not in _M_Test.__dict__:
     _M_Test.PythonOnly = None

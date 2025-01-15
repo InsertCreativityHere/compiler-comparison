@@ -26,6 +26,9 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 if 'SBSUnknownDerived' not in _M_Test.__dict__:
+    _M_Test._t_SBSUnknownDerived = IcePy.declareValue('::Test::SBSUnknownDerived')
+
+if 'SBSUnknownDerived' not in _M_Test.__dict__:
     _M_Test.SBSUnknownDerived = None
     class SBSUnknownDerived(_M_Test.SBase):
         def __init__(self, sb='', sbsud=''):
@@ -51,6 +54,9 @@ if 'SBSUnknownDerived' not in _M_Test.__dict__:
     del SBSUnknownDerived
 
 if 'SUnknown' not in _M_Test.__dict__:
+    _M_Test._t_SUnknown = IcePy.declareValue('::Test::SUnknown')
+
+if 'SUnknown' not in _M_Test.__dict__:
     _M_Test.SUnknown = None
     class SUnknown(Ice.Value):
         def __init__(self, su='', cycle=None):
@@ -69,8 +75,6 @@ if 'SUnknown' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_SUnknown = IcePy.declareValue('::Test::SUnknown')
-
     _M_Test._t_SUnknown = IcePy.defineValue('::Test::SUnknown', SUnknown, -1, (), False, None, (
         ('su', (), IcePy._t_string, False, 0),
         ('cycle', (), _M_Test._t_SUnknown, False, 0)
@@ -79,6 +83,9 @@ if 'SUnknown' not in _M_Test.__dict__:
 
     _M_Test.SUnknown = SUnknown
     del SUnknown
+
+if 'D2' not in _M_Test.__dict__:
+    _M_Test._t_D2 = IcePy.declareValue('::Test::D2')
 
 if 'D2' not in _M_Test.__dict__:
     _M_Test.D2 = None
@@ -100,8 +107,6 @@ if 'D2' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_D2 = IcePy.declareValue('::Test::D2')
-
     _M_Test._t_D2 = IcePy.defineValue('::Test::D2', D2, -1, (), False, _M_Test._t_B, (
         ('sd2', (), IcePy._t_string, False, 0),
         ('pd2', (), _M_Test._t_B, False, 0)
@@ -110,6 +115,9 @@ if 'D2' not in _M_Test.__dict__:
 
     _M_Test.D2 = D2
     del D2
+
+if 'D4' not in _M_Test.__dict__:
+    _M_Test._t_D4 = IcePy.declareValue('::Test::D4')
 
 if 'D4' not in _M_Test.__dict__:
     _M_Test.D4 = None
@@ -130,8 +138,6 @@ if 'D4' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_D4)
 
         __repr__ = __str__
-
-    _M_Test._t_D4 = IcePy.declareValue('::Test::D4')
 
     _M_Test._t_D4 = IcePy.defineValue('::Test::D4', D4, -1, (), False, _M_Test._t_B, (
         ('p1', (), _M_Test._t_B, False, 0),
@@ -167,6 +173,9 @@ if 'UnknownDerivedException' not in _M_Test.__dict__:
     del UnknownDerivedException
 
 if 'MyClass' not in _M_Test.__dict__:
+    _M_Test._t_MyClass = IcePy.declareValue('::Test::MyClass')
+
+if 'MyClass' not in _M_Test.__dict__:
     _M_Test.MyClass = None
     class MyClass(Ice.Value):
         def __init__(self, i=0):
@@ -191,6 +200,9 @@ if 'MyClass' not in _M_Test.__dict__:
     del MyClass
 
 if 'PSUnknown' not in _M_Test.__dict__:
+    _M_Test._t_PSUnknown = IcePy.declareValue('::Test::PSUnknown')
+
+if 'PSUnknown' not in _M_Test.__dict__:
     _M_Test.PSUnknown = None
     class PSUnknown(_M_Test.Preserved):
         def __init__(self, pi=0, ps='', psu='', graph=None, cl=None):
@@ -211,8 +223,6 @@ if 'PSUnknown' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_PSUnknown = IcePy.declareValue('::Test::PSUnknown')
-
     _M_Test._t_PSUnknown = IcePy.defineValue('::Test::PSUnknown', PSUnknown, -1, (), False, _M_Test._t_Preserved, (
         ('psu', (), IcePy._t_string, False, 0),
         ('graph', (), _M_Test._t_PNode, False, 0),
@@ -222,6 +232,9 @@ if 'PSUnknown' not in _M_Test.__dict__:
 
     _M_Test.PSUnknown = PSUnknown
     del PSUnknown
+
+if 'PSUnknown2' not in _M_Test.__dict__:
+    _M_Test._t_PSUnknown2 = IcePy.declareValue('::Test::PSUnknown2')
 
 if 'PSUnknown2' not in _M_Test.__dict__:
     _M_Test.PSUnknown2 = None
@@ -241,8 +254,6 @@ if 'PSUnknown2' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_PSUnknown2)
 
         __repr__ = __str__
-
-    _M_Test._t_PSUnknown2 = IcePy.declareValue('::Test::PSUnknown2')
 
     _M_Test._t_PSUnknown2 = IcePy.defineValue('::Test::PSUnknown2', PSUnknown2, -1, (), False, _M_Test._t_Preserved, (('pb', (), _M_Test._t_PBase, False, 0),))
     PSUnknown2._ice_type = _M_Test._t_PSUnknown2

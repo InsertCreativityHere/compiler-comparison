@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Server;
     global $Test__t_ServerPrx;
+    $Test__t_ServerPrx = IcePHP_declareProxy('::Test::Server');
+}
+
+namespace Test
+{
+    global $Test__t_Server;
+    global $Test__t_ServerPrx;
 
     class ServerPrxHelper
     {
@@ -61,6 +68,13 @@ namespace Test
         global $IcePHP__t_string;
         $Test__t_Properties = IcePHP_defineDictionary('::Test::Properties', $IcePHP__t_string, $IcePHP__t_string);
     }
+}
+
+namespace Test
+{
+    global $Test__t_ServerFactory;
+    global $Test__t_ServerFactoryPrx;
+    $Test__t_ServerFactoryPrx = IcePHP_declareProxy('::Test::ServerFactory');
 }
 
 namespace Test

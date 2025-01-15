@@ -30,6 +30,10 @@ module ::Test
         T_UserError = ::Ice::__defineException('::Test::UserError', UserError, nil, [["message", ::Ice::T_string, false, 0]])
     end
 
+    if not defined?(::Test::T_MyInterfacePrx)
+        T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
+    end
+
     if not defined?(::Test::MyInterfacePrx)
         module MyInterfacePrx_mixin
 
@@ -41,10 +45,6 @@ module ::Test
         class MyInterfacePrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include MyInterfacePrx_mixin
-        end
-
-        if not defined?(::Test::T_MyInterfacePrx)
-            T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
         end
 
         T_MyInterfacePrx.defineProxy(MyInterfacePrx, nil, [])

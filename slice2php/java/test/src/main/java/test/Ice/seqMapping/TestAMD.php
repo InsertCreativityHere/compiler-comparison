@@ -52,6 +52,13 @@ namespace Test
 {
     global $Test__t_MyClass;
     global $Test__t_MyClassPrx;
+    $Test__t_MyClassPrx = IcePHP_declareProxy('::Test::MyClass');
+}
+
+namespace Test
+{
+    global $Test__t_MyClass;
+    global $Test__t_MyClassPrx;
 
     class MyClassPrxHelper
     {
@@ -187,6 +194,12 @@ namespace Test
     $Test__t_Bar = IcePHP_defineException('::Test::Bar', '\\Test\\Bar', null, array(
         array('SLmem', $Test__t_SerialLarge, false, 0),
         array('SLSmem', $Test__t_SLS, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_Baz;
+    $Test__t_Baz = IcePHP_declareClass('::Test::Baz');
 }
 
 namespace Test

@@ -45,6 +45,9 @@ if 'InterruptedException' not in _M_Test.__dict__:
     _M_Test.InterruptedException = InterruptedException
     del InterruptedException
 
+if 'TestIntf' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfPrx = IcePy.declareProxy('::Test::TestIntf')
+
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(Ice.ObjectPrx):
@@ -173,6 +176,9 @@ if 'CannotInterruptException' not in _M_Test.__dict__:
 
     _M_Test.CannotInterruptException = CannotInterruptException
     del CannotInterruptException
+
+if 'TestIntfController' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfControllerPrx = IcePy.declareProxy('::Test::TestIntfController')
 
 if 'TestIntfControllerPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfControllerPrx = None

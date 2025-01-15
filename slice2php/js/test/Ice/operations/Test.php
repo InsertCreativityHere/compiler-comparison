@@ -37,10 +37,7 @@ namespace Test
 {
     global $Test__t_MyClass;
     global $Test__t_MyClassPrx;
-    if(!isset($Test__t_MyClass))
-    {
-        $Test__t_MyClassPrx = IcePHP_declareProxy('::Test::MyClass');
-    }
+    $Test__t_MyClassPrx = IcePHP_declareProxy('::Test::MyClass');
 }
 
 namespace Test
@@ -827,6 +824,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_MyClass1;
+    $Test__t_MyClass1 = IcePHP_declareClass('::Test::MyClass1');
+}
+
+namespace Test
+{
+    global $Test__t_MyClass1;
     class MyClass1 extends \Ice\Value
     {
         public function __construct($tesT='', $myClass=null, $myClass1='')
@@ -870,6 +873,13 @@ namespace Test
 {
     global $Test__t_MyDerivedClass;
     global $Test__t_MyDerivedClassPrx;
+    $Test__t_MyDerivedClassPrx = IcePHP_declareProxy('::Test::MyDerivedClass');
+}
+
+namespace Test
+{
+    global $Test__t_MyDerivedClass;
+    global $Test__t_MyDerivedClassPrx;
 
     class MyDerivedClassPrxHelper
     {
@@ -902,6 +912,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_MyDerivedClassPrx, 'opDerived', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_MyDerivedClassPrx, 'opMyClass1', 0, -1, array(array($Test__t_MyClass1)), null, array($Test__t_MyClass1), null);
     IcePHP_defineOperation($Test__t_MyDerivedClassPrx, 'opMyStruct1', 0, -1, array(array($Test__t_MyStruct1)), null, array($Test__t_MyStruct1), null);
+}
+
+namespace Test
+{
+    global $Test__t_Echo;
+    global $Test__t_EchoPrx;
+    $Test__t_EchoPrx = IcePHP_declareProxy('::Test::Echo');
 }
 
 namespace Test
@@ -1189,6 +1206,13 @@ namespace Test
     {
         define(__NAMESPACE__ . '\\su2', "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203");
     }
+}
+
+namespace Test2
+{
+    global $Test2__t_MyDerivedClass;
+    global $Test2__t_MyDerivedClassPrx;
+    $Test2__t_MyDerivedClassPrx = IcePHP_declareProxy('::Test2::MyDerivedClass');
 }
 
 namespace Test2

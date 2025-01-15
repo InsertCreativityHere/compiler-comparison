@@ -95,6 +95,10 @@ module ::BEGIN_
         T_And = ::Ice::__defineStruct('::BEGIN::and', And, [["_begin", ::Ice::T_int]])
     end
 
+    if not defined?(::BEGIN_::T_BreakPrx)
+        T_BreakPrx = ::Ice::__declareProxy('::BEGIN::break')
+    end
+
     if not defined?(::BEGIN_::BreakPrx)
         module BreakPrx_mixin
 
@@ -120,16 +124,16 @@ module ::BEGIN_
             include BreakPrx_mixin
         end
 
-        if not defined?(::BEGIN_::T_BreakPrx)
-            T_BreakPrx = ::Ice::__declareProxy('::BEGIN::break')
-        end
-
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
         BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
         BreakPrx_mixin::OP_to_a = ::Ice::__defineOperation('to_a', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         BreakPrx_mixin::OP_instance_variable_set = ::Ice::__defineOperation('instance_variable_set', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         BreakPrx_mixin::OP_instance_variables = ::Ice::__defineOperation('instance_variables', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::BEGIN_::T_Display)
+        T_Display = ::Ice::__declareClass('::BEGIN::display')
     end
 
     if not defined?(::BEGIN_::Display)
@@ -145,16 +149,16 @@ module ::BEGIN_
             attr_accessor :_when, :_do, :_dup, :_else
         end
 
-        if not defined?(::BEGIN_::T_Display)
-            T_Display = ::Ice::__declareClass('::BEGIN::display')
-        end
-
         T_Display.defineClass(Display, -1, false, nil, [
             ['_when', ::Ice::T_int, false, 0],
             ['_do', ::Ice::T_int, false, 0],
             ['_dup', ::BEGIN_::T_BreakPrx, false, 0],
             ['_else', ::Ice::T_int, false, 0]
         ])
+    end
+
+    if not defined?(::BEGIN_::T_ElsifPrx)
+        T_ElsifPrx = ::Ice::__declareProxy('::BEGIN::elsif')
     end
 
     if not defined?(::BEGIN_::ElsifPrx)
@@ -165,10 +169,6 @@ module ::BEGIN_
         class ElsifPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include ElsifPrx_mixin
-        end
-
-        if not defined?(::BEGIN_::T_ElsifPrx)
-            T_ElsifPrx = ::Ice::__declareProxy('::BEGIN::elsif')
         end
 
         T_ElsifPrx.defineProxy(ElsifPrx, nil, [::BEGIN_::T_BreakPrx])
@@ -209,6 +209,10 @@ module ::BEGIN_
         ])
     end
 
+    if not defined?(::BEGIN_::T_ExtendPrx)
+        T_ExtendPrx = ::Ice::__declareProxy('::BEGIN::extend')
+    end
+
     if not defined?(::BEGIN_::ExtendPrx)
         module ExtendPrx_mixin
 
@@ -220,10 +224,6 @@ module ::BEGIN_
         class ExtendPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include ExtendPrx_mixin
-        end
-
-        if not defined?(::BEGIN_::T_ExtendPrx)
-            T_ExtendPrx = ::Ice::__declareProxy('::BEGIN::extend')
         end
 
         T_ExtendPrx.defineProxy(ExtendPrx, nil, [])

@@ -45,6 +45,13 @@ namespace Test
 {
     global $Test__t_PingReply;
     global $Test__t_PingReplyPrx;
+    $Test__t_PingReplyPrx = IcePHP_declareProxy('::Test::PingReply');
+}
+
+namespace Test
+{
+    global $Test__t_PingReply;
+    global $Test__t_PingReplyPrx;
 
     class PingReplyPrxHelper
     {
@@ -73,6 +80,13 @@ namespace Test
     $Test__t_PingReplyPrx = IcePHP_defineProxy('::Test::PingReply', $Ice__t_ObjectPrx, null);
 
     IcePHP_defineOperation($Test__t_PingReplyPrx, 'reply', 0, -1, null, null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
 }
 
 namespace Test
@@ -125,6 +139,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'supportsFunctionalTests', 0, -1, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'pingBiDir', 0, -1, array(array($Test__t_PingReplyPrx)), null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_TestIntfController;
+    global $Test__t_TestIntfControllerPrx;
+    $Test__t_TestIntfControllerPrx = IcePHP_declareProxy('::Test::TestIntfController');
 }
 
 namespace Test

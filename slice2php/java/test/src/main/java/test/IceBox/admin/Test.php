@@ -24,6 +24,13 @@ namespace Test
 {
     global $Test__t_TestFacet;
     global $Test__t_TestFacetPrx;
+    $Test__t_TestFacetPrx = IcePHP_declareProxy('::Test::TestFacet');
+}
+
+namespace Test
+{
+    global $Test__t_TestFacet;
+    global $Test__t_TestFacetPrx;
 
     class TestFacetPrxHelper
     {

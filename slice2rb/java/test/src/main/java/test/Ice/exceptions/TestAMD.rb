@@ -160,10 +160,6 @@ module ::Test
             include ThrowerPrx_mixin
         end
 
-        if not defined?(::Test::T_ThrowerPrx)
-            T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
-        end
-
         T_ThrowerPrx.defineProxy(ThrowerPrx, nil, [])
 
         ThrowerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -188,6 +184,10 @@ module ::Test
         ThrowerPrx_mixin::OP_throwAfterException = ::Ice::__defineOperation('throwAfterException', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_A])
     end
 
+    if not defined?(::Test::T_WrongOperationPrx)
+        T_WrongOperationPrx = ::Ice::__declareProxy('::Test::WrongOperation')
+    end
+
     if not defined?(::Test::WrongOperationPrx)
         module WrongOperationPrx_mixin
 
@@ -199,10 +199,6 @@ module ::Test
         class WrongOperationPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include WrongOperationPrx_mixin
-        end
-
-        if not defined?(::Test::T_WrongOperationPrx)
-            T_WrongOperationPrx = ::Ice::__declareProxy('::Test::WrongOperation')
         end
 
         T_WrongOperationPrx.defineProxy(WrongOperationPrx, nil, [])

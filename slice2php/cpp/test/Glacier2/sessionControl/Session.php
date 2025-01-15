@@ -24,6 +24,13 @@ namespace Test
 {
     global $Test__t_Session;
     global $Test__t_SessionPrx;
+    $Test__t_SessionPrx = IcePHP_declareProxy('::Test::Session');
+}
+
+namespace Test
+{
+    global $Test__t_Session;
+    global $Test__t_SessionPrx;
 
     class SessionPrxHelper
     {

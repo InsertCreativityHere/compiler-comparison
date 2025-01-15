@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_ServerPrx)
+        T_ServerPrx = ::Ice::__declareProxy('::Test::Server')
+    end
+
     if not defined?(::Test::ServerPrx)
         module ServerPrx_mixin
 
@@ -35,10 +39,6 @@ module ::Test
             include ServerPrx_mixin
         end
 
-        if not defined?(::Test::T_ServerPrx)
-            T_ServerPrx = ::Ice::__declareProxy('::Test::Server')
-        end
-
         T_ServerPrx.defineProxy(ServerPrx, nil, [])
 
         ServerPrx_mixin::OP_noCert = ::Ice::__defineOperation('noCert', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -47,6 +47,10 @@ module ::Test
 
     if not defined?(::Test::T_Properties)
         T_Properties = ::Ice::__defineDictionary('::Test::Properties', ::Ice::T_string, ::Ice::T_string)
+    end
+
+    if not defined?(::Test::T_ServerFactoryPrx)
+        T_ServerFactoryPrx = ::Ice::__declareProxy('::Test::ServerFactory')
     end
 
     if not defined?(::Test::ServerFactoryPrx)
@@ -68,10 +72,6 @@ module ::Test
         class ServerFactoryPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include ServerFactoryPrx_mixin
-        end
-
-        if not defined?(::Test::T_ServerFactoryPrx)
-            T_ServerFactoryPrx = ::Ice::__declareProxy('::Test::ServerFactory')
         end
 
         T_ServerFactoryPrx.defineProxy(ServerFactoryPrx, nil, [])

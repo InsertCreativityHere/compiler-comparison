@@ -18,26 +18,30 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_Empty)
+        T_Empty = ::Ice::__declareClass('::Test::Empty')
+    end
+
     if not defined?(::Test::Empty)
         class Empty < ::Ice::Value
         end
 
-        if not defined?(::Test::T_Empty)
-            T_Empty = ::Ice::__declareClass('::Test::Empty')
-        end
-
         T_Empty.defineClass(Empty, -1, false, nil, [])
+    end
+
+    if not defined?(::Test::T_AlsoEmpty)
+        T_AlsoEmpty = ::Ice::__declareClass('::Test::AlsoEmpty')
     end
 
     if not defined?(::Test::AlsoEmpty)
         class AlsoEmpty < ::Ice::Value
         end
 
-        if not defined?(::Test::T_AlsoEmpty)
-            T_AlsoEmpty = ::Ice::__declareClass('::Test::AlsoEmpty')
-        end
-
         T_AlsoEmpty.defineClass(AlsoEmpty, -1, false, nil, [])
+    end
+
+    if not defined?(::Test::T_UnexpectedObjectExceptionTestPrx)
+        T_UnexpectedObjectExceptionTestPrx = ::Ice::__declareProxy('::Test::UnexpectedObjectExceptionTest')
     end
 
     if not defined?(::Test::UnexpectedObjectExceptionTestPrx)
@@ -53,13 +57,13 @@ module ::Test
             include UnexpectedObjectExceptionTestPrx_mixin
         end
 
-        if not defined?(::Test::T_UnexpectedObjectExceptionTestPrx)
-            T_UnexpectedObjectExceptionTestPrx = ::Ice::__declareProxy('::Test::UnexpectedObjectExceptionTest')
-        end
-
         T_UnexpectedObjectExceptionTestPrx.defineProxy(UnexpectedObjectExceptionTestPrx, nil, [])
 
         UnexpectedObjectExceptionTestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_Empty, false, 0], [])
+    end
+
+    if not defined?(::Test::T_COneMember)
+        T_COneMember = ::Ice::__declareClass('::Test::COneMember')
     end
 
     if not defined?(::Test::COneMember)
@@ -72,11 +76,11 @@ module ::Test
             attr_accessor :e
         end
 
-        if not defined?(::Test::T_COneMember)
-            T_COneMember = ::Ice::__declareClass('::Test::COneMember')
-        end
-
         T_COneMember.defineClass(COneMember, -1, false, nil, [['e', ::Test::T_Empty, false, 0]])
+    end
+
+    if not defined?(::Test::T_CTwoMembers)
+        T_CTwoMembers = ::Ice::__declareClass('::Test::CTwoMembers')
     end
 
     if not defined?(::Test::CTwoMembers)
@@ -88,10 +92,6 @@ module ::Test
             end
 
             attr_accessor :e1, :e2
-        end
-
-        if not defined?(::Test::T_CTwoMembers)
-            T_CTwoMembers = ::Ice::__declareClass('::Test::CTwoMembers')
         end
 
         T_CTwoMembers.defineClass(CTwoMembers, -1, false, nil, [

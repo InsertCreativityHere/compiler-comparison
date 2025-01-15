@@ -19,6 +19,10 @@ require 'Ice/PropertyDict.rb'
 
 module ::Test
 
+    if not defined?(::Test::T_TestFacetPrx)
+        T_TestFacetPrx = ::Ice::__declareProxy('::Test::TestFacet')
+    end
+
     if not defined?(::Test::TestFacetPrx)
         module TestFacetPrx_mixin
 
@@ -30,10 +34,6 @@ module ::Test
         class TestFacetPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include TestFacetPrx_mixin
-        end
-
-        if not defined?(::Test::T_TestFacetPrx)
-            T_TestFacetPrx = ::Ice::__declareProxy('::Test::TestFacet')
         end
 
         T_TestFacetPrx.defineProxy(TestFacetPrx, nil, [])

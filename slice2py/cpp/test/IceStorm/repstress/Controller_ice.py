@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Controller' not in _M_Test.__dict__:
+    _M_Test._t_ControllerPrx = IcePy.declareProxy('::Test::Controller')
+
 if 'ControllerPrx' not in _M_Test.__dict__:
     _M_Test.ControllerPrx = None
     class ControllerPrx(Ice.ObjectPrx):

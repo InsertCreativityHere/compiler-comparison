@@ -40,6 +40,13 @@ namespace IceGrid
 {
     global $IceGrid__t_Query;
     global $IceGrid__t_QueryPrx;
+    $IceGrid__t_QueryPrx = IcePHP_declareProxy('::IceGrid::Query');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_Query;
+    global $IceGrid__t_QueryPrx;
 
     class QueryPrxHelper
     {
@@ -83,6 +90,13 @@ namespace IceGrid
 {
     global $IceGrid__t_Registry;
     global $IceGrid__t_RegistryPrx;
+    $IceGrid__t_RegistryPrx = IcePHP_declareProxy('::IceGrid::Registry');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_Registry;
+    global $IceGrid__t_RegistryPrx;
 
     class RegistryPrxHelper
     {
@@ -119,6 +133,13 @@ namespace IceGrid
     IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'createSessionFromSecureConnection', 0, -1, null, null, array($IceGrid__t_SessionPrx), array($IceGrid__t_PermissionDeniedException));
     IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'createAdminSessionFromSecureConnection', 0, -1, null, null, array($IceGrid__t_AdminSessionPrx), array($IceGrid__t_PermissionDeniedException));
     IcePHP_defineOperation($IceGrid__t_RegistryPrx, 'getSessionTimeout', 2, -1, null, null, array($IcePHP__t_int), null);
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_Locator;
+    global $IceGrid__t_LocatorPrx;
+    $IceGrid__t_LocatorPrx = IcePHP_declareProxy('::IceGrid::Locator');
 }
 
 namespace IceGrid

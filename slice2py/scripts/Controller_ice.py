@@ -33,6 +33,9 @@ if '_t_StringSeq' not in _M_Test.Common.__dict__:
     _M_Test.Common._t_StringSeq = IcePy.defineSequence('::Test::Common::StringSeq', (), IcePy._t_string)
 
 if 'Config' not in _M_Test.Common.__dict__:
+    _M_Test.Common._t_Config = IcePy.declareValue('::Test::Common::Config')
+
+if 'Config' not in _M_Test.Common.__dict__:
     _M_Test.Common.Config = None
     class Config(Ice.Value):
         def __init__(self, protocol=None, mx=None, serialize=None, compress=None, ipv6=None, cprops=None, sprops=None):
@@ -69,6 +72,9 @@ if 'Config' not in _M_Test.Common.__dict__:
 
     _M_Test.Common.Config = Config
     del Config
+
+if 'OptionOverrides' not in _M_Test.Common.__dict__:
+    _M_Test.Common._t_OptionOverrides = IcePy.declareValue('::Test::Common::OptionOverrides')
 
 if 'OptionOverrides' not in _M_Test.Common.__dict__:
     _M_Test.Common.OptionOverrides = None
@@ -141,6 +147,9 @@ if 'TestCaseFailedException' not in _M_Test.Common.__dict__:
 
     _M_Test.Common.TestCaseFailedException = TestCaseFailedException
     del TestCaseFailedException
+
+if 'TestCase' not in _M_Test.Common.__dict__:
+    _M_Test.Common._t_TestCasePrx = IcePy.declareProxy('::Test::Common::TestCase')
 
 if 'TestCasePrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.TestCasePrx = None
@@ -241,6 +250,9 @@ if 'TestCasePrx' not in _M_Test.Common.__dict__:
 
     _M_Test.Common.TestCase = TestCase
     del TestCase
+
+if 'Controller' not in _M_Test.Common.__dict__:
+    _M_Test.Common._t_ControllerPrx = IcePy.declareProxy('::Test::Common::Controller')
 
 if 'ControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ControllerPrx = None
@@ -361,6 +373,9 @@ if 'ProcessFailedException' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessFailedException = ProcessFailedException
     del ProcessFailedException
 
+if 'Process' not in _M_Test.Common.__dict__:
+    _M_Test.Common._t_ProcessPrx = IcePy.declareProxy('::Test::Common::Process')
+
 if 'ProcessPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessPrx = None
     class ProcessPrx(Ice.ObjectPrx):
@@ -451,6 +466,9 @@ if 'ProcessPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.Process = Process
     del Process
 
+if 'ProcessController' not in _M_Test.Common.__dict__:
+    _M_Test.Common._t_ProcessControllerPrx = IcePy.declareProxy('::Test::Common::ProcessController')
+
 if 'ProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessControllerPrx = None
     class ProcessControllerPrx(Ice.ObjectPrx):
@@ -531,6 +549,9 @@ if 'ProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessController = ProcessController
     del ProcessController
 
+if 'BrowserProcessController' not in _M_Test.Common.__dict__:
+    _M_Test.Common._t_BrowserProcessControllerPrx = IcePy.declareProxy('::Test::Common::BrowserProcessController')
+
 if 'BrowserProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.BrowserProcessControllerPrx = None
     class BrowserProcessControllerPrx(_M_Test.Common.ProcessControllerPrx):
@@ -600,6 +621,9 @@ if 'BrowserProcessControllerPrx' not in _M_Test.Common.__dict__:
 
     _M_Test.Common.BrowserProcessController = BrowserProcessController
     del BrowserProcessController
+
+if 'ProcessControllerRegistry' not in _M_Test.Common.__dict__:
+    _M_Test.Common._t_ProcessControllerRegistryPrx = IcePy.declareProxy('::Test::Common::ProcessControllerRegistry')
 
 if 'ProcessControllerRegistryPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessControllerRegistryPrx = None

@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Event;
     global $Test__t_EventPrx;
+    $Test__t_EventPrx = IcePHP_declareProxy('::Test::Event');
+}
+
+namespace Test
+{
+    global $Test__t_Event;
+    global $Test__t_EventPrx;
 
     class EventPrxHelper
     {

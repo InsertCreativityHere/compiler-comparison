@@ -49,6 +49,10 @@ module ::IceBox
         T_NoSuchServiceException = ::Ice::__defineException('::IceBox::NoSuchServiceException', NoSuchServiceException, nil, [])
     end
 
+    if not defined?(::IceBox::T_ServiceObserverPrx)
+        T_ServiceObserverPrx = ::Ice::__declareProxy('::IceBox::ServiceObserver')
+    end
+
     if not defined?(::IceBox::ServiceObserverPrx)
         module ServiceObserverPrx_mixin
 
@@ -66,14 +70,14 @@ module ::IceBox
             include ServiceObserverPrx_mixin
         end
 
-        if not defined?(::IceBox::T_ServiceObserverPrx)
-            T_ServiceObserverPrx = ::Ice::__declareProxy('::IceBox::ServiceObserver')
-        end
-
         T_ServiceObserverPrx.defineProxy(ServiceObserverPrx, nil, [])
 
         ServiceObserverPrx_mixin::OP_servicesStarted = ::Ice::__defineOperation('servicesStarted', ::Ice::OperationMode::Normal, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
         ServiceObserverPrx_mixin::OP_servicesStopped = ::Ice::__defineOperation('servicesStopped', ::Ice::OperationMode::Normal, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
+    end
+
+    if not defined?(::IceBox::T_ServiceManagerPrx)
+        T_ServiceManagerPrx = ::Ice::__declareProxy('::IceBox::ServiceManager')
     end
 
     if not defined?(::IceBox::ServiceManagerPrx)
@@ -99,10 +103,6 @@ module ::IceBox
         class ServiceManagerPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include ServiceManagerPrx_mixin
-        end
-
-        if not defined?(::IceBox::T_ServiceManagerPrx)
-            T_ServiceManagerPrx = ::Ice::__declareProxy('::IceBox::ServiceManager')
         end
 
         T_ServiceManagerPrx.defineProxy(ServiceManagerPrx, nil, [])

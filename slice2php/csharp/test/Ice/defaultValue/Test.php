@@ -568,6 +568,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_Base;
+    $Test__t_Base = IcePHP_declareClass('::Test::Base');
+}
+
+namespace Test
+{
+    global $Test__t_Base;
     class Base extends \Ice\Value
     {
         public function __construct($boolFalse=false, $boolTrue=true, $b=1, $s=2, $i=3, $l=4, $f=5.1, $d=6.2, $str="foo \\ \"bar\n \r\n\t\v\f\007\010? \007 \007", $noDefault='', $zeroI=0, $zeroL=0, $zeroF=0, $zeroDotF=0, $zeroD=0, $zeroDotD=0)
@@ -650,6 +656,12 @@ namespace Test
         array('zeroDotF', $IcePHP__t_float, false, 0),
         array('zeroD', $IcePHP__t_double, false, 0),
         array('zeroDotD', $IcePHP__t_double, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_Derived;
+    $Test__t_Derived = IcePHP_declareClass('::Test::Derived');
 }
 
 namespace Test
@@ -798,6 +810,12 @@ namespace Test
         array('nc1', $Test_Nested__t_Color, false, 0),
         array('nc2', $Test_Nested__t_Color, false, 0),
         array('nc3', $Test_Nested__t_Color, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_ClassProperty;
+    $Test__t_ClassProperty = IcePHP_declareClass('::Test::ClassProperty');
 }
 
 namespace Test
@@ -1245,6 +1263,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_ClassNoDefaultsBase;
+    $Test__t_ClassNoDefaultsBase = IcePHP_declareClass('::Test::ClassNoDefaultsBase');
+}
+
+namespace Test
+{
+    global $Test__t_ClassNoDefaultsBase;
     class ClassNoDefaultsBase extends \Ice\Value
     {
         public function __construct($str='', $c1=\Test\Color::red, $bs=null)
@@ -1283,6 +1307,12 @@ namespace Test
         array('str', $IcePHP__t_string, false, 0),
         array('c1', $Test__t_Color, false, 0),
         array('bs', $Test__t_ByteSeq, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_ClassNoDefaults;
+    $Test__t_ClassNoDefaults = IcePHP_declareClass('::Test::ClassNoDefaults');
 }
 
 namespace Test

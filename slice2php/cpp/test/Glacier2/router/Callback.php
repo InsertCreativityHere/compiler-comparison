@@ -51,6 +51,13 @@ namespace Test
 {
     global $Test__t_CallbackReceiver;
     global $Test__t_CallbackReceiverPrx;
+    $Test__t_CallbackReceiverPrx = IcePHP_declareProxy('::Test::CallbackReceiver');
+}
+
+namespace Test
+{
+    global $Test__t_CallbackReceiver;
+    global $Test__t_CallbackReceiverPrx;
 
     class CallbackReceiverPrxHelper
     {
@@ -85,6 +92,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'concurrentCallback', 0, -1, array(array($IcePHP__t_int)), null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'waitCallback', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_CallbackReceiverPrx, 'callbackWithPayload', 0, -1, array(array($Ice__t_ByteSeq)), null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_Callback;
+    global $Test__t_CallbackPrx;
+    $Test__t_CallbackPrx = IcePHP_declareProxy('::Test::Callback');
 }
 
 namespace Test

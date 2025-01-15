@@ -22,6 +22,10 @@ module ::Test
         T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
     end
 
+    if not defined?(::Test::T_TimeoutPrx)
+        T_TimeoutPrx = ::Ice::__declareProxy('::Test::Timeout')
+    end
+
     if not defined?(::Test::TimeoutPrx)
         module TimeoutPrx_mixin
 
@@ -43,15 +47,15 @@ module ::Test
             include TimeoutPrx_mixin
         end
 
-        if not defined?(::Test::T_TimeoutPrx)
-            T_TimeoutPrx = ::Ice::__declareProxy('::Test::Timeout')
-        end
-
         T_TimeoutPrx.defineProxy(TimeoutPrx, nil, [])
 
         TimeoutPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         TimeoutPrx_mixin::OP_sendData = ::Ice::__defineOperation('sendData', ::Ice::OperationMode::Normal, nil, [[::Test::T_ByteSeq, false, 0]], [], nil, [])
         TimeoutPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+    end
+
+    if not defined?(::Test::T_ControllerPrx)
+        T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
     end
 
     if not defined?(::Test::ControllerPrx)
@@ -73,10 +77,6 @@ module ::Test
         class ControllerPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include ControllerPrx_mixin
-        end
-
-        if not defined?(::Test::T_ControllerPrx)
-            T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end
 
         T_ControllerPrx.defineProxy(ControllerPrx, nil, [])

@@ -24,6 +24,13 @@ namespace Test
 {
     global $Test__t_Empty;
     global $Test__t_EmptyPrx;
+    $Test__t_EmptyPrx = IcePHP_declareProxy('::Test::Empty');
+}
+
+namespace Test
+{
+    global $Test__t_Empty;
+    global $Test__t_EmptyPrx;
 
     class EmptyPrxHelper
     {
@@ -56,10 +63,7 @@ namespace Test
 {
     global $Test__t_Thrower;
     global $Test__t_ThrowerPrx;
-    if(!isset($Test__t_Thrower))
-    {
-        $Test__t_ThrowerPrx = IcePHP_declareProxy('::Test::Thrower');
-    }
+    $Test__t_ThrowerPrx = IcePHP_declareProxy('::Test::Thrower');
 }
 
 namespace Test
@@ -287,6 +291,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAfterException', 0, -1, null, null, null, array($Test__t_A));
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwE', 0, -1, null, null, null, array($Test__t_E));
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwF', 0, -1, null, null, null, array($Test__t_F));
+}
+
+namespace Test
+{
+    global $Test__t_WrongOperation;
+    global $Test__t_WrongOperationPrx;
+    $Test__t_WrongOperationPrx = IcePHP_declareProxy('::Test::WrongOperation');
 }
 
 namespace Test

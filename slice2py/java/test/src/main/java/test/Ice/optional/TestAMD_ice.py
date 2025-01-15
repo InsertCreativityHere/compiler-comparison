@@ -23,6 +23,9 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 if 'OneOptional' not in _M_Test.__dict__:
+    _M_Test._t_OneOptional = IcePy.declareValue('::Test::OneOptional')
+
+if 'OneOptional' not in _M_Test.__dict__:
     _M_Test.OneOptional = None
     class OneOptional(Ice.Value):
         def __init__(self, a=None):
@@ -45,6 +48,9 @@ if 'OneOptional' not in _M_Test.__dict__:
 
     _M_Test.OneOptional = OneOptional
     del OneOptional
+
+if 'MyInterface' not in _M_Test.__dict__:
+    _M_Test._t_MyInterfacePrx = IcePy.declareProxy('::Test::MyInterface')
 
 if 'MyInterfacePrx' not in _M_Test.__dict__:
     _M_Test.MyInterfacePrx = None
@@ -441,6 +447,9 @@ if '_t_IntMyInterfacePrxDict' not in _M_Test.__dict__:
     _M_Test._t_IntMyInterfacePrxDict = IcePy.defineDictionary('::Test::IntMyInterfacePrxDict', (), IcePy._t_int, _M_Test._t_MyInterfacePrx)
 
 if 'MultiOptional' not in _M_Test.__dict__:
+    _M_Test._t_MultiOptional = IcePy.declareValue('::Test::MultiOptional')
+
+if 'MultiOptional' not in _M_Test.__dict__:
     _M_Test.MultiOptional = None
     class MultiOptional(Ice.Value):
         def __init__(self, a=None, b=None, c=None, d=None, e=None, f=None, g=None, h=None, i=None, j=None, bs=None, ss=None, iid=None, sid=None, fs=None, vs=None, shs=None, es=None, fss=None, vss=None, mips=None, ied=None, ifsd=None, ivsd=None, imipd=None, bos=None, ser=None):
@@ -519,6 +528,9 @@ if 'MultiOptional' not in _M_Test.__dict__:
     del MultiOptional
 
 if 'A' not in _M_Test.__dict__:
+    _M_Test._t_A = IcePy.declareValue('::Test::A')
+
+if 'A' not in _M_Test.__dict__:
     _M_Test.A = None
     class A(Ice.Value):
         def __init__(self, requiredA=0, ma=None, mb=None, mc=None):
@@ -551,6 +563,9 @@ if 'A' not in _M_Test.__dict__:
     del A
 
 if 'B' not in _M_Test.__dict__:
+    _M_Test._t_B = IcePy.declareValue('::Test::B')
+
+if 'B' not in _M_Test.__dict__:
     _M_Test.B = None
     class B(_M_Test.A):
         def __init__(self, requiredA=0, ma=None, mb=None, mc=None, requiredB=0, md=None):
@@ -580,6 +595,9 @@ if 'B' not in _M_Test.__dict__:
     del B
 
 if 'C' not in _M_Test.__dict__:
+    _M_Test._t_C = IcePy.declareValue('::Test::C')
+
+if 'C' not in _M_Test.__dict__:
     _M_Test.C = None
     class C(_M_Test.B):
         def __init__(self, requiredA=0, ma=None, mb=None, mc=None, requiredB=0, md=None, ss='', ms=None):
@@ -607,6 +625,9 @@ if 'C' not in _M_Test.__dict__:
 
     _M_Test.C = C
     del C
+
+if 'WD' not in _M_Test.__dict__:
+    _M_Test._t_WD = IcePy.declareValue('::Test::WD')
 
 if 'WD' not in _M_Test.__dict__:
     _M_Test.WD = None
@@ -708,6 +729,9 @@ if 'RequiredException' not in _M_Test.__dict__:
     del RequiredException
 
 if 'OptionalWithCustom' not in _M_Test.__dict__:
+    _M_Test._t_OptionalWithCustom = IcePy.declareValue('::Test::OptionalWithCustom')
+
+if 'OptionalWithCustom' not in _M_Test.__dict__:
     _M_Test.OptionalWithCustom = None
     class OptionalWithCustom(Ice.Value):
         def __init__(self, l=None, _lp=None):
@@ -736,6 +760,9 @@ if 'OptionalWithCustom' not in _M_Test.__dict__:
     del OptionalWithCustom
 
 if 'E' not in _M_Test.__dict__:
+    _M_Test._t_E = IcePy.declareValue('::Test::E')
+
+if 'E' not in _M_Test.__dict__:
     _M_Test.E = None
     class E(Ice.Value):
         def __init__(self, fse=None):
@@ -758,6 +785,9 @@ if 'E' not in _M_Test.__dict__:
 
     _M_Test.E = E
     del E
+
+if 'F' not in _M_Test.__dict__:
+    _M_Test._t_F = IcePy.declareValue('::Test::F')
 
 if 'F' not in _M_Test.__dict__:
     _M_Test.F = None
@@ -943,6 +973,9 @@ if 'G2' not in _M_Test.__dict__:
     del G2
 
 if 'G' not in _M_Test.__dict__:
+    _M_Test._t_G = IcePy.declareValue('::Test::G')
+
+if 'G' not in _M_Test.__dict__:
     _M_Test.G = None
     class G(Ice.Value):
         def __init__(self, gg1Opt=None, gg2=None, gg2Opt=None, gg1=None):
@@ -973,6 +1006,9 @@ if 'G' not in _M_Test.__dict__:
 
     _M_Test.G = G
     del G
+
+if 'Initial' not in _M_Test.__dict__:
+    _M_Test._t_InitialPrx = IcePy.declareProxy('::Test::Initial')
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None

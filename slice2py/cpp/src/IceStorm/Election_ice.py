@@ -112,6 +112,9 @@ if 'ObserverInconsistencyException' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.ObserverInconsistencyException = ObserverInconsistencyException
     del ObserverInconsistencyException
 
+if 'ReplicaObserver' not in _M_IceStormElection.__dict__:
+    _M_IceStormElection._t_ReplicaObserverPrx = IcePy.declareProxy('::IceStormElection::ReplicaObserver')
+
 if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.ReplicaObserverPrx = None
     class ReplicaObserverPrx(Ice.ObjectPrx):

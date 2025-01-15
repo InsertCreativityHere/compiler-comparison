@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_ConcreteClass)
+        T_ConcreteClass = ::Ice::__declareClass('::Test::ConcreteClass')
+    end
+
     if not defined?(::Test::ConcreteClass)
         class ConcreteClass < ::Ice::Value
 
@@ -26,10 +30,6 @@ module ::Test
             end
 
             attr_accessor :i
-        end
-
-        if not defined?(::Test::T_ConcreteClass)
-            T_ConcreteClass = ::Ice::__declareClass('::Test::ConcreteClass')
         end
 
         T_ConcreteClass.defineClass(ConcreteClass, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
@@ -43,6 +43,10 @@ module ::Test
         end
 
         T_E = ::Ice::__defineException('::Test::E', E, nil, [])
+    end
+
+    if not defined?(::Test::T_InitialPrx)
+        T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
     end
 
     if not defined?(::Test::InitialPrx)
@@ -64,10 +68,6 @@ module ::Test
         class InitialPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include InitialPrx_mixin
-        end
-
-        if not defined?(::Test::T_InitialPrx)
-            T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])

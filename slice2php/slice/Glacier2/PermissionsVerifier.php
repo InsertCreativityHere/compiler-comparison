@@ -48,6 +48,13 @@ namespace Glacier2
 {
     global $Glacier2__t_PermissionsVerifier;
     global $Glacier2__t_PermissionsVerifierPrx;
+    $Glacier2__t_PermissionsVerifierPrx = IcePHP_declareProxy('::Glacier2::PermissionsVerifier');
+}
+
+namespace Glacier2
+{
+    global $Glacier2__t_PermissionsVerifier;
+    global $Glacier2__t_PermissionsVerifierPrx;
 
     class PermissionsVerifierPrxHelper
     {
@@ -78,6 +85,13 @@ namespace Glacier2
     global $IcePHP__t_string;
     global $IcePHP__t_bool;
     IcePHP_defineOperation($Glacier2__t_PermissionsVerifierPrx, 'checkPermissions', 2, -1, array(array($IcePHP__t_string), array($IcePHP__t_string)), array(array($IcePHP__t_string)), array($IcePHP__t_bool), array($Glacier2__t_PermissionDeniedException));
+}
+
+namespace Glacier2
+{
+    global $Glacier2__t_SSLPermissionsVerifier;
+    global $Glacier2__t_SSLPermissionsVerifierPrx;
+    $Glacier2__t_SSLPermissionsVerifierPrx = IcePHP_declareProxy('::Glacier2::SSLPermissionsVerifier');
 }
 
 namespace Glacier2

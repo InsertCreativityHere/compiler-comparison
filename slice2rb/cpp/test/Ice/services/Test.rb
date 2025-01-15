@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_ClockPrx)
+        T_ClockPrx = ::Ice::__declareProxy('::Test::Clock')
+    end
+
     if not defined?(::Test::ClockPrx)
         module ClockPrx_mixin
 
@@ -29,10 +33,6 @@ module ::Test
         class ClockPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include ClockPrx_mixin
-        end
-
-        if not defined?(::Test::T_ClockPrx)
-            T_ClockPrx = ::Ice::__declareProxy('::Test::Clock')
         end
 
         T_ClockPrx.defineProxy(ClockPrx, nil, [])

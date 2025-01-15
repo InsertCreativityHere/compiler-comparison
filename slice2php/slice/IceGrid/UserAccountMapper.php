@@ -39,6 +39,13 @@ namespace IceGrid
 {
     global $IceGrid__t_UserAccountMapper;
     global $IceGrid__t_UserAccountMapperPrx;
+    $IceGrid__t_UserAccountMapperPrx = IcePHP_declareProxy('::IceGrid::UserAccountMapper');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_UserAccountMapper;
+    global $IceGrid__t_UserAccountMapperPrx;
 
     class UserAccountMapperPrxHelper
     {

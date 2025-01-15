@@ -25,6 +25,9 @@ __name__ = 'Test'
 if '_t_Context' not in _M_Test.__dict__:
     _M_Test._t_Context = IcePy.defineDictionary('::Test::Context', (), IcePy._t_string, IcePy._t_string)
 
+if 'MyClass' not in _M_Test.__dict__:
+    _M_Test._t_MyClassPrx = IcePy.declareProxy('::Test::MyClass')
+
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = None
     class MyClassPrx(Ice.ObjectPrx):
@@ -104,6 +107,9 @@ if 'MyClassPrx' not in _M_Test.__dict__:
 
     _M_Test.MyClass = MyClass
     del MyClass
+
+if 'MyDerivedClass' not in _M_Test.__dict__:
+    _M_Test._t_MyDerivedClassPrx = IcePy.declareProxy('::Test::MyDerivedClass')
 
 if 'MyDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyDerivedClassPrx = None

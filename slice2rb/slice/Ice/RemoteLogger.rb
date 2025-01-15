@@ -121,6 +121,10 @@ module ::Ice
         T_LogMessageSeq = ::Ice::__defineSequence('::Ice::LogMessageSeq', ::Ice::T_LogMessage)
     end
 
+    if not defined?(::Ice::T_RemoteLoggerPrx)
+        T_RemoteLoggerPrx = ::Ice::__declareProxy('::Ice::RemoteLogger')
+    end
+
     if not defined?(::Ice::RemoteLoggerPrx)
         module RemoteLoggerPrx_mixin
 
@@ -138,10 +142,6 @@ module ::Ice
             include RemoteLoggerPrx_mixin
         end
 
-        if not defined?(::Ice::T_RemoteLoggerPrx)
-            T_RemoteLoggerPrx = ::Ice::__declareProxy('::Ice::RemoteLogger')
-        end
-
         T_RemoteLoggerPrx.defineProxy(RemoteLoggerPrx, nil, [])
 
         RemoteLoggerPrx_mixin::OP_init = ::Ice::__defineOperation('init', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_LogMessageSeq, false, 0]], [], nil, [])
@@ -156,6 +156,10 @@ module ::Ice
         end
 
         T_RemoteLoggerAlreadyAttachedException = ::Ice::__defineException('::Ice::RemoteLoggerAlreadyAttachedException', RemoteLoggerAlreadyAttachedException, nil, [])
+    end
+
+    if not defined?(::Ice::T_LoggerAdminPrx)
+        T_LoggerAdminPrx = ::Ice::__declareProxy('::Ice::LoggerAdmin')
     end
 
     if not defined?(::Ice::LoggerAdminPrx)
@@ -177,10 +181,6 @@ module ::Ice
         class LoggerAdminPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include LoggerAdminPrx_mixin
-        end
-
-        if not defined?(::Ice::T_LoggerAdminPrx)
-            T_LoggerAdminPrx = ::Ice::__declareProxy('::Ice::LoggerAdmin')
         end
 
         T_LoggerAdminPrx.defineProxy(LoggerAdminPrx, nil, [])

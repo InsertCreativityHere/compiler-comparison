@@ -33,6 +33,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_CallbackReceiverPrx)
+        T_CallbackReceiverPrx = ::Ice::__declareProxy('::Test::CallbackReceiver')
+    end
+
     if not defined?(::Test::CallbackReceiverPrx)
         module CallbackReceiverPrx_mixin
 
@@ -50,14 +54,14 @@ module ::Test
             include CallbackReceiverPrx_mixin
         end
 
-        if not defined?(::Test::T_CallbackReceiverPrx)
-            T_CallbackReceiverPrx = ::Ice::__declareProxy('::Test::CallbackReceiver')
-        end
-
         T_CallbackReceiverPrx.defineProxy(CallbackReceiverPrx, nil, [])
 
         CallbackReceiverPrx_mixin::OP_callback = ::Ice::__defineOperation('callback', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         CallbackReceiverPrx_mixin::OP_callbackEx = ::Ice::__defineOperation('callbackEx', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_CallbackException])
+    end
+
+    if not defined?(::Test::T_CallbackPrx)
+        T_CallbackPrx = ::Ice::__declareProxy('::Test::Callback')
     end
 
     if not defined?(::Test::CallbackPrx)
@@ -79,10 +83,6 @@ module ::Test
         class CallbackPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include CallbackPrx_mixin
-        end
-
-        if not defined?(::Test::T_CallbackPrx)
-            T_CallbackPrx = ::Ice::__declareProxy('::Test::Callback')
         end
 
         T_CallbackPrx.defineProxy(CallbackPrx, nil, [])

@@ -72,6 +72,10 @@ module ::IceGrid
         T_LoadSample = ::Ice::__defineEnum('::IceGrid::LoadSample', LoadSample, LoadSample::_enumerators)
     end
 
+    if not defined?(::IceGrid::T_QueryPrx)
+        T_QueryPrx = ::Ice::__declareProxy('::IceGrid::Query')
+    end
+
     if not defined?(::IceGrid::QueryPrx)
         module QueryPrx_mixin
 
@@ -101,10 +105,6 @@ module ::IceGrid
             include QueryPrx_mixin
         end
 
-        if not defined?(::IceGrid::T_QueryPrx)
-            T_QueryPrx = ::Ice::__declareProxy('::IceGrid::Query')
-        end
-
         T_QueryPrx.defineProxy(QueryPrx, nil, [])
 
         QueryPrx_mixin::OP_findObjectById = ::Ice::__defineOperation('findObjectById', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_Identity, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [])
@@ -112,6 +112,10 @@ module ::IceGrid
         QueryPrx_mixin::OP_findObjectByTypeOnLeastLoadedNode = ::Ice::__defineOperation('findObjectByTypeOnLeastLoadedNode', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::IceGrid::T_LoadSample, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [])
         QueryPrx_mixin::OP_findAllObjectsByType = ::Ice::__defineOperation('findAllObjectsByType', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_ObjectProxySeq, false, 0], [])
         QueryPrx_mixin::OP_findAllReplicas = ::Ice::__defineOperation('findAllReplicas', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_ObjectPrx, false, 0]], [], [::Ice::T_ObjectProxySeq, false, 0], [])
+    end
+
+    if not defined?(::IceGrid::T_RegistryPrx)
+        T_RegistryPrx = ::Ice::__declareProxy('::IceGrid::Registry')
     end
 
     if not defined?(::IceGrid::RegistryPrx)
@@ -143,10 +147,6 @@ module ::IceGrid
             include RegistryPrx_mixin
         end
 
-        if not defined?(::IceGrid::T_RegistryPrx)
-            T_RegistryPrx = ::Ice::__declareProxy('::IceGrid::Registry')
-        end
-
         T_RegistryPrx.defineProxy(RegistryPrx, nil, [])
 
         RegistryPrx_mixin::OP_createSession = ::Ice::__defineOperation('createSession', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::IceGrid::T_SessionPrx, false, 0], [::IceGrid::T_PermissionDeniedException])
@@ -155,6 +155,10 @@ module ::IceGrid
         RegistryPrx_mixin::OP_createAdminSessionFromSecureConnection = ::Ice::__defineOperation('createAdminSessionFromSecureConnection', ::Ice::OperationMode::Normal, nil, [], [], [::IceGrid::T_AdminSessionPrx, false, 0], [::IceGrid::T_PermissionDeniedException])
         RegistryPrx_mixin::OP_getSessionTimeout = ::Ice::__defineOperation('getSessionTimeout', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_int, false, 0], [])
         RegistryPrx_mixin::OP_getSessionTimeout.deprecate("")
+    end
+
+    if not defined?(::IceGrid::T_LocatorPrx)
+        T_LocatorPrx = ::Ice::__declareProxy('::IceGrid::Locator')
     end
 
     if not defined?(::IceGrid::LocatorPrx)
@@ -173,10 +177,6 @@ module ::IceGrid
         class LocatorPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include LocatorPrx_mixin
-        end
-
-        if not defined?(::IceGrid::T_LocatorPrx)
-            T_LocatorPrx = ::Ice::__declareProxy('::IceGrid::Locator')
         end
 
         T_LocatorPrx.defineProxy(LocatorPrx, nil, [::Ice::T_LocatorPrx])

@@ -259,6 +259,10 @@ module ::Test
         T_SimpleEnum = ::Ice::__defineEnum('::Test::SimpleEnum', SimpleEnum, SimpleEnum::_enumerators)
     end
 
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+    end
+
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
@@ -286,10 +290,6 @@ module ::Test
         class TestIntfPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include TestIntfPrx_mixin
-        end
-
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])

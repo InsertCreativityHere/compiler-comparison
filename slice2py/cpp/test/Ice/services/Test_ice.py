@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Clock' not in _M_Test.__dict__:
+    _M_Test._t_ClockPrx = IcePy.declareProxy('::Test::Clock')
+
 if 'ClockPrx' not in _M_Test.__dict__:
     _M_Test.ClockPrx = None
     class ClockPrx(Ice.ObjectPrx):

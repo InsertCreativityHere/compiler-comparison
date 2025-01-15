@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_OneOptional)
+        T_OneOptional = ::Ice::__declareClass('::Test::OneOptional')
+    end
+
     if not defined?(::Test::OneOptional)
         class OneOptional < ::Ice::Value
 
@@ -28,11 +32,11 @@ module ::Test
             attr_accessor :a
         end
 
-        if not defined?(::Test::T_OneOptional)
-            T_OneOptional = ::Ice::__declareClass('::Test::OneOptional')
-        end
-
         T_OneOptional.defineClass(OneOptional, -1, false, nil, [['a', ::Ice::T_int, true, 1]])
+    end
+
+    if not defined?(::Test::T_MyInterfacePrx)
+        T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
     end
 
     if not defined?(::Test::MyInterfacePrx)
@@ -46,10 +50,6 @@ module ::Test
         class MyInterfacePrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include MyInterfacePrx_mixin
-        end
-
-        if not defined?(::Test::T_MyInterfacePrx)
-            T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
         end
 
         T_MyInterfacePrx.defineProxy(MyInterfacePrx, nil, [])
@@ -276,6 +276,10 @@ module ::Test
         T_IntMyInterfacePrxDict = ::Ice::__defineDictionary('::Test::IntMyInterfacePrxDict', ::Ice::T_int, ::Test::T_MyInterfacePrx)
     end
 
+    if not defined?(::Test::T_MultiOptional)
+        T_MultiOptional = ::Ice::__declareClass('::Test::MultiOptional')
+    end
+
     if not defined?(::Test::MultiOptional)
         class MultiOptional < ::Ice::Value
 
@@ -312,10 +316,6 @@ module ::Test
             attr_accessor :a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :bs, :ss, :iid, :sid, :fs, :vs, :shs, :es, :fss, :vss, :mips, :ied, :ifsd, :ivsd, :imipd, :bos, :plainProxy
         end
 
-        if not defined?(::Test::T_MultiOptional)
-            T_MultiOptional = ::Ice::__declareClass('::Test::MultiOptional')
-        end
-
         T_MultiOptional.defineClass(MultiOptional, -1, false, nil, [
             ['a', ::Ice::T_byte, true, 1],
             ['b', ::Ice::T_bool, true, 2],
@@ -347,6 +347,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_A)
+        T_A = ::Ice::__declareClass('::Test::A')
+    end
+
     if not defined?(::Test::A)
         class A < ::Ice::Value
 
@@ -360,16 +364,16 @@ module ::Test
             attr_accessor :requiredA, :ma, :mb, :mc
         end
 
-        if not defined?(::Test::T_A)
-            T_A = ::Ice::__declareClass('::Test::A')
-        end
-
         T_A.defineClass(A, -1, false, nil, [
             ['requiredA', ::Ice::T_int, false, 0],
             ['ma', ::Ice::T_int, true, 1],
             ['mb', ::Ice::T_int, true, 50],
             ['mc', ::Ice::T_int, true, 500]
         ])
+    end
+
+    if not defined?(::Test::T_B)
+        T_B = ::Ice::__declareClass('::Test::B')
     end
 
     if not defined?(::Test::B)
@@ -384,14 +388,14 @@ module ::Test
             attr_accessor :requiredB, :md
         end
 
-        if not defined?(::Test::T_B)
-            T_B = ::Ice::__declareClass('::Test::B')
-        end
-
         T_B.defineClass(B, -1, false, ::Test::T_A, [
             ['requiredB', ::Ice::T_int, false, 0],
             ['md', ::Ice::T_int, true, 10]
         ])
+    end
+
+    if not defined?(::Test::T_C)
+        T_C = ::Ice::__declareClass('::Test::C')
     end
 
     if not defined?(::Test::C)
@@ -406,14 +410,14 @@ module ::Test
             attr_accessor :ss, :ms
         end
 
-        if not defined?(::Test::T_C)
-            T_C = ::Ice::__declareClass('::Test::C')
-        end
-
         T_C.defineClass(C, -1, false, ::Test::T_B, [
             ['ss', ::Ice::T_string, false, 0],
             ['ms', ::Ice::T_string, true, 890]
         ])
+    end
+
+    if not defined?(::Test::T_WD)
+        T_WD = ::Ice::__declareClass('::Test::WD')
     end
 
     if not defined?(::Test::WD)
@@ -425,10 +429,6 @@ module ::Test
             end
 
             attr_accessor :a, :s
-        end
-
-        if not defined?(::Test::T_WD)
-            T_WD = ::Ice::__declareClass('::Test::WD')
         end
 
         T_WD.defineClass(WD, -1, false, nil, [
@@ -481,6 +481,10 @@ module ::Test
         T_RequiredException = ::Ice::__defineException('::Test::RequiredException', RequiredException, ::Test::T_OptionalException, [["ss", ::Ice::T_string, false, 0]])
     end
 
+    if not defined?(::Test::T_OptionalWithCustom)
+        T_OptionalWithCustom = ::Ice::__declareClass('::Test::OptionalWithCustom')
+    end
+
     if not defined?(::Test::OptionalWithCustom)
         class OptionalWithCustom < ::Ice::Value
 
@@ -493,14 +497,14 @@ module ::Test
             protected :lp, :lp=
         end
 
-        if not defined?(::Test::T_OptionalWithCustom)
-            T_OptionalWithCustom = ::Ice::__declareClass('::Test::OptionalWithCustom')
-        end
-
         T_OptionalWithCustom.defineClass(OptionalWithCustom, -1, false, nil, [
             ['l', ::Test::T_SmallStructList, true, 1],
             ['lp', ::Test::T_SmallStructList, true, 2]
         ])
+    end
+
+    if not defined?(::Test::T_E)
+        T_E = ::Ice::__declareClass('::Test::E')
     end
 
     if not defined?(::Test::E)
@@ -513,11 +517,11 @@ module ::Test
             attr_accessor :fse
         end
 
-        if not defined?(::Test::T_E)
-            T_E = ::Ice::__declareClass('::Test::E')
-        end
-
         T_E.defineClass(E, -1, false, nil, [['fse', ::Test::T_FixedStruct, false, 0]])
+    end
+
+    if not defined?(::Test::T_F)
+        T_F = ::Ice::__declareClass('::Test::F')
     end
 
     if not defined?(::Test::F)
@@ -529,10 +533,6 @@ module ::Test
             end
 
             attr_accessor :fsf
-        end
-
-        if not defined?(::Test::T_F)
-            T_F = ::Ice::__declareClass('::Test::F')
         end
 
         T_F.defineClass(F, -1, false, ::Test::T_E, [['fsf', ::Test::T_FixedStruct, true, 1]])
@@ -596,6 +596,10 @@ module ::Test
         T_G2 = ::Ice::__defineStruct('::Test::G2', G2, [["a", ::Ice::T_long]])
     end
 
+    if not defined?(::Test::T_G)
+        T_G = ::Ice::__declareClass('::Test::G')
+    end
+
     if not defined?(::Test::G)
         class G < ::Ice::Value
 
@@ -609,16 +613,16 @@ module ::Test
             attr_accessor :gg1Opt, :gg2, :gg2Opt, :gg1
         end
 
-        if not defined?(::Test::T_G)
-            T_G = ::Ice::__declareClass('::Test::G')
-        end
-
         T_G.defineClass(G, -1, false, nil, [
             ['gg1Opt', ::Test::T_G1, true, 1],
             ['gg2', ::Test::T_G2, false, 0],
             ['gg2Opt', ::Test::T_G2, true, 0],
             ['gg1', ::Test::T_G1, false, 0]
         ])
+    end
+
+    if not defined?(::Test::T_InitialPrx)
+        T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
     end
 
     if not defined?(::Test::InitialPrx)
@@ -804,10 +808,6 @@ module ::Test
         class InitialPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include InitialPrx_mixin
-        end
-
-        if not defined?(::Test::T_InitialPrx)
-            T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])

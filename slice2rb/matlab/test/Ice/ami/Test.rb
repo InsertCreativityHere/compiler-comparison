@@ -30,6 +30,10 @@ module ::Test
         T_TestIntfException = ::Ice::__defineException('::Test::TestIntfException', TestIntfException, nil, [])
     end
 
+    if not defined?(::Test::T_PingReplyPrx)
+        T_PingReplyPrx = ::Ice::__declareProxy('::Test::PingReply')
+    end
+
     if not defined?(::Test::PingReplyPrx)
         module PingReplyPrx_mixin
 
@@ -43,13 +47,13 @@ module ::Test
             include PingReplyPrx_mixin
         end
 
-        if not defined?(::Test::T_PingReplyPrx)
-            T_PingReplyPrx = ::Ice::__declareProxy('::Test::PingReply')
-        end
-
         T_PingReplyPrx.defineProxy(PingReplyPrx, nil, [])
 
         PingReplyPrx_mixin::OP_reply = ::Ice::__defineOperation('reply', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
@@ -149,10 +153,6 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
-        end
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -179,6 +179,10 @@ module ::Test
         TestIntfPrx_mixin::OP_pingBiDir = ::Ice::__defineOperation('pingBiDir', ::Ice::OperationMode::Normal, nil, [[::Test::T_PingReplyPrx, false, 0]], [], nil, [])
     end
 
+    if not defined?(::Test::T_TestIntfControllerPrx)
+        T_TestIntfControllerPrx = ::Ice::__declareProxy('::Test::TestIntfController')
+    end
+
     if not defined?(::Test::TestIntfControllerPrx)
         module TestIntfControllerPrx_mixin
 
@@ -196,10 +200,6 @@ module ::Test
             include TestIntfControllerPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfControllerPrx)
-            T_TestIntfControllerPrx = ::Ice::__declareProxy('::Test::TestIntfController')
-        end
-
         T_TestIntfControllerPrx.defineProxy(TestIntfControllerPrx, nil, [])
 
         TestIntfControllerPrx_mixin::OP_holdAdapter = ::Ice::__defineOperation('holdAdapter', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -209,6 +209,10 @@ module ::Test
     module Outer
 
         module Inner
+
+            if not defined?(::Test::Outer::Inner::T_TestIntfPrx)
+                T_TestIntfPrx = ::Ice::__declareProxy('::Test::Outer::Inner::TestIntf')
+            end
 
             if not defined?(::Test::Outer::Inner::TestIntfPrx)
                 module TestIntfPrx_mixin
@@ -221,10 +225,6 @@ module ::Test
                 class TestIntfPrx < ::Ice::ObjectPrx
                     include ::Ice::Proxy_mixin
                     include TestIntfPrx_mixin
-                end
-
-                if not defined?(::Test::Outer::Inner::T_TestIntfPrx)
-                    T_TestIntfPrx = ::Ice::__declareProxy('::Test::Outer::Inner::TestIntf')
                 end
 
                 T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])

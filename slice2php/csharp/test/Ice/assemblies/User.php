@@ -23,6 +23,12 @@ namespace
 namespace User
 {
     global $User__t_UserInfo;
+    $User__t_UserInfo = IcePHP_declareClass('::User::UserInfo');
+}
+
+namespace User
+{
+    global $User__t_UserInfo;
     class UserInfo extends \Ice\Value
     {
         public function __construct()
@@ -48,6 +54,13 @@ namespace User
 
     global $Ice__t_Value;
     $User__t_UserInfo = IcePHP_defineClass('::User::UserInfo', '\\User\\UserInfo', -1, false, $Ice__t_Value, null);
+}
+
+namespace User
+{
+    global $User__t_Registry;
+    global $User__t_RegistryPrx;
+    $User__t_RegistryPrx = IcePHP_declareProxy('::User::Registry');
 }
 
 namespace User

@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_BackendPrx)
+        T_BackendPrx = ::Ice::__declareProxy('::Test::Backend')
+    end
+
     if not defined?(::Test::BackendPrx)
         module BackendPrx_mixin
 
@@ -29,10 +33,6 @@ module ::Test
         class BackendPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include BackendPrx_mixin
-        end
-
-        if not defined?(::Test::T_BackendPrx)
-            T_BackendPrx = ::Ice::__declareProxy('::Test::Backend')
         end
 
         T_BackendPrx.defineProxy(BackendPrx, nil, [])

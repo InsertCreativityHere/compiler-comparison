@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_DelayedTestIntf;
     global $Test__t_DelayedTestIntfPrx;
+    $Test__t_DelayedTestIntfPrx = IcePHP_declareProxy('::Test::DelayedTestIntf');
+}
+
+namespace Test
+{
+    global $Test__t_DelayedTestIntf;
+    global $Test__t_DelayedTestIntfPrx;
 
     class DelayedTestIntfPrxHelper
     {
@@ -54,6 +61,13 @@ namespace Test
 {
     global $Test__t_TestIntf;
     global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
 
     class TestIntfPrxHelper
     {
@@ -82,6 +96,13 @@ namespace Test
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, array($Test__t_DelayedTestIntfPrx));
 
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_TestIntfBidir;
+    global $Test__t_TestIntfBidirPrx;
+    $Test__t_TestIntfBidirPrx = IcePHP_declareProxy('::Test::TestIntfBidir');
 }
 
 namespace Test

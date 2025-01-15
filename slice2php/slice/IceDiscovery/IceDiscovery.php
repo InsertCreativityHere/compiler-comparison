@@ -24,6 +24,13 @@ namespace IceDiscovery
 {
     global $IceDiscovery__t_LookupReply;
     global $IceDiscovery__t_LookupReplyPrx;
+    $IceDiscovery__t_LookupReplyPrx = IcePHP_declareProxy('::IceDiscovery::LookupReply');
+}
+
+namespace IceDiscovery
+{
+    global $IceDiscovery__t_LookupReply;
+    global $IceDiscovery__t_LookupReplyPrx;
 
     class LookupReplyPrxHelper
     {
@@ -57,6 +64,13 @@ namespace IceDiscovery
     global $IcePHP__t_bool;
     IcePHP_defineOperation($IceDiscovery__t_LookupReplyPrx, 'foundObjectById', 0, -1, array(array($Ice__t_Identity), array($Ice__t_ObjectPrx)), null, null, null);
     IcePHP_defineOperation($IceDiscovery__t_LookupReplyPrx, 'foundAdapterById', 0, -1, array(array($IcePHP__t_string), array($Ice__t_ObjectPrx), array($IcePHP__t_bool)), null, null, null);
+}
+
+namespace IceDiscovery
+{
+    global $IceDiscovery__t_Lookup;
+    global $IceDiscovery__t_LookupPrx;
+    $IceDiscovery__t_LookupPrx = IcePHP_declareProxy('::IceDiscovery::Lookup');
 }
 
 namespace IceDiscovery

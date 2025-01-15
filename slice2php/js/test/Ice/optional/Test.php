@@ -18,6 +18,12 @@
 namespace Test
 {
     global $Test__t_OneOptional;
+    $Test__t_OneOptional = IcePHP_declareClass('::Test::OneOptional');
+}
+
+namespace Test
+{
+    global $Test__t_OneOptional;
     class OneOptional extends \Ice\Value
     {
         public function __construct($a=\Ice\None)
@@ -48,6 +54,13 @@ namespace Test
     global $IcePHP__t_int;
     $Test__t_OneOptional = IcePHP_defineClass('::Test::OneOptional', '\\Test\\OneOptional', -1, false, $Ice__t_Value, array(
         array('a', $IcePHP__t_int, true, 1)));
+}
+
+namespace Test
+{
+    global $Test__t_MyInterface;
+    global $Test__t_MyInterfacePrx;
+    $Test__t_MyInterfacePrx = IcePHP_declareProxy('::Test::MyInterface');
 }
 
 namespace Test
@@ -418,6 +431,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_MultiOptional;
+    $Test__t_MultiOptional = IcePHP_declareClass('::Test::MultiOptional');
+}
+
+namespace Test
+{
+    global $Test__t_MultiOptional;
     class MultiOptional extends \Ice\Value
     {
         public function __construct($a=\Ice\None, $b=\Ice\None, $c=\Ice\None, $d=\Ice\None, $e=\Ice\None, $f=\Ice\None, $g=\Ice\None, $h=\Ice\None, $i=\Ice\None, $j=\Ice\None, $bs=\Ice\None, $ss=\Ice\None, $iid=\Ice\None, $sid=\Ice\None, $fs=\Ice\None, $vs=\Ice\None, $shs=\Ice\None, $es=\Ice\None, $fss=\Ice\None, $vss=\Ice\None, $mips=\Ice\None, $ied=\Ice\None, $ifsd=\Ice\None, $ivsd=\Ice\None, $imipd=\Ice\None, $bos=\Ice\None, $ser=\Ice\None)
@@ -557,6 +576,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_A;
+    $Test__t_A = IcePHP_declareClass('::Test::A');
+}
+
+namespace Test
+{
+    global $Test__t_A;
     class A extends \Ice\Value
     {
         public function __construct($requiredA=0, $ma=\Ice\None, $mb=\Ice\None, $mc=\Ice\None)
@@ -601,6 +626,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_B;
+    $Test__t_B = IcePHP_declareClass('::Test::B');
+}
+
+namespace Test
+{
+    global $Test__t_B;
     class B extends \Test\A
     {
         public function __construct($requiredA=0, $ma=\Ice\None, $mb=\Ice\None, $mc=\Ice\None, $requiredB=0, $md=\Ice\None)
@@ -640,6 +671,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_C;
+    $Test__t_C = IcePHP_declareClass('::Test::C');
+}
+
+namespace Test
+{
+    global $Test__t_C;
     class C extends \Test\B
     {
         public function __construct($requiredA=0, $ma=\Ice\None, $mb=\Ice\None, $mc=\Ice\None, $requiredB=0, $md=\Ice\None, $ss='', $ms=\Ice\None)
@@ -674,6 +711,12 @@ namespace Test
     $Test__t_C = IcePHP_defineClass('::Test::C', '\\Test\\C', -1, false, $Test__t_B, array(
         array('ss', $IcePHP__t_string, false, 0),
         array('ms', $IcePHP__t_string, true, 890)));
+}
+
+namespace Test
+{
+    global $Test__t_WD;
+    $Test__t_WD = IcePHP_declareClass('::Test::WD');
 }
 
 namespace Test
@@ -800,6 +843,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_OptionalWithCustom;
+    $Test__t_OptionalWithCustom = IcePHP_declareClass('::Test::OptionalWithCustom');
+}
+
+namespace Test
+{
+    global $Test__t_OptionalWithCustom;
     class OptionalWithCustom extends \Ice\Value
     {
         public function __construct($l=\Ice\None, $lp=\Ice\None)
@@ -838,6 +887,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_E;
+    $Test__t_E = IcePHP_declareClass('::Test::E');
+}
+
+namespace Test
+{
+    global $Test__t_E;
     class E extends \Ice\Value
     {
         public function __construct($fse=null)
@@ -868,6 +923,12 @@ namespace Test
     global $Test__t_FixedStruct;
     $Test__t_E = IcePHP_defineClass('::Test::E', '\\Test\\E', -1, false, $Ice__t_Value, array(
         array('fse', $Test__t_FixedStruct, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_F;
+    $Test__t_F = IcePHP_declareClass('::Test::F');
 }
 
 namespace Test
@@ -957,6 +1018,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_G;
+    $Test__t_G = IcePHP_declareClass('::Test::G');
+}
+
+namespace Test
+{
+    global $Test__t_G;
     class G extends \Ice\Value
     {
         public function __construct($gg1Opt=\Ice\None, $gg2=null, $gg2Opt=\Ice\None, $gg1=null)
@@ -997,6 +1064,13 @@ namespace Test
         array('gg2', $Test__t_G2, false, 0),
         array('gg2Opt', $Test__t_G2, true, 0),
         array('gg1', $Test__t_G1, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_Initial;
+    global $Test__t_InitialPrx;
+    $Test__t_InitialPrx = IcePHP_declareProxy('::Test::Initial');
 }
 
 namespace Test
@@ -1108,6 +1182,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'opMDict1', 0, -1, null, null, array($Test__t_StringIntDict, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opMDict2', 0, -1, array(array($Test__t_StringIntDict, 2)), array(array($Test__t_StringIntDict, 3)), array($Test__t_StringIntDict, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsJavaSerializable', 0, -1, null, null, array($IcePHP__t_bool), null);
+}
+
+namespace Test
+{
+    global $Test__t_Echo;
+    global $Test__t_EchoPrx;
+    $Test__t_EchoPrx = IcePHP_declareProxy('::Test::Echo');
 }
 
 namespace Test

@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Echo;
     global $Test__t_EchoPrx;
+    $Test__t_EchoPrx = IcePHP_declareProxy('::Test::Echo');
+}
+
+namespace Test
+{
+    global $Test__t_Echo;
+    global $Test__t_EchoPrx;
 
     class EchoPrxHelper
     {
@@ -52,6 +59,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_EchoPrx, 'flushBatch', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_EchoPrx, 'shutdown', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_EchoPrx, 'supportsCompress', 0, -1, null, null, array($IcePHP__t_bool), null);
+}
+
+namespace Test
+{
+    global $Test__t_MyObject;
+    global $Test__t_MyObjectPrx;
+    $Test__t_MyObjectPrx = IcePHP_declareProxy('::Test::MyObject');
 }
 
 namespace Test

@@ -25,10 +25,7 @@ namespace IceStorm
 {
     global $IceStorm__t_Topic;
     global $IceStorm__t_TopicPrx;
-    if(!isset($IceStorm__t_Topic))
-    {
-        $IceStorm__t_TopicPrx = IcePHP_declareProxy('::IceStorm::Topic');
-    }
+    $IceStorm__t_TopicPrx = IcePHP_declareProxy('::IceStorm::Topic');
 }
 
 namespace IceStorm
@@ -316,6 +313,13 @@ namespace IceStorm
 {
     global $IceStorm__t_TopicManager;
     global $IceStorm__t_TopicManagerPrx;
+    $IceStorm__t_TopicManagerPrx = IcePHP_declareProxy('::IceStorm::TopicManager');
+}
+
+namespace IceStorm
+{
+    global $IceStorm__t_TopicManager;
+    global $IceStorm__t_TopicManagerPrx;
 
     class TopicManagerPrxHelper
     {
@@ -349,6 +353,13 @@ namespace IceStorm
     IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'create', 0, -1, array(array($IcePHP__t_string)), null, array($IceStorm__t_TopicPrx), array($IceStorm__t_TopicExists));
     IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'retrieve', 2, -1, array(array($IcePHP__t_string)), null, array($IceStorm__t_TopicPrx), array($IceStorm__t_NoSuchTopic));
     IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'retrieveAll', 2, -1, null, null, array($IceStorm__t_TopicDict), null);
+}
+
+namespace IceStorm
+{
+    global $IceStorm__t_Finder;
+    global $IceStorm__t_FinderPrx;
+    $IceStorm__t_FinderPrx = IcePHP_declareProxy('::IceStorm::Finder');
 }
 
 namespace IceStorm

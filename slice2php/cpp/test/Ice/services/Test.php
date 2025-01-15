@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Clock;
     global $Test__t_ClockPrx;
+    $Test__t_ClockPrx = IcePHP_declareProxy('::Test::Clock');
+}
+
+namespace Test
+{
+    global $Test__t_Clock;
+    global $Test__t_ClockPrx;
 
     class ClockPrxHelper
     {

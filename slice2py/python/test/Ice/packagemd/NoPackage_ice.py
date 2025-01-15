@@ -23,6 +23,9 @@ _M_Test1 = Ice.openModule('Test1')
 __name__ = 'Test1'
 
 if 'C1' not in _M_Test1.__dict__:
+    _M_Test1._t_C1 = IcePy.declareValue('::Test1::C1')
+
+if 'C1' not in _M_Test1.__dict__:
     _M_Test1.C1 = None
     class C1(Ice.Value):
         def __init__(self, i=0):
@@ -45,6 +48,9 @@ if 'C1' not in _M_Test1.__dict__:
 
     _M_Test1.C1 = C1
     del C1
+
+if 'C2' not in _M_Test1.__dict__:
+    _M_Test1._t_C2 = IcePy.declareValue('::Test1::C2')
 
 if 'C2' not in _M_Test1.__dict__:
     _M_Test1.C2 = None

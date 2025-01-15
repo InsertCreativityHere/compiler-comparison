@@ -19,6 +19,10 @@ require_relative 'Test.rb'
 
 module ::Test
 
+    if not defined?(::Test::T_Derived)
+        T_Derived = ::Ice::__declareClass('::Test::Derived')
+    end
+
     if not defined?(::Test::Derived)
         class Derived < ::Test::Base
 
@@ -28,10 +32,6 @@ module ::Test
             end
 
             attr_accessor :b
-        end
-
-        if not defined?(::Test::T_Derived)
-            T_Derived = ::Ice::__declareClass('::Test::Derived')
         end
 
         T_Derived.defineClass(Derived, -1, false, ::Test::T_Base, [['b', ::Ice::T_string, false, 0]])

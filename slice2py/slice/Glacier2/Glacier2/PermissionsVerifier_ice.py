@@ -55,6 +55,9 @@ if 'PermissionDeniedException' not in _M_Glacier2.__dict__:
     _M_Glacier2.PermissionDeniedException = PermissionDeniedException
     del PermissionDeniedException
 
+if 'PermissionsVerifier' not in _M_Glacier2.__dict__:
+    _M_Glacier2._t_PermissionsVerifierPrx = IcePy.declareProxy('::Glacier2::PermissionsVerifier')
+
 if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.PermissionsVerifierPrx = None
     class PermissionsVerifierPrx(Ice.ObjectPrx):
@@ -191,6 +194,9 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
 
     _M_Glacier2.PermissionsVerifier = PermissionsVerifier
     del PermissionsVerifier
+
+if 'SSLPermissionsVerifier' not in _M_Glacier2.__dict__:
+    _M_Glacier2._t_SSLPermissionsVerifierPrx = IcePy.declareProxy('::Glacier2::SSLPermissionsVerifier')
 
 if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SSLPermissionsVerifierPrx = None

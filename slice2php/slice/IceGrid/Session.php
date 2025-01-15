@@ -25,6 +25,13 @@ namespace IceGrid
 {
     global $IceGrid__t_Session;
     global $IceGrid__t_SessionPrx;
+    $IceGrid__t_SessionPrx = IcePHP_declareProxy('::IceGrid::Session');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_Session;
+    global $IceGrid__t_SessionPrx;
 
     class SessionPrxHelper
     {

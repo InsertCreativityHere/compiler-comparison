@@ -19,6 +19,13 @@ namespace Test\MA
 {
     global $Test_MA__t_IA;
     global $Test_MA__t_IAPrx;
+    $Test_MA__t_IAPrx = IcePHP_declareProxy('::Test::MA::IA');
+}
+
+namespace Test\MA
+{
+    global $Test_MA__t_IA;
+    global $Test_MA__t_IAPrx;
 
     class IAPrxHelper
     {
@@ -48,6 +55,13 @@ namespace Test\MA
 
     global $Test_MA__t_IAPrx;
     IcePHP_defineOperation($Test_MA__t_IAPrx, 'iaop', 0, -1, array(array($Test_MA__t_IAPrx)), null, array($Test_MA__t_IAPrx), null);
+}
+
+namespace Test\MB
+{
+    global $Test_MB__t_IB1;
+    global $Test_MB__t_IB1Prx;
+    $Test_MB__t_IB1Prx = IcePHP_declareProxy('::Test::MB::IB1');
 }
 
 namespace Test\MB
@@ -89,6 +103,13 @@ namespace Test\MB
 {
     global $Test_MB__t_IB2;
     global $Test_MB__t_IB2Prx;
+    $Test_MB__t_IB2Prx = IcePHP_declareProxy('::Test::MB::IB2');
+}
+
+namespace Test\MB
+{
+    global $Test_MB__t_IB2;
+    global $Test_MB__t_IB2Prx;
 
     class IB2PrxHelper
     {
@@ -124,6 +145,13 @@ namespace Test\MA
 {
     global $Test_MA__t_IC;
     global $Test_MA__t_ICPrx;
+    $Test_MA__t_ICPrx = IcePHP_declareProxy('::Test::MA::IC');
+}
+
+namespace Test\MA
+{
+    global $Test_MA__t_IC;
+    global $Test_MA__t_ICPrx;
 
     class ICPrxHelper
     {
@@ -153,6 +181,13 @@ namespace Test\MA
 
     global $Test_MA__t_ICPrx;
     IcePHP_defineOperation($Test_MA__t_ICPrx, 'icop', 0, -1, array(array($Test_MA__t_ICPrx)), null, array($Test_MA__t_ICPrx), null);
+}
+
+namespace Test
+{
+    global $Test__t_Initial;
+    global $Test__t_InitialPrx;
+    $Test__t_InitialPrx = IcePHP_declareProxy('::Test::Initial');
 }
 
 namespace Test

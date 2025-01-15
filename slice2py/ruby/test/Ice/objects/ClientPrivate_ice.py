@@ -23,6 +23,9 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 if 'Empty' not in _M_Test.__dict__:
+    _M_Test._t_Empty = IcePy.declareValue('::Test::Empty')
+
+if 'Empty' not in _M_Test.__dict__:
     _M_Test.Empty = None
     class Empty(Ice.Value):
         def __init__(self):
@@ -47,6 +50,9 @@ if 'Empty' not in _M_Test.__dict__:
     del Empty
 
 if 'AlsoEmpty' not in _M_Test.__dict__:
+    _M_Test._t_AlsoEmpty = IcePy.declareValue('::Test::AlsoEmpty')
+
+if 'AlsoEmpty' not in _M_Test.__dict__:
     _M_Test.AlsoEmpty = None
     class AlsoEmpty(Ice.Value):
         def __init__(self):
@@ -69,6 +75,9 @@ if 'AlsoEmpty' not in _M_Test.__dict__:
 
     _M_Test.AlsoEmpty = AlsoEmpty
     del AlsoEmpty
+
+if 'UnexpectedObjectExceptionTest' not in _M_Test.__dict__:
+    _M_Test._t_UnexpectedObjectExceptionTestPrx = IcePy.declareProxy('::Test::UnexpectedObjectExceptionTest')
 
 if 'UnexpectedObjectExceptionTestPrx' not in _M_Test.__dict__:
     _M_Test.UnexpectedObjectExceptionTestPrx = None
@@ -141,6 +150,9 @@ if 'UnexpectedObjectExceptionTestPrx' not in _M_Test.__dict__:
     del UnexpectedObjectExceptionTest
 
 if 'COneMember' not in _M_Test.__dict__:
+    _M_Test._t_COneMember = IcePy.declareValue('::Test::COneMember')
+
+if 'COneMember' not in _M_Test.__dict__:
     _M_Test.COneMember = None
     class COneMember(Ice.Value):
         def __init__(self, e=None):
@@ -158,13 +170,14 @@ if 'COneMember' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_COneMember = IcePy.declareValue('::Test::COneMember')
-
     _M_Test._t_COneMember = IcePy.defineValue('::Test::COneMember', COneMember, -1, (), False, None, (('e', (), _M_Test._t_Empty, False, 0),))
     COneMember._ice_type = _M_Test._t_COneMember
 
     _M_Test.COneMember = COneMember
     del COneMember
+
+if 'CTwoMembers' not in _M_Test.__dict__:
+    _M_Test._t_CTwoMembers = IcePy.declareValue('::Test::CTwoMembers')
 
 if 'CTwoMembers' not in _M_Test.__dict__:
     _M_Test.CTwoMembers = None
@@ -184,8 +197,6 @@ if 'CTwoMembers' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_CTwoMembers)
 
         __repr__ = __str__
-
-    _M_Test._t_CTwoMembers = IcePy.declareValue('::Test::CTwoMembers')
 
     _M_Test._t_CTwoMembers = IcePy.defineValue('::Test::CTwoMembers', CTwoMembers, -1, (), False, None, (
         ('e1', (), _M_Test._t_Empty, False, 0),

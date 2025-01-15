@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Echo' not in _M_Test.__dict__:
+    _M_Test._t_EchoPrx = IcePy.declareProxy('::Test::Echo')
+
 if 'EchoPrx' not in _M_Test.__dict__:
     _M_Test.EchoPrx = None
     class EchoPrx(Ice.ObjectPrx):

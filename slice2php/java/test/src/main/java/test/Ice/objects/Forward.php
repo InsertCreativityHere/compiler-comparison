@@ -18,6 +18,12 @@
 namespace Test
 {
     global $Test__t_F1;
+    $Test__t_F1 = IcePHP_declareClass('::Test::F1');
+}
+
+namespace Test
+{
+    global $Test__t_F1;
     class F1 extends \Ice\Value
     {
         public function __construct($name='')
@@ -48,6 +54,13 @@ namespace Test
     global $IcePHP__t_string;
     $Test__t_F1 = IcePHP_defineClass('::Test::F1', '\\Test\\F1', -1, false, $Ice__t_Value, array(
         array('name', $IcePHP__t_string, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_F2;
+    global $Test__t_F2Prx;
+    $Test__t_F2Prx = IcePHP_declareProxy('::Test::F2');
 }
 
 namespace Test

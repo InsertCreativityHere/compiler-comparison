@@ -23,6 +23,9 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 if 'ConcreteClass' not in _M_Test.__dict__:
+    _M_Test._t_ConcreteClass = IcePy.declareValue('::Test::ConcreteClass')
+
+if 'ConcreteClass' not in _M_Test.__dict__:
     _M_Test.ConcreteClass = None
     class ConcreteClass(Ice.Value):
         def __init__(self, i=0):
@@ -64,6 +67,9 @@ if 'E' not in _M_Test.__dict__:
 
     _M_Test.E = E
     del E
+
+if 'Initial' not in _M_Test.__dict__:
+    _M_Test._t_InitialPrx = IcePy.declareProxy('::Test::Initial')
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None

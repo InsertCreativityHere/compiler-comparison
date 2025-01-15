@@ -193,6 +193,9 @@ if 'bitor' not in _M_classdef._break.__dict__:
     del bitor
 
 if 'logical' not in _M_classdef._break.__dict__:
+    _M_classdef._break._t_logical = IcePy.declareValue('::classdef::break::logical')
+
+if 'logical' not in _M_classdef._break.__dict__:
     _M_classdef._break.logical = None
     class logical(Ice.Value):
         def __init__(self, _else=_M_classdef._break.bitand.enumeration, _for=None, int64=True):
@@ -221,6 +224,9 @@ if 'logical' not in _M_classdef._break.__dict__:
 
     _M_classdef._break.logical = logical
     del logical
+
+if 'xor' not in _M_classdef._break.__dict__:
+    _M_classdef._break._t_xor = IcePy.declareValue('::classdef::break::xor')
 
 if 'xor' not in _M_classdef._break.__dict__:
     _M_classdef._break.xor = None
@@ -254,6 +260,9 @@ if '_t_switch' not in _M_classdef._break.__dict__:
     _M_classdef._break._t_switch = IcePy.defineDictionary('::classdef::break::switch', (), IcePy._t_int, _M_classdef._break._t_bitor)
 
 if '_try' not in _M_classdef._break.__dict__:
+    _M_classdef._break._t__try = IcePy.declareValue('::classdef::break::try')
+
+if '_try' not in _M_classdef._break.__dict__:
     _M_classdef._break._try = None
     class _try(Ice.Value):
         def __init__(self, _while=1, delete=2):
@@ -282,6 +291,9 @@ if '_try' not in _M_classdef._break.__dict__:
     del _try
 
 if 'properties' not in _M_classdef._break.__dict__:
+    _M_classdef._break._t_properties = IcePy.declareValue('::classdef::break::properties')
+
+if 'properties' not in _M_classdef._break.__dict__:
     _M_classdef._break.properties = None
     class properties(_M_classdef._break._try):
         def __init__(self, _while=1, delete=2, _if=2, catch=None, spmd=None, otherwise=None):
@@ -302,8 +314,6 @@ if 'properties' not in _M_classdef._break.__dict__:
             return IcePy.stringify(self, _M_classdef._break._t_properties)
 
         __repr__ = __str__
-
-    _M_classdef._break._t_properties = IcePy.declareValue('::classdef::break::properties')
 
     _M_classdef._break._t_properties = IcePy.defineValue('::classdef::break::properties', properties, -1, (), False, _M_classdef._break._t__try, (
         ('_if', (), IcePy._t_int, False, 0),
@@ -366,6 +376,9 @@ if '_global' not in _M_classdef._break.__dict__:
 
     _M_classdef._break._global = _global
     del _global
+
+if 'elseif' not in _M_classdef._break.__dict__:
+    _M_classdef._break._t_elseifPrx = IcePy.declareProxy('::classdef::break::elseif')
 
 if 'elseifPrx' not in _M_classdef._break.__dict__:
     _M_classdef._break.elseifPrx = None

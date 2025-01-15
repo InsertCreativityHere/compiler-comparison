@@ -26,6 +26,9 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'TestIntf' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfPrx = IcePy.declareProxy('::Test::TestIntf')
+
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(Ice.ObjectPrx):
@@ -95,6 +98,9 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
     _M_Test.TestIntf = TestIntf
     del TestIntf
+
+if 'RemoteCommunicator' not in _M_Test.__dict__:
+    _M_Test._t_RemoteCommunicatorPrx = IcePy.declareProxy('::Test::RemoteCommunicator')
 
 if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
     _M_Test.RemoteCommunicatorPrx = None
@@ -195,6 +201,9 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
 
     _M_Test.RemoteCommunicator = RemoteCommunicator
     del RemoteCommunicator
+
+if 'RemoteCommunicatorFactory' not in _M_Test.__dict__:
+    _M_Test._t_RemoteCommunicatorFactoryPrx = IcePy.declareProxy('::Test::RemoteCommunicatorFactory')
 
 if 'RemoteCommunicatorFactoryPrx' not in _M_Test.__dict__:
     _M_Test.RemoteCommunicatorFactoryPrx = None

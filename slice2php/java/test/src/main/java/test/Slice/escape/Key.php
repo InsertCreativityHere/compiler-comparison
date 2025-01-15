@@ -54,6 +54,13 @@ namespace _abstract
 {
     global $abstract__t_catch;
     global $abstract__t_catchPrx;
+    $abstract__t_catchPrx = IcePHP_declareProxy('::abstract::catch');
+}
+
+namespace _abstract
+{
+    global $abstract__t_catch;
+    global $abstract__t_catchPrx;
 
     class catchPrxHelper
     {
@@ -89,6 +96,13 @@ namespace _abstract
 {
     global $abstract__t_default;
     global $abstract__t_defaultPrx;
+    $abstract__t_defaultPrx = IcePHP_declareProxy('::abstract::default');
+}
+
+namespace _abstract
+{
+    global $abstract__t_default;
+    global $abstract__t_defaultPrx;
 
     class defaultPrxHelper
     {
@@ -117,6 +131,12 @@ namespace _abstract
     $abstract__t_defaultPrx = IcePHP_defineProxy('::abstract::default', $Ice__t_ObjectPrx, null);
 
     IcePHP_defineOperation($abstract__t_defaultPrx, 'do', 0, -1, null, null, null, null);
+}
+
+namespace _abstract
+{
+    global $abstract__t_else;
+    $abstract__t_else = IcePHP_declareClass('::abstract::else');
 }
 
 namespace _abstract
@@ -159,6 +179,13 @@ namespace _abstract
         array('_if', $IcePHP__t_int, false, 0),
         array('equals', $abstract__t_defaultPrx, false, 0),
         array('_final', $IcePHP__t_int, false, 0)));
+}
+
+namespace _abstract
+{
+    global $abstract__t_finalize;
+    global $abstract__t_finalizePrx;
+    $abstract__t_finalizePrx = IcePHP_declareProxy('::abstract::finalize');
 }
 
 namespace _abstract
@@ -264,6 +291,13 @@ namespace _abstract
     $abstract__t_import = IcePHP_defineException('::abstract::import', '\\_abstract\\import', $abstract__t_hashCode, array(
         array('_instanceof', $IcePHP__t_int, false, 0),
         array('native', $IcePHP__t_int, false, 0)));
+}
+
+namespace _abstract
+{
+    global $abstract__t_new;
+    global $abstract__t_newPrx;
+    $abstract__t_newPrx = IcePHP_declareProxy('::abstract::new');
 }
 
 namespace _abstract

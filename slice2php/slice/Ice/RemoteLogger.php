@@ -95,6 +95,13 @@ namespace Ice
 {
     global $Ice__t_RemoteLogger;
     global $Ice__t_RemoteLoggerPrx;
+    $Ice__t_RemoteLoggerPrx = IcePHP_declareProxy('::Ice::RemoteLogger');
+}
+
+namespace Ice
+{
+    global $Ice__t_RemoteLogger;
+    global $Ice__t_RemoteLoggerPrx;
 
     class RemoteLoggerPrxHelper
     {
@@ -147,6 +154,13 @@ namespace Ice
     }
 
     $Ice__t_RemoteLoggerAlreadyAttachedException = IcePHP_defineException('::Ice::RemoteLoggerAlreadyAttachedException', '\\Ice\\RemoteLoggerAlreadyAttachedException', null, null);
+}
+
+namespace Ice
+{
+    global $Ice__t_LoggerAdmin;
+    global $Ice__t_LoggerAdminPrx;
+    $Ice__t_LoggerAdminPrx = IcePHP_declareProxy('::Ice::LoggerAdmin');
 }
 
 namespace Ice

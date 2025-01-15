@@ -18,6 +18,12 @@
 namespace Test
 {
     global $Test__t_Empty;
+    $Test__t_Empty = IcePHP_declareClass('::Test::Empty');
+}
+
+namespace Test
+{
+    global $Test__t_Empty;
     class _Empty extends \Ice\Value
     {
         public function __construct()
@@ -48,6 +54,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_AlsoEmpty;
+    $Test__t_AlsoEmpty = IcePHP_declareClass('::Test::AlsoEmpty');
+}
+
+namespace Test
+{
+    global $Test__t_AlsoEmpty;
     class AlsoEmpty extends \Ice\Value
     {
         public function __construct()
@@ -73,6 +85,13 @@ namespace Test
 
     global $Ice__t_Value;
     $Test__t_AlsoEmpty = IcePHP_defineClass('::Test::AlsoEmpty', '\\Test\\AlsoEmpty', -1, false, $Ice__t_Value, null);
+}
+
+namespace Test
+{
+    global $Test__t_UnexpectedObjectExceptionTest;
+    global $Test__t_UnexpectedObjectExceptionTestPrx;
+    $Test__t_UnexpectedObjectExceptionTestPrx = IcePHP_declareProxy('::Test::UnexpectedObjectExceptionTest');
 }
 
 namespace Test
@@ -113,6 +132,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_COneMember;
+    $Test__t_COneMember = IcePHP_declareClass('::Test::COneMember');
+}
+
+namespace Test
+{
+    global $Test__t_COneMember;
     class COneMember extends \Ice\Value
     {
         public function __construct($e=null)
@@ -139,12 +164,16 @@ namespace Test
         public $e;
     }
 
-    $Test__t_COneMember = IcePHP_declareClass('::Test::COneMember');
-
     global $Ice__t_Value;
     global $Test__t_Empty;
     $Test__t_COneMember = IcePHP_defineClass('::Test::COneMember', '\\Test\\COneMember', -1, false, $Ice__t_Value, array(
         array('e', $Test__t_Empty, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_CTwoMembers;
+    $Test__t_CTwoMembers = IcePHP_declareClass('::Test::CTwoMembers');
 }
 
 namespace Test
@@ -177,8 +206,6 @@ namespace Test
         public $e1;
         public $e2;
     }
-
-    $Test__t_CTwoMembers = IcePHP_declareClass('::Test::CTwoMembers');
 
     global $Ice__t_Value;
     global $Test__t_Empty;

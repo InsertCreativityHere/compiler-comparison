@@ -385,6 +385,13 @@ namespace IceGrid
 {
     global $IceGrid__t_Admin;
     global $IceGrid__t_AdminPrx;
+    $IceGrid__t_AdminPrx = IcePHP_declareProxy('::IceGrid::Admin');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_Admin;
+    global $IceGrid__t_AdminPrx;
 
     class AdminPrxHelper
     {
@@ -475,6 +482,13 @@ namespace IceGrid
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'shutdownRegistry', 2, -1, array(array($IcePHP__t_string)), null, null, array($IceGrid__t_RegistryNotExistException, $IceGrid__t_RegistryUnreachableException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'getAllRegistryNames', 2, -1, null, null, array($Ice__t_StringSeq), null);
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'shutdown', 0, -1, null, null, null, null);
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_FileIterator;
+    global $IceGrid__t_FileIteratorPrx;
+    $IceGrid__t_FileIteratorPrx = IcePHP_declareProxy('::IceGrid::FileIterator');
 }
 
 namespace IceGrid
@@ -637,6 +651,13 @@ namespace IceGrid
 {
     global $IceGrid__t_RegistryObserver;
     global $IceGrid__t_RegistryObserverPrx;
+    $IceGrid__t_RegistryObserverPrx = IcePHP_declareProxy('::IceGrid::RegistryObserver');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_RegistryObserver;
+    global $IceGrid__t_RegistryObserverPrx;
 
     class RegistryObserverPrxHelper
     {
@@ -687,6 +708,13 @@ namespace IceGrid
 {
     global $IceGrid__t_NodeObserver;
     global $IceGrid__t_NodeObserverPrx;
+    $IceGrid__t_NodeObserverPrx = IcePHP_declareProxy('::IceGrid::NodeObserver');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_NodeObserver;
+    global $IceGrid__t_NodeObserverPrx;
 
     class NodeObserverPrxHelper
     {
@@ -724,6 +752,13 @@ namespace IceGrid
     IcePHP_defineOperation($IceGrid__t_NodeObserverPrx, 'nodeDown', 0, -1, array(array($IcePHP__t_string)), null, null, null);
     IcePHP_defineOperation($IceGrid__t_NodeObserverPrx, 'updateServer', 0, -1, array(array($IcePHP__t_string), array($IceGrid__t_ServerDynamicInfo)), null, null, null);
     IcePHP_defineOperation($IceGrid__t_NodeObserverPrx, 'updateAdapter', 0, -1, array(array($IcePHP__t_string), array($IceGrid__t_AdapterDynamicInfo)), null, null, null);
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_ApplicationObserver;
+    global $IceGrid__t_ApplicationObserverPrx;
+    $IceGrid__t_ApplicationObserverPrx = IcePHP_declareProxy('::IceGrid::ApplicationObserver');
 }
 
 namespace IceGrid
@@ -772,6 +807,13 @@ namespace IceGrid
 {
     global $IceGrid__t_AdapterObserver;
     global $IceGrid__t_AdapterObserverPrx;
+    $IceGrid__t_AdapterObserverPrx = IcePHP_declareProxy('::IceGrid::AdapterObserver');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_AdapterObserver;
+    global $IceGrid__t_AdapterObserverPrx;
 
     class AdapterObserverPrxHelper
     {
@@ -812,6 +854,13 @@ namespace IceGrid
 {
     global $IceGrid__t_ObjectObserver;
     global $IceGrid__t_ObjectObserverPrx;
+    $IceGrid__t_ObjectObserverPrx = IcePHP_declareProxy('::IceGrid::ObjectObserver');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_ObjectObserver;
+    global $IceGrid__t_ObjectObserverPrx;
 
     class ObjectObserverPrxHelper
     {
@@ -846,6 +895,13 @@ namespace IceGrid
     IcePHP_defineOperation($IceGrid__t_ObjectObserverPrx, 'objectAdded', 0, -1, array(array($IceGrid__t_ObjectInfo)), null, null, null);
     IcePHP_defineOperation($IceGrid__t_ObjectObserverPrx, 'objectUpdated', 0, -1, array(array($IceGrid__t_ObjectInfo)), null, null, null);
     IcePHP_defineOperation($IceGrid__t_ObjectObserverPrx, 'objectRemoved', 0, -1, array(array($Ice__t_Identity)), null, null, null);
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_AdminSession;
+    global $IceGrid__t_AdminSessionPrx;
+    $IceGrid__t_AdminSessionPrx = IcePHP_declareProxy('::IceGrid::AdminSession');
 }
 
 namespace IceGrid

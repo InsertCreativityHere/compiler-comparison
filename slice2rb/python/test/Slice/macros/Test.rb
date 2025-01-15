@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_Default)
+        T_Default = ::Ice::__declareClass('::Test::Default')
+    end
+
     if not defined?(::Test::Default)
         class Default < ::Ice::Value
 
@@ -29,14 +33,14 @@ module ::Test
             attr_accessor :x, :y
         end
 
-        if not defined?(::Test::T_Default)
-            T_Default = ::Ice::__declareClass('::Test::Default')
-        end
-
         T_Default.defineClass(Default, -1, false, nil, [
             ['x', ::Ice::T_int, false, 0],
             ['y', ::Ice::T_int, false, 0]
         ])
+    end
+
+    if not defined?(::Test::T_NoDefault)
+        T_NoDefault = ::Ice::__declareClass('::Test::NoDefault')
     end
 
     if not defined?(::Test::NoDefault)
@@ -48,10 +52,6 @@ module ::Test
             end
 
             attr_accessor :x, :y
-        end
-
-        if not defined?(::Test::T_NoDefault)
-            T_NoDefault = ::Ice::__declareClass('::Test::NoDefault')
         end
 
         T_NoDefault.defineClass(NoDefault, -1, false, nil, [

@@ -122,6 +122,9 @@ if '_break' not in _M_abstract.__dict__:
     _M_abstract._break = _break
     del _break
 
+if '_case' not in _M_abstract.__dict__:
+    _M_abstract._t_casePrx = IcePy.declareProxy('::abstract::case')
+
 if 'casePrx' not in _M_abstract.__dict__:
     _M_abstract.casePrx = None
     class casePrx(Ice.ObjectPrx):
@@ -191,6 +194,9 @@ if 'casePrx' not in _M_abstract.__dict__:
 
     _M_abstract._case = _case
     del _case
+
+if 'decimal' not in _M_abstract.__dict__:
+    _M_abstract._t_decimalPrx = IcePy.declareProxy('::abstract::decimal')
 
 if 'decimalPrx' not in _M_abstract.__dict__:
     _M_abstract.decimalPrx = None
@@ -263,6 +269,9 @@ if 'decimalPrx' not in _M_abstract.__dict__:
     del decimal
 
 if 'delegate' not in _M_abstract.__dict__:
+    _M_abstract._t_delegate = IcePy.declareValue('::abstract::delegate')
+
+if 'delegate' not in _M_abstract.__dict__:
     _M_abstract.delegate = None
     class delegate(Ice.Value):
         def __init__(self, _if=0, _else=None, event=0):
@@ -291,6 +300,9 @@ if 'delegate' not in _M_abstract.__dict__:
 
     _M_abstract.delegate = delegate
     del delegate
+
+if 'explicit' not in _M_abstract.__dict__:
+    _M_abstract._t_explicitPrx = IcePy.declareProxy('::abstract::explicit')
 
 if 'explicitPrx' not in _M_abstract.__dict__:
     _M_abstract.explicitPrx = None
@@ -355,6 +367,9 @@ if '_t__while' not in _M_abstract.__dict__:
     _M_abstract._t__while = IcePy.defineDictionary('::abstract::while', (), IcePy._t_string, _M_abstract._t__break)
 
 if 'optionalMembers' not in _M_abstract.__dict__:
+    _M_abstract._t_optionalMembers = IcePy.declareValue('::abstract::optionalMembers')
+
+if 'optionalMembers' not in _M_abstract.__dict__:
     _M_abstract.optionalMembers = None
     class optionalMembers(Ice.Value):
         def __init__(self, _for=None, goto=None, _if=None, internal=None, namespace=None):
@@ -387,6 +402,9 @@ if 'optionalMembers' not in _M_abstract.__dict__:
 
     _M_abstract.optionalMembers = optionalMembers
     del optionalMembers
+
+if 'optionalParams' not in _M_abstract.__dict__:
+    _M_abstract._t_optionalParamsPrx = IcePy.declareProxy('::abstract::optionalParams')
 
 if 'optionalParamsPrx' not in _M_abstract.__dict__:
     _M_abstract.optionalParamsPrx = None
@@ -580,6 +598,9 @@ if 'BaseMethods' not in _M_abstract.__dict__:
     _M_abstract.BaseMethods = BaseMethods
     del BaseMethods
 
+if 'implicit' not in _M_abstract.__dict__:
+    _M_abstract._t_implicitPrx = IcePy.declareProxy('::abstract::implicit')
+
 if 'implicitPrx' not in _M_abstract.__dict__:
     _M_abstract.implicitPrx = None
     class implicitPrx(Ice.ObjectPrx):
@@ -657,6 +678,9 @@ _M_abstract.public = 0
 # Start of module abstract.System
 _M_abstract.System = Ice.openModule('abstract.System')
 __name__ = 'abstract.System'
+
+if 'Test' not in _M_abstract.System.__dict__:
+    _M_abstract.System._t_TestPrx = IcePy.declareProxy('::abstract::System::Test')
 
 if 'TestPrx' not in _M_abstract.System.__dict__:
     _M_abstract.System.TestPrx = None
@@ -737,6 +761,9 @@ __name__ = 'abstract'
 # Start of module System
 _M_System = Ice.openModule('System')
 __name__ = 'System'
+
+if 'Test' not in _M_System.__dict__:
+    _M_System._t_TestPrx = IcePy.declareProxy('::System::Test')
 
 if 'TestPrx' not in _M_System.__dict__:
     _M_System.TestPrx = None

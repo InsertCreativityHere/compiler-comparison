@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::LocalTest
 
+    if not defined?(::LocalTest::T_C1)
+        T_C1 = ::Ice::__declareClass('::LocalTest::C1')
+    end
+
     if not defined?(::LocalTest::C1)
         class C1 < ::Ice::Value
 
@@ -26,10 +30,6 @@ module ::LocalTest
             end
 
             attr_accessor :i
-        end
-
-        if not defined?(::LocalTest::T_C1)
-            T_C1 = ::Ice::__declareClass('::LocalTest::C1')
         end
 
         T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
@@ -291,6 +291,10 @@ module ::LocalTest
         T_S8 = ::Ice::__defineStruct('::LocalTest::S8', S8, [["s1seqseq", ::LocalTest::T_S1SeqSeq]])
     end
 
+    if not defined?(::LocalTest::T_CB1)
+        T_CB1 = ::Ice::__declareClass('::LocalTest::CB1')
+    end
+
     if not defined?(::LocalTest::CB1)
         class CB1 < ::Ice::Value
 
@@ -301,11 +305,11 @@ module ::LocalTest
             attr_accessor :s1
         end
 
-        if not defined?(::LocalTest::T_CB1)
-            T_CB1 = ::Ice::__declareClass('::LocalTest::CB1')
-        end
-
         T_CB1.defineClass(CB1, -1, false, nil, [['s1', ::LocalTest::T_S1, false, 0]])
+    end
+
+    if not defined?(::LocalTest::T_CB2)
+        T_CB2 = ::Ice::__declareClass('::LocalTest::CB2')
     end
 
     if not defined?(::LocalTest::CB2)
@@ -318,11 +322,11 @@ module ::LocalTest
             attr_accessor :c1seq
         end
 
-        if not defined?(::LocalTest::T_CB2)
-            T_CB2 = ::Ice::__declareClass('::LocalTest::CB2')
-        end
-
         T_CB2.defineClass(CB2, -1, false, nil, [['c1seq', ::LocalTest::T_C1Seq, false, 0]])
+    end
+
+    if not defined?(::LocalTest::T_CB3)
+        T_CB3 = ::Ice::__declareClass('::LocalTest::CB3')
     end
 
     if not defined?(::LocalTest::CB3)
@@ -335,11 +339,11 @@ module ::LocalTest
             attr_accessor :s1seq
         end
 
-        if not defined?(::LocalTest::T_CB3)
-            T_CB3 = ::Ice::__declareClass('::LocalTest::CB3')
-        end
-
         T_CB3.defineClass(CB3, -1, false, nil, [['s1seq', ::LocalTest::T_S1Seq, false, 0]])
+    end
+
+    if not defined?(::LocalTest::T_CB4)
+        T_CB4 = ::Ice::__declareClass('::LocalTest::CB4')
     end
 
     if not defined?(::LocalTest::CB4)
@@ -352,11 +356,11 @@ module ::LocalTest
             attr_accessor :c1dict
         end
 
-        if not defined?(::LocalTest::T_CB4)
-            T_CB4 = ::Ice::__declareClass('::LocalTest::CB4')
-        end
-
         T_CB4.defineClass(CB4, -1, false, nil, [['c1dict', ::LocalTest::T_C1Dict, false, 0]])
+    end
+
+    if not defined?(::LocalTest::T_CB5)
+        T_CB5 = ::Ice::__declareClass('::LocalTest::CB5')
     end
 
     if not defined?(::LocalTest::CB5)
@@ -369,11 +373,11 @@ module ::LocalTest
             attr_accessor :s1dict
         end
 
-        if not defined?(::LocalTest::T_CB5)
-            T_CB5 = ::Ice::__declareClass('::LocalTest::CB5')
-        end
-
         T_CB5.defineClass(CB5, -1, false, nil, [['s1dict', ::LocalTest::T_S1Dict, false, 0]])
+    end
+
+    if not defined?(::LocalTest::T_CB6)
+        T_CB6 = ::Ice::__declareClass('::LocalTest::CB6')
     end
 
     if not defined?(::LocalTest::CB6)
@@ -386,11 +390,11 @@ module ::LocalTest
             attr_accessor :c1seqseq
         end
 
-        if not defined?(::LocalTest::T_CB6)
-            T_CB6 = ::Ice::__declareClass('::LocalTest::CB6')
-        end
-
         T_CB6.defineClass(CB6, -1, false, nil, [['c1seqseq', ::LocalTest::T_C1SeqSeq, false, 0]])
+    end
+
+    if not defined?(::LocalTest::T_CB7)
+        T_CB7 = ::Ice::__declareClass('::LocalTest::CB7')
     end
 
     if not defined?(::LocalTest::CB7)
@@ -403,11 +407,11 @@ module ::LocalTest
             attr_accessor :s1seqseq
         end
 
-        if not defined?(::LocalTest::T_CB7)
-            T_CB7 = ::Ice::__declareClass('::LocalTest::CB7')
-        end
-
         T_CB7.defineClass(CB7, -1, false, nil, [['s1seqseq', ::LocalTest::T_S1SeqSeq, false, 0]])
+    end
+
+    if not defined?(::LocalTest::T_CB8)
+        T_CB8 = ::Ice::__declareClass('::LocalTest::CB8')
     end
 
     if not defined?(::LocalTest::CB8)
@@ -420,10 +424,6 @@ module ::LocalTest
             end
 
             attr_accessor :s1, :c1seq, :s1dict
-        end
-
-        if not defined?(::LocalTest::T_CB8)
-            T_CB8 = ::Ice::__declareClass('::LocalTest::CB8')
         end
 
         T_CB8.defineClass(CB8, -1, false, nil, [

@@ -90,6 +90,10 @@ module ::Test
         T_KnownPreservedDerived = ::Ice::__defineException('::Test::KnownPreservedDerived', KnownPreservedDerived, ::Test::T_KnownPreserved, [["kpd", ::Ice::T_string, false, 0]])
     end
 
+    if not defined?(::Test::T_BaseClass)
+        T_BaseClass = ::Ice::__declareClass('::Test::BaseClass')
+    end
+
     if not defined?(::Test::BaseClass)
         class BaseClass < ::Ice::Value
 
@@ -100,11 +104,11 @@ module ::Test
             attr_accessor :bc
         end
 
-        if not defined?(::Test::T_BaseClass)
-            T_BaseClass = ::Ice::__declareClass('::Test::BaseClass')
-        end
-
         T_BaseClass.defineClass(BaseClass, -1, false, nil, [['bc', ::Ice::T_string, false, 0]])
+    end
+
+    if not defined?(::Test::T_RelayPrx)
+        T_RelayPrx = ::Ice::__declareProxy('::Test::Relay')
     end
 
     if not defined?(::Test::RelayPrx)
@@ -132,16 +136,16 @@ module ::Test
             include RelayPrx_mixin
         end
 
-        if not defined?(::Test::T_RelayPrx)
-            T_RelayPrx = ::Ice::__declareProxy('::Test::Relay')
-        end
-
         T_RelayPrx.defineProxy(RelayPrx, nil, [])
 
         RelayPrx_mixin::OP_knownPreservedAsBase = ::Ice::__defineOperation('knownPreservedAsBase', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_Base])
         RelayPrx_mixin::OP_knownPreservedAsKnownPreserved = ::Ice::__defineOperation('knownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_KnownPreserved])
         RelayPrx_mixin::OP_unknownPreservedAsBase = ::Ice::__defineOperation('unknownPreservedAsBase', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_Base])
         RelayPrx_mixin::OP_unknownPreservedAsKnownPreserved = ::Ice::__defineOperation('unknownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_KnownPreserved])
+    end
+
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
@@ -245,10 +249,6 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
-        end
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_baseAsBase = ::Ice::__defineOperation('baseAsBase', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_Base])
@@ -276,6 +276,10 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
+    if not defined?(::Test::T_PreservedClass)
+        T_PreservedClass = ::Ice::__declareClass('::Test::PreservedClass')
+    end
+
     if not defined?(::Test::PreservedClass)
         class PreservedClass < ::Test::BaseClass
 
@@ -285,10 +289,6 @@ module ::Test
             end
 
             attr_accessor :pc
-        end
-
-        if not defined?(::Test::T_PreservedClass)
-            T_PreservedClass = ::Ice::__declareClass('::Test::PreservedClass')
         end
 
         T_PreservedClass.defineClass(PreservedClass, -1, false, ::Test::T_BaseClass, [['pc', ::Ice::T_string, false, 0]])

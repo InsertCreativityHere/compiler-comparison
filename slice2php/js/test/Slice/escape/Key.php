@@ -67,6 +67,13 @@ namespace await
 {
     global $await__t_case;
     global $await__t_casePrx;
+    $await__t_casePrx = IcePHP_declareProxy('::await::case');
+}
+
+namespace await
+{
+    global $await__t_case;
+    global $await__t_casePrx;
 
     class casePrxHelper
     {
@@ -102,6 +109,13 @@ namespace await
 {
     global $await__t_typeof;
     global $await__t_typeofPrx;
+    $await__t_typeofPrx = IcePHP_declareProxy('::await::typeof');
+}
+
+namespace await
+{
+    global $await__t_typeof;
+    global $await__t_typeofPrx;
 
     class typeofPrxHelper
     {
@@ -130,6 +144,12 @@ namespace await
     $await__t_typeofPrx = IcePHP_defineProxy('::await::typeof', $Ice__t_ObjectPrx, null);
 
     IcePHP_defineOperation($await__t_typeofPrx, 'default', 0, -1, null, null, null, null);
+}
+
+namespace await
+{
+    global $await__t_delete;
+    $await__t_delete = IcePHP_declareClass('::await::delete');
 }
 
 namespace await
@@ -191,6 +211,13 @@ namespace await
 {
     global $await__t_explicit;
     global $await__t_explicitPrx;
+    $await__t_explicitPrx = IcePHP_declareProxy('::await::explicit');
+}
+
+namespace await
+{
+    global $await__t_explicit;
+    global $await__t_explicitPrx;
 
     class explicitPrxHelper
     {
@@ -229,6 +256,12 @@ namespace await
         global $await__t_break;
         $await__t_while = IcePHP_defineDictionary('::await::while', $IcePHP__t_string, $await__t_break);
     }
+}
+
+namespace await
+{
+    global $await__t_package;
+    $await__t_package = IcePHP_declareClass('::await::package');
 }
 
 namespace await
@@ -283,6 +316,13 @@ namespace await
         array('internal', $await__t_while, true, 5),
         array('debugger', $IcePHP__t_string, true, 7),
         array('null', $await__t_explicitPrx, true, 8)));
+}
+
+namespace await
+{
+    global $await__t_optionalParams;
+    global $await__t_optionalParamsPrx;
+    $await__t_optionalParamsPrx = IcePHP_declareProxy('::await::optionalParams');
 }
 
 namespace await
@@ -433,6 +473,13 @@ namespace await
 {
     global $await__t_implicit;
     global $await__t_implicitPrx;
+    $await__t_implicitPrx = IcePHP_declareProxy('::await::implicit');
+}
+
+namespace await
+{
+    global $await__t_implicit;
+    global $await__t_implicitPrx;
 
     class implicitPrxHelper
     {
@@ -490,6 +537,13 @@ namespace await\System
 {
     global $await_System__t_Test;
     global $await_System__t_TestPrx;
+    $await_System__t_TestPrx = IcePHP_declareProxy('::await::System::Test');
+}
+
+namespace await\System
+{
+    global $await_System__t_Test;
+    global $await_System__t_TestPrx;
 
     class TestPrxHelper
     {
@@ -518,6 +572,13 @@ namespace await\System
     $await_System__t_TestPrx = IcePHP_defineProxy('::await::System::Test', $Ice__t_ObjectPrx, null);
 
     IcePHP_defineOperation($await_System__t_TestPrx, 'op', 0, -1, null, null, null, null);
+}
+
+namespace System
+{
+    global $System__t_Test;
+    global $System__t_TestPrx;
+    $System__t_TestPrx = IcePHP_declareProxy('::System::Test');
 }
 
 namespace System

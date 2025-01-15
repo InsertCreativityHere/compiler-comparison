@@ -24,6 +24,13 @@ namespace Test
 {
     global $Test__t_Background;
     global $Test__t_BackgroundPrx;
+    $Test__t_BackgroundPrx = IcePHP_declareProxy('::Test::Background');
+}
+
+namespace Test
+{
+    global $Test__t_Background;
+    global $Test__t_BackgroundPrx;
 
     class BackgroundPrxHelper
     {
@@ -55,6 +62,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_BackgroundPrx, 'op', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_BackgroundPrx, 'opWithPayload', 0, -1, array(array($Ice__t_ByteSeq)), null, null, null);
     IcePHP_defineOperation($Test__t_BackgroundPrx, 'shutdown', 0, -1, null, null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_BackgroundController;
+    global $Test__t_BackgroundControllerPrx;
+    $Test__t_BackgroundControllerPrx = IcePHP_declareProxy('::Test::BackgroundController');
 }
 
 namespace Test

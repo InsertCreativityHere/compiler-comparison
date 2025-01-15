@@ -23,6 +23,9 @@ _M_NoNamespace = Ice.openModule('NoNamespace')
 __name__ = 'NoNamespace'
 
 if 'C1' not in _M_NoNamespace.__dict__:
+    _M_NoNamespace._t_C1 = IcePy.declareValue('::NoNamespace::C1')
+
+if 'C1' not in _M_NoNamespace.__dict__:
     _M_NoNamespace.C1 = None
     class C1(Ice.Value):
         def __init__(self, i=0):
@@ -45,6 +48,9 @@ if 'C1' not in _M_NoNamespace.__dict__:
 
     _M_NoNamespace.C1 = C1
     del C1
+
+if 'C2' not in _M_NoNamespace.__dict__:
+    _M_NoNamespace._t_C2 = IcePy.declareValue('::NoNamespace::C2')
 
 if 'C2' not in _M_NoNamespace.__dict__:
     _M_NoNamespace.C2 = None

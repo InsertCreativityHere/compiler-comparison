@@ -41,6 +41,9 @@ if 'MyException' not in _M_Test.__dict__:
     _M_Test.MyException = MyException
     del MyException
 
+if 'MyClass' not in _M_Test.__dict__:
+    _M_Test._t_MyClassPrx = IcePy.declareProxy('::Test::MyClass')
+
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = None
     class MyClassPrx(Ice.ObjectPrx):

@@ -38,6 +38,10 @@ module ::Test
         T_TestImpossibleException = ::Ice::__defineException('::Test::TestImpossibleException', TestImpossibleException, nil, [])
     end
 
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+    end
+
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
@@ -99,10 +103,6 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
-        end
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_requestFailedException = ::Ice::__defineOperation('requestFailedException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -120,6 +120,10 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
+    if not defined?(::Test::T_TestActivationPrx)
+        T_TestActivationPrx = ::Ice::__declareProxy('::Test::TestActivation')
+    end
+
     if not defined?(::Test::TestActivationPrx)
         module TestActivationPrx_mixin
 
@@ -133,13 +137,13 @@ module ::Test
             include TestActivationPrx_mixin
         end
 
-        if not defined?(::Test::T_TestActivationPrx)
-            T_TestActivationPrx = ::Ice::__declareProxy('::Test::TestActivation')
-        end
-
         T_TestActivationPrx.defineProxy(TestActivationPrx, nil, [])
 
         TestActivationPrx_mixin::OP_activateServantLocator = ::Ice::__defineOperation('activateServantLocator', ::Ice::OperationMode::Normal, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
+    end
+
+    if not defined?(::Test::T_EchoPrx)
+        T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
     end
 
     if not defined?(::Test::EchoPrx)
@@ -165,10 +169,6 @@ module ::Test
         class EchoPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include EchoPrx_mixin
-        end
-
-        if not defined?(::Test::T_EchoPrx)
-            T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
         end
 
         T_EchoPrx.defineProxy(EchoPrx, nil, [])

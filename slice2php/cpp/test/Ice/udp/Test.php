@@ -24,6 +24,13 @@ namespace Test
 {
     global $Test__t_PingReply;
     global $Test__t_PingReplyPrx;
+    $Test__t_PingReplyPrx = IcePHP_declareProxy('::Test::PingReply');
+}
+
+namespace Test
+{
+    global $Test__t_PingReply;
+    global $Test__t_PingReplyPrx;
 
     class PingReplyPrxHelper
     {
@@ -63,6 +70,13 @@ namespace Test
         global $IcePHP__t_byte;
         $Test__t_ByteSeq = IcePHP_defineSequence('::Test::ByteSeq', $IcePHP__t_byte);
     }
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
 }
 
 namespace Test

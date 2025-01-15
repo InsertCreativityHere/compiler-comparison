@@ -26,6 +26,9 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'MyClass' not in _M_Test.__dict__:
+    _M_Test._t_MyClassPrx = IcePy.declareProxy('::Test::MyClass')
+
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = None
     class MyClassPrx(Ice.ObjectPrx):
@@ -106,6 +109,9 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClass = MyClass
     del MyClass
 
+if 'MyDerivedClass' not in _M_Test.__dict__:
+    _M_Test._t_MyDerivedClassPrx = IcePy.declareProxy('::Test::MyDerivedClass')
+
 if 'MyDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyDerivedClassPrx = None
     class MyDerivedClassPrx(_M_Test.MyClassPrx):
@@ -176,6 +182,9 @@ if 'MyDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyDerivedClass = MyDerivedClass
     del MyDerivedClass
 
+if 'MyOtherDerivedClass' not in _M_Test.__dict__:
+    _M_Test._t_MyOtherDerivedClassPrx = IcePy.declareProxy('::Test::MyOtherDerivedClass')
+
 if 'MyOtherDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyOtherDerivedClassPrx = None
     class MyOtherDerivedClassPrx(_M_Test.MyClassPrx):
@@ -234,6 +243,9 @@ if 'MyOtherDerivedClassPrx' not in _M_Test.__dict__:
 
     _M_Test.MyOtherDerivedClass = MyOtherDerivedClass
     del MyOtherDerivedClass
+
+if 'DiamondClass' not in _M_Test.__dict__:
+    _M_Test._t_DiamondClassPrx = IcePy.declareProxy('::Test::DiamondClass')
 
 if 'DiamondClassPrx' not in _M_Test.__dict__:
     _M_Test.DiamondClassPrx = None

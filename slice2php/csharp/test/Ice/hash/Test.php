@@ -308,6 +308,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_Pen;
+    $Test__t_Pen = IcePHP_declareClass('::Test::Pen');
+}
+
+namespace Test
+{
+    global $Test__t_Pen;
     class Pen extends \Ice\Value
     {
         public function __construct($thickness=0, $color=null)

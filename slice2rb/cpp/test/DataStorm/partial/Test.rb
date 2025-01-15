@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_Stock)
+        T_Stock = ::Ice::__declareClass('::Test::Stock')
+    end
+
     if not defined?(::Test::Stock)
         class Stock < ::Ice::Value
 
@@ -28,10 +32,6 @@ module ::Test
             end
 
             attr_accessor :price, :lastBid, :lastAsk
-        end
-
-        if not defined?(::Test::T_Stock)
-            T_Stock = ::Ice::__declareClass('::Test::Stock')
         end
 
         T_Stock.defineClass(Stock, -1, false, nil, [

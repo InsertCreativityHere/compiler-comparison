@@ -44,6 +44,9 @@ if 'UserAccountNotFoundException' not in _M_IceGrid.__dict__:
     _M_IceGrid.UserAccountNotFoundException = UserAccountNotFoundException
     del UserAccountNotFoundException
 
+if 'UserAccountMapper' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_UserAccountMapperPrx = IcePy.declareProxy('::IceGrid::UserAccountMapper')
+
 if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.UserAccountMapperPrx = None
     class UserAccountMapperPrx(Ice.ObjectPrx):

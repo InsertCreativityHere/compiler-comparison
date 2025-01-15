@@ -24,6 +24,13 @@ namespace IceLocatorDiscovery
 {
     global $IceLocatorDiscovery__t_LookupReply;
     global $IceLocatorDiscovery__t_LookupReplyPrx;
+    $IceLocatorDiscovery__t_LookupReplyPrx = IcePHP_declareProxy('::IceLocatorDiscovery::LookupReply');
+}
+
+namespace IceLocatorDiscovery
+{
+    global $IceLocatorDiscovery__t_LookupReply;
+    global $IceLocatorDiscovery__t_LookupReplyPrx;
 
     class LookupReplyPrxHelper
     {
@@ -53,6 +60,13 @@ namespace IceLocatorDiscovery
 
     global $Ice__t_LocatorPrx;
     IcePHP_defineOperation($IceLocatorDiscovery__t_LookupReplyPrx, 'foundLocator', 0, -1, array(array($Ice__t_LocatorPrx)), null, null, null);
+}
+
+namespace IceLocatorDiscovery
+{
+    global $IceLocatorDiscovery__t_Lookup;
+    global $IceLocatorDiscovery__t_LookupPrx;
+    $IceLocatorDiscovery__t_LookupPrx = IcePHP_declareProxy('::IceLocatorDiscovery::Lookup');
 }
 
 namespace IceLocatorDiscovery

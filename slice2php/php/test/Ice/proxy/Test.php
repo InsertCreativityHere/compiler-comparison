@@ -31,6 +31,13 @@ namespace Test
 {
     global $Test__t_MyClass;
     global $Test__t_MyClassPrx;
+    $Test__t_MyClassPrx = IcePHP_declareProxy('::Test::MyClass');
+}
+
+namespace Test
+{
+    global $Test__t_MyClass;
+    global $Test__t_MyClassPrx;
 
     class MyClassPrxHelper
     {
@@ -61,6 +68,13 @@ namespace Test
     global $Test__t_Context;
     IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'getContext', 0, -1, null, null, array($Test__t_Context), null);
+}
+
+namespace Test
+{
+    global $Test__t_MyDerivedClass;
+    global $Test__t_MyDerivedClassPrx;
+    $Test__t_MyDerivedClassPrx = IcePHP_declareProxy('::Test::MyDerivedClass');
 }
 
 namespace Test

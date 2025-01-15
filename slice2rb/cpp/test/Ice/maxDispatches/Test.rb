@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+    end
+
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
@@ -39,15 +43,15 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
-        end
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_resetMaxConcurrentDispatches = ::Ice::__defineOperation('resetMaxConcurrentDispatches', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::Test::T_ResponderPrx)
+        T_ResponderPrx = ::Ice::__declareProxy('::Test::Responder')
     end
 
     if not defined?(::Test::ResponderPrx)
@@ -69,10 +73,6 @@ module ::Test
         class ResponderPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include ResponderPrx_mixin
-        end
-
-        if not defined?(::Test::T_ResponderPrx)
-            T_ResponderPrx = ::Ice::__declareProxy('::Test::Responder')
         end
 
         T_ResponderPrx.defineProxy(ResponderPrx, nil, [])

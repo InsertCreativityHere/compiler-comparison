@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Interface1;
     global $Test__t_Interface1Prx;
+    $Test__t_Interface1Prx = IcePHP_declareProxy('::Test::Interface1');
+}
+
+namespace Test
+{
+    global $Test__t_Interface1;
+    global $Test__t_Interface1Prx;
 
     class Interface1PrxHelper
     {
@@ -47,6 +54,12 @@ namespace Test
     $Test__t_Interface1Prx = IcePHP_defineProxy('::Test::Interface1', $Ice__t_ObjectPrx, null);
 
     IcePHP_defineOperation($Test__t_Interface1Prx, 'method', 0, -1, null, null, null, null);
+}
+
+namespace Test2
+{
+    global $Test2__t_Class1;
+    $Test2__t_Class1 = IcePHP_declareClass('::Test2::Class1');
 }
 
 namespace Test2

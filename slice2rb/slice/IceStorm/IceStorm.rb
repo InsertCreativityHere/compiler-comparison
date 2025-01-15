@@ -178,10 +178,6 @@ module ::IceStorm
             include TopicPrx_mixin
         end
 
-        if not defined?(::IceStorm::T_TopicPrx)
-            T_TopicPrx = ::Ice::__declareProxy('::IceStorm::Topic')
-        end
-
         T_TopicPrx.defineProxy(TopicPrx, nil, [])
 
         TopicPrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_string, false, 0], [])
@@ -224,6 +220,10 @@ module ::IceStorm
         T_NoSuchTopic = ::Ice::__defineException('::IceStorm::NoSuchTopic', NoSuchTopic, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
+    if not defined?(::IceStorm::T_TopicManagerPrx)
+        T_TopicManagerPrx = ::Ice::__declareProxy('::IceStorm::TopicManager')
+    end
+
     if not defined?(::IceStorm::TopicManagerPrx)
         module TopicManagerPrx_mixin
 
@@ -245,15 +245,15 @@ module ::IceStorm
             include TopicManagerPrx_mixin
         end
 
-        if not defined?(::IceStorm::T_TopicManagerPrx)
-            T_TopicManagerPrx = ::Ice::__declareProxy('::IceStorm::TopicManager')
-        end
-
         T_TopicManagerPrx.defineProxy(TopicManagerPrx, nil, [])
 
         TopicManagerPrx_mixin::OP_create = ::Ice::__defineOperation('create', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0]], [], [::IceStorm::T_TopicPrx, false, 0], [::IceStorm::T_TopicExists])
         TopicManagerPrx_mixin::OP_retrieve = ::Ice::__defineOperation('retrieve', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0]], [], [::IceStorm::T_TopicPrx, false, 0], [::IceStorm::T_NoSuchTopic])
         TopicManagerPrx_mixin::OP_retrieveAll = ::Ice::__defineOperation('retrieveAll', ::Ice::OperationMode::Idempotent, nil, [], [], [::IceStorm::T_TopicDict, false, 0], [])
+    end
+
+    if not defined?(::IceStorm::T_FinderPrx)
+        T_FinderPrx = ::Ice::__declareProxy('::IceStorm::Finder')
     end
 
     if not defined?(::IceStorm::FinderPrx)
@@ -267,10 +267,6 @@ module ::IceStorm
         class FinderPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include FinderPrx_mixin
-        end
-
-        if not defined?(::IceStorm::T_FinderPrx)
-            T_FinderPrx = ::Ice::__declareProxy('::IceStorm::Finder')
         end
 
         T_FinderPrx.defineProxy(FinderPrx, nil, [])

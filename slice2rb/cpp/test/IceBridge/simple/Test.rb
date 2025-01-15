@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_CallbackPrx)
+        T_CallbackPrx = ::Ice::__declareProxy('::Test::Callback')
+    end
+
     if not defined?(::Test::CallbackPrx)
         module CallbackPrx_mixin
 
@@ -43,16 +47,16 @@ module ::Test
             include CallbackPrx_mixin
         end
 
-        if not defined?(::Test::T_CallbackPrx)
-            T_CallbackPrx = ::Ice::__declareProxy('::Test::Callback')
-        end
-
         T_CallbackPrx.defineProxy(CallbackPrx, nil, [])
 
         CallbackPrx_mixin::OP_ping = ::Ice::__defineOperation('ping', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         CallbackPrx_mixin::OP_getCount = ::Ice::__defineOperation('getCount', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
         CallbackPrx_mixin::OP_datagram = ::Ice::__defineOperation('datagram', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         CallbackPrx_mixin::OP_getDatagramCount = ::Ice::__defineOperation('getDatagramCount', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_int, false, 0], [])
+    end
+
+    if not defined?(::Test::T_MyClassPrx)
+        T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
     end
 
     if not defined?(::Test::MyClassPrx)
@@ -110,10 +114,6 @@ module ::Test
         class MyClassPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include MyClassPrx_mixin
-        end
-
-        if not defined?(::Test::T_MyClassPrx)
-            T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])

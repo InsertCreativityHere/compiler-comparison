@@ -30,6 +30,10 @@ module ::Test
         T_StringDict = ::Ice::__defineDictionary('::Test::StringDict', ::Ice::T_string, ::Ice::T_string)
     end
 
+    if not defined?(::Test::T_C)
+        T_C = ::Ice::__declareClass('::Test::C')
+    end
+
     if not defined?(::Test::C)
         class C < ::Ice::Value
 
@@ -38,10 +42,6 @@ module ::Test
             end
 
             attr_accessor :i
-        end
-
-        if not defined?(::Test::T_C)
-            T_C = ::Ice::__declareClass('::Test::C')
         end
 
         T_C.defineClass(C, -1, false, nil, [['i', ::Ice::T_int, false, 0]])

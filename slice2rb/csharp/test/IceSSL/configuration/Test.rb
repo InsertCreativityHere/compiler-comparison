@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_ServerPrx)
+        T_ServerPrx = ::Ice::__declareProxy('::Test::Server')
+    end
+
     if not defined?(::Test::ServerPrx)
         module ServerPrx_mixin
 
@@ -39,10 +43,6 @@ module ::Test
             include ServerPrx_mixin
         end
 
-        if not defined?(::Test::T_ServerPrx)
-            T_ServerPrx = ::Ice::__declareProxy('::Test::Server')
-        end
-
         T_ServerPrx.defineProxy(ServerPrx, nil, [])
 
         ServerPrx_mixin::OP_noCert = ::Ice::__defineOperation('noCert', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -52,6 +52,10 @@ module ::Test
 
     if not defined?(::Test::T_Properties)
         T_Properties = ::Ice::__defineDictionary('::Test::Properties', ::Ice::T_string, ::Ice::T_string)
+    end
+
+    if not defined?(::Test::T_ServerFactoryPrx)
+        T_ServerFactoryPrx = ::Ice::__declareProxy('::Test::ServerFactory')
     end
 
     if not defined?(::Test::ServerFactoryPrx)
@@ -75,15 +79,15 @@ module ::Test
             include ServerFactoryPrx_mixin
         end
 
-        if not defined?(::Test::T_ServerFactoryPrx)
-            T_ServerFactoryPrx = ::Ice::__declareProxy('::Test::ServerFactory')
-        end
-
         T_ServerFactoryPrx.defineProxy(ServerFactoryPrx, nil, [])
 
         ServerFactoryPrx_mixin::OP_createServer = ::Ice::__defineOperation('createServer', ::Ice::OperationMode::Normal, nil, [[::Test::T_Properties, false, 0]], [], [::Test::T_ServerPrx, false, 0], [])
         ServerFactoryPrx_mixin::OP_destroyServer = ::Ice::__defineOperation('destroyServer', ::Ice::OperationMode::Normal, nil, [[::Test::T_ServerPrx, false, 0]], [], nil, [])
         ServerFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::Test::T_PingablePrx)
+        T_PingablePrx = ::Ice::__declareProxy('::Test::Pingable')
     end
 
     if not defined?(::Test::PingablePrx)
@@ -97,10 +101,6 @@ module ::Test
         class PingablePrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include PingablePrx_mixin
-        end
-
-        if not defined?(::Test::T_PingablePrx)
-            T_PingablePrx = ::Ice::__declareProxy('::Test::Pingable')
         end
 
         T_PingablePrx.defineProxy(PingablePrx, nil, [])

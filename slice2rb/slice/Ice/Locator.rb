@@ -77,6 +77,10 @@ module ::Ice
         T_LocatorRegistryPrx = ::Ice::__declareProxy('::Ice::LocatorRegistry')
     end
 
+    if not defined?(::Ice::T_LocatorPrx)
+        T_LocatorPrx = ::Ice::__declareProxy('::Ice::Locator')
+    end
+
     if not defined?(::Ice::LocatorPrx)
         module LocatorPrx_mixin
 
@@ -96,10 +100,6 @@ module ::Ice
         class LocatorPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include LocatorPrx_mixin
-        end
-
-        if not defined?(::Ice::T_LocatorPrx)
-            T_LocatorPrx = ::Ice::__declareProxy('::Ice::Locator')
         end
 
         T_LocatorPrx.defineProxy(LocatorPrx, nil, [])
@@ -130,15 +130,15 @@ module ::Ice
             include LocatorRegistryPrx_mixin
         end
 
-        if not defined?(::Ice::T_LocatorRegistryPrx)
-            T_LocatorRegistryPrx = ::Ice::__declareProxy('::Ice::LocatorRegistry')
-        end
-
         T_LocatorRegistryPrx.defineProxy(LocatorRegistryPrx, nil, [])
 
         LocatorRegistryPrx_mixin::OP_setAdapterDirectProxy = ::Ice::__defineOperation('setAdapterDirectProxy', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::Ice::T_ObjectPrx, false, 0]], [], nil, [::Ice::T_AdapterNotFoundException, ::Ice::T_AdapterAlreadyActiveException])
         LocatorRegistryPrx_mixin::OP_setReplicatedAdapterDirectProxy = ::Ice::__defineOperation('setReplicatedAdapterDirectProxy', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_ObjectPrx, false, 0]], [], nil, [::Ice::T_AdapterNotFoundException, ::Ice::T_AdapterAlreadyActiveException, ::Ice::T_InvalidReplicaGroupIdException])
         LocatorRegistryPrx_mixin::OP_setServerProcessProxy = ::Ice::__defineOperation('setServerProcessProxy', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_string, false, 0], [::Ice::T_ProcessPrx, false, 0]], [], nil, [::Ice::T_ServerNotFoundException])
+    end
+
+    if not defined?(::Ice::T_LocatorFinderPrx)
+        T_LocatorFinderPrx = ::Ice::__declareProxy('::Ice::LocatorFinder')
     end
 
     if not defined?(::Ice::LocatorFinderPrx)
@@ -152,10 +152,6 @@ module ::Ice
         class LocatorFinderPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include LocatorFinderPrx_mixin
-        end
-
-        if not defined?(::Ice::T_LocatorFinderPrx)
-            T_LocatorFinderPrx = ::Ice::__declareProxy('::Ice::LocatorFinder')
         end
 
         T_LocatorFinderPrx.defineProxy(LocatorFinderPrx, nil, [])

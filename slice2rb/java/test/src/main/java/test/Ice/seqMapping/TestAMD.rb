@@ -30,6 +30,10 @@ module ::Test
         T_SerialStruct = ::Ice::__defineSequence('::Test::SerialStruct', ::Ice::T_byte)
     end
 
+    if not defined?(::Test::T_MyClassPrx)
+        T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
+    end
+
     if not defined?(::Test::MyClassPrx)
         module MyClassPrx_mixin
 
@@ -53,10 +57,6 @@ module ::Test
         class MyClassPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include MyClassPrx_mixin
-        end
-
-        if not defined?(::Test::T_MyClassPrx)
-            T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
@@ -133,6 +133,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_Baz)
+        T_Baz = ::Ice::__declareClass('::Test::Baz')
+    end
+
     if not defined?(::Test::Baz)
         class Baz < ::Ice::Value
 
@@ -142,10 +146,6 @@ module ::Test
             end
 
             attr_accessor :SLmem, :SLSmem
-        end
-
-        if not defined?(::Test::T_Baz)
-            T_Baz = ::Ice::__declareClass('::Test::Baz')
         end
 
         T_Baz.defineClass(Baz, -1, false, nil, [

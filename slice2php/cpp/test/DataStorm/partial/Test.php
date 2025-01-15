@@ -18,6 +18,12 @@
 namespace Test
 {
     global $Test__t_Stock;
+    $Test__t_Stock = IcePHP_declareClass('::Test::Stock');
+}
+
+namespace Test
+{
+    global $Test__t_Stock;
     class Stock extends \Ice\Value
     {
         public function __construct($price=0.0, $lastBid=0.0, $lastAsk=0.0)

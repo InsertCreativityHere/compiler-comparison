@@ -19,15 +19,19 @@ require_relative 'Core.rb'
 
 module ::User
 
+    if not defined?(::User::T_UserInfo)
+        T_UserInfo = ::Ice::__declareClass('::User::UserInfo')
+    end
+
     if not defined?(::User::UserInfo)
         class UserInfo < ::Ice::Value
         end
 
-        if not defined?(::User::T_UserInfo)
-            T_UserInfo = ::Ice::__declareClass('::User::UserInfo')
-        end
-
         T_UserInfo.defineClass(UserInfo, -1, false, nil, [])
+    end
+
+    if not defined?(::User::T_RegistryPrx)
+        T_RegistryPrx = ::Ice::__declareProxy('::User::Registry')
     end
 
     if not defined?(::User::RegistryPrx)
@@ -41,10 +45,6 @@ module ::User
         class RegistryPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include RegistryPrx_mixin
-        end
-
-        if not defined?(::User::T_RegistryPrx)
-            T_RegistryPrx = ::Ice::__declareProxy('::User::Registry')
         end
 
         T_RegistryPrx.defineProxy(RegistryPrx, nil, [])

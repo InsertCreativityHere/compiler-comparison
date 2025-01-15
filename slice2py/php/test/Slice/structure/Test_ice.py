@@ -29,6 +29,9 @@ if '_t_StringDict' not in _M_Test.__dict__:
     _M_Test._t_StringDict = IcePy.defineDictionary('::Test::StringDict', (), IcePy._t_string, IcePy._t_string)
 
 if 'C' not in _M_Test.__dict__:
+    _M_Test._t_C = IcePy.declareValue('::Test::C')
+
+if 'C' not in _M_Test.__dict__:
     _M_Test.C = None
     class C(Ice.Value):
         def __init__(self, i=0):

@@ -69,6 +69,10 @@ module ::IceStorm
         T_EventDataSeq = ::Ice::__defineSequence('::IceStorm::EventDataSeq', ::IceStorm::T_EventData)
     end
 
+    if not defined?(::IceStorm::T_TopicLinkPrx)
+        T_TopicLinkPrx = ::Ice::__declareProxy('::IceStorm::TopicLink')
+    end
+
     if not defined?(::IceStorm::TopicLinkPrx)
         module TopicLinkPrx_mixin
 
@@ -80,10 +84,6 @@ module ::IceStorm
         class TopicLinkPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include TopicLinkPrx_mixin
-        end
-
-        if not defined?(::IceStorm::T_TopicLinkPrx)
-            T_TopicLinkPrx = ::Ice::__declareProxy('::IceStorm::TopicLink')
         end
 
         T_TopicLinkPrx.defineProxy(TopicLinkPrx, nil, [])
@@ -99,6 +99,10 @@ module ::IceStorm
         end
 
         T_ReapWouldBlock = ::Ice::__defineException('::IceStorm::ReapWouldBlock', ReapWouldBlock, nil, [])
+    end
+
+    if not defined?(::IceStorm::T_TopicInternalPrx)
+        T_TopicInternalPrx = ::Ice::__declareProxy('::IceStorm::TopicInternal')
     end
 
     if not defined?(::IceStorm::TopicInternalPrx)
@@ -119,14 +123,14 @@ module ::IceStorm
             include TopicInternalPrx_mixin
         end
 
-        if not defined?(::IceStorm::T_TopicInternalPrx)
-            T_TopicInternalPrx = ::Ice::__declareProxy('::IceStorm::TopicInternal')
-        end
-
         T_TopicInternalPrx.defineProxy(TopicInternalPrx, nil, [::IceStorm::T_TopicPrx])
 
         TopicInternalPrx_mixin::OP_getLinkProxy = ::Ice::__defineOperation('getLinkProxy', ::Ice::OperationMode::Idempotent, nil, [], [], [::IceStorm::T_TopicLinkPrx, false, 0], [])
         TopicInternalPrx_mixin::OP_reap = ::Ice::__defineOperation('reap', ::Ice::OperationMode::Normal, nil, [[::Ice::T_IdentitySeq, false, 0]], [], nil, [::IceStorm::T_ReapWouldBlock])
+    end
+
+    if not defined?(::IceStorm::T_TopicManagerInternalPrx)
+        T_TopicManagerInternalPrx = ::Ice::__declareProxy('::IceStorm::TopicManagerInternal')
     end
 
     if not defined?(::IceStorm::TopicManagerInternalPrx)
@@ -141,10 +145,6 @@ module ::IceStorm
         class TopicManagerInternalPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include TopicManagerInternalPrx_mixin
-        end
-
-        if not defined?(::IceStorm::T_TopicManagerInternalPrx)
-            T_TopicManagerInternalPrx = ::Ice::__declareProxy('::IceStorm::TopicManagerInternal')
         end
 
         T_TopicManagerInternalPrx.defineProxy(TopicManagerInternalPrx, nil, [::IceStorm::T_TopicManagerPrx])

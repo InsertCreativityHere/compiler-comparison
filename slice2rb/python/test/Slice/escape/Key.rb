@@ -95,6 +95,10 @@ module ::And
         T_Continue = ::Ice::__defineStruct('::and::continue', Continue, [["_def", ::Ice::T_int]])
     end
 
+    if not defined?(::And::T_DelPrx)
+        T_DelPrx = ::Ice::__declareProxy('::and::del')
+    end
+
     if not defined?(::And::DelPrx)
         module DelPrx_mixin
 
@@ -108,13 +112,13 @@ module ::And
             include DelPrx_mixin
         end
 
-        if not defined?(::And::T_DelPrx)
-            T_DelPrx = ::Ice::__declareProxy('::and::del')
-        end
-
         T_DelPrx.defineProxy(DelPrx, nil, [])
 
         DelPrx_mixin::OP_elif = ::Ice::__defineOperation('elif', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+    end
+
+    if not defined?(::And::T_ExecPrx)
+        T_ExecPrx = ::Ice::__declareProxy('::and::exec')
     end
 
     if not defined?(::And::ExecPrx)
@@ -130,13 +134,13 @@ module ::And
             include ExecPrx_mixin
         end
 
-        if not defined?(::And::T_ExecPrx)
-            T_ExecPrx = ::Ice::__declareProxy('::and::exec')
-        end
-
         T_ExecPrx.defineProxy(ExecPrx, nil, [])
 
         ExecPrx_mixin::OP_finally = ::Ice::__defineOperation('finally', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::And::T_For)
+        T_For = ::Ice::__declareClass('::and::for')
     end
 
     if not defined?(::And::For)
@@ -151,15 +155,15 @@ module ::And
             attr_accessor :lambda, :from, :global
         end
 
-        if not defined?(::And::T_For)
-            T_For = ::Ice::__declareClass('::and::for')
-        end
-
         T_For.defineClass(For, -1, false, nil, [
             ['lambda', ::Ice::T_int, false, 0],
             ['from', ::And::T_ExecPrx, false, 0],
             ['global', ::Ice::T_int, false, 0]
         ])
+    end
+
+    if not defined?(::And::T_IfPrx)
+        T_IfPrx = ::Ice::__declareProxy('::and::if')
     end
 
     if not defined?(::And::IfPrx)
@@ -171,10 +175,6 @@ module ::And
         class IfPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include IfPrx_mixin
-        end
-
-        if not defined?(::And::T_IfPrx)
-            T_IfPrx = ::Ice::__declareProxy('::and::if')
         end
 
         T_IfPrx.defineProxy(IfPrx, nil, [::And::T_ExecPrx, ::And::T_DelPrx])
@@ -215,6 +215,10 @@ module ::And
         ])
     end
 
+    if not defined?(::And::T_PrintPrx)
+        T_PrintPrx = ::Ice::__declareProxy('::and::print')
+    end
+
     if not defined?(::And::PrintPrx)
         module PrintPrx_mixin
 
@@ -226,10 +230,6 @@ module ::And
         class PrintPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include PrintPrx_mixin
-        end
-
-        if not defined?(::And::T_PrintPrx)
-            T_PrintPrx = ::Ice::__declareProxy('::and::print')
         end
 
         T_PrintPrx.defineProxy(PrintPrx, nil, [])

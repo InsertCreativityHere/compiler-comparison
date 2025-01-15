@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Interface2' not in _M_Test.__dict__:
+    _M_Test._t_Interface2Prx = IcePy.declareProxy('::Test::Interface2')
+
 if 'Interface2Prx' not in _M_Test.__dict__:
     _M_Test.Interface2Prx = None
     class Interface2Prx(Ice.ObjectPrx):

@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Server;
     global $Test__t_ServerPrx;
+    $Test__t_ServerPrx = IcePHP_declareProxy('::Test::Server');
+}
+
+namespace Test
+{
+    global $Test__t_Server;
+    global $Test__t_ServerPrx;
 
     class ServerPrxHelper
     {
@@ -68,6 +75,13 @@ namespace Test
 {
     global $Test__t_ServerFactory;
     global $Test__t_ServerFactoryPrx;
+    $Test__t_ServerFactoryPrx = IcePHP_declareProxy('::Test::ServerFactory');
+}
+
+namespace Test
+{
+    global $Test__t_ServerFactory;
+    global $Test__t_ServerFactoryPrx;
 
     class ServerFactoryPrxHelper
     {
@@ -100,6 +114,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_ServerFactoryPrx, 'createServer', 0, -1, array(array($Test__t_Properties)), null, array($Test__t_ServerPrx), null);
     IcePHP_defineOperation($Test__t_ServerFactoryPrx, 'destroyServer', 0, -1, array(array($Test__t_ServerPrx)), null, null, null);
     IcePHP_defineOperation($Test__t_ServerFactoryPrx, 'shutdown', 0, -1, null, null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_Pingable;
+    global $Test__t_PingablePrx;
+    $Test__t_PingablePrx = IcePHP_declareProxy('::Test::Pingable');
 }
 
 namespace Test

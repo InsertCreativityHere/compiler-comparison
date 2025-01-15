@@ -212,6 +212,9 @@ if 'xor' not in _M__and.__dict__:
     _M__and.xor = xor
     del xor
 
+if '_break' not in _M__and.__dict__:
+    _M__and._t_breakPrx = IcePy.declareProxy('::and::break')
+
 if 'breakPrx' not in _M__and.__dict__:
     _M__and.breakPrx = None
     class breakPrx(Ice.ObjectPrx):
@@ -282,6 +285,9 @@ if 'breakPrx' not in _M__and.__dict__:
     _M__and._break = _break
     del _break
 
+if 'function' not in _M__and.__dict__:
+    _M__and._t_functionPrx = IcePy.declareProxy('::and::function')
+
 if 'functionPrx' not in _M__and.__dict__:
     _M__and.functionPrx = None
     class functionPrx(Ice.ObjectPrx):
@@ -351,6 +357,9 @@ if 'functionPrx' not in _M__and.__dict__:
 
     _M__and.function = function
     del function
+
+if 'die' not in _M__and.__dict__:
+    _M__and._t_diePrx = IcePy.declareProxy('::and::die')
 
 if 'diePrx' not in _M__and.__dict__:
     _M__and.diePrx = None
@@ -423,6 +432,9 @@ if 'diePrx' not in _M__and.__dict__:
     del die
 
 if 'echo' not in _M__and.__dict__:
+    _M__and._t_echo = IcePy.declareValue('::and::echo')
+
+if 'echo' not in _M__and.__dict__:
     _M__and.echo = None
     class echo(Ice.Value):
         def __init__(self, _if=0, _else=0, elseif=None, empty=0):
@@ -453,6 +465,9 @@ if 'echo' not in _M__and.__dict__:
 
     _M__and.echo = echo
     del echo
+
+if 'enddeclare' not in _M__and.__dict__:
+    _M__and._t_enddeclarePrx = IcePy.declareProxy('::and::enddeclare')
 
 if 'enddeclarePrx' not in _M__and.__dict__:
     _M__and.enddeclarePrx = None
@@ -561,6 +576,9 @@ if 'endwhile' not in _M__and.__dict__:
 
     _M__and.endwhile = endwhile
     del endwhile
+
+if '_for' not in _M__and.__dict__:
+    _M__and._t_forPrx = IcePy.declareProxy('::and::for')
 
 if 'forPrx' not in _M__and.__dict__:
     _M__and.forPrx = None

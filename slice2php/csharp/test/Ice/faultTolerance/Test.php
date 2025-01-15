@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_TestIntf;
     global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
 
     class TestIntfPrxHelper
     {
@@ -51,6 +58,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'abort', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'idempotentAbort', 2, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'pid', 2, -1, null, null, array($IcePHP__t_int), null);
+}
+
+namespace Test
+{
+    global $Test__t_Cleaner;
+    global $Test__t_CleanerPrx;
+    $Test__t_CleanerPrx = IcePHP_declareProxy('::Test::Cleaner');
 }
 
 namespace Test

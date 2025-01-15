@@ -217,6 +217,12 @@ namespace IceGrid
 namespace IceGrid
 {
     global $IceGrid__t_CommunicatorDescriptor;
+    $IceGrid__t_CommunicatorDescriptor = IcePHP_declareClass('::IceGrid::CommunicatorDescriptor');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_CommunicatorDescriptor;
     class CommunicatorDescriptor extends \Ice\Value
     {
         public function __construct($adapters=null, $propertySet=null, $logs=null, $description='')
@@ -287,6 +293,12 @@ namespace IceGrid
     $IceGrid__t_DistributionDescriptor = IcePHP_defineStruct('::IceGrid::DistributionDescriptor', '\\IceGrid\\DistributionDescriptor', array(
         array('icepatch', $IcePHP__t_string),
         array('directories', $Ice__t_StringSeq)));
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_ServerDescriptor;
+    $IceGrid__t_ServerDescriptor = IcePHP_declareClass('::IceGrid::ServerDescriptor');
 }
 
 namespace IceGrid
@@ -373,6 +385,12 @@ namespace IceGrid
         global $IceGrid__t_ServerDescriptor;
         $IceGrid__t_ServerDescriptorSeq = IcePHP_defineSequence('::IceGrid::ServerDescriptorSeq', $IceGrid__t_ServerDescriptor);
     }
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_ServiceDescriptor;
+    $IceGrid__t_ServiceDescriptor = IcePHP_declareClass('::IceGrid::ServiceDescriptor');
 }
 
 namespace IceGrid
@@ -566,6 +584,12 @@ namespace IceGrid
 namespace IceGrid
 {
     global $IceGrid__t_IceBoxDescriptor;
+    $IceGrid__t_IceBoxDescriptor = IcePHP_declareClass('::IceGrid::IceBoxDescriptor');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_IceBoxDescriptor;
     class IceBoxDescriptor extends \IceGrid\ServerDescriptor
     {
         public function __construct($adapters=null, $propertySet=null, $logs=null, $description='', $id='', $exe='', $iceVersion='', $pwd='', $options=null, $envs=null, $activation='', $activationTimeout='', $deactivationTimeout='', $applicationDistrib=false, $distrib=null, $allocatable=false, $user='', $services=null)
@@ -592,8 +616,6 @@ namespace IceGrid
 
         public $services;
     }
-
-    $IceGrid__t_IceBoxDescriptor = IcePHP_declareClass('::IceGrid::IceBoxDescriptor');
 
     global $IceGrid__t_ServerDescriptor;
     global $IceGrid__t_ServiceInstanceDescriptorSeq;
@@ -659,6 +681,12 @@ namespace IceGrid
 namespace IceGrid
 {
     global $IceGrid__t_LoadBalancingPolicy;
+    $IceGrid__t_LoadBalancingPolicy = IcePHP_declareClass('::IceGrid::LoadBalancingPolicy');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_LoadBalancingPolicy;
     class LoadBalancingPolicy extends \Ice\Value
     {
         public function __construct($nReplicas='')
@@ -689,6 +717,12 @@ namespace IceGrid
     global $IcePHP__t_string;
     $IceGrid__t_LoadBalancingPolicy = IcePHP_defineClass('::IceGrid::LoadBalancingPolicy', '\\IceGrid\\LoadBalancingPolicy', -1, false, $Ice__t_Value, array(
         array('nReplicas', $IcePHP__t_string, false, 0)));
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_RandomLoadBalancingPolicy;
+    $IceGrid__t_RandomLoadBalancingPolicy = IcePHP_declareClass('::IceGrid::RandomLoadBalancingPolicy');
 }
 
 namespace IceGrid
@@ -725,6 +759,12 @@ namespace IceGrid
 namespace IceGrid
 {
     global $IceGrid__t_OrderedLoadBalancingPolicy;
+    $IceGrid__t_OrderedLoadBalancingPolicy = IcePHP_declareClass('::IceGrid::OrderedLoadBalancingPolicy');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_OrderedLoadBalancingPolicy;
     class OrderedLoadBalancingPolicy extends \IceGrid\LoadBalancingPolicy
     {
         public function __construct($nReplicas='')
@@ -756,6 +796,12 @@ namespace IceGrid
 namespace IceGrid
 {
     global $IceGrid__t_RoundRobinLoadBalancingPolicy;
+    $IceGrid__t_RoundRobinLoadBalancingPolicy = IcePHP_declareClass('::IceGrid::RoundRobinLoadBalancingPolicy');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_RoundRobinLoadBalancingPolicy;
     class RoundRobinLoadBalancingPolicy extends \IceGrid\LoadBalancingPolicy
     {
         public function __construct($nReplicas='')
@@ -782,6 +828,12 @@ namespace IceGrid
 
     global $IceGrid__t_LoadBalancingPolicy;
     $IceGrid__t_RoundRobinLoadBalancingPolicy = IcePHP_defineClass('::IceGrid::RoundRobinLoadBalancingPolicy', '\\IceGrid\\RoundRobinLoadBalancingPolicy', -1, false, $IceGrid__t_LoadBalancingPolicy, null);
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_AdaptiveLoadBalancingPolicy;
+    $IceGrid__t_AdaptiveLoadBalancingPolicy = IcePHP_declareClass('::IceGrid::AdaptiveLoadBalancingPolicy');
 }
 
 namespace IceGrid
@@ -940,6 +992,12 @@ namespace IceGrid
 namespace IceGrid
 {
     global $IceGrid__t_BoxedString;
+    $IceGrid__t_BoxedString = IcePHP_declareClass('::IceGrid::BoxedString');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_BoxedString;
     class BoxedString extends \Ice\Value
     {
         public function __construct($value='')
@@ -1038,6 +1096,12 @@ namespace IceGrid
         global $IceGrid__t_NodeUpdateDescriptor;
         $IceGrid__t_NodeUpdateDescriptorSeq = IcePHP_defineSequence('::IceGrid::NodeUpdateDescriptorSeq', $IceGrid__t_NodeUpdateDescriptor);
     }
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_BoxedDistributionDescriptor;
+    $IceGrid__t_BoxedDistributionDescriptor = IcePHP_declareClass('::IceGrid::BoxedDistributionDescriptor');
 }
 
 namespace IceGrid

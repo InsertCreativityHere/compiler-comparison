@@ -72,6 +72,9 @@ if '_t_Complex128Seq' not in _M_Test.NumPy.__dict__:
     _M_Test.NumPy._t_Complex128Seq = IcePy.defineSequence('::Test::NumPy::Complex128Seq', ('python:memoryview:Custom.myNumPyComplex128Seq',), IcePy._t_byte)
 
 if 'D' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_D = IcePy.declareValue('::Test::NumPy::D')
+
+if 'D' not in _M_Test.NumPy.__dict__:
     _M_Test.NumPy.D = None
     class D(Ice.Value):
         def __init__(self, boolSeq=None, byteSeq=None, shortSeq=None, intSeq=None, longSeq=None, floatSeq=None, doubleSeq=None):
@@ -108,6 +111,9 @@ if 'D' not in _M_Test.NumPy.__dict__:
 
     _M_Test.NumPy.D = D
     del D
+
+if 'Custom' not in _M_Test.NumPy.__dict__:
+    _M_Test.NumPy._t_CustomPrx = IcePy.declareProxy('::Test::NumPy::Custom')
 
 if 'CustomPrx' not in _M_Test.NumPy.__dict__:
     _M_Test.NumPy.CustomPrx = None

@@ -204,6 +204,13 @@ namespace Test
 {
     global $Test__t_TestIntf;
     global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
 
     class TestIntfPrxHelper
     {

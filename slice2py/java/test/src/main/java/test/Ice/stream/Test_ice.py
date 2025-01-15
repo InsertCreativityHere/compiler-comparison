@@ -237,6 +237,9 @@ if '_t_StringMyClassD' not in _M_Test.__dict__:
     _M_Test._t_StringMyClassD = IcePy.defineDictionary('::Test::StringMyClassD', (), IcePy._t_string, _M_Test._t_MyClass)
 
 if 'OptionalClass' not in _M_Test.__dict__:
+    _M_Test._t_OptionalClass = IcePy.declareValue('::Test::OptionalClass')
+
+if 'OptionalClass' not in _M_Test.__dict__:
     _M_Test.OptionalClass = None
     class OptionalClass(Ice.Value):
         def __init__(self, bo=False, by=0, sh=None, i=None, s=None, enumS4=None, byteBoolD6=None, shortIntD7=None, enum8=None, intSeq12=None, byteSeq13=None, stringSeq14=None, p15=None):

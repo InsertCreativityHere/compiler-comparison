@@ -280,12 +280,12 @@ module ::Test
         T_ESeqList = ::Ice::__defineSequence('::Test::ESeqList', ::Test::T_ESeq)
     end
 
+    if not defined?(::Test::T_C)
+        T_C = ::Ice::__declareClass('::Test::C')
+    end
+
     if not defined?(::Test::C)
         class C < ::Ice::Value
-        end
-
-        if not defined?(::Test::T_C)
-            T_C = ::Ice::__declareClass('::Test::C')
         end
 
         T_C.defineClass(C, -1, false, nil, [])
@@ -311,6 +311,10 @@ module ::Test
         T_CSeqList = ::Ice::__defineSequence('::Test::CSeqList', ::Test::T_CSeq)
     end
 
+    if not defined?(::Test::T_DPrx)
+        T_DPrx = ::Ice::__declareProxy('::Test::D')
+    end
+
     if not defined?(::Test::DPrx)
         module DPrx_mixin
         end
@@ -318,10 +322,6 @@ module ::Test
         class DPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include DPrx_mixin
-        end
-
-        if not defined?(::Test::T_DPrx)
-            T_DPrx = ::Ice::__declareProxy('::Test::D')
         end
 
         T_DPrx.defineProxy(DPrx, nil, [])
@@ -367,6 +367,10 @@ module ::Test
         T_StringIntDict = ::Ice::__defineDictionary('::Test::StringIntDict', ::Ice::T_string, ::Ice::T_int)
     end
 
+    if not defined?(::Test::T_DictClass)
+        T_DictClass = ::Ice::__declareClass('::Test::DictClass')
+    end
+
     if not defined?(::Test::DictClass)
         class DictClass < ::Ice::Value
 
@@ -375,10 +379,6 @@ module ::Test
             end
 
             attr_accessor :isdict
-        end
-
-        if not defined?(::Test::T_DictClass)
-            T_DictClass = ::Ice::__declareClass('::Test::DictClass')
         end
 
         T_DictClass.defineClass(DictClass, -1, false, nil, [['isdict', ::Test::T_IntStringDict, false, 0]])
@@ -465,6 +465,10 @@ module ::Test
             ["floatBuf", ::Test::T_FloatBuffer],
             ["doubleBuf", ::Test::T_DoubleBuffer]
         ])
+    end
+
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
@@ -598,10 +602,6 @@ module ::Test
         class TestIntfPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include TestIntfPrx_mixin
-        end
-
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])

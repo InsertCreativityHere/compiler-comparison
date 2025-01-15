@@ -67,6 +67,10 @@ module ::Test1
         T_WstringException = ::Ice::__defineException('::Test1::WstringException', WstringException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
+    if not defined?(::Test1::T_WstringClassPrx)
+        T_WstringClassPrx = ::Ice::__declareProxy('::Test1::WstringClass')
+    end
+
     if not defined?(::Test1::WstringClassPrx)
         module WstringClassPrx_mixin
 
@@ -86,10 +90,6 @@ module ::Test1
         class WstringClassPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include WstringClassPrx_mixin
-        end
-
-        if not defined?(::Test1::T_WstringClassPrx)
-            T_WstringClassPrx = ::Ice::__declareProxy('::Test1::WstringClass')
         end
 
         T_WstringClassPrx.defineProxy(WstringClassPrx, nil, [])
@@ -151,6 +151,10 @@ module ::Test2
         T_WstringException = ::Ice::__defineException('::Test2::WstringException', WstringException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
+    if not defined?(::Test2::T_WstringClassPrx)
+        T_WstringClassPrx = ::Ice::__declareProxy('::Test2::WstringClass')
+    end
+
     if not defined?(::Test2::WstringClassPrx)
         module WstringClassPrx_mixin
 
@@ -170,10 +174,6 @@ module ::Test2
         class WstringClassPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include WstringClassPrx_mixin
-        end
-
-        if not defined?(::Test2::T_WstringClassPrx)
-            T_WstringClassPrx = ::Ice::__declareProxy('::Test2::WstringClass')
         end
 
         T_WstringClassPrx.defineProxy(WstringClassPrx, nil, [])

@@ -29,6 +29,9 @@ _M_Glacier2 = Ice.openModule('Glacier2')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Backend' not in _M_Test.__dict__:
+    _M_Test._t_BackendPrx = IcePy.declareProxy('::Test::Backend')
+
 if 'BackendPrx' not in _M_Test.__dict__:
     _M_Test.BackendPrx = None
     class BackendPrx(Ice.ObjectPrx):
@@ -268,6 +271,9 @@ if 'TestToken' not in _M_Test.__dict__:
     _M_Test.TestToken = TestToken
     del TestToken
 
+if 'TestController' not in _M_Test.__dict__:
+    _M_Test._t_TestControllerPrx = IcePy.declareProxy('::Test::TestController')
+
 if 'TestControllerPrx' not in _M_Test.__dict__:
     _M_Test.TestControllerPrx = None
     class TestControllerPrx(Ice.ObjectPrx):
@@ -347,6 +353,9 @@ if 'TestControllerPrx' not in _M_Test.__dict__:
 
     _M_Test.TestController = TestController
     del TestController
+
+if 'TestSession' not in _M_Test.__dict__:
+    _M_Test._t_TestSessionPrx = IcePy.declareProxy('::Test::TestSession')
 
 if 'TestSessionPrx' not in _M_Test.__dict__:
     _M_Test.TestSessionPrx = None

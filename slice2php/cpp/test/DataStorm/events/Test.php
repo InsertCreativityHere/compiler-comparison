@@ -49,6 +49,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_Base;
+    $Test__t_Base = IcePHP_declareClass('::Test::Base');
+}
+
+namespace Test
+{
+    global $Test__t_Base;
     class Base extends \Ice\Value
     {
         public function __construct($b='')
@@ -79,6 +85,12 @@ namespace Test
     global $IcePHP__t_string;
     $Test__t_Base = IcePHP_defineClass('::Test::Base', '\\Test\\Base', -1, false, $Ice__t_Value, array(
         array('b', $IcePHP__t_string, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_Extended;
+    $Test__t_Extended = IcePHP_declareClass('::Test::Extended');
 }
 
 namespace Test

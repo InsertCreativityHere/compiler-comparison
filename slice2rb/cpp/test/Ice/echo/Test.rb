@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_EchoPrx)
+        T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
+    end
+
     if not defined?(::Test::EchoPrx)
         module EchoPrx_mixin
 
@@ -41,10 +45,6 @@ module ::Test
         class EchoPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include EchoPrx_mixin
-        end
-
-        if not defined?(::Test::T_EchoPrx)
-            T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
         end
 
         T_EchoPrx.defineProxy(EchoPrx, nil, [])

@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test1
 
+    if not defined?(::Test1::T_C1)
+        T_C1 = ::Ice::__declareClass('::Test1::C1')
+    end
+
     if not defined?(::Test1::C1)
         class C1 < ::Ice::Value
 
@@ -28,11 +32,11 @@ module ::Test1
             attr_accessor :i
         end
 
-        if not defined?(::Test1::T_C1)
-            T_C1 = ::Ice::__declareClass('::Test1::C1')
-        end
-
         T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
+    end
+
+    if not defined?(::Test1::T_C2)
+        T_C2 = ::Ice::__declareClass('::Test1::C2')
     end
 
     if not defined?(::Test1::C2)
@@ -44,10 +48,6 @@ module ::Test1
             end
 
             attr_accessor :l
-        end
-
-        if not defined?(::Test1::T_C2)
-            T_C2 = ::Ice::__declareClass('::Test1::C2')
         end
 
         T_C2.defineClass(C2, -1, false, ::Test1::T_C1, [['l', ::Ice::T_long, false, 0]])

@@ -162,6 +162,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_BaseClass;
+    $Test__t_BaseClass = IcePHP_declareClass('::Test::BaseClass');
+}
+
+namespace Test
+{
+    global $Test__t_BaseClass;
     class BaseClass extends \Ice\Value
     {
         public function __construct($bc='')
@@ -192,6 +198,13 @@ namespace Test
     global $IcePHP__t_string;
     $Test__t_BaseClass = IcePHP_defineClass('::Test::BaseClass', '\\Test\\BaseClass', -1, false, $Ice__t_Value, array(
         array('bc', $IcePHP__t_string, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_Relay;
+    global $Test__t_RelayPrx;
+    $Test__t_RelayPrx = IcePHP_declareProxy('::Test::Relay');
 }
 
 namespace Test
@@ -229,6 +242,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_RelayPrx, 'knownPreservedAsKnownPreserved', 0, -1, null, null, null, array($Test__t_KnownPreserved));
     IcePHP_defineOperation($Test__t_RelayPrx, 'unknownPreservedAsBase', 0, -1, null, null, null, array($Test__t_Base));
     IcePHP_defineOperation($Test__t_RelayPrx, 'unknownPreservedAsKnownPreserved', 0, -1, null, null, null, array($Test__t_KnownPreserved));
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
 }
 
 namespace Test
@@ -286,6 +306,12 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'relayUnknownPreservedAsBase', 0, -1, array(array($Test__t_RelayPrx)), null, null, array($Test__t_Base));
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'relayUnknownPreservedAsKnownPreserved', 0, -1, array(array($Test__t_RelayPrx)), null, null, array($Test__t_KnownPreserved));
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_PreservedClass;
+    $Test__t_PreservedClass = IcePHP_declareClass('::Test::PreservedClass');
 }
 
 namespace Test

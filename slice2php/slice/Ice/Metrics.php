@@ -35,6 +35,12 @@ namespace IceMX
 namespace IceMX
 {
     global $IceMX__t_Metrics;
+    $IceMX__t_Metrics = IcePHP_declareClass('::IceMX::Metrics');
+}
+
+namespace IceMX
+{
+    global $IceMX__t_Metrics;
     class Metrics extends \Ice\Value
     {
         public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0)
@@ -167,6 +173,13 @@ namespace IceMX
 {
     global $IceMX__t_MetricsAdmin;
     global $IceMX__t_MetricsAdminPrx;
+    $IceMX__t_MetricsAdminPrx = IcePHP_declareProxy('::IceMX::MetricsAdmin');
+}
+
+namespace IceMX
+{
+    global $IceMX__t_MetricsAdmin;
+    global $IceMX__t_MetricsAdminPrx;
 
     class MetricsAdminPrxHelper
     {
@@ -211,6 +224,12 @@ namespace IceMX
 namespace IceMX
 {
     global $IceMX__t_ThreadMetrics;
+    $IceMX__t_ThreadMetrics = IcePHP_declareClass('::IceMX::ThreadMetrics');
+}
+
+namespace IceMX
+{
+    global $IceMX__t_ThreadMetrics;
     class ThreadMetrics extends \IceMX\Metrics
     {
         public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $inUseForIO=0, $inUseForUser=0, $inUseForOther=0)
@@ -248,6 +267,12 @@ namespace IceMX
         array('inUseForIO', $IcePHP__t_int, false, 0),
         array('inUseForUser', $IcePHP__t_int, false, 0),
         array('inUseForOther', $IcePHP__t_int, false, 0)));
+}
+
+namespace IceMX
+{
+    global $IceMX__t_DispatchMetrics;
+    $IceMX__t_DispatchMetrics = IcePHP_declareClass('::IceMX::DispatchMetrics');
 }
 
 namespace IceMX
@@ -296,6 +321,12 @@ namespace IceMX
 namespace IceMX
 {
     global $IceMX__t_ChildInvocationMetrics;
+    $IceMX__t_ChildInvocationMetrics = IcePHP_declareClass('::IceMX::ChildInvocationMetrics');
+}
+
+namespace IceMX
+{
+    global $IceMX__t_ChildInvocationMetrics;
     class ChildInvocationMetrics extends \IceMX\Metrics
     {
         public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $size=0, $replySize=0)
@@ -335,6 +366,12 @@ namespace IceMX
 namespace IceMX
 {
     global $IceMX__t_CollocatedMetrics;
+    $IceMX__t_CollocatedMetrics = IcePHP_declareClass('::IceMX::CollocatedMetrics');
+}
+
+namespace IceMX
+{
+    global $IceMX__t_CollocatedMetrics;
     class CollocatedMetrics extends \IceMX\ChildInvocationMetrics
     {
         public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $size=0, $replySize=0)
@@ -366,6 +403,12 @@ namespace IceMX
 namespace IceMX
 {
     global $IceMX__t_RemoteMetrics;
+    $IceMX__t_RemoteMetrics = IcePHP_declareClass('::IceMX::RemoteMetrics');
+}
+
+namespace IceMX
+{
+    global $IceMX__t_RemoteMetrics;
     class RemoteMetrics extends \IceMX\ChildInvocationMetrics
     {
         public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $size=0, $replySize=0)
@@ -392,6 +435,12 @@ namespace IceMX
 
     global $IceMX__t_ChildInvocationMetrics;
     $IceMX__t_RemoteMetrics = IcePHP_defineClass('::IceMX::RemoteMetrics', '\\IceMX\\RemoteMetrics', -1, false, $IceMX__t_ChildInvocationMetrics, null);
+}
+
+namespace IceMX
+{
+    global $IceMX__t_InvocationMetrics;
+    $IceMX__t_InvocationMetrics = IcePHP_declareClass('::IceMX::InvocationMetrics');
 }
 
 namespace IceMX
@@ -430,8 +479,6 @@ namespace IceMX
         public $collocated;
     }
 
-    $IceMX__t_InvocationMetrics = IcePHP_declareClass('::IceMX::InvocationMetrics');
-
     global $IceMX__t_Metrics;
     global $IcePHP__t_int;
     global $IceMX__t_MetricsMap;
@@ -440,6 +487,12 @@ namespace IceMX
         array('userException', $IcePHP__t_int, false, 0),
         array('remotes', $IceMX__t_MetricsMap, false, 0),
         array('collocated', $IceMX__t_MetricsMap, false, 0)));
+}
+
+namespace IceMX
+{
+    global $IceMX__t_ConnectionMetrics;
+    $IceMX__t_ConnectionMetrics = IcePHP_declareClass('::IceMX::ConnectionMetrics');
 }
 
 namespace IceMX

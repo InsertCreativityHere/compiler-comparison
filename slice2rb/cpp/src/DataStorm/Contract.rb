@@ -335,6 +335,10 @@ module ::DataStormContract
         ])
     end
 
+    if not defined?(::DataStormContract::T_ElementConfig)
+        T_ElementConfig = ::Ice::__declareClass('::DataStormContract::ElementConfig')
+    end
+
     if not defined?(::DataStormContract::ElementConfig)
         class ElementConfig < ::Ice::Value
 
@@ -349,10 +353,6 @@ module ::DataStormContract
             end
 
             attr_accessor :facet, :sampleFilter, :name, :priority, :sampleCount, :sampleLifetime, :clearHistory
-        end
-
-        if not defined?(::DataStormContract::T_ElementConfig)
-            T_ElementConfig = ::Ice::__declareClass('::DataStormContract::ElementConfig')
         end
 
         T_ElementConfig.defineClass(ElementConfig, 1, false, nil, [
@@ -570,6 +570,10 @@ module ::DataStormContract
         T_ElementSpecAckSeq = ::Ice::__defineSequence('::DataStormContract::ElementSpecAckSeq', ::DataStormContract::T_ElementSpecAck)
     end
 
+    if not defined?(::DataStormContract::T_SessionPrx)
+        T_SessionPrx = ::Ice::__declareProxy('::DataStormContract::Session')
+    end
+
     if not defined?(::DataStormContract::SessionPrx)
         module SessionPrx_mixin
 
@@ -623,10 +627,6 @@ module ::DataStormContract
             include SessionPrx_mixin
         end
 
-        if not defined?(::DataStormContract::T_SessionPrx)
-            T_SessionPrx = ::Ice::__declareProxy('::DataStormContract::Session')
-        end
-
         T_SessionPrx.defineProxy(SessionPrx, nil, [])
 
         SessionPrx_mixin::OP_announceTopics = ::Ice::__defineOperation('announceTopics', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_TopicInfoSeq, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
@@ -642,6 +642,10 @@ module ::DataStormContract
         SessionPrx_mixin::OP_disconnected = ::Ice::__defineOperation('disconnected', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
+    if not defined?(::DataStormContract::T_PublisherSessionPrx)
+        T_PublisherSessionPrx = ::Ice::__declareProxy('::DataStormContract::PublisherSession')
+    end
+
     if not defined?(::DataStormContract::PublisherSessionPrx)
         module PublisherSessionPrx_mixin
             include ::DataStormContract::SessionPrx_mixin
@@ -652,11 +656,11 @@ module ::DataStormContract
             include PublisherSessionPrx_mixin
         end
 
-        if not defined?(::DataStormContract::T_PublisherSessionPrx)
-            T_PublisherSessionPrx = ::Ice::__declareProxy('::DataStormContract::PublisherSession')
-        end
-
         T_PublisherSessionPrx.defineProxy(PublisherSessionPrx, nil, [::DataStormContract::T_SessionPrx])
+    end
+
+    if not defined?(::DataStormContract::T_SubscriberSessionPrx)
+        T_SubscriberSessionPrx = ::Ice::__declareProxy('::DataStormContract::SubscriberSession')
     end
 
     if not defined?(::DataStormContract::SubscriberSessionPrx)
@@ -673,13 +677,13 @@ module ::DataStormContract
             include SubscriberSessionPrx_mixin
         end
 
-        if not defined?(::DataStormContract::T_SubscriberSessionPrx)
-            T_SubscriberSessionPrx = ::Ice::__declareProxy('::DataStormContract::SubscriberSession')
-        end
-
         T_SubscriberSessionPrx.defineProxy(SubscriberSessionPrx, nil, [::DataStormContract::T_SessionPrx])
 
         SubscriberSessionPrx_mixin::OP_s = ::Ice::__defineOperation('s', ::Ice::OperationMode::Normal, nil, [[::Ice::T_long, false, 0], [::Ice::T_long, false, 0], [::DataStormContract::T_DataSample, false, 0]], [], nil, [])
+    end
+
+    if not defined?(::DataStormContract::T_NodePrx)
+        T_NodePrx = ::Ice::__declareProxy('::DataStormContract::Node')
     end
 
     if not defined?(::DataStormContract::NodePrx)
@@ -703,15 +707,15 @@ module ::DataStormContract
             include NodePrx_mixin
         end
 
-        if not defined?(::DataStormContract::T_NodePrx)
-            T_NodePrx = ::Ice::__declareProxy('::DataStormContract::Node')
-        end
-
         T_NodePrx.defineProxy(NodePrx, nil, [])
 
         NodePrx_mixin::OP_initiateCreateSession = ::Ice::__defineOperation('initiateCreateSession', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0]], [], nil, [])
         NodePrx_mixin::OP_createSession = ::Ice::__defineOperation('createSession', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0], [::DataStormContract::T_SubscriberSessionPrx, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
         NodePrx_mixin::OP_confirmCreateSession = ::Ice::__defineOperation('confirmCreateSession', ::Ice::OperationMode::Normal, nil, [[::DataStormContract::T_NodePrx, false, 0], [::DataStormContract::T_PublisherSessionPrx, false, 0]], [], nil, [])
+    end
+
+    if not defined?(::DataStormContract::T_LookupPrx)
+        T_LookupPrx = ::Ice::__declareProxy('::DataStormContract::Lookup')
     end
 
     if not defined?(::DataStormContract::LookupPrx)
@@ -737,10 +741,6 @@ module ::DataStormContract
         class LookupPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include LookupPrx_mixin
-        end
-
-        if not defined?(::DataStormContract::T_LookupPrx)
-            T_LookupPrx = ::Ice::__declareProxy('::DataStormContract::Lookup')
         end
 
         T_LookupPrx.defineProxy(LookupPrx, nil, [])

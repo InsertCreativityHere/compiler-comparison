@@ -36,20 +36,14 @@ namespace Test
 namespace Test
 {
     global $Test__t_MyClass;
-    if(!isset($Test__t_MyClass))
-    {
-        $Test__t_MyClass = IcePHP_declareClass('::Test::MyClass');
-    }
+    $Test__t_MyClass = IcePHP_declareClass('::Test::MyClass');
 }
 
 namespace Test
 {
     global $Test__t_MyInterface;
     global $Test__t_MyInterfacePrx;
-    if(!isset($Test__t_MyInterface))
-    {
-        $Test__t_MyInterfacePrx = IcePHP_declareProxy('::Test::MyInterface');
-    }
+    $Test__t_MyInterfacePrx = IcePHP_declareProxy('::Test::MyInterface');
 }
 
 namespace Test
@@ -210,6 +204,12 @@ namespace Test
         global $Test__t_MyClass;
         $Test__t_StringMyClassD = IcePHP_defineDictionary('::Test::StringMyClassD', $IcePHP__t_string, $Test__t_MyClass);
     }
+}
+
+namespace Test
+{
+    global $Test__t_OptionalClass;
+    $Test__t_OptionalClass = IcePHP_declareClass('::Test::OptionalClass');
 }
 
 namespace Test

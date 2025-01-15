@@ -168,6 +168,9 @@ if '_break' not in _M__await.__dict__:
     _M__await._break = _break
     del _break
 
+if '_case' not in _M__await.__dict__:
+    _M__await._t_casePrx = IcePy.declareProxy('::await::case')
+
 if 'casePrx' not in _M__await.__dict__:
     _M__await.casePrx = None
     class casePrx(Ice.ObjectPrx):
@@ -237,6 +240,9 @@ if 'casePrx' not in _M__await.__dict__:
 
     _M__await._case = _case
     del _case
+
+if 'typeof' not in _M__await.__dict__:
+    _M__await._t_typeofPrx = IcePy.declareProxy('::await::typeof')
 
 if 'typeofPrx' not in _M__await.__dict__:
     _M__await.typeofPrx = None
@@ -309,6 +315,9 @@ if 'typeofPrx' not in _M__await.__dict__:
     del typeof
 
 if 'delete' not in _M__await.__dict__:
+    _M__await._t_delete = IcePy.declareValue('::await::delete')
+
+if 'delete' not in _M__await.__dict__:
     _M__await.delete = None
     class delete(Ice.Value):
         def __init__(self, _if=0, _else=None, export=0, clone='', equals='', hashCode='', constructor=''):
@@ -345,6 +354,9 @@ if 'delete' not in _M__await.__dict__:
 
     _M__await.delete = delete
     del delete
+
+if 'explicit' not in _M__await.__dict__:
+    _M__await._t_explicitPrx = IcePy.declareProxy('::await::explicit')
 
 if 'explicitPrx' not in _M__await.__dict__:
     _M__await.explicitPrx = None
@@ -409,6 +421,9 @@ if '_t__while' not in _M__await.__dict__:
     _M__await._t__while = IcePy.defineDictionary('::await::while', (), IcePy._t_string, _M__await._t__break)
 
 if 'package' not in _M__await.__dict__:
+    _M__await._t_package = IcePy.declareValue('::await::package')
+
+if 'package' not in _M__await.__dict__:
     _M__await.package = None
     class package(Ice.Value):
         def __init__(self, _for=None, goto=None, _if=None, internal=None, debugger=None, null=None):
@@ -443,6 +458,9 @@ if 'package' not in _M__await.__dict__:
 
     _M__await.package = package
     del package
+
+if 'optionalParams' not in _M__await.__dict__:
+    _M__await._t_optionalParamsPrx = IcePy.declareProxy('::await::optionalParams')
 
 if 'optionalParamsPrx' not in _M__await.__dict__:
     _M__await.optionalParamsPrx = None
@@ -636,6 +654,9 @@ if 'BaseMethods' not in _M__await.__dict__:
     _M__await.BaseMethods = BaseMethods
     del BaseMethods
 
+if 'implicit' not in _M__await.__dict__:
+    _M__await._t_implicitPrx = IcePy.declareProxy('::await::implicit')
+
 if 'implicitPrx' not in _M__await.__dict__:
     _M__await.implicitPrx = None
     class implicitPrx(Ice.ObjectPrx):
@@ -713,6 +734,9 @@ _M__await.public = 0
 # Start of module _await.System
 _M__await.System = Ice.openModule('_await.System')
 __name__ = '_await.System'
+
+if 'Test' not in _M__await.System.__dict__:
+    _M__await.System._t_TestPrx = IcePy.declareProxy('::await::System::Test')
 
 if 'TestPrx' not in _M__await.System.__dict__:
     _M__await.System.TestPrx = None
@@ -793,6 +817,9 @@ __name__ = '_await'
 # Start of module System
 _M_System = Ice.openModule('System')
 __name__ = 'System'
+
+if 'Test' not in _M_System.__dict__:
+    _M_System._t_TestPrx = IcePy.declareProxy('::System::Test')
 
 if 'TestPrx' not in _M_System.__dict__:
     _M_System.TestPrx = None

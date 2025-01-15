@@ -29,6 +29,9 @@ _M_IceMX = Ice.openModule('IceMX')
 __name__ = 'IceMX'
 
 if 'TopicMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX._t_TopicMetrics = IcePy.declareValue('::IceMX::TopicMetrics')
+
+if 'TopicMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.TopicMetrics = None
     class TopicMetrics(_M_IceMX.Metrics):
         """
@@ -66,6 +69,9 @@ if 'TopicMetrics' not in _M_IceMX.__dict__:
 
     _M_IceMX.TopicMetrics = TopicMetrics
     del TopicMetrics
+
+if 'SubscriberMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX._t_SubscriberMetrics = IcePy.declareValue('::IceMX::SubscriberMetrics')
 
 if 'SubscriberMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.SubscriberMetrics = None

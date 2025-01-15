@@ -32,6 +32,9 @@ _M_Test.Inner.Sub = Ice.openModule('Test.Inner.Sub')
 __name__ = 'Test'
 
 if 'Derived' not in _M_Test.__dict__:
+    _M_Test._t_Derived = IcePy.declareValue('::Test::Derived')
+
+if 'Derived' not in _M_Test.__dict__:
     _M_Test.Derived = None
     class Derived(_M_Test.Base):
         def __init__(self, theS=None, str='', b=''):

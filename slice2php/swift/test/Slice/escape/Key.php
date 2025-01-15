@@ -79,6 +79,13 @@ namespace _and
 {
     global $and__t_break;
     global $and__t_breakPrx;
+    $and__t_breakPrx = IcePHP_declareProxy('::and::break');
+}
+
+namespace _and
+{
+    global $and__t_break;
+    global $and__t_breakPrx;
 
     class breakPrxHelper
     {
@@ -114,6 +121,13 @@ namespace _and
 {
     global $and__t_func;
     global $and__t_funcPrx;
+    $and__t_funcPrx = IcePHP_declareProxy('::and::func');
+}
+
+namespace _and
+{
+    global $and__t_func;
+    global $and__t_funcPrx;
 
     class funcPrxHelper
     {
@@ -142,6 +156,12 @@ namespace _and
     $and__t_funcPrx = IcePHP_defineProxy('::and::func', $Ice__t_ObjectPrx, null);
 
     IcePHP_defineOperation($and__t_funcPrx, 'public', 0, -1, null, null, null, null);
+}
+
+namespace _and
+{
+    global $and__t_switch;
+    $and__t_switch = IcePHP_declareClass('::and::switch');
 }
 
 namespace _and
@@ -184,6 +204,13 @@ namespace _and
         array('_if', $IcePHP__t_int, false, 0),
         array('export', $and__t_funcPrx, false, 0),
         array('volatile', $IcePHP__t_int, false, 0)));
+}
+
+namespace _and
+{
+    global $and__t_do;
+    global $and__t_doPrx;
+    $and__t_doPrx = IcePHP_declareProxy('::and::do');
 }
 
 namespace _and
@@ -289,6 +316,13 @@ namespace _and
     $and__t_as = IcePHP_defineException('::and::as', '\\_and\\_as', $and__t_return, array(
         array('_static', $IcePHP__t_int, false, 0),
         array('_switch', $IcePHP__t_int, false, 0)));
+}
+
+namespace _and
+{
+    global $and__t_friend;
+    global $and__t_friendPrx;
+    $and__t_friendPrx = IcePHP_declareProxy('::and::friend');
 }
 
 namespace _and

@@ -25,6 +25,13 @@ namespace Test
 {
     global $Test__t_Initial;
     global $Test__t_InitialPrx;
+    $Test__t_InitialPrx = IcePHP_declareProxy('::Test::Initial');
+}
+
+namespace Test
+{
+    global $Test__t_Initial;
+    global $Test__t_InitialPrx;
 
     class InitialPrxHelper
     {

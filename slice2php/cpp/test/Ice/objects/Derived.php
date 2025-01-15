@@ -24,6 +24,12 @@ namespace
 namespace Test
 {
     global $Test__t_Derived;
+    $Test__t_Derived = IcePHP_declareClass('::Test::Derived');
+}
+
+namespace Test
+{
+    global $Test__t_Derived;
     class Derived extends \Test\Base
     {
         public function __construct($theS=null, $str='', $b='')

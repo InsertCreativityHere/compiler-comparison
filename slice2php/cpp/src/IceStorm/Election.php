@@ -90,6 +90,13 @@ namespace IceStormElection
 {
     global $IceStormElection__t_ReplicaObserver;
     global $IceStormElection__t_ReplicaObserverPrx;
+    $IceStormElection__t_ReplicaObserverPrx = IcePHP_declareProxy('::IceStormElection::ReplicaObserver');
+}
+
+namespace IceStormElection
+{
+    global $IceStormElection__t_ReplicaObserver;
+    global $IceStormElection__t_ReplicaObserverPrx;
 
     class ReplicaObserverPrxHelper
     {
@@ -127,6 +134,13 @@ namespace IceStormElection
     IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'destroyTopic', 0, -1, array(array($IceStormElection__t_LogUpdate), array($IcePHP__t_string)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
     IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'addSubscriber', 0, -1, array(array($IceStormElection__t_LogUpdate), array($IcePHP__t_string), array($IceStorm__t_SubscriberRecord)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
     IcePHP_defineOperation($IceStormElection__t_ReplicaObserverPrx, 'removeSubscriber', 0, -1, array(array($IceStormElection__t_LogUpdate), array($IcePHP__t_string), array($Ice__t_IdentitySeq)), null, null, array($IceStormElection__t_ObserverInconsistencyException));
+}
+
+namespace IceStormElection
+{
+    global $IceStormElection__t_TopicManagerSync;
+    global $IceStormElection__t_TopicManagerSyncPrx;
+    $IceStormElection__t_TopicManagerSyncPrx = IcePHP_declareProxy('::IceStormElection::TopicManagerSync');
 }
 
 namespace IceStormElection
@@ -183,10 +197,7 @@ namespace IceStormElection
 {
     global $IceStormElection__t_Node;
     global $IceStormElection__t_NodePrx;
-    if(!isset($IceStormElection__t_Node))
-    {
-        $IceStormElection__t_NodePrx = IcePHP_declareProxy('::IceStormElection::Node');
-    }
+    $IceStormElection__t_NodePrx = IcePHP_declareProxy('::IceStormElection::Node');
 }
 
 namespace IceStormElection

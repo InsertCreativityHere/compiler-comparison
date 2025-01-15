@@ -42,6 +42,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_Base;
+    $Test__t_Base = IcePHP_declareClass('::Test::Base');
+}
+
+namespace Test
+{
+    global $Test__t_Base;
     class Base extends \Ice\Value
     {
         public function __construct($theS=null, $str='')
@@ -81,19 +87,19 @@ namespace Test
 namespace Test
 {
     global $Test__t_B;
-    if(!isset($Test__t_B))
-    {
-        $Test__t_B = IcePHP_declareClass('::Test::B');
-    }
+    $Test__t_B = IcePHP_declareClass('::Test::B');
 }
 
 namespace Test
 {
     global $Test__t_C;
-    if(!isset($Test__t_C))
-    {
-        $Test__t_C = IcePHP_declareClass('::Test::C');
-    }
+    $Test__t_C = IcePHP_declareClass('::Test::C');
+}
+
+namespace Test
+{
+    global $Test__t_A;
+    $Test__t_A = IcePHP_declareClass('::Test::A');
 }
 
 namespace Test
@@ -130,8 +136,6 @@ namespace Test
         public $preMarshalInvoked;
         public $postUnmarshalInvoked;
     }
-
-    $Test__t_A = IcePHP_declareClass('::Test::A');
 
     global $Ice__t_Value;
     global $Test__t_B;
@@ -224,6 +228,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_D;
+    $Test__t_D = IcePHP_declareClass('::Test::D');
+}
+
+namespace Test
+{
+    global $Test__t_D;
     class D extends \Ice\Value
     {
         public function __construct($theA=null, $theB=null, $theC=null, $preMarshalInvoked=false, $postUnmarshalInvoked=false)
@@ -258,8 +268,6 @@ namespace Test
         public $postUnmarshalInvoked;
     }
 
-    $Test__t_D = IcePHP_declareClass('::Test::D');
-
     global $Ice__t_Value;
     global $Test__t_A;
     global $Test__t_B;
@@ -271,6 +279,12 @@ namespace Test
         array('theC', $Test__t_C, false, 0),
         array('preMarshalInvoked', $IcePHP__t_bool, false, 0),
         array('postUnmarshalInvoked', $IcePHP__t_bool, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_E;
+    $Test__t_E = IcePHP_declareClass('::Test::E');
 }
 
 namespace Test
@@ -315,6 +329,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_F;
+    $Test__t_F = IcePHP_declareClass('::Test::F');
+}
+
+namespace Test
+{
+    global $Test__t_F;
     class F extends \Ice\Value
     {
         public function __construct($e1=null, $e2=null)
@@ -343,13 +363,17 @@ namespace Test
         public $e2;
     }
 
-    $Test__t_F = IcePHP_declareClass('::Test::F');
-
     global $Ice__t_Value;
     global $Test__t_E;
     $Test__t_F = IcePHP_defineClass('::Test::F', '\\Test\\F', -1, false, $Ice__t_Value, array(
         array('e1', $Test__t_E, false, 0),
         array('e2', $Test__t_E, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_G;
+    $Test__t_G = IcePHP_declareClass('::Test::G');
 }
 
 namespace Test
@@ -397,10 +421,13 @@ namespace Test
 namespace Test
 {
     global $Test__t_CompactExt;
-    if(!isset($Test__t_CompactExt))
-    {
-        $Test__t_CompactExt = IcePHP_declareClass('::Test::CompactExt');
-    }
+    $Test__t_CompactExt = IcePHP_declareClass('::Test::CompactExt');
+}
+
+namespace Test
+{
+    global $Test__t_Compact;
+    $Test__t_Compact = IcePHP_declareClass('::Test::Compact');
 }
 
 namespace Test
@@ -475,6 +502,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_A1;
+    $Test__t_A1 = IcePHP_declareClass('::Test::A1');
+}
+
+namespace Test
+{
+    global $Test__t_A1;
     class A1 extends \Ice\Value
     {
         public function __construct($name='')
@@ -510,6 +543,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_B1;
+    $Test__t_B1 = IcePHP_declareClass('::Test::B1');
+}
+
+namespace Test
+{
+    global $Test__t_B1;
     class B1 extends \Ice\Value
     {
         public function __construct($a1=null, $a2=null)
@@ -538,13 +577,17 @@ namespace Test
         public $a2;
     }
 
-    $Test__t_B1 = IcePHP_declareClass('::Test::B1');
-
     global $Ice__t_Value;
     global $Test__t_A1;
     $Test__t_B1 = IcePHP_defineClass('::Test::B1', '\\Test\\B1', -1, false, $Ice__t_Value, array(
         array('a1', $Test__t_A1, false, 0),
         array('a2', $Test__t_A1, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_D1;
+    $Test__t_D1 = IcePHP_declareClass('::Test::D1');
 }
 
 namespace Test
@@ -578,8 +621,6 @@ namespace Test
         public $a3;
         public $a4;
     }
-
-    $Test__t_D1 = IcePHP_declareClass('::Test::D1');
 
     global $Test__t_B1;
     global $Test__t_A1;
@@ -643,6 +684,12 @@ namespace Test
 namespace Test\Inner
 {
     global $Test_Inner__t_A;
+    $Test_Inner__t_A = IcePHP_declareClass('::Test::Inner::A');
+}
+
+namespace Test\Inner
+{
+    global $Test_Inner__t_A;
     class A extends \Ice\Value
     {
         public function __construct($theA=null)
@@ -668,8 +715,6 @@ namespace Test\Inner
 
         public $theA;
     }
-
-    $Test_Inner__t_A = IcePHP_declareClass('::Test::Inner::A');
 
     global $Ice__t_Value;
     global $Test__t_A;
@@ -704,6 +749,12 @@ namespace Test\Inner
 namespace Test\Inner\Sub
 {
     global $Test_Inner_Sub__t_A;
+    $Test_Inner_Sub__t_A = IcePHP_declareClass('::Test::Inner::Sub::A');
+}
+
+namespace Test\Inner\Sub
+{
+    global $Test_Inner_Sub__t_A;
     class A extends \Ice\Value
     {
         public function __construct($theA=null)
@@ -729,8 +780,6 @@ namespace Test\Inner\Sub
 
         public $theA;
     }
-
-    $Test_Inner_Sub__t_A = IcePHP_declareClass('::Test::Inner::Sub::A');
 
     global $Ice__t_Value;
     global $Test_Inner__t_A;
@@ -765,6 +814,12 @@ namespace Test\Inner\Sub
 namespace Test
 {
     global $Test__t_Recursive;
+    $Test__t_Recursive = IcePHP_declareClass('::Test::Recursive');
+}
+
+namespace Test
+{
+    global $Test__t_Recursive;
     class Recursive extends \Ice\Value
     {
         public function __construct($v=null)
@@ -791,12 +846,16 @@ namespace Test
         public $v;
     }
 
-    $Test__t_Recursive = IcePHP_declareClass('::Test::Recursive');
-
     global $Ice__t_Value;
     global $Test__t_Recursive;
     $Test__t_Recursive = IcePHP_defineClass('::Test::Recursive', '\\Test\\Recursive', -1, false, $Ice__t_Value, array(
         array('v', $Test__t_Recursive, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_K;
+    $Test__t_K = IcePHP_declareClass('::Test::K');
 }
 
 namespace Test
@@ -828,11 +887,15 @@ namespace Test
         public $value;
     }
 
-    $Test__t_K = IcePHP_declareClass('::Test::K');
-
     global $Ice__t_Value;
     $Test__t_K = IcePHP_defineClass('::Test::K', '\\Test\\K', -1, false, $Ice__t_Value, array(
         array('value', $Ice__t_Value, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_L;
+    $Test__t_L = IcePHP_declareClass('::Test::L');
 }
 
 namespace Test
@@ -936,6 +999,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_M;
+    $Test__t_M = IcePHP_declareClass('::Test::M');
+}
+
+namespace Test
+{
+    global $Test__t_M;
     class M extends \Ice\Value
     {
         public function __construct($v=null)
@@ -962,8 +1031,6 @@ namespace Test
         public $v;
     }
 
-    $Test__t_M = IcePHP_declareClass('::Test::M');
-
     global $Ice__t_Value;
     global $Test__t_LMap;
     $Test__t_M = IcePHP_defineClass('::Test::M', '\\Test\\M', -1, false, $Ice__t_Value, array(
@@ -973,20 +1040,20 @@ namespace Test
 namespace Test
 {
     global $Test__t_F1;
-    if(!isset($Test__t_F1))
-    {
-        $Test__t_F1 = IcePHP_declareClass('::Test::F1');
-    }
+    $Test__t_F1 = IcePHP_declareClass('::Test::F1');
 }
 
 namespace Test
 {
     global $Test__t_F2;
     global $Test__t_F2Prx;
-    if(!isset($Test__t_F2))
-    {
-        $Test__t_F2Prx = IcePHP_declareProxy('::Test::F2');
-    }
+    $Test__t_F2Prx = IcePHP_declareProxy('::Test::F2');
+}
+
+namespace Test
+{
+    global $Test__t_F3;
+    $Test__t_F3 = IcePHP_declareClass('::Test::F3');
 }
 
 namespace Test
@@ -1020,14 +1087,19 @@ namespace Test
         public $f2;
     }
 
-    $Test__t_F3 = IcePHP_declareClass('::Test::F3');
-
     global $Ice__t_Value;
     global $Test__t_F1;
     global $Test__t_F2Prx;
     $Test__t_F3 = IcePHP_defineClass('::Test::F3', '\\Test\\F3', -1, false, $Ice__t_Value, array(
         array('f1', $Test__t_F1, false, 0),
         array('f2', $Test__t_F2Prx, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_Initial;
+    global $Test__t_InitialPrx;
+    $Test__t_InitialPrx = IcePHP_declareProxy('::Test::Initial');
 }
 
 namespace Test

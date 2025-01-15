@@ -24,6 +24,13 @@ namespace Test
 {
     global $Test__t_RemoteCommunicator;
     global $Test__t_RemoteCommunicatorPrx;
+    $Test__t_RemoteCommunicatorPrx = IcePHP_declareProxy('::Test::RemoteCommunicator');
+}
+
+namespace Test
+{
+    global $Test__t_RemoteCommunicator;
+    global $Test__t_RemoteCommunicatorPrx;
 
     class RemoteCommunicatorPrxHelper
     {
@@ -71,6 +78,13 @@ namespace Test
 {
     global $Test__t_RemoteCommunicatorFactory;
     global $Test__t_RemoteCommunicatorFactoryPrx;
+    $Test__t_RemoteCommunicatorFactoryPrx = IcePHP_declareProxy('::Test::RemoteCommunicatorFactory');
+}
+
+namespace Test
+{
+    global $Test__t_RemoteCommunicatorFactory;
+    global $Test__t_RemoteCommunicatorFactoryPrx;
 
     class RemoteCommunicatorFactoryPrxHelper
     {
@@ -102,6 +116,13 @@ namespace Test
     global $Test__t_RemoteCommunicatorPrx;
     IcePHP_defineOperation($Test__t_RemoteCommunicatorFactoryPrx, 'createCommunicator', 0, -1, array(array($Ice__t_PropertyDict)), null, array($Test__t_RemoteCommunicatorPrx), null);
     IcePHP_defineOperation($Test__t_RemoteCommunicatorFactoryPrx, 'shutdown', 0, -1, null, null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_TestFacet;
+    global $Test__t_TestFacetPrx;
+    $Test__t_TestFacetPrx = IcePHP_declareProxy('::Test::TestFacet');
 }
 
 namespace Test

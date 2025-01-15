@@ -60,6 +60,9 @@ if 'TestImpossibleException' not in _M_Test.__dict__:
     _M_Test.TestImpossibleException = TestImpossibleException
     del TestImpossibleException
 
+if 'TestIntf' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfPrx = IcePy.declareProxy('::Test::TestIntf')
+
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(Ice.ObjectPrx):
@@ -250,6 +253,9 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntf = TestIntf
     del TestIntf
 
+if 'TestActivation' not in _M_Test.__dict__:
+    _M_Test._t_TestActivationPrx = IcePy.declareProxy('::Test::TestActivation')
+
 if 'TestActivationPrx' not in _M_Test.__dict__:
     _M_Test.TestActivationPrx = None
     class TestActivationPrx(Ice.ObjectPrx):
@@ -319,6 +325,9 @@ if 'TestActivationPrx' not in _M_Test.__dict__:
 
     _M_Test.TestActivation = TestActivation
     del TestActivation
+
+if 'Echo' not in _M_Test.__dict__:
+    _M_Test._t_EchoPrx = IcePy.declareProxy('::Test::Echo')
 
 if 'EchoPrx' not in _M_Test.__dict__:
     _M_Test.EchoPrx = None

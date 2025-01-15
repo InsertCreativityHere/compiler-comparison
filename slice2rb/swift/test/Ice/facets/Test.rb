@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_EmptyPrx)
+        T_EmptyPrx = ::Ice::__declareProxy('::Test::Empty')
+    end
+
     if not defined?(::Test::EmptyPrx)
         module EmptyPrx_mixin
         end
@@ -27,11 +31,11 @@ module ::Test
             include EmptyPrx_mixin
         end
 
-        if not defined?(::Test::T_EmptyPrx)
-            T_EmptyPrx = ::Ice::__declareProxy('::Test::Empty')
-        end
-
         T_EmptyPrx.defineProxy(EmptyPrx, nil, [])
+    end
+
+    if not defined?(::Test::T_APrx)
+        T_APrx = ::Ice::__declareProxy('::Test::A')
     end
 
     if not defined?(::Test::APrx)
@@ -47,13 +51,13 @@ module ::Test
             include APrx_mixin
         end
 
-        if not defined?(::Test::T_APrx)
-            T_APrx = ::Ice::__declareProxy('::Test::A')
-        end
-
         T_APrx.defineProxy(APrx, nil, [])
 
         APrx_mixin::OP_callA = ::Ice::__defineOperation('callA', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+    end
+
+    if not defined?(::Test::T_BPrx)
+        T_BPrx = ::Ice::__declareProxy('::Test::B')
     end
 
     if not defined?(::Test::BPrx)
@@ -70,13 +74,13 @@ module ::Test
             include BPrx_mixin
         end
 
-        if not defined?(::Test::T_BPrx)
-            T_BPrx = ::Ice::__declareProxy('::Test::B')
-        end
-
         T_BPrx.defineProxy(BPrx, nil, [::Test::T_APrx])
 
         BPrx_mixin::OP_callB = ::Ice::__defineOperation('callB', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+    end
+
+    if not defined?(::Test::T_CPrx)
+        T_CPrx = ::Ice::__declareProxy('::Test::C')
     end
 
     if not defined?(::Test::CPrx)
@@ -93,13 +97,13 @@ module ::Test
             include CPrx_mixin
         end
 
-        if not defined?(::Test::T_CPrx)
-            T_CPrx = ::Ice::__declareProxy('::Test::C')
-        end
-
         T_CPrx.defineProxy(CPrx, nil, [::Test::T_APrx])
 
         CPrx_mixin::OP_callC = ::Ice::__defineOperation('callC', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+    end
+
+    if not defined?(::Test::T_DPrx)
+        T_DPrx = ::Ice::__declareProxy('::Test::D')
     end
 
     if not defined?(::Test::DPrx)
@@ -117,13 +121,13 @@ module ::Test
             include DPrx_mixin
         end
 
-        if not defined?(::Test::T_DPrx)
-            T_DPrx = ::Ice::__declareProxy('::Test::D')
-        end
-
         T_DPrx.defineProxy(DPrx, nil, [::Test::T_BPrx, ::Test::T_CPrx])
 
         DPrx_mixin::OP_callD = ::Ice::__defineOperation('callD', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+    end
+
+    if not defined?(::Test::T_EPrx)
+        T_EPrx = ::Ice::__declareProxy('::Test::E')
     end
 
     if not defined?(::Test::EPrx)
@@ -139,13 +143,13 @@ module ::Test
             include EPrx_mixin
         end
 
-        if not defined?(::Test::T_EPrx)
-            T_EPrx = ::Ice::__declareProxy('::Test::E')
-        end
-
         T_EPrx.defineProxy(EPrx, nil, [])
 
         EPrx_mixin::OP_callE = ::Ice::__defineOperation('callE', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+    end
+
+    if not defined?(::Test::T_FPrx)
+        T_FPrx = ::Ice::__declareProxy('::Test::F')
     end
 
     if not defined?(::Test::FPrx)
@@ -162,13 +166,13 @@ module ::Test
             include FPrx_mixin
         end
 
-        if not defined?(::Test::T_FPrx)
-            T_FPrx = ::Ice::__declareProxy('::Test::F')
-        end
-
         T_FPrx.defineProxy(FPrx, nil, [::Test::T_EPrx])
 
         FPrx_mixin::OP_callF = ::Ice::__defineOperation('callF', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+    end
+
+    if not defined?(::Test::T_GPrx)
+        T_GPrx = ::Ice::__declareProxy('::Test::G')
     end
 
     if not defined?(::Test::GPrx)
@@ -188,14 +192,14 @@ module ::Test
             include GPrx_mixin
         end
 
-        if not defined?(::Test::T_GPrx)
-            T_GPrx = ::Ice::__declareProxy('::Test::G')
-        end
-
         T_GPrx.defineProxy(GPrx, nil, [])
 
         GPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         GPrx_mixin::OP_callG = ::Ice::__defineOperation('callG', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+    end
+
+    if not defined?(::Test::T_HPrx)
+        T_HPrx = ::Ice::__declareProxy('::Test::H')
     end
 
     if not defined?(::Test::HPrx)
@@ -210,10 +214,6 @@ module ::Test
         class HPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include HPrx_mixin
-        end
-
-        if not defined?(::Test::T_HPrx)
-            T_HPrx = ::Ice::__declareProxy('::Test::H')
         end
 
         T_HPrx.defineProxy(HPrx, nil, [::Test::T_GPrx])

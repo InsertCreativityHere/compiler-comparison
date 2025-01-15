@@ -33,6 +33,10 @@ module ::Glacier2
         T_CannotCreateSessionException = ::Ice::__defineException('::Glacier2::CannotCreateSessionException', CannotCreateSessionException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
+    if not defined?(::Glacier2::T_SessionPrx)
+        T_SessionPrx = ::Ice::__declareProxy('::Glacier2::Session')
+    end
+
     if not defined?(::Glacier2::SessionPrx)
         module SessionPrx_mixin
 
@@ -46,13 +50,13 @@ module ::Glacier2
             include SessionPrx_mixin
         end
 
-        if not defined?(::Glacier2::T_SessionPrx)
-            T_SessionPrx = ::Ice::__declareProxy('::Glacier2::Session')
-        end
-
         T_SessionPrx.defineProxy(SessionPrx, nil, [])
 
         SessionPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::Glacier2::T_StringSetPrx)
+        T_StringSetPrx = ::Ice::__declareProxy('::Glacier2::StringSet')
     end
 
     if not defined?(::Glacier2::StringSetPrx)
@@ -76,15 +80,15 @@ module ::Glacier2
             include StringSetPrx_mixin
         end
 
-        if not defined?(::Glacier2::T_StringSetPrx)
-            T_StringSetPrx = ::Ice::__declareProxy('::Glacier2::StringSet')
-        end
-
         T_StringSetPrx.defineProxy(StringSetPrx, nil, [])
 
         StringSetPrx_mixin::OP_add = ::Ice::__defineOperation('add', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
         StringSetPrx_mixin::OP_remove = ::Ice::__defineOperation('remove', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
         StringSetPrx_mixin::OP_get = ::Ice::__defineOperation('get', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
+    end
+
+    if not defined?(::Glacier2::T_IdentitySetPrx)
+        T_IdentitySetPrx = ::Ice::__declareProxy('::Glacier2::IdentitySet')
     end
 
     if not defined?(::Glacier2::IdentitySetPrx)
@@ -108,15 +112,15 @@ module ::Glacier2
             include IdentitySetPrx_mixin
         end
 
-        if not defined?(::Glacier2::T_IdentitySetPrx)
-            T_IdentitySetPrx = ::Ice::__declareProxy('::Glacier2::IdentitySet')
-        end
-
         T_IdentitySetPrx.defineProxy(IdentitySetPrx, nil, [])
 
         IdentitySetPrx_mixin::OP_add = ::Ice::__defineOperation('add', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_IdentitySeq, false, 0]], [], nil, [])
         IdentitySetPrx_mixin::OP_remove = ::Ice::__defineOperation('remove', ::Ice::OperationMode::Idempotent, nil, [[::Ice::T_IdentitySeq, false, 0]], [], nil, [])
         IdentitySetPrx_mixin::OP_get = ::Ice::__defineOperation('get', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_IdentitySeq, false, 0], [])
+    end
+
+    if not defined?(::Glacier2::T_SessionControlPrx)
+        T_SessionControlPrx = ::Ice::__declareProxy('::Glacier2::SessionControl')
     end
 
     if not defined?(::Glacier2::SessionControlPrx)
@@ -148,10 +152,6 @@ module ::Glacier2
             include SessionControlPrx_mixin
         end
 
-        if not defined?(::Glacier2::T_SessionControlPrx)
-            T_SessionControlPrx = ::Ice::__declareProxy('::Glacier2::SessionControl')
-        end
-
         T_SessionControlPrx.defineProxy(SessionControlPrx, nil, [])
 
         SessionControlPrx_mixin::OP_categories = ::Ice::__defineOperation('categories', ::Ice::OperationMode::Normal, nil, [], [], [::Glacier2::T_StringSetPrx, false, 0], [])
@@ -159,6 +159,10 @@ module ::Glacier2
         SessionControlPrx_mixin::OP_identities = ::Ice::__defineOperation('identities', ::Ice::OperationMode::Normal, nil, [], [], [::Glacier2::T_IdentitySetPrx, false, 0], [])
         SessionControlPrx_mixin::OP_getSessionTimeout = ::Ice::__defineOperation('getSessionTimeout', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_int, false, 0], [])
         SessionControlPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::Glacier2::T_SessionManagerPrx)
+        T_SessionManagerPrx = ::Ice::__declareProxy('::Glacier2::SessionManager')
     end
 
     if not defined?(::Glacier2::SessionManagerPrx)
@@ -174,13 +178,13 @@ module ::Glacier2
             include SessionManagerPrx_mixin
         end
 
-        if not defined?(::Glacier2::T_SessionManagerPrx)
-            T_SessionManagerPrx = ::Ice::__declareProxy('::Glacier2::SessionManager')
-        end
-
         T_SessionManagerPrx.defineProxy(SessionManagerPrx, nil, [])
 
         SessionManagerPrx_mixin::OP_create = ::Ice::__defineOperation('create', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Glacier2::T_SessionControlPrx, false, 0]], [], [::Glacier2::T_SessionPrx, false, 0], [::Glacier2::T_CannotCreateSessionException])
+    end
+
+    if not defined?(::Glacier2::T_SSLSessionManagerPrx)
+        T_SSLSessionManagerPrx = ::Ice::__declareProxy('::Glacier2::SSLSessionManager')
     end
 
     if not defined?(::Glacier2::SSLSessionManagerPrx)
@@ -194,10 +198,6 @@ module ::Glacier2
         class SSLSessionManagerPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include SSLSessionManagerPrx_mixin
-        end
-
-        if not defined?(::Glacier2::T_SSLSessionManagerPrx)
-            T_SSLSessionManagerPrx = ::Ice::__declareProxy('::Glacier2::SSLSessionManager')
         end
 
         T_SSLSessionManagerPrx.defineProxy(SSLSessionManagerPrx, nil, [])

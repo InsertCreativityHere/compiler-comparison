@@ -26,6 +26,9 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 if 'D3' not in _M_Test.__dict__:
+    _M_Test._t_D3 = IcePy.declareValue('::Test::D3')
+
+if 'D3' not in _M_Test.__dict__:
     _M_Test.D3 = None
     class D3(_M_Test.B):
         def __init__(self, sb='', pb=None, sd3='', pd3=None):
@@ -45,8 +48,6 @@ if 'D3' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_D3 = IcePy.declareValue('::Test::D3')
-
     _M_Test._t_D3 = IcePy.defineValue('::Test::D3', D3, -1, (), False, _M_Test._t_B, (
         ('sd3', (), IcePy._t_string, False, 0),
         ('pd3', (), _M_Test._t_B, False, 0)
@@ -55,6 +56,9 @@ if 'D3' not in _M_Test.__dict__:
 
     _M_Test.D3 = D3
     del D3
+
+if 'PCUnknown' not in _M_Test.__dict__:
+    _M_Test._t_PCUnknown = IcePy.declareValue('::Test::PCUnknown')
 
 if 'PCUnknown' not in _M_Test.__dict__:
     _M_Test.PCUnknown = None
@@ -82,6 +86,9 @@ if 'PCUnknown' not in _M_Test.__dict__:
     del PCUnknown
 
 if 'PCDerived' not in _M_Test.__dict__:
+    _M_Test._t_PCDerived = IcePy.declareValue('::Test::PCDerived')
+
+if 'PCDerived' not in _M_Test.__dict__:
     _M_Test.PCDerived = None
     class PCDerived(_M_Test.PDerived):
         def __init__(self, pi=0, ps='', pb=None, pbs=None):
@@ -100,13 +107,14 @@ if 'PCDerived' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_PCDerived = IcePy.declareValue('::Test::PCDerived')
-
     _M_Test._t_PCDerived = IcePy.defineValue('::Test::PCDerived', PCDerived, -1, (), False, _M_Test._t_PDerived, (('pbs', (), _M_Test._t_PBaseSeq, False, 0),))
     PCDerived._ice_type = _M_Test._t_PCDerived
 
     _M_Test.PCDerived = PCDerived
     del PCDerived
+
+if 'PCDerived2' not in _M_Test.__dict__:
+    _M_Test._t_PCDerived2 = IcePy.declareValue('::Test::PCDerived2')
 
 if 'PCDerived2' not in _M_Test.__dict__:
     _M_Test.PCDerived2 = None
@@ -127,13 +135,14 @@ if 'PCDerived2' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_PCDerived2 = IcePy.declareValue('::Test::PCDerived2')
-
     _M_Test._t_PCDerived2 = IcePy.defineValue('::Test::PCDerived2', PCDerived2, -1, (), False, _M_Test._t_PCDerived, (('pcd2', (), IcePy._t_int, False, 0),))
     PCDerived2._ice_type = _M_Test._t_PCDerived2
 
     _M_Test.PCDerived2 = PCDerived2
     del PCDerived2
+
+if 'PCDerived3' not in _M_Test.__dict__:
+    _M_Test._t_PCDerived3 = IcePy.declareValue('::Test::PCDerived3')
 
 if 'PCDerived3' not in _M_Test.__dict__:
     _M_Test.PCDerived3 = None
@@ -154,13 +163,14 @@ if 'PCDerived3' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_PCDerived3 = IcePy.declareValue('::Test::PCDerived3')
-
     _M_Test._t_PCDerived3 = IcePy.defineValue('::Test::PCDerived3', PCDerived3, -1, (), False, _M_Test._t_PCDerived2, (('pcd3', (), IcePy._t_Value, False, 0),))
     PCDerived3._ice_type = _M_Test._t_PCDerived3
 
     _M_Test.PCDerived3 = PCDerived3
     del PCDerived3
+
+if 'CompactPCDerived' not in _M_Test.__dict__:
+    _M_Test._t_CompactPCDerived = IcePy.declareValue('::Test::CompactPCDerived')
 
 if 'CompactPCDerived' not in _M_Test.__dict__:
     _M_Test.CompactPCDerived = None
@@ -180,8 +190,6 @@ if 'CompactPCDerived' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_CompactPCDerived)
 
         __repr__ = __str__
-
-    _M_Test._t_CompactPCDerived = IcePy.declareValue('::Test::CompactPCDerived')
 
     _M_Test._t_CompactPCDerived = IcePy.defineValue('::Test::CompactPCDerived', CompactPCDerived, 57, (), False, _M_Test._t_CompactPDerived, (('pbs', (), _M_Test._t_PBaseSeq, False, 0),))
     CompactPCDerived._ice_type = _M_Test._t_CompactPCDerived

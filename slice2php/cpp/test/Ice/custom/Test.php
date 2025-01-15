@@ -495,6 +495,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_C;
+    $Test__t_C = IcePHP_declareClass('::Test::C');
+}
+
+namespace Test
+{
+    global $Test__t_C;
     class C extends \Ice\Value
     {
         public function __construct()
@@ -575,6 +581,13 @@ namespace Test
         global $Test__t_CSeq;
         $Test__t_CSeqList = IcePHP_defineSequence('::Test::CSeqList', $Test__t_CSeq);
     }
+}
+
+namespace Test
+{
+    global $Test__t_D;
+    global $Test__t_DPrx;
+    $Test__t_DPrx = IcePHP_declareProxy('::Test::D');
 }
 
 namespace Test
@@ -720,6 +733,12 @@ namespace Test
         global $IcePHP__t_int;
         $Test__t_StringIntDict = IcePHP_defineDictionary('::Test::StringIntDict', $IcePHP__t_string, $IcePHP__t_int);
     }
+}
+
+namespace Test
+{
+    global $Test__t_DictClass;
+    $Test__t_DictClass = IcePHP_declareClass('::Test::DictClass');
 }
 
 namespace Test
@@ -880,6 +899,13 @@ namespace Test
         array('longBuf', $Test__t_LongBuffer),
         array('floatBuf', $Test__t_FloatBuffer),
         array('doubleBuf', $Test__t_DoubleBuffer)));
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
 }
 
 namespace Test

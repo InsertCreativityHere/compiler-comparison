@@ -34,6 +34,9 @@ if '_t_StringIntDict' not in _M_IceMX.__dict__:
     _M_IceMX._t_StringIntDict = IcePy.defineDictionary('::IceMX::StringIntDict', (), IcePy._t_string, IcePy._t_int)
 
 if 'Metrics' not in _M_IceMX.__dict__:
+    _M_IceMX._t_Metrics = IcePy.declareValue('::IceMX::Metrics')
+
+if 'Metrics' not in _M_IceMX.__dict__:
     _M_IceMX.Metrics = None
     class Metrics(Ice.Value):
         """
@@ -161,6 +164,9 @@ if 'UnknownMetricsView' not in _M_IceMX.__dict__:
 
     _M_IceMX.UnknownMetricsView = UnknownMetricsView
     del UnknownMetricsView
+
+if 'MetricsAdmin' not in _M_IceMX.__dict__:
+    _M_IceMX._t_MetricsAdminPrx = IcePy.declareProxy('::IceMX::MetricsAdmin')
 
 if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
     _M_IceMX.MetricsAdminPrx = None
@@ -619,6 +625,9 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
     del MetricsAdmin
 
 if 'ThreadMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX._t_ThreadMetrics = IcePy.declareValue('::IceMX::ThreadMetrics')
+
+if 'ThreadMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.ThreadMetrics = None
     class ThreadMetrics(_M_IceMX.Metrics):
         """
@@ -661,6 +670,9 @@ if 'ThreadMetrics' not in _M_IceMX.__dict__:
 
     _M_IceMX.ThreadMetrics = ThreadMetrics
     del ThreadMetrics
+
+if 'DispatchMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX._t_DispatchMetrics = IcePy.declareValue('::IceMX::DispatchMetrics')
 
 if 'DispatchMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.DispatchMetrics = None
@@ -706,6 +718,9 @@ if 'DispatchMetrics' not in _M_IceMX.__dict__:
     del DispatchMetrics
 
 if 'ChildInvocationMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX._t_ChildInvocationMetrics = IcePy.declareValue('::IceMX::ChildInvocationMetrics')
+
+if 'ChildInvocationMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.ChildInvocationMetrics = None
     class ChildInvocationMetrics(_M_IceMX.Metrics):
         """
@@ -748,6 +763,9 @@ if 'ChildInvocationMetrics' not in _M_IceMX.__dict__:
     del ChildInvocationMetrics
 
 if 'CollocatedMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX._t_CollocatedMetrics = IcePy.declareValue('::IceMX::CollocatedMetrics')
+
+if 'CollocatedMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.CollocatedMetrics = None
     class CollocatedMetrics(_M_IceMX.ChildInvocationMetrics):
         """
@@ -776,6 +794,9 @@ if 'CollocatedMetrics' not in _M_IceMX.__dict__:
     del CollocatedMetrics
 
 if 'RemoteMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX._t_RemoteMetrics = IcePy.declareValue('::IceMX::RemoteMetrics')
+
+if 'RemoteMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.RemoteMetrics = None
     class RemoteMetrics(_M_IceMX.ChildInvocationMetrics):
         """
@@ -802,6 +823,9 @@ if 'RemoteMetrics' not in _M_IceMX.__dict__:
 
     _M_IceMX.RemoteMetrics = RemoteMetrics
     del RemoteMetrics
+
+if 'InvocationMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX._t_InvocationMetrics = IcePy.declareValue('::IceMX::InvocationMetrics')
 
 if 'InvocationMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.InvocationMetrics = None
@@ -839,8 +863,6 @@ if 'InvocationMetrics' not in _M_IceMX.__dict__:
 
         __repr__ = __str__
 
-    _M_IceMX._t_InvocationMetrics = IcePy.declareValue('::IceMX::InvocationMetrics')
-
     _M_IceMX._t_InvocationMetrics = IcePy.defineValue('::IceMX::InvocationMetrics', InvocationMetrics, -1, (), False, _M_IceMX._t_Metrics, (
         ('retry', (), IcePy._t_int, False, 0),
         ('userException', (), IcePy._t_int, False, 0),
@@ -851,6 +873,9 @@ if 'InvocationMetrics' not in _M_IceMX.__dict__:
 
     _M_IceMX.InvocationMetrics = InvocationMetrics
     del InvocationMetrics
+
+if 'ConnectionMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX._t_ConnectionMetrics = IcePy.declareValue('::IceMX::ConnectionMetrics')
 
 if 'ConnectionMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.ConnectionMetrics = None

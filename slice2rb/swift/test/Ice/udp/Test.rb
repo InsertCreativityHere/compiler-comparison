@@ -19,6 +19,10 @@ require 'Ice/Identity.rb'
 
 module ::Test
 
+    if not defined?(::Test::T_PingReplyPrx)
+        T_PingReplyPrx = ::Ice::__declareProxy('::Test::PingReply')
+    end
+
     if not defined?(::Test::PingReplyPrx)
         module PingReplyPrx_mixin
 
@@ -32,10 +36,6 @@ module ::Test
             include PingReplyPrx_mixin
         end
 
-        if not defined?(::Test::T_PingReplyPrx)
-            T_PingReplyPrx = ::Ice::__declareProxy('::Test::PingReply')
-        end
-
         T_PingReplyPrx.defineProxy(PingReplyPrx, nil, [])
 
         PingReplyPrx_mixin::OP_reply = ::Ice::__defineOperation('reply', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -43,6 +43,10 @@ module ::Test
 
     if not defined?(::Test::T_ByteSeq)
         T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
+    end
+
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
@@ -68,10 +72,6 @@ module ::Test
         class TestIntfPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include TestIntfPrx_mixin
-        end
-
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])

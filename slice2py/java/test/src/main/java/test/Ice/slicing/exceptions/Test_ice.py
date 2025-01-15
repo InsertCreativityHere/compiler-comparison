@@ -141,6 +141,9 @@ if 'KnownPreservedDerived' not in _M_Test.__dict__:
     _M_Test.KnownPreservedDerived = KnownPreservedDerived
     del KnownPreservedDerived
 
+if 'TestIntf' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfPrx = IcePy.declareProxy('::Test::TestIntf')
+
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(Ice.ObjectPrx):

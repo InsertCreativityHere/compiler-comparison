@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Single' not in _M_Test.__dict__:
+    _M_Test._t_SinglePrx = IcePy.declareProxy('::Test::Single')
+
 if 'SinglePrx' not in _M_Test.__dict__:
     _M_Test.SinglePrx = None
     class SinglePrx(Ice.ObjectPrx):

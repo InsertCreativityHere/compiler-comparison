@@ -90,6 +90,13 @@ namespace Test1
 {
     global $Test1__t_WstringClass;
     global $Test1__t_WstringClassPrx;
+    $Test1__t_WstringClassPrx = IcePHP_declareProxy('::Test1::WstringClass');
+}
+
+namespace Test1
+{
+    global $Test1__t_WstringClass;
+    global $Test1__t_WstringClassPrx;
 
     class WstringClassPrxHelper
     {
@@ -193,6 +200,13 @@ namespace Test2
 
     $Test2__t_WstringException = IcePHP_defineException('::Test2::WstringException', '\\Test2\\WstringException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
+}
+
+namespace Test2
+{
+    global $Test2__t_WstringClass;
+    global $Test2__t_WstringClassPrx;
+    $Test2__t_WstringClassPrx = IcePHP_declareProxy('::Test2::WstringClass');
 }
 
 namespace Test2

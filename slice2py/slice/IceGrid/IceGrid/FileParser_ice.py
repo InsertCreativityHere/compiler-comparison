@@ -58,6 +58,9 @@ if 'ParseException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ParseException = ParseException
     del ParseException
 
+if 'FileParser' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_FileParserPrx = IcePy.declareProxy('::IceGrid::FileParser')
+
 if 'FileParserPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.FileParserPrx = None
     class FileParserPrx(Ice.ObjectPrx):

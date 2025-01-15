@@ -136,6 +136,9 @@ if 'S' not in _M_Test.__dict__:
     del S
 
 if 'C' not in _M_Test.__dict__:
+    _M_Test._t_C = IcePy.declareValue('::Test::C')
+
+if 'C' not in _M_Test.__dict__:
     _M_Test.C = None
     class C(Ice.Value):
         def __init__(self, b1=None, b2=None, b3=None, b4=None, s1=None, s2=None, s3=None, s4=None):
@@ -176,6 +179,9 @@ if 'C' not in _M_Test.__dict__:
     del C
 
 if 'D' not in _M_Test.__dict__:
+    _M_Test._t_D = IcePy.declareValue('::Test::D')
+
+if 'D' not in _M_Test.__dict__:
     _M_Test.D = None
     class D(Ice.Value):
         def __init__(self, boolSeq=None, byteSeq=None, shortSeq=None, intSeq=None, longSeq=None, floatSeq=None, doubleSeq=None):
@@ -212,6 +218,9 @@ if 'D' not in _M_Test.__dict__:
 
     _M_Test.D = D
     del D
+
+if 'Custom' not in _M_Test.__dict__:
+    _M_Test._t_CustomPrx = IcePy.declareProxy('::Test::Custom')
 
 if 'CustomPrx' not in _M_Test.__dict__:
     _M_Test.CustomPrx = None

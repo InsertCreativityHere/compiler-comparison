@@ -27,6 +27,9 @@ _M_User = Ice.openModule('User')
 __name__ = 'User'
 
 if 'UserInfo' not in _M_User.__dict__:
+    _M_User._t_UserInfo = IcePy.declareValue('::User::UserInfo')
+
+if 'UserInfo' not in _M_User.__dict__:
     _M_User.UserInfo = None
     class UserInfo(Ice.Value):
         def __init__(self):
@@ -49,6 +52,9 @@ if 'UserInfo' not in _M_User.__dict__:
 
     _M_User.UserInfo = UserInfo
     del UserInfo
+
+if 'Registry' not in _M_User.__dict__:
+    _M_User._t_RegistryPrx = IcePy.declareProxy('::User::Registry')
 
 if 'RegistryPrx' not in _M_User.__dict__:
     _M_User.RegistryPrx = None

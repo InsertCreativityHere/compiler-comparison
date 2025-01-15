@@ -41,6 +41,9 @@ if 'UserError' not in _M_Test.__dict__:
     _M_Test.UserError = UserError
     del UserError
 
+if 'MyInterface' not in _M_Test.__dict__:
+    _M_Test._t_MyInterfacePrx = IcePy.declareProxy('::Test::MyInterface')
+
 if 'MyInterfacePrx' not in _M_Test.__dict__:
     _M_Test.MyInterfacePrx = None
     class MyInterfacePrx(Ice.ObjectPrx):

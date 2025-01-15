@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Interface1' not in _M_Test.__dict__:
+    _M_Test._t_Interface1Prx = IcePy.declareProxy('::Test::Interface1')
+
 if 'Interface1Prx' not in _M_Test.__dict__:
     _M_Test.Interface1Prx = None
     class Interface1Prx(Ice.ObjectPrx):
@@ -97,6 +100,9 @@ if 'Interface1Prx' not in _M_Test.__dict__:
 # Start of module Test2
 _M_Test2 = Ice.openModule('Test2')
 __name__ = 'Test2'
+
+if 'Class1' not in _M_Test2.__dict__:
+    _M_Test2._t_Class1 = IcePy.declareValue('::Test2::Class1')
 
 if 'Class1' not in _M_Test2.__dict__:
     _M_Test2.Class1 = None

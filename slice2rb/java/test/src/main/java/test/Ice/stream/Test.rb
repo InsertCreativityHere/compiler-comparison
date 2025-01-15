@@ -207,6 +207,10 @@ module ::Test
         T_StringMyClassD = ::Ice::__defineDictionary('::Test::StringMyClassD', ::Ice::T_string, ::Test::T_MyClass)
     end
 
+    if not defined?(::Test::T_OptionalClass)
+        T_OptionalClass = ::Ice::__declareClass('::Test::OptionalClass')
+    end
+
     if not defined?(::Test::OptionalClass)
         class OptionalClass < ::Ice::Value
 
@@ -227,10 +231,6 @@ module ::Test
             end
 
             attr_accessor :bo, :by, :sh, :i, :s, :enumS4, :byteBoolD6, :shortIntD7, :enum8, :intSeq12, :byteSeq13, :stringSeq14, :p15
-        end
-
-        if not defined?(::Test::T_OptionalClass)
-            T_OptionalClass = ::Ice::__declareClass('::Test::OptionalClass')
         end
 
         T_OptionalClass.defineClass(OptionalClass, -1, false, nil, [
@@ -322,10 +322,6 @@ module ::Test
             attr_accessor :c, :prx, :o, :s, :seq1, :seq2, :seq3, :seq4, :seq5, :seq6, :seq7, :seq8, :seq9, :seq10, :d
         end
 
-        if not defined?(::Test::T_MyClass)
-            T_MyClass = ::Ice::__declareClass('::Test::MyClass')
-        end
-
         T_MyClass.defineClass(MyClass, -1, false, nil, [
             ['c', ::Test::T_MyClass, false, 0],
             ['prx', ::Test::T_MyInterfacePrx, false, 0],
@@ -364,10 +360,6 @@ module ::Test
         class MyInterfacePrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include MyInterfacePrx_mixin
-        end
-
-        if not defined?(::Test::T_MyInterfacePrx)
-            T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
         end
 
         T_MyInterfacePrx.defineProxy(MyInterfacePrx, nil, [])

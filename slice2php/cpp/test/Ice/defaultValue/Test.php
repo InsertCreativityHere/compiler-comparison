@@ -486,6 +486,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_Base;
+    $Test__t_Base = IcePHP_declareClass('::Test::Base');
+}
+
+namespace Test
+{
+    global $Test__t_Base;
     class Base extends \Ice\Value
     {
         public function __construct($boolFalse=false, $boolTrue=true, $b=1, $s=2, $i=3, $l=4, $f=5.1, $d=6.2, $str="foo \\ \"bar\n \r\n\t\v\f\007\010? \007 \007", $noDefault='', $zeroI=0, $zeroL=0, $zeroF=0, $zeroDotF=0, $zeroD=0, $zeroDotD=0)
@@ -568,6 +574,12 @@ namespace Test
         array('zeroDotF', $IcePHP__t_float, false, 0),
         array('zeroD', $IcePHP__t_double, false, 0),
         array('zeroDotD', $IcePHP__t_double, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_Derived;
+    $Test__t_Derived = IcePHP_declareClass('::Test::Derived');
 }
 
 namespace Test

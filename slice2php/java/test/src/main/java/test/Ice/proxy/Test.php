@@ -24,6 +24,13 @@ namespace Test
 {
     global $Test__t_MyClass;
     global $Test__t_MyClassPrx;
+    $Test__t_MyClassPrx = IcePHP_declareProxy('::Test::MyClass');
+}
+
+namespace Test
+{
+    global $Test__t_MyClass;
+    global $Test__t_MyClassPrx;
 
     class MyClassPrxHelper
     {
@@ -54,6 +61,13 @@ namespace Test
     global $Ice__t_Context;
     IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'getContext', 0, -1, null, null, array($Ice__t_Context), null);
+}
+
+namespace Test
+{
+    global $Test__t_MyDerivedClass;
+    global $Test__t_MyDerivedClassPrx;
+    $Test__t_MyDerivedClassPrx = IcePHP_declareProxy('::Test::MyDerivedClass');
 }
 
 namespace Test
@@ -95,6 +109,13 @@ namespace Test
 {
     global $Test__t_MyOtherDerivedClass;
     global $Test__t_MyOtherDerivedClassPrx;
+    $Test__t_MyOtherDerivedClassPrx = IcePHP_declareProxy('::Test::MyOtherDerivedClass');
+}
+
+namespace Test
+{
+    global $Test__t_MyOtherDerivedClass;
+    global $Test__t_MyOtherDerivedClassPrx;
 
     class MyOtherDerivedClassPrxHelper
     {
@@ -121,6 +142,13 @@ namespace Test
 
     global $Ice__t_ObjectPrx;
     $Test__t_MyOtherDerivedClassPrx = IcePHP_defineProxy('::Test::MyOtherDerivedClass', $Ice__t_ObjectPrx, array($Test__t_MyClassPrx));
+}
+
+namespace Test
+{
+    global $Test__t_DiamondClass;
+    global $Test__t_DiamondClassPrx;
+    $Test__t_DiamondClassPrx = IcePHP_declareProxy('::Test::DiamondClass');
 }
 
 namespace Test

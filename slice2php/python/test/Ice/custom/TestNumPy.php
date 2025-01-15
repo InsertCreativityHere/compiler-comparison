@@ -183,6 +183,12 @@ namespace Test\NumPy
 namespace Test\NumPy
 {
     global $Test_NumPy__t_D;
+    $Test_NumPy__t_D = IcePHP_declareClass('::Test::NumPy::D');
+}
+
+namespace Test\NumPy
+{
+    global $Test_NumPy__t_D;
     class D extends \Ice\Value
     {
         public function __construct($boolSeq=\Ice\None, $byteSeq=\Ice\None, $shortSeq=\Ice\None, $intSeq=\Ice\None, $longSeq=\Ice\None, $floatSeq=\Ice\None, $doubleSeq=\Ice\None)
@@ -237,6 +243,13 @@ namespace Test\NumPy
         array('longSeq', $Test_NumPy__t_LongSeq1, true, 5),
         array('floatSeq', $Test_NumPy__t_FloatSeq1, true, 6),
         array('doubleSeq', $Test_NumPy__t_DoubleSeq1, true, 7)));
+}
+
+namespace Test\NumPy
+{
+    global $Test_NumPy__t_Custom;
+    global $Test_NumPy__t_CustomPrx;
+    $Test_NumPy__t_CustomPrx = IcePHP_declareProxy('::Test::NumPy::Custom');
 }
 
 namespace Test\NumPy

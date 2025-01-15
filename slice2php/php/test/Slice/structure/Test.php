@@ -41,6 +41,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_C;
+    $Test__t_C = IcePHP_declareClass('::Test::C');
+}
+
+namespace Test
+{
+    global $Test__t_C;
     class C extends \Ice\Value
     {
         public function __construct($i=0)

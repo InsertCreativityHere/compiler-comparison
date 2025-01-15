@@ -26,6 +26,9 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'PingReply' not in _M_Test.__dict__:
+    _M_Test._t_PingReplyPrx = IcePy.declareProxy('::Test::PingReply')
+
 if 'PingReplyPrx' not in _M_Test.__dict__:
     _M_Test.PingReplyPrx = None
     class PingReplyPrx(Ice.ObjectPrx):
@@ -98,6 +101,9 @@ if 'PingReplyPrx' not in _M_Test.__dict__:
 
 if '_t_ByteSeq' not in _M_Test.__dict__:
     _M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
+
+if 'TestIntf' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfPrx = IcePy.declareProxy('::Test::TestIntf')
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None

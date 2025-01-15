@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::WithNamespace
 
+    if not defined?(::WithNamespace::T_C1)
+        T_C1 = ::Ice::__declareClass('::WithNamespace::C1')
+    end
+
     if not defined?(::WithNamespace::C1)
         class C1 < ::Ice::Value
 
@@ -28,11 +32,11 @@ module ::WithNamespace
             attr_accessor :i
         end
 
-        if not defined?(::WithNamespace::T_C1)
-            T_C1 = ::Ice::__declareClass('::WithNamespace::C1')
-        end
-
         T_C1.defineClass(C1, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
+    end
+
+    if not defined?(::WithNamespace::T_C2)
+        T_C2 = ::Ice::__declareClass('::WithNamespace::C2')
     end
 
     if not defined?(::WithNamespace::C2)
@@ -44,10 +48,6 @@ module ::WithNamespace
             end
 
             attr_accessor :l
-        end
-
-        if not defined?(::WithNamespace::T_C2)
-            T_C2 = ::Ice::__declareClass('::WithNamespace::C2')
         end
 
         T_C2.defineClass(C2, -1, false, ::WithNamespace::T_C1, [['l', ::Ice::T_long, false, 0]])

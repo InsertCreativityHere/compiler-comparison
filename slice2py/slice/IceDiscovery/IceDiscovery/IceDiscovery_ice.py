@@ -26,6 +26,9 @@ _M_Ice = Ice.openModule('Ice')
 _M_IceDiscovery = Ice.openModule('IceDiscovery')
 __name__ = 'IceDiscovery'
 
+if 'LookupReply' not in _M_IceDiscovery.__dict__:
+    _M_IceDiscovery._t_LookupReplyPrx = IcePy.declareProxy('::IceDiscovery::LookupReply')
+
 if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
     _M_IceDiscovery.LookupReplyPrx = None
     class LookupReplyPrx(Ice.ObjectPrx):
@@ -206,6 +209,9 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
 
     _M_IceDiscovery.LookupReply = LookupReply
     del LookupReply
+
+if 'Lookup' not in _M_IceDiscovery.__dict__:
+    _M_IceDiscovery._t_LookupPrx = IcePy.declareProxy('::IceDiscovery::Lookup')
 
 if 'LookupPrx' not in _M_IceDiscovery.__dict__:
     _M_IceDiscovery.LookupPrx = None

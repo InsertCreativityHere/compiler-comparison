@@ -29,6 +29,9 @@ _M_Glacier2 = Ice.openModule('Glacier2')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Session' not in _M_Test.__dict__:
+    _M_Test._t_SessionPrx = IcePy.declareProxy('::Test::Session')
+
 if 'SessionPrx' not in _M_Test.__dict__:
     _M_Test.SessionPrx = None
     class SessionPrx(_M_Glacier2.SessionPrx):

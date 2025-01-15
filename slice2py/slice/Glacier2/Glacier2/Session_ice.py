@@ -57,6 +57,9 @@ if 'CannotCreateSessionException' not in _M_Glacier2.__dict__:
     _M_Glacier2.CannotCreateSessionException = CannotCreateSessionException
     del CannotCreateSessionException
 
+if 'Session' not in _M_Glacier2.__dict__:
+    _M_Glacier2._t_SessionPrx = IcePy.declareProxy('::Glacier2::Session')
+
 if 'SessionPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionPrx = None
     class SessionPrx(Ice.ObjectPrx):
@@ -160,6 +163,9 @@ if 'SessionPrx' not in _M_Glacier2.__dict__:
 
     _M_Glacier2.Session = Session
     del Session
+
+if 'StringSet' not in _M_Glacier2.__dict__:
+    _M_Glacier2._t_StringSetPrx = IcePy.declareProxy('::Glacier2::StringSet')
 
 if 'StringSetPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.StringSetPrx = None
@@ -372,6 +378,9 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
 
     _M_Glacier2.StringSet = StringSet
     del StringSet
+
+if 'IdentitySet' not in _M_Glacier2.__dict__:
+    _M_Glacier2._t_IdentitySetPrx = IcePy.declareProxy('::Glacier2::IdentitySet')
 
 if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.IdentitySetPrx = None
@@ -587,6 +596,9 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
 
     _M_Glacier2.IdentitySet = IdentitySet
     del IdentitySet
+
+if 'SessionControl' not in _M_Glacier2.__dict__:
+    _M_Glacier2._t_SessionControlPrx = IcePy.declareProxy('::Glacier2::SessionControl')
 
 if 'SessionControlPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionControlPrx = None
@@ -888,6 +900,9 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionControl = SessionControl
     del SessionControl
 
+if 'SessionManager' not in _M_Glacier2.__dict__:
+    _M_Glacier2._t_SessionManagerPrx = IcePy.declareProxy('::Glacier2::SessionManager')
+
 if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionManagerPrx = None
     class SessionManagerPrx(Ice.ObjectPrx):
@@ -1024,6 +1039,9 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
 
     _M_Glacier2.SessionManager = SessionManager
     del SessionManager
+
+if 'SSLSessionManager' not in _M_Glacier2.__dict__:
+    _M_Glacier2._t_SSLSessionManagerPrx = IcePy.declareProxy('::Glacier2::SSLSessionManager')
 
 if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SSLSessionManagerPrx = None

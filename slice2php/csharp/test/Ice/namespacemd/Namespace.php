@@ -18,6 +18,12 @@
 namespace WithNamespace
 {
     global $WithNamespace__t_C1;
+    $WithNamespace__t_C1 = IcePHP_declareClass('::WithNamespace::C1');
+}
+
+namespace WithNamespace
+{
+    global $WithNamespace__t_C1;
     class C1 extends \Ice\Value
     {
         public function __construct($i=0)
@@ -48,6 +54,12 @@ namespace WithNamespace
     global $IcePHP__t_int;
     $WithNamespace__t_C1 = IcePHP_defineClass('::WithNamespace::C1', '\\WithNamespace\\C1', -1, false, $Ice__t_Value, array(
         array('i', $IcePHP__t_int, false, 0)));
+}
+
+namespace WithNamespace
+{
+    global $WithNamespace__t_C2;
+    $WithNamespace__t_C2 = IcePHP_declareClass('::WithNamespace::C2');
 }
 
 namespace WithNamespace

@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_F1)
+        T_F1 = ::Ice::__declareClass('::Test::F1')
+    end
+
     if not defined?(::Test::F1)
         class F1 < ::Ice::Value
 
@@ -28,11 +32,11 @@ module ::Test
             attr_accessor :name
         end
 
-        if not defined?(::Test::T_F1)
-            T_F1 = ::Ice::__declareClass('::Test::F1')
-        end
-
         T_F1.defineClass(F1, -1, false, nil, [['name', ::Ice::T_string, false, 0]])
+    end
+
+    if not defined?(::Test::T_F2Prx)
+        T_F2Prx = ::Ice::__declareProxy('::Test::F2')
     end
 
     if not defined?(::Test::F2Prx)
@@ -46,10 +50,6 @@ module ::Test
         class F2Prx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include F2Prx_mixin
-        end
-
-        if not defined?(::Test::T_F2Prx)
-            T_F2Prx = ::Ice::__declareProxy('::Test::F2')
         end
 
         T_F2Prx.defineProxy(F2Prx, nil, [])

@@ -44,6 +44,13 @@ namespace Test
 {
     global $Test__t_TestIntf;
     global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
 
     class TestIntfPrxHelper
     {
@@ -98,6 +105,13 @@ namespace Test
     }
 
     $Test__t_CannotInterruptException = IcePHP_defineException('::Test::CannotInterruptException', '\\Test\\CannotInterruptException', null, null);
+}
+
+namespace Test
+{
+    global $Test__t_TestIntfController;
+    global $Test__t_TestIntfControllerPrx;
+    $Test__t_TestIntfControllerPrx = IcePHP_declareProxy('::Test::TestIntfController');
 }
 
 namespace Test

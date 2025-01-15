@@ -47,6 +47,10 @@ module ::Test
         T_StructKey = ::Ice::__defineStruct('::Test::StructKey', StructKey, [["value", ::Ice::T_int]])
     end
 
+    if not defined?(::Test::T_ClassKey)
+        T_ClassKey = ::Ice::__declareClass('::Test::ClassKey')
+    end
+
     if not defined?(::Test::ClassKey)
         class ClassKey < ::Ice::Value
 
@@ -55,10 +59,6 @@ module ::Test
             end
 
             attr_accessor :value
-        end
-
-        if not defined?(::Test::T_ClassKey)
-            T_ClassKey = ::Ice::__declareClass('::Test::ClassKey')
         end
 
         T_ClassKey.defineClass(ClassKey, -1, false, nil, [['value', ::Ice::T_int, false, 0]])

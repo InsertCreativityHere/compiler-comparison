@@ -240,6 +240,10 @@ module ::Test
         T_ColorPalette = ::Ice::__defineStruct('::Test::ColorPalette', ColorPalette, [["colors", ::Test::T_StringColorMap]])
     end
 
+    if not defined?(::Test::T_Pen)
+        T_Pen = ::Ice::__declareClass('::Test::Pen')
+    end
+
     if not defined?(::Test::Pen)
         class Pen < ::Ice::Value
 
@@ -249,10 +253,6 @@ module ::Test
             end
 
             attr_accessor :thickness, :color
-        end
-
-        if not defined?(::Test::T_Pen)
-            T_Pen = ::Ice::__declareClass('::Test::Pen')
         end
 
         T_Pen.defineClass(Pen, -1, false, nil, [

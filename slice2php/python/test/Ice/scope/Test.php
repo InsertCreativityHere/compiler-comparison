@@ -65,6 +65,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_C;
+    $Test__t_C = IcePHP_declareClass('::Test::C');
+}
+
+namespace Test
+{
+    global $Test__t_C;
     class C extends \Ice\Value
     {
         public function __construct($s=null)
@@ -160,6 +166,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_C1;
+    $Test__t_C1 = IcePHP_declareClass('::Test::C1');
+}
+
+namespace Test
+{
+    global $Test__t_C1;
     class C1 extends \Ice\Value
     {
         public function __construct($s='')
@@ -227,6 +239,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_C2;
+    $Test__t_C2 = IcePHP_declareClass('::Test::C2');
+}
+
+namespace Test
+{
+    global $Test__t_C2;
     class C2 extends \Ice\Value
     {
         public function __construct($E1=\Test\E1::v1, $S1=null, $C1=null)
@@ -257,8 +275,6 @@ namespace Test
         public $C1;
     }
 
-    $Test__t_C2 = IcePHP_declareClass('::Test::C2');
-
     global $Ice__t_Value;
     global $Test__t_E1;
     global $Test__t_S1;
@@ -267,6 +283,13 @@ namespace Test
         array('E1', $Test__t_E1, false, 0),
         array('S1', $Test__t_S1, false, 0),
         array('C1', $Test__t_C1, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_I;
+    global $Test__t_IPrx;
+    $Test__t_IPrx = IcePHP_declareProxy('::Test::I');
 }
 
 namespace Test
@@ -418,6 +441,12 @@ namespace Test\Inner\Inner2
 namespace Test\Inner\Inner2
 {
     global $Test_Inner_Inner2__t_C;
+    $Test_Inner_Inner2__t_C = IcePHP_declareClass('::Test::Inner::Inner2::C');
+}
+
+namespace Test\Inner\Inner2
+{
+    global $Test_Inner_Inner2__t_C;
     class C extends \Ice\Value
     {
         public function __construct($s=null)
@@ -471,6 +500,13 @@ namespace Test\Inner\Inner2
         global $Test_Inner_Inner2__t_C;
         $Test_Inner_Inner2__t_CSeq = IcePHP_defineSequence('::Test::Inner::Inner2::CSeq', $Test_Inner_Inner2__t_C);
     }
+}
+
+namespace Test\Inner\Inner2
+{
+    global $Test_Inner_Inner2__t_I;
+    global $Test_Inner_Inner2__t_IPrx;
+    $Test_Inner_Inner2__t_IPrx = IcePHP_declareProxy('::Test::Inner::Inner2::I');
 }
 
 namespace Test\Inner\Inner2
@@ -540,6 +576,12 @@ namespace Test\Inner\Inner2
         global $Test_Inner_Inner2__t_IPrx;
         $Test_Inner_Inner2__t_ISeq = IcePHP_defineSequence('::Test::Inner::Inner2::ISeq', $Test_Inner_Inner2__t_IPrx);
     }
+}
+
+namespace Test\Inner
+{
+    global $Test_Inner__t_C;
+    $Test_Inner__t_C = IcePHP_declareClass('::Test::Inner::C');
 }
 
 namespace Test\Inner
@@ -627,6 +669,13 @@ namespace Test\Inner
 {
     global $Test_Inner__t_I;
     global $Test_Inner__t_IPrx;
+    $Test_Inner__t_IPrx = IcePHP_declareProxy('::Test::Inner::I');
+}
+
+namespace Test\Inner
+{
+    global $Test_Inner__t_I;
+    global $Test_Inner__t_IPrx;
 
     class IPrxHelper
     {
@@ -690,6 +739,13 @@ namespace Test\Inner
         global $Test_Inner__t_IPrx;
         $Test_Inner__t_ISeq = IcePHP_defineSequence('::Test::Inner::ISeq', $Test_Inner__t_IPrx);
     }
+}
+
+namespace Inner\Test\Inner2
+{
+    global $Inner_Test_Inner2__t_I;
+    global $Inner_Test_Inner2__t_IPrx;
+    $Inner_Test_Inner2__t_IPrx = IcePHP_declareProxy('::Inner::Test::Inner2::I');
 }
 
 namespace Inner\Test\Inner2

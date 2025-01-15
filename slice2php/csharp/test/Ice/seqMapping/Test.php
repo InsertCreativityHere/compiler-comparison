@@ -825,6 +825,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_CV;
+    $Test__t_CV = IcePHP_declareClass('::Test::CV');
+}
+
+namespace Test
+{
+    global $Test__t_CV;
     class CV extends \Ice\Value
     {
         public function __construct($i=0)
@@ -877,6 +883,13 @@ namespace Test
         global $Test__t_CV;
         $Test__t_LCVS = IcePHP_defineSequence('::Test::LCVS', $Test__t_CV);
     }
+}
+
+namespace Test
+{
+    global $Test__t_I;
+    global $Test__t_IPrx;
+    $Test__t_IPrx = IcePHP_declareProxy('::Test::I');
 }
 
 namespace Test
@@ -980,6 +993,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_CR;
+    $Test__t_CR = IcePHP_declareClass('::Test::CR');
+}
+
+namespace Test
+{
+    global $Test__t_CR;
     class CR extends \Ice\Value
     {
         public function __construct($v=null)
@@ -1005,8 +1024,6 @@ namespace Test
 
         public $v;
     }
-
-    $Test__t_CR = IcePHP_declareClass('::Test::CR');
 
     global $Ice__t_Value;
     global $Test__t_CV;
@@ -1168,6 +1185,13 @@ namespace Test
         global $Test__t_CustomCVS;
         $Test__t_CustomCVSS = IcePHP_defineSequence('::Test::CustomCVSS', $Test__t_CustomCVS);
     }
+}
+
+namespace Test
+{
+    global $Test__t_MyClass;
+    global $Test__t_MyClassPrx;
+    $Test__t_MyClassPrx = IcePHP_declareProxy('::Test::MyClass');
 }
 
 namespace Test

@@ -24,6 +24,13 @@ namespace Ice
 {
     global $Ice__t_Router;
     global $Ice__t_RouterPrx;
+    $Ice__t_RouterPrx = IcePHP_declareProxy('::Ice::Router');
+}
+
+namespace Ice
+{
+    global $Ice__t_Router;
+    global $Ice__t_RouterPrx;
 
     class RouterPrxHelper
     {
@@ -57,6 +64,13 @@ namespace Ice
     IcePHP_defineOperation($Ice__t_RouterPrx, 'getClientProxy', 2, -1, null, array(array($IcePHP__t_bool, 1)), array($Ice__t_ObjectPrx), null);
     IcePHP_defineOperation($Ice__t_RouterPrx, 'getServerProxy', 2, -1, null, null, array($Ice__t_ObjectPrx), null);
     IcePHP_defineOperation($Ice__t_RouterPrx, 'addProxies', 2, -1, array(array($Ice__t_ObjectProxySeq)), null, array($Ice__t_ObjectProxySeq), null);
+}
+
+namespace Ice
+{
+    global $Ice__t_RouterFinder;
+    global $Ice__t_RouterFinderPrx;
+    $Ice__t_RouterFinderPrx = IcePHP_declareProxy('::Ice::RouterFinder');
 }
 
 namespace Ice

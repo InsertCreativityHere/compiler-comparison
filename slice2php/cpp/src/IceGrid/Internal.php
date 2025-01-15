@@ -28,6 +28,12 @@ namespace
 namespace IceGrid
 {
     global $IceGrid__t_InternalDbEnvDescriptor;
+    $IceGrid__t_InternalDbEnvDescriptor = IcePHP_declareClass('::IceGrid::InternalDbEnvDescriptor');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_InternalDbEnvDescriptor;
     class InternalDbEnvDescriptor extends \Ice\Value
     {
         public function __construct($name='', $properties=null)
@@ -73,6 +79,12 @@ namespace IceGrid
         global $IceGrid__t_InternalDbEnvDescriptor;
         $IceGrid__t_InternalDbEnvDescriptorSeq = IcePHP_defineSequence('::IceGrid::InternalDbEnvDescriptorSeq', $IceGrid__t_InternalDbEnvDescriptor);
     }
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_InternalAdapterDescriptor;
+    $IceGrid__t_InternalAdapterDescriptor = IcePHP_declareClass('::IceGrid::InternalAdapterDescriptor');
 }
 
 namespace IceGrid
@@ -140,6 +152,12 @@ namespace IceGrid
 namespace IceGrid
 {
     global $IceGrid__t_InternalServerDescriptor;
+    $IceGrid__t_InternalServerDescriptor = IcePHP_declareClass('::IceGrid::InternalServerDescriptor');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_InternalServerDescriptor;
     class InternalServerDescriptor extends \Ice\Value
     {
         public function __construct($id='', $application='', $uuid='', $revision=0, $sessionId='', $exe='', $pwd='', $user='', $activation='', $activationTimeout='', $deactivationTimeout='', $processRegistered=false, $options=null, $envs=null, $logs=null, $adapters=null, $dbEnvs=null, $properties=null, $services=\Ice\None)
@@ -201,8 +219,6 @@ namespace IceGrid
         public $properties;
         public $services;
     }
-
-    $IceGrid__t_InternalServerDescriptor = IcePHP_declareClass('::IceGrid::InternalServerDescriptor');
 
     global $Ice__t_Value;
     global $IcePHP__t_string;
@@ -282,6 +298,13 @@ namespace IceGrid
 {
     global $IceGrid__t_Adapter;
     global $IceGrid__t_AdapterPrx;
+    $IceGrid__t_AdapterPrx = IcePHP_declareProxy('::IceGrid::Adapter');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_Adapter;
+    global $IceGrid__t_AdapterPrx;
 
     class AdapterPrxHelper
     {
@@ -355,6 +378,13 @@ namespace IceGrid
 {
     global $IceGrid__t_FileReader;
     global $IceGrid__t_FileReaderPrx;
+    $IceGrid__t_FileReaderPrx = IcePHP_declareProxy('::IceGrid::FileReader');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_FileReader;
+    global $IceGrid__t_FileReaderPrx;
 
     class FileReaderPrxHelper
     {
@@ -389,6 +419,13 @@ namespace IceGrid
     global $IcePHP__t_bool;
     IcePHP_defineOperation($IceGrid__t_FileReaderPrx, 'getOffsetFromEnd', 2, -1, array(array($IcePHP__t_string), array($IcePHP__t_int)), null, array($IcePHP__t_long), array($IceGrid__t_FileNotAvailableException));
     IcePHP_defineOperation($IceGrid__t_FileReaderPrx, 'read', 2, -1, array(array($IcePHP__t_string), array($IcePHP__t_long), array($IcePHP__t_int)), array(array($IcePHP__t_long), array($Ice__t_StringSeq)), array($IcePHP__t_bool), array($IceGrid__t_FileNotAvailableException));
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_Server;
+    global $IceGrid__t_ServerPrx;
+    $IceGrid__t_ServerPrx = IcePHP_declareProxy('::IceGrid::Server');
 }
 
 namespace IceGrid
@@ -444,10 +481,7 @@ namespace IceGrid
 {
     global $IceGrid__t_InternalRegistry;
     global $IceGrid__t_InternalRegistryPrx;
-    if(!isset($IceGrid__t_InternalRegistry))
-    {
-        $IceGrid__t_InternalRegistryPrx = IcePHP_declareProxy('::IceGrid::InternalRegistry');
-    }
+    $IceGrid__t_InternalRegistryPrx = IcePHP_declareProxy('::IceGrid::InternalRegistry');
 }
 
 namespace IceGrid
@@ -459,6 +493,13 @@ namespace IceGrid
         global $IceGrid__t_InternalRegistryPrx;
         $IceGrid__t_InternalRegistryPrxSeq = IcePHP_defineSequence('::IceGrid::InternalRegistryPrxSeq', $IceGrid__t_InternalRegistryPrx);
     }
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_ReplicaObserver;
+    global $IceGrid__t_ReplicaObserverPrx;
+    $IceGrid__t_ReplicaObserverPrx = IcePHP_declareProxy('::IceGrid::ReplicaObserver');
 }
 
 namespace IceGrid
@@ -497,6 +538,13 @@ namespace IceGrid
     IcePHP_defineOperation($IceGrid__t_ReplicaObserverPrx, 'replicaInit', 0, -1, array(array($IceGrid__t_InternalRegistryPrxSeq)), null, null, null);
     IcePHP_defineOperation($IceGrid__t_ReplicaObserverPrx, 'replicaAdded', 0, -1, array(array($IceGrid__t_InternalRegistryPrx)), null, null, null);
     IcePHP_defineOperation($IceGrid__t_ReplicaObserverPrx, 'replicaRemoved', 0, -1, array(array($IceGrid__t_InternalRegistryPrx)), null, null, null);
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_Node;
+    global $IceGrid__t_NodePrx;
+    $IceGrid__t_NodePrx = IcePHP_declareProxy('::IceGrid::Node');
 }
 
 namespace IceGrid
@@ -578,6 +626,13 @@ namespace IceGrid
     }
 
     $IceGrid__t_NodeActiveException = IcePHP_defineException('::IceGrid::NodeActiveException', '\\IceGrid\\NodeActiveException', null, null);
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_NodeSession;
+    global $IceGrid__t_NodeSessionPrx;
+    $IceGrid__t_NodeSessionPrx = IcePHP_declareProxy('::IceGrid::NodeSession');
 }
 
 namespace IceGrid
@@ -666,6 +721,13 @@ namespace IceGrid
 {
     global $IceGrid__t_DatabaseObserver;
     global $IceGrid__t_DatabaseObserverPrx;
+    $IceGrid__t_DatabaseObserverPrx = IcePHP_declareProxy('::IceGrid::DatabaseObserver');
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_DatabaseObserver;
+    global $IceGrid__t_DatabaseObserverPrx;
 
     class DatabaseObserverPrxHelper
     {
@@ -704,6 +766,13 @@ namespace IceGrid
         global $IcePHP__t_long;
         $IceGrid__t_StringLongDict = IcePHP_defineDictionary('::IceGrid::StringLongDict', $IcePHP__t_string, $IcePHP__t_long);
     }
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_ReplicaSession;
+    global $IceGrid__t_ReplicaSessionPrx;
+    $IceGrid__t_ReplicaSessionPrx = IcePHP_declareProxy('::IceGrid::ReplicaSession');
 }
 
 namespace IceGrid
@@ -753,6 +822,12 @@ namespace IceGrid
     IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'setAdapterDirectProxy', 2, -1, array(array($IcePHP__t_string), array($IcePHP__t_string), array($Ice__t_ObjectPrx)), null, null, array($IceGrid__t_AdapterNotExistException, $IceGrid__t_AdapterExistsException));
     IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'receivedUpdate', 0, -1, array(array($IceGrid__t_TopicName), array($IcePHP__t_int), array($IcePHP__t_string)), null, null, null);
     IcePHP_defineOperation($IceGrid__t_ReplicaSessionPrx, 'destroy', 0, -1, null, null, null, null);
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_InternalNodeInfo;
+    $IceGrid__t_InternalNodeInfo = IcePHP_declareClass('::IceGrid::InternalNodeInfo');
 }
 
 namespace IceGrid
@@ -813,6 +888,12 @@ namespace IceGrid
         array('nProcessors', $IcePHP__t_int, false, 0),
         array('dataDir', $IcePHP__t_string, false, 0),
         array('iceSoVersion', $IcePHP__t_string, true, 1)));
+}
+
+namespace IceGrid
+{
+    global $IceGrid__t_InternalReplicaInfo;
+    $IceGrid__t_InternalReplicaInfo = IcePHP_declareClass('::IceGrid::InternalReplicaInfo');
 }
 
 namespace IceGrid

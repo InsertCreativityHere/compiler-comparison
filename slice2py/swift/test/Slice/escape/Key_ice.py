@@ -202,6 +202,9 @@ if 'defer' not in _M__and.__dict__:
     _M__and.defer = defer
     del defer
 
+if '_break' not in _M__and.__dict__:
+    _M__and._t_breakPrx = IcePy.declareProxy('::and::break')
+
 if 'breakPrx' not in _M__and.__dict__:
     _M__and.breakPrx = None
     class breakPrx(Ice.ObjectPrx):
@@ -271,6 +274,9 @@ if 'breakPrx' not in _M__and.__dict__:
 
     _M__and._break = _break
     del _break
+
+if 'func' not in _M__and.__dict__:
+    _M__and._t_funcPrx = IcePy.declareProxy('::and::func')
 
 if 'funcPrx' not in _M__and.__dict__:
     _M__and.funcPrx = None
@@ -343,6 +349,9 @@ if 'funcPrx' not in _M__and.__dict__:
     del func
 
 if 'switch' not in _M__and.__dict__:
+    _M__and._t_switch = IcePy.declareValue('::and::switch')
+
+if 'switch' not in _M__and.__dict__:
     _M__and.switch = None
     class switch(Ice.Value):
         def __init__(self, _if=0, export=None, volatile=0):
@@ -371,6 +380,9 @@ if 'switch' not in _M__and.__dict__:
 
     _M__and.switch = switch
     del switch
+
+if 'do' not in _M__and.__dict__:
+    _M__and._t_doPrx = IcePy.declareProxy('::and::do')
 
 if 'doPrx' not in _M__and.__dict__:
     _M__and.doPrx = None
@@ -479,6 +491,9 @@ if '_as' not in _M__and.__dict__:
 
     _M__and._as = _as
     del _as
+
+if 'friend' not in _M__and.__dict__:
+    _M__and._t_friendPrx = IcePy.declareProxy('::and::friend')
 
 if 'friendPrx' not in _M__and.__dict__:
     _M__and.friendPrx = None

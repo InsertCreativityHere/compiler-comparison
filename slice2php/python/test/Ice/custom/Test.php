@@ -264,6 +264,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_C;
+    $Test__t_C = IcePHP_declareClass('::Test::C');
+}
+
+namespace Test
+{
+    global $Test__t_C;
     class C extends \Ice\Value
     {
         public function __construct($b1=null, $b2=null, $b3=null, $b4=null, $s1=null, $s2=null, $s3=null, $s4=null)
@@ -323,6 +329,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_D;
+    $Test__t_D = IcePHP_declareClass('::Test::D');
+}
+
+namespace Test
+{
+    global $Test__t_D;
     class D extends \Ice\Value
     {
         public function __construct($boolSeq=\Ice\None, $byteSeq=\Ice\None, $shortSeq=\Ice\None, $intSeq=\Ice\None, $longSeq=\Ice\None, $floatSeq=\Ice\None, $doubleSeq=\Ice\None)
@@ -377,6 +389,13 @@ namespace Test
         array('longSeq', $Test__t_LongSeq1, true, 5),
         array('floatSeq', $Test__t_FloatSeq1, true, 6),
         array('doubleSeq', $Test__t_DoubleSeq1, true, 7)));
+}
+
+namespace Test
+{
+    global $Test__t_Custom;
+    global $Test__t_CustomPrx;
+    $Test__t_CustomPrx = IcePHP_declareProxy('::Test::Custom');
 }
 
 namespace Test

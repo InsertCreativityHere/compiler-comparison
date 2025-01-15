@@ -18,6 +18,12 @@
 namespace LocalTest
 {
     global $LocalTest__t_C1;
+    $LocalTest__t_C1 = IcePHP_declareClass('::LocalTest::C1');
+}
+
+namespace LocalTest
+{
+    global $LocalTest__t_C1;
     class C1 extends \Ice\Value
     {
         public function __construct($i=0)
@@ -313,6 +319,12 @@ namespace LocalTest
 namespace LocalTest
 {
     global $LocalTest__t_CB1;
+    $LocalTest__t_CB1 = IcePHP_declareClass('::LocalTest::CB1');
+}
+
+namespace LocalTest
+{
+    global $LocalTest__t_CB1;
     class CB1 extends \Ice\Value
     {
         public function __construct($s1=null)
@@ -339,12 +351,16 @@ namespace LocalTest
         public $s1;
     }
 
-    $LocalTest__t_CB1 = IcePHP_declareClass('::LocalTest::CB1');
-
     global $Ice__t_Value;
     global $LocalTest__t_S1;
     $LocalTest__t_CB1 = IcePHP_defineClass('::LocalTest::CB1', '\\LocalTest\\CB1', -1, false, $Ice__t_Value, array(
         array('s1', $LocalTest__t_S1, false, 0)));
+}
+
+namespace LocalTest
+{
+    global $LocalTest__t_CB2;
+    $LocalTest__t_CB2 = IcePHP_declareClass('::LocalTest::CB2');
 }
 
 namespace LocalTest
@@ -376,12 +392,16 @@ namespace LocalTest
         public $c1seq;
     }
 
-    $LocalTest__t_CB2 = IcePHP_declareClass('::LocalTest::CB2');
-
     global $Ice__t_Value;
     global $LocalTest__t_C1Seq;
     $LocalTest__t_CB2 = IcePHP_defineClass('::LocalTest::CB2', '\\LocalTest\\CB2', -1, false, $Ice__t_Value, array(
         array('c1seq', $LocalTest__t_C1Seq, false, 0)));
+}
+
+namespace LocalTest
+{
+    global $LocalTest__t_CB3;
+    $LocalTest__t_CB3 = IcePHP_declareClass('::LocalTest::CB3');
 }
 
 namespace LocalTest
@@ -413,12 +433,16 @@ namespace LocalTest
         public $s1seq;
     }
 
-    $LocalTest__t_CB3 = IcePHP_declareClass('::LocalTest::CB3');
-
     global $Ice__t_Value;
     global $LocalTest__t_S1Seq;
     $LocalTest__t_CB3 = IcePHP_defineClass('::LocalTest::CB3', '\\LocalTest\\CB3', -1, false, $Ice__t_Value, array(
         array('s1seq', $LocalTest__t_S1Seq, false, 0)));
+}
+
+namespace LocalTest
+{
+    global $LocalTest__t_CB4;
+    $LocalTest__t_CB4 = IcePHP_declareClass('::LocalTest::CB4');
 }
 
 namespace LocalTest
@@ -450,12 +474,16 @@ namespace LocalTest
         public $c1dict;
     }
 
-    $LocalTest__t_CB4 = IcePHP_declareClass('::LocalTest::CB4');
-
     global $Ice__t_Value;
     global $LocalTest__t_C1Dict;
     $LocalTest__t_CB4 = IcePHP_defineClass('::LocalTest::CB4', '\\LocalTest\\CB4', -1, false, $Ice__t_Value, array(
         array('c1dict', $LocalTest__t_C1Dict, false, 0)));
+}
+
+namespace LocalTest
+{
+    global $LocalTest__t_CB5;
+    $LocalTest__t_CB5 = IcePHP_declareClass('::LocalTest::CB5');
 }
 
 namespace LocalTest
@@ -487,12 +515,16 @@ namespace LocalTest
         public $s1dict;
     }
 
-    $LocalTest__t_CB5 = IcePHP_declareClass('::LocalTest::CB5');
-
     global $Ice__t_Value;
     global $LocalTest__t_S1Dict;
     $LocalTest__t_CB5 = IcePHP_defineClass('::LocalTest::CB5', '\\LocalTest\\CB5', -1, false, $Ice__t_Value, array(
         array('s1dict', $LocalTest__t_S1Dict, false, 0)));
+}
+
+namespace LocalTest
+{
+    global $LocalTest__t_CB6;
+    $LocalTest__t_CB6 = IcePHP_declareClass('::LocalTest::CB6');
 }
 
 namespace LocalTest
@@ -524,12 +556,16 @@ namespace LocalTest
         public $c1seqseq;
     }
 
-    $LocalTest__t_CB6 = IcePHP_declareClass('::LocalTest::CB6');
-
     global $Ice__t_Value;
     global $LocalTest__t_C1SeqSeq;
     $LocalTest__t_CB6 = IcePHP_defineClass('::LocalTest::CB6', '\\LocalTest\\CB6', -1, false, $Ice__t_Value, array(
         array('c1seqseq', $LocalTest__t_C1SeqSeq, false, 0)));
+}
+
+namespace LocalTest
+{
+    global $LocalTest__t_CB7;
+    $LocalTest__t_CB7 = IcePHP_declareClass('::LocalTest::CB7');
 }
 
 namespace LocalTest
@@ -561,12 +597,16 @@ namespace LocalTest
         public $s1seqseq;
     }
 
-    $LocalTest__t_CB7 = IcePHP_declareClass('::LocalTest::CB7');
-
     global $Ice__t_Value;
     global $LocalTest__t_S1SeqSeq;
     $LocalTest__t_CB7 = IcePHP_defineClass('::LocalTest::CB7', '\\LocalTest\\CB7', -1, false, $Ice__t_Value, array(
         array('s1seqseq', $LocalTest__t_S1SeqSeq, false, 0)));
+}
+
+namespace LocalTest
+{
+    global $LocalTest__t_CB8;
+    $LocalTest__t_CB8 = IcePHP_declareClass('::LocalTest::CB8');
 }
 
 namespace LocalTest
@@ -601,8 +641,6 @@ namespace LocalTest
         public $c1seq;
         public $s1dict;
     }
-
-    $LocalTest__t_CB8 = IcePHP_declareClass('::LocalTest::CB8');
 
     global $Ice__t_Value;
     global $LocalTest__t_S1;

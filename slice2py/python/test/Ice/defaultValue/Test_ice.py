@@ -339,6 +339,9 @@ if 'Struct2' not in _M_Test.__dict__:
     del Struct2
 
 if 'Base' not in _M_Test.__dict__:
+    _M_Test._t_Base = IcePy.declareValue('::Test::Base')
+
+if 'Base' not in _M_Test.__dict__:
     _M_Test.Base = None
     class Base(Ice.Value):
         def __init__(self, boolFalse=False, boolTrue=True, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo \\ \"bar\n \r\n\t\v\f\a\b? \a \a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0):
@@ -393,6 +396,9 @@ if 'Base' not in _M_Test.__dict__:
 
     _M_Test.Base = Base
     del Base
+
+if 'Derived' not in _M_Test.__dict__:
+    _M_Test._t_Derived = IcePy.declareValue('::Test::Derived')
 
 if 'Derived' not in _M_Test.__dict__:
     _M_Test.Derived = None
@@ -731,6 +737,9 @@ if 'ExceptionNoDefaults' not in _M_Test.__dict__:
     del ExceptionNoDefaults
 
 if 'ClassNoDefaultsBase' not in _M_Test.__dict__:
+    _M_Test._t_ClassNoDefaultsBase = IcePy.declareValue('::Test::ClassNoDefaultsBase')
+
+if 'ClassNoDefaultsBase' not in _M_Test.__dict__:
     _M_Test.ClassNoDefaultsBase = None
     class ClassNoDefaultsBase(Ice.Value):
         def __init__(self, str='', c1=_M_Test.Color.red, bs=None):
@@ -759,6 +768,9 @@ if 'ClassNoDefaultsBase' not in _M_Test.__dict__:
 
     _M_Test.ClassNoDefaultsBase = ClassNoDefaultsBase
     del ClassNoDefaultsBase
+
+if 'ClassNoDefaults' not in _M_Test.__dict__:
+    _M_Test._t_ClassNoDefaults = IcePy.declareValue('::Test::ClassNoDefaults')
 
 if 'ClassNoDefaults' not in _M_Test.__dict__:
     _M_Test.ClassNoDefaults = None

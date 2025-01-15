@@ -19,6 +19,13 @@ namespace Ice
 {
     global $Ice__t_Process;
     global $Ice__t_ProcessPrx;
+    $Ice__t_ProcessPrx = IcePHP_declareProxy('::Ice::Process');
+}
+
+namespace Ice
+{
+    global $Ice__t_Process;
+    global $Ice__t_ProcessPrx;
 
     class ProcessPrxHelper
     {

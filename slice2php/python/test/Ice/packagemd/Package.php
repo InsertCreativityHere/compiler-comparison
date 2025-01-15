@@ -18,6 +18,12 @@
 namespace Test2
 {
     global $Test2__t_C1;
+    $Test2__t_C1 = IcePHP_declareClass('::Test2::C1');
+}
+
+namespace Test2
+{
+    global $Test2__t_C1;
     class C1 extends \Ice\Value
     {
         public function __construct($i=0)
@@ -48,6 +54,12 @@ namespace Test2
     global $IcePHP__t_int;
     $Test2__t_C1 = IcePHP_defineClass('::Test2::C1', '\\Test2\\C1', -1, false, $Ice__t_Value, array(
         array('i', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test2
+{
+    global $Test2__t_C2;
+    $Test2__t_C2 = IcePHP_declareClass('::Test2::C2');
 }
 
 namespace Test2
@@ -137,6 +149,12 @@ namespace Test2
 namespace Test3
 {
     global $Test3__t_C1;
+    $Test3__t_C1 = IcePHP_declareClass('::Test3::C1');
+}
+
+namespace Test3
+{
+    global $Test3__t_C1;
     class C1 extends \Ice\Value
     {
         public function __construct($i=0)
@@ -167,6 +185,12 @@ namespace Test3
     global $IcePHP__t_int;
     $Test3__t_C1 = IcePHP_defineClass('::Test3::C1', '\\Test3\\C1', -1, false, $Ice__t_Value, array(
         array('i', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test3
+{
+    global $Test3__t_C2;
+    $Test3__t_C2 = IcePHP_declareClass('::Test3::C2');
 }
 
 namespace Test3

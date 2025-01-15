@@ -23,6 +23,12 @@ namespace
 namespace Test
 {
     global $Test__t_SBSUnknownDerived;
+    $Test__t_SBSUnknownDerived = IcePHP_declareClass('::Test::SBSUnknownDerived');
+}
+
+namespace Test
+{
+    global $Test__t_SBSUnknownDerived;
     class SBSUnknownDerived extends \Test\SBase
     {
         public function __construct($sb='', $sbsud='')
@@ -59,6 +65,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_SUnknown;
+    $Test__t_SUnknown = IcePHP_declareClass('::Test::SUnknown');
+}
+
+namespace Test
+{
+    global $Test__t_SUnknown;
     class SUnknown extends \Ice\Value
     {
         public function __construct($su='', $cycle=null)
@@ -87,14 +99,18 @@ namespace Test
         public $cycle;
     }
 
-    $Test__t_SUnknown = IcePHP_declareClass('::Test::SUnknown');
-
     global $Ice__t_Value;
     global $IcePHP__t_string;
     global $Test__t_SUnknown;
     $Test__t_SUnknown = IcePHP_defineClass('::Test::SUnknown', '\\Test\\SUnknown', -1, false, $Ice__t_Value, array(
         array('su', $IcePHP__t_string, false, 0),
         array('cycle', $Test__t_SUnknown, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_D2;
+    $Test__t_D2 = IcePHP_declareClass('::Test::D2');
 }
 
 namespace Test
@@ -129,13 +145,17 @@ namespace Test
         public $pd2;
     }
 
-    $Test__t_D2 = IcePHP_declareClass('::Test::D2');
-
     global $Test__t_B;
     global $IcePHP__t_string;
     $Test__t_D2 = IcePHP_defineClass('::Test::D2', '\\Test\\D2', -1, false, $Test__t_B, array(
         array('sd2', $IcePHP__t_string, false, 0),
         array('pd2', $Test__t_B, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_D4;
+    $Test__t_D4 = IcePHP_declareClass('::Test::D4');
 }
 
 namespace Test
@@ -170,8 +190,6 @@ namespace Test
         public $p2;
     }
 
-    $Test__t_D4 = IcePHP_declareClass('::Test::D4');
-
     global $Test__t_B;
     $Test__t_D4 = IcePHP_defineClass('::Test::D4', '\\Test\\D4', -1, false, $Test__t_B, array(
         array('p1', $Test__t_B, false, 0),
@@ -203,6 +221,12 @@ namespace Test
     $Test__t_UnknownDerivedException = IcePHP_defineException('::Test::UnknownDerivedException', '\\Test\\UnknownDerivedException', $Test__t_BaseException, array(
         array('sude', $IcePHP__t_string, false, 0),
         array('pd2', $Test__t_D2, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_MyClass;
+    $Test__t_MyClass = IcePHP_declareClass('::Test::MyClass');
 }
 
 namespace Test
@@ -243,6 +267,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_PSUnknown;
+    $Test__t_PSUnknown = IcePHP_declareClass('::Test::PSUnknown');
+}
+
+namespace Test
+{
+    global $Test__t_PSUnknown;
     class PSUnknown extends \Test\Preserved
     {
         public function __construct($pi=0, $ps='', $psu='', $graph=null, $cl=null)
@@ -274,8 +304,6 @@ namespace Test
         public $cl;
     }
 
-    $Test__t_PSUnknown = IcePHP_declareClass('::Test::PSUnknown');
-
     global $Test__t_Preserved;
     global $IcePHP__t_string;
     global $Test__t_PNode;
@@ -284,6 +312,12 @@ namespace Test
         array('psu', $IcePHP__t_string, false, 0),
         array('graph', $Test__t_PNode, false, 0),
         array('cl', $Test__t_MyClass, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_PSUnknown2;
+    $Test__t_PSUnknown2 = IcePHP_declareClass('::Test::PSUnknown2');
 }
 
 namespace Test
@@ -315,8 +349,6 @@ namespace Test
 
         public $pb;
     }
-
-    $Test__t_PSUnknown2 = IcePHP_declareClass('::Test::PSUnknown2');
 
     global $Test__t_Preserved;
     global $Test__t_PBase;

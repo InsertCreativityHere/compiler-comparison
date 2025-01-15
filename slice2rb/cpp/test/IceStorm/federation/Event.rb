@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_EventPrx)
+        T_EventPrx = ::Ice::__declareProxy('::Test::Event')
+    end
+
     if not defined?(::Test::EventPrx)
         module EventPrx_mixin
 
@@ -29,10 +33,6 @@ module ::Test
         class EventPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include EventPrx_mixin
-        end
-
-        if not defined?(::Test::T_EventPrx)
-            T_EventPrx = ::Ice::__declareProxy('::Test::Event')
         end
 
         T_EventPrx.defineProxy(EventPrx, nil, [])

@@ -102,6 +102,9 @@ if 'S' not in _M_Test.__dict__:
     del S
 
 if 'Base' not in _M_Test.__dict__:
+    _M_Test._t_Base = IcePy.declareValue('::Test::Base')
+
+if 'Base' not in _M_Test.__dict__:
     _M_Test.Base = None
     class Base(Ice.Value):
         def __init__(self, theS=None, str=''):
@@ -136,6 +139,9 @@ if 'C' not in _M_Test.__dict__:
     _M_Test._t_C = IcePy.declareValue('::Test::C')
 
 if 'A' not in _M_Test.__dict__:
+    _M_Test._t_A = IcePy.declareValue('::Test::A')
+
+if 'A' not in _M_Test.__dict__:
     _M_Test.A = None
     class A(Ice.Value):
         def __init__(self, theB=None, theC=None, preMarshalInvoked=False, postUnmarshalInvoked=False):
@@ -155,8 +161,6 @@ if 'A' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_A)
 
         __repr__ = __str__
-
-    _M_Test._t_A = IcePy.declareValue('::Test::A')
 
     _M_Test._t_A = IcePy.defineValue('::Test::A', A, -1, (), False, None, (
         ('theB', (), _M_Test._t_B, False, 0),
@@ -225,6 +229,9 @@ if 'C' not in _M_Test.__dict__:
     del C
 
 if 'D' not in _M_Test.__dict__:
+    _M_Test._t_D = IcePy.declareValue('::Test::D')
+
+if 'D' not in _M_Test.__dict__:
     _M_Test.D = None
     class D(Ice.Value):
         def __init__(self, theA=None, theB=None, theC=None, preMarshalInvoked=False, postUnmarshalInvoked=False):
@@ -246,8 +253,6 @@ if 'D' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_D = IcePy.declareValue('::Test::D')
-
     _M_Test._t_D = IcePy.defineValue('::Test::D', D, -1, (), False, None, (
         ('theA', (), _M_Test._t_A, False, 0),
         ('theB', (), _M_Test._t_B, False, 0),
@@ -259,6 +264,9 @@ if 'D' not in _M_Test.__dict__:
 
     _M_Test.D = D
     del D
+
+if 'E' not in _M_Test.__dict__:
+    _M_Test._t_E = IcePy.declareValue('::Test::E')
 
 if 'E' not in _M_Test.__dict__:
     _M_Test.E = None
@@ -289,6 +297,9 @@ if 'E' not in _M_Test.__dict__:
     del E
 
 if 'F' not in _M_Test.__dict__:
+    _M_Test._t_F = IcePy.declareValue('::Test::F')
+
+if 'F' not in _M_Test.__dict__:
     _M_Test.F = None
     class F(Ice.Value):
         def __init__(self, _e1=None, e2=None):
@@ -307,8 +318,6 @@ if 'F' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_F = IcePy.declareValue('::Test::F')
-
     _M_Test._t_F = IcePy.defineValue('::Test::F', F, -1, (), False, None, (
         ('_e1', (), _M_Test._t_E, False, 0),
         ('e2', (), _M_Test._t_E, False, 0)
@@ -317,6 +326,9 @@ if 'F' not in _M_Test.__dict__:
 
     _M_Test.F = F
     del F
+
+if 'G' not in _M_Test.__dict__:
+    _M_Test._t_G = IcePy.declareValue('::Test::G')
 
 if 'G' not in _M_Test.__dict__:
     _M_Test.G = None
@@ -347,6 +359,9 @@ if '_t_BaseSeq' not in _M_Test.__dict__:
 
 if 'CompactExt' not in _M_Test.__dict__:
     _M_Test._t_CompactExt = IcePy.declareValue('::Test::CompactExt')
+
+if 'Compact' not in _M_Test.__dict__:
+    _M_Test._t_Compact = IcePy.declareValue('::Test::Compact')
 
 if 'Compact' not in _M_Test.__dict__:
     _M_Test.Compact = None
@@ -399,6 +414,9 @@ if 'CompactExt' not in _M_Test.__dict__:
     del CompactExt
 
 if 'A1' not in _M_Test.__dict__:
+    _M_Test._t_A1 = IcePy.declareValue('::Test::A1')
+
+if 'A1' not in _M_Test.__dict__:
     _M_Test.A1 = None
     class A1(Ice.Value):
         def __init__(self, name=''):
@@ -423,6 +441,9 @@ if 'A1' not in _M_Test.__dict__:
     del A1
 
 if 'B1' not in _M_Test.__dict__:
+    _M_Test._t_B1 = IcePy.declareValue('::Test::B1')
+
+if 'B1' not in _M_Test.__dict__:
     _M_Test.B1 = None
     class B1(Ice.Value):
         def __init__(self, a1=None, a2=None):
@@ -441,8 +462,6 @@ if 'B1' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_B1 = IcePy.declareValue('::Test::B1')
-
     _M_Test._t_B1 = IcePy.defineValue('::Test::B1', B1, -1, (), False, None, (
         ('a1', (), _M_Test._t_A1, False, 0),
         ('a2', (), _M_Test._t_A1, False, 0)
@@ -451,6 +470,9 @@ if 'B1' not in _M_Test.__dict__:
 
     _M_Test.B1 = B1
     del B1
+
+if 'D1' not in _M_Test.__dict__:
+    _M_Test._t_D1 = IcePy.declareValue('::Test::D1')
 
 if 'D1' not in _M_Test.__dict__:
     _M_Test.D1 = None
@@ -471,8 +493,6 @@ if 'D1' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_D1)
 
         __repr__ = __str__
-
-    _M_Test._t_D1 = IcePy.declareValue('::Test::D1')
 
     _M_Test._t_D1 = IcePy.defineValue('::Test::D1', D1, -1, (), False, _M_Test._t_B1, (
         ('a3', (), _M_Test._t_A1, False, 0),
@@ -535,6 +555,9 @@ _M_Test.Inner = Ice.openModule('Test.Inner')
 __name__ = 'Test.Inner'
 
 if 'A' not in _M_Test.Inner.__dict__:
+    _M_Test.Inner._t_A = IcePy.declareValue('::Test::Inner::A')
+
+if 'A' not in _M_Test.Inner.__dict__:
     _M_Test.Inner.A = None
     class A(Ice.Value):
         def __init__(self, theA=None):
@@ -551,8 +574,6 @@ if 'A' not in _M_Test.Inner.__dict__:
             return IcePy.stringify(self, _M_Test.Inner._t_A)
 
         __repr__ = __str__
-
-    _M_Test.Inner._t_A = IcePy.declareValue('::Test::Inner::A')
 
     _M_Test.Inner._t_A = IcePy.defineValue('::Test::Inner::A', A, -1, (), False, None, (('theA', (), _M_Test._t_A, False, 0),))
     A._ice_type = _M_Test.Inner._t_A
@@ -584,6 +605,9 @@ _M_Test.Inner.Sub = Ice.openModule('Test.Inner.Sub')
 __name__ = 'Test.Inner.Sub'
 
 if 'A' not in _M_Test.Inner.Sub.__dict__:
+    _M_Test.Inner.Sub._t_A = IcePy.declareValue('::Test::Inner::Sub::A')
+
+if 'A' not in _M_Test.Inner.Sub.__dict__:
     _M_Test.Inner.Sub.A = None
     class A(Ice.Value):
         def __init__(self, theA=None):
@@ -600,8 +624,6 @@ if 'A' not in _M_Test.Inner.Sub.__dict__:
             return IcePy.stringify(self, _M_Test.Inner.Sub._t_A)
 
         __repr__ = __str__
-
-    _M_Test.Inner.Sub._t_A = IcePy.declareValue('::Test::Inner::Sub::A')
 
     _M_Test.Inner.Sub._t_A = IcePy.defineValue('::Test::Inner::Sub::A', A, -1, (), False, None, (('theA', (), _M_Test.Inner._t_A, False, 0),))
     A._ice_type = _M_Test.Inner.Sub._t_A
@@ -637,6 +659,9 @@ __name__ = 'Test.Inner'
 __name__ = 'Test'
 
 if 'Recursive' not in _M_Test.__dict__:
+    _M_Test._t_Recursive = IcePy.declareValue('::Test::Recursive')
+
+if 'Recursive' not in _M_Test.__dict__:
     _M_Test.Recursive = None
     class Recursive(Ice.Value):
         def __init__(self, v=None):
@@ -654,13 +679,14 @@ if 'Recursive' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Recursive = IcePy.declareValue('::Test::Recursive')
-
     _M_Test._t_Recursive = IcePy.defineValue('::Test::Recursive', Recursive, -1, (), False, None, (('v', (), _M_Test._t_Recursive, False, 0),))
     Recursive._ice_type = _M_Test._t_Recursive
 
     _M_Test.Recursive = Recursive
     del Recursive
+
+if 'K' not in _M_Test.__dict__:
+    _M_Test._t_K = IcePy.declareValue('::Test::K')
 
 if 'K' not in _M_Test.__dict__:
     _M_Test.K = None
@@ -680,13 +706,14 @@ if 'K' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_K = IcePy.declareValue('::Test::K')
-
     _M_Test._t_K = IcePy.defineValue('::Test::K', K, -1, (), False, None, (('value', (), IcePy._t_Value, False, 0),))
     K._ice_type = _M_Test._t_K
 
     _M_Test.K = K
     del K
+
+if 'L' not in _M_Test.__dict__:
+    _M_Test._t_L = IcePy.declareValue('::Test::L')
 
 if 'L' not in _M_Test.__dict__:
     _M_Test.L = None
@@ -814,6 +841,9 @@ if '_t_LMap' not in _M_Test.__dict__:
     _M_Test._t_LMap = IcePy.defineDictionary('::Test::LMap', (), _M_Test._t_StructKey, _M_Test._t_L)
 
 if 'M' not in _M_Test.__dict__:
+    _M_Test._t_M = IcePy.declareValue('::Test::M')
+
+if 'M' not in _M_Test.__dict__:
     _M_Test.M = None
     class M(Ice.Value):
         def __init__(self, v=None):
@@ -831,8 +861,6 @@ if 'M' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_M = IcePy.declareValue('::Test::M')
-
     _M_Test._t_M = IcePy.defineValue('::Test::M', M, -1, (), False, None, (('v', (), _M_Test._t_LMap, False, 0),))
     M._ice_type = _M_Test._t_M
 
@@ -844,6 +872,9 @@ if 'F1' not in _M_Test.__dict__:
 
 if 'F2' not in _M_Test.__dict__:
     _M_Test._t_F2Prx = IcePy.declareProxy('::Test::F2')
+
+if 'F3' not in _M_Test.__dict__:
+    _M_Test._t_F3 = IcePy.declareValue('::Test::F3')
 
 if 'F3' not in _M_Test.__dict__:
     _M_Test.F3 = None
@@ -864,8 +895,6 @@ if 'F3' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_F3 = IcePy.declareValue('::Test::F3')
-
     _M_Test._t_F3 = IcePy.defineValue('::Test::F3', F3, -1, (), False, None, (
         ('f1', (), _M_Test._t_F1, False, 0),
         ('f2', (), _M_Test._t_F2Prx, False, 0)
@@ -874,6 +903,9 @@ if 'F3' not in _M_Test.__dict__:
 
     _M_Test.F3 = F3
     del F3
+
+if 'Initial' not in _M_Test.__dict__:
+    _M_Test._t_InitialPrx = IcePy.declareProxy('::Test::Initial')
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None

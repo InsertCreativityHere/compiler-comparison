@@ -29,6 +29,9 @@ _M_IceMX = Ice.openModule('IceMX')
 __name__ = 'IceMX'
 
 if 'SessionMetrics' not in _M_IceMX.__dict__:
+    _M_IceMX._t_SessionMetrics = IcePy.declareValue('::IceMX::SessionMetrics')
+
+if 'SessionMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.SessionMetrics = None
     class SessionMetrics(_M_IceMX.Metrics):
         """

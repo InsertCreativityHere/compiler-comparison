@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Empty' not in _M_Test.__dict__:
+    _M_Test._t_EmptyPrx = IcePy.declareProxy('::Test::Empty')
+
 if 'EmptyPrx' not in _M_Test.__dict__:
     _M_Test.EmptyPrx = None
     class EmptyPrx(Ice.ObjectPrx):
@@ -80,6 +83,9 @@ if 'EmptyPrx' not in _M_Test.__dict__:
 
     _M_Test.Empty = Empty
     del Empty
+
+if 'A' not in _M_Test.__dict__:
+    _M_Test._t_APrx = IcePy.declareProxy('::Test::A')
 
 if 'APrx' not in _M_Test.__dict__:
     _M_Test.APrx = None
@@ -151,6 +157,9 @@ if 'APrx' not in _M_Test.__dict__:
     _M_Test.A = A
     del A
 
+if 'B' not in _M_Test.__dict__:
+    _M_Test._t_BPrx = IcePy.declareProxy('::Test::B')
+
 if 'BPrx' not in _M_Test.__dict__:
     _M_Test.BPrx = None
     class BPrx(_M_Test.APrx):
@@ -220,6 +229,9 @@ if 'BPrx' not in _M_Test.__dict__:
 
     _M_Test.B = B
     del B
+
+if 'C' not in _M_Test.__dict__:
+    _M_Test._t_CPrx = IcePy.declareProxy('::Test::C')
 
 if 'CPrx' not in _M_Test.__dict__:
     _M_Test.CPrx = None
@@ -291,6 +303,9 @@ if 'CPrx' not in _M_Test.__dict__:
     _M_Test.C = C
     del C
 
+if 'D' not in _M_Test.__dict__:
+    _M_Test._t_DPrx = IcePy.declareProxy('::Test::D')
+
 if 'DPrx' not in _M_Test.__dict__:
     _M_Test.DPrx = None
     class DPrx(_M_Test.BPrx, _M_Test.CPrx):
@@ -360,6 +375,9 @@ if 'DPrx' not in _M_Test.__dict__:
 
     _M_Test.D = D
     del D
+
+if 'E' not in _M_Test.__dict__:
+    _M_Test._t_EPrx = IcePy.declareProxy('::Test::E')
 
 if 'EPrx' not in _M_Test.__dict__:
     _M_Test.EPrx = None
@@ -431,6 +449,9 @@ if 'EPrx' not in _M_Test.__dict__:
     _M_Test.E = E
     del E
 
+if 'F' not in _M_Test.__dict__:
+    _M_Test._t_FPrx = IcePy.declareProxy('::Test::F')
+
 if 'FPrx' not in _M_Test.__dict__:
     _M_Test.FPrx = None
     class FPrx(_M_Test.EPrx):
@@ -500,6 +521,9 @@ if 'FPrx' not in _M_Test.__dict__:
 
     _M_Test.F = F
     del F
+
+if 'G' not in _M_Test.__dict__:
+    _M_Test._t_GPrx = IcePy.declareProxy('::Test::G')
 
 if 'GPrx' not in _M_Test.__dict__:
     _M_Test.GPrx = None
@@ -581,6 +605,9 @@ if 'GPrx' not in _M_Test.__dict__:
     _M_Test.G = G
     del G
 
+if 'H' not in _M_Test.__dict__:
+    _M_Test._t_HPrx = IcePy.declareProxy('::Test::H')
+
 if 'HPrx' not in _M_Test.__dict__:
     _M_Test.HPrx = None
     class HPrx(_M_Test.GPrx):
@@ -650,6 +677,9 @@ if 'HPrx' not in _M_Test.__dict__:
 
     _M_Test.H = H
     del H
+
+if 'Echo' not in _M_Test.__dict__:
+    _M_Test._t_EchoPrx = IcePy.declareProxy('::Test::Echo')
 
 if 'EchoPrx' not in _M_Test.__dict__:
     _M_Test.EchoPrx = None

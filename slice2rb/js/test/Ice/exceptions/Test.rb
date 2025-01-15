@@ -19,6 +19,10 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
+    if not defined?(::Test::T_EmptyPrx)
+        T_EmptyPrx = ::Ice::__declareProxy('::Test::Empty')
+    end
+
     if not defined?(::Test::EmptyPrx)
         module EmptyPrx_mixin
         end
@@ -26,10 +30,6 @@ module ::Test
         class EmptyPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include EmptyPrx_mixin
-        end
-
-        if not defined?(::Test::T_EmptyPrx)
-            T_EmptyPrx = ::Ice::__declareProxy('::Test::Empty')
         end
 
         T_EmptyPrx.defineProxy(EmptyPrx, nil, [])
@@ -176,10 +176,6 @@ module ::Test
             include ThrowerPrx_mixin
         end
 
-        if not defined?(::Test::T_ThrowerPrx)
-            T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
-        end
-
         T_ThrowerPrx.defineProxy(ThrowerPrx, nil, [])
 
         ThrowerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -204,6 +200,10 @@ module ::Test
         ThrowerPrx_mixin::OP_throwAfterException = ::Ice::__defineOperation('throwAfterException', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_A])
     end
 
+    if not defined?(::Test::T_WrongOperationPrx)
+        T_WrongOperationPrx = ::Ice::__declareProxy('::Test::WrongOperation')
+    end
+
     if not defined?(::Test::WrongOperationPrx)
         module WrongOperationPrx_mixin
 
@@ -217,13 +217,13 @@ module ::Test
             include WrongOperationPrx_mixin
         end
 
-        if not defined?(::Test::T_WrongOperationPrx)
-            T_WrongOperationPrx = ::Ice::__declareProxy('::Test::WrongOperation')
-        end
-
         T_WrongOperationPrx.defineProxy(WrongOperationPrx, nil, [])
 
         WrongOperationPrx_mixin::OP_noSuchOperation = ::Ice::__defineOperation('noSuchOperation', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::Test::T_EchoPrx)
+        T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
     end
 
     if not defined?(::Test::EchoPrx)
@@ -249,10 +249,6 @@ module ::Test
         class EchoPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include EchoPrx_mixin
-        end
-
-        if not defined?(::Test::T_EchoPrx)
-            T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
         end
 
         T_EchoPrx.defineProxy(EchoPrx, nil, [])

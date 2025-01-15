@@ -108,6 +108,9 @@ if '_t_SSeq' not in _M_Test.__dict__:
     _M_Test._t_SSeq = IcePy.defineSequence('::Test::SSeq', (), _M_Test._t_S)
 
 if 'C' not in _M_Test.__dict__:
+    _M_Test._t_C = IcePy.declareValue('::Test::C')
+
+if 'C' not in _M_Test.__dict__:
     _M_Test.C = None
     class C(Ice.Value):
         def __init__(self, s=None):
@@ -246,6 +249,9 @@ if '_t_S1Map' not in _M_Test.__dict__:
     _M_Test._t_S1Map = IcePy.defineDictionary('::Test::S1Map', (), IcePy._t_string, _M_Test._t_S1)
 
 if 'C1' not in _M_Test.__dict__:
+    _M_Test._t_C1 = IcePy.declareValue('::Test::C1')
+
+if 'C1' not in _M_Test.__dict__:
     _M_Test.C1 = None
     class C1(Ice.Value):
         def __init__(self, s=''):
@@ -317,6 +323,9 @@ if 'S2' not in _M_Test.__dict__:
     del S2
 
 if 'C2' not in _M_Test.__dict__:
+    _M_Test._t_C2 = IcePy.declareValue('::Test::C2')
+
+if 'C2' not in _M_Test.__dict__:
     _M_Test.C2 = None
     class C2(Ice.Value):
         def __init__(self, E1=_M_Test.E1.v1, S1=None, C1=None, S1Seq=None, S1Map=None):
@@ -338,8 +347,6 @@ if 'C2' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_C2 = IcePy.declareValue('::Test::C2')
-
     _M_Test._t_C2 = IcePy.defineValue('::Test::C2', C2, -1, (), False, None, (
         ('E1', (), _M_Test._t_E1, False, 0),
         ('S1', (), _M_Test._t_S1, False, 0),
@@ -351,6 +358,9 @@ if 'C2' not in _M_Test.__dict__:
 
     _M_Test.C2 = C2
     del C2
+
+if 'I' not in _M_Test.__dict__:
+    _M_Test._t_IPrx = IcePy.declareProxy('::Test::I')
 
 if 'IPrx' not in _M_Test.__dict__:
     _M_Test.IPrx = None
@@ -711,6 +721,9 @@ if '_t_SSeq' not in _M_Test.Inner.Inner2.__dict__:
     _M_Test.Inner.Inner2._t_SSeq = IcePy.defineSequence('::Test::Inner::Inner2::SSeq', (), _M_Test.Inner.Inner2._t_S)
 
 if 'C' not in _M_Test.Inner.Inner2.__dict__:
+    _M_Test.Inner.Inner2._t_C = IcePy.declareValue('::Test::Inner::Inner2::C')
+
+if 'C' not in _M_Test.Inner.Inner2.__dict__:
     _M_Test.Inner.Inner2.C = None
     class C(Ice.Value):
         def __init__(self, s=None):
@@ -739,6 +752,9 @@ if '_t_CMap' not in _M_Test.Inner.Inner2.__dict__:
 
 if '_t_CSeq' not in _M_Test.Inner.Inner2.__dict__:
     _M_Test.Inner.Inner2._t_CSeq = IcePy.defineSequence('::Test::Inner::Inner2::CSeq', (), _M_Test.Inner.Inner2._t_C)
+
+if 'I' not in _M_Test.Inner.Inner2.__dict__:
+    _M_Test.Inner.Inner2._t_IPrx = IcePy.declareProxy('::Test::Inner::Inner2::I')
 
 if 'IPrx' not in _M_Test.Inner.Inner2.__dict__:
     _M_Test.Inner.Inner2.IPrx = None
@@ -881,6 +897,9 @@ if '_t_ISeq' not in _M_Test.Inner.Inner2.__dict__:
 __name__ = 'Test.Inner'
 
 if 'C' not in _M_Test.Inner.__dict__:
+    _M_Test.Inner._t_C = IcePy.declareValue('::Test::Inner::C')
+
+if 'C' not in _M_Test.Inner.__dict__:
     _M_Test.Inner.C = None
     class C(Ice.Value):
         def __init__(self, s=None):
@@ -915,6 +934,9 @@ if '_t_CMap' not in _M_Test.Inner.__dict__:
 
 if '_t_CSeq' not in _M_Test.Inner.__dict__:
     _M_Test.Inner._t_CSeq = IcePy.defineSequence('::Test::Inner::CSeq', (), _M_Test.Inner.Inner2._t_C)
+
+if 'I' not in _M_Test.Inner.__dict__:
+    _M_Test.Inner._t_IPrx = IcePy.declareProxy('::Test::Inner::I')
 
 if 'IPrx' not in _M_Test.Inner.__dict__:
     _M_Test.Inner.IPrx = None
@@ -1069,6 +1091,9 @@ __name__ = 'Inner.Test'
 # Start of module Inner.Test.Inner2
 _M_Inner.Test.Inner2 = Ice.openModule('Inner.Test.Inner2')
 __name__ = 'Inner.Test.Inner2'
+
+if 'I' not in _M_Inner.Test.Inner2.__dict__:
+    _M_Inner.Test.Inner2._t_IPrx = IcePy.declareProxy('::Inner::Test::Inner2::I')
 
 if 'IPrx' not in _M_Inner.Test.Inner2.__dict__:
     _M_Inner.Test.Inner2.IPrx = None

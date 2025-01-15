@@ -26,6 +26,9 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Empty' not in _M_Test.__dict__:
+    _M_Test._t_EmptyPrx = IcePy.declareProxy('::Test::Empty')
+
 if 'EmptyPrx' not in _M_Test.__dict__:
     _M_Test.EmptyPrx = None
     class EmptyPrx(Ice.ObjectPrx):
@@ -426,6 +429,9 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
     _M_Test.Thrower = Thrower
     del Thrower
 
+if 'WrongOperation' not in _M_Test.__dict__:
+    _M_Test._t_WrongOperationPrx = IcePy.declareProxy('::Test::WrongOperation')
+
 if 'WrongOperationPrx' not in _M_Test.__dict__:
     _M_Test.WrongOperationPrx = None
     class WrongOperationPrx(Ice.ObjectPrx):
@@ -495,6 +501,9 @@ if 'WrongOperationPrx' not in _M_Test.__dict__:
 
     _M_Test.WrongOperation = WrongOperation
     del WrongOperation
+
+if 'Echo' not in _M_Test.__dict__:
+    _M_Test._t_EchoPrx = IcePy.declareProxy('::Test::Echo')
 
 if 'EchoPrx' not in _M_Test.__dict__:
     _M_Test.EchoPrx = None

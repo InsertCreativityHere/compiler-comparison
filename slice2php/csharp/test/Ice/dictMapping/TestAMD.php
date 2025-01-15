@@ -159,6 +159,13 @@ namespace Test
 {
     global $Test__t_MyClass;
     global $Test__t_MyClassPrx;
+    $Test__t_MyClassPrx = IcePHP_declareProxy('::Test::MyClass');
+}
+
+namespace Test
+{
+    global $Test__t_MyClass;
+    global $Test__t_MyClassPrx;
 
     class MyClassPrxHelper
     {

@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Ice = Ice.openModule('Ice')
 __name__ = 'Ice'
 
+if 'Process' not in _M_Ice.__dict__:
+    _M_Ice._t_ProcessPrx = IcePy.declareProxy('::Ice::Process')
+
 if 'ProcessPrx' not in _M_Ice.__dict__:
     _M_Ice.ProcessPrx = None
     class ProcessPrx(Ice.ObjectPrx):

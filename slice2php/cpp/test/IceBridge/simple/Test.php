@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Callback;
     global $Test__t_CallbackPrx;
+    $Test__t_CallbackPrx = IcePHP_declareProxy('::Test::Callback');
+}
+
+namespace Test
+{
+    global $Test__t_Callback;
+    global $Test__t_CallbackPrx;
 
     class CallbackPrxHelper
     {
@@ -51,6 +58,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_CallbackPrx, 'getCount', 0, -1, null, null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_CallbackPrx, 'datagram', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_CallbackPrx, 'getDatagramCount', 0, -1, null, null, array($IcePHP__t_int), null);
+}
+
+namespace Test
+{
+    global $Test__t_MyClass;
+    global $Test__t_MyClassPrx;
+    $Test__t_MyClassPrx = IcePHP_declareProxy('::Test::MyClass');
 }
 
 namespace Test

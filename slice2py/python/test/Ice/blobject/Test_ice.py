@@ -41,6 +41,9 @@ if 'UE' not in _M_Test.__dict__:
     _M_Test.UE = UE
     del UE
 
+if 'Hello' not in _M_Test.__dict__:
+    _M_Test._t_HelloPrx = IcePy.declareProxy('::Test::Hello')
+
 if 'HelloPrx' not in _M_Test.__dict__:
     _M_Test.HelloPrx = None
     class HelloPrx(Ice.ObjectPrx):

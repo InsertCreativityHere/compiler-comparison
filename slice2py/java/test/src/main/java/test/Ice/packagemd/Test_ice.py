@@ -33,6 +33,9 @@ _M_Test1 = Ice.openModule('Test1')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Initial' not in _M_Test.__dict__:
+    _M_Test._t_InitialPrx = IcePy.declareProxy('::Test::Initial')
+
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None
     class InitialPrx(Ice.ObjectPrx):

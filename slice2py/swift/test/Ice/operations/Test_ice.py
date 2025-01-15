@@ -1312,6 +1312,9 @@ if 'MyStruct1' not in _M_Test.__dict__:
     del MyStruct1
 
 if 'MyClass1' not in _M_Test.__dict__:
+    _M_Test._t_MyClass1 = IcePy.declareValue('::Test::MyClass1')
+
+if 'MyClass1' not in _M_Test.__dict__:
     _M_Test.MyClass1 = None
     class MyClass1(Ice.Value):
         def __init__(self, tesT='', myClass=None, myClass1=''):
@@ -1340,6 +1343,9 @@ if 'MyClass1' not in _M_Test.__dict__:
 
     _M_Test.MyClass1 = MyClass1
     del MyClass1
+
+if 'MyDerivedClass' not in _M_Test.__dict__:
+    _M_Test._t_MyDerivedClassPrx = IcePy.declareProxy('::Test::MyDerivedClass')
 
 if 'MyDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyDerivedClassPrx = None
@@ -1564,6 +1570,9 @@ _M_Test.wsu2 = "\U00000128\U00000178\U000000FF\U00000100\U00001F00\U00010194\U00
 # Start of module Test2
 _M_Test2 = Ice.openModule('Test2')
 __name__ = 'Test2'
+
+if 'MyDerivedClass' not in _M_Test2.__dict__:
+    _M_Test2._t_MyDerivedClassPrx = IcePy.declareProxy('::Test2::MyDerivedClass')
 
 if 'MyDerivedClassPrx' not in _M_Test2.__dict__:
     _M_Test2.MyDerivedClassPrx = None

@@ -41,6 +41,9 @@ if 'BadEncodingException' not in _M_Test.__dict__:
     _M_Test.BadEncodingException = BadEncodingException
     del BadEncodingException
 
+if 'MyObject' not in _M_Test.__dict__:
+    _M_Test._t_MyObjectPrx = IcePy.declareProxy('::Test::MyObject')
+
 if 'MyObjectPrx' not in _M_Test.__dict__:
     _M_Test.MyObjectPrx = None
     class MyObjectPrx(Ice.ObjectPrx):

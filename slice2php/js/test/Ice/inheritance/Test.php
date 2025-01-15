@@ -19,6 +19,13 @@ namespace Test\MA
 {
     global $Test_MA__t_IA;
     global $Test_MA__t_IAPrx;
+    $Test_MA__t_IAPrx = IcePHP_declareProxy('::Test::MA::IA');
+}
+
+namespace Test\MA
+{
+    global $Test_MA__t_IA;
+    global $Test_MA__t_IAPrx;
 
     class IAPrxHelper
     {
@@ -48,6 +55,13 @@ namespace Test\MA
 
     global $Test_MA__t_IAPrx;
     IcePHP_defineOperation($Test_MA__t_IAPrx, 'iaop', 0, -1, array(array($Test_MA__t_IAPrx)), null, array($Test_MA__t_IAPrx), null);
+}
+
+namespace Test\MB
+{
+    global $Test_MB__t_IB1;
+    global $Test_MB__t_IB1Prx;
+    $Test_MB__t_IB1Prx = IcePHP_declareProxy('::Test::MB::IB1');
 }
 
 namespace Test\MB
@@ -89,6 +103,13 @@ namespace Test\MB
 {
     global $Test_MB__t_IB2;
     global $Test_MB__t_IB2Prx;
+    $Test_MB__t_IB2Prx = IcePHP_declareProxy('::Test::MB::IB2');
+}
+
+namespace Test\MB
+{
+    global $Test_MB__t_IB2;
+    global $Test_MB__t_IB2Prx;
 
     class IB2PrxHelper
     {
@@ -124,6 +145,13 @@ namespace Test\MA
 {
     global $Test_MA__t_IC;
     global $Test_MA__t_ICPrx;
+    $Test_MA__t_ICPrx = IcePHP_declareProxy('::Test::MA::IC');
+}
+
+namespace Test\MA
+{
+    global $Test_MA__t_IC;
+    global $Test_MA__t_ICPrx;
 
     class ICPrxHelper
     {
@@ -153,6 +181,13 @@ namespace Test\MA
 
     global $Test_MA__t_ICPrx;
     IcePHP_defineOperation($Test_MA__t_ICPrx, 'icop', 0, -1, array(array($Test_MA__t_ICPrx)), null, array($Test_MA__t_ICPrx), null);
+}
+
+namespace Test
+{
+    global $Test__t_Initial;
+    global $Test__t_InitialPrx;
+    $Test__t_InitialPrx = IcePHP_declareProxy('::Test::Initial');
 }
 
 namespace Test
@@ -200,6 +235,12 @@ namespace Test
 namespace Test\MC
 {
     global $Test_MC__t_A;
+    $Test_MC__t_A = IcePHP_declareClass('::Test::MC::A');
+}
+
+namespace Test\MC
+{
+    global $Test_MC__t_A;
     class A extends \Ice\Value
     {
         public function __construct($aA=0)
@@ -230,6 +271,12 @@ namespace Test\MC
     global $IcePHP__t_int;
     $Test_MC__t_A = IcePHP_defineClass('::Test::MC::A', '\\Test\\MC\\A', -1, false, $Ice__t_Value, array(
         array('aA', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test\MC
+{
+    global $Test_MC__t_B;
+    $Test_MC__t_B = IcePHP_declareClass('::Test::MC::B');
 }
 
 namespace Test\MC
@@ -271,6 +318,12 @@ namespace Test\MC
 namespace Test\MC
 {
     global $Test_MC__t_C;
+    $Test_MC__t_C = IcePHP_declareClass('::Test::MC::C');
+}
+
+namespace Test\MC
+{
+    global $Test_MC__t_C;
     class C extends \Test\MC\B
     {
         public function __construct($aA=0, $bB=0, $cC=0)
@@ -302,6 +355,12 @@ namespace Test\MC
     global $IcePHP__t_int;
     $Test_MC__t_C = IcePHP_defineClass('::Test::MC::C', '\\Test\\MC\\C', -1, false, $Test_MC__t_B, array(
         array('cC', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test\MC
+{
+    global $Test_MC__t_D;
+    $Test_MC__t_D = IcePHP_declareClass('::Test::MC::D');
 }
 
 namespace Test\MC
@@ -343,6 +402,12 @@ namespace Test\MC
 namespace Test\MD
 {
     global $Test_MD__t_A;
+    $Test_MD__t_A = IcePHP_declareClass('::Test::MD::A');
+}
+
+namespace Test\MD
+{
+    global $Test_MD__t_A;
     class A extends \Ice\Value
     {
         public function __construct($aA=0)
@@ -373,6 +438,12 @@ namespace Test\MD
     global $IcePHP__t_int;
     $Test_MD__t_A = IcePHP_defineClass('::Test::MD::A', '\\Test\\MD\\A', -1, false, $Ice__t_Value, array(
         array('aA', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test\MD
+{
+    global $Test_MD__t_B;
+    $Test_MD__t_B = IcePHP_declareClass('::Test::MD::B');
 }
 
 namespace Test\MD
@@ -414,6 +485,12 @@ namespace Test\MD
 namespace Test\MD
 {
     global $Test_MD__t_C;
+    $Test_MD__t_C = IcePHP_declareClass('::Test::MD::C');
+}
+
+namespace Test\MD
+{
+    global $Test_MD__t_C;
     class C extends \Test\MD\B
     {
         public function __construct($aA=0, $bB=0, $cC=0)
@@ -445,6 +522,12 @@ namespace Test\MD
     global $IcePHP__t_int;
     $Test_MD__t_C = IcePHP_defineClass('::Test::MD::C', '\\Test\\MD\\C', -1, false, $Test_MD__t_B, array(
         array('cC', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test\MD
+{
+    global $Test_MD__t_D;
+    $Test_MD__t_D = IcePHP_declareClass('::Test::MD::D');
 }
 
 namespace Test\MD
@@ -486,6 +569,12 @@ namespace Test\MD
 namespace Test\ME
 {
     global $Test_ME__t_A;
+    $Test_ME__t_A = IcePHP_declareClass('::Test::ME::A');
+}
+
+namespace Test\ME
+{
+    global $Test_ME__t_A;
     class A extends \Ice\Value
     {
         public function __construct($aA=0)
@@ -516,6 +605,12 @@ namespace Test\ME
     global $IcePHP__t_int;
     $Test_ME__t_A = IcePHP_defineClass('::Test::ME::A', '\\Test\\ME\\A', -1, false, $Ice__t_Value, array(
         array('aA', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test\ME
+{
+    global $Test_ME__t_B;
+    $Test_ME__t_B = IcePHP_declareClass('::Test::ME::B');
 }
 
 namespace Test\ME
@@ -557,6 +652,12 @@ namespace Test\ME
 namespace Test\ME
 {
     global $Test_ME__t_C;
+    $Test_ME__t_C = IcePHP_declareClass('::Test::ME::C');
+}
+
+namespace Test\ME
+{
+    global $Test_ME__t_C;
     class C extends \Test\ME\B
     {
         public function __construct($aA=0, $bB=0, $cC=0)
@@ -588,6 +689,12 @@ namespace Test\ME
     global $IcePHP__t_int;
     $Test_ME__t_C = IcePHP_defineClass('::Test::ME::C', '\\Test\\ME\\C', -1, false, $Test_ME__t_B, array(
         array('cC', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test\ME
+{
+    global $Test_ME__t_D;
+    $Test_ME__t_D = IcePHP_declareClass('::Test::ME::D');
 }
 
 namespace Test\ME
@@ -629,6 +736,12 @@ namespace Test\ME
 namespace Test\MF
 {
     global $Test_MF__t_A;
+    $Test_MF__t_A = IcePHP_declareClass('::Test::MF::A');
+}
+
+namespace Test\MF
+{
+    global $Test_MF__t_A;
     class A extends \Ice\Value
     {
         public function __construct($aA=0)
@@ -659,6 +772,12 @@ namespace Test\MF
     global $IcePHP__t_int;
     $Test_MF__t_A = IcePHP_defineClass('::Test::MF::A', '\\Test\\MF\\A', -1, false, $Ice__t_Value, array(
         array('aA', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test\MF
+{
+    global $Test_MF__t_B;
+    $Test_MF__t_B = IcePHP_declareClass('::Test::MF::B');
 }
 
 namespace Test\MF
@@ -700,6 +819,12 @@ namespace Test\MF
 namespace Test\MF
 {
     global $Test_MF__t_C;
+    $Test_MF__t_C = IcePHP_declareClass('::Test::MF::C');
+}
+
+namespace Test\MF
+{
+    global $Test_MF__t_C;
     class C extends \Test\MF\B
     {
         public function __construct($aA=0, $bB=0, $cC=0)
@@ -731,6 +856,12 @@ namespace Test\MF
     global $IcePHP__t_int;
     $Test_MF__t_C = IcePHP_defineClass('::Test::MF::C', '\\Test\\MF\\C', -1, false, $Test_MF__t_B, array(
         array('cC', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test\MF
+{
+    global $Test_MF__t_D;
+    $Test_MF__t_D = IcePHP_declareClass('::Test::MF::D');
 }
 
 namespace Test\MF
@@ -772,6 +903,12 @@ namespace Test\MF
 namespace Test\MG
 {
     global $Test_MG__t_A;
+    $Test_MG__t_A = IcePHP_declareClass('::Test::MG::A');
+}
+
+namespace Test\MG
+{
+    global $Test_MG__t_A;
     class A extends \Ice\Value
     {
         public function __construct($aA=0)
@@ -802,6 +939,12 @@ namespace Test\MG
     global $IcePHP__t_int;
     $Test_MG__t_A = IcePHP_defineClass('::Test::MG::A', '\\Test\\MG\\A', -1, false, $Ice__t_Value, array(
         array('aA', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test\MG
+{
+    global $Test_MG__t_B;
+    $Test_MG__t_B = IcePHP_declareClass('::Test::MG::B');
 }
 
 namespace Test\MG
@@ -843,6 +986,12 @@ namespace Test\MG
 namespace Test\MG
 {
     global $Test_MG__t_C;
+    $Test_MG__t_C = IcePHP_declareClass('::Test::MG::C');
+}
+
+namespace Test\MG
+{
+    global $Test_MG__t_C;
     class C extends \Test\MG\B
     {
         public function __construct($aA=0, $bB=0, $cC=0)
@@ -874,6 +1023,12 @@ namespace Test\MG
     global $IcePHP__t_int;
     $Test_MG__t_C = IcePHP_defineClass('::Test::MG::C', '\\Test\\MG\\C', -1, false, $Test_MG__t_B, array(
         array('cC', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test\MG
+{
+    global $Test_MG__t_D;
+    $Test_MG__t_D = IcePHP_declareClass('::Test::MG::D');
 }
 
 namespace Test\MG
@@ -915,6 +1070,12 @@ namespace Test\MG
 namespace Test\MH
 {
     global $Test_MH__t_A;
+    $Test_MH__t_A = IcePHP_declareClass('::Test::MH::A');
+}
+
+namespace Test\MH
+{
+    global $Test_MH__t_A;
     class A extends \Ice\Value
     {
         public function __construct($aA=0)
@@ -945,6 +1106,12 @@ namespace Test\MH
     global $IcePHP__t_int;
     $Test_MH__t_A = IcePHP_defineClass('::Test::MH::A', '\\Test\\MH\\A', -1, false, $Ice__t_Value, array(
         array('aA', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test\MH
+{
+    global $Test_MH__t_B;
+    $Test_MH__t_B = IcePHP_declareClass('::Test::MH::B');
 }
 
 namespace Test\MH
@@ -986,6 +1153,12 @@ namespace Test\MH
 namespace Test\MH
 {
     global $Test_MH__t_C;
+    $Test_MH__t_C = IcePHP_declareClass('::Test::MH::C');
+}
+
+namespace Test\MH
+{
+    global $Test_MH__t_C;
     class C extends \Test\MH\B
     {
         public function __construct($aA=0, $bB=0, $cC=0)
@@ -1022,6 +1195,12 @@ namespace Test\MH
 namespace Test\MH
 {
     global $Test_MH__t_D;
+    $Test_MH__t_D = IcePHP_declareClass('::Test::MH::D');
+}
+
+namespace Test\MH
+{
+    global $Test_MH__t_D;
     class D extends \Test\MH\C
     {
         public function __construct($aA=0, $bB=0, $cC=0, $dD=0)
@@ -1053,6 +1232,13 @@ namespace Test\MH
     global $IcePHP__t_int;
     $Test_MH__t_D = IcePHP_defineClass('::Test::MH::D', '\\Test\\MH\\D', -1, false, $Test_MH__t_C, array(
         array('dD', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_Echo;
+    global $Test__t_EchoPrx;
+    $Test__t_EchoPrx = IcePHP_declareProxy('::Test::Echo');
 }
 
 namespace Test

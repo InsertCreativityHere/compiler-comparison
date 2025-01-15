@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_SBase)
+        T_SBase = ::Ice::__declareClass('::Test::SBase')
+    end
+
     if not defined?(::Test::SBase)
         class SBase < ::Ice::Value
 
@@ -28,11 +32,11 @@ module ::Test
             attr_accessor :sb
         end
 
-        if not defined?(::Test::T_SBase)
-            T_SBase = ::Ice::__declareClass('::Test::SBase')
-        end
-
         T_SBase.defineClass(SBase, -1, false, nil, [['sb', ::Ice::T_string, false, 0]])
+    end
+
+    if not defined?(::Test::T_SBSKnownDerived)
+        T_SBSKnownDerived = ::Ice::__declareClass('::Test::SBSKnownDerived')
     end
 
     if not defined?(::Test::SBSKnownDerived)
@@ -46,11 +50,11 @@ module ::Test
             attr_accessor :sbskd
         end
 
-        if not defined?(::Test::T_SBSKnownDerived)
-            T_SBSKnownDerived = ::Ice::__declareClass('::Test::SBSKnownDerived')
-        end
-
         T_SBSKnownDerived.defineClass(SBSKnownDerived, -1, false, ::Test::T_SBase, [['sbskd', ::Ice::T_string, false, 0]])
+    end
+
+    if not defined?(::Test::T_B)
+        T_B = ::Ice::__declareClass('::Test::B')
     end
 
     if not defined?(::Test::B)
@@ -64,14 +68,14 @@ module ::Test
             attr_accessor :sb, :pb
         end
 
-        if not defined?(::Test::T_B)
-            T_B = ::Ice::__declareClass('::Test::B')
-        end
-
         T_B.defineClass(B, -1, false, nil, [
             ['sb', ::Ice::T_string, false, 0],
             ['pb', ::Test::T_B, false, 0]
         ])
+    end
+
+    if not defined?(::Test::T_D1)
+        T_D1 = ::Ice::__declareClass('::Test::D1')
     end
 
     if not defined?(::Test::D1)
@@ -86,10 +90,6 @@ module ::Test
             attr_accessor :sd1, :pd1
         end
 
-        if not defined?(::Test::T_D1)
-            T_D1 = ::Ice::__declareClass('::Test::D1')
-        end
-
         T_D1.defineClass(D1, -1, false, ::Test::T_B, [
             ['sd1', ::Ice::T_string, false, 0],
             ['pd1', ::Test::T_B, false, 0]
@@ -98,6 +98,10 @@ module ::Test
 
     if not defined?(::Test::T_BSeq)
         T_BSeq = ::Ice::__defineSequence('::Test::BSeq', ::Test::T_B)
+    end
+
+    if not defined?(::Test::T_SS1)
+        T_SS1 = ::Ice::__declareClass('::Test::SS1')
     end
 
     if not defined?(::Test::SS1)
@@ -110,11 +114,11 @@ module ::Test
             attr_accessor :s
         end
 
-        if not defined?(::Test::T_SS1)
-            T_SS1 = ::Ice::__declareClass('::Test::SS1')
-        end
-
         T_SS1.defineClass(SS1, -1, false, nil, [['s', ::Test::T_BSeq, false, 0]])
+    end
+
+    if not defined?(::Test::T_SS2)
+        T_SS2 = ::Ice::__declareClass('::Test::SS2')
     end
 
     if not defined?(::Test::SS2)
@@ -125,10 +129,6 @@ module ::Test
             end
 
             attr_accessor :s
-        end
-
-        if not defined?(::Test::T_SS2)
-            T_SS2 = ::Ice::__declareClass('::Test::SS2')
         end
 
         T_SS2.defineClass(SS2, -1, false, nil, [['s', ::Test::T_BSeq, false, 0]])
@@ -207,6 +207,10 @@ module ::Test
         T_Forward = ::Ice::__declareClass('::Test::Forward')
     end
 
+    if not defined?(::Test::T_PBase)
+        T_PBase = ::Ice::__declareClass('::Test::PBase')
+    end
+
     if not defined?(::Test::PBase)
         class PBase < ::Ice::Value
 
@@ -217,15 +221,15 @@ module ::Test
             attr_accessor :pi
         end
 
-        if not defined?(::Test::T_PBase)
-            T_PBase = ::Ice::__declareClass('::Test::PBase')
-        end
-
         T_PBase.defineClass(PBase, -1, false, nil, [['pi', ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::T_PBaseSeq)
         T_PBaseSeq = ::Ice::__defineSequence('::Test::PBaseSeq', ::Test::T_PBase)
+    end
+
+    if not defined?(::Test::T_Preserved)
+        T_Preserved = ::Ice::__declareClass('::Test::Preserved')
     end
 
     if not defined?(::Test::Preserved)
@@ -239,11 +243,11 @@ module ::Test
             attr_accessor :ps
         end
 
-        if not defined?(::Test::T_Preserved)
-            T_Preserved = ::Ice::__declareClass('::Test::Preserved')
-        end
-
         T_Preserved.defineClass(Preserved, -1, false, ::Test::T_PBase, [['ps', ::Ice::T_string, false, 0]])
+    end
+
+    if not defined?(::Test::T_PDerived)
+        T_PDerived = ::Ice::__declareClass('::Test::PDerived')
     end
 
     if not defined?(::Test::PDerived)
@@ -257,11 +261,11 @@ module ::Test
             attr_accessor :pb
         end
 
-        if not defined?(::Test::T_PDerived)
-            T_PDerived = ::Ice::__declareClass('::Test::PDerived')
-        end
-
         T_PDerived.defineClass(PDerived, -1, false, ::Test::T_Preserved, [['pb', ::Test::T_PBase, false, 0]])
+    end
+
+    if not defined?(::Test::T_PNode)
+        T_PNode = ::Ice::__declareClass('::Test::PNode')
     end
 
     if not defined?(::Test::PNode)
@@ -274,11 +278,11 @@ module ::Test
             attr_accessor :_next
         end
 
-        if not defined?(::Test::T_PNode)
-            T_PNode = ::Ice::__declareClass('::Test::PNode')
-        end
-
         T_PNode.defineClass(PNode, -1, false, nil, [['_next', ::Test::T_PNode, false, 0]])
+    end
+
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
@@ -434,10 +438,6 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
-        end
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_SBaseAsObject = ::Ice::__defineOperation('SBaseAsObject', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], [::Ice::T_Value, false, 0], [])
@@ -478,6 +478,10 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, [], [], nil, [])
     end
 
+    if not defined?(::Test::T_Hidden)
+        T_Hidden = ::Ice::__declareClass('::Test::Hidden')
+    end
+
     if not defined?(::Test::Hidden)
         class Hidden < ::Ice::Value
 
@@ -486,10 +490,6 @@ module ::Test
             end
 
             attr_accessor :f
-        end
-
-        if not defined?(::Test::T_Hidden)
-            T_Hidden = ::Ice::__declareClass('::Test::Hidden')
         end
 
         T_Hidden.defineClass(Hidden, -1, false, nil, [['f', ::Test::T_Forward, false, 0]])
@@ -503,10 +503,6 @@ module ::Test
             end
 
             attr_accessor :h
-        end
-
-        if not defined?(::Test::T_Forward)
-            T_Forward = ::Ice::__declareClass('::Test::Forward')
         end
 
         T_Forward.defineClass(Forward, -1, false, nil, [['h', ::Test::T_Hidden, false, 0]])

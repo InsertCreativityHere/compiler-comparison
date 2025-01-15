@@ -37,19 +37,13 @@ namespace Test
 {
     global $Test__t_MyInterface;
     global $Test__t_MyInterfacePrx;
-    if(!isset($Test__t_MyInterface))
-    {
-        $Test__t_MyInterfacePrx = IcePHP_declareProxy('::Test::MyInterface');
-    }
+    $Test__t_MyInterfacePrx = IcePHP_declareProxy('::Test::MyInterface');
 }
 
 namespace Test
 {
     global $Test__t_MyClass;
-    if(!isset($Test__t_MyClass))
-    {
-        $Test__t_MyClass = IcePHP_declareClass('::Test::MyClass');
-    }
+    $Test__t_MyClass = IcePHP_declareClass('::Test::MyClass');
 }
 
 namespace Test
@@ -110,6 +104,12 @@ namespace Test
         array('str', $IcePHP__t_string),
         array('e', $Test__t_MyEnum),
         array('p', $Test__t_MyInterfacePrx)));
+}
+
+namespace Test
+{
+    global $Test__t_OptionalClass;
+    $Test__t_OptionalClass = IcePHP_declareClass('::Test::OptionalClass');
 }
 
 namespace Test

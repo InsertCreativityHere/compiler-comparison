@@ -352,6 +352,9 @@ if '_t_SStructSD' not in _M_Test.__dict__:
     _M_Test._t_SStructSD = IcePy.defineSequence('::Test::SStructSD', (), _M_Test._t_SD)
 
 if 'CV' not in _M_Test.__dict__:
+    _M_Test._t_CV = IcePy.declareValue('::Test::CV')
+
+if 'CV' not in _M_Test.__dict__:
     _M_Test.CV = None
     class CV(Ice.Value):
         def __init__(self, i=0):
@@ -380,6 +383,9 @@ if '_t_ACVS' not in _M_Test.__dict__:
 
 if '_t_LCVS' not in _M_Test.__dict__:
     _M_Test._t_LCVS = IcePy.defineSequence('::Test::LCVS', (), _M_Test._t_CV)
+
+if 'I' not in _M_Test.__dict__:
+    _M_Test._t_IPrx = IcePy.declareProxy('::Test::I')
 
 if 'IPrx' not in _M_Test.__dict__:
     _M_Test.IPrx = None
@@ -456,6 +462,9 @@ if '_t_SIPrxS' not in _M_Test.__dict__:
     _M_Test._t_SIPrxS = IcePy.defineSequence('::Test::SIPrxS', (), _M_Test._t_IPrx)
 
 if 'CR' not in _M_Test.__dict__:
+    _M_Test._t_CR = IcePy.declareValue('::Test::CR')
+
+if 'CR' not in _M_Test.__dict__:
     _M_Test.CR = None
     class CR(Ice.Value):
         def __init__(self, v=None):
@@ -472,8 +481,6 @@ if 'CR' not in _M_Test.__dict__:
             return IcePy.stringify(self, _M_Test._t_CR)
 
         __repr__ = __str__
-
-    _M_Test._t_CR = IcePy.declareValue('::Test::CR')
 
     _M_Test._t_CR = IcePy.defineValue('::Test::CR', CR, -1, (), False, None, (('v', (), _M_Test._t_CV, False, 0),))
     CR._ice_type = _M_Test._t_CR
@@ -536,6 +543,9 @@ if '_t_CustomIntSS' not in _M_Test.__dict__:
 
 if '_t_CustomCVSS' not in _M_Test.__dict__:
     _M_Test._t_CustomCVSS = IcePy.defineSequence('::Test::CustomCVSS', (), _M_Test._t_CustomCVS)
+
+if 'MyClass' not in _M_Test.__dict__:
+    _M_Test._t_MyClassPrx = IcePy.declareProxy('::Test::MyClass')
 
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = None

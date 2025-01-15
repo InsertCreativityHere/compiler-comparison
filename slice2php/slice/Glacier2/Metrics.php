@@ -23,6 +23,12 @@ namespace
 namespace IceMX
 {
     global $IceMX__t_SessionMetrics;
+    $IceMX__t_SessionMetrics = IcePHP_declareClass('::IceMX::SessionMetrics');
+}
+
+namespace IceMX
+{
+    global $IceMX__t_SessionMetrics;
     class SessionMetrics extends \IceMX\Metrics
     {
         public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $forwardedClient=0, $forwardedServer=0, $routingTableSize=0, $queuedClient=0, $queuedServer=0, $overriddenClient=0, $overriddenServer=0)

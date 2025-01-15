@@ -38,6 +38,10 @@ module ::Test
         T_TestImpossibleException = ::Ice::__defineException('::Test::TestImpossibleException', TestImpossibleException, nil, [])
     end
 
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+    end
+
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
@@ -103,10 +107,6 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
-        end
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_requestFailedException = ::Ice::__defineOperation('requestFailedException', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -125,6 +125,10 @@ module ::Test
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
     end
 
+    if not defined?(::Test::T_TestActivationPrx)
+        T_TestActivationPrx = ::Ice::__declareProxy('::Test::TestActivation')
+    end
+
     if not defined?(::Test::TestActivationPrx)
         module TestActivationPrx_mixin
 
@@ -136,10 +140,6 @@ module ::Test
         class TestActivationPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include TestActivationPrx_mixin
-        end
-
-        if not defined?(::Test::T_TestActivationPrx)
-            T_TestActivationPrx = ::Ice::__declareProxy('::Test::TestActivation')
         end
 
         T_TestActivationPrx.defineProxy(TestActivationPrx, nil, [])

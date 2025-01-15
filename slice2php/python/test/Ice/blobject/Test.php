@@ -39,6 +39,13 @@ namespace Test
 {
     global $Test__t_Hello;
     global $Test__t_HelloPrx;
+    $Test__t_HelloPrx = IcePHP_declareProxy('::Test::Hello');
+}
+
+namespace Test
+{
+    global $Test__t_Hello;
+    global $Test__t_HelloPrx;
 
     class HelloPrxHelper
     {

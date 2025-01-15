@@ -18,6 +18,12 @@
 namespace Test
 {
     global $Test__t_ConcreteClass;
+    $Test__t_ConcreteClass = IcePHP_declareClass('::Test::ConcreteClass');
+}
+
+namespace Test
+{
+    global $Test__t_ConcreteClass;
     class ConcreteClass extends \Ice\Value
     {
         public function __construct($i=0)
@@ -68,6 +74,13 @@ namespace Test
     }
 
     $Test__t_E = IcePHP_defineException('::Test::E', '\\Test\\E', null, null);
+}
+
+namespace Test
+{
+    global $Test__t_Initial;
+    global $Test__t_InitialPrx;
+    $Test__t_InitialPrx = IcePHP_declareProxy('::Test::Initial');
 }
 
 namespace Test

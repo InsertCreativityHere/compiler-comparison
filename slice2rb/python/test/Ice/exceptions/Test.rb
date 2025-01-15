@@ -20,6 +20,10 @@ require 'Ice/Identity.rb'
 
 module ::Test
 
+    if not defined?(::Test::T_EmptyPrx)
+        T_EmptyPrx = ::Ice::__declareProxy('::Test::Empty')
+    end
+
     if not defined?(::Test::EmptyPrx)
         module EmptyPrx_mixin
         end
@@ -27,10 +31,6 @@ module ::Test
         class EmptyPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include EmptyPrx_mixin
-        end
-
-        if not defined?(::Test::T_EmptyPrx)
-            T_EmptyPrx = ::Ice::__declareProxy('::Test::Empty')
         end
 
         T_EmptyPrx.defineProxy(EmptyPrx, nil, [])
@@ -204,10 +204,6 @@ module ::Test
             include ThrowerPrx_mixin
         end
 
-        if not defined?(::Test::T_ThrowerPrx)
-            T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
-        end
-
         T_ThrowerPrx.defineProxy(ThrowerPrx, nil, [])
 
         ThrowerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -235,6 +231,10 @@ module ::Test
         ThrowerPrx_mixin::OP_throwRequestFailedException = ::Ice::__defineOperation('throwRequestFailedException', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_Identity, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
     end
 
+    if not defined?(::Test::T_WrongOperationPrx)
+        T_WrongOperationPrx = ::Ice::__declareProxy('::Test::WrongOperation')
+    end
+
     if not defined?(::Test::WrongOperationPrx)
         module WrongOperationPrx_mixin
 
@@ -246,10 +246,6 @@ module ::Test
         class WrongOperationPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include WrongOperationPrx_mixin
-        end
-
-        if not defined?(::Test::T_WrongOperationPrx)
-            T_WrongOperationPrx = ::Ice::__declareProxy('::Test::WrongOperation')
         end
 
         T_WrongOperationPrx.defineProxy(WrongOperationPrx, nil, [])

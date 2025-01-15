@@ -371,6 +371,9 @@ if 'ColorPalette' not in _M_Test.__dict__:
     del ColorPalette
 
 if 'Pen' not in _M_Test.__dict__:
+    _M_Test._t_Pen = IcePy.declareValue('::Test::Pen')
+
+if 'Pen' not in _M_Test.__dict__:
     _M_Test.Pen = None
     class Pen(Ice.Value):
         def __init__(self, thickness=0, color=None):

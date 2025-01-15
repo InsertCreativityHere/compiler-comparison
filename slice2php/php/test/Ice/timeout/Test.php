@@ -30,6 +30,13 @@ namespace Test
 {
     global $Test__t_Timeout;
     global $Test__t_TimeoutPrx;
+    $Test__t_TimeoutPrx = IcePHP_declareProxy('::Test::Timeout');
+}
+
+namespace Test
+{
+    global $Test__t_Timeout;
+    global $Test__t_TimeoutPrx;
 
     class TimeoutPrxHelper
     {
@@ -62,6 +69,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_TimeoutPrx, 'op', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TimeoutPrx, 'sendData', 0, -1, array(array($Test__t_ByteSeq)), null, null, null);
     IcePHP_defineOperation($Test__t_TimeoutPrx, 'sleep', 0, -1, array(array($IcePHP__t_int)), null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_Controller;
+    global $Test__t_ControllerPrx;
+    $Test__t_ControllerPrx = IcePHP_declareProxy('::Test::Controller');
 }
 
 namespace Test

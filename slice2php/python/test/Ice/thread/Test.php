@@ -24,6 +24,13 @@ namespace Test
 {
     global $Test__t_TestIntf;
     global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
 
     class TestIntfPrxHelper
     {
@@ -53,6 +60,13 @@ namespace Test
 
     global $IcePHP__t_int;
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'sleep', 0, -1, array(array($IcePHP__t_int)), null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_RemoteCommunicator;
+    global $Test__t_RemoteCommunicatorPrx;
+    $Test__t_RemoteCommunicatorPrx = IcePHP_declareProxy('::Test::RemoteCommunicator');
 }
 
 namespace Test
@@ -92,6 +106,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'getThreadStartCount', 0, -1, null, null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'getThreadStopCount', 0, -1, null, null, array($IcePHP__t_int), null);
     IcePHP_defineOperation($Test__t_RemoteCommunicatorPrx, 'destroy', 0, -1, null, null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_RemoteCommunicatorFactory;
+    global $Test__t_RemoteCommunicatorFactoryPrx;
+    $Test__t_RemoteCommunicatorFactoryPrx = IcePHP_declareProxy('::Test::RemoteCommunicatorFactory');
 }
 
 namespace Test

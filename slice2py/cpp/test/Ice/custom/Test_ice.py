@@ -275,6 +275,9 @@ if '_t_ESeqList' not in _M_Test.__dict__:
     _M_Test._t_ESeqList = IcePy.defineSequence('::Test::ESeqList', (), _M_Test._t_ESeq)
 
 if 'C' not in _M_Test.__dict__:
+    _M_Test._t_C = IcePy.declareValue('::Test::C')
+
+if 'C' not in _M_Test.__dict__:
     _M_Test.C = None
     class C(Ice.Value):
         def __init__(self):
@@ -312,6 +315,9 @@ if '_t_CListSeq' not in _M_Test.__dict__:
 
 if '_t_CSeqList' not in _M_Test.__dict__:
     _M_Test._t_CSeqList = IcePy.defineSequence('::Test::CSeqList', (), _M_Test._t_CSeq)
+
+if 'D' not in _M_Test.__dict__:
+    _M_Test._t_DPrx = IcePy.declareProxy('::Test::D')
 
 if 'DPrx' not in _M_Test.__dict__:
     _M_Test.DPrx = None
@@ -401,6 +407,9 @@ if '_t_LongLongDict' not in _M_Test.__dict__:
 
 if '_t_StringIntDict' not in _M_Test.__dict__:
     _M_Test._t_StringIntDict = IcePy.defineDictionary('::Test::StringIntDict', (), IcePy._t_string, IcePy._t_int)
+
+if 'DictClass' not in _M_Test.__dict__:
+    _M_Test._t_DictClass = IcePy.declareValue('::Test::DictClass')
 
 if 'DictClass' not in _M_Test.__dict__:
     _M_Test.DictClass = None
@@ -501,6 +510,9 @@ if 'BufferStruct' not in _M_Test.__dict__:
 
     _M_Test.BufferStruct = BufferStruct
     del BufferStruct
+
+if 'TestIntf' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfPrx = IcePy.declareProxy('::Test::TestIntf')
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None

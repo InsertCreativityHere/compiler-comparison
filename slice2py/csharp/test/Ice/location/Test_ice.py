@@ -26,6 +26,9 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'TestLocatorRegistry' not in _M_Test.__dict__:
+    _M_Test._t_TestLocatorRegistryPrx = IcePy.declareProxy('::Test::TestLocatorRegistry')
+
 if 'TestLocatorRegistryPrx' not in _M_Test.__dict__:
     _M_Test.TestLocatorRegistryPrx = None
     class TestLocatorRegistryPrx(_M_Ice.LocatorRegistryPrx):
@@ -96,6 +99,9 @@ if 'TestLocatorRegistryPrx' not in _M_Test.__dict__:
     _M_Test.TestLocatorRegistry = TestLocatorRegistry
     del TestLocatorRegistry
 
+if 'TestLocator' not in _M_Test.__dict__:
+    _M_Test._t_TestLocatorPrx = IcePy.declareProxy('::Test::TestLocator')
+
 if 'TestLocatorPrx' not in _M_Test.__dict__:
     _M_Test.TestLocatorPrx = None
     class TestLocatorPrx(_M_Ice.LocatorPrx):
@@ -165,6 +171,9 @@ if 'TestLocatorPrx' not in _M_Test.__dict__:
 
     _M_Test.TestLocator = TestLocator
     del TestLocator
+
+if 'ServerManager' not in _M_Test.__dict__:
+    _M_Test._t_ServerManagerPrx = IcePy.declareProxy('::Test::ServerManager')
 
 if 'ServerManagerPrx' not in _M_Test.__dict__:
     _M_Test.ServerManagerPrx = None
@@ -246,6 +255,9 @@ if 'ServerManagerPrx' not in _M_Test.__dict__:
     _M_Test.ServerManager = ServerManager
     del ServerManager
 
+if 'Hello' not in _M_Test.__dict__:
+    _M_Test._t_HelloPrx = IcePy.declareProxy('::Test::Hello')
+
 if 'HelloPrx' not in _M_Test.__dict__:
     _M_Test.HelloPrx = None
     class HelloPrx(Ice.ObjectPrx):
@@ -315,6 +327,9 @@ if 'HelloPrx' not in _M_Test.__dict__:
 
     _M_Test.Hello = Hello
     del Hello
+
+if 'TestIntf' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfPrx = IcePy.declareProxy('::Test::TestIntf')
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None

@@ -126,6 +126,9 @@ if 'StructValue' not in _M_Test.__dict__:
     del StructValue
 
 if 'Base' not in _M_Test.__dict__:
+    _M_Test._t_Base = IcePy.declareValue('::Test::Base')
+
+if 'Base' not in _M_Test.__dict__:
     _M_Test.Base = None
     class Base(Ice.Value):
         def __init__(self, b=''):
@@ -148,6 +151,9 @@ if 'Base' not in _M_Test.__dict__:
 
     _M_Test.Base = Base
     del Base
+
+if 'Extended' not in _M_Test.__dict__:
+    _M_Test._t_Extended = IcePy.declareValue('::Test::Extended')
 
 if 'Extended' not in _M_Test.__dict__:
     _M_Test.Extended = None

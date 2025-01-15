@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'TestIntf' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfPrx = IcePy.declareProxy('::Test::TestIntf')
+
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(Ice.ObjectPrx):
@@ -91,6 +94,9 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
     _M_Test.TestIntf = TestIntf
     del TestIntf
+
+if 'RemoteObjectAdapter' not in _M_Test.__dict__:
+    _M_Test._t_RemoteObjectAdapterPrx = IcePy.declareProxy('::Test::RemoteObjectAdapter')
 
 if 'RemoteObjectAdapterPrx' not in _M_Test.__dict__:
     _M_Test.RemoteObjectAdapterPrx = None
@@ -171,6 +177,9 @@ if 'RemoteObjectAdapterPrx' not in _M_Test.__dict__:
 
     _M_Test.RemoteObjectAdapter = RemoteObjectAdapter
     del RemoteObjectAdapter
+
+if 'RemoteCommunicator' not in _M_Test.__dict__:
+    _M_Test._t_RemoteCommunicatorPrx = IcePy.declareProxy('::Test::RemoteCommunicator')
 
 if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
     _M_Test.RemoteCommunicatorPrx = None

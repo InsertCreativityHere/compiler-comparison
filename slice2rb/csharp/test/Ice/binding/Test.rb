@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+    end
+
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
@@ -31,13 +35,13 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
-        end
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_getAdapterName = ::Ice::__defineOperation('getAdapterName', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+    end
+
+    if not defined?(::Test::T_RemoteObjectAdapterPrx)
+        T_RemoteObjectAdapterPrx = ::Ice::__declareProxy('::Test::RemoteObjectAdapter')
     end
 
     if not defined?(::Test::RemoteObjectAdapterPrx)
@@ -57,14 +61,14 @@ module ::Test
             include RemoteObjectAdapterPrx_mixin
         end
 
-        if not defined?(::Test::T_RemoteObjectAdapterPrx)
-            T_RemoteObjectAdapterPrx = ::Ice::__declareProxy('::Test::RemoteObjectAdapter')
-        end
-
         T_RemoteObjectAdapterPrx.defineProxy(RemoteObjectAdapterPrx, nil, [])
 
         RemoteObjectAdapterPrx_mixin::OP_getTestIntf = ::Ice::__defineOperation('getTestIntf', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_TestIntfPrx, false, 0], [])
         RemoteObjectAdapterPrx_mixin::OP_deactivate = ::Ice::__defineOperation('deactivate', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::Test::T_RemoteCommunicatorPrx)
+        T_RemoteCommunicatorPrx = ::Ice::__declareProxy('::Test::RemoteCommunicator')
     end
 
     if not defined?(::Test::RemoteCommunicatorPrx)
@@ -86,10 +90,6 @@ module ::Test
         class RemoteCommunicatorPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include RemoteCommunicatorPrx_mixin
-        end
-
-        if not defined?(::Test::T_RemoteCommunicatorPrx)
-            T_RemoteCommunicatorPrx = ::Ice::__declareProxy('::Test::RemoteCommunicator')
         end
 
         T_RemoteCommunicatorPrx.defineProxy(RemoteCommunicatorPrx, nil, [])

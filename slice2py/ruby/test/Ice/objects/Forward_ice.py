@@ -23,6 +23,9 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 if 'F1' not in _M_Test.__dict__:
+    _M_Test._t_F1 = IcePy.declareValue('::Test::F1')
+
+if 'F1' not in _M_Test.__dict__:
     _M_Test.F1 = None
     class F1(Ice.Value):
         def __init__(self, name=''):
@@ -45,6 +48,9 @@ if 'F1' not in _M_Test.__dict__:
 
     _M_Test.F1 = F1
     del F1
+
+if 'F2' not in _M_Test.__dict__:
+    _M_Test._t_F2Prx = IcePy.declareProxy('::Test::F2')
 
 if 'F2Prx' not in _M_Test.__dict__:
     _M_Test.F2Prx = None

@@ -19,6 +19,10 @@ require_relative 'Test.rb'
 
 module ::Test
 
+    if not defined?(::Test::T_Initial2Prx)
+        T_Initial2Prx = ::Ice::__declareProxy('::Test::Initial2')
+    end
+
     if not defined?(::Test::Initial2Prx)
         module Initial2Prx_mixin
 
@@ -34,10 +38,6 @@ module ::Test
         class Initial2Prx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include Initial2Prx_mixin
-        end
-
-        if not defined?(::Test::T_Initial2Prx)
-            T_Initial2Prx = ::Ice::__declareProxy('::Test::Initial2')
         end
 
         T_Initial2Prx.defineProxy(Initial2Prx, nil, [])

@@ -405,6 +405,9 @@ if 'FilterInfo' not in _M_DataStormContract.__dict__:
     del FilterInfo
 
 if 'ElementConfig' not in _M_DataStormContract.__dict__:
+    _M_DataStormContract._t_ElementConfig = IcePy.declareValue('::DataStormContract::ElementConfig')
+
+if 'ElementConfig' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.ElementConfig = None
     class ElementConfig(Ice.Value):
         """
@@ -739,6 +742,9 @@ if 'ElementSpecAck' not in _M_DataStormContract.__dict__:
 
 if '_t_ElementSpecAckSeq' not in _M_DataStormContract.__dict__:
     _M_DataStormContract._t_ElementSpecAckSeq = IcePy.defineSequence('::DataStormContract::ElementSpecAckSeq', (), _M_DataStormContract._t_ElementSpecAck)
+
+if 'Session' not in _M_DataStormContract.__dict__:
+    _M_DataStormContract._t_SessionPrx = IcePy.declareProxy('::DataStormContract::Session')
 
 if 'SessionPrx' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.SessionPrx = None
@@ -1464,6 +1470,9 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.Session = Session
     del Session
 
+if 'PublisherSession' not in _M_DataStormContract.__dict__:
+    _M_DataStormContract._t_PublisherSessionPrx = IcePy.declareProxy('::DataStormContract::PublisherSession')
+
 if 'PublisherSessionPrx' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.PublisherSessionPrx = None
     class PublisherSessionPrx(_M_DataStormContract.SessionPrx):
@@ -1522,6 +1531,9 @@ if 'PublisherSessionPrx' not in _M_DataStormContract.__dict__:
 
     _M_DataStormContract.PublisherSession = PublisherSession
     del PublisherSession
+
+if 'SubscriberSession' not in _M_DataStormContract.__dict__:
+    _M_DataStormContract._t_SubscriberSessionPrx = IcePy.declareProxy('::DataStormContract::SubscriberSession')
 
 if 'SubscriberSessionPrx' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.SubscriberSessionPrx = None
@@ -1644,6 +1656,9 @@ if 'SubscriberSessionPrx' not in _M_DataStormContract.__dict__:
 
     _M_DataStormContract.SubscriberSession = SubscriberSession
     del SubscriberSession
+
+if 'Node' not in _M_DataStormContract.__dict__:
+    _M_DataStormContract._t_NodePrx = IcePy.declareProxy('::DataStormContract::Node')
 
 if 'NodePrx' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.NodePrx = None
@@ -1896,6 +1911,9 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
 
     _M_DataStormContract.Node = Node
     del Node
+
+if 'Lookup' not in _M_DataStormContract.__dict__:
+    _M_DataStormContract._t_LookupPrx = IcePy.declareProxy('::DataStormContract::Lookup')
 
 if 'LookupPrx' not in _M_DataStormContract.__dict__:
     _M_DataStormContract.LookupPrx = None

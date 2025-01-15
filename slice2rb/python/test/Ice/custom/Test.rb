@@ -149,6 +149,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_C)
+        T_C = ::Ice::__declareClass('::Test::C')
+    end
+
     if not defined?(::Test::C)
         class C < ::Ice::Value
 
@@ -166,10 +170,6 @@ module ::Test
             attr_accessor :b1, :b2, :b3, :b4, :s1, :s2, :s3, :s4
         end
 
-        if not defined?(::Test::T_C)
-            T_C = ::Ice::__declareClass('::Test::C')
-        end
-
         T_C.defineClass(C, -1, false, nil, [
             ['b1', ::Test::T_ByteString, false, 0],
             ['b2', ::Test::T_ByteString, false, 0],
@@ -180,6 +180,10 @@ module ::Test
             ['s3', ::Test::T_StringTuple, false, 0],
             ['s4', ::Test::T_StringTuple, false, 0]
         ])
+    end
+
+    if not defined?(::Test::T_D)
+        T_D = ::Ice::__declareClass('::Test::D')
     end
 
     if not defined?(::Test::D)
@@ -198,10 +202,6 @@ module ::Test
             attr_accessor :boolSeq, :byteSeq, :shortSeq, :intSeq, :longSeq, :floatSeq, :doubleSeq
         end
 
-        if not defined?(::Test::T_D)
-            T_D = ::Ice::__declareClass('::Test::D')
-        end
-
         T_D.defineClass(D, -1, false, nil, [
             ['boolSeq', ::Test::T_BoolSeq1, true, 1],
             ['byteSeq', ::Test::T_ByteSeq1, true, 2],
@@ -211,6 +211,10 @@ module ::Test
             ['floatSeq', ::Test::T_FloatSeq1, true, 6],
             ['doubleSeq', ::Test::T_DoubleSeq1, true, 7]
         ])
+    end
+
+    if not defined?(::Test::T_CustomPrx)
+        T_CustomPrx = ::Ice::__declareProxy('::Test::Custom')
     end
 
     if not defined?(::Test::CustomPrx)
@@ -320,10 +324,6 @@ module ::Test
         class CustomPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include CustomPrx_mixin
-        end
-
-        if not defined?(::Test::T_CustomPrx)
-            T_CustomPrx = ::Ice::__declareProxy('::Test::Custom')
         end
 
         T_CustomPrx.defineProxy(CustomPrx, nil, [])

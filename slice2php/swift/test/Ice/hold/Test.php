@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Hold;
     global $Test__t_HoldPrx;
+    $Test__t_HoldPrx = IcePHP_declareProxy('::Test::Hold');
+}
+
+namespace Test
+{
+    global $Test__t_Hold;
+    global $Test__t_HoldPrx;
 
     class HoldPrxHelper
     {

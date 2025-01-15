@@ -24,6 +24,13 @@ namespace Ice
 {
     global $Ice__t_PropertiesAdmin;
     global $Ice__t_PropertiesAdminPrx;
+    $Ice__t_PropertiesAdminPrx = IcePHP_declareProxy('::Ice::PropertiesAdmin');
+}
+
+namespace Ice
+{
+    global $Ice__t_PropertiesAdmin;
+    global $Ice__t_PropertiesAdminPrx;
 
     class PropertiesAdminPrxHelper
     {

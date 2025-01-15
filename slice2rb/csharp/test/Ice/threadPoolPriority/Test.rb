@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_PriorityPrx)
+        T_PriorityPrx = ::Ice::__declareProxy('::Test::Priority')
+    end
+
     if not defined?(::Test::PriorityPrx)
         module PriorityPrx_mixin
 
@@ -33,10 +37,6 @@ module ::Test
         class PriorityPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include PriorityPrx_mixin
-        end
-
-        if not defined?(::Test::T_PriorityPrx)
-            T_PriorityPrx = ::Ice::__declareProxy('::Test::Priority')
         end
 
         T_PriorityPrx.defineProxy(PriorityPrx, nil, [])

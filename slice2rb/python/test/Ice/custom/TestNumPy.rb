@@ -80,6 +80,10 @@ module ::Test
             T_Complex128Seq = ::Ice::__defineSequence('::Test::NumPy::Complex128Seq', ::Ice::T_byte)
         end
 
+        if not defined?(::Test::NumPy::T_D)
+            T_D = ::Ice::__declareClass('::Test::NumPy::D')
+        end
+
         if not defined?(::Test::NumPy::D)
             class D < ::Ice::Value
 
@@ -96,10 +100,6 @@ module ::Test
                 attr_accessor :boolSeq, :byteSeq, :shortSeq, :intSeq, :longSeq, :floatSeq, :doubleSeq
             end
 
-            if not defined?(::Test::NumPy::T_D)
-                T_D = ::Ice::__declareClass('::Test::NumPy::D')
-            end
-
             T_D.defineClass(D, -1, false, nil, [
                 ['boolSeq', ::Test::NumPy::T_BoolSeq1, true, 1],
                 ['byteSeq', ::Test::NumPy::T_ByteSeq1, true, 2],
@@ -109,6 +109,10 @@ module ::Test
                 ['floatSeq', ::Test::NumPy::T_FloatSeq1, true, 6],
                 ['doubleSeq', ::Test::NumPy::T_DoubleSeq1, true, 7]
             ])
+        end
+
+        if not defined?(::Test::NumPy::T_CustomPrx)
+            T_CustomPrx = ::Ice::__declareProxy('::Test::NumPy::Custom')
         end
 
         if not defined?(::Test::NumPy::CustomPrx)
@@ -190,10 +194,6 @@ module ::Test
             class CustomPrx < ::Ice::ObjectPrx
                 include ::Ice::Proxy_mixin
                 include CustomPrx_mixin
-            end
-
-            if not defined?(::Test::NumPy::T_CustomPrx)
-                T_CustomPrx = ::Ice::__declareProxy('::Test::NumPy::Custom')
             end
 
             T_CustomPrx.defineProxy(CustomPrx, nil, [])

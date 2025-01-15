@@ -125,6 +125,10 @@ module ::And
         T_Defer = ::Ice::__defineStruct('::and::defer', Defer, [["_else", ::Ice::T_string]])
     end
 
+    if not defined?(::And::T_BreakPrx)
+        T_BreakPrx = ::Ice::__declareProxy('::and::break')
+    end
+
     if not defined?(::And::BreakPrx)
         module BreakPrx_mixin
 
@@ -138,13 +142,13 @@ module ::And
             include BreakPrx_mixin
         end
 
-        if not defined?(::And::T_BreakPrx)
-            T_BreakPrx = ::Ice::__declareProxy('::and::break')
-        end
-
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
         BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+    end
+
+    if not defined?(::And::T_FuncPrx)
+        T_FuncPrx = ::Ice::__declareProxy('::and::func')
     end
 
     if not defined?(::And::FuncPrx)
@@ -160,13 +164,13 @@ module ::And
             include FuncPrx_mixin
         end
 
-        if not defined?(::And::T_FuncPrx)
-            T_FuncPrx = ::Ice::__declareProxy('::and::func')
-        end
-
         T_FuncPrx.defineProxy(FuncPrx, nil, [])
 
         FuncPrx_mixin::OP_public = ::Ice::__defineOperation('public', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::And::T_Switch)
+        T_Switch = ::Ice::__declareClass('::and::switch')
     end
 
     if not defined?(::And::Switch)
@@ -181,15 +185,15 @@ module ::And
             attr_accessor :_if, :export, :volatile
         end
 
-        if not defined?(::And::T_Switch)
-            T_Switch = ::Ice::__declareClass('::and::switch')
-        end
-
         T_Switch.defineClass(Switch, -1, false, nil, [
             ['_if', ::Ice::T_int, false, 0],
             ['export', ::And::T_FuncPrx, false, 0],
             ['volatile', ::Ice::T_int, false, 0]
         ])
+    end
+
+    if not defined?(::And::T_DoPrx)
+        T_DoPrx = ::Ice::__declareProxy('::and::do')
     end
 
     if not defined?(::And::DoPrx)
@@ -201,10 +205,6 @@ module ::And
         class DoPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include DoPrx_mixin
-        end
-
-        if not defined?(::And::T_DoPrx)
-            T_DoPrx = ::Ice::__declareProxy('::and::do')
         end
 
         T_DoPrx.defineProxy(DoPrx, nil, [::And::T_FuncPrx, ::And::T_BreakPrx])
@@ -245,6 +245,10 @@ module ::And
         ])
     end
 
+    if not defined?(::And::T_FriendPrx)
+        T_FriendPrx = ::Ice::__declareProxy('::and::friend')
+    end
+
     if not defined?(::And::FriendPrx)
         module FriendPrx_mixin
 
@@ -256,10 +260,6 @@ module ::And
         class FriendPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include FriendPrx_mixin
-        end
-
-        if not defined?(::And::T_FriendPrx)
-            T_FriendPrx = ::Ice::__declareProxy('::and::friend')
         end
 
         T_FriendPrx.defineProxy(FriendPrx, nil, [])

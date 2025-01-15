@@ -720,6 +720,9 @@ if 'ApplicationUpdateInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.ApplicationUpdateInfo = ApplicationUpdateInfo
     del ApplicationUpdateInfo
 
+if 'Admin' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_AdminPrx = IcePy.declareProxy('::IceGrid::Admin')
+
 if 'AdminPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdminPrx = None
     class AdminPrx(Ice.ObjectPrx):
@@ -3747,6 +3750,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.Admin = Admin
     del Admin
 
+if 'FileIterator' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_FileIteratorPrx = IcePy.declareProxy('::IceGrid::FileIterator')
+
 if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.FileIteratorPrx = None
     class FileIteratorPrx(Ice.ObjectPrx):
@@ -4155,6 +4161,9 @@ if 'NodeDynamicInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeDynamicInfo = NodeDynamicInfo
     del NodeDynamicInfo
 
+if 'RegistryObserver' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_RegistryObserverPrx = IcePy.declareProxy('::IceGrid::RegistryObserver')
+
 if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.RegistryObserverPrx = None
     class RegistryObserverPrx(Ice.ObjectPrx):
@@ -4370,6 +4379,9 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
 
 if '_t_NodeDynamicInfoSeq' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_NodeDynamicInfoSeq = IcePy.defineSequence('::IceGrid::NodeDynamicInfoSeq', (), _M_IceGrid._t_NodeDynamicInfo)
+
+if 'NodeObserver' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_NodeObserverPrx = IcePy.declareProxy('::IceGrid::NodeObserver')
 
 if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeObserverPrx = None
@@ -4699,6 +4711,9 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeObserver = NodeObserver
     del NodeObserver
 
+if 'ApplicationObserver' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_ApplicationObserverPrx = IcePy.declareProxy('::IceGrid::ApplicationObserver')
+
 if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.ApplicationObserverPrx = None
     class ApplicationObserverPrx(Ice.ObjectPrx):
@@ -4995,6 +5010,9 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.ApplicationObserver = ApplicationObserver
     del ApplicationObserver
 
+if 'AdapterObserver' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_AdapterObserverPrx = IcePy.declareProxy('::IceGrid::AdapterObserver')
+
 if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterObserverPrx = None
     class AdapterObserverPrx(Ice.ObjectPrx):
@@ -5266,6 +5284,9 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
 
     _M_IceGrid.AdapterObserver = AdapterObserver
     del AdapterObserver
+
+if 'ObjectObserver' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_ObjectObserverPrx = IcePy.declareProxy('::IceGrid::ObjectObserver')
 
 if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.ObjectObserverPrx = None
@@ -5541,6 +5562,9 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
 
     _M_IceGrid.ObjectObserver = ObjectObserver
     del ObjectObserver
+
+if 'AdminSession' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_AdminSessionPrx = IcePy.declareProxy('::IceGrid::AdminSession')
 
 if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdminSessionPrx = None

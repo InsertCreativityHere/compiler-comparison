@@ -37,6 +37,9 @@ _M_IceGrid = Ice.openModule('IceGrid')
 __name__ = 'IceGrid'
 
 if 'InternalDbEnvDescriptor' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_InternalDbEnvDescriptor = IcePy.declareValue('::IceGrid::InternalDbEnvDescriptor')
+
+if 'InternalDbEnvDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.InternalDbEnvDescriptor = None
     class InternalDbEnvDescriptor(Ice.Value):
         def __init__(self, name='', properties=None):
@@ -66,6 +69,9 @@ if 'InternalDbEnvDescriptor' not in _M_IceGrid.__dict__:
 
 if '_t_InternalDbEnvDescriptorSeq' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_InternalDbEnvDescriptorSeq = IcePy.defineSequence('::IceGrid::InternalDbEnvDescriptorSeq', (), _M_IceGrid._t_InternalDbEnvDescriptor)
+
+if 'InternalAdapterDescriptor' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_InternalAdapterDescriptor = IcePy.declareValue('::IceGrid::InternalAdapterDescriptor')
 
 if 'InternalAdapterDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.InternalAdapterDescriptor = None
@@ -102,6 +108,9 @@ if '_t_PropertyDescriptorSeqDict' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_PropertyDescriptorSeqDict = IcePy.defineDictionary('::IceGrid::PropertyDescriptorSeqDict', (), IcePy._t_string, _M_IceGrid._t_PropertyDescriptorSeq)
 
 if 'InternalServerDescriptor' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_InternalServerDescriptor = IcePy.declareValue('::IceGrid::InternalServerDescriptor')
+
+if 'InternalServerDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.InternalServerDescriptor = None
     class InternalServerDescriptor(Ice.Value):
         def __init__(self, id='', application='', uuid='', revision=0, sessionId='', exe='', pwd='', user='', activation='', activationTimeout='', deactivationTimeout='', processRegistered=False, options=None, envs=None, logs=None, adapters=None, dbEnvs=None, properties=None, services=None):
@@ -136,8 +145,6 @@ if 'InternalServerDescriptor' not in _M_IceGrid.__dict__:
             return IcePy.stringify(self, _M_IceGrid._t_InternalServerDescriptor)
 
         __repr__ = __str__
-
-    _M_IceGrid._t_InternalServerDescriptor = IcePy.declareValue('::IceGrid::InternalServerDescriptor')
 
     _M_IceGrid._t_InternalServerDescriptor = IcePy.defineValue('::IceGrid::InternalServerDescriptor', InternalServerDescriptor, -1, (), False, None, (
         ('id', (), IcePy._t_string, False, 0),
@@ -205,6 +212,9 @@ if 'AdapterNotActiveException' not in _M_IceGrid.__dict__:
 
     _M_IceGrid.AdapterNotActiveException = AdapterNotActiveException
     del AdapterNotActiveException
+
+if 'Adapter' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_AdapterPrx = IcePy.declareProxy('::IceGrid::Adapter')
 
 if 'AdapterPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterPrx = None

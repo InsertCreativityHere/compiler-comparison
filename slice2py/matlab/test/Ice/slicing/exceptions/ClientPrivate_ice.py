@@ -142,6 +142,9 @@ if 'KnownPreservedDerived' not in _M_Test.__dict__:
     del KnownPreservedDerived
 
 if 'BaseClass' not in _M_Test.__dict__:
+    _M_Test._t_BaseClass = IcePy.declareValue('::Test::BaseClass')
+
+if 'BaseClass' not in _M_Test.__dict__:
     _M_Test.BaseClass = None
     class BaseClass(Ice.Value):
         def __init__(self, bc=''):
@@ -164,6 +167,9 @@ if 'BaseClass' not in _M_Test.__dict__:
 
     _M_Test.BaseClass = BaseClass
     del BaseClass
+
+if 'Relay' not in _M_Test.__dict__:
+    _M_Test._t_RelayPrx = IcePy.declareProxy('::Test::Relay')
 
 if 'RelayPrx' not in _M_Test.__dict__:
     _M_Test.RelayPrx = None
@@ -264,6 +270,9 @@ if 'RelayPrx' not in _M_Test.__dict__:
 
     _M_Test.Relay = Relay
     del Relay
+
+if 'TestIntf' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfPrx = IcePy.declareProxy('::Test::TestIntf')
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
@@ -554,6 +563,9 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
     _M_Test.TestIntf = TestIntf
     del TestIntf
+
+if 'PreservedClass' not in _M_Test.__dict__:
+    _M_Test._t_PreservedClass = IcePy.declareValue('::Test::PreservedClass')
 
 if 'PreservedClass' not in _M_Test.__dict__:
     _M_Test.PreservedClass = None

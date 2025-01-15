@@ -84,6 +84,13 @@ namespace IceBox
 {
     global $IceBox__t_ServiceObserver;
     global $IceBox__t_ServiceObserverPrx;
+    $IceBox__t_ServiceObserverPrx = IcePHP_declareProxy('::IceBox::ServiceObserver');
+}
+
+namespace IceBox
+{
+    global $IceBox__t_ServiceObserver;
+    global $IceBox__t_ServiceObserverPrx;
 
     class ServiceObserverPrxHelper
     {
@@ -114,6 +121,13 @@ namespace IceBox
     global $Ice__t_StringSeq;
     IcePHP_defineOperation($IceBox__t_ServiceObserverPrx, 'servicesStarted', 0, -1, array(array($Ice__t_StringSeq)), null, null, null);
     IcePHP_defineOperation($IceBox__t_ServiceObserverPrx, 'servicesStopped', 0, -1, array(array($Ice__t_StringSeq)), null, null, null);
+}
+
+namespace IceBox
+{
+    global $IceBox__t_ServiceManager;
+    global $IceBox__t_ServiceManagerPrx;
+    $IceBox__t_ServiceManagerPrx = IcePHP_declareProxy('::IceBox::ServiceManager');
 }
 
 namespace IceBox

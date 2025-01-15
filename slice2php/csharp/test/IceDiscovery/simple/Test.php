@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_TestIntf;
     global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
 
     class TestIntfPrxHelper
     {
@@ -48,6 +55,13 @@ namespace Test
 
     global $IcePHP__t_string;
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'getAdapterId', 0, -1, null, null, array($IcePHP__t_string), null);
+}
+
+namespace Test
+{
+    global $Test__t_Controller;
+    global $Test__t_ControllerPrx;
+    $Test__t_ControllerPrx = IcePHP_declareProxy('::Test::Controller');
 }
 
 namespace Test

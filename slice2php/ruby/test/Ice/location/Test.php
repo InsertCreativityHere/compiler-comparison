@@ -24,6 +24,13 @@ namespace Test
 {
     global $Test__t_TestLocatorRegistry;
     global $Test__t_TestLocatorRegistryPrx;
+    $Test__t_TestLocatorRegistryPrx = IcePHP_declareProxy('::Test::TestLocatorRegistry');
+}
+
+namespace Test
+{
+    global $Test__t_TestLocatorRegistry;
+    global $Test__t_TestLocatorRegistryPrx;
 
     class TestLocatorRegistryPrxHelper
     {
@@ -53,6 +60,13 @@ namespace Test
 
     global $Ice__t_ObjectPrx;
     IcePHP_defineOperation($Test__t_TestLocatorRegistryPrx, 'addObject', 0, -1, array(array($Ice__t_ObjectPrx)), null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_ServerManager;
+    global $Test__t_ServerManagerPrx;
+    $Test__t_ServerManagerPrx = IcePHP_declareProxy('::Test::ServerManager');
 }
 
 namespace Test
@@ -94,6 +108,13 @@ namespace Test
 {
     global $Test__t_Hello;
     global $Test__t_HelloPrx;
+    $Test__t_HelloPrx = IcePHP_declareProxy('::Test::Hello');
+}
+
+namespace Test
+{
+    global $Test__t_Hello;
+    global $Test__t_HelloPrx;
 
     class HelloPrxHelper
     {
@@ -122,6 +143,13 @@ namespace Test
     $Test__t_HelloPrx = IcePHP_defineProxy('::Test::Hello', $Ice__t_ObjectPrx, null);
 
     IcePHP_defineOperation($Test__t_HelloPrx, 'sayHello', 0, -1, null, null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
 }
 
 namespace Test

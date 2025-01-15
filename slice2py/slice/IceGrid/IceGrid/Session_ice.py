@@ -32,6 +32,9 @@ _M_IceGrid = Ice.openModule('IceGrid')
 # Start of module IceGrid
 __name__ = 'IceGrid'
 
+if 'Session' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_SessionPrx = IcePy.declareProxy('::IceGrid::Session')
+
 if 'SessionPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.SessionPrx = None
     class SessionPrx(_M_Glacier2.SessionPrx):

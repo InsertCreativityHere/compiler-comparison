@@ -74,6 +74,13 @@ namespace IceStorm
 {
     global $IceStorm__t_TopicLink;
     global $IceStorm__t_TopicLinkPrx;
+    $IceStorm__t_TopicLinkPrx = IcePHP_declareProxy('::IceStorm::TopicLink');
+}
+
+namespace IceStorm
+{
+    global $IceStorm__t_TopicLink;
+    global $IceStorm__t_TopicLinkPrx;
 
     class TopicLinkPrxHelper
     {
@@ -129,6 +136,13 @@ namespace IceStorm
 {
     global $IceStorm__t_TopicInternal;
     global $IceStorm__t_TopicInternalPrx;
+    $IceStorm__t_TopicInternalPrx = IcePHP_declareProxy('::IceStorm::TopicInternal');
+}
+
+namespace IceStorm
+{
+    global $IceStorm__t_TopicInternal;
+    global $IceStorm__t_TopicInternalPrx;
 
     class TopicInternalPrxHelper
     {
@@ -160,6 +174,13 @@ namespace IceStorm
     global $Ice__t_IdentitySeq;
     IcePHP_defineOperation($IceStorm__t_TopicInternalPrx, 'getLinkProxy', 2, -1, null, null, array($IceStorm__t_TopicLinkPrx), null);
     IcePHP_defineOperation($IceStorm__t_TopicInternalPrx, 'reap', 0, -1, array(array($Ice__t_IdentitySeq)), null, null, array($IceStorm__t_ReapWouldBlock));
+}
+
+namespace IceStorm
+{
+    global $IceStorm__t_TopicManagerInternal;
+    global $IceStorm__t_TopicManagerInternalPrx;
+    $IceStorm__t_TopicManagerInternalPrx = IcePHP_declareProxy('::IceStorm::TopicManagerInternal');
 }
 
 namespace IceStorm

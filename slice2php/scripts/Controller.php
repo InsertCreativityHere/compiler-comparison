@@ -40,6 +40,12 @@ namespace Test\Common
 namespace Test\Common
 {
     global $Test_Common__t_Config;
+    $Test_Common__t_Config = IcePHP_declareClass('::Test::Common::Config');
+}
+
+namespace Test\Common
+{
+    global $Test_Common__t_Config;
     class Config extends \Ice\Value
     {
         public function __construct($protocol=\Ice\None, $mx=\Ice\None, $serialize=\Ice\None, $compress=\Ice\None, $ipv6=\Ice\None, $cprops=\Ice\None, $sprops=\Ice\None)
@@ -90,6 +96,12 @@ namespace Test\Common
         array('ipv6', $IcePHP__t_bool, true, 5),
         array('cprops', $Test_Common__t_StringSeq, true, 6),
         array('sprops', $Test_Common__t_StringSeq, true, 7)));
+}
+
+namespace Test\Common
+{
+    global $Test_Common__t_OptionOverrides;
+    $Test_Common__t_OptionOverrides = IcePHP_declareClass('::Test::Common::OptionOverrides');
 }
 
 namespace Test\Common
@@ -192,6 +204,13 @@ namespace Test\Common
 {
     global $Test_Common__t_TestCase;
     global $Test_Common__t_TestCasePrx;
+    $Test_Common__t_TestCasePrx = IcePHP_declareProxy('::Test::Common::TestCase');
+}
+
+namespace Test\Common
+{
+    global $Test_Common__t_TestCase;
+    global $Test_Common__t_TestCasePrx;
 
     class TestCasePrxHelper
     {
@@ -226,6 +245,13 @@ namespace Test\Common
     IcePHP_defineOperation($Test_Common__t_TestCasePrx, 'stopServerSide', 0, -1, array(array($IcePHP__t_bool)), null, array($IcePHP__t_string), array($Test_Common__t_TestCaseFailedException));
     IcePHP_defineOperation($Test_Common__t_TestCasePrx, 'runClientSide', 0, -1, array(array($IcePHP__t_string), array($Test_Common__t_Config)), null, array($IcePHP__t_string), array($Test_Common__t_TestCaseFailedException));
     IcePHP_defineOperation($Test_Common__t_TestCasePrx, 'destroy', 0, -1, null, null, null, null);
+}
+
+namespace Test\Common
+{
+    global $Test_Common__t_Controller;
+    global $Test_Common__t_ControllerPrx;
+    $Test_Common__t_ControllerPrx = IcePHP_declareProxy('::Test::Common::Controller');
 }
 
 namespace Test\Common
@@ -298,6 +324,13 @@ namespace Test\Common
 {
     global $Test_Common__t_Process;
     global $Test_Common__t_ProcessPrx;
+    $Test_Common__t_ProcessPrx = IcePHP_declareProxy('::Test::Common::Process');
+}
+
+namespace Test\Common
+{
+    global $Test_Common__t_Process;
+    global $Test_Common__t_ProcessPrx;
 
     class ProcessPrxHelper
     {
@@ -330,6 +363,13 @@ namespace Test\Common
     IcePHP_defineOperation($Test_Common__t_ProcessPrx, 'waitReady', 0, -1, array(array($IcePHP__t_int)), null, null, array($Test_Common__t_ProcessFailedException));
     IcePHP_defineOperation($Test_Common__t_ProcessPrx, 'waitSuccess', 0, -1, array(array($IcePHP__t_int)), null, array($IcePHP__t_int), array($Test_Common__t_ProcessFailedException));
     IcePHP_defineOperation($Test_Common__t_ProcessPrx, 'terminate', 0, -1, null, null, array($IcePHP__t_string), null);
+}
+
+namespace Test\Common
+{
+    global $Test_Common__t_ProcessController;
+    global $Test_Common__t_ProcessControllerPrx;
+    $Test_Common__t_ProcessControllerPrx = IcePHP_declareProxy('::Test::Common::ProcessController');
 }
 
 namespace Test\Common
@@ -375,6 +415,13 @@ namespace Test\Common
 {
     global $Test_Common__t_BrowserProcessController;
     global $Test_Common__t_BrowserProcessControllerPrx;
+    $Test_Common__t_BrowserProcessControllerPrx = IcePHP_declareProxy('::Test::Common::BrowserProcessController');
+}
+
+namespace Test\Common
+{
+    global $Test_Common__t_BrowserProcessController;
+    global $Test_Common__t_BrowserProcessControllerPrx;
 
     class BrowserProcessControllerPrxHelper
     {
@@ -404,6 +451,13 @@ namespace Test\Common
 
     global $IcePHP__t_string;
     IcePHP_defineOperation($Test_Common__t_BrowserProcessControllerPrx, 'redirect', 0, -1, array(array($IcePHP__t_string)), null, null, null);
+}
+
+namespace Test\Common
+{
+    global $Test_Common__t_ProcessControllerRegistry;
+    global $Test_Common__t_ProcessControllerRegistryPrx;
+    $Test_Common__t_ProcessControllerRegistryPrx = IcePHP_declareProxy('::Test::Common::ProcessControllerRegistry');
 }
 
 namespace Test\Common

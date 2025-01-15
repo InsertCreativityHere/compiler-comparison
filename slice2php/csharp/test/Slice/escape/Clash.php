@@ -19,6 +19,13 @@ namespace Clash
 {
     global $Clash__t_Intf;
     global $Clash__t_IntfPrx;
+    $Clash__t_IntfPrx = IcePHP_declareProxy('::Clash::Intf');
+}
+
+namespace Clash
+{
+    global $Clash__t_Intf;
+    global $Clash__t_IntfPrx;
 
     class IntfPrxHelper
     {
@@ -60,6 +67,12 @@ namespace Clash
     IcePHP_defineOperation($Clash__t_IntfPrx, 'obj', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Clash__t_IntfPrx, 'op', 0, -1, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string, 1), array($IcePHP__t_int, 2)), null, null, null);
     IcePHP_defineOperation($Clash__t_IntfPrx, 'opOut', 0, -1, null, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_string, 1), array($IcePHP__t_int, 2)), null, null);
+}
+
+namespace Clash
+{
+    global $Clash__t_Cls;
+    $Clash__t_Cls = IcePHP_declareClass('::Clash::Cls');
 }
 
 namespace Clash

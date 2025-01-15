@@ -34,6 +34,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_CallbackReceiverPrx)
+        T_CallbackReceiverPrx = ::Ice::__declareProxy('::Test::CallbackReceiver')
+    end
+
     if not defined?(::Test::CallbackReceiverPrx)
         module CallbackReceiverPrx_mixin
 
@@ -63,10 +67,6 @@ module ::Test
             include CallbackReceiverPrx_mixin
         end
 
-        if not defined?(::Test::T_CallbackReceiverPrx)
-            T_CallbackReceiverPrx = ::Ice::__declareProxy('::Test::CallbackReceiver')
-        end
-
         T_CallbackReceiverPrx.defineProxy(CallbackReceiverPrx, nil, [])
 
         CallbackReceiverPrx_mixin::OP_callback = ::Ice::__defineOperation('callback', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -74,6 +74,10 @@ module ::Test
         CallbackReceiverPrx_mixin::OP_concurrentCallback = ::Ice::__defineOperation('concurrentCallback', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
         CallbackReceiverPrx_mixin::OP_waitCallback = ::Ice::__defineOperation('waitCallback', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         CallbackReceiverPrx_mixin::OP_callbackWithPayload = ::Ice::__defineOperation('callbackWithPayload', ::Ice::OperationMode::Normal, nil, [[::Ice::T_ByteSeq, false, 0]], [], nil, [])
+    end
+
+    if not defined?(::Test::T_CallbackPrx)
+        T_CallbackPrx = ::Ice::__declareProxy('::Test::Callback')
     end
 
     if not defined?(::Test::CallbackPrx)
@@ -107,10 +111,6 @@ module ::Test
         class CallbackPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include CallbackPrx_mixin
-        end
-
-        if not defined?(::Test::T_CallbackPrx)
-            T_CallbackPrx = ::Ice::__declareProxy('::Test::Callback')
         end
 
         T_CallbackPrx.defineProxy(CallbackPrx, nil, [])

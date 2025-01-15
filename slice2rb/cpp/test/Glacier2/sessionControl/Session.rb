@@ -19,6 +19,10 @@ require 'Glacier2/Session.rb'
 
 module ::Test
 
+    if not defined?(::Test::T_SessionPrx)
+        T_SessionPrx = ::Ice::__declareProxy('::Test::Session')
+    end
+
     if not defined?(::Test::SessionPrx)
         module SessionPrx_mixin
             include ::Glacier2::SessionPrx_mixin
@@ -35,10 +39,6 @@ module ::Test
         class SessionPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include SessionPrx_mixin
-        end
-
-        if not defined?(::Test::T_SessionPrx)
-            T_SessionPrx = ::Ice::__declareProxy('::Test::Session')
         end
 
         T_SessionPrx.defineProxy(SessionPrx, nil, [::Glacier2::T_SessionPrx])

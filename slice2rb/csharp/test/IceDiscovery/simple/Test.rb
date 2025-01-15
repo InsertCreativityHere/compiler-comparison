@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+    end
+
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
@@ -31,13 +35,13 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
-        end
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_getAdapterId = ::Ice::__defineOperation('getAdapterId', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_string, false, 0], [])
+    end
+
+    if not defined?(::Test::T_ControllerPrx)
+        T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
     end
 
     if not defined?(::Test::ControllerPrx)
@@ -67,10 +71,6 @@ module ::Test
         class ControllerPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include ControllerPrx_mixin
-        end
-
-        if not defined?(::Test::T_ControllerPrx)
-            T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end
 
         T_ControllerPrx.defineProxy(ControllerPrx, nil, [])

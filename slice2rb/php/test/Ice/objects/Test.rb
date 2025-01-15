@@ -47,6 +47,10 @@ module ::Test
         T_S = ::Ice::__defineStruct('::Test::S', S, [["str", ::Ice::T_string]])
     end
 
+    if not defined?(::Test::T_Base)
+        T_Base = ::Ice::__declareClass('::Test::Base')
+    end
+
     if not defined?(::Test::Base)
         class Base < ::Ice::Value
 
@@ -56,10 +60,6 @@ module ::Test
             end
 
             attr_accessor :theS, :str
-        end
-
-        if not defined?(::Test::T_Base)
-            T_Base = ::Ice::__declareClass('::Test::Base')
         end
 
         T_Base.defineClass(Base, -1, false, nil, [
@@ -76,6 +76,10 @@ module ::Test
         T_C = ::Ice::__declareClass('::Test::C')
     end
 
+    if not defined?(::Test::T_A)
+        T_A = ::Ice::__declareClass('::Test::A')
+    end
+
     if not defined?(::Test::A)
         class A < ::Ice::Value
 
@@ -87,10 +91,6 @@ module ::Test
             end
 
             attr_accessor :theB, :theC, :preMarshalInvoked, :postUnmarshalInvoked
-        end
-
-        if not defined?(::Test::T_A)
-            T_A = ::Ice::__declareClass('::Test::A')
         end
 
         T_A.defineClass(A, -1, false, nil, [
@@ -112,10 +112,6 @@ module ::Test
             attr_accessor :theA
         end
 
-        if not defined?(::Test::T_B)
-            T_B = ::Ice::__declareClass('::Test::B')
-        end
-
         T_B.defineClass(B, -1, false, ::Test::T_A, [['theA', ::Test::T_A, false, 0]])
     end
 
@@ -131,15 +127,15 @@ module ::Test
             attr_accessor :theB, :preMarshalInvoked, :postUnmarshalInvoked
         end
 
-        if not defined?(::Test::T_C)
-            T_C = ::Ice::__declareClass('::Test::C')
-        end
-
         T_C.defineClass(C, -1, false, nil, [
             ['theB', ::Test::T_B, false, 0],
             ['preMarshalInvoked', ::Ice::T_bool, false, 0],
             ['postUnmarshalInvoked', ::Ice::T_bool, false, 0]
         ])
+    end
+
+    if not defined?(::Test::T_D)
+        T_D = ::Ice::__declareClass('::Test::D')
     end
 
     if not defined?(::Test::D)
@@ -156,10 +152,6 @@ module ::Test
             attr_accessor :theA, :theB, :theC, :preMarshalInvoked, :postUnmarshalInvoked
         end
 
-        if not defined?(::Test::T_D)
-            T_D = ::Ice::__declareClass('::Test::D')
-        end
-
         T_D.defineClass(D, -1, false, nil, [
             ['theA', ::Test::T_A, false, 0],
             ['theB', ::Test::T_B, false, 0],
@@ -167,6 +159,10 @@ module ::Test
             ['preMarshalInvoked', ::Ice::T_bool, false, 0],
             ['postUnmarshalInvoked', ::Ice::T_bool, false, 0]
         ])
+    end
+
+    if not defined?(::Test::T_E)
+        T_E = ::Ice::__declareClass('::Test::E')
     end
 
     if not defined?(::Test::E)
@@ -181,14 +177,14 @@ module ::Test
             protected :i, :i=, :s, :s=
         end
 
-        if not defined?(::Test::T_E)
-            T_E = ::Ice::__declareClass('::Test::E')
-        end
-
         T_E.defineClass(E, -1, false, nil, [
             ['i', ::Ice::T_int, false, 0],
             ['s', ::Ice::T_string, false, 0]
         ])
+    end
+
+    if not defined?(::Test::T_F)
+        T_F = ::Ice::__declareClass('::Test::F')
     end
 
     if not defined?(::Test::F)
@@ -203,14 +199,14 @@ module ::Test
             protected :e1, :e1=
         end
 
-        if not defined?(::Test::T_F)
-            T_F = ::Ice::__declareClass('::Test::F')
-        end
-
         T_F.defineClass(F, -1, false, nil, [
             ['e1', ::Test::T_E, false, 0],
             ['e2', ::Test::T_E, false, 0]
         ])
+    end
+
+    if not defined?(::Test::T_G)
+        T_G = ::Ice::__declareClass('::Test::G')
     end
 
     if not defined?(::Test::G)
@@ -221,11 +217,11 @@ module ::Test
             end
         end
 
-        if not defined?(::Test::T_G)
-            T_G = ::Ice::__declareClass('::Test::G')
-        end
-
         T_G.defineClass(G, -1, false, ::Test::T_Base, [])
+    end
+
+    if not defined?(::Test::T_IPrx)
+        T_IPrx = ::Ice::__declareProxy('::Test::I')
     end
 
     if not defined?(::Test::IPrx)
@@ -237,11 +233,11 @@ module ::Test
             include IPrx_mixin
         end
 
-        if not defined?(::Test::T_IPrx)
-            T_IPrx = ::Ice::__declareProxy('::Test::I')
-        end
-
         T_IPrx.defineProxy(IPrx, nil, [])
+    end
+
+    if not defined?(::Test::T_JPrx)
+        T_JPrx = ::Ice::__declareProxy('::Test::J')
     end
 
     if not defined?(::Test::JPrx)
@@ -252,10 +248,6 @@ module ::Test
         class JPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include JPrx_mixin
-        end
-
-        if not defined?(::Test::T_JPrx)
-            T_JPrx = ::Ice::__declareProxy('::Test::J')
         end
 
         T_JPrx.defineProxy(JPrx, nil, [::Test::T_IPrx])
@@ -269,12 +261,12 @@ module ::Test
         T_CompactExt = ::Ice::__declareClass('::Test::CompactExt')
     end
 
+    if not defined?(::Test::T_Compact)
+        T_Compact = ::Ice::__declareClass('::Test::Compact')
+    end
+
     if not defined?(::Test::Compact)
         class Compact < ::Ice::Value
-        end
-
-        if not defined?(::Test::T_Compact)
-            T_Compact = ::Ice::__declareClass('::Test::Compact')
         end
 
         T_Compact.defineClass(Compact, 1, false, nil, [])
@@ -286,11 +278,11 @@ module ::Test
         class CompactExt < ::Test::Compact
         end
 
-        if not defined?(::Test::T_CompactExt)
-            T_CompactExt = ::Ice::__declareClass('::Test::CompactExt')
-        end
-
         T_CompactExt.defineClass(CompactExt, 789, false, ::Test::T_Compact, [])
+    end
+
+    if not defined?(::Test::T_A1)
+        T_A1 = ::Ice::__declareClass('::Test::A1')
     end
 
     if not defined?(::Test::A1)
@@ -303,11 +295,11 @@ module ::Test
             attr_accessor :name
         end
 
-        if not defined?(::Test::T_A1)
-            T_A1 = ::Ice::__declareClass('::Test::A1')
-        end
-
         T_A1.defineClass(A1, -1, false, nil, [['name', ::Ice::T_string, false, 0]])
+    end
+
+    if not defined?(::Test::T_B1)
+        T_B1 = ::Ice::__declareClass('::Test::B1')
     end
 
     if not defined?(::Test::B1)
@@ -321,14 +313,14 @@ module ::Test
             attr_accessor :a1, :a2
         end
 
-        if not defined?(::Test::T_B1)
-            T_B1 = ::Ice::__declareClass('::Test::B1')
-        end
-
         T_B1.defineClass(B1, -1, false, nil, [
             ['a1', ::Test::T_A1, false, 0],
             ['a2', ::Test::T_A1, false, 0]
         ])
+    end
+
+    if not defined?(::Test::T_D1)
+        T_D1 = ::Ice::__declareClass('::Test::D1')
     end
 
     if not defined?(::Test::D1)
@@ -341,10 +333,6 @@ module ::Test
             end
 
             attr_accessor :a3, :a4
-        end
-
-        if not defined?(::Test::T_D1)
-            T_D1 = ::Ice::__declareClass('::Test::D1')
         end
 
         T_D1.defineClass(D1, -1, false, ::Test::T_B1, [
@@ -383,6 +371,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_Recursive)
+        T_Recursive = ::Ice::__declareClass('::Test::Recursive')
+    end
+
     if not defined?(::Test::Recursive)
         class Recursive < ::Ice::Value
 
@@ -393,11 +385,11 @@ module ::Test
             attr_accessor :v
         end
 
-        if not defined?(::Test::T_Recursive)
-            T_Recursive = ::Ice::__declareClass('::Test::Recursive')
-        end
-
         T_Recursive.defineClass(Recursive, -1, false, nil, [['v', ::Test::T_Recursive, false, 0]])
+    end
+
+    if not defined?(::Test::T_K)
+        T_K = ::Ice::__declareClass('::Test::K')
     end
 
     if not defined?(::Test::K)
@@ -410,11 +402,11 @@ module ::Test
             attr_accessor :value
         end
 
-        if not defined?(::Test::T_K)
-            T_K = ::Ice::__declareClass('::Test::K')
-        end
-
         T_K.defineClass(K, -1, false, nil, [['value', ::Ice::T_Value, false, 0]])
+    end
+
+    if not defined?(::Test::T_L)
+        T_L = ::Ice::__declareClass('::Test::L')
     end
 
     if not defined?(::Test::L)
@@ -425,10 +417,6 @@ module ::Test
             end
 
             attr_accessor :data
-        end
-
-        if not defined?(::Test::T_L)
-            T_L = ::Ice::__declareClass('::Test::L')
         end
 
         T_L.defineClass(L, -1, false, nil, [['data', ::Ice::T_string, false, 0]])
@@ -450,6 +438,10 @@ module ::Test
         T_F2Prx = ::Ice::__declareProxy('::Test::F2')
     end
 
+    if not defined?(::Test::T_F3)
+        T_F3 = ::Ice::__declareClass('::Test::F3')
+    end
+
     if not defined?(::Test::F3)
         class F3 < ::Ice::Value
 
@@ -461,14 +453,14 @@ module ::Test
             attr_accessor :f1, :f2
         end
 
-        if not defined?(::Test::T_F3)
-            T_F3 = ::Ice::__declareClass('::Test::F3')
-        end
-
         T_F3.defineClass(F3, -1, false, nil, [
             ['f1', ::Test::T_F1, false, 0],
             ['f2', ::Test::T_F2Prx, false, 0]
         ])
+    end
+
+    if not defined?(::Test::T_InitialPrx)
+        T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
     end
 
     if not defined?(::Test::InitialPrx)
@@ -584,10 +576,6 @@ module ::Test
             include InitialPrx_mixin
         end
 
-        if not defined?(::Test::T_InitialPrx)
-            T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
-        end
-
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
         InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -618,26 +606,30 @@ module ::Test
         InitialPrx_mixin::OP_hasF3 = ::Ice::__defineOperation('hasF3', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])
     end
 
+    if not defined?(::Test::T_Empty)
+        T_Empty = ::Ice::__declareClass('::Test::Empty')
+    end
+
     if not defined?(::Test::Empty)
         class Empty < ::Ice::Value
         end
 
-        if not defined?(::Test::T_Empty)
-            T_Empty = ::Ice::__declareClass('::Test::Empty')
-        end
-
         T_Empty.defineClass(Empty, -1, false, nil, [])
+    end
+
+    if not defined?(::Test::T_AlsoEmpty)
+        T_AlsoEmpty = ::Ice::__declareClass('::Test::AlsoEmpty')
     end
 
     if not defined?(::Test::AlsoEmpty)
         class AlsoEmpty < ::Ice::Value
         end
 
-        if not defined?(::Test::T_AlsoEmpty)
-            T_AlsoEmpty = ::Ice::__declareClass('::Test::AlsoEmpty')
-        end
-
         T_AlsoEmpty.defineClass(AlsoEmpty, -1, false, nil, [])
+    end
+
+    if not defined?(::Test::T_UnexpectedObjectExceptionTestPrx)
+        T_UnexpectedObjectExceptionTestPrx = ::Ice::__declareProxy('::Test::UnexpectedObjectExceptionTest')
     end
 
     if not defined?(::Test::UnexpectedObjectExceptionTestPrx)
@@ -653,13 +645,13 @@ module ::Test
             include UnexpectedObjectExceptionTestPrx_mixin
         end
 
-        if not defined?(::Test::T_UnexpectedObjectExceptionTestPrx)
-            T_UnexpectedObjectExceptionTestPrx = ::Ice::__declareProxy('::Test::UnexpectedObjectExceptionTest')
-        end
-
         T_UnexpectedObjectExceptionTestPrx.defineProxy(UnexpectedObjectExceptionTestPrx, nil, [])
 
         UnexpectedObjectExceptionTestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_Empty, false, 0], [])
+    end
+
+    if not defined?(::Test::T_COneMember)
+        T_COneMember = ::Ice::__declareClass('::Test::COneMember')
     end
 
     if not defined?(::Test::COneMember)
@@ -672,11 +664,11 @@ module ::Test
             attr_accessor :e
         end
 
-        if not defined?(::Test::T_COneMember)
-            T_COneMember = ::Ice::__declareClass('::Test::COneMember')
-        end
-
         T_COneMember.defineClass(COneMember, -1, false, nil, [['e', ::Test::T_Empty, false, 0]])
+    end
+
+    if not defined?(::Test::T_CTwoMembers)
+        T_CTwoMembers = ::Ice::__declareClass('::Test::CTwoMembers')
     end
 
     if not defined?(::Test::CTwoMembers)
@@ -688,10 +680,6 @@ module ::Test
             end
 
             attr_accessor :e1, :e2
-        end
-
-        if not defined?(::Test::T_CTwoMembers)
-            T_CTwoMembers = ::Ice::__declareClass('::Test::CTwoMembers')
         end
 
         T_CTwoMembers.defineClass(CTwoMembers, -1, false, nil, [

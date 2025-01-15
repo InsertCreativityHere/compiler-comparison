@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Backend' not in _M_Test.__dict__:
+    _M_Test._t_BackendPrx = IcePy.declareProxy('::Test::Backend')
+
 if 'BackendPrx' not in _M_Test.__dict__:
     _M_Test.BackendPrx = None
     class BackendPrx(Ice.ObjectPrx):

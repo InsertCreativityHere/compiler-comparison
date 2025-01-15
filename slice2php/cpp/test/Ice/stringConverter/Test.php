@@ -39,6 +39,13 @@ namespace Test
 {
     global $Test__t_MyObject;
     global $Test__t_MyObjectPrx;
+    $Test__t_MyObjectPrx = IcePHP_declareProxy('::Test::MyObject');
+}
+
+namespace Test
+{
+    global $Test__t_MyObject;
+    global $Test__t_MyObjectPrx;
 
     class MyObjectPrxHelper
     {

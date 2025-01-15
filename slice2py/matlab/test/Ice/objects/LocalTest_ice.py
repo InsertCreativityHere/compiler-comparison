@@ -23,6 +23,9 @@ _M_LocalTest = Ice.openModule('LocalTest')
 __name__ = 'LocalTest'
 
 if 'C1' not in _M_LocalTest.__dict__:
+    _M_LocalTest._t_C1 = IcePy.declareValue('::LocalTest::C1')
+
+if 'C1' not in _M_LocalTest.__dict__:
     _M_LocalTest.C1 = None
     class C1(Ice.Value):
         def __init__(self, i=0):
@@ -297,6 +300,9 @@ if 'S8' not in _M_LocalTest.__dict__:
     del S8
 
 if 'CB1' not in _M_LocalTest.__dict__:
+    _M_LocalTest._t_CB1 = IcePy.declareValue('::LocalTest::CB1')
+
+if 'CB1' not in _M_LocalTest.__dict__:
     _M_LocalTest.CB1 = None
     class CB1(Ice.Value):
         def __init__(self, s1=None):
@@ -314,13 +320,14 @@ if 'CB1' not in _M_LocalTest.__dict__:
 
         __repr__ = __str__
 
-    _M_LocalTest._t_CB1 = IcePy.declareValue('::LocalTest::CB1')
-
     _M_LocalTest._t_CB1 = IcePy.defineValue('::LocalTest::CB1', CB1, -1, (), False, None, (('s1', (), _M_LocalTest._t_S1, False, 0),))
     CB1._ice_type = _M_LocalTest._t_CB1
 
     _M_LocalTest.CB1 = CB1
     del CB1
+
+if 'CB2' not in _M_LocalTest.__dict__:
+    _M_LocalTest._t_CB2 = IcePy.declareValue('::LocalTest::CB2')
 
 if 'CB2' not in _M_LocalTest.__dict__:
     _M_LocalTest.CB2 = None
@@ -340,13 +347,14 @@ if 'CB2' not in _M_LocalTest.__dict__:
 
         __repr__ = __str__
 
-    _M_LocalTest._t_CB2 = IcePy.declareValue('::LocalTest::CB2')
-
     _M_LocalTest._t_CB2 = IcePy.defineValue('::LocalTest::CB2', CB2, -1, (), False, None, (('c1seq', (), _M_LocalTest._t_C1Seq, False, 0),))
     CB2._ice_type = _M_LocalTest._t_CB2
 
     _M_LocalTest.CB2 = CB2
     del CB2
+
+if 'CB3' not in _M_LocalTest.__dict__:
+    _M_LocalTest._t_CB3 = IcePy.declareValue('::LocalTest::CB3')
 
 if 'CB3' not in _M_LocalTest.__dict__:
     _M_LocalTest.CB3 = None
@@ -366,13 +374,14 @@ if 'CB3' not in _M_LocalTest.__dict__:
 
         __repr__ = __str__
 
-    _M_LocalTest._t_CB3 = IcePy.declareValue('::LocalTest::CB3')
-
     _M_LocalTest._t_CB3 = IcePy.defineValue('::LocalTest::CB3', CB3, -1, (), False, None, (('s1seq', (), _M_LocalTest._t_S1Seq, False, 0),))
     CB3._ice_type = _M_LocalTest._t_CB3
 
     _M_LocalTest.CB3 = CB3
     del CB3
+
+if 'CB4' not in _M_LocalTest.__dict__:
+    _M_LocalTest._t_CB4 = IcePy.declareValue('::LocalTest::CB4')
 
 if 'CB4' not in _M_LocalTest.__dict__:
     _M_LocalTest.CB4 = None
@@ -392,13 +401,14 @@ if 'CB4' not in _M_LocalTest.__dict__:
 
         __repr__ = __str__
 
-    _M_LocalTest._t_CB4 = IcePy.declareValue('::LocalTest::CB4')
-
     _M_LocalTest._t_CB4 = IcePy.defineValue('::LocalTest::CB4', CB4, -1, (), False, None, (('c1dict', (), _M_LocalTest._t_C1Dict, False, 0),))
     CB4._ice_type = _M_LocalTest._t_CB4
 
     _M_LocalTest.CB4 = CB4
     del CB4
+
+if 'CB5' not in _M_LocalTest.__dict__:
+    _M_LocalTest._t_CB5 = IcePy.declareValue('::LocalTest::CB5')
 
 if 'CB5' not in _M_LocalTest.__dict__:
     _M_LocalTest.CB5 = None
@@ -418,13 +428,14 @@ if 'CB5' not in _M_LocalTest.__dict__:
 
         __repr__ = __str__
 
-    _M_LocalTest._t_CB5 = IcePy.declareValue('::LocalTest::CB5')
-
     _M_LocalTest._t_CB5 = IcePy.defineValue('::LocalTest::CB5', CB5, -1, (), False, None, (('s1dict', (), _M_LocalTest._t_S1Dict, False, 0),))
     CB5._ice_type = _M_LocalTest._t_CB5
 
     _M_LocalTest.CB5 = CB5
     del CB5
+
+if 'CB6' not in _M_LocalTest.__dict__:
+    _M_LocalTest._t_CB6 = IcePy.declareValue('::LocalTest::CB6')
 
 if 'CB6' not in _M_LocalTest.__dict__:
     _M_LocalTest.CB6 = None
@@ -444,13 +455,14 @@ if 'CB6' not in _M_LocalTest.__dict__:
 
         __repr__ = __str__
 
-    _M_LocalTest._t_CB6 = IcePy.declareValue('::LocalTest::CB6')
-
     _M_LocalTest._t_CB6 = IcePy.defineValue('::LocalTest::CB6', CB6, -1, (), False, None, (('c1seqseq', (), _M_LocalTest._t_C1SeqSeq, False, 0),))
     CB6._ice_type = _M_LocalTest._t_CB6
 
     _M_LocalTest.CB6 = CB6
     del CB6
+
+if 'CB7' not in _M_LocalTest.__dict__:
+    _M_LocalTest._t_CB7 = IcePy.declareValue('::LocalTest::CB7')
 
 if 'CB7' not in _M_LocalTest.__dict__:
     _M_LocalTest.CB7 = None
@@ -470,13 +482,14 @@ if 'CB7' not in _M_LocalTest.__dict__:
 
         __repr__ = __str__
 
-    _M_LocalTest._t_CB7 = IcePy.declareValue('::LocalTest::CB7')
-
     _M_LocalTest._t_CB7 = IcePy.defineValue('::LocalTest::CB7', CB7, -1, (), False, None, (('s1seqseq', (), _M_LocalTest._t_S1SeqSeq, False, 0),))
     CB7._ice_type = _M_LocalTest._t_CB7
 
     _M_LocalTest.CB7 = CB7
     del CB7
+
+if 'CB8' not in _M_LocalTest.__dict__:
+    _M_LocalTest._t_CB8 = IcePy.declareValue('::LocalTest::CB8')
 
 if 'CB8' not in _M_LocalTest.__dict__:
     _M_LocalTest.CB8 = None
@@ -497,8 +510,6 @@ if 'CB8' not in _M_LocalTest.__dict__:
             return IcePy.stringify(self, _M_LocalTest._t_CB8)
 
         __repr__ = __str__
-
-    _M_LocalTest._t_CB8 = IcePy.declareValue('::LocalTest::CB8')
 
     _M_LocalTest._t_CB8 = IcePy.defineValue('::LocalTest::CB8', CB8, -1, (), False, None, (
         ('s1', (), _M_LocalTest._t_S1, False, 0),

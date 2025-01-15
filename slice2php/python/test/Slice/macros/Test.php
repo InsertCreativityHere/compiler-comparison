@@ -18,6 +18,12 @@
 namespace Test
 {
     global $Test__t_Default;
+    $Test__t_Default = IcePHP_declareClass('::Test::Default');
+}
+
+namespace Test
+{
+    global $Test__t_Default;
     class _Default extends \Ice\Value
     {
         public function __construct($x=0, $y=0)
@@ -51,6 +57,12 @@ namespace Test
     $Test__t_Default = IcePHP_defineClass('::Test::Default', '\\Test\\_Default', -1, false, $Ice__t_Value, array(
         array('x', $IcePHP__t_int, false, 0),
         array('y', $IcePHP__t_int, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_NoDefault;
+    $Test__t_NoDefault = IcePHP_declareClass('::Test::NoDefault');
 }
 
 namespace Test

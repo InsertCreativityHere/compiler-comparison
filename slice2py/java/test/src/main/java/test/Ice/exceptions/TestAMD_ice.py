@@ -367,6 +367,9 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
     _M_Test.Thrower = Thrower
     del Thrower
 
+if 'WrongOperation' not in _M_Test.__dict__:
+    _M_Test._t_WrongOperationPrx = IcePy.declareProxy('::Test::WrongOperation')
+
 if 'WrongOperationPrx' not in _M_Test.__dict__:
     _M_Test.WrongOperationPrx = None
     class WrongOperationPrx(Ice.ObjectPrx):

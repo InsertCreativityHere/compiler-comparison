@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Callback' not in _M_Test.__dict__:
+    _M_Test._t_CallbackPrx = IcePy.declareProxy('::Test::Callback')
+
 if 'CallbackPrx' not in _M_Test.__dict__:
     _M_Test.CallbackPrx = None
     class CallbackPrx(Ice.ObjectPrx):
@@ -121,6 +124,9 @@ if 'CallbackPrx' not in _M_Test.__dict__:
 
     _M_Test.Callback = Callback
     del Callback
+
+if 'MyClass' not in _M_Test.__dict__:
+    _M_Test._t_MyClassPrx = IcePy.declareProxy('::Test::MyClass')
 
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = None

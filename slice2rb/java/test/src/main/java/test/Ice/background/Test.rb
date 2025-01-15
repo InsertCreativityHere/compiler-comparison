@@ -19,6 +19,10 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
+    if not defined?(::Test::T_BackgroundPrx)
+        T_BackgroundPrx = ::Ice::__declareProxy('::Test::Background')
+    end
+
     if not defined?(::Test::BackgroundPrx)
         module BackgroundPrx_mixin
 
@@ -40,15 +44,15 @@ module ::Test
             include BackgroundPrx_mixin
         end
 
-        if not defined?(::Test::T_BackgroundPrx)
-            T_BackgroundPrx = ::Ice::__declareProxy('::Test::Background')
-        end
-
         T_BackgroundPrx.defineProxy(BackgroundPrx, nil, [])
 
         BackgroundPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         BackgroundPrx_mixin::OP_opWithPayload = ::Ice::__defineOperation('opWithPayload', ::Ice::OperationMode::Normal, nil, [[::Ice::T_ByteSeq, false, 0]], [], nil, [])
         BackgroundPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::Test::T_BackgroundControllerPrx)
+        T_BackgroundControllerPrx = ::Ice::__declareProxy('::Test::BackgroundController')
     end
 
     if not defined?(::Test::BackgroundControllerPrx)
@@ -102,10 +106,6 @@ module ::Test
         class BackgroundControllerPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include BackgroundControllerPrx_mixin
-        end
-
-        if not defined?(::Test::T_BackgroundControllerPrx)
-            T_BackgroundControllerPrx = ::Ice::__declareProxy('::Test::BackgroundController')
         end
 
         T_BackgroundControllerPrx.defineProxy(BackgroundControllerPrx, nil, [])

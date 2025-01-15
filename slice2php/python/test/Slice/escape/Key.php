@@ -54,6 +54,13 @@ namespace _and
 {
     global $and__t_del;
     global $and__t_delPrx;
+    $and__t_delPrx = IcePHP_declareProxy('::and::del');
+}
+
+namespace _and
+{
+    global $and__t_del;
+    global $and__t_delPrx;
 
     class delPrxHelper
     {
@@ -89,6 +96,13 @@ namespace _and
 {
     global $and__t_exec;
     global $and__t_execPrx;
+    $and__t_execPrx = IcePHP_declareProxy('::and::exec');
+}
+
+namespace _and
+{
+    global $and__t_exec;
+    global $and__t_execPrx;
 
     class execPrxHelper
     {
@@ -117,6 +131,12 @@ namespace _and
     $and__t_execPrx = IcePHP_defineProxy('::and::exec', $Ice__t_ObjectPrx, null);
 
     IcePHP_defineOperation($and__t_execPrx, 'finally', 0, -1, null, null, null, null);
+}
+
+namespace _and
+{
+    global $and__t_for;
+    $and__t_for = IcePHP_declareClass('::and::for');
 }
 
 namespace _and
@@ -159,6 +179,13 @@ namespace _and
         array('lambda', $IcePHP__t_int, false, 0),
         array('from', $and__t_execPrx, false, 0),
         array('_global', $IcePHP__t_int, false, 0)));
+}
+
+namespace _and
+{
+    global $and__t_if;
+    global $and__t_ifPrx;
+    $and__t_ifPrx = IcePHP_declareProxy('::and::if');
 }
 
 namespace _and
@@ -264,6 +291,13 @@ namespace _and
     $and__t_not = IcePHP_defineException('::and::not', '\\_and\\not', $and__t_is, array(
         array('_or', $IcePHP__t_int, false, 0),
         array('pass', $IcePHP__t_int, false, 0)));
+}
+
+namespace _and
+{
+    global $and__t_print;
+    global $and__t_printPrx;
+    $and__t_printPrx = IcePHP_declareProxy('::and::print');
 }
 
 namespace _and

@@ -57,6 +57,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_Base)
+        T_Base = ::Ice::__declareClass('::Test::Base')
+    end
+
     if not defined?(::Test::Base)
         class Base < ::Ice::Value
 
@@ -67,11 +71,11 @@ module ::Test
             attr_accessor :b
         end
 
-        if not defined?(::Test::T_Base)
-            T_Base = ::Ice::__declareClass('::Test::Base')
-        end
-
         T_Base.defineClass(Base, -1, false, nil, [['b', ::Ice::T_string, false, 0]])
+    end
+
+    if not defined?(::Test::T_Extended)
+        T_Extended = ::Ice::__declareClass('::Test::Extended')
     end
 
     if not defined?(::Test::Extended)
@@ -83,10 +87,6 @@ module ::Test
             end
 
             attr_accessor :e
-        end
-
-        if not defined?(::Test::T_Extended)
-            T_Extended = ::Ice::__declareClass('::Test::Extended')
         end
 
         T_Extended.defineClass(Extended, -1, false, ::Test::T_Base, [['e', ::Ice::T_int, false, 0]])

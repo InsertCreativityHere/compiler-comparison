@@ -19,6 +19,10 @@ require 'Ice/Locator.rb'
 
 module ::IceLocatorDiscovery
 
+    if not defined?(::IceLocatorDiscovery::T_LookupReplyPrx)
+        T_LookupReplyPrx = ::Ice::__declareProxy('::IceLocatorDiscovery::LookupReply')
+    end
+
     if not defined?(::IceLocatorDiscovery::LookupReplyPrx)
         module LookupReplyPrx_mixin
 
@@ -32,13 +36,13 @@ module ::IceLocatorDiscovery
             include LookupReplyPrx_mixin
         end
 
-        if not defined?(::IceLocatorDiscovery::T_LookupReplyPrx)
-            T_LookupReplyPrx = ::Ice::__declareProxy('::IceLocatorDiscovery::LookupReply')
-        end
-
         T_LookupReplyPrx.defineProxy(LookupReplyPrx, nil, [])
 
         LookupReplyPrx_mixin::OP_foundLocator = ::Ice::__defineOperation('foundLocator', ::Ice::OperationMode::Normal, nil, [[::Ice::T_LocatorPrx, false, 0]], [], nil, [])
+    end
+
+    if not defined?(::IceLocatorDiscovery::T_LookupPrx)
+        T_LookupPrx = ::Ice::__declareProxy('::IceLocatorDiscovery::Lookup')
     end
 
     if not defined?(::IceLocatorDiscovery::LookupPrx)
@@ -52,10 +56,6 @@ module ::IceLocatorDiscovery
         class LookupPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include LookupPrx_mixin
-        end
-
-        if not defined?(::IceLocatorDiscovery::T_LookupPrx)
-            T_LookupPrx = ::Ice::__declareProxy('::IceLocatorDiscovery::Lookup')
         end
 
         T_LookupPrx.defineProxy(LookupPrx, nil, [])

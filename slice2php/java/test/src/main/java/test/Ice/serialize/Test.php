@@ -32,19 +32,13 @@ namespace Test
 {
     global $Test__t_Initial;
     global $Test__t_InitialPrx;
-    if(!isset($Test__t_Initial))
-    {
-        $Test__t_InitialPrx = IcePHP_declareProxy('::Test::Initial');
-    }
+    $Test__t_InitialPrx = IcePHP_declareProxy('::Test::Initial');
 }
 
 namespace Test
 {
     global $Test__t_Base;
-    if(!isset($Test__t_Base))
-    {
-        $Test__t_Base = IcePHP_declareClass('::Test::Base');
-    }
+    $Test__t_Base = IcePHP_declareClass('::Test::Base');
 }
 
 namespace Test
@@ -276,6 +270,12 @@ namespace Test
 namespace Test
 {
     global $Test__t_Derived;
+    $Test__t_Derived = IcePHP_declareClass('::Test::Derived');
+}
+
+namespace Test
+{
+    global $Test__t_Derived;
     class Derived extends \Test\Base
     {
         public function __construct($b=null, $o=null, $s=null, $seq1=null, $seq2=null, $seq3=null, $seq4=null, $d1=null, $d2=null, $d3=null, $d4=null, $p=null)
@@ -302,8 +302,6 @@ namespace Test
 
         public $p;
     }
-
-    $Test__t_Derived = IcePHP_declareClass('::Test::Derived');
 
     global $Test__t_Base;
     global $Ice__t_ObjectPrx;

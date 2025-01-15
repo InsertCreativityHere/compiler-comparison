@@ -901,6 +901,9 @@ if 'NoSuchTopic' not in _M_IceStorm.__dict__:
     _M_IceStorm.NoSuchTopic = NoSuchTopic
     del NoSuchTopic
 
+if 'TopicManager' not in _M_IceStorm.__dict__:
+    _M_IceStorm._t_TopicManagerPrx = IcePy.declareProxy('::IceStorm::TopicManager')
+
 if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicManagerPrx = None
     class TopicManagerPrx(Ice.ObjectPrx):
@@ -1139,6 +1142,9 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
 
     _M_IceStorm.TopicManager = TopicManager
     del TopicManager
+
+if 'Finder' not in _M_IceStorm.__dict__:
+    _M_IceStorm._t_FinderPrx = IcePy.declareProxy('::IceStorm::Finder')
 
 if 'FinderPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.FinderPrx = None

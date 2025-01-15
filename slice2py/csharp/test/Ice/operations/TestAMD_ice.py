@@ -1290,6 +1290,9 @@ if 'MyStruct1' not in _M_Test.__dict__:
     del MyStruct1
 
 if 'MyClass1' not in _M_Test.__dict__:
+    _M_Test._t_MyClass1 = IcePy.declareValue('::Test::MyClass1')
+
+if 'MyClass1' not in _M_Test.__dict__:
     _M_Test.MyClass1 = None
     class MyClass1(Ice.Value):
         def __init__(self, tesT='', myClass=None, myClass1=''):
@@ -1318,6 +1321,9 @@ if 'MyClass1' not in _M_Test.__dict__:
 
     _M_Test.MyClass1 = MyClass1
     del MyClass1
+
+if 'MyDerivedClass' not in _M_Test.__dict__:
+    _M_Test._t_MyDerivedClassPrx = IcePy.declareProxy('::Test::MyDerivedClass')
 
 if 'MyDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyDerivedClassPrx = None

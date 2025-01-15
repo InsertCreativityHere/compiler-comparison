@@ -20,6 +20,10 @@ module ::Test
 
     module MA
 
+        if not defined?(::Test::MA::T_IAPrx)
+            T_IAPrx = ::Ice::__declareProxy('::Test::MA::IA')
+        end
+
         if not defined?(::Test::MA::IAPrx)
             module IAPrx_mixin
 
@@ -33,10 +37,6 @@ module ::Test
                 include IAPrx_mixin
             end
 
-            if not defined?(::Test::MA::T_IAPrx)
-                T_IAPrx = ::Ice::__declareProxy('::Test::MA::IA')
-            end
-
             T_IAPrx.defineProxy(IAPrx, nil, [])
 
             IAPrx_mixin::OP_iaop = ::Ice::__defineOperation('iaop', ::Ice::OperationMode::Normal, nil, [[::Test::MA::T_IAPrx, false, 0]], [], [::Test::MA::T_IAPrx, false, 0], [])
@@ -44,6 +44,10 @@ module ::Test
     end
 
     module MB
+
+        if not defined?(::Test::MB::T_IB1Prx)
+            T_IB1Prx = ::Ice::__declareProxy('::Test::MB::IB1')
+        end
 
         if not defined?(::Test::MB::IB1Prx)
             module IB1Prx_mixin
@@ -59,13 +63,13 @@ module ::Test
                 include IB1Prx_mixin
             end
 
-            if not defined?(::Test::MB::T_IB1Prx)
-                T_IB1Prx = ::Ice::__declareProxy('::Test::MB::IB1')
-            end
-
             T_IB1Prx.defineProxy(IB1Prx, nil, [::Test::MA::T_IAPrx])
 
             IB1Prx_mixin::OP_ib1op = ::Ice::__defineOperation('ib1op', ::Ice::OperationMode::Normal, nil, [[::Test::MB::T_IB1Prx, false, 0]], [], [::Test::MB::T_IB1Prx, false, 0], [])
+        end
+
+        if not defined?(::Test::MB::T_IB2Prx)
+            T_IB2Prx = ::Ice::__declareProxy('::Test::MB::IB2')
         end
 
         if not defined?(::Test::MB::IB2Prx)
@@ -82,10 +86,6 @@ module ::Test
                 include IB2Prx_mixin
             end
 
-            if not defined?(::Test::MB::T_IB2Prx)
-                T_IB2Prx = ::Ice::__declareProxy('::Test::MB::IB2')
-            end
-
             T_IB2Prx.defineProxy(IB2Prx, nil, [::Test::MA::T_IAPrx])
 
             IB2Prx_mixin::OP_ib2op = ::Ice::__defineOperation('ib2op', ::Ice::OperationMode::Normal, nil, [[::Test::MB::T_IB2Prx, false, 0]], [], [::Test::MB::T_IB2Prx, false, 0], [])
@@ -93,6 +93,10 @@ module ::Test
     end
 
     module MA
+
+        if not defined?(::Test::MA::T_ICPrx)
+            T_ICPrx = ::Ice::__declareProxy('::Test::MA::IC')
+        end
 
         if not defined?(::Test::MA::ICPrx)
             module ICPrx_mixin
@@ -109,14 +113,14 @@ module ::Test
                 include ICPrx_mixin
             end
 
-            if not defined?(::Test::MA::T_ICPrx)
-                T_ICPrx = ::Ice::__declareProxy('::Test::MA::IC')
-            end
-
             T_ICPrx.defineProxy(ICPrx, nil, [::Test::MB::T_IB1Prx, ::Test::MB::T_IB2Prx])
 
             ICPrx_mixin::OP_icop = ::Ice::__defineOperation('icop', ::Ice::OperationMode::Normal, nil, [[::Test::MA::T_ICPrx, false, 0]], [], [::Test::MA::T_ICPrx, false, 0], [])
         end
+    end
+
+    if not defined?(::Test::T_InitialPrx)
+        T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
     end
 
     if not defined?(::Test::InitialPrx)
@@ -148,10 +152,6 @@ module ::Test
             include InitialPrx_mixin
         end
 
-        if not defined?(::Test::T_InitialPrx)
-            T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
-        end
-
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
         InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -163,6 +163,10 @@ module ::Test
 
     module MC
 
+        if not defined?(::Test::MC::T_A)
+            T_A = ::Ice::__declareClass('::Test::MC::A')
+        end
+
         if not defined?(::Test::MC::A)
             class A < ::Ice::Value
 
@@ -173,11 +177,11 @@ module ::Test
                 attr_accessor :aA
             end
 
-            if not defined?(::Test::MC::T_A)
-                T_A = ::Ice::__declareClass('::Test::MC::A')
-            end
-
             T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MC::T_B)
+            T_B = ::Ice::__declareClass('::Test::MC::B')
         end
 
         if not defined?(::Test::MC::B)
@@ -191,11 +195,11 @@ module ::Test
                 attr_accessor :bB
             end
 
-            if not defined?(::Test::MC::T_B)
-                T_B = ::Ice::__declareClass('::Test::MC::B')
-            end
-
             T_B.defineClass(B, -1, false, ::Test::MC::T_A, [['bB', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MC::T_C)
+            T_C = ::Ice::__declareClass('::Test::MC::C')
         end
 
         if not defined?(::Test::MC::C)
@@ -209,11 +213,11 @@ module ::Test
                 attr_accessor :cC
             end
 
-            if not defined?(::Test::MC::T_C)
-                T_C = ::Ice::__declareClass('::Test::MC::C')
-            end
-
             T_C.defineClass(C, -1, false, ::Test::MC::T_B, [['cC', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MC::T_D)
+            T_D = ::Ice::__declareClass('::Test::MC::D')
         end
 
         if not defined?(::Test::MC::D)
@@ -227,15 +231,15 @@ module ::Test
                 attr_accessor :dD
             end
 
-            if not defined?(::Test::MC::T_D)
-                T_D = ::Ice::__declareClass('::Test::MC::D')
-            end
-
             T_D.defineClass(D, -1, false, ::Test::MC::T_C, [['dD', ::Ice::T_int, false, 0]])
         end
     end
 
     module MD
+
+        if not defined?(::Test::MD::T_A)
+            T_A = ::Ice::__declareClass('::Test::MD::A')
+        end
 
         if not defined?(::Test::MD::A)
             class A < ::Ice::Value
@@ -247,11 +251,11 @@ module ::Test
                 attr_accessor :aA
             end
 
-            if not defined?(::Test::MD::T_A)
-                T_A = ::Ice::__declareClass('::Test::MD::A')
-            end
-
             T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MD::T_B)
+            T_B = ::Ice::__declareClass('::Test::MD::B')
         end
 
         if not defined?(::Test::MD::B)
@@ -265,11 +269,11 @@ module ::Test
                 attr_accessor :bB
             end
 
-            if not defined?(::Test::MD::T_B)
-                T_B = ::Ice::__declareClass('::Test::MD::B')
-            end
-
             T_B.defineClass(B, -1, false, ::Test::MD::T_A, [['bB', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MD::T_C)
+            T_C = ::Ice::__declareClass('::Test::MD::C')
         end
 
         if not defined?(::Test::MD::C)
@@ -283,11 +287,11 @@ module ::Test
                 attr_accessor :cC
             end
 
-            if not defined?(::Test::MD::T_C)
-                T_C = ::Ice::__declareClass('::Test::MD::C')
-            end
-
             T_C.defineClass(C, -1, false, ::Test::MD::T_B, [['cC', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MD::T_D)
+            T_D = ::Ice::__declareClass('::Test::MD::D')
         end
 
         if not defined?(::Test::MD::D)
@@ -301,15 +305,15 @@ module ::Test
                 attr_accessor :dD
             end
 
-            if not defined?(::Test::MD::T_D)
-                T_D = ::Ice::__declareClass('::Test::MD::D')
-            end
-
             T_D.defineClass(D, -1, false, ::Test::MD::T_C, [['dD', ::Ice::T_int, false, 0]])
         end
     end
 
     module ME
+
+        if not defined?(::Test::ME::T_A)
+            T_A = ::Ice::__declareClass('::Test::ME::A')
+        end
 
         if not defined?(::Test::ME::A)
             class A < ::Ice::Value
@@ -321,11 +325,11 @@ module ::Test
                 attr_accessor :aA
             end
 
-            if not defined?(::Test::ME::T_A)
-                T_A = ::Ice::__declareClass('::Test::ME::A')
-            end
-
             T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::ME::T_B)
+            T_B = ::Ice::__declareClass('::Test::ME::B')
         end
 
         if not defined?(::Test::ME::B)
@@ -339,11 +343,11 @@ module ::Test
                 attr_accessor :bB
             end
 
-            if not defined?(::Test::ME::T_B)
-                T_B = ::Ice::__declareClass('::Test::ME::B')
-            end
-
             T_B.defineClass(B, -1, false, ::Test::ME::T_A, [['bB', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::ME::T_C)
+            T_C = ::Ice::__declareClass('::Test::ME::C')
         end
 
         if not defined?(::Test::ME::C)
@@ -357,11 +361,11 @@ module ::Test
                 attr_accessor :cC
             end
 
-            if not defined?(::Test::ME::T_C)
-                T_C = ::Ice::__declareClass('::Test::ME::C')
-            end
-
             T_C.defineClass(C, -1, false, ::Test::ME::T_B, [['cC', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::ME::T_D)
+            T_D = ::Ice::__declareClass('::Test::ME::D')
         end
 
         if not defined?(::Test::ME::D)
@@ -375,15 +379,15 @@ module ::Test
                 attr_accessor :dD
             end
 
-            if not defined?(::Test::ME::T_D)
-                T_D = ::Ice::__declareClass('::Test::ME::D')
-            end
-
             T_D.defineClass(D, -1, false, ::Test::ME::T_C, [['dD', ::Ice::T_int, false, 0]])
         end
     end
 
     module MF
+
+        if not defined?(::Test::MF::T_A)
+            T_A = ::Ice::__declareClass('::Test::MF::A')
+        end
 
         if not defined?(::Test::MF::A)
             class A < ::Ice::Value
@@ -395,11 +399,11 @@ module ::Test
                 attr_accessor :aA
             end
 
-            if not defined?(::Test::MF::T_A)
-                T_A = ::Ice::__declareClass('::Test::MF::A')
-            end
-
             T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MF::T_B)
+            T_B = ::Ice::__declareClass('::Test::MF::B')
         end
 
         if not defined?(::Test::MF::B)
@@ -413,11 +417,11 @@ module ::Test
                 attr_accessor :bB
             end
 
-            if not defined?(::Test::MF::T_B)
-                T_B = ::Ice::__declareClass('::Test::MF::B')
-            end
-
             T_B.defineClass(B, -1, false, ::Test::MF::T_A, [['bB', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MF::T_C)
+            T_C = ::Ice::__declareClass('::Test::MF::C')
         end
 
         if not defined?(::Test::MF::C)
@@ -431,11 +435,11 @@ module ::Test
                 attr_accessor :cC
             end
 
-            if not defined?(::Test::MF::T_C)
-                T_C = ::Ice::__declareClass('::Test::MF::C')
-            end
-
             T_C.defineClass(C, -1, false, ::Test::MF::T_B, [['cC', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MF::T_D)
+            T_D = ::Ice::__declareClass('::Test::MF::D')
         end
 
         if not defined?(::Test::MF::D)
@@ -449,15 +453,15 @@ module ::Test
                 attr_accessor :dD
             end
 
-            if not defined?(::Test::MF::T_D)
-                T_D = ::Ice::__declareClass('::Test::MF::D')
-            end
-
             T_D.defineClass(D, -1, false, ::Test::MF::T_C, [['dD', ::Ice::T_int, false, 0]])
         end
     end
 
     module MG
+
+        if not defined?(::Test::MG::T_A)
+            T_A = ::Ice::__declareClass('::Test::MG::A')
+        end
 
         if not defined?(::Test::MG::A)
             class A < ::Ice::Value
@@ -469,11 +473,11 @@ module ::Test
                 attr_accessor :aA
             end
 
-            if not defined?(::Test::MG::T_A)
-                T_A = ::Ice::__declareClass('::Test::MG::A')
-            end
-
             T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MG::T_B)
+            T_B = ::Ice::__declareClass('::Test::MG::B')
         end
 
         if not defined?(::Test::MG::B)
@@ -487,11 +491,11 @@ module ::Test
                 attr_accessor :bB
             end
 
-            if not defined?(::Test::MG::T_B)
-                T_B = ::Ice::__declareClass('::Test::MG::B')
-            end
-
             T_B.defineClass(B, -1, false, ::Test::MG::T_A, [['bB', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MG::T_C)
+            T_C = ::Ice::__declareClass('::Test::MG::C')
         end
 
         if not defined?(::Test::MG::C)
@@ -505,11 +509,11 @@ module ::Test
                 attr_accessor :cC
             end
 
-            if not defined?(::Test::MG::T_C)
-                T_C = ::Ice::__declareClass('::Test::MG::C')
-            end
-
             T_C.defineClass(C, -1, false, ::Test::MG::T_B, [['cC', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MG::T_D)
+            T_D = ::Ice::__declareClass('::Test::MG::D')
         end
 
         if not defined?(::Test::MG::D)
@@ -523,15 +527,15 @@ module ::Test
                 attr_accessor :dD
             end
 
-            if not defined?(::Test::MG::T_D)
-                T_D = ::Ice::__declareClass('::Test::MG::D')
-            end
-
             T_D.defineClass(D, -1, false, ::Test::MG::T_C, [['dD', ::Ice::T_int, false, 0]])
         end
     end
 
     module MH
+
+        if not defined?(::Test::MH::T_A)
+            T_A = ::Ice::__declareClass('::Test::MH::A')
+        end
 
         if not defined?(::Test::MH::A)
             class A < ::Ice::Value
@@ -543,11 +547,11 @@ module ::Test
                 attr_accessor :aA
             end
 
-            if not defined?(::Test::MH::T_A)
-                T_A = ::Ice::__declareClass('::Test::MH::A')
-            end
-
             T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MH::T_B)
+            T_B = ::Ice::__declareClass('::Test::MH::B')
         end
 
         if not defined?(::Test::MH::B)
@@ -561,11 +565,11 @@ module ::Test
                 attr_accessor :bB
             end
 
-            if not defined?(::Test::MH::T_B)
-                T_B = ::Ice::__declareClass('::Test::MH::B')
-            end
-
             T_B.defineClass(B, -1, false, ::Test::MH::T_A, [['bB', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MH::T_C)
+            T_C = ::Ice::__declareClass('::Test::MH::C')
         end
 
         if not defined?(::Test::MH::C)
@@ -579,11 +583,11 @@ module ::Test
                 attr_accessor :cC
             end
 
-            if not defined?(::Test::MH::T_C)
-                T_C = ::Ice::__declareClass('::Test::MH::C')
-            end
-
             T_C.defineClass(C, -1, false, ::Test::MH::T_B, [['cC', ::Ice::T_int, false, 0]])
+        end
+
+        if not defined?(::Test::MH::T_D)
+            T_D = ::Ice::__declareClass('::Test::MH::D')
         end
 
         if not defined?(::Test::MH::D)
@@ -595,10 +599,6 @@ module ::Test
                 end
 
                 attr_accessor :dD
-            end
-
-            if not defined?(::Test::MH::T_D)
-                T_D = ::Ice::__declareClass('::Test::MH::D')
             end
 
             T_D.defineClass(D, -1, false, ::Test::MH::T_C, [['dD', ::Ice::T_int, false, 0]])

@@ -23,6 +23,9 @@ _M_Test2 = Ice.openModule('Test2')
 __name__ = 'Test2'
 
 if 'C1' not in _M_Test2.__dict__:
+    _M_Test2._t_C1 = IcePy.declareValue('::Test2::C1')
+
+if 'C1' not in _M_Test2.__dict__:
     _M_Test2.C1 = None
     class C1(Ice.Value):
         def __init__(self, i=0):
@@ -45,6 +48,9 @@ if 'C1' not in _M_Test2.__dict__:
 
     _M_Test2.C1 = C1
     del C1
+
+if 'C2' not in _M_Test2.__dict__:
+    _M_Test2._t_C2 = IcePy.declareValue('::Test2::C2')
 
 if 'C2' not in _M_Test2.__dict__:
     _M_Test2.C2 = None
@@ -117,6 +123,9 @@ _M_Test3 = Ice.openModule('Test3')
 __name__ = 'Test3'
 
 if 'C1' not in _M_Test3.__dict__:
+    _M_Test3._t_C1 = IcePy.declareValue('::Test3::C1')
+
+if 'C1' not in _M_Test3.__dict__:
     _M_Test3.C1 = None
     class C1(Ice.Value):
         def __init__(self, i=0):
@@ -139,6 +148,9 @@ if 'C1' not in _M_Test3.__dict__:
 
     _M_Test3.C1 = C1
     del C1
+
+if 'C2' not in _M_Test3.__dict__:
+    _M_Test3._t_C2 = IcePy.declareValue('::Test3::C2')
 
 if 'C2' not in _M_Test3.__dict__:
     _M_Test3.C2 = None

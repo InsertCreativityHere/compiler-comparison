@@ -54,6 +54,13 @@ namespace BEGIN
 {
     global $BEGIN__t_break;
     global $BEGIN__t_breakPrx;
+    $BEGIN__t_breakPrx = IcePHP_declareProxy('::BEGIN::break');
+}
+
+namespace BEGIN
+{
+    global $BEGIN__t_break;
+    global $BEGIN__t_breakPrx;
 
     class breakPrxHelper
     {
@@ -86,6 +93,12 @@ namespace BEGIN
     IcePHP_defineOperation($BEGIN__t_breakPrx, 'to_a', 0, -1, null, null, null, null);
     IcePHP_defineOperation($BEGIN__t_breakPrx, 'instance_variable_set', 0, -1, null, null, null, null);
     IcePHP_defineOperation($BEGIN__t_breakPrx, 'instance_variables', 0, -1, null, null, null, null);
+}
+
+namespace BEGIN
+{
+    global $BEGIN__t_display;
+    $BEGIN__t_display = IcePHP_declareClass('::BEGIN::display');
 }
 
 namespace BEGIN
@@ -131,6 +144,13 @@ namespace BEGIN
         array('_do', $IcePHP__t_int, false, 0),
         array('dup', $BEGIN__t_breakPrx, false, 0),
         array('_else', $IcePHP__t_int, false, 0)));
+}
+
+namespace BEGIN
+{
+    global $BEGIN__t_elsif;
+    global $BEGIN__t_elsifPrx;
+    $BEGIN__t_elsifPrx = IcePHP_declareProxy('::BEGIN::elsif');
 }
 
 namespace BEGIN
@@ -236,6 +256,13 @@ namespace BEGIN
     $BEGIN__t_nil = IcePHP_defineException('::BEGIN::nil', '\\BEGIN\\nil', $BEGIN__t_next, array(
         array('not', $IcePHP__t_int, false, 0),
         array('_or', $IcePHP__t_int, false, 0)));
+}
+
+namespace BEGIN
+{
+    global $BEGIN__t_extend;
+    global $BEGIN__t_extendPrx;
+    $BEGIN__t_extendPrx = IcePHP_declareProxy('::BEGIN::extend');
 }
 
 namespace BEGIN

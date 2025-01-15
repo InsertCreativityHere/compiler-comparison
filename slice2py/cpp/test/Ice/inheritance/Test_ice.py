@@ -26,6 +26,9 @@ __name__ = 'Test'
 _M_Test.MA = Ice.openModule('Test.MA')
 __name__ = 'Test.MA'
 
+if 'IA' not in _M_Test.MA.__dict__:
+    _M_Test.MA._t_IAPrx = IcePy.declareProxy('::Test::MA::IA')
+
 if 'IAPrx' not in _M_Test.MA.__dict__:
     _M_Test.MA.IAPrx = None
     class IAPrx(Ice.ObjectPrx):
@@ -104,6 +107,9 @@ __name__ = 'Test'
 _M_Test.MB = Ice.openModule('Test.MB')
 __name__ = 'Test.MB'
 
+if 'IB1' not in _M_Test.MB.__dict__:
+    _M_Test.MB._t_IB1Prx = IcePy.declareProxy('::Test::MB::IB1')
+
 if 'IB1Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB.IB1Prx = None
     class IB1Prx(_M_Test.MA.IAPrx):
@@ -173,6 +179,9 @@ if 'IB1Prx' not in _M_Test.MB.__dict__:
 
     _M_Test.MB.IB1 = IB1
     del IB1
+
+if 'IB2' not in _M_Test.MB.__dict__:
+    _M_Test.MB._t_IB2Prx = IcePy.declareProxy('::Test::MB::IB2')
 
 if 'IB2Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB.IB2Prx = None
@@ -251,6 +260,9 @@ __name__ = 'Test'
 # Start of module Test.MA
 __name__ = 'Test.MA'
 
+if 'IC' not in _M_Test.MA.__dict__:
+    _M_Test.MA._t_ICPrx = IcePy.declareProxy('::Test::MA::IC')
+
 if 'ICPrx' not in _M_Test.MA.__dict__:
     _M_Test.MA.ICPrx = None
     class ICPrx(_M_Test.MB.IB1Prx, _M_Test.MB.IB2Prx):
@@ -324,6 +336,9 @@ if 'ICPrx' not in _M_Test.MA.__dict__:
 # End of module Test.MA
 
 __name__ = 'Test'
+
+if 'Initial' not in _M_Test.__dict__:
+    _M_Test._t_InitialPrx = IcePy.declareProxy('::Test::Initial')
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = None
@@ -440,6 +455,9 @@ _M_Test.MC = Ice.openModule('Test.MC')
 __name__ = 'Test.MC'
 
 if 'A' not in _M_Test.MC.__dict__:
+    _M_Test.MC._t_A = IcePy.declareValue('::Test::MC::A')
+
+if 'A' not in _M_Test.MC.__dict__:
     _M_Test.MC.A = None
     class A(Ice.Value):
         def __init__(self, aA=0):
@@ -462,6 +480,9 @@ if 'A' not in _M_Test.MC.__dict__:
 
     _M_Test.MC.A = A
     del A
+
+if 'B' not in _M_Test.MC.__dict__:
+    _M_Test.MC._t_B = IcePy.declareValue('::Test::MC::B')
 
 if 'B' not in _M_Test.MC.__dict__:
     _M_Test.MC.B = None
@@ -489,6 +510,9 @@ if 'B' not in _M_Test.MC.__dict__:
     del B
 
 if 'C' not in _M_Test.MC.__dict__:
+    _M_Test.MC._t_C = IcePy.declareValue('::Test::MC::C')
+
+if 'C' not in _M_Test.MC.__dict__:
     _M_Test.MC.C = None
     class C(_M_Test.MC.B):
         def __init__(self, aA=0, bB=0, cC=0):
@@ -512,6 +536,9 @@ if 'C' not in _M_Test.MC.__dict__:
 
     _M_Test.MC.C = C
     del C
+
+if 'D' not in _M_Test.MC.__dict__:
+    _M_Test.MC._t_D = IcePy.declareValue('::Test::MC::D')
 
 if 'D' not in _M_Test.MC.__dict__:
     _M_Test.MC.D = None
@@ -547,6 +574,9 @@ _M_Test.MD = Ice.openModule('Test.MD')
 __name__ = 'Test.MD'
 
 if 'A' not in _M_Test.MD.__dict__:
+    _M_Test.MD._t_A = IcePy.declareValue('::Test::MD::A')
+
+if 'A' not in _M_Test.MD.__dict__:
     _M_Test.MD.A = None
     class A(Ice.Value):
         def __init__(self, aA=0):
@@ -569,6 +599,9 @@ if 'A' not in _M_Test.MD.__dict__:
 
     _M_Test.MD.A = A
     del A
+
+if 'B' not in _M_Test.MD.__dict__:
+    _M_Test.MD._t_B = IcePy.declareValue('::Test::MD::B')
 
 if 'B' not in _M_Test.MD.__dict__:
     _M_Test.MD.B = None
@@ -596,6 +629,9 @@ if 'B' not in _M_Test.MD.__dict__:
     del B
 
 if 'C' not in _M_Test.MD.__dict__:
+    _M_Test.MD._t_C = IcePy.declareValue('::Test::MD::C')
+
+if 'C' not in _M_Test.MD.__dict__:
     _M_Test.MD.C = None
     class C(_M_Test.MD.B):
         def __init__(self, aA=0, bB=0, cC=0):
@@ -619,6 +655,9 @@ if 'C' not in _M_Test.MD.__dict__:
 
     _M_Test.MD.C = C
     del C
+
+if 'D' not in _M_Test.MD.__dict__:
+    _M_Test.MD._t_D = IcePy.declareValue('::Test::MD::D')
 
 if 'D' not in _M_Test.MD.__dict__:
     _M_Test.MD.D = None
@@ -654,6 +693,9 @@ _M_Test.ME = Ice.openModule('Test.ME')
 __name__ = 'Test.ME'
 
 if 'A' not in _M_Test.ME.__dict__:
+    _M_Test.ME._t_A = IcePy.declareValue('::Test::ME::A')
+
+if 'A' not in _M_Test.ME.__dict__:
     _M_Test.ME.A = None
     class A(Ice.Value):
         def __init__(self, aA=0):
@@ -676,6 +718,9 @@ if 'A' not in _M_Test.ME.__dict__:
 
     _M_Test.ME.A = A
     del A
+
+if 'B' not in _M_Test.ME.__dict__:
+    _M_Test.ME._t_B = IcePy.declareValue('::Test::ME::B')
 
 if 'B' not in _M_Test.ME.__dict__:
     _M_Test.ME.B = None
@@ -703,6 +748,9 @@ if 'B' not in _M_Test.ME.__dict__:
     del B
 
 if 'C' not in _M_Test.ME.__dict__:
+    _M_Test.ME._t_C = IcePy.declareValue('::Test::ME::C')
+
+if 'C' not in _M_Test.ME.__dict__:
     _M_Test.ME.C = None
     class C(_M_Test.ME.B):
         def __init__(self, aA=0, bB=0, cC=0):
@@ -726,6 +774,9 @@ if 'C' not in _M_Test.ME.__dict__:
 
     _M_Test.ME.C = C
     del C
+
+if 'D' not in _M_Test.ME.__dict__:
+    _M_Test.ME._t_D = IcePy.declareValue('::Test::ME::D')
 
 if 'D' not in _M_Test.ME.__dict__:
     _M_Test.ME.D = None
@@ -761,6 +812,9 @@ _M_Test.MF = Ice.openModule('Test.MF')
 __name__ = 'Test.MF'
 
 if 'A' not in _M_Test.MF.__dict__:
+    _M_Test.MF._t_A = IcePy.declareValue('::Test::MF::A')
+
+if 'A' not in _M_Test.MF.__dict__:
     _M_Test.MF.A = None
     class A(Ice.Value):
         def __init__(self, aA=0):
@@ -783,6 +837,9 @@ if 'A' not in _M_Test.MF.__dict__:
 
     _M_Test.MF.A = A
     del A
+
+if 'B' not in _M_Test.MF.__dict__:
+    _M_Test.MF._t_B = IcePy.declareValue('::Test::MF::B')
 
 if 'B' not in _M_Test.MF.__dict__:
     _M_Test.MF.B = None
@@ -810,6 +867,9 @@ if 'B' not in _M_Test.MF.__dict__:
     del B
 
 if 'C' not in _M_Test.MF.__dict__:
+    _M_Test.MF._t_C = IcePy.declareValue('::Test::MF::C')
+
+if 'C' not in _M_Test.MF.__dict__:
     _M_Test.MF.C = None
     class C(_M_Test.MF.B):
         def __init__(self, aA=0, bB=0, cC=0):
@@ -833,6 +893,9 @@ if 'C' not in _M_Test.MF.__dict__:
 
     _M_Test.MF.C = C
     del C
+
+if 'D' not in _M_Test.MF.__dict__:
+    _M_Test.MF._t_D = IcePy.declareValue('::Test::MF::D')
 
 if 'D' not in _M_Test.MF.__dict__:
     _M_Test.MF.D = None
@@ -868,6 +931,9 @@ _M_Test.MG = Ice.openModule('Test.MG')
 __name__ = 'Test.MG'
 
 if 'A' not in _M_Test.MG.__dict__:
+    _M_Test.MG._t_A = IcePy.declareValue('::Test::MG::A')
+
+if 'A' not in _M_Test.MG.__dict__:
     _M_Test.MG.A = None
     class A(Ice.Value):
         def __init__(self, aA=0):
@@ -890,6 +956,9 @@ if 'A' not in _M_Test.MG.__dict__:
 
     _M_Test.MG.A = A
     del A
+
+if 'B' not in _M_Test.MG.__dict__:
+    _M_Test.MG._t_B = IcePy.declareValue('::Test::MG::B')
 
 if 'B' not in _M_Test.MG.__dict__:
     _M_Test.MG.B = None
@@ -917,6 +986,9 @@ if 'B' not in _M_Test.MG.__dict__:
     del B
 
 if 'C' not in _M_Test.MG.__dict__:
+    _M_Test.MG._t_C = IcePy.declareValue('::Test::MG::C')
+
+if 'C' not in _M_Test.MG.__dict__:
     _M_Test.MG.C = None
     class C(_M_Test.MG.B):
         def __init__(self, aA=0, bB=0, cC=0):
@@ -940,6 +1012,9 @@ if 'C' not in _M_Test.MG.__dict__:
 
     _M_Test.MG.C = C
     del C
+
+if 'D' not in _M_Test.MG.__dict__:
+    _M_Test.MG._t_D = IcePy.declareValue('::Test::MG::D')
 
 if 'D' not in _M_Test.MG.__dict__:
     _M_Test.MG.D = None
@@ -975,6 +1050,9 @@ _M_Test.MH = Ice.openModule('Test.MH')
 __name__ = 'Test.MH'
 
 if 'A' not in _M_Test.MH.__dict__:
+    _M_Test.MH._t_A = IcePy.declareValue('::Test::MH::A')
+
+if 'A' not in _M_Test.MH.__dict__:
     _M_Test.MH.A = None
     class A(Ice.Value):
         def __init__(self, aA=0):
@@ -997,6 +1075,9 @@ if 'A' not in _M_Test.MH.__dict__:
 
     _M_Test.MH.A = A
     del A
+
+if 'B' not in _M_Test.MH.__dict__:
+    _M_Test.MH._t_B = IcePy.declareValue('::Test::MH::B')
 
 if 'B' not in _M_Test.MH.__dict__:
     _M_Test.MH.B = None
@@ -1024,6 +1105,9 @@ if 'B' not in _M_Test.MH.__dict__:
     del B
 
 if 'C' not in _M_Test.MH.__dict__:
+    _M_Test.MH._t_C = IcePy.declareValue('::Test::MH::C')
+
+if 'C' not in _M_Test.MH.__dict__:
     _M_Test.MH.C = None
     class C(_M_Test.MH.B):
         def __init__(self, aA=0, bB=0, cC=0):
@@ -1047,6 +1131,9 @@ if 'C' not in _M_Test.MH.__dict__:
 
     _M_Test.MH.C = C
     del C
+
+if 'D' not in _M_Test.MH.__dict__:
+    _M_Test.MH._t_D = IcePy.declareValue('::Test::MH::D')
 
 if 'D' not in _M_Test.MH.__dict__:
     _M_Test.MH.D = None

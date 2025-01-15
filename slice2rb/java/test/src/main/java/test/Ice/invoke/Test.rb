@@ -28,6 +28,10 @@ module ::Test
         T_MyException = ::Ice::__defineException('::Test::MyException', MyException, nil, [])
     end
 
+    if not defined?(::Test::T_MyClassPrx)
+        T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
+    end
+
     if not defined?(::Test::MyClassPrx)
         module MyClassPrx_mixin
 
@@ -51,10 +55,6 @@ module ::Test
         class MyClassPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include MyClassPrx_mixin
-        end
-
-        if not defined?(::Test::T_MyClassPrx)
-            T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])

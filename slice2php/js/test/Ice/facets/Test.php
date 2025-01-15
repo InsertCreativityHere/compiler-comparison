@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Empty;
     global $Test__t_EmptyPrx;
+    $Test__t_EmptyPrx = IcePHP_declareProxy('::Test::Empty');
+}
+
+namespace Test
+{
+    global $Test__t_Empty;
+    global $Test__t_EmptyPrx;
 
     class EmptyPrxHelper
     {
@@ -45,6 +52,13 @@ namespace Test
 
     global $Ice__t_ObjectPrx;
     $Test__t_EmptyPrx = IcePHP_defineProxy('::Test::Empty', $Ice__t_ObjectPrx, null);
+}
+
+namespace Test
+{
+    global $Test__t_A;
+    global $Test__t_APrx;
+    $Test__t_APrx = IcePHP_declareProxy('::Test::A');
 }
 
 namespace Test
@@ -86,6 +100,13 @@ namespace Test
 {
     global $Test__t_B;
     global $Test__t_BPrx;
+    $Test__t_BPrx = IcePHP_declareProxy('::Test::B');
+}
+
+namespace Test
+{
+    global $Test__t_B;
+    global $Test__t_BPrx;
 
     class BPrxHelper
     {
@@ -115,6 +136,13 @@ namespace Test
 
     global $IcePHP__t_string;
     IcePHP_defineOperation($Test__t_BPrx, 'callB', 0, -1, null, null, array($IcePHP__t_string), null);
+}
+
+namespace Test
+{
+    global $Test__t_C;
+    global $Test__t_CPrx;
+    $Test__t_CPrx = IcePHP_declareProxy('::Test::C');
 }
 
 namespace Test
@@ -156,6 +184,13 @@ namespace Test
 {
     global $Test__t_D;
     global $Test__t_DPrx;
+    $Test__t_DPrx = IcePHP_declareProxy('::Test::D');
+}
+
+namespace Test
+{
+    global $Test__t_D;
+    global $Test__t_DPrx;
 
     class DPrxHelper
     {
@@ -185,6 +220,13 @@ namespace Test
 
     global $IcePHP__t_string;
     IcePHP_defineOperation($Test__t_DPrx, 'callD', 0, -1, null, null, array($IcePHP__t_string), null);
+}
+
+namespace Test
+{
+    global $Test__t_E;
+    global $Test__t_EPrx;
+    $Test__t_EPrx = IcePHP_declareProxy('::Test::E');
 }
 
 namespace Test
@@ -226,6 +268,13 @@ namespace Test
 {
     global $Test__t_F;
     global $Test__t_FPrx;
+    $Test__t_FPrx = IcePHP_declareProxy('::Test::F');
+}
+
+namespace Test
+{
+    global $Test__t_F;
+    global $Test__t_FPrx;
 
     class FPrxHelper
     {
@@ -255,6 +304,13 @@ namespace Test
 
     global $IcePHP__t_string;
     IcePHP_defineOperation($Test__t_FPrx, 'callF', 0, -1, null, null, array($IcePHP__t_string), null);
+}
+
+namespace Test
+{
+    global $Test__t_G;
+    global $Test__t_GPrx;
+    $Test__t_GPrx = IcePHP_declareProxy('::Test::G');
 }
 
 namespace Test
@@ -297,6 +353,13 @@ namespace Test
 {
     global $Test__t_H;
     global $Test__t_HPrx;
+    $Test__t_HPrx = IcePHP_declareProxy('::Test::H');
+}
+
+namespace Test
+{
+    global $Test__t_H;
+    global $Test__t_HPrx;
 
     class HPrxHelper
     {
@@ -326,6 +389,13 @@ namespace Test
 
     global $IcePHP__t_string;
     IcePHP_defineOperation($Test__t_HPrx, 'callH', 0, -1, null, null, array($IcePHP__t_string), null);
+}
+
+namespace Test
+{
+    global $Test__t_Echo;
+    global $Test__t_EchoPrx;
+    $Test__t_EchoPrx = IcePHP_declareProxy('::Test::Echo');
 }
 
 namespace Test

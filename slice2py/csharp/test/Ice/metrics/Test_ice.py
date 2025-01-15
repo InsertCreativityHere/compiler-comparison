@@ -44,6 +44,9 @@ if 'UserEx' not in _M_Test.__dict__:
 if '_t_ByteSeq' not in _M_Test.__dict__:
     _M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
 
+if 'Metrics' not in _M_Test.__dict__:
+    _M_Test._t_MetricsPrx = IcePy.declareProxy('::Test::Metrics')
+
 if 'MetricsPrx' not in _M_Test.__dict__:
     _M_Test.MetricsPrx = None
     class MetricsPrx(Ice.ObjectPrx):
@@ -193,6 +196,9 @@ if 'MetricsPrx' not in _M_Test.__dict__:
 
     _M_Test.Metrics = Metrics
     del Metrics
+
+if 'Controller' not in _M_Test.__dict__:
+    _M_Test._t_ControllerPrx = IcePy.declareProxy('::Test::Controller')
 
 if 'ControllerPrx' not in _M_Test.__dict__:
     _M_Test.ControllerPrx = None

@@ -46,6 +46,9 @@ if 'TestIntfException' not in _M_Test.__dict__:
     _M_Test.TestIntfException = TestIntfException
     del TestIntfException
 
+if 'PingReply' not in _M_Test.__dict__:
+    _M_Test._t_PingReplyPrx = IcePy.declareProxy('::Test::PingReply')
+
 if 'PingReplyPrx' not in _M_Test.__dict__:
     _M_Test.PingReplyPrx = None
     class PingReplyPrx(Ice.ObjectPrx):
@@ -115,6 +118,9 @@ if 'PingReplyPrx' not in _M_Test.__dict__:
 
     _M_Test.PingReply = PingReply
     del PingReply
+
+if 'TestIntf' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfPrx = IcePy.declareProxy('::Test::TestIntf')
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
@@ -356,6 +362,9 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntf = TestIntf
     del TestIntf
 
+if 'TestIntfController' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfControllerPrx = IcePy.declareProxy('::Test::TestIntfController')
+
 if 'TestIntfControllerPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfControllerPrx = None
     class TestIntfControllerPrx(Ice.ObjectPrx):
@@ -443,6 +452,9 @@ __name__ = 'Test.Outer'
 # Start of module Test.Outer.Inner
 _M_Test.Outer.Inner = Ice.openModule('Test.Outer.Inner')
 __name__ = 'Test.Outer.Inner'
+
+if 'TestIntf' not in _M_Test.Outer.Inner.__dict__:
+    _M_Test.Outer.Inner._t_TestIntfPrx = IcePy.declareProxy('::Test::Outer::Inner::TestIntf')
 
 if 'TestIntfPrx' not in _M_Test.Outer.Inner.__dict__:
     _M_Test.Outer.Inner.TestIntfPrx = None

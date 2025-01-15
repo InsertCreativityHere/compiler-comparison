@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'DelayedTestIntf' not in _M_Test.__dict__:
+    _M_Test._t_DelayedTestIntfPrx = IcePy.declareProxy('::Test::DelayedTestIntf')
+
 if 'DelayedTestIntfPrx' not in _M_Test.__dict__:
     _M_Test.DelayedTestIntfPrx = None
     class DelayedTestIntfPrx(Ice.ObjectPrx):
@@ -92,6 +95,9 @@ if 'DelayedTestIntfPrx' not in _M_Test.__dict__:
     _M_Test.DelayedTestIntf = DelayedTestIntf
     del DelayedTestIntf
 
+if 'TestIntf' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfPrx = IcePy.declareProxy('::Test::TestIntf')
+
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = None
     class TestIntfPrx(_M_Test.DelayedTestIntfPrx):
@@ -161,6 +167,9 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
 
     _M_Test.TestIntf = TestIntf
     del TestIntf
+
+if 'TestIntfBidir' not in _M_Test.__dict__:
+    _M_Test._t_TestIntfBidirPrx = IcePy.declareProxy('::Test::TestIntfBidir')
 
 if 'TestIntfBidirPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfBidirPrx = None

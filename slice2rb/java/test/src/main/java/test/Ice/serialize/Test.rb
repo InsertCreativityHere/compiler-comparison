@@ -195,10 +195,6 @@ module ::Test
             attr_accessor :b, :o, :s, :seq1, :seq2, :seq3, :seq4, :d1, :d2, :d3, :d4
         end
 
-        if not defined?(::Test::T_Base)
-            T_Base = ::Ice::__declareClass('::Test::Base')
-        end
-
         T_Base.defineClass(Base, -1, false, nil, [
             ['b', ::Test::T_Base, false, 0],
             ['o', ::Ice::T_Value, false, 0],
@@ -214,6 +210,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_Derived)
+        T_Derived = ::Ice::__declareClass('::Test::Derived')
+    end
+
     if not defined?(::Test::Derived)
         class Derived < ::Test::Base
 
@@ -223,10 +223,6 @@ module ::Test
             end
 
             attr_accessor :p
-        end
-
-        if not defined?(::Test::T_Derived)
-            T_Derived = ::Ice::__declareClass('::Test::Derived')
         end
 
         T_Derived.defineClass(Derived, -1, false, ::Test::T_Base, [['p', ::Ice::T_ObjectPrx, false, 0]])
@@ -270,10 +266,6 @@ module ::Test
         class InitialPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include InitialPrx_mixin
-        end
-
-        if not defined?(::Test::T_InitialPrx)
-            T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])

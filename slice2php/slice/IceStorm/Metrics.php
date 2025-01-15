@@ -23,6 +23,12 @@ namespace
 namespace IceMX
 {
     global $IceMX__t_TopicMetrics;
+    $IceMX__t_TopicMetrics = IcePHP_declareClass('::IceMX::TopicMetrics');
+}
+
+namespace IceMX
+{
+    global $IceMX__t_TopicMetrics;
     class TopicMetrics extends \IceMX\Metrics
     {
         public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $published=0, $forwarded=0)
@@ -57,6 +63,12 @@ namespace IceMX
     $IceMX__t_TopicMetrics = IcePHP_defineClass('::IceMX::TopicMetrics', '\\IceMX\\TopicMetrics', -1, false, $IceMX__t_Metrics, array(
         array('published', $IcePHP__t_long, false, 0),
         array('forwarded', $IcePHP__t_long, false, 0)));
+}
+
+namespace IceMX
+{
+    global $IceMX__t_SubscriberMetrics;
+    $IceMX__t_SubscriberMetrics = IcePHP_declareClass('::IceMX::SubscriberMetrics');
 }
 
 namespace IceMX

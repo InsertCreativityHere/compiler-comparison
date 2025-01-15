@@ -23,6 +23,9 @@ _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
 if 'Stock' not in _M_Test.__dict__:
+    _M_Test._t_Stock = IcePy.declareValue('::Test::Stock')
+
+if 'Stock' not in _M_Test.__dict__:
     _M_Test.Stock = None
     class Stock(Ice.Value):
         def __init__(self, price=0.0, lastBid=0.0, lastAsk=0.0):

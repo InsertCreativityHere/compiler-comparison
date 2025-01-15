@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Priority;
     global $Test__t_PriorityPrx;
+    $Test__t_PriorityPrx = IcePHP_declareProxy('::Test::Priority');
+}
+
+namespace Test
+{
+    global $Test__t_Priority;
+    global $Test__t_PriorityPrx;
 
     class PriorityPrxHelper
     {

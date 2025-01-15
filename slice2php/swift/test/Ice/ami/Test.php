@@ -45,6 +45,13 @@ namespace Test
 {
     global $Test__t_PingReply;
     global $Test__t_PingReplyPrx;
+    $Test__t_PingReplyPrx = IcePHP_declareProxy('::Test::PingReply');
+}
+
+namespace Test
+{
+    global $Test__t_PingReply;
+    global $Test__t_PingReplyPrx;
 
     class PingReplyPrxHelper
     {
@@ -73,6 +80,13 @@ namespace Test
     $Test__t_PingReplyPrx = IcePHP_defineProxy('::Test::PingReply', $Ice__t_ObjectPrx, null);
 
     IcePHP_defineOperation($Test__t_PingReplyPrx, 'reply', 0, -1, null, null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
 }
 
 namespace Test
@@ -134,6 +148,13 @@ namespace Test
 {
     global $Test__t_TestIntfController;
     global $Test__t_TestIntfControllerPrx;
+    $Test__t_TestIntfControllerPrx = IcePHP_declareProxy('::Test::TestIntfController');
+}
+
+namespace Test
+{
+    global $Test__t_TestIntfController;
+    global $Test__t_TestIntfControllerPrx;
 
     class TestIntfControllerPrxHelper
     {
@@ -163,6 +184,13 @@ namespace Test
 
     IcePHP_defineOperation($Test__t_TestIntfControllerPrx, 'holdAdapter', 0, -1, null, null, null, null);
     IcePHP_defineOperation($Test__t_TestIntfControllerPrx, 'resumeAdapter', 0, -1, null, null, null, null);
+}
+
+namespace Test\Outer\Inner
+{
+    global $Test_Outer_Inner__t_TestIntf;
+    global $Test_Outer_Inner__t_TestIntfPrx;
+    $Test_Outer_Inner__t_TestIntfPrx = IcePHP_declareProxy('::Test::Outer::Inner::TestIntf');
 }
 
 namespace Test\Outer\Inner

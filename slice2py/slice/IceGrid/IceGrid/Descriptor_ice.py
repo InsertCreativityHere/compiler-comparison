@@ -396,6 +396,9 @@ if '_t_AdapterDescriptorSeq' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_AdapterDescriptorSeq = IcePy.defineSequence('::IceGrid::AdapterDescriptorSeq', (), _M_IceGrid._t_AdapterDescriptor)
 
 if 'CommunicatorDescriptor' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_CommunicatorDescriptor = IcePy.declareValue('::IceGrid::CommunicatorDescriptor')
+
+if 'CommunicatorDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.CommunicatorDescriptor = None
     class CommunicatorDescriptor(Ice.Value):
         """
@@ -489,6 +492,9 @@ if 'DistributionDescriptor' not in _M_IceGrid.__dict__:
     del DistributionDescriptor
 
 if 'ServerDescriptor' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_ServerDescriptor = IcePy.declareValue('::IceGrid::ServerDescriptor')
+
+if 'ServerDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerDescriptor = None
     class ServerDescriptor(_M_IceGrid.CommunicatorDescriptor):
         """
@@ -575,6 +581,9 @@ if 'ServerDescriptor' not in _M_IceGrid.__dict__:
 
 if '_t_ServerDescriptorSeq' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_ServerDescriptorSeq = IcePy.defineSequence('::IceGrid::ServerDescriptorSeq', (), _M_IceGrid._t_ServerDescriptor)
+
+if 'ServiceDescriptor' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_ServiceDescriptor = IcePy.declareValue('::IceGrid::ServiceDescriptor')
 
 if 'ServiceDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServiceDescriptor = None
@@ -794,6 +803,9 @@ if '_t_ServiceInstanceDescriptorSeq' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_ServiceInstanceDescriptorSeq = IcePy.defineSequence('::IceGrid::ServiceInstanceDescriptorSeq', (), _M_IceGrid._t_ServiceInstanceDescriptor)
 
 if 'IceBoxDescriptor' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_IceBoxDescriptor = IcePy.declareValue('::IceGrid::IceBoxDescriptor')
+
+if 'IceBoxDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.IceBoxDescriptor = None
     class IceBoxDescriptor(_M_IceGrid.ServerDescriptor):
         """
@@ -819,8 +831,6 @@ if 'IceBoxDescriptor' not in _M_IceGrid.__dict__:
             return IcePy.stringify(self, _M_IceGrid._t_IceBoxDescriptor)
 
         __repr__ = __str__
-
-    _M_IceGrid._t_IceBoxDescriptor = IcePy.declareValue('::IceGrid::IceBoxDescriptor')
 
     _M_IceGrid._t_IceBoxDescriptor = IcePy.defineValue('::IceGrid::IceBoxDescriptor', IceBoxDescriptor, -1, (), False, _M_IceGrid._t_ServerDescriptor, (('services', (), _M_IceGrid._t_ServiceInstanceDescriptorSeq, False, 0),))
     IceBoxDescriptor._ice_type = _M_IceGrid._t_IceBoxDescriptor
@@ -901,6 +911,9 @@ if '_t_NodeDescriptorDict' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_NodeDescriptorDict = IcePy.defineDictionary('::IceGrid::NodeDescriptorDict', (), IcePy._t_string, _M_IceGrid._t_NodeDescriptor)
 
 if 'LoadBalancingPolicy' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_LoadBalancingPolicy = IcePy.declareValue('::IceGrid::LoadBalancingPolicy')
+
+if 'LoadBalancingPolicy' not in _M_IceGrid.__dict__:
     _M_IceGrid.LoadBalancingPolicy = None
     class LoadBalancingPolicy(Ice.Value):
         """
@@ -933,6 +946,9 @@ if 'LoadBalancingPolicy' not in _M_IceGrid.__dict__:
     del LoadBalancingPolicy
 
 if 'RandomLoadBalancingPolicy' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_RandomLoadBalancingPolicy = IcePy.declareValue('::IceGrid::RandomLoadBalancingPolicy')
+
+if 'RandomLoadBalancingPolicy' not in _M_IceGrid.__dict__:
     _M_IceGrid.RandomLoadBalancingPolicy = None
     class RandomLoadBalancingPolicy(_M_IceGrid.LoadBalancingPolicy):
         """
@@ -958,6 +974,9 @@ if 'RandomLoadBalancingPolicy' not in _M_IceGrid.__dict__:
 
     _M_IceGrid.RandomLoadBalancingPolicy = RandomLoadBalancingPolicy
     del RandomLoadBalancingPolicy
+
+if 'OrderedLoadBalancingPolicy' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_OrderedLoadBalancingPolicy = IcePy.declareValue('::IceGrid::OrderedLoadBalancingPolicy')
 
 if 'OrderedLoadBalancingPolicy' not in _M_IceGrid.__dict__:
     _M_IceGrid.OrderedLoadBalancingPolicy = None
@@ -987,6 +1006,9 @@ if 'OrderedLoadBalancingPolicy' not in _M_IceGrid.__dict__:
     del OrderedLoadBalancingPolicy
 
 if 'RoundRobinLoadBalancingPolicy' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_RoundRobinLoadBalancingPolicy = IcePy.declareValue('::IceGrid::RoundRobinLoadBalancingPolicy')
+
+if 'RoundRobinLoadBalancingPolicy' not in _M_IceGrid.__dict__:
     _M_IceGrid.RoundRobinLoadBalancingPolicy = None
     class RoundRobinLoadBalancingPolicy(_M_IceGrid.LoadBalancingPolicy):
         """
@@ -1012,6 +1034,9 @@ if 'RoundRobinLoadBalancingPolicy' not in _M_IceGrid.__dict__:
 
     _M_IceGrid.RoundRobinLoadBalancingPolicy = RoundRobinLoadBalancingPolicy
     del RoundRobinLoadBalancingPolicy
+
+if 'AdaptiveLoadBalancingPolicy' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_AdaptiveLoadBalancingPolicy = IcePy.declareValue('::IceGrid::AdaptiveLoadBalancingPolicy')
 
 if 'AdaptiveLoadBalancingPolicy' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdaptiveLoadBalancingPolicy = None
@@ -1210,6 +1235,9 @@ if '_t_ApplicationDescriptorSeq' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_ApplicationDescriptorSeq = IcePy.defineSequence('::IceGrid::ApplicationDescriptorSeq', (), _M_IceGrid._t_ApplicationDescriptor)
 
 if 'BoxedString' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_BoxedString = IcePy.declareValue('::IceGrid::BoxedString')
+
+if 'BoxedString' not in _M_IceGrid.__dict__:
     _M_IceGrid.BoxedString = None
     class BoxedString(Ice.Value):
         """
@@ -1336,6 +1364,9 @@ if 'NodeUpdateDescriptor' not in _M_IceGrid.__dict__:
 
 if '_t_NodeUpdateDescriptorSeq' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_NodeUpdateDescriptorSeq = IcePy.defineSequence('::IceGrid::NodeUpdateDescriptorSeq', (), _M_IceGrid._t_NodeUpdateDescriptor)
+
+if 'BoxedDistributionDescriptor' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_BoxedDistributionDescriptor = IcePy.declareValue('::IceGrid::BoxedDistributionDescriptor')
 
 if 'BoxedDistributionDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.BoxedDistributionDescriptor = None

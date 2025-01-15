@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_MyObjectPrx)
+        T_MyObjectPrx = ::Ice::__declareProxy('::Test::MyObject')
+    end
+
     if not defined?(::Test::MyObjectPrx)
         module MyObjectPrx_mixin
 
@@ -29,10 +33,6 @@ module ::Test
         class MyObjectPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include MyObjectPrx_mixin
-        end
-
-        if not defined?(::Test::T_MyObjectPrx)
-            T_MyObjectPrx = ::Ice::__declareProxy('::Test::MyObject')
         end
 
         T_MyObjectPrx.defineProxy(MyObjectPrx, nil, [])

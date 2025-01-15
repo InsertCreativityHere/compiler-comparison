@@ -19,6 +19,10 @@ require 'Glacier2/Session.rb'
 
 module ::Test
 
+    if not defined?(::Test::T_BackendPrx)
+        T_BackendPrx = ::Ice::__declareProxy('::Test::Backend')
+    end
+
     if not defined?(::Test::BackendPrx)
         module BackendPrx_mixin
 
@@ -34,10 +38,6 @@ module ::Test
         class BackendPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include BackendPrx_mixin
-        end
-
-        if not defined?(::Test::T_BackendPrx)
-            T_BackendPrx = ::Ice::__declareProxy('::Test::Backend')
         end
 
         T_BackendPrx.defineProxy(BackendPrx, nil, [])
@@ -147,6 +147,10 @@ module ::Test
         ])
     end
 
+    if not defined?(::Test::T_TestControllerPrx)
+        T_TestControllerPrx = ::Ice::__declareProxy('::Test::TestController')
+    end
+
     if not defined?(::Test::TestControllerPrx)
         module TestControllerPrx_mixin
 
@@ -164,14 +168,14 @@ module ::Test
             include TestControllerPrx_mixin
         end
 
-        if not defined?(::Test::T_TestControllerPrx)
-            T_TestControllerPrx = ::Ice::__declareProxy('::Test::TestController')
-        end
-
         T_TestControllerPrx.defineProxy(TestControllerPrx, nil, [])
 
         TestControllerPrx_mixin::OP_step = ::Ice::__defineOperation('step', ::Ice::OperationMode::Normal, nil, [[::Glacier2::T_SessionPrx, false, 0], [::Test::T_TestToken, false, 0]], [[::Test::T_TestToken, false, 0]], nil, [])
         TestControllerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::Test::T_TestSessionPrx)
+        T_TestSessionPrx = ::Ice::__declareProxy('::Test::TestSession')
     end
 
     if not defined?(::Test::TestSessionPrx)
@@ -186,10 +190,6 @@ module ::Test
         class TestSessionPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include TestSessionPrx_mixin
-        end
-
-        if not defined?(::Test::T_TestSessionPrx)
-            T_TestSessionPrx = ::Ice::__declareProxy('::Test::TestSession')
         end
 
         T_TestSessionPrx.defineProxy(TestSessionPrx, nil, [::Glacier2::T_SessionPrx])

@@ -126,6 +126,9 @@ if 'WstringException' not in _M_Test1.__dict__:
     _M_Test1.WstringException = WstringException
     del WstringException
 
+if 'WstringClass' not in _M_Test1.__dict__:
+    _M_Test1._t_WstringClassPrx = IcePy.declareProxy('::Test1::WstringClass')
+
 if 'WstringClassPrx' not in _M_Test1.__dict__:
     _M_Test1.WstringClassPrx = None
     class WstringClassPrx(Ice.ObjectPrx):
@@ -325,6 +328,9 @@ if 'WstringException' not in _M_Test2.__dict__:
 
     _M_Test2.WstringException = WstringException
     del WstringException
+
+if 'WstringClass' not in _M_Test2.__dict__:
+    _M_Test2._t_WstringClassPrx = IcePy.declareProxy('::Test2::WstringClass')
 
 if 'WstringClassPrx' not in _M_Test2.__dict__:
     _M_Test2.WstringClassPrx = None

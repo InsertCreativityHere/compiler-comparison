@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_TestIntf;
     global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
 
     class TestIntfPrxHelper
     {
@@ -48,6 +55,13 @@ namespace Test
 
     global $IcePHP__t_string;
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'getAdapterName', 0, -1, null, null, array($IcePHP__t_string), null);
+}
+
+namespace Test
+{
+    global $Test__t_RemoteObjectAdapter;
+    global $Test__t_RemoteObjectAdapterPrx;
+    $Test__t_RemoteObjectAdapterPrx = IcePHP_declareProxy('::Test::RemoteObjectAdapter');
 }
 
 namespace Test
@@ -84,6 +98,13 @@ namespace Test
     global $Test__t_TestIntfPrx;
     IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'getTestIntf', 0, -1, null, null, array($Test__t_TestIntfPrx), null);
     IcePHP_defineOperation($Test__t_RemoteObjectAdapterPrx, 'deactivate', 0, -1, null, null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_RemoteCommunicator;
+    global $Test__t_RemoteCommunicatorPrx;
+    $Test__t_RemoteCommunicatorPrx = IcePHP_declareProxy('::Test::RemoteCommunicator');
 }
 
 namespace Test

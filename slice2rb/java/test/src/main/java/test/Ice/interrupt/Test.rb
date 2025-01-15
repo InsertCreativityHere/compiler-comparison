@@ -29,6 +29,10 @@ module ::Test
         T_InterruptedException = ::Ice::__defineException('::Test::InterruptedException', InterruptedException, nil, [])
     end
 
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+    end
+
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
@@ -58,10 +62,6 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
-        end
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -79,6 +79,10 @@ module ::Test
         end
 
         T_CannotInterruptException = ::Ice::__defineException('::Test::CannotInterruptException', CannotInterruptException, nil, [])
+    end
+
+    if not defined?(::Test::T_TestIntfControllerPrx)
+        T_TestIntfControllerPrx = ::Ice::__declareProxy('::Test::TestIntfController')
     end
 
     if not defined?(::Test::TestIntfControllerPrx)
@@ -100,10 +104,6 @@ module ::Test
         class TestIntfControllerPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include TestIntfControllerPrx_mixin
-        end
-
-        if not defined?(::Test::T_TestIntfControllerPrx)
-            T_TestIntfControllerPrx = ::Ice::__declareProxy('::Test::TestIntfController')
         end
 
         T_TestIntfControllerPrx.defineProxy(TestIntfControllerPrx, nil, [])

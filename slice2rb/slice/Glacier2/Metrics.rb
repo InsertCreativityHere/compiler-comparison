@@ -19,6 +19,10 @@ require 'Ice/Metrics.rb'
 
 module ::IceMX
 
+    if not defined?(::IceMX::T_SessionMetrics)
+        T_SessionMetrics = ::Ice::__declareClass('::IceMX::SessionMetrics')
+    end
+
     if not defined?(::IceMX::SessionMetrics)
         class SessionMetrics < ::IceMX::Metrics
 
@@ -34,10 +38,6 @@ module ::IceMX
             end
 
             attr_accessor :forwardedClient, :forwardedServer, :routingTableSize, :queuedClient, :queuedServer, :overriddenClient, :overriddenServer
-        end
-
-        if not defined?(::IceMX::T_SessionMetrics)
-            T_SessionMetrics = ::Ice::__declareClass('::IceMX::SessionMetrics')
         end
 
         T_SessionMetrics.defineClass(SessionMetrics, -1, false, ::IceMX::T_Metrics, [

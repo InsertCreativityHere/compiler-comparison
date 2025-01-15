@@ -59,6 +59,13 @@ namespace Test
 {
     global $Test__t_TestIntf;
     global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
 
     class TestIntfPrxHelper
     {
@@ -107,6 +114,13 @@ namespace Test
 {
     global $Test__t_TestActivation;
     global $Test__t_TestActivationPrx;
+    $Test__t_TestActivationPrx = IcePHP_declareProxy('::Test::TestActivation');
+}
+
+namespace Test
+{
+    global $Test__t_TestActivation;
+    global $Test__t_TestActivationPrx;
 
     class TestActivationPrxHelper
     {
@@ -136,6 +150,13 @@ namespace Test
 
     global $IcePHP__t_bool;
     IcePHP_defineOperation($Test__t_TestActivationPrx, 'activateServantLocator', 0, -1, array(array($IcePHP__t_bool)), null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_Echo;
+    global $Test__t_EchoPrx;
+    $Test__t_EchoPrx = IcePHP_declareProxy('::Test::Echo');
 }
 
 namespace Test

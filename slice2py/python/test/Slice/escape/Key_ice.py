@@ -122,6 +122,9 @@ if '_continue' not in _M__and.__dict__:
     _M__and._continue = _continue
     del _continue
 
+if '_del' not in _M__and.__dict__:
+    _M__and._t_delPrx = IcePy.declareProxy('::and::del')
+
 if 'delPrx' not in _M__and.__dict__:
     _M__and.delPrx = None
     class delPrx(Ice.ObjectPrx):
@@ -191,6 +194,9 @@ if 'delPrx' not in _M__and.__dict__:
 
     _M__and._del = _del
     del _del
+
+if '_exec' not in _M__and.__dict__:
+    _M__and._t_execPrx = IcePy.declareProxy('::and::exec')
 
 if 'execPrx' not in _M__and.__dict__:
     _M__and.execPrx = None
@@ -263,6 +269,9 @@ if 'execPrx' not in _M__and.__dict__:
     del _exec
 
 if '_for' not in _M__and.__dict__:
+    _M__and._t__for = IcePy.declareValue('::and::for')
+
+if '_for' not in _M__and.__dict__:
     _M__and._for = None
     class _for(Ice.Value):
         def __init__(self, _lambda=0, _from=None, _global=0):
@@ -291,6 +300,9 @@ if '_for' not in _M__and.__dict__:
 
     _M__and._for = _for
     del _for
+
+if '_if' not in _M__and.__dict__:
+    _M__and._t_ifPrx = IcePy.declareProxy('::and::if')
 
 if 'ifPrx' not in _M__and.__dict__:
     _M__and.ifPrx = None
@@ -399,6 +411,9 @@ if '_not' not in _M__and.__dict__:
 
     _M__and._not = _not
     del _not
+
+if '_print' not in _M__and.__dict__:
+    _M__and._t_printPrx = IcePy.declareProxy('::and::print')
 
 if 'printPrx' not in _M__and.__dict__:
     _M__and.printPrx = None

@@ -78,6 +78,13 @@ namespace _and
 {
     global $and__t_break;
     global $and__t_breakPrx;
+    $and__t_breakPrx = IcePHP_declareProxy('::and::break');
+}
+
+namespace _and
+{
+    global $and__t_break;
+    global $and__t_breakPrx;
 
     class breakPrxHelper
     {
@@ -107,6 +114,13 @@ namespace _and
 
     global $IcePHP__t_int;
     IcePHP_defineOperation($and__t_breakPrx, 'case', 0, -1, array(array($IcePHP__t_int)), array(array($IcePHP__t_int)), null, null);
+}
+
+namespace _and
+{
+    global $and__t_function;
+    global $and__t_functionPrx;
+    $and__t_functionPrx = IcePHP_declareProxy('::and::function');
 }
 
 namespace _and
@@ -148,6 +162,13 @@ namespace _and
 {
     global $and__t_die;
     global $and__t_diePrx;
+    $and__t_diePrx = IcePHP_declareProxy('::and::die');
+}
+
+namespace _and
+{
+    global $and__t_die;
+    global $and__t_diePrx;
 
     class diePrxHelper
     {
@@ -176,6 +197,12 @@ namespace _and
     $and__t_diePrx = IcePHP_defineProxy('::and::die', $Ice__t_ObjectPrx, null);
 
     IcePHP_defineOperation($and__t_diePrx, 'do', 0, -1, null, null, null, null);
+}
+
+namespace _and
+{
+    global $and__t_echo;
+    $and__t_echo = IcePHP_declareClass('::and::echo');
 }
 
 namespace _and
@@ -221,6 +248,13 @@ namespace _and
         array('_else', $IcePHP__t_int, false, 0),
         array('_elseif', $and__t_diePrx, false, 0),
         array('_empty', $IcePHP__t_int, false, 0)));
+}
+
+namespace _and
+{
+    global $and__t_enddeclare;
+    global $and__t_enddeclarePrx;
+    $and__t_enddeclarePrx = IcePHP_declareProxy('::and::enddeclare');
 }
 
 namespace _and
@@ -326,6 +360,13 @@ namespace _and
     $and__t_endwhile = IcePHP_defineException('::and::endwhile', '\\_and\\_endwhile', $and__t_endif, array(
         array('_eval', $IcePHP__t_int, false, 0),
         array('_exit', $IcePHP__t_int, false, 0)));
+}
+
+namespace _and
+{
+    global $and__t_for;
+    global $and__t_forPrx;
+    $and__t_forPrx = IcePHP_declareProxy('::and::for');
 }
 
 namespace _and

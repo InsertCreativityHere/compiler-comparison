@@ -22,6 +22,9 @@ import builtins as _builtins
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
+if 'Hold' not in _M_Test.__dict__:
+    _M_Test._t_HoldPrx = IcePy.declareProxy('::Test::Hold')
+
 if 'HoldPrx' not in _M_Test.__dict__:
     _M_Test.HoldPrx = None
     class HoldPrx(Ice.ObjectPrx):

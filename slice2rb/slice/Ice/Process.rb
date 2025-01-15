@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Ice
 
+    if not defined?(::Ice::T_ProcessPrx)
+        T_ProcessPrx = ::Ice::__declareProxy('::Ice::Process')
+    end
+
     if not defined?(::Ice::ProcessPrx)
         module ProcessPrx_mixin
 
@@ -33,10 +37,6 @@ module ::Ice
         class ProcessPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include ProcessPrx_mixin
-        end
-
-        if not defined?(::Ice::T_ProcessPrx)
-            T_ProcessPrx = ::Ice::__declareProxy('::Ice::Process')
         end
 
         T_ProcessPrx.defineProxy(ProcessPrx, nil, [])

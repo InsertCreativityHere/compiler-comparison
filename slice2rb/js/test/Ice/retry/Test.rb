@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_RetryPrx)
+        T_RetryPrx = ::Ice::__declareProxy('::Test::Retry')
+    end
+
     if not defined?(::Test::RetryPrx)
         module RetryPrx_mixin
 
@@ -41,10 +45,6 @@ module ::Test
         class RetryPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include RetryPrx_mixin
-        end
-
-        if not defined?(::Test::T_RetryPrx)
-            T_RetryPrx = ::Ice::__declareProxy('::Test::Retry')
         end
 
         T_RetryPrx.defineProxy(RetryPrx, nil, [])

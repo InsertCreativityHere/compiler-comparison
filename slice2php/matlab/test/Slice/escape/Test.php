@@ -94,6 +94,12 @@ namespace classdef\break
 namespace classdef\break
 {
     global $classdef_break__t_logical;
+    $classdef_break__t_logical = IcePHP_declareClass('::classdef::break::logical');
+}
+
+namespace classdef\break
+{
+    global $classdef_break__t_logical;
     class logical extends \Ice\Value
     {
         public function __construct($_else=\classdef\_break\bitand::enumeration, $_for=null, $int64=true)
@@ -132,6 +138,12 @@ namespace classdef\break
         array('_else', $classdef_break__t_bitand, false, 0),
         array('_for', $classdef_break__t_bitor, false, 0),
         array('int64', $IcePHP__t_bool, false, 0)));
+}
+
+namespace classdef\break
+{
+    global $classdef_break__t_xor;
+    $classdef_break__t_xor = IcePHP_declareClass('::classdef::break::xor');
 }
 
 namespace classdef\break
@@ -196,6 +208,12 @@ namespace classdef\break
 namespace classdef\break
 {
     global $classdef_break__t_try;
+    $classdef_break__t_try = IcePHP_declareClass('::classdef::break::try');
+}
+
+namespace classdef\break
+{
+    global $classdef_break__t_try;
     class _try extends \Ice\Value
     {
         public function __construct($_while=1, $delete=2)
@@ -234,6 +252,12 @@ namespace classdef\break
 namespace classdef\break
 {
     global $classdef_break__t_properties;
+    $classdef_break__t_properties = IcePHP_declareClass('::classdef::break::properties');
+}
+
+namespace classdef\break
+{
+    global $classdef_break__t_properties;
     class properties extends \classdef\_break\_try
     {
         public function __construct($_while=1, $delete=2, $_if=2, $_catch=null, $spmd=null, $otherwise=null)
@@ -266,8 +290,6 @@ namespace classdef\break
         public $spmd;
         public $otherwise;
     }
-
-    $classdef_break__t_properties = IcePHP_declareClass('::classdef::break::properties');
 
     global $classdef_break__t_try;
     global $IcePHP__t_int;
@@ -338,6 +360,13 @@ namespace classdef\break
 
     $classdef_break__t_global = IcePHP_defineException('::classdef::break::global', '\\classdef\\_break\\_global', $classdef_break__t_persistent, array(
         array('enumeration', $IcePHP__t_int, false, 0)));
+}
+
+namespace classdef\break
+{
+    global $classdef_break__t_elseif;
+    global $classdef_break__t_elseifPrx;
+    $classdef_break__t_elseifPrx = IcePHP_declareProxy('::classdef::break::elseif');
 }
 
 namespace classdef\break

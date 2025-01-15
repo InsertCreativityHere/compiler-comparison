@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_Interface2Prx)
+        T_Interface2Prx = ::Ice::__declareProxy('::Test::Interface2')
+    end
+
     if not defined?(::Test::Interface2Prx)
         module Interface2Prx_mixin
 
@@ -29,10 +33,6 @@ module ::Test
         class Interface2Prx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include Interface2Prx_mixin
-        end
-
-        if not defined?(::Test::T_Interface2Prx)
-            T_Interface2Prx = ::Ice::__declareProxy('::Test::Interface2')
         end
 
         T_Interface2Prx.defineProxy(Interface2Prx, nil, [])

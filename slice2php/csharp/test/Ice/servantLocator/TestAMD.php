@@ -59,6 +59,13 @@ namespace Test
 {
     global $Test__t_TestIntf;
     global $Test__t_TestIntfPrx;
+    $Test__t_TestIntfPrx = IcePHP_declareProxy('::Test::TestIntf');
+}
+
+namespace Test
+{
+    global $Test__t_TestIntf;
+    global $Test__t_TestIntfPrx;
 
     class TestIntfPrxHelper
     {
@@ -101,6 +108,13 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'asyncResponse', 0, -1, null, null, null, array($Test__t_TestIntfUserException, $Test__t_TestImpossibleException));
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'asyncException', 0, -1, null, null, null, array($Test__t_TestIntfUserException, $Test__t_TestImpossibleException));
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'shutdown', 0, -1, null, null, null, null);
+}
+
+namespace Test
+{
+    global $Test__t_TestActivation;
+    global $Test__t_TestActivationPrx;
+    $Test__t_TestActivationPrx = IcePHP_declareProxy('::Test::TestActivation');
 }
 
 namespace Test

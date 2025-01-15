@@ -54,6 +54,13 @@ namespace _abstract
 {
     global $abstract__t_case;
     global $abstract__t_casePrx;
+    $abstract__t_casePrx = IcePHP_declareProxy('::abstract::case');
+}
+
+namespace _abstract
+{
+    global $abstract__t_case;
+    global $abstract__t_casePrx;
 
     class casePrxHelper
     {
@@ -89,6 +96,13 @@ namespace _abstract
 {
     global $abstract__t_decimal;
     global $abstract__t_decimalPrx;
+    $abstract__t_decimalPrx = IcePHP_declareProxy('::abstract::decimal');
+}
+
+namespace _abstract
+{
+    global $abstract__t_decimal;
+    global $abstract__t_decimalPrx;
 
     class decimalPrxHelper
     {
@@ -117,6 +131,12 @@ namespace _abstract
     $abstract__t_decimalPrx = IcePHP_defineProxy('::abstract::decimal', $Ice__t_ObjectPrx, null);
 
     IcePHP_defineOperation($abstract__t_decimalPrx, 'default', 0, -1, null, null, null, null);
+}
+
+namespace _abstract
+{
+    global $abstract__t_delegate;
+    $abstract__t_delegate = IcePHP_declareClass('::abstract::delegate');
 }
 
 namespace _abstract
@@ -165,6 +185,13 @@ namespace _abstract
 {
     global $abstract__t_explicit;
     global $abstract__t_explicitPrx;
+    $abstract__t_explicitPrx = IcePHP_declareProxy('::abstract::explicit');
+}
+
+namespace _abstract
+{
+    global $abstract__t_explicit;
+    global $abstract__t_explicitPrx;
 
     class explicitPrxHelper
     {
@@ -203,6 +230,12 @@ namespace _abstract
         global $abstract__t_break;
         $abstract__t_while = IcePHP_defineDictionary('::abstract::while', $IcePHP__t_string, $abstract__t_break);
     }
+}
+
+namespace _abstract
+{
+    global $abstract__t_optionalMembers;
+    $abstract__t_optionalMembers = IcePHP_declareClass('::abstract::optionalMembers');
 }
 
 namespace _abstract
@@ -254,6 +287,13 @@ namespace _abstract
         array('_if', $abstract__t_explicitPrx, true, 3),
         array('internal', $abstract__t_while, true, 5),
         array('_namespace', $IcePHP__t_string, true, 7)));
+}
+
+namespace _abstract
+{
+    global $abstract__t_optionalParams;
+    global $abstract__t_optionalParamsPrx;
+    $abstract__t_optionalParamsPrx = IcePHP_declareProxy('::abstract::optionalParams');
 }
 
 namespace _abstract
@@ -404,6 +444,13 @@ namespace _abstract
 {
     global $abstract__t_implicit;
     global $abstract__t_implicitPrx;
+    $abstract__t_implicitPrx = IcePHP_declareProxy('::abstract::implicit');
+}
+
+namespace _abstract
+{
+    global $abstract__t_implicit;
+    global $abstract__t_implicitPrx;
 
     class implicitPrxHelper
     {
@@ -461,6 +508,13 @@ namespace abstract\System
 {
     global $abstract_System__t_Test;
     global $abstract_System__t_TestPrx;
+    $abstract_System__t_TestPrx = IcePHP_declareProxy('::abstract::System::Test');
+}
+
+namespace abstract\System
+{
+    global $abstract_System__t_Test;
+    global $abstract_System__t_TestPrx;
 
     class TestPrxHelper
     {
@@ -489,6 +543,13 @@ namespace abstract\System
     $abstract_System__t_TestPrx = IcePHP_defineProxy('::abstract::System::Test', $Ice__t_ObjectPrx, null);
 
     IcePHP_defineOperation($abstract_System__t_TestPrx, 'op', 0, -1, null, null, null, null);
+}
+
+namespace System
+{
+    global $System__t_Test;
+    global $System__t_TestPrx;
+    $System__t_TestPrx = IcePHP_declareProxy('::System::Test');
 }
 
 namespace System

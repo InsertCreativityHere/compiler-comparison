@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Echo;
     global $Test__t_EchoPrx;
+    $Test__t_EchoPrx = IcePHP_declareProxy('::Test::Echo');
+}
+
+namespace Test
+{
+    global $Test__t_Echo;
+    global $Test__t_EchoPrx;
 
     class EchoPrxHelper
     {

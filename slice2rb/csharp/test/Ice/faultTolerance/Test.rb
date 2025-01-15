@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
+    end
+
     if not defined?(::Test::TestIntfPrx)
         module TestIntfPrx_mixin
 
@@ -43,16 +47,16 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
-        end
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_abort = ::Ice::__defineOperation('abort', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_idempotentAbort = ::Ice::__defineOperation('idempotentAbort', ::Ice::OperationMode::Idempotent, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_pid = ::Ice::__defineOperation('pid', ::Ice::OperationMode::Idempotent, nil, [], [], [::Ice::T_int, false, 0], [])
+    end
+
+    if not defined?(::Test::T_CleanerPrx)
+        T_CleanerPrx = ::Ice::__declareProxy('::Test::Cleaner')
     end
 
     if not defined?(::Test::CleanerPrx)
@@ -66,10 +70,6 @@ module ::Test
         class CleanerPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include CleanerPrx_mixin
-        end
-
-        if not defined?(::Test::T_CleanerPrx)
-            T_CleanerPrx = ::Ice::__declareProxy('::Test::Cleaner')
         end
 
         T_CleanerPrx.defineProxy(CleanerPrx, nil, [])

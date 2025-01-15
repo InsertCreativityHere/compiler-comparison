@@ -20,6 +20,10 @@ require_relative 'NoPackage.rb'
 
 module ::Test
 
+    if not defined?(::Test::T_InitialPrx)
+        T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
+    end
+
     if not defined?(::Test::InitialPrx)
         module InitialPrx_mixin
 
@@ -83,10 +87,6 @@ module ::Test
         class InitialPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include InitialPrx_mixin
-        end
-
-        if not defined?(::Test::T_InitialPrx)
-            T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])

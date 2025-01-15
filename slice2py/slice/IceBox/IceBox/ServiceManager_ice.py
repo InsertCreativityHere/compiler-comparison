@@ -96,6 +96,9 @@ if 'NoSuchServiceException' not in _M_IceBox.__dict__:
     _M_IceBox.NoSuchServiceException = NoSuchServiceException
     del NoSuchServiceException
 
+if 'ServiceObserver' not in _M_IceBox.__dict__:
+    _M_IceBox._t_ServiceObserverPrx = IcePy.declareProxy('::IceBox::ServiceObserver')
+
 if 'ServiceObserverPrx' not in _M_IceBox.__dict__:
     _M_IceBox.ServiceObserverPrx = None
     class ServiceObserverPrx(Ice.ObjectPrx):
@@ -255,6 +258,9 @@ if 'ServiceObserverPrx' not in _M_IceBox.__dict__:
 
     _M_IceBox.ServiceObserver = ServiceObserver
     del ServiceObserver
+
+if 'ServiceManager' not in _M_IceBox.__dict__:
+    _M_IceBox._t_ServiceManagerPrx = IcePy.declareProxy('::IceBox::ServiceManager')
 
 if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
     _M_IceBox.ServiceManagerPrx = None

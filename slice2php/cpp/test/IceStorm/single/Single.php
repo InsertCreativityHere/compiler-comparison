@@ -19,6 +19,13 @@ namespace Test
 {
     global $Test__t_Single;
     global $Test__t_SinglePrx;
+    $Test__t_SinglePrx = IcePHP_declareProxy('::Test::Single');
+}
+
+namespace Test
+{
+    global $Test__t_Single;
+    global $Test__t_SinglePrx;
 
     class SinglePrxHelper
     {

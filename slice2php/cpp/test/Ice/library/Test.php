@@ -43,6 +43,13 @@ namespace Test
 {
     global $Test__t_MyInterface;
     global $Test__t_MyInterfacePrx;
+    $Test__t_MyInterfacePrx = IcePHP_declareProxy('::Test::MyInterface');
+}
+
+namespace Test
+{
+    global $Test__t_MyInterface;
+    global $Test__t_MyInterfacePrx;
 
     class MyInterfacePrxHelper
     {

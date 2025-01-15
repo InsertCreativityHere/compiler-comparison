@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Test
 
+    if not defined?(::Test::T_DelayedTestIntfPrx)
+        T_DelayedTestIntfPrx = ::Ice::__declareProxy('::Test::DelayedTestIntf')
+    end
+
     if not defined?(::Test::DelayedTestIntfPrx)
         module DelayedTestIntfPrx_mixin
 
@@ -31,13 +35,13 @@ module ::Test
             include DelayedTestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_DelayedTestIntfPrx)
-            T_DelayedTestIntfPrx = ::Ice::__declareProxy('::Test::DelayedTestIntf')
-        end
-
         T_DelayedTestIntfPrx.defineProxy(DelayedTestIntfPrx, nil, [])
 
         DelayedTestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, nil, [[::Ice::T_int, false, 0]], [], nil, [])
+    end
+
+    if not defined?(::Test::T_TestIntfPrx)
+        T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
     end
 
     if not defined?(::Test::TestIntfPrx)
@@ -54,13 +58,13 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
-            T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
-        end
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [::Test::T_DelayedTestIntfPrx])
 
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
+    end
+
+    if not defined?(::Test::T_TestIntfBidirPrx)
+        T_TestIntfBidirPrx = ::Ice::__declareProxy('::Test::TestIntfBidir')
     end
 
     if not defined?(::Test::TestIntfBidirPrx)
@@ -74,10 +78,6 @@ module ::Test
         class TestIntfBidirPrx < ::Ice::ObjectPrx
             include ::Ice::Proxy_mixin
             include TestIntfBidirPrx_mixin
-        end
-
-        if not defined?(::Test::T_TestIntfBidirPrx)
-            T_TestIntfBidirPrx = ::Ice::__declareProxy('::Test::TestIntfBidir')
         end
 
         T_TestIntfBidirPrx.defineProxy(TestIntfBidirPrx, nil, [])

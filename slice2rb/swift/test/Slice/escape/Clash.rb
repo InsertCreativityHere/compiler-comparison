@@ -18,6 +18,10 @@ require 'Ice'
 
 module ::Clash
 
+    if not defined?(::Clash::T_IntfPrx)
+        T_IntfPrx = ::Ice::__declareProxy('::Clash::Intf')
+    end
+
     if not defined?(::Clash::IntfPrx)
         module IntfPrx_mixin
 
@@ -75,10 +79,6 @@ module ::Clash
             include IntfPrx_mixin
         end
 
-        if not defined?(::Clash::T_IntfPrx)
-            T_IntfPrx = ::Ice::__declareProxy('::Clash::Intf')
-        end
-
         T_IntfPrx.defineProxy(IntfPrx, nil, [])
 
         IntfPrx_mixin::OP_context = ::Ice::__defineOperation('context', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
@@ -93,6 +93,10 @@ module ::Clash
         IntfPrx_mixin::OP_istr = ::Ice::__defineOperation('istr', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         IntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, true, 1]], [], nil, [])
         IntfPrx_mixin::OP_opOut = ::Ice::__defineOperation('opOut', ::Ice::OperationMode::Normal, nil, [], [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, true, 1]], nil, [])
+    end
+
+    if not defined?(::Clash::T_Cls)
+        T_Cls = ::Ice::__declareClass('::Clash::Cls')
     end
 
     if not defined?(::Clash::Cls)
@@ -117,10 +121,6 @@ module ::Clash
             end
 
             attr_accessor :s, :context, :current, :response, :upCast, :typeId, :del, :cookie, :ex, :result, :istr, :ostr, :inS, :_in, :proxy
-        end
-
-        if not defined?(::Clash::T_Cls)
-            T_Cls = ::Ice::__declareClass('::Clash::Cls')
         end
 
         T_Cls.defineClass(Cls, -1, false, nil, [
