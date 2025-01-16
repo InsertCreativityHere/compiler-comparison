@@ -28,7 +28,6 @@ namespace IceBox
     /// <summary>
     /// This exception is thrown if an attempt is made to start an already-started service.
     /// </summary>
-
     [Ice.SliceTypeId("::IceBox::AlreadyStartedException")]
     public partial class AlreadyStartedException : Ice.UserException
     {
@@ -50,7 +49,6 @@ namespace IceBox
     /// <summary>
     /// This exception is thrown if an attempt is made to stop an already-stopped service.
     /// </summary>
-
     [Ice.SliceTypeId("::IceBox::AlreadyStoppedException")]
     public partial class AlreadyStoppedException : Ice.UserException
     {
@@ -72,7 +70,6 @@ namespace IceBox
     /// <summary>
     /// This exception is thrown if a service name does not refer to an existing service.
     /// </summary>
-
     [Ice.SliceTypeId("::IceBox::NoSuchServiceException")]
     public partial class NoSuchServiceException : Ice.UserException
     {
@@ -97,17 +94,19 @@ namespace IceBox
         /// <summary>
         /// Receives the names of the services that were started.
         /// </summary>
-        /// <param name="services">The names of the services.</param>
+        /// <param name="services">
+        /// The names of the services.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void servicesStarted(string[] services, Ice.Current current);
 
         /// <summary>
         /// Receives the names of the services that were stopped.
         /// </summary>
-        /// <param name="services">The names of the services.</param>
+        /// <param name="services">
+        /// The names of the services.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void servicesStopped(string[] services, Ice.Current current);
     }
 
@@ -117,41 +116,46 @@ namespace IceBox
         /// <summary>
         /// Start an individual service.
         /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
-        /// <exception name="AlreadyStartedException">If the service is already running.
-        ///  </exception>
-        /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
+        /// <param name="service">
+        /// The service name.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <exception cref="IceBox.AlreadyStartedException">
+        /// If the service is already running.
+        /// </exception>
+        /// <exception cref="IceBox.NoSuchServiceException">
+        /// If no service could be found with the given name.
+        /// </exception>
         void startService(string service, Ice.Current current);
 
         /// <summary>
         /// Stop an individual service.
         /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
-        /// <exception name="AlreadyStoppedException">If the service is already stopped.
-        ///  </exception>
-        /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
+        /// <param name="service">
+        /// The service name.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <exception cref="IceBox.AlreadyStoppedException">
+        /// If the service is already stopped.
+        /// </exception>
+        /// <exception cref="IceBox.NoSuchServiceException">
+        /// If no service could be found with the given name.
+        /// </exception>
         void stopService(string service, Ice.Current current);
 
         /// <summary>
         /// Registers a new observer with the ServiceManager.
         /// </summary>
-        /// <param name="observer">The new observer</param>
+        /// <param name="observer">
+        /// The new observer
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void addObserver(ServiceObserverPrx? observer, Ice.Current current);
 
         /// <summary>
-        /// Shut down all services.
-        /// This causes stop to be invoked on all configured services.
+        /// Shut down all services. This causes stop to be invoked on all configured services.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void shutdown(Ice.Current current);
     }
 }
@@ -161,132 +165,158 @@ namespace IceBox
     /// <summary>
     /// An Observer interface implemented by admin clients interested in the status of services.
     /// </summary>
-
+    /// <seealso cref="ServiceManager" />
     public interface ServiceObserverPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Receives the names of the services that were started.
         /// </summary>
-        /// <param name="services">The names of the services.</param>
+        /// <param name="services">
+        /// The names of the services.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void servicesStarted(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Receives the names of the services that were started.
         /// </summary>
-        /// <param name="services">The names of the services.</param>
+        /// <param name="services">
+        /// The names of the services.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task servicesStartedAsync(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Receives the names of the services that were stopped.
         /// </summary>
-        /// <param name="services">The names of the services.</param>
+        /// <param name="services">
+        /// The names of the services.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void servicesStopped(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Receives the names of the services that were stopped.
         /// </summary>
-        /// <param name="services">The names of the services.</param>
+        /// <param name="services">
+        /// The names of the services.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task servicesStoppedAsync(string[] services, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
     /// Administers a set of IceBox Service instances.
     /// </summary>
-
+    /// <seealso cref="Service" />
     public interface ServiceManagerPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Start an individual service.
         /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
-        /// <exception name="AlreadyStartedException">If the service is already running.
-        ///  </exception>
-        /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
+        /// <param name="service">
+        /// The service name.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="IceBox.AlreadyStartedException">
+        /// If the service is already running.
+        /// </exception>
+        /// <exception cref="IceBox.NoSuchServiceException">
+        /// If no service could be found with the given name.
+        /// </exception>
         void startService(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Start an individual service.
         /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
+        /// <param name="service">
+        /// The service name.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceBox.AlreadyStartedException">
+        /// If the service is already running.
+        /// </exception>
+        /// <exception cref="IceBox.NoSuchServiceException">
+        /// If no service could be found with the given name.
+        /// </exception>
         global::System.Threading.Tasks.Task startServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Stop an individual service.
         /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
-        /// <exception name="AlreadyStoppedException">If the service is already stopped.
-        ///  </exception>
-        /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
+        /// <param name="service">
+        /// The service name.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="IceBox.AlreadyStoppedException">
+        /// If the service is already stopped.
+        /// </exception>
+        /// <exception cref="IceBox.NoSuchServiceException">
+        /// If no service could be found with the given name.
+        /// </exception>
         void stopService(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Stop an individual service.
         /// </summary>
-        /// <param name="service">The service name.
-        ///  </param>
+        /// <param name="service">
+        /// The service name.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceBox.AlreadyStoppedException">
+        /// If the service is already stopped.
+        /// </exception>
+        /// <exception cref="IceBox.NoSuchServiceException">
+        /// If no service could be found with the given name.
+        /// </exception>
         global::System.Threading.Tasks.Task stopServiceAsync(string service, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Registers a new observer with the ServiceManager.
         /// </summary>
-        /// <param name="observer">The new observer</param>
+        /// <param name="observer">
+        /// The new observer
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void addObserver(ServiceObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Registers a new observer with the ServiceManager.
         /// </summary>
-        /// <param name="observer">The new observer</param>
+        /// <param name="observer">
+        /// The new observer
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task addObserverAsync(ServiceObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Shut down all services.
-        /// This causes stop to be invoked on all configured services.
+        /// Shut down all services. This causes stop to be invoked on all configured services.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Shut down all services.
-        /// This causes stop to be invoked on all configured services.
+        /// Shut down all services. This causes stop to be invoked on all configured services.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

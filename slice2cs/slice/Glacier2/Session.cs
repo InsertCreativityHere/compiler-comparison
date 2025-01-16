@@ -28,7 +28,6 @@ namespace Glacier2
     /// <summary>
     /// This exception is raised if an attempt to create a new session failed.
     /// </summary>
-
     [Ice.SliceTypeId("::Glacier2::CannotCreateSessionException")]
     public partial class CannotCreateSessionException : Ice.UserException
     {
@@ -65,11 +64,9 @@ namespace Glacier2
     public partial interface Session : Ice.Object
     {
         /// <summary>
-        /// Destroy the session.
-        /// This is called automatically when the router is destroyed.
+        /// Destroy the session. This is called automatically when the router is destroyed.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void destroy(Ice.Current current);
     }
 
@@ -77,30 +74,31 @@ namespace Glacier2
     public partial interface StringSet : Ice.Object
     {
         /// <summary>
-        /// Add a sequence of strings to this set of constraints.
-        /// Order is not preserved and duplicates are implicitly
-        ///  removed.
+        /// Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+        /// removed.
         /// </summary>
-        ///  <param name="additions">The sequence of strings to be added.</param>
+        /// <param name="additions">
+        /// The sequence of strings to be added.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void add(string[] additions, Ice.Current current);
 
         /// <summary>
-        /// Remove a sequence of strings from this set of constraints.
-        /// No errors are returned if an entry is not found.
+        /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
         /// </summary>
-        ///  <param name="deletions">The sequence of strings to be removed.</param>
+        /// <param name="deletions">
+        /// The sequence of strings to be removed.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void remove(string[] deletions, Ice.Current current);
 
         /// <summary>
         /// Returns a sequence of strings describing the constraints in this set.
         /// </summary>
-        /// <returns>The sequence of strings for this set.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The sequence of strings for this set.
+        /// </returns>
         string[] get(Ice.Current current);
     }
 
@@ -108,31 +106,32 @@ namespace Glacier2
     public partial interface IdentitySet : Ice.Object
     {
         /// <summary>
-        /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is not preserved and duplicates are
-        ///  implicitly removed.
+        /// Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+        /// implicitly removed.
         /// </summary>
-        ///  <param name="additions">The sequence of Ice identities to be added.</param>
+        /// <param name="additions">
+        /// The sequence of Ice identities to be added.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void add(global::Ice.Identity[] additions, Ice.Current current);
 
         /// <summary>
-        /// Remove a sequence of identities from this set of constraints.
-        /// No errors are returned if an entry is not
-        ///  found.
+        /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+        /// found.
         /// </summary>
-        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
+        /// <param name="deletions">
+        /// The sequence of Ice identities to be removed.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void remove(global::Ice.Identity[] deletions, Ice.Current current);
 
         /// <summary>
         /// Returns a sequence of identities describing the constraints in this set.
         /// </summary>
-        /// <returns>The sequence of Ice identities for this set.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The sequence of Ice identities for this set.
+        /// </returns>
         global::Ice.Identity[] get(Ice.Current current);
     }
 
@@ -142,40 +141,43 @@ namespace Glacier2
         /// <summary>
         /// Access the object that manages the allowable categories for object identities for this session.
         /// </summary>
-        /// <returns>A StringSet object. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A StringSet object. The returned proxy is never null.
+        /// </returns>
         StringSetPrx? categories(Ice.Current current);
 
         /// <summary>
         /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
-        /// <returns>A StringSet object. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A StringSet object. The returned proxy is never null.
+        /// </returns>
         StringSetPrx? adapterIds(Ice.Current current);
 
         /// <summary>
         /// Access the object that manages the allowable object identities for this session.
         /// </summary>
-        /// <returns>An IdentitySet object. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// An IdentitySet object. The returned proxy is never null.
+        /// </returns>
         IdentitySetPrx? identities(Ice.Current current);
 
         /// <summary>
         /// Get the session timeout.
         /// </summary>
-        /// <returns>The timeout.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The timeout.
+        /// </returns>
         int getSessionTimeout(Ice.Current current);
 
         /// <summary>
         /// Destroy the associated session.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void destroy(Ice.Current current);
     }
 
@@ -183,20 +185,23 @@ namespace Glacier2
     public partial interface SessionManager : Ice.Object
     {
         /// <summary>
-        /// Create a new session.
-        /// The implementation must return a non-null proxy or raise
-        ///  CannotCreateSessionException if the session cannot be created.
+        /// Create a new session. The implementation must return a non-null proxy or raise
+        /// <see cref="CannotCreateSessionException" /> if the session cannot be created.
         /// </summary>
-        ///  <param name="userId">The user id for the session.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
-        ///  are not configured.
-        ///  </param>
-        /// <returns>A proxy to the newly created session.
-        ///  </returns>
-        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
+        /// <param name="userId">
+        /// The user id for the session.
+        /// </param>
+        /// <param name="control">
+        /// A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+        /// are not configured.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A proxy to the newly created session.
+        /// </returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
         SessionPrx? create(string userId, SessionControlPrx? control, Ice.Current current);
     }
 
@@ -206,15 +211,19 @@ namespace Glacier2
         /// <summary>
         /// Create a new session.
         /// </summary>
-        /// <param name="info">The SSL info.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object.
-        ///  </param>
-        /// <returns>A proxy to the newly created session.
-        ///  </returns>
-        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
+        /// <param name="info">
+        /// The SSL info.
+        /// </param>
+        /// <param name="control">
+        /// A proxy to the session control object.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A proxy to the newly created session.
+        /// </returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
         SessionPrx? create(SSLInfo info, SessionControlPrx? control, Ice.Current current);
     }
 }
@@ -222,84 +231,87 @@ namespace Glacier2
 namespace Glacier2
 {
     /// <summary>
-    /// A client-visible session object, which is tied to the lifecycle of a Router.
+    /// A client-visible session object, which is tied to the lifecycle of a <see cref="Router" />.
     /// </summary>
-
+    /// <seealso cref="Router" />
+    /// <seealso cref="SessionManager" />
     public interface SessionPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Destroy the session.
-        /// This is called automatically when the router is destroyed.
+        /// Destroy the session. This is called automatically when the router is destroyed.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Destroy the session.
-        /// This is called automatically when the router is destroyed.
+        /// Destroy the session. This is called automatically when the router is destroyed.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
     /// An object for managing the set of identity constraints for specific parts of object identity on a
-    ///  Session.
+    /// <see cref="Session" />.
     /// </summary>
-
+    /// <seealso cref="Session" />
+    /// <seealso cref="SessionControl" />
     public interface StringSetPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Add a sequence of strings to this set of constraints.
-        /// Order is not preserved and duplicates are implicitly
-        ///  removed.
+        /// Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+        /// removed.
         /// </summary>
-        ///  <param name="additions">The sequence of strings to be added.</param>
+        /// <param name="additions">
+        /// The sequence of strings to be added.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void add(string[] additions, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Add a sequence of strings to this set of constraints.
-        /// Order is not preserved and duplicates are implicitly
+        /// Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+        /// removed.
         /// </summary>
-        ///  <param name="additions">The sequence of strings to be added.</param>
+        /// <param name="additions">
+        /// The sequence of strings to be added.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task addAsync(string[] additions, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Remove a sequence of strings from this set of constraints.
-        /// No errors are returned if an entry is not found.
+        /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
         /// </summary>
-        ///  <param name="deletions">The sequence of strings to be removed.</param>
+        /// <param name="deletions">
+        /// The sequence of strings to be removed.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void remove(string[] deletions, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Remove a sequence of strings from this set of constraints.
-        /// No errors are returned if an entry is not found.
+        /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
         /// </summary>
-        ///  <param name="deletions">The sequence of strings to be removed.</param>
+        /// <param name="deletions">
+        /// The sequence of strings to be removed.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task removeAsync(string[] deletions, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Returns a sequence of strings describing the constraints in this set.
         /// </summary>
-        /// <returns>The sequence of strings for this set.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The sequence of strings for this set.
+        /// </returns>
         string[] get(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -308,64 +320,70 @@ namespace Glacier2
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string[]> getAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
-    /// An object for managing the set of object identity constraints on a Session.
+    /// An object for managing the set of object identity constraints on a <see cref="Session" />.
     /// </summary>
-
+    /// <seealso cref="Session" />
+    /// <seealso cref="SessionControl" />
     public interface IdentitySetPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is not preserved and duplicates are
-        ///  implicitly removed.
+        /// Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+        /// implicitly removed.
         /// </summary>
-        ///  <param name="additions">The sequence of Ice identities to be added.</param>
+        /// <param name="additions">
+        /// The sequence of Ice identities to be added.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void add(global::Ice.Identity[] additions, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is not preserved and duplicates are
+        /// Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+        /// implicitly removed.
         /// </summary>
-        ///  <param name="additions">The sequence of Ice identities to be added.</param>
+        /// <param name="additions">
+        /// The sequence of Ice identities to be added.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task addAsync(global::Ice.Identity[] additions, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Remove a sequence of identities from this set of constraints.
-        /// No errors are returned if an entry is not
-        ///  found.
+        /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+        /// found.
         /// </summary>
-        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
+        /// <param name="deletions">
+        /// The sequence of Ice identities to be removed.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void remove(global::Ice.Identity[] deletions, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Remove a sequence of identities from this set of constraints.
-        /// No errors are returned if an entry is not
+        /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+        /// found.
         /// </summary>
-        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
+        /// <param name="deletions">
+        /// The sequence of Ice identities to be removed.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task removeAsync(global::Ice.Identity[] deletions, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Returns a sequence of identities describing the constraints in this set.
         /// </summary>
-        /// <returns>The sequence of Ice identities for this set.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The sequence of Ice identities for this set.
+        /// </returns>
         global::Ice.Identity[] get(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -374,22 +392,23 @@ namespace Glacier2
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.Identity[]> getAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
-    /// An administrative session control object, which is tied to the lifecycle of a Session.
+    /// An administrative session control object, which is tied to the lifecycle of a <see cref="Session" />.
     /// </summary>
-
+    /// <seealso cref="Session" />
     public interface SessionControlPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Access the object that manages the allowable categories for object identities for this session.
         /// </summary>
-        /// <returns>A StringSet object. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A StringSet object. The returned proxy is never null.
+        /// </returns>
         StringSetPrx? categories(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -398,15 +417,16 @@ namespace Glacier2
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<StringSetPrx?> categoriesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
-        /// <returns>A StringSet object. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A StringSet object. The returned proxy is never null.
+        /// </returns>
         StringSetPrx? adapterIds(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -415,15 +435,16 @@ namespace Glacier2
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<StringSetPrx?> adapterIdsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Access the object that manages the allowable object identities for this session.
         /// </summary>
-        /// <returns>An IdentitySet object. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// An IdentitySet object. The returned proxy is never null.
+        /// </returns>
         IdentitySetPrx? identities(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -432,15 +453,16 @@ namespace Glacier2
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<IdentitySetPrx?> identitiesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the session timeout.
         /// </summary>
-        /// <returns>The timeout.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The timeout.
+        /// </returns>
         int getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -449,14 +471,13 @@ namespace Glacier2
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<int> getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Destroy the associated session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -465,87 +486,104 @@ namespace Glacier2
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
-    /// The session manager for username/password authenticated users that is responsible for managing Session
-    ///  objects.
-    /// New session objects are created by the Router object calling on an application-provided
-    ///  session manager. If no session manager is provided by the application, no client-visible sessions are passed to
-    ///  the client.
+    /// The session manager for username/password authenticated users that is responsible for managing <see cref="Session" />
+    /// objects. New session objects are created by the <see cref="Router" /> object calling on an application-provided
+    /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+    /// the client.
     /// </summary>
-
+    /// <seealso cref="Router" />
+    /// <seealso cref="Session" />
     public interface SessionManagerPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Create a new session.
-        /// The implementation must return a non-null proxy or raise
-        ///  CannotCreateSessionException if the session cannot be created.
+        /// Create a new session. The implementation must return a non-null proxy or raise
+        /// <see cref="CannotCreateSessionException" /> if the session cannot be created.
         /// </summary>
-        ///  <param name="userId">The user id for the session.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
-        ///  are not configured.
-        ///  </param>
-        /// <returns>A proxy to the newly created session.
-        ///  </returns>
-        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
+        /// <param name="userId">
+        /// The user id for the session.
+        /// </param>
+        /// <param name="control">
+        /// A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+        /// are not configured.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy to the newly created session.
+        /// </returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
         SessionPrx? create(string userId, SessionControlPrx? control, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Create a new session.
-        /// The implementation must return a non-null proxy or raise
+        /// Create a new session. The implementation must return a non-null proxy or raise
+        /// <see cref="CannotCreateSessionException" /> if the session cannot be created.
         /// </summary>
-        ///  <param name="userId">The user id for the session.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
-        ///  are not configured.
-        ///  </param>
+        /// <param name="userId">
+        /// The user id for the session.
+        /// </param>
+        /// <param name="control">
+        /// A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+        /// are not configured.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
         global::System.Threading.Tasks.Task<SessionPrx?> createAsync(string userId, SessionControlPrx? control, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
-    /// The session manager for SSL authenticated users that is responsible for managing Session objects.
-    /// New
-    ///  session objects are created by the Router object calling on an application-provided session manager. If
-    ///  no session manager is provided by the application, no client-visible sessions are passed to the client.
+    /// The session manager for SSL authenticated users that is responsible for managing <see cref="Session" /> objects. New
+    /// session objects are created by the <see cref="Router" /> object calling on an application-provided session manager. If
+    /// no session manager is provided by the application, no client-visible sessions are passed to the client.
     /// </summary>
-
+    /// <seealso cref="Router" />
+    /// <seealso cref="Session" />
     public interface SSLSessionManagerPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Create a new session.
         /// </summary>
-        /// <param name="info">The SSL info.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object.
-        ///  </param>
-        /// <returns>A proxy to the newly created session.
-        ///  </returns>
-        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
+        /// <param name="info">
+        /// The SSL info.
+        /// </param>
+        /// <param name="control">
+        /// A proxy to the session control object.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy to the newly created session.
+        /// </returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
         SessionPrx? create(SSLInfo info, SessionControlPrx? control, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Create a new session.
         /// </summary>
-        /// <param name="info">The SSL info.
-        ///  </param>
-        /// <param name="control">A proxy to the session control object.
-        ///  </param>
+        /// <param name="info">
+        /// The SSL info.
+        /// </param>
+        /// <param name="control">
+        /// A proxy to the session control object.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
         global::System.Threading.Tasks.Task<SessionPrx?> createAsync(SSLInfo info, SessionControlPrx? control, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

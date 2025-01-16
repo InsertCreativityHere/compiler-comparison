@@ -33,54 +33,72 @@ namespace IceGrid
         /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         [global::System.Obsolete]
         void keepAlive(Ice.Current current);
 
         /// <summary>
-        /// Allocate an object.
-        /// Depending on the allocation timeout, this operation might hang until the object is
+        /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+        /// available or until the timeout is reached.
         /// </summary>
-        ///  <param name="id">The identity of the object to allocate.
-        ///  </param>
+        /// <param name="id">
+        /// The identity of the object to allocate.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.AllocationException">
+        /// Raised if the object can't be allocated.
+        /// </exception>
+        /// <exception cref="IceGrid.ObjectNotRegisteredException">
+        /// Raised if the object with the given identity is not registered with
+        /// the registry.
+        /// </exception>
+        /// <seealso cref="setAllocationTimeout" />
+        /// <seealso cref="releaseObject" />
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByIdAsync(global::Ice.Identity id, Ice.Current current);
 
         /// <summary>
-        /// Allocate an object with the given type.
-        /// Depending on the allocation timeout, this operation can block until
+        /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+        /// an object becomes available or until the timeout is reached.
         /// </summary>
-        ///  <param name="type">The type of the object.
-        ///  </param>
+        /// <param name="type">
+        /// The type of the object.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.AllocationException">
+        /// Raised if the object could not be allocated.
+        /// </exception>
+        /// <seealso cref="setAllocationTimeout" />
+        /// <seealso cref="releaseObject" />
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByTypeAsync(string type, Ice.Current current);
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
-        ///  allocateObjectByType.
+        /// allocateObjectByType.
         /// </summary>
-        /// <param name="id">The identity of the object to release.
-        ///  </param>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object with the given identity is not registered with
-        ///  the registry.
-        ///  </exception>
-        /// <exception name="AllocationException">Raised if the given object can't be released. This might happen if the object
-        ///  isn't allocatable or isn't allocated by the session.</exception>
+        /// <param name="id">
+        /// The identity of the object to release.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <exception cref="IceGrid.AllocationException">
+        /// Raised if the given object can't be released. This might happen if the object
+        /// isn't allocatable or isn't allocated by the session.
+        /// </exception>
+        /// <exception cref="IceGrid.ObjectNotRegisteredException">
+        /// Raised if the object with the given identity is not registered with
+        /// the registry.
+        /// </exception>
         void releaseObject(global::Ice.Identity id, Ice.Current current);
 
         /// <summary>
-        /// Set the allocation timeout.
-        /// If no objects are available for an allocation request, a call to
-        ///  allocateObjectById or allocateObjectByType will block for the duration of this
-        ///  timeout.
+        /// Set the allocation timeout. If no objects are available for an allocation request, a call to
+        /// allocateObjectById or allocateObjectByType will block for the duration of this
+        /// timeout.
         /// </summary>
-        ///  <param name="timeout">The timeout in milliseconds.</param>
+        /// <param name="timeout">
+        /// The timeout in milliseconds.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void setAllocationTimeout(int timeout, Ice.Current current);
     }
 }
@@ -88,11 +106,10 @@ namespace IceGrid
 namespace IceGrid
 {
     /// <summary>
-    /// A session object is used by IceGrid clients to allocate and release objects.
-    /// Client sessions are created either
-    ///  via the Registry object or via the registry client SessionManager object.
+    /// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
+    /// via the <see cref="Registry" /> object or via the registry client SessionManager object.
     /// </summary>
-
+    /// <seealso cref="Registry" />
     public interface SessionPrx : global::Glacier2.SessionPrx
     {
         /// <summary>
@@ -100,7 +117,6 @@ namespace IceGrid
         /// As of Ice 3.8, there is no need to call this operation, and its implementation does nothing.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         [global::System.Obsolete]
         void keepAlive(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
@@ -111,114 +127,152 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         [global::System.Obsolete]
         global::System.Threading.Tasks.Task keepAliveAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Allocate an object.
-        /// Depending on the allocation timeout, this operation might hang until the object is
-        ///  available or until the timeout is reached.
+        /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+        /// available or until the timeout is reached.
         /// </summary>
-        ///  <param name="id">The identity of the object to allocate.
-        ///  </param>
-        /// <returns>The proxy of the allocated object. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object with the given identity is not registered with
-        ///  the registry.
-        ///  </exception>
-        /// <exception name="AllocationException">Raised if the object can't be allocated.
-        ///  </exception>
+        /// <param name="id">
+        /// The identity of the object to allocate.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The proxy of the allocated object. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceGrid.AllocationException">
+        /// Raised if the object can't be allocated.
+        /// </exception>
+        /// <exception cref="IceGrid.ObjectNotRegisteredException">
+        /// Raised if the object with the given identity is not registered with
+        /// the registry.
+        /// </exception>
+        /// <seealso cref="setAllocationTimeout" />
+        /// <seealso cref="releaseObject" />
         global::Ice.ObjectPrx? allocateObjectById(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Allocate an object.
-        /// Depending on the allocation timeout, this operation might hang until the object is
+        /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+        /// available or until the timeout is reached.
         /// </summary>
-        ///  <param name="id">The identity of the object to allocate.
-        ///  </param>
+        /// <param name="id">
+        /// The identity of the object to allocate.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.AllocationException">
+        /// Raised if the object can't be allocated.
+        /// </exception>
+        /// <exception cref="IceGrid.ObjectNotRegisteredException">
+        /// Raised if the object with the given identity is not registered with
+        /// the registry.
+        /// </exception>
+        /// <seealso cref="setAllocationTimeout" />
+        /// <seealso cref="releaseObject" />
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByIdAsync(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Allocate an object with the given type.
-        /// Depending on the allocation timeout, this operation can block until
-        ///  an object becomes available or until the timeout is reached.
+        /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+        /// an object becomes available or until the timeout is reached.
         /// </summary>
-        ///  <param name="type">The type of the object.
-        ///  </param>
-        /// <returns>The proxy of the allocated object. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="AllocationException">Raised if the object could not be allocated.
-        ///  </exception>
+        /// <param name="type">
+        /// The type of the object.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The proxy of the allocated object. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceGrid.AllocationException">
+        /// Raised if the object could not be allocated.
+        /// </exception>
+        /// <seealso cref="setAllocationTimeout" />
+        /// <seealso cref="releaseObject" />
         global::Ice.ObjectPrx? allocateObjectByType(string type, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Allocate an object with the given type.
-        /// Depending on the allocation timeout, this operation can block until
+        /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+        /// an object becomes available or until the timeout is reached.
         /// </summary>
-        ///  <param name="type">The type of the object.
-        ///  </param>
+        /// <param name="type">
+        /// The type of the object.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.AllocationException">
+        /// Raised if the object could not be allocated.
+        /// </exception>
+        /// <seealso cref="setAllocationTimeout" />
+        /// <seealso cref="releaseObject" />
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> allocateObjectByTypeAsync(string type, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
-        ///  allocateObjectByType.
+        /// allocateObjectByType.
         /// </summary>
-        /// <param name="id">The identity of the object to release.
-        ///  </param>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object with the given identity is not registered with
-        ///  the registry.
-        ///  </exception>
-        /// <exception name="AllocationException">Raised if the given object can't be released. This might happen if the object
-        ///  isn't allocatable or isn't allocated by the session.</exception>
+        /// <param name="id">
+        /// The identity of the object to release.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="IceGrid.AllocationException">
+        /// Raised if the given object can't be released. This might happen if the object
+        /// isn't allocatable or isn't allocated by the session.
+        /// </exception>
+        /// <exception cref="IceGrid.ObjectNotRegisteredException">
+        /// Raised if the object with the given identity is not registered with
+        /// the registry.
+        /// </exception>
         void releaseObject(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
-        ///  allocateObjectByType.
+        /// allocateObjectByType.
         /// </summary>
-        /// <param name="id">The identity of the object to release.
-        ///  </param>
+        /// <param name="id">
+        /// The identity of the object to release.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.AllocationException">
+        /// Raised if the given object can't be released. This might happen if the object
+        /// isn't allocatable or isn't allocated by the session.
+        /// </exception>
+        /// <exception cref="IceGrid.ObjectNotRegisteredException">
+        /// Raised if the object with the given identity is not registered with
+        /// the registry.
+        /// </exception>
         global::System.Threading.Tasks.Task releaseObjectAsync(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Set the allocation timeout.
-        /// If no objects are available for an allocation request, a call to
-        ///  allocateObjectById or allocateObjectByType will block for the duration of this
-        ///  timeout.
+        /// Set the allocation timeout. If no objects are available for an allocation request, a call to
+        /// allocateObjectById or allocateObjectByType will block for the duration of this
+        /// timeout.
         /// </summary>
-        ///  <param name="timeout">The timeout in milliseconds.</param>
+        /// <param name="timeout">
+        /// The timeout in milliseconds.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void setAllocationTimeout(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Set the allocation timeout.
-        /// If no objects are available for an allocation request, a call to
+        /// Set the allocation timeout. If no objects are available for an allocation request, a call to
+        /// allocateObjectById or allocateObjectByType will block for the duration of this
+        /// timeout.
         /// </summary>
-        ///  <param name="timeout">The timeout in milliseconds.</param>
+        /// <param name="timeout">
+        /// The timeout in milliseconds.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setAllocationTimeoutAsync(int timeout, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

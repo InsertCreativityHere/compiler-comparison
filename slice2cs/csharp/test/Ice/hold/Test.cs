@@ -33,47 +33,51 @@ namespace Ice.hold
             /// <summary>
             /// Puts the adapter on hold, and optionally reactivates it.
             /// </summary>
-            /// <param name="delay">When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
-            ///  immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
-            ///  milliseconds, puts the adapter on hold and then immediately reactivates it.</param>
+            /// <param name="delay">
+            /// When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+            /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+            /// milliseconds, puts the adapter on hold and then immediately reactivates it.
+            /// </param>
             /// <param name="current">The Current object for the dispatch.</param>
-
             void putOnHold(int delay, Ice.Current current);
 
             /// <summary>
             /// Starts a background task that calls waitForHold and activate on the adapter.
             /// </summary>
             /// <param name="current">The Current object for the dispatch.</param>
-
             void waitForHold(Ice.Current current);
 
             /// <summary>
             /// Saves value as the last value.
             /// </summary>
-            /// <param name="value">The new value.
-            ///  </param>
-            /// <param name="expected">The current value as expected by the caller.</param>
+            /// <param name="value">
+            /// The new value.
+            /// </param>
+            /// <param name="expected">
+            /// The current value as expected by the caller.
+            /// </param>
             /// <param name="current">The Current object for the dispatch.</param>
-
             void setOneway(int value, int expected, Ice.Current current);
 
             /// <summary>
             /// Saves value as the last value after a delay.
             /// </summary>
-            /// <param name="value">The new value.
-            ///  </param>
-            /// <param name="delay">The delay in milliseconds.
-            ///  </param>
-            /// <returns>The previous value.</returns>
+            /// <param name="value">
+            /// The new value.
+            /// </param>
+            /// <param name="delay">
+            /// The delay in milliseconds.
+            /// </param>
             /// <param name="current">The Current object for the dispatch.</param>
-
+            /// <returns>
+            /// The previous value.
+            /// </returns>
             int set(int value, int delay, Ice.Current current);
 
             /// <summary>
             /// Shuts down the server.
             /// </summary>
             /// <param name="current">The Current object for the dispatch.</param>
-
             void shutdown(Ice.Current current);
         }
     }
@@ -88,30 +92,32 @@ namespace Ice.hold
             /// <summary>
             /// Puts the adapter on hold, and optionally reactivates it.
             /// </summary>
-            /// <param name="delay">When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
-            ///  immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
-            ///  milliseconds, puts the adapter on hold and then immediately reactivates it.</param>
+            /// <param name="delay">
+            /// When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+            /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+            /// milliseconds, puts the adapter on hold and then immediately reactivates it.
+            /// </param>
             /// <param name="context">The Context map to send with the invocation.</param>
-
             void putOnHold(int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             /// <summary>
             /// Puts the adapter on hold, and optionally reactivates it.
             /// </summary>
-            /// <param name="delay">When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
-            ///  immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
-            ///  milliseconds, puts the adapter on hold and then immediately reactivates it.</param>
+            /// <param name="delay">
+            /// When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
+            /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
+            /// milliseconds, puts the adapter on hold and then immediately reactivates it.
+            /// </param>
             /// <param name="context">Context map to send with the invocation.</param>
             /// <param name="progress">Sent progress provider.</param>
             /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-            /// <returns>The task object representing the asynchronous operation.</returns>
+            /// <returns>A task that represents the asynchronous operation.</returns>
             global::System.Threading.Tasks.Task putOnHoldAsync(int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
             /// <summary>
             /// Starts a background task that calls waitForHold and activate on the adapter.
             /// </summary>
             /// <param name="context">The Context map to send with the invocation.</param>
-
             void waitForHold(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             /// <summary>
@@ -120,61 +126,70 @@ namespace Ice.hold
             /// <param name="context">Context map to send with the invocation.</param>
             /// <param name="progress">Sent progress provider.</param>
             /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-            /// <returns>The task object representing the asynchronous operation.</returns>
+            /// <returns>A task that represents the asynchronous operation.</returns>
             global::System.Threading.Tasks.Task waitForHoldAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
             /// <summary>
             /// Saves value as the last value.
             /// </summary>
-            /// <param name="value">The new value.
-            ///  </param>
-            /// <param name="expected">The current value as expected by the caller.</param>
+            /// <param name="value">
+            /// The new value.
+            /// </param>
+            /// <param name="expected">
+            /// The current value as expected by the caller.
+            /// </param>
             /// <param name="context">The Context map to send with the invocation.</param>
-
             void setOneway(int value, int expected, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             /// <summary>
             /// Saves value as the last value.
             /// </summary>
-            /// <param name="value">The new value.
-            ///  </param>
-            /// <param name="expected">The current value as expected by the caller.</param>
+            /// <param name="value">
+            /// The new value.
+            /// </param>
+            /// <param name="expected">
+            /// The current value as expected by the caller.
+            /// </param>
             /// <param name="context">Context map to send with the invocation.</param>
             /// <param name="progress">Sent progress provider.</param>
             /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-            /// <returns>The task object representing the asynchronous operation.</returns>
+            /// <returns>A task that represents the asynchronous operation.</returns>
             global::System.Threading.Tasks.Task setOnewayAsync(int value, int expected, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
             /// <summary>
             /// Saves value as the last value after a delay.
             /// </summary>
-            /// <param name="value">The new value.
-            ///  </param>
-            /// <param name="delay">The delay in milliseconds.
-            ///  </param>
-            /// <returns>The previous value.</returns>
+            /// <param name="value">
+            /// The new value.
+            /// </param>
+            /// <param name="delay">
+            /// The delay in milliseconds.
+            /// </param>
             /// <param name="context">The Context map to send with the invocation.</param>
-
+            /// <returns>
+            /// The previous value.
+            /// </returns>
             int set(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             /// <summary>
             /// Saves value as the last value after a delay.
             /// </summary>
-            /// <param name="value">The new value.
-            ///  </param>
-            /// <param name="delay">The delay in milliseconds.
-            ///  </param>
+            /// <param name="value">
+            /// The new value.
+            /// </param>
+            /// <param name="delay">
+            /// The delay in milliseconds.
+            /// </param>
             /// <param name="context">Context map to send with the invocation.</param>
             /// <param name="progress">Sent progress provider.</param>
             /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-            /// <returns>The task object representing the asynchronous operation.</returns>
+            /// <returns>A task that represents the asynchronous operation.</returns>
             global::System.Threading.Tasks.Task<int> setAsync(int value, int delay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
             /// <summary>
             /// Shuts down the server.
             /// </summary>
             /// <param name="context">The Context map to send with the invocation.</param>
-
             void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
             /// <summary>
@@ -183,7 +198,7 @@ namespace Ice.hold
             /// <param name="context">Context map to send with the invocation.</param>
             /// <param name="progress">Sent progress provider.</param>
             /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-            /// <returns>The task object representing the asynchronous operation.</returns>
+            /// <returns>A task that represents the asynchronous operation.</returns>
             global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
         }
     }

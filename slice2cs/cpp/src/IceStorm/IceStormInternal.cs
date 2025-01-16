@@ -89,16 +89,16 @@ namespace IceStorm
         /// <summary>
         /// Forward a sequence of events.
         /// </summary>
-        /// <param name="events">The events to forward.</param>
+        /// <param name="events">
+        /// The events to forward.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void forward(EventData[] events, Ice.Current current);
     }
 
     /// <summary>
     /// Thrown if the reap call would block.
     /// </summary>
-
     [Ice.SliceTypeId("::IceStorm::ReapWouldBlock")]
     public partial class ReapWouldBlock : Ice.UserException
     {
@@ -123,19 +123,22 @@ namespace IceStorm
         /// <summary>
         /// Retrieve a proxy to the TopicLink interface.
         /// </summary>
-        /// <returns>The TopicLink for the Topic.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The TopicLink for the Topic.
+        /// </returns>
         TopicLinkPrx? getLinkProxy(Ice.Current current);
 
         /// <summary>
         /// Reap the given identities.
         /// </summary>
-        /// <param name="id">The sequence of identities.
-        ///  </param>
-        /// <exception name="ReapWouldBlock">Raised if the reap call would block.</exception>
+        /// <param name="id">
+        /// The sequence of identities.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <exception cref="IceStorm.ReapWouldBlock">
+        /// Raised if the reap call would block.
+        /// </exception>
         void reap(global::Ice.Identity[] id, Ice.Current current);
     }
 
@@ -145,9 +148,10 @@ namespace IceStorm
         /// <summary>
         /// Return the replica node proxy for this topic manager.
         /// </summary>
-        /// <returns>The replica proxy, or null if this instance is not replicated.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The replica proxy, or null if this instance is not replicated.
+        /// </returns>
         global::IceStormElection.NodePrx? getReplicaNode(Ice.Current current);
     }
 }
@@ -155,43 +159,46 @@ namespace IceStorm
 namespace IceStorm
 {
     /// <summary>
-    /// The TopicLink interface.
-    /// This is used to forward events between federated Topic instances.
+    /// The TopicLink interface. This is used to forward events between federated Topic instances.
     /// </summary>
-
+    /// <seealso cref="TopicInternal" />
     public interface TopicLinkPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Forward a sequence of events.
         /// </summary>
-        /// <param name="events">The events to forward.</param>
+        /// <param name="events">
+        /// The events to forward.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void forward(EventData[] events, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Forward a sequence of events.
         /// </summary>
-        /// <param name="events">The events to forward.</param>
+        /// <param name="events">
+        /// The events to forward.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task forwardAsync(EventData[] events, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
     /// Internal operations for a topic.
     /// </summary>
-
+    /// <seealso cref="Topic" />
     public interface TopicInternalPrx : TopicPrx
     {
         /// <summary>
         /// Retrieve a proxy to the TopicLink interface.
         /// </summary>
-        /// <returns>The TopicLink for the Topic.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The TopicLink for the Topic.
+        /// </returns>
         TopicLinkPrx? getLinkProxy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -200,43 +207,50 @@ namespace IceStorm
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<TopicLinkPrx?> getLinkProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Reap the given identities.
         /// </summary>
-        /// <param name="id">The sequence of identities.
-        ///  </param>
-        /// <exception name="ReapWouldBlock">Raised if the reap call would block.</exception>
+        /// <param name="id">
+        /// The sequence of identities.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="IceStorm.ReapWouldBlock">
+        /// Raised if the reap call would block.
+        /// </exception>
         void reap(global::Ice.Identity[] id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Reap the given identities.
         /// </summary>
-        /// <param name="id">The sequence of identities.
-        ///  </param>
+        /// <param name="id">
+        /// The sequence of identities.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceStorm.ReapWouldBlock">
+        /// Raised if the reap call would block.
+        /// </exception>
         global::System.Threading.Tasks.Task reapAsync(global::Ice.Identity[] id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
     /// Internal operations for a topic manager.
     /// </summary>
-
+    /// <seealso cref="TopicManager" />
     public interface TopicManagerInternalPrx : TopicManagerPrx
     {
         /// <summary>
         /// Return the replica node proxy for this topic manager.
         /// </summary>
-        /// <returns>The replica proxy, or null if this instance is not replicated.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The replica proxy, or null if this instance is not replicated.
+        /// </returns>
         global::IceStormElection.NodePrx? getReplicaNode(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -245,7 +259,7 @@ namespace IceStorm
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::IceStormElection.NodePrx?> getReplicaNodeAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

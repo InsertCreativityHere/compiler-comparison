@@ -28,33 +28,27 @@ namespace DataStormContract
     /// <summary>
     /// Defines policies for clearing the data sample history of a reader in response to sample events.
     /// </summary>
-
     public enum ClearHistoryPolicy
     {
         /// <summary>
         /// The reader clears its history when a new data sample is added.
         /// </summary>
-
         OnAdd,
         /// <summary>
         /// The reader clears its history when a data sample is removed.
         /// </summary>
-
         OnRemove,
         /// <summary>
         /// The reader clears its history when any data sample event occurs.
         /// </summary>
-
         OnAll,
         /// <summary>
         /// The reader clears its history for all data sample events except for partial update events.
         /// </summary>
-
         OnAllExceptPartialUpdate,
         /// <summary>
         /// The reader never clears its history.
         /// </summary>
-
         Never
     }
 
@@ -735,144 +729,162 @@ namespace DataStormContract
     {
         /// <summary>
         /// Announces topics to the peer during session establishment or when adding new topics.
+        ///
         /// - During session establishment, announces existing topics.
-        ///  - For established sessions, announces newly added topics.
+        /// - For established sessions, announces newly added topics.
         ///
-        ///  A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
+        /// A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
         ///
-        ///  The receiving peer invokes attachTopic for topics it is interested in.
-        ///
+        /// The receiving peer invokes attachTopic for topics it is interested in.
         /// </summary>
-        ///  <param name="topics">The sequence of topics to announce.
-        ///  </param>
-        /// <param name="initialize">Currently unused.
-        ///  </param>
+        /// <param name="topics">
+        /// The sequence of topics to announce.
+        /// </param>
+        /// <param name="initialize">
+        /// Currently unused.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <seealso cref="attachTopic" />
         void announceTopics(TopicInfo[] topics, bool initialize, Ice.Current current);
 
         /// <summary>
-        /// This operation is invoked if the session is interested in the announced topic.
-        /// Which occurs when:
+        /// This operation is invoked if the session is interested in the announced topic. Which occurs when:
         ///
-        ///  - The session has a reader for a topic that the peer writes, or
-        ///  - The session has a writer for a topic that the peer reads.
-        ///
+        /// - The session has a reader for a topic that the peer writes, or
+        /// - The session has a writer for a topic that the peer reads.
         /// </summary>
-        ///  <param name="topic">The TopicSpec describing the topic to attach.</param>
+        /// <param name="topic">
+        /// The TopicSpec describing the topic to attach.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void attachTopic(TopicSpec topic, Ice.Current current);
 
         /// <summary>
         /// Detaches a topic from the session, typically called when the topic is destroyed.
-        /// This operation is invoked by the topic on listener sessions during its destruction.
         ///
+        /// This operation is invoked by the topic on listener sessions during its destruction.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to detach.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to detach.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void detachTopic(long topicId, Ice.Current current);
 
         /// <summary>
         /// Attaches the specified tags to the subscriber of a topic.
-        /// Tags are used to support partial update samples.
         ///
+        /// Tags are used to support partial update samples.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the tags will be attached.
-        ///  </param>
-        /// <param name="tags">The sequence of tags to attach, representing the partial update associations.
-        ///  </param>
-        /// <param name="initialize">Indicates whether the tags are being attached during session initialization.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the tags will be attached.
+        /// </param>
+        /// <param name="tags">
+        /// The sequence of tags to attach, representing the partial update associations.
+        /// </param>
+        /// <param name="initialize">
+        /// Indicates whether the tags are being attached during session initialization.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void attachTags(long topicId, ElementInfo[] tags, bool initialize, Ice.Current current);
 
         /// <summary>
         /// Detaches tags from the session.
         /// </summary>
-        /// <param name="topicId">The unique identifier for the topic.
-        ///  </param>
-        /// <param name="tags">The sequence of tag identifiers to detach.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic.
+        /// </param>
+        /// <param name="tags">
+        /// The sequence of tag identifiers to detach.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void detachTags(long topicId, long[] tags, Ice.Current current);
 
         /// <summary>
         /// Announces elements associated with a topic to the peer.
+        ///
         /// This operation informs the peer about new data readers or data writers associated with the specified topic.
-        ///  The receiving peer will invoke `attachElements` for any elements it is interested in.
+        /// The receiving peer will invoke `attachElements` for any elements it is interested in.
         ///
-        ///  - A publisher session announces its data writers.
-        ///  - A subscriber session announces its data readers.
-        ///
+        /// - A publisher session announces its data writers.
+        /// - A subscriber session announces its data readers.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
-        ///  </param>
-        /// <param name="elements">The sequence of elements to announce, representing the data readers or data writers.
-        ///  </param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the elements belong.
+        /// </param>
+        /// <param name="elements">
+        /// The sequence of elements to announce, representing the data readers or data writers.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <seealso cref="attachElements" />
         void announceElements(long topicId, ElementInfo[] elements, Ice.Current current);
 
         /// <summary>
         /// Attaches the specified elements to the subscribers of a topic.
-        /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
-        ///  topic.
         ///
+        /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+        /// topic.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
-        ///  </param>
-        /// <param name="elements">The sequence of `ElementSpec` objects representing the elements to attach.
-        ///  </param>
-        /// <param name="initialize">Indicates whether the elements are being attached during session initialization.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the elements belong.
+        /// </param>
+        /// <param name="elements">
+        /// The sequence of `ElementSpec` objects representing the elements to attach.
+        /// </param>
+        /// <param name="initialize">
+        /// Indicates whether the elements are being attached during session initialization.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void attachElements(long topicId, ElementSpec[] elements, bool initialize, Ice.Current current);
 
         /// <summary>
         /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
-        /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
-        ///  to the session.
         ///
+        /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
+        /// to the session.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
-        ///  </param>
-        /// <param name="elements">A sequence of `ElementSpecAck` objects representing the confirmed attachments.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the elements belong.
+        /// </param>
+        /// <param name="elements">
+        /// A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void attachElementsAck(long topicId, ElementSpecAck[] elements, Ice.Current current);
 
         /// <summary>
         /// Instructs the peer to detach specific elements associated with a topic.
-        /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
-        ///  and should be removed from the peer's session.
         ///
+        /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+        /// and should be removed from the peer's session.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
-        ///  </param>
-        /// <param name="elements">A sequence of element identifiers representing the keys or filters to detach.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the elements belong.
+        /// </param>
+        /// <param name="elements">
+        /// A sequence of element identifiers representing the keys or filters to detach.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void detachElements(long topicId, long[] elements, Ice.Current current);
 
         /// <summary>
         /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
         /// </summary>
-        /// <param name="topicId">The unique identifier for the topic.
-        ///  </param>
-        /// <param name="samples">A sequence of `DataSamples` containing the queued samples to initialize the subscriber.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic.
+        /// </param>
+        /// <param name="samples">
+        /// A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void initSamples(long topicId, DataSamples[] samples, Ice.Current current);
 
         /// <summary>
         /// Notifies the peer that the session is being disconnected.
+        ///
         /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
-        ///  between the relay node and the target node is lost.
+        /// between the relay node and the target node is lost.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void disconnected(Ice.Current current);
     }
 
@@ -887,13 +899,16 @@ namespace DataStormContract
         /// <summary>
         /// Queue a sample with the subscribers of the topic element.
         /// </summary>
-        /// <param name="topicId">The unique identifier for the topic to which the sample belong.
-        ///  </param>
-        /// <param name="elementId">The unique identifier for the element to which the sample belong.
-        ///  </param>
-        /// <param name="sample">The sample to queue.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the sample belong.
+        /// </param>
+        /// <param name="elementId">
+        /// The unique identifier for the element to which the sample belong.
+        /// </param>
+        /// <param name="sample">
+        /// The sample to queue.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void s(long topicId, long elementId, DataSample sample, Ice.Current current);
     }
 
@@ -902,45 +917,49 @@ namespace DataStormContract
     {
         /// <summary>
         /// Initiate the creation of a publisher session with a node, after the target node has announced a topic
-        ///  reader for which this node has a corresponding topic writer.
+        /// reader for which this node has a corresponding topic writer.
         /// </summary>
-        /// <param name="publisher">The publisher node initiating the session. The proxy is never null.
-        ///  </param>
+        /// <param name="publisher">
+        /// The publisher node initiating the session. The proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <seealso cref="Lookup::announceTopicReader" />
         void initiateCreateSession(NodePrx? publisher, Ice.Current current);
 
         /// <summary>
-        /// Initiates the creation of a subscriber session with a node.
-        /// The subscriber node sends this request to a
-        ///  publisher node in one of the following scenarios:
+        /// Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
+        /// publisher node in one of the following scenarios:
         ///
-        ///  - The subscriber has received a topic writer announcement from the publisher and has a matching topic
-        ///  reader.
-        ///  - The publisher node has previously sent a initiateCreateSession request.
+        /// - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+        /// reader.
+        /// - The publisher node has previously sent a initiateCreateSession request.
         ///
-        ///  The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
-        ///  to continue session establishment. If an active session already exists with the subscriber node, the
-        ///  request is ignored.
-        ///
+        /// The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+        /// to continue session establishment. If an active session already exists with the subscriber node, the
+        /// request is ignored.
         /// </summary>
-        ///  <param name="subscriber">The subscriber node initiating the session. This proxy is never null.
-        ///  </param>
-        /// <param name="session">The subscriber session being created. This proxy is never null.
-        ///  </param>
-        /// <param name="fromRelay">Indicates whether the session is being created from a relay node.</param>
+        /// <param name="subscriber">
+        /// The subscriber node initiating the session. This proxy is never null.
+        /// </param>
+        /// <param name="session">
+        /// The subscriber session being created. This proxy is never null.
+        /// </param>
+        /// <param name="fromRelay">
+        /// Indicates whether the session is being created from a relay node.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void createSession(NodePrx? subscriber, SubscriberSessionPrx? session, bool fromRelay, Ice.Current current);
 
         /// <summary>
         /// Confirm the creation of a publisher session with a node.
         /// </summary>
-        /// <param name="publisher">The publisher node confirming the session. The proxy is never null.
-        ///  </param>
-        /// <param name="session">The publisher session being confirmed. The proxy is never null.</param>
+        /// <param name="publisher">
+        /// The publisher node confirming the session. The proxy is never null.
+        /// </param>
+        /// <param name="session">
+        /// The publisher session being confirmed. The proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void confirmCreateSession(NodePrx? publisher, PublisherSessionPrx? session, Ice.Current current);
     }
 
@@ -950,43 +969,52 @@ namespace DataStormContract
         /// <summary>
         /// Announce a topic reader.
         /// </summary>
-        /// <param name="topic">The name of the topic.
-        ///  </param>
-        /// <param name="subscriber">The node reading the topic. The subscriber proxy is never null.</param>
+        /// <param name="topic">
+        /// The name of the topic.
+        /// </param>
+        /// <param name="subscriber">
+        /// The node reading the topic. The subscriber proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void announceTopicReader(string topic, NodePrx? subscriber, Ice.Current current);
 
         /// <summary>
         /// Announce a topic writer.
         /// </summary>
-        /// <param name="topic">The name of the topic.
-        ///  </param>
-        /// <param name="node">The node writing the topic. The proxy is never null.</param>
+        /// <param name="topic">
+        /// The name of the topic.
+        /// </param>
+        /// <param name="node">
+        /// The node writing the topic. The proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void announceTopicWriter(string topic, NodePrx? node, Ice.Current current);
 
         /// <summary>
         /// Announce a set of topic readers and writers.
         /// </summary>
-        /// <param name="readers">A sequence of topic names for readers.
-        ///  </param>
-        /// <param name="writers">A sequence of topic names for writers.
-        ///  </param>
-        /// <param name="node">The node reading or writing the topics. The proxy is never null.</param>
+        /// <param name="readers">
+        /// A sequence of topic names for readers.
+        /// </param>
+        /// <param name="writers">
+        /// A sequence of topic names for writers.
+        /// </param>
+        /// <param name="node">
+        /// The node reading or writing the topics. The proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void announceTopics(string[] readers, string[] writers, NodePrx? node, Ice.Current current);
 
         /// <summary>
         /// Establish a connection between this node and the caller node.
         /// </summary>
-        /// <param name="node">The node initiating the connection. The proxy is never null.
-        ///  </param>
-        /// <returns>A proxy to this node. The proxy is never null.</returns>
+        /// <param name="node">
+        /// The node initiating the connection. The proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A proxy to this node. The proxy is never null.
+        /// </returns>
         NodePrx? createSession(NodePrx? node, Ice.Current current);
     }
 }
@@ -995,299 +1023,370 @@ namespace DataStormContract
 {
     /// <summary>
     /// The base interface for publisher and subscriber sessions.
-    /// This interface specifies the operations for communication between publisher and subscriber sessions.
     ///
+    /// This interface specifies the operations for communication between publisher and subscriber sessions.
     /// </summary>
-
+    /// <seealso cref="PublisherSession" />
+    /// <seealso cref="SubscriberSession" />
     public interface SessionPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Announces topics to the peer during session establishment or when adding new topics.
+        ///
         /// - During session establishment, announces existing topics.
-        ///  - For established sessions, announces newly added topics.
+        /// - For established sessions, announces newly added topics.
         ///
-        ///  A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
+        /// A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
         ///
-        ///  The receiving peer invokes attachTopic for topics it is interested in.
-        ///
+        /// The receiving peer invokes attachTopic for topics it is interested in.
         /// </summary>
-        ///  <param name="topics">The sequence of topics to announce.
-        ///  </param>
-        /// <param name="initialize">Currently unused.
-        ///  </param>
+        /// <param name="topics">
+        /// The sequence of topics to announce.
+        /// </param>
+        /// <param name="initialize">
+        /// Currently unused.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <seealso cref="attachTopic" />
         void announceTopics(TopicInfo[] topics, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Announces topics to the peer during session establishment or when adding new topics.
+        ///
         /// - During session establishment, announces existing topics.
+        /// - For established sessions, announces newly added topics.
+        ///
+        /// A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
+        ///
+        /// The receiving peer invokes attachTopic for topics it is interested in.
         /// </summary>
-        ///  <param name="topics">The sequence of topics to announce.
-        ///  </param>
-        /// <param name="initialize">Currently unused.
-        ///  </param>
+        /// <param name="topics">
+        /// The sequence of topics to announce.
+        /// </param>
+        /// <param name="initialize">
+        /// Currently unused.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <seealso cref="attachTopic" />
         global::System.Threading.Tasks.Task announceTopicsAsync(TopicInfo[] topics, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// This operation is invoked if the session is interested in the announced topic.
-        /// Which occurs when:
+        /// This operation is invoked if the session is interested in the announced topic. Which occurs when:
         ///
-        ///  - The session has a reader for a topic that the peer writes, or
-        ///  - The session has a writer for a topic that the peer reads.
-        ///
+        /// - The session has a reader for a topic that the peer writes, or
+        /// - The session has a writer for a topic that the peer reads.
         /// </summary>
-        ///  <param name="topic">The TopicSpec describing the topic to attach.</param>
+        /// <param name="topic">
+        /// The TopicSpec describing the topic to attach.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void attachTopic(TopicSpec topic, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// This operation is invoked if the session is interested in the announced topic.
-        /// Which occurs when:
+        /// This operation is invoked if the session is interested in the announced topic. Which occurs when:
+        ///
+        /// - The session has a reader for a topic that the peer writes, or
+        /// - The session has a writer for a topic that the peer reads.
         /// </summary>
-        ///  <param name="topic">The TopicSpec describing the topic to attach.</param>
+        /// <param name="topic">
+        /// The TopicSpec describing the topic to attach.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task attachTopicAsync(TopicSpec topic, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Detaches a topic from the session, typically called when the topic is destroyed.
-        /// This operation is invoked by the topic on listener sessions during its destruction.
         ///
+        /// This operation is invoked by the topic on listener sessions during its destruction.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to detach.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to detach.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void detachTopic(long topicId, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Detaches a topic from the session, typically called when the topic is destroyed.
+        ///
         /// This operation is invoked by the topic on listener sessions during its destruction.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to detach.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to detach.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task detachTopicAsync(long topicId, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Attaches the specified tags to the subscriber of a topic.
-        /// Tags are used to support partial update samples.
         ///
+        /// Tags are used to support partial update samples.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the tags will be attached.
-        ///  </param>
-        /// <param name="tags">The sequence of tags to attach, representing the partial update associations.
-        ///  </param>
-        /// <param name="initialize">Indicates whether the tags are being attached during session initialization.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the tags will be attached.
+        /// </param>
+        /// <param name="tags">
+        /// The sequence of tags to attach, representing the partial update associations.
+        /// </param>
+        /// <param name="initialize">
+        /// Indicates whether the tags are being attached during session initialization.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void attachTags(long topicId, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Attaches the specified tags to the subscriber of a topic.
+        ///
         /// Tags are used to support partial update samples.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the tags will be attached.
-        ///  </param>
-        /// <param name="tags">The sequence of tags to attach, representing the partial update associations.
-        ///  </param>
-        /// <param name="initialize">Indicates whether the tags are being attached during session initialization.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the tags will be attached.
+        /// </param>
+        /// <param name="tags">
+        /// The sequence of tags to attach, representing the partial update associations.
+        /// </param>
+        /// <param name="initialize">
+        /// Indicates whether the tags are being attached during session initialization.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task attachTagsAsync(long topicId, ElementInfo[] tags, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Detaches tags from the session.
         /// </summary>
-        /// <param name="topicId">The unique identifier for the topic.
-        ///  </param>
-        /// <param name="tags">The sequence of tag identifiers to detach.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic.
+        /// </param>
+        /// <param name="tags">
+        /// The sequence of tag identifiers to detach.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void detachTags(long topicId, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Detaches tags from the session.
         /// </summary>
-        /// <param name="topicId">The unique identifier for the topic.
-        ///  </param>
-        /// <param name="tags">The sequence of tag identifiers to detach.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic.
+        /// </param>
+        /// <param name="tags">
+        /// The sequence of tag identifiers to detach.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task detachTagsAsync(long topicId, long[] tags, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Announces elements associated with a topic to the peer.
+        ///
         /// This operation informs the peer about new data readers or data writers associated with the specified topic.
-        ///  The receiving peer will invoke `attachElements` for any elements it is interested in.
+        /// The receiving peer will invoke `attachElements` for any elements it is interested in.
         ///
-        ///  - A publisher session announces its data writers.
-        ///  - A subscriber session announces its data readers.
-        ///
+        /// - A publisher session announces its data writers.
+        /// - A subscriber session announces its data readers.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
-        ///  </param>
-        /// <param name="elements">The sequence of elements to announce, representing the data readers or data writers.
-        ///  </param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the elements belong.
+        /// </param>
+        /// <param name="elements">
+        /// The sequence of elements to announce, representing the data readers or data writers.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <seealso cref="attachElements" />
         void announceElements(long topicId, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Announces elements associated with a topic to the peer.
+        ///
         /// This operation informs the peer about new data readers or data writers associated with the specified topic.
+        /// The receiving peer will invoke `attachElements` for any elements it is interested in.
+        ///
+        /// - A publisher session announces its data writers.
+        /// - A subscriber session announces its data readers.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
-        ///  </param>
-        /// <param name="elements">The sequence of elements to announce, representing the data readers or data writers.
-        ///  </param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the elements belong.
+        /// </param>
+        /// <param name="elements">
+        /// The sequence of elements to announce, representing the data readers or data writers.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <seealso cref="attachElements" />
         global::System.Threading.Tasks.Task announceElementsAsync(long topicId, ElementInfo[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Attaches the specified elements to the subscribers of a topic.
-        /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
-        ///  topic.
         ///
+        /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+        /// topic.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
-        ///  </param>
-        /// <param name="elements">The sequence of `ElementSpec` objects representing the elements to attach.
-        ///  </param>
-        /// <param name="initialize">Indicates whether the elements are being attached during session initialization.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the elements belong.
+        /// </param>
+        /// <param name="elements">
+        /// The sequence of `ElementSpec` objects representing the elements to attach.
+        /// </param>
+        /// <param name="initialize">
+        /// Indicates whether the elements are being attached during session initialization.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void attachElements(long topicId, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Attaches the specified elements to the subscribers of a topic.
+        ///
         /// This operation associates the provided elements, such as keys or filters, with the subscribers of the given
+        /// topic.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
-        ///  </param>
-        /// <param name="elements">The sequence of `ElementSpec` objects representing the elements to attach.
-        ///  </param>
-        /// <param name="initialize">Indicates whether the elements are being attached during session initialization.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the elements belong.
+        /// </param>
+        /// <param name="elements">
+        /// The sequence of `ElementSpec` objects representing the elements to attach.
+        /// </param>
+        /// <param name="initialize">
+        /// Indicates whether the elements are being attached during session initialization.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task attachElementsAsync(long topicId, ElementSpec[] elements, bool initialize, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
-        /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
-        ///  to the session.
         ///
+        /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
+        /// to the session.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
-        ///  </param>
-        /// <param name="elements">A sequence of `ElementSpecAck` objects representing the confirmed attachments.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the elements belong.
+        /// </param>
+        /// <param name="elements">
+        /// A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void attachElementsAck(long topicId, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+        ///
         /// This method confirms that the specified elements, such as keys or filters, have been successfully attached
+        /// to the session.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
-        ///  </param>
-        /// <param name="elements">A sequence of `ElementSpecAck` objects representing the confirmed attachments.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the elements belong.
+        /// </param>
+        /// <param name="elements">
+        /// A sequence of `ElementSpecAck` objects representing the confirmed attachments.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task attachElementsAckAsync(long topicId, ElementSpecAck[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Instructs the peer to detach specific elements associated with a topic.
-        /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
-        ///  and should be removed from the peer's session.
         ///
+        /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+        /// and should be removed from the peer's session.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
-        ///  </param>
-        /// <param name="elements">A sequence of element identifiers representing the keys or filters to detach.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the elements belong.
+        /// </param>
+        /// <param name="elements">
+        /// A sequence of element identifiers representing the keys or filters to detach.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void detachElements(long topicId, long[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Instructs the peer to detach specific elements associated with a topic.
+        ///
         /// This operation is invoked when the specified elements, such as keys or filters, are no longer valid
+        /// and should be removed from the peer's session.
         /// </summary>
-        ///  <param name="topicId">The unique identifier for the topic to which the elements belong.
-        ///  </param>
-        /// <param name="elements">A sequence of element identifiers representing the keys or filters to detach.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the elements belong.
+        /// </param>
+        /// <param name="elements">
+        /// A sequence of element identifiers representing the keys or filters to detach.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task detachElementsAsync(long topicId, long[] elements, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
         /// </summary>
-        /// <param name="topicId">The unique identifier for the topic.
-        ///  </param>
-        /// <param name="samples">A sequence of `DataSamples` containing the queued samples to initialize the subscriber.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic.
+        /// </param>
+        /// <param name="samples">
+        /// A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void initSamples(long topicId, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Initializes the subscriber with the publisher queued samples for a topic during session establishment.
         /// </summary>
-        /// <param name="topicId">The unique identifier for the topic.
-        ///  </param>
-        /// <param name="samples">A sequence of `DataSamples` containing the queued samples to initialize the subscriber.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic.
+        /// </param>
+        /// <param name="samples">
+        /// A sequence of `DataSamples` containing the queued samples to initialize the subscriber.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task initSamplesAsync(long topicId, DataSamples[] samples, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Notifies the peer that the session is being disconnected.
+        ///
         /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
-        ///  between the relay node and the target node is lost.
+        /// between the relay node and the target node is lost.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void disconnected(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Notifies the peer that the session is being disconnected.
+        ///
         /// For sessions established through a relay node, this operation is invoked by the relay node if the connection
+        /// between the relay node and the target node is lost.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task disconnectedAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
     /// The PublisherSession servant is hosted by the publisher node and is accessed by the subscriber node.
     /// </summary>
-
     public interface PublisherSessionPrx : SessionPrx
     {
     }
@@ -1295,230 +1394,275 @@ namespace DataStormContract
     /// <summary>
     /// The SubscriberSession servant is hosted by the subscriber node and is accessed by the publisher node.
     /// </summary>
-
     public interface SubscriberSessionPrx : SessionPrx
     {
         /// <summary>
         /// Queue a sample with the subscribers of the topic element.
         /// </summary>
-        /// <param name="topicId">The unique identifier for the topic to which the sample belong.
-        ///  </param>
-        /// <param name="elementId">The unique identifier for the element to which the sample belong.
-        ///  </param>
-        /// <param name="sample">The sample to queue.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the sample belong.
+        /// </param>
+        /// <param name="elementId">
+        /// The unique identifier for the element to which the sample belong.
+        /// </param>
+        /// <param name="sample">
+        /// The sample to queue.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void s(long topicId, long elementId, DataSample sample, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Queue a sample with the subscribers of the topic element.
         /// </summary>
-        /// <param name="topicId">The unique identifier for the topic to which the sample belong.
-        ///  </param>
-        /// <param name="elementId">The unique identifier for the element to which the sample belong.
-        ///  </param>
-        /// <param name="sample">The sample to queue.</param>
+        /// <param name="topicId">
+        /// The unique identifier for the topic to which the sample belong.
+        /// </param>
+        /// <param name="elementId">
+        /// The unique identifier for the element to which the sample belong.
+        /// </param>
+        /// <param name="sample">
+        /// The sample to queue.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task sAsync(long topicId, long elementId, DataSample sample, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
     /// The Node interface allows DataStorm nodes to create publisher and subscriber sessions with each other.
-    /// When a node has a writer for a topic that another node is reading, the node initiates the creation of a
-    ///  publisher session. Likewise, when a node has a reader for a topic that another node is writing, the node
-    ///  initiates the creation of a subscriber session.
     ///
-    ///  The publisher node hosts the publisher session servant, which is accessed by the subscriber node through a
-    ///  PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
-    ///  publisher node through a SubscriberSession proxy.
+    /// When a node has a writer for a topic that another node is reading, the node initiates the creation of a
+    /// publisher session. Likewise, when a node has a reader for a topic that another node is writing, the node
+    /// initiates the creation of a subscriber session.
+    ///
+    /// The publisher node hosts the publisher session servant, which is accessed by the subscriber node through a
+    /// PublisherSession proxy. The subscriber node hosts the subscriber session servant, which is accessed by the
+    /// publisher node through a SubscriberSession proxy.
     /// </summary>
-
     public interface NodePrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Initiate the creation of a publisher session with a node, after the target node has announced a topic
-        ///  reader for which this node has a corresponding topic writer.
+        /// reader for which this node has a corresponding topic writer.
         /// </summary>
-        /// <param name="publisher">The publisher node initiating the session. The proxy is never null.
-        ///  </param>
+        /// <param name="publisher">
+        /// The publisher node initiating the session. The proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <seealso cref="Lookup::announceTopicReader" />
         void initiateCreateSession(NodePrx? publisher, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Initiate the creation of a publisher session with a node, after the target node has announced a topic
-        ///  reader for which this node has a corresponding topic writer.
+        /// reader for which this node has a corresponding topic writer.
         /// </summary>
-        /// <param name="publisher">The publisher node initiating the session. The proxy is never null.
-        ///  </param>
+        /// <param name="publisher">
+        /// The publisher node initiating the session. The proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <seealso cref="Lookup::announceTopicReader" />
         global::System.Threading.Tasks.Task initiateCreateSessionAsync(NodePrx? publisher, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Initiates the creation of a subscriber session with a node.
-        /// The subscriber node sends this request to a
-        ///  publisher node in one of the following scenarios:
+        /// Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
+        /// publisher node in one of the following scenarios:
         ///
-        ///  - The subscriber has received a topic writer announcement from the publisher and has a matching topic
-        ///  reader.
-        ///  - The publisher node has previously sent a initiateCreateSession request.
+        /// - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+        /// reader.
+        /// - The publisher node has previously sent a initiateCreateSession request.
         ///
-        ///  The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
-        ///  to continue session establishment. If an active session already exists with the subscriber node, the
-        ///  request is ignored.
-        ///
+        /// The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+        /// to continue session establishment. If an active session already exists with the subscriber node, the
+        /// request is ignored.
         /// </summary>
-        ///  <param name="subscriber">The subscriber node initiating the session. This proxy is never null.
-        ///  </param>
-        /// <param name="session">The subscriber session being created. This proxy is never null.
-        ///  </param>
-        /// <param name="fromRelay">Indicates whether the session is being created from a relay node.</param>
+        /// <param name="subscriber">
+        /// The subscriber node initiating the session. This proxy is never null.
+        /// </param>
+        /// <param name="session">
+        /// The subscriber session being created. This proxy is never null.
+        /// </param>
+        /// <param name="fromRelay">
+        /// Indicates whether the session is being created from a relay node.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void createSession(NodePrx? subscriber, SubscriberSessionPrx? session, bool fromRelay, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Initiates the creation of a subscriber session with a node.
-        /// The subscriber node sends this request to a
+        /// Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
+        /// publisher node in one of the following scenarios:
+        ///
+        /// - The subscriber has received a topic writer announcement from the publisher and has a matching topic
+        /// reader.
+        /// - The publisher node has previously sent a initiateCreateSession request.
+        ///
+        /// The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
+        /// to continue session establishment. If an active session already exists with the subscriber node, the
+        /// request is ignored.
         /// </summary>
-        ///  <param name="subscriber">The subscriber node initiating the session. This proxy is never null.
-        ///  </param>
-        /// <param name="session">The subscriber session being created. This proxy is never null.
-        ///  </param>
-        /// <param name="fromRelay">Indicates whether the session is being created from a relay node.</param>
+        /// <param name="subscriber">
+        /// The subscriber node initiating the session. This proxy is never null.
+        /// </param>
+        /// <param name="session">
+        /// The subscriber session being created. This proxy is never null.
+        /// </param>
+        /// <param name="fromRelay">
+        /// Indicates whether the session is being created from a relay node.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task createSessionAsync(NodePrx? subscriber, SubscriberSessionPrx? session, bool fromRelay, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Confirm the creation of a publisher session with a node.
         /// </summary>
-        /// <param name="publisher">The publisher node confirming the session. The proxy is never null.
-        ///  </param>
-        /// <param name="session">The publisher session being confirmed. The proxy is never null.</param>
+        /// <param name="publisher">
+        /// The publisher node confirming the session. The proxy is never null.
+        /// </param>
+        /// <param name="session">
+        /// The publisher session being confirmed. The proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void confirmCreateSession(NodePrx? publisher, PublisherSessionPrx? session, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Confirm the creation of a publisher session with a node.
         /// </summary>
-        /// <param name="publisher">The publisher node confirming the session. The proxy is never null.
-        ///  </param>
-        /// <param name="session">The publisher session being confirmed. The proxy is never null.</param>
+        /// <param name="publisher">
+        /// The publisher node confirming the session. The proxy is never null.
+        /// </param>
+        /// <param name="session">
+        /// The publisher session being confirmed. The proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task confirmCreateSessionAsync(NodePrx? publisher, PublisherSessionPrx? session, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
     /// The lookup interface is used by DataStorm nodes to announce their topic readers and writers to other connected
-    ///  nodes.
-    /// When multicast is enabled, the lookup interface also broadcasts these announcements.
-    ///  Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
+    /// nodes. When multicast is enabled, the lookup interface also broadcasts these announcements.
+    /// Each DataStorm node hosts a lookup servant with the identity "DataStorm/Lookup".
     /// </summary>
-
     public interface LookupPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Announce a topic reader.
         /// </summary>
-        /// <param name="topic">The name of the topic.
-        ///  </param>
-        /// <param name="subscriber">The node reading the topic. The subscriber proxy is never null.</param>
+        /// <param name="topic">
+        /// The name of the topic.
+        /// </param>
+        /// <param name="subscriber">
+        /// The node reading the topic. The subscriber proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void announceTopicReader(string topic, NodePrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Announce a topic reader.
         /// </summary>
-        /// <param name="topic">The name of the topic.
-        ///  </param>
-        /// <param name="subscriber">The node reading the topic. The subscriber proxy is never null.</param>
+        /// <param name="topic">
+        /// The name of the topic.
+        /// </param>
+        /// <param name="subscriber">
+        /// The node reading the topic. The subscriber proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task announceTopicReaderAsync(string topic, NodePrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Announce a topic writer.
         /// </summary>
-        /// <param name="topic">The name of the topic.
-        ///  </param>
-        /// <param name="node">The node writing the topic. The proxy is never null.</param>
+        /// <param name="topic">
+        /// The name of the topic.
+        /// </param>
+        /// <param name="node">
+        /// The node writing the topic. The proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void announceTopicWriter(string topic, NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Announce a topic writer.
         /// </summary>
-        /// <param name="topic">The name of the topic.
-        ///  </param>
-        /// <param name="node">The node writing the topic. The proxy is never null.</param>
+        /// <param name="topic">
+        /// The name of the topic.
+        /// </param>
+        /// <param name="node">
+        /// The node writing the topic. The proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task announceTopicWriterAsync(string topic, NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Announce a set of topic readers and writers.
         /// </summary>
-        /// <param name="readers">A sequence of topic names for readers.
-        ///  </param>
-        /// <param name="writers">A sequence of topic names for writers.
-        ///  </param>
-        /// <param name="node">The node reading or writing the topics. The proxy is never null.</param>
+        /// <param name="readers">
+        /// A sequence of topic names for readers.
+        /// </param>
+        /// <param name="writers">
+        /// A sequence of topic names for writers.
+        /// </param>
+        /// <param name="node">
+        /// The node reading or writing the topics. The proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void announceTopics(string[] readers, string[] writers, NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Announce a set of topic readers and writers.
         /// </summary>
-        /// <param name="readers">A sequence of topic names for readers.
-        ///  </param>
-        /// <param name="writers">A sequence of topic names for writers.
-        ///  </param>
-        /// <param name="node">The node reading or writing the topics. The proxy is never null.</param>
+        /// <param name="readers">
+        /// A sequence of topic names for readers.
+        /// </param>
+        /// <param name="writers">
+        /// A sequence of topic names for writers.
+        /// </param>
+        /// <param name="node">
+        /// The node reading or writing the topics. The proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task announceTopicsAsync(string[] readers, string[] writers, NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Establish a connection between this node and the caller node.
         /// </summary>
-        /// <param name="node">The node initiating the connection. The proxy is never null.
-        ///  </param>
-        /// <returns>A proxy to this node. The proxy is never null.</returns>
+        /// <param name="node">
+        /// The node initiating the connection. The proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy to this node. The proxy is never null.
+        /// </returns>
         NodePrx? createSession(NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Establish a connection between this node and the caller node.
         /// </summary>
-        /// <param name="node">The node initiating the connection. The proxy is never null.
-        ///  </param>
+        /// <param name="node">
+        /// The node initiating the connection. The proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<NodePrx?> createSessionAsync(NodePrx? node, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

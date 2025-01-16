@@ -26,33 +26,27 @@
 namespace DataStorm
 {
     /// <summary>
-    /// The sample event matches the operation used by the DataWriter to update the data element.
-    /// It also provides
-    ///  information on what to expect from the sample. A sample with the Add or Update event always provide a value
-    ///  while a sample with the Remove type doesn't.
+    /// The sample event matches the operation used by the DataWriter to update the data element. It also provides
+    /// information on what to expect from the sample. A sample with the Add or Update event always provide a value
+    /// while a sample with the Remove type doesn't.
     /// </summary>
-
     public enum SampleEvent
     {
         /// <summary>
         /// The element has been added.
         /// </summary>
-
         Add,
         /// <summary>
         /// The element has been updated.
         /// </summary>
-
         Update,
         /// <summary>
         /// The element has been partially updated.
         /// </summary>
-
         PartialUpdate,
         /// <summary>
         /// The element has been removed.
         /// </summary>
-
         Remove
     }
 

@@ -32,17 +32,19 @@ namespace Ice
         /// Initiate a graceful shut-down.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <seealso cref="Communicator.shutdown" />
         void shutdown(Ice.Current current);
 
         /// <summary>
         /// Write a message on the process' stdout or stderr.
         /// </summary>
-        /// <param name="message">The message.
-        ///  </param>
-        /// <param name="fd">1 for stdout, 2 for stderr.</param>
+        /// <param name="message">
+        /// The message.
+        /// </param>
+        /// <param name="fd">
+        /// 1 for stdout, 2 for stderr.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void writeMessage(string message, int fd, Ice.Current current);
     }
 }
@@ -50,20 +52,18 @@ namespace Ice
 namespace Ice
 {
     /// <summary>
-    /// An administrative interface for process management.
-    /// Managed servers must implement this interface.
-    ///  &lt;p class="Note"&gt;A servant implementing this interface is a potential target for denial-of-service attacks,
-    ///  therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
-    ///  identity harder to guess, and be registered in an object adapter with a secured endpoint.
+    /// An administrative interface for process management. Managed servers must implement this interface.
+    /// A servant implementing this interface is a potential target for denial-of-service attacks,
+    /// therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+    /// identity harder to guess, and be registered in an object adapter with a secured endpoint.
     /// </summary>
-
     public interface ProcessPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Initiate a graceful shut-down.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <seealso cref="Communicator.shutdown" />
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -72,29 +72,35 @@ namespace Ice
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <seealso cref="Communicator.shutdown" />
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Write a message on the process' stdout or stderr.
         /// </summary>
-        /// <param name="message">The message.
-        ///  </param>
-        /// <param name="fd">1 for stdout, 2 for stderr.</param>
+        /// <param name="message">
+        /// The message.
+        /// </param>
+        /// <param name="fd">
+        /// 1 for stdout, 2 for stderr.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void writeMessage(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Write a message on the process' stdout or stderr.
         /// </summary>
-        /// <param name="message">The message.
-        ///  </param>
-        /// <param name="fd">1 for stdout, 2 for stderr.</param>
+        /// <param name="message">
+        /// The message.
+        /// </param>
+        /// <param name="fd">
+        /// 1 for stdout, 2 for stderr.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

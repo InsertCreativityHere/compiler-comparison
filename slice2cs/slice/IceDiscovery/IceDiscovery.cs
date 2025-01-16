@@ -31,24 +31,29 @@ namespace IceDiscovery
         /// <summary>
         /// Reply to the findObjectById request.
         /// </summary>
-        /// <param name="id">The identity of the object.
-        ///  </param>
-        /// <param name="prx">The proxy of the object. This proxy is never null.</param>
+        /// <param name="id">
+        /// The identity of the object.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the object. This proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, Ice.Current current);
 
         /// <summary>
         /// Reply to the findAdpaterById request.
         /// </summary>
-        /// <param name="id">The adapter ID.
-        ///  </param>
-        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-        ///  endpoints. This proxy is never null.
-        ///  </param>
-        /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
+        /// <param name="id">
+        /// The adapter ID.
+        /// </param>
+        /// <param name="prx">
+        /// The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+        /// endpoints. This proxy is never null.
+        /// </param>
+        /// <param name="isReplicaGroup">
+        /// True if the adapter is also a member of a replica group.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void foundAdapterById(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, Ice.Current current);
     }
 
@@ -58,29 +63,35 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an Ice object
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-        ///  matching domain identifier.
-        ///  </param>
-        /// <param name="id">The object identity.
-        ///  </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  object is found. The reply proxy is never null.</param>
+        /// <param name="domainId">
+        /// The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        /// matching domain identifier.
+        /// </param>
+        /// <param name="id">
+        /// The object identity.
+        /// </param>
+        /// <param name="reply">
+        /// The proxy of the LookupReply interface that should be used to send the reply if a matching
+        /// object is found. The reply proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, Ice.Current current);
 
         /// <summary>
         /// Request to find an object adapter
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-        ///  matching domain identifier.
-        ///  </param>
-        /// <param name="id">The adapter ID.
-        ///  </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  adapter is found. The reply proxy is never null.</param>
+        /// <param name="domainId">
+        /// The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        /// matching domain identifier.
+        /// </param>
+        /// <param name="id">
+        /// The adapter ID.
+        /// </param>
+        /// <param name="reply">
+        /// The proxy of the LookupReply interface that should be used to send the reply if a matching
+        /// adapter is found. The reply proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void findAdapterById(string domainId, string id, LookupReplyPrx? reply, Ice.Current current);
     }
 }
@@ -90,124 +101,148 @@ namespace IceDiscovery
     /// <summary>
     /// The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
     /// </summary>
-
     public interface LookupReplyPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Reply to the findObjectById request.
         /// </summary>
-        /// <param name="id">The identity of the object.
-        ///  </param>
-        /// <param name="prx">The proxy of the object. This proxy is never null.</param>
+        /// <param name="id">
+        /// The identity of the object.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the object. This proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Reply to the findObjectById request.
         /// </summary>
-        /// <param name="id">The identity of the object.
-        ///  </param>
-        /// <param name="prx">The proxy of the object. This proxy is never null.</param>
+        /// <param name="id">
+        /// The identity of the object.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the object. This proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task foundObjectByIdAsync(global::Ice.Identity id, global::Ice.ObjectPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Reply to the findAdpaterById request.
         /// </summary>
-        /// <param name="id">The adapter ID.
-        ///  </param>
-        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-        ///  endpoints. This proxy is never null.
-        ///  </param>
-        /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
+        /// <param name="id">
+        /// The adapter ID.
+        /// </param>
+        /// <param name="prx">
+        /// The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+        /// endpoints. This proxy is never null.
+        /// </param>
+        /// <param name="isReplicaGroup">
+        /// True if the adapter is also a member of a replica group.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void foundAdapterById(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Reply to the findAdpaterById request.
         /// </summary>
-        /// <param name="id">The adapter ID.
-        ///  </param>
-        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-        ///  endpoints. This proxy is never null.
-        ///  </param>
-        /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
+        /// <param name="id">
+        /// The adapter ID.
+        /// </param>
+        /// <param name="prx">
+        /// The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+        /// endpoints. This proxy is never null.
+        /// </param>
+        /// <param name="isReplicaGroup">
+        /// True if the adapter is also a member of a replica group.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task foundAdapterByIdAsync(string id, global::Ice.ObjectPrx? prx, bool isReplicaGroup, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
     /// The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
     /// </summary>
-
     public interface LookupPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Request to find an Ice object
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-        ///  matching domain identifier.
-        ///  </param>
-        /// <param name="id">The object identity.
-        ///  </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  object is found. The reply proxy is never null.</param>
+        /// <param name="domainId">
+        /// The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        /// matching domain identifier.
+        /// </param>
+        /// <param name="id">
+        /// The object identity.
+        /// </param>
+        /// <param name="reply">
+        /// The proxy of the LookupReply interface that should be used to send the reply if a matching
+        /// object is found. The reply proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Request to find an Ice object
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-        ///  matching domain identifier.
-        ///  </param>
-        /// <param name="id">The object identity.
-        ///  </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  object is found. The reply proxy is never null.</param>
+        /// <param name="domainId">
+        /// The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        /// matching domain identifier.
+        /// </param>
+        /// <param name="id">
+        /// The object identity.
+        /// </param>
+        /// <param name="reply">
+        /// The proxy of the LookupReply interface that should be used to send the reply if a matching
+        /// object is found. The reply proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task findObjectByIdAsync(string domainId, global::Ice.Identity id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Request to find an object adapter
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-        ///  matching domain identifier.
-        ///  </param>
-        /// <param name="id">The adapter ID.
-        ///  </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  adapter is found. The reply proxy is never null.</param>
+        /// <param name="domainId">
+        /// The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        /// matching domain identifier.
+        /// </param>
+        /// <param name="id">
+        /// The adapter ID.
+        /// </param>
+        /// <param name="reply">
+        /// The proxy of the LookupReply interface that should be used to send the reply if a matching
+        /// adapter is found. The reply proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void findAdapterById(string domainId, string id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Request to find an object adapter
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
-        ///  matching domain identifier.
-        ///  </param>
-        /// <param name="id">The adapter ID.
-        ///  </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  adapter is found. The reply proxy is never null.</param>
+        /// <param name="domainId">
+        /// The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        /// matching domain identifier.
+        /// </param>
+        /// <param name="id">
+        /// The adapter ID.
+        /// </param>
+        /// <param name="reply">
+        /// The proxy of the LookupReply interface that should be used to send the reply if a matching
+        /// adapter is found. The reply proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task findAdapterByIdAsync(string domainId, string id, LookupReplyPrx? reply, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

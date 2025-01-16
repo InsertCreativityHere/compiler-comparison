@@ -130,7 +130,6 @@ namespace IceMX
     /// <summary>
     /// Raised if a metrics view cannot be found.
     /// </summary>
-
     [Ice.SliceTypeId("::IceMX::UnknownMetricsView")]
     public partial class UnknownMetricsView : Ice.UserException
     {
@@ -155,78 +154,96 @@ namespace IceMX
         /// <summary>
         /// Get the names of enabled and disabled metrics.
         /// </summary>
-        /// <param name="disabledViews">The names of the disabled views.
-        ///  </param>
-        /// <returns>The name of the enabled views.</returns>
+        /// <param name="disabledViews">
+        /// The names of the disabled views.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The name of the enabled views.
+        /// </returns>
         string[] getMetricsViewNames(out string[] disabledViews, Ice.Current current);
 
         /// <summary>
         /// Enables a metrics view.
         /// </summary>
-        /// <param name="name">The metrics view name.
-        ///  </param>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="name">
+        /// The metrics view name.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         void enableMetricsView(string name, Ice.Current current);
 
         /// <summary>
         /// Disable a metrics view.
         /// </summary>
-        /// <param name="name">The metrics view name.
-        ///  </param>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="name">
+        /// The metrics view name.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         void disableMetricsView(string name, Ice.Current current);
 
         /// <summary>
-        /// Get the metrics objects for the given metrics view.
-        /// This returns a dictionary of metric maps for each
-        ///  metrics class configured with the view. The timestamp allows the client to compute averages which are not
-        ///  dependent of the invocation latency for this operation.
+        /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+        /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
+        /// dependent of the invocation latency for this operation.
         /// </summary>
-        ///  <param name="view">The name of the metrics view.
-        ///  </param>
-        /// <param name="timestamp">The local time of the process when the metrics object were retrieved.
-        ///  </param>
-        /// <returns>The metrics view data.
-        ///  </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="view">
+        /// The name of the metrics view.
+        /// </param>
+        /// <param name="timestamp">
+        /// The local time of the process when the metrics object were retrieved.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The metrics view data.
+        /// </returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, Ice.Current current);
 
         /// <summary>
         /// Get the metrics failures associated with the given view and map.
         /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///  </param>
-        /// <param name="map">The name of the metrics map.
-        ///  </param>
-        /// <returns>The metrics failures associated with the map.
-        ///  </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="view">
+        /// The name of the metrics view.
+        /// </param>
+        /// <param name="map">
+        /// The name of the metrics map.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The metrics failures associated with the map.
+        /// </returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         MetricsFailures[] getMapMetricsFailures(string view, string map, Ice.Current current);
 
         /// <summary>
         /// Get the metrics failure associated for the given metrics.
         /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///  </param>
-        /// <param name="map">The name of the metrics map.
-        ///  </param>
-        /// <param name="id">The ID of the metrics.
-        ///  </param>
-        /// <returns>The metrics failures associated with the metrics.
-        ///  </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="view">
+        /// The name of the metrics view.
+        /// </param>
+        /// <param name="map">
+        /// The name of the metrics map.
+        /// </param>
+        /// <param name="id">
+        /// The ID of the metrics.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The metrics failures associated with the metrics.
+        /// </returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         MetricsFailures getMetricsFailures(string view, string map, string id, Ice.Current current);
     }
 
@@ -556,21 +573,21 @@ namespace IceMX
 namespace IceMX
 {
     /// <summary>
-    /// The metrics administrative facet interface.
-    /// This interface allows remote administrative clients to access
-    ///  metrics of an application that enabled the Ice administrative facility and configured some metrics views.
+    /// The metrics administrative facet interface. This interface allows remote administrative clients to access
+    /// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
     /// </summary>
-
     public interface MetricsAdminPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Get the names of enabled and disabled metrics.
         /// </summary>
-        /// <param name="disabledViews">The names of the disabled views.
-        ///  </param>
-        /// <returns>The name of the enabled views.</returns>
+        /// <param name="disabledViews">
+        /// The names of the disabled views.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The name of the enabled views.
+        /// </returns>
         string[] getMetricsViewNames(out string[] disabledViews, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -579,136 +596,176 @@ namespace IceMX
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewNamesResult> getMetricsViewNamesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Enables a metrics view.
         /// </summary>
-        /// <param name="name">The metrics view name.
-        ///  </param>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="name">
+        /// The metrics view name.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         void enableMetricsView(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Enables a metrics view.
         /// </summary>
-        /// <param name="name">The metrics view name.
-        ///  </param>
+        /// <param name="name">
+        /// The metrics view name.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         global::System.Threading.Tasks.Task enableMetricsViewAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Disable a metrics view.
         /// </summary>
-        /// <param name="name">The metrics view name.
-        ///  </param>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="name">
+        /// The metrics view name.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         void disableMetricsView(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Disable a metrics view.
         /// </summary>
-        /// <param name="name">The metrics view name.
-        ///  </param>
+        /// <param name="name">
+        /// The metrics view name.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         global::System.Threading.Tasks.Task disableMetricsViewAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Get the metrics objects for the given metrics view.
-        /// This returns a dictionary of metric maps for each
-        ///  metrics class configured with the view. The timestamp allows the client to compute averages which are not
-        ///  dependent of the invocation latency for this operation.
+        /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+        /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
+        /// dependent of the invocation latency for this operation.
         /// </summary>
-        ///  <param name="view">The name of the metrics view.
-        ///  </param>
-        /// <param name="timestamp">The local time of the process when the metrics object were retrieved.
-        ///  </param>
-        /// <returns>The metrics view data.
-        ///  </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="view">
+        /// The name of the metrics view.
+        /// </param>
+        /// <param name="timestamp">
+        /// The local time of the process when the metrics object were retrieved.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The metrics view data.
+        /// </returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         global::System.Collections.Generic.Dictionary<string, Metrics?[]> getMetricsView(string view, out long timestamp, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Get the metrics objects for the given metrics view.
-        /// This returns a dictionary of metric maps for each
+        /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+        /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
+        /// dependent of the invocation latency for this operation.
         /// </summary>
-        ///  <param name="view">The name of the metrics view.
-        ///  </param>
+        /// <param name="view">
+        /// The name of the metrics view.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         global::System.Threading.Tasks.Task<MetricsAdmin_GetMetricsViewResult> getMetricsViewAsync(string view, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the metrics failures associated with the given view and map.
         /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///  </param>
-        /// <param name="map">The name of the metrics map.
-        ///  </param>
-        /// <returns>The metrics failures associated with the map.
-        ///  </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="view">
+        /// The name of the metrics view.
+        /// </param>
+        /// <param name="map">
+        /// The name of the metrics map.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The metrics failures associated with the map.
+        /// </returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         MetricsFailures[] getMapMetricsFailures(string view, string map, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the metrics failures associated with the given view and map.
         /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///  </param>
-        /// <param name="map">The name of the metrics map.
-        ///  </param>
+        /// <param name="view">
+        /// The name of the metrics view.
+        /// </param>
+        /// <param name="map">
+        /// The name of the metrics map.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         global::System.Threading.Tasks.Task<MetricsFailures[]> getMapMetricsFailuresAsync(string view, string map, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the metrics failure associated for the given metrics.
         /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///  </param>
-        /// <param name="map">The name of the metrics map.
-        ///  </param>
-        /// <param name="id">The ID of the metrics.
-        ///  </param>
-        /// <returns>The metrics failures associated with the metrics.
-        ///  </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
+        /// <param name="view">
+        /// The name of the metrics view.
+        /// </param>
+        /// <param name="map">
+        /// The name of the metrics map.
+        /// </param>
+        /// <param name="id">
+        /// The ID of the metrics.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The metrics failures associated with the metrics.
+        /// </returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         MetricsFailures getMetricsFailures(string view, string map, string id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Get the metrics failure associated for the given metrics.
         /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///  </param>
-        /// <param name="map">The name of the metrics map.
-        ///  </param>
-        /// <param name="id">The ID of the metrics.
-        ///  </param>
+        /// <param name="view">
+        /// The name of the metrics view.
+        /// </param>
+        /// <param name="map">
+        /// The name of the metrics map.
+        /// </param>
+        /// <param name="id">
+        /// The ID of the metrics.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceMX.UnknownMetricsView">
+        /// Raised if the metrics view cannot be found.
+        /// </exception>
         global::System.Threading.Tasks.Task<MetricsFailures> getMetricsFailuresAsync(string view, string map, string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

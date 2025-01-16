@@ -27,9 +27,9 @@ namespace Glacier2
 {
     /// <summary>
     /// This exception is raised if a client tries to destroy a session with a router, but no session exists for the
-    ///  client.
+    /// client.
     /// </summary>
-
+    /// <seealso cref="Router.destroySession" />
     [Ice.SliceTypeId("::Glacier2::SessionNotExistException")]
     public partial class SessionNotExistException : Ice.UserException
     {
@@ -52,68 +52,102 @@ namespace Glacier2
     public partial interface Router : global::Ice.Router
     {
         /// <summary>
-        /// This category must be used in the identities of all of the client's callback objects.
-        /// This is necessary in
-        ///  order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
-        ///  are not set, the returned category is an empty string.
+        /// This category must be used in the identities of all of the client's callback objects. This is necessary in
+        /// order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+        /// are not set, the returned category is an empty string.
         /// </summary>
-        ///  <returns>The category.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The category.
+        /// </returns>
         string getCategoryForClient(Ice.Current current);
 
         /// <summary>
-        /// Create a per-client session with the router.
-        /// If a SessionManager has been installed, a proxy to a
+        /// Create a per-client session with the router. If a <see cref="SessionManager" /> has been installed, a proxy to a
+        /// <see cref="Session" /> object is returned to the client. Otherwise, null is returned and only an internal session
+        /// (i.e., not visible to the client) is created.
+        /// If a session proxy is returned, it must be configured to route through the router that created it. This will
+        /// happen automatically if the router is configured as the client's default router at the time the session
+        /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
         /// </summary>
-        ///  <param name="userId">The user id for which to check the password.
-        ///  </param>
-        /// <param name="password">The password for the given user id.
-        ///  </param>
+        /// <param name="userId">
+        /// The user id for which to check the password.
+        /// </param>
+        /// <param name="password">
+        /// The password for the given user id.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
+        /// <exception cref="Glacier2.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
+        /// <seealso cref="Session" />
+        /// <seealso cref="SessionManager" />
+        /// <seealso cref="PermissionsVerifier" />
         global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, Ice.Current current);
 
         /// <summary>
-        /// Create a per-client session with the router.
-        /// The user is authenticated through the SSL certificates that
+        /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
+        /// have been associated with the connection. If a <see cref="SessionManager" /> has been installed, a proxy to a
+        /// <see cref="Session" /> object is returned to the client. Otherwise, null is returned and only an internal session
+        /// (i.e., not visible to the client) is created.
+        /// If a session proxy is returned, it must be configured to route through the router that created it. This will
+        /// happen automatically if the router is configured as the client's default router at the time the session
+        /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
+        /// <exception cref="Glacier2.PermissionDeniedException">
+        /// Raised if the user cannot be authenticated or if the user is not allowed
+        /// access.
+        /// </exception>
+        /// <seealso cref="Session" />
+        /// <seealso cref="SessionManager" />
+        /// <seealso cref="PermissionsVerifier" />
         global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(Ice.Current current);
 
         /// <summary>
-        /// Keep the session with this router alive.
-        /// This operation is provided for backward compatibility with Ice 3.7
-        ///  and earlier and does nothing in newer versions of Glacier2.
+        /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+        /// and earlier and does nothing in newer versions of Glacier2.
         /// </summary>
-        ///  <exception name="SessionNotExistException">Raised if no session exists for the caller (client).</exception>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <exception cref="Glacier2.SessionNotExistException">
+        /// Raised if no session exists for the caller (client).
+        /// </exception>
         void refreshSession(Ice.Current current);
 
         /// <summary>
         /// Destroy the calling client's session with this router.
         /// </summary>
-        /// <exception name="SessionNotExistException">Raised if no session exists for the calling client.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <exception cref="Glacier2.SessionNotExistException">
+        /// Raised if no session exists for the calling client.
+        /// </exception>
         void destroySession(Ice.Current current);
 
         /// <summary>
         /// Get the idle timeout used by the server-side of the connection.
         /// </summary>
-        /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The idle timeout (in seconds).
+        /// </returns>
         long getSessionTimeout(Ice.Current current);
 
         /// <summary>
         /// Get the idle timeout used by the server-side of the connection.
         /// </summary>
-        /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The idle timeout (in seconds).
+        /// </returns>
         int getACMTimeout(Ice.Current current);
     }
 }
@@ -123,124 +157,170 @@ namespace Glacier2
     /// <summary>
     /// The Glacier2 specialization of the Ice::Router interface.
     /// </summary>
-
     public interface RouterPrx : global::Ice.RouterPrx
     {
         /// <summary>
-        /// This category must be used in the identities of all of the client's callback objects.
-        /// This is necessary in
-        ///  order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
-        ///  are not set, the returned category is an empty string.
+        /// This category must be used in the identities of all of the client's callback objects. This is necessary in
+        /// order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+        /// are not set, the returned category is an empty string.
         /// </summary>
-        ///  <returns>The category.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The category.
+        /// </returns>
         string getCategoryForClient(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// This category must be used in the identities of all of the client's callback objects.
-        /// This is necessary in
+        /// This category must be used in the identities of all of the client's callback objects. This is necessary in
+        /// order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+        /// are not set, the returned category is an empty string.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string> getCategoryForClientAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Create a per-client session with the router.
-        /// If a SessionManager has been installed, a proxy to a
-        ///  Session object is returned to the client. Otherwise, null is returned and only an internal session
-        ///  (i.e., not visible to the client) is created.
-        ///  If a session proxy is returned, it must be configured to route through the router that created it. This will
-        ///  happen automatically if the router is configured as the client's default router at the time the session
-        ///  proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
+        /// Create a per-client session with the router. If a <see cref="SessionManager" /> has been installed, a proxy to a
+        /// <see cref="Session" /> object is returned to the client. Otherwise, null is returned and only an internal session
+        /// (i.e., not visible to the client) is created.
+        /// If a session proxy is returned, it must be configured to route through the router that created it. This will
+        /// happen automatically if the router is configured as the client's default router at the time the session
+        /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
         /// </summary>
-        ///  <param name="userId">The user id for which to check the password.
-        ///  </param>
-        /// <param name="password">The password for the given user id.
-        ///  </param>
-        /// <returns>A proxy for the newly created session, or null if no SessionManager has been installed.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.
-        ///  </exception>
-        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.
-        ///  </exception>
+        /// <param name="userId">
+        /// The user id for which to check the password.
+        /// </param>
+        /// <param name="password">
+        /// The password for the given user id.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy for the newly created session, or null if no <see cref="SessionManager" /> has been installed.
+        /// </returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
+        /// <exception cref="Glacier2.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
+        /// <seealso cref="Session" />
+        /// <seealso cref="SessionManager" />
+        /// <seealso cref="PermissionsVerifier" />
         SessionPrx? createSession(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Create a per-client session with the router.
-        /// If a SessionManager has been installed, a proxy to a
+        /// Create a per-client session with the router. If a <see cref="SessionManager" /> has been installed, a proxy to a
+        /// <see cref="Session" /> object is returned to the client. Otherwise, null is returned and only an internal session
+        /// (i.e., not visible to the client) is created.
+        /// If a session proxy is returned, it must be configured to route through the router that created it. This will
+        /// happen automatically if the router is configured as the client's default router at the time the session
+        /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
         /// </summary>
-        ///  <param name="userId">The user id for which to check the password.
-        ///  </param>
-        /// <param name="password">The password for the given user id.
-        ///  </param>
+        /// <param name="userId">
+        /// The user id for which to check the password.
+        /// </param>
+        /// <param name="password">
+        /// The password for the given user id.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
+        /// <exception cref="Glacier2.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
+        /// <seealso cref="Session" />
+        /// <seealso cref="SessionManager" />
+        /// <seealso cref="PermissionsVerifier" />
         global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Create a per-client session with the router.
-        /// The user is authenticated through the SSL certificates that
-        ///  have been associated with the connection. If a SessionManager has been installed, a proxy to a
-        ///  Session object is returned to the client. Otherwise, null is returned and only an internal session
-        ///  (i.e., not visible to the client) is created.
-        ///  If a session proxy is returned, it must be configured to route through the router that created it. This will
-        ///  happen automatically if the router is configured as the client's default router at the time the session
-        ///  proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
+        /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
+        /// have been associated with the connection. If a <see cref="SessionManager" /> has been installed, a proxy to a
+        /// <see cref="Session" /> object is returned to the client. Otherwise, null is returned and only an internal session
+        /// (i.e., not visible to the client) is created.
+        /// If a session proxy is returned, it must be configured to route through the router that created it. This will
+        /// happen automatically if the router is configured as the client's default router at the time the session
+        /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
         /// </summary>
-        ///  <returns>A proxy for the newly created session, or null if no SessionManager has been installed.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the user cannot be authenticated or if the user is not allowed
-        ///  access.
-        ///  </exception>
-        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy for the newly created session, or null if no <see cref="SessionManager" /> has been installed.
+        /// </returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
+        /// <exception cref="Glacier2.PermissionDeniedException">
+        /// Raised if the user cannot be authenticated or if the user is not allowed
+        /// access.
+        /// </exception>
+        /// <seealso cref="Session" />
+        /// <seealso cref="SessionManager" />
+        /// <seealso cref="PermissionsVerifier" />
         SessionPrx? createSessionFromSecureConnection(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Create a per-client session with the router.
-        /// The user is authenticated through the SSL certificates that
+        /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
+        /// have been associated with the connection. If a <see cref="SessionManager" /> has been installed, a proxy to a
+        /// <see cref="Session" /> object is returned to the client. Otherwise, null is returned and only an internal session
+        /// (i.e., not visible to the client) is created.
+        /// If a session proxy is returned, it must be configured to route through the router that created it. This will
+        /// happen automatically if the router is configured as the client's default router at the time the session
+        /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Glacier2.CannotCreateSessionException">
+        /// Raised if the session cannot be created.
+        /// </exception>
+        /// <exception cref="Glacier2.PermissionDeniedException">
+        /// Raised if the user cannot be authenticated or if the user is not allowed
+        /// access.
+        /// </exception>
+        /// <seealso cref="Session" />
+        /// <seealso cref="SessionManager" />
+        /// <seealso cref="PermissionsVerifier" />
         global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Keep the session with this router alive.
-        /// This operation is provided for backward compatibility with Ice 3.7
-        ///  and earlier and does nothing in newer versions of Glacier2.
+        /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+        /// and earlier and does nothing in newer versions of Glacier2.
         /// </summary>
-        ///  <exception name="SessionNotExistException">Raised if no session exists for the caller (client).</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="Glacier2.SessionNotExistException">
+        /// Raised if no session exists for the caller (client).
+        /// </exception>
         void refreshSession(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Keep the session with this router alive.
-        /// This operation is provided for backward compatibility with Ice 3.7
+        /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
+        /// and earlier and does nothing in newer versions of Glacier2.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Glacier2.SessionNotExistException">
+        /// Raised if no session exists for the caller (client).
+        /// </exception>
         global::System.Threading.Tasks.Task refreshSessionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Destroy the calling client's session with this router.
         /// </summary>
-        /// <exception name="SessionNotExistException">Raised if no session exists for the calling client.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="Glacier2.SessionNotExistException">
+        /// Raised if no session exists for the calling client.
+        /// </exception>
         void destroySession(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -249,15 +329,19 @@ namespace Glacier2
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Glacier2.SessionNotExistException">
+        /// Raised if no session exists for the calling client.
+        /// </exception>
         global::System.Threading.Tasks.Task destroySessionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the idle timeout used by the server-side of the connection.
         /// </summary>
-        /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The idle timeout (in seconds).
+        /// </returns>
         long getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -266,15 +350,16 @@ namespace Glacier2
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<long> getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the idle timeout used by the server-side of the connection.
         /// </summary>
-        /// <returns>The idle timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The idle timeout (in seconds).
+        /// </returns>
         int getACMTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -283,7 +368,7 @@ namespace Glacier2
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<int> getACMTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

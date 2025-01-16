@@ -288,7 +288,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if an adapter is active.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::AdapterActiveException")]
     public partial class AdapterActiveException : Ice.UserException
     {
@@ -342,40 +341,38 @@ namespace IceGrid
     public partial interface Adapter : Ice.Object
     {
         /// <summary>
-        /// Activate this adapter.
-        /// If this adapter can be activated, this will activate the adapter and return the direct
+        /// Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+        /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+        /// adapter is inactive or the adapter direct proxy it's active.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> activateAsync(Ice.Current current);
 
         /// <summary>
-        /// Get the adapter direct proxy.
-        /// The adapter direct proxy is a proxy created with the object adapter. The proxy
-        ///  contains the last known adapter endpoints.
+        /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+        /// contains the last known adapter endpoints.
         /// </summary>
-        ///  <returns>A direct proxy containing the last known adapter endpoints if the adapter is already active.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A direct proxy containing the last known adapter endpoints if the adapter is already active.
+        /// </returns>
         global::Ice.ObjectPrx? getDirectProxy(Ice.Current current);
 
         /// <summary>
         /// Set the direct proxy for this adapter.
         /// </summary>
-        /// <param name="The">direct proxy. The direct proxy should be created with the object adapter and should contain the
-        ///  object adapter endpoints.
-        ///  </param>
-        /// <exception name="AdapterActiveException">The adapter is already active. It's not possible to override the direct proxy of
-        ///  an active adapter.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <exception cref="IceGrid.AdapterActiveException">
+        /// The adapter is already active. It's not possible to override the direct proxy of
+        /// an active adapter.
+        /// </exception>
         void setDirectProxy(global::Ice.ObjectPrx? proxy, Ice.Current current);
     }
 
     /// <summary>
     /// This exception is raised if an adapter with the same name already exists.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::AdapterExistsException")]
     public partial class AdapterExistsException : Ice.UserException
     {
@@ -415,14 +412,12 @@ namespace IceGrid
         /// Count the number of given lines from the end of the file and return the file offset.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         long getOffsetFromEnd(string filename, int lines, Ice.Current current);
 
         /// <summary>
         /// Read lines (or size bytes) at the specified position from the given file.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         bool read(string filename, long pos, int size, out long newPos, out string[] lines, Ice.Current current);
     }
 
@@ -433,78 +428,75 @@ namespace IceGrid
         /// Start the server.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task startAsync(Ice.Current current);
 
         /// <summary>
-        /// Stop the server.
-        /// This methods returns only when the server is deactivated. If the server doesn't stop after a
+        /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+        /// configurable amount of time, it will be killed.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task stopAsync(Ice.Current current);
 
         /// <summary>
         /// Check if the given server can be loaded on this node.
         /// </summary>
-        /// <returns>True if the server is inactive.
-        ///  </returns>
-        /// <exception name="DeploymentException">Raised if the server can't be updated.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// True if the server is inactive.
+        /// </returns>
+        /// <exception cref="IceGrid.DeploymentException">
+        /// Raised if the server can't be updated.
+        /// </exception>
         bool checkUpdate(InternalServerDescriptor? svr, bool noRestart, Ice.Current current);
 
         /// <summary>
         /// Enable or disable the server.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void setEnabled(bool enable, Ice.Current current);
 
         /// <summary>
         /// Check if the server is enabled.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         bool isEnabled(Ice.Current current);
 
         /// <summary>
         /// Send signal to the server
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void sendSignal(string signal, Ice.Current current);
 
         /// <summary>
         /// Write message on servers' stdout or stderr.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void writeMessage(string message, int fd, Ice.Current current);
 
         /// <summary>
         /// Return the server state.
         /// </summary>
-        /// <returns>The server state.
-        ///  </returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The server state.
+        /// </returns>
+        /// <seealso cref="ServerState" />
         ServerState getState(Ice.Current current);
 
         /// <summary>
-        /// Get the server pid.
-        /// Note that the value returned by this method is system dependant. On Unix operating systems,
-        ///  it's the pid value returned by the fork() system call and converted to an integer.
+        /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+        /// it's the pid value returned by the fork() system call and converted to an integer.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         int getPid(Ice.Current current);
 
         /// <summary>
         /// Set the process proxy.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setProcessAsync(global::Ice.ProcessPrx? proc, Ice.Current current);
     }
 
@@ -515,23 +507,18 @@ namespace IceGrid
         /// Initialization of the replica observer.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void replicaInit(InternalRegistryPrx?[] replicas, Ice.Current current);
 
         /// <summary>
-        /// Notification that a replica has been added.
-        /// The node should establish a session with this new replica.
+        /// Notification that a replica has been added. The node should establish a session with this new replica.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void replicaAdded(InternalRegistryPrx? replica, Ice.Current current);
 
         /// <summary>
-        /// Notification that a replica has been removed.
-        /// The node should destroy the session to this replica.
+        /// Notification that a replica has been removed. The node should destroy the session to this replica.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void replicaRemoved(InternalRegistryPrx? replica, Ice.Current current);
     }
 
@@ -539,83 +526,77 @@ namespace IceGrid
     public partial interface Node : FileReader, ReplicaObserver
     {
         /// <summary>
-        /// Load the given server.
-        /// If the server resources weren't already created (database environment directories,
+        /// Load the given server. If the server resources weren't already created (database environment directories,
+        /// property files, etc), they will be created. The returned proxy is never null.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<Node_LoadServerResult> loadServerAsync(InternalServerDescriptor? svr, string replicaName, Ice.Current current);
 
         /// <summary>
-        /// Load the given server and ensure the server won't be restarted.
-        /// If the server resources weren't already created
+        /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+        /// (database environment directories, property files, etc), they will be created. If the server can't be updated
+        /// without a restart, a DeploymentException is raised. The returned proxy is never null.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<Node_LoadServerWithoutRestartResult> loadServerWithoutRestartAsync(InternalServerDescriptor? svr, string replicaName, Ice.Current current);
 
         /// <summary>
         /// Destroy the given server.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyServerAsync(string name, string uuid, int revision, string replicaName, Ice.Current current);
 
         /// <summary>
         /// Destroy the server if it's not active.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyServerWithoutRestartAsync(string name, string uuid, int revision, string replicaName, Ice.Current current);
 
         /// <summary>
         /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
-        ///  replicaAdded below).
+        /// replicaAdded below).
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void registerWithReplica(InternalRegistryPrx? replica, Ice.Current current);
 
         /// <summary>
         /// Get the node name.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         string getName(Ice.Current current);
 
         /// <summary>
         /// Get the node hostname.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         string getHostname(Ice.Current current);
 
         /// <summary>
         /// Get the node load.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         LoadInfo getLoad(Ice.Current current);
 
         /// <summary>
         /// Get the number of processor sockets for the machine where this node is running.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         int getProcessorSocketCount(Ice.Current current);
 
         /// <summary>
         /// Shutdown the node.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void shutdown(Ice.Current current);
     }
 
     /// <summary>
     /// This exception is raised if a node is already registered and active.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::NodeActiveException")]
     public partial class NodeActiveException : Ice.UserException
     {
@@ -641,67 +622,59 @@ namespace IceGrid
         /// The node call this method to keep the session alive.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void keepAlive(LoadInfo load, Ice.Current current);
 
         /// <summary>
-        /// Set the replica observer.
-        /// The node calls this method when it's ready to receive notifications for the replicas.
-        ///  It only calls this for the session with the master.
+        /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+        /// It only calls this for the session with the master.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void setReplicaObserver(ReplicaObserverPrx? observer, Ice.Current current);
 
         /// <summary>
         /// Return the node session timeout.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         int getTimeout(Ice.Current current);
 
         /// <summary>
         /// Return the node observer.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         NodeObserverPrx? getObserver(Ice.Current current);
 
         /// <summary>
         /// Ask the registry to load the servers on the node.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task loadServersAsync(Ice.Current current);
 
         /// <summary>
         /// Get the name of the servers deployed on the node.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         string[] getServers(Ice.Current current);
 
         /// <summary>
         /// Wait for the application update to complete (the application is completely updated once all the registry
-        ///  replicas have been updated).
-        /// This is used by the node to ensure that before to start a server all the
+        /// replicas have been updated). This is used by the node to ensure that before to start a server all the
+        /// replicas have the up-to-date descriptor of the server.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task waitForApplicationUpdateAsync(string application, int revision, Ice.Current current);
 
         /// <summary>
         /// Destroy the session.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void destroy(Ice.Current current);
     }
 
     /// <summary>
     /// This exception is raised if a replica is already registered and active.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::ReplicaActiveException")]
     public partial class ReplicaActiveException : Ice.UserException
     {
@@ -756,63 +729,51 @@ namespace IceGrid
         /// The replica call this method to keep the session alive.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void keepAlive(Ice.Current current);
 
         /// <summary>
         /// Return the replica session timeout.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         int getTimeout(Ice.Current current);
 
         /// <summary>
-        /// Set the database observer.
-        /// Once the observer is subscribed, it will receive the database and database updates.
+        /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void setDatabaseObserver(DatabaseObserverPrx? dbObs, global::System.Collections.Generic.Dictionary<string, long>? serials, Ice.Current current);
 
         /// <summary>
-        /// This method sets the endpoints of the replica.
-        /// This allows the master to create proxies with multiple endpoints
-        ///  for replicated objects (e.g.: IceGrid::Query object).
+        /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+        /// for replicated objects (e.g.: IceGrid::Query object).
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void setEndpoints(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> endpoints, Ice.Current current);
 
         /// <summary>
         /// Registers the replica well-known objects with the master.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void registerWellKnownObjects(ObjectInfo[] objects, Ice.Current current);
 
         /// <summary>
-        /// Set the adapter direct proxy of the given adapter in the master.
-        /// This is used to support dynamic registration
-        ///  with the locator registry interface.
+        /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+        /// with the locator registry interface.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void setAdapterDirectProxy(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, Ice.Current current);
 
         /// <summary>
-        /// Notify the master that an update was received.
-        /// The master might wait for replication updates to be received by
-        ///  all the replicas before to continue.
+        /// Notify the master that an update was received. The master might wait for replication updates to be received by
+        /// all the replicas before to continue.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void receivedUpdate(TopicName name, int serial, string failure, Ice.Current current);
 
         /// <summary>
         /// Destroy the session.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void destroy(Ice.Current current);
     }
 
@@ -946,69 +907,71 @@ namespace IceGrid
     public partial interface InternalRegistry : FileReader
     {
         /// <summary>
-        /// Register a node with the registry.
-        /// If a node with the same name is already registered,
-        ///  registerNode overrides the existing registration only when the previously
-        ///  registered node is not active.
+        /// Register a node with the registry. If a node with the same name is already registered,
+        /// registerNode overrides the existing registration only when the previously
+        /// registered node is not active.
         /// </summary>
-        ///  <param name="info">Some information on the node.
-        ///  </param>
-        /// <param name="prx">The proxy of the node.
-        ///  </param>
-        /// <param name="loadInf">The load information of the node.
-        ///  </param>
-        /// <returns>The node session proxy.
-        ///  </returns>
-        /// <exception name="NodeActiveException">Raised if the node is already registered and currently active.</exception>
+        /// <param name="info">
+        /// Some information on the node.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the node.
+        /// </param>
+        /// <param name="loadInf">
+        /// The load information of the node.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The node session proxy.
+        /// </returns>
+        /// <exception cref="IceGrid.NodeActiveException">
+        /// Raised if the node is already registered and currently active.
+        /// </exception>
         NodeSessionPrx? registerNode(InternalNodeInfo? info, NodePrx? prx, LoadInfo loadInf, Ice.Current current);
 
         /// <summary>
-        /// Register a replica with the registry.
-        /// If a replica with the same name is already registered,
-        ///  registerReplica overrides the existing registration only when the previously
-        ///  registered node is not active.
+        /// Register a replica with the registry. If a replica with the same name is already registered,
+        /// registerReplica overrides the existing registration only when the previously
+        /// registered node is not active.
         /// </summary>
-        ///  <param name="info">Some information on the replica.
-        ///  </param>
-        /// <param name="prx">The proxy of the replica.
-        ///  </param>
-        /// <returns>The replica session proxy.
-        ///  </returns>
-        /// <exception name="ReplicaActiveException">Raised if the replica is already registered and currently active.</exception>
+        /// <param name="info">
+        /// Some information on the replica.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the replica.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The replica session proxy.
+        /// </returns>
+        /// <exception cref="IceGrid.ReplicaActiveException">
+        /// Raised if the replica is already registered and currently active.
+        /// </exception>
         ReplicaSessionPrx? registerReplica(InternalReplicaInfo? info, InternalRegistryPrx? prx, Ice.Current current);
 
         /// <summary>
-        /// Create a session with the given registry replica.
-        /// This method returns only once the session creation has been
-        ///  attempted.
+        /// Create a session with the given registry replica. This method returns only once the session creation has been
+        /// attempted.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void registerWithReplica(InternalRegistryPrx? prx, Ice.Current current);
 
         /// <summary>
         /// Return the proxies of all the nodes known by this registry.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         NodePrx?[] getNodes(Ice.Current current);
 
         /// <summary>
         /// Return the proxies of all the registry replicas known by this registry.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         InternalRegistryPrx?[] getReplicas(Ice.Current current);
 
         /// <summary>
         /// Return applications, adapters, objects from this replica.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         ApplicationInfo[] getApplications(out long serial, Ice.Current current);
 
         AdapterInfo[] getAdapters(out long serial, Ice.Current current);
@@ -1019,7 +982,6 @@ namespace IceGrid
         /// Shutdown this registry.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void shutdown(Ice.Current current);
     }
 }
@@ -1044,55 +1006,52 @@ namespace IceGrid
     public interface AdapterPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Activate this adapter.
-        /// If this adapter can be activated, this will activate the adapter and return the direct
-        ///  proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
-        ///  adapter is inactive or the adapter direct proxy it's active.
+        /// Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+        /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+        /// adapter is inactive or the adapter direct proxy it's active.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         global::Ice.ObjectPrx? activate(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Activate this adapter.
-        /// If this adapter can be activated, this will activate the adapter and return the direct
+        /// Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+        /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+        /// adapter is inactive or the adapter direct proxy it's active.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> activateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Get the adapter direct proxy.
-        /// The adapter direct proxy is a proxy created with the object adapter. The proxy
-        ///  contains the last known adapter endpoints.
+        /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+        /// contains the last known adapter endpoints.
         /// </summary>
-        ///  <returns>A direct proxy containing the last known adapter endpoints if the adapter is already active.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A direct proxy containing the last known adapter endpoints if the adapter is already active.
+        /// </returns>
         global::Ice.ObjectPrx? getDirectProxy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Get the adapter direct proxy.
-        /// The adapter direct proxy is a proxy created with the object adapter. The proxy
+        /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+        /// contains the last known adapter endpoints.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getDirectProxyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Set the direct proxy for this adapter.
         /// </summary>
-        /// <param name="The">direct proxy. The direct proxy should be created with the object adapter and should contain the
-        ///  object adapter endpoints.
-        ///  </param>
-        /// <exception name="AdapterActiveException">The adapter is already active. It's not possible to override the direct proxy of
-        ///  an active adapter.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="IceGrid.AdapterActiveException">
+        /// The adapter is already active. It's not possible to override the direct proxy of
+        /// an active adapter.
+        /// </exception>
         void setDirectProxy(global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1101,7 +1060,11 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.AdapterActiveException">
+        /// The adapter is already active. It's not possible to override the direct proxy of
+        /// an active adapter.
+        /// </exception>
         global::System.Threading.Tasks.Task setDirectProxyAsync(global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
@@ -1111,7 +1074,6 @@ namespace IceGrid
         /// Count the number of given lines from the end of the file and return the file offset.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         long getOffsetFromEnd(string filename, int lines, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1120,14 +1082,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<long> getOffsetFromEndAsync(string filename, int lines, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Read lines (or size bytes) at the specified position from the given file.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1136,7 +1097,7 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<FileReader_ReadResult> readAsync(string filename, long pos, int size, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
@@ -1146,7 +1107,6 @@ namespace IceGrid
         /// Start the server.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void start(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1155,36 +1115,36 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task startAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Stop the server.
-        /// This methods returns only when the server is deactivated. If the server doesn't stop after a
-        ///  configurable amount of time, it will be killed.
+        /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+        /// configurable amount of time, it will be killed.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void stop(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Stop the server.
-        /// This methods returns only when the server is deactivated. If the server doesn't stop after a
+        /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+        /// configurable amount of time, it will be killed.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task stopAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Check if the given server can be loaded on this node.
         /// </summary>
-        /// <returns>True if the server is inactive.
-        ///  </returns>
-        /// <exception name="DeploymentException">Raised if the server can't be updated.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// True if the server is inactive.
+        /// </returns>
+        /// <exception cref="IceGrid.DeploymentException">
+        /// Raised if the server can't be updated.
+        /// </exception>
         bool checkUpdate(InternalServerDescriptor? svr, bool noRestart, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1193,14 +1153,16 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.DeploymentException">
+        /// Raised if the server can't be updated.
+        /// </exception>
         global::System.Threading.Tasks.Task<bool> checkUpdateAsync(InternalServerDescriptor? svr, bool noRestart, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Enable or disable the server.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void setEnabled(bool enable, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1209,14 +1171,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setEnabledAsync(bool enable, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Check if the server is enabled.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         bool isEnabled(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1225,14 +1186,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<bool> isEnabledAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Send signal to the server
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void sendSignal(string signal, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1241,14 +1201,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task sendSignalAsync(string signal, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Write message on servers' stdout or stderr.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void writeMessage(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1257,16 +1216,17 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task writeMessageAsync(string message, int fd, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Return the server state.
         /// </summary>
-        /// <returns>The server state.
-        ///  </returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The server state.
+        /// </returns>
+        /// <seealso cref="ServerState" />
         ServerState getState(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1275,33 +1235,31 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <seealso cref="ServerState" />
         global::System.Threading.Tasks.Task<ServerState> getStateAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Get the server pid.
-        /// Note that the value returned by this method is system dependant. On Unix operating systems,
-        ///  it's the pid value returned by the fork() system call and converted to an integer.
+        /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+        /// it's the pid value returned by the fork() system call and converted to an integer.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         int getPid(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Get the server pid.
-        /// Note that the value returned by this method is system dependant. On Unix operating systems,
+        /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+        /// it's the pid value returned by the fork() system call and converted to an integer.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<int> getPidAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Set the process proxy.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void setProcess(global::Ice.ProcessPrx? proc, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1310,7 +1268,7 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setProcessAsync(global::Ice.ProcessPrx? proc, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
@@ -1320,7 +1278,6 @@ namespace IceGrid
         /// Initialization of the replica observer.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void replicaInit(InternalRegistryPrx?[] replicas, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1329,92 +1286,82 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task replicaInitAsync(InternalRegistryPrx?[] replicas, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Notification that a replica has been added.
-        /// The node should establish a session with this new replica.
+        /// Notification that a replica has been added. The node should establish a session with this new replica.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void replicaAdded(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Notification that a replica has been added.
-        /// The node should establish a session with this new replica.
+        /// Notification that a replica has been added. The node should establish a session with this new replica.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task replicaAddedAsync(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Notification that a replica has been removed.
-        /// The node should destroy the session to this replica.
+        /// Notification that a replica has been removed. The node should destroy the session to this replica.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void replicaRemoved(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Notification that a replica has been removed.
-        /// The node should destroy the session to this replica.
+        /// Notification that a replica has been removed. The node should destroy the session to this replica.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task replicaRemovedAsync(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public interface NodePrx : FileReaderPrx, ReplicaObserverPrx
     {
         /// <summary>
-        /// Load the given server.
-        /// If the server resources weren't already created (database environment directories,
-        ///  property files, etc), they will be created. The returned proxy is never null.
+        /// Load the given server. If the server resources weren't already created (database environment directories,
+        /// property files, etc), they will be created. The returned proxy is never null.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         ServerPrx? loadServer(InternalServerDescriptor? svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx?> adapters, out int activateTimeout, out int deactivateTimeout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Load the given server.
-        /// If the server resources weren't already created (database environment directories,
+        /// Load the given server. If the server resources weren't already created (database environment directories,
+        /// property files, etc), they will be created. The returned proxy is never null.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<Node_LoadServerResult> loadServerAsync(InternalServerDescriptor? svr, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Load the given server and ensure the server won't be restarted.
-        /// If the server resources weren't already created
-        ///  (database environment directories, property files, etc), they will be created. If the server can't be updated
-        ///  without a restart, a DeploymentException is raised. The returned proxy is never null.
+        /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+        /// (database environment directories, property files, etc), they will be created. If the server can't be updated
+        /// without a restart, a DeploymentException is raised. The returned proxy is never null.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         ServerPrx? loadServerWithoutRestart(InternalServerDescriptor? svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx?> adapters, out int activateTimeout, out int deactivateTimeout, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Load the given server and ensure the server won't be restarted.
-        /// If the server resources weren't already created
+        /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+        /// (database environment directories, property files, etc), they will be created. If the server can't be updated
+        /// without a restart, a DeploymentException is raised. The returned proxy is never null.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<Node_LoadServerWithoutRestartResult> loadServerWithoutRestartAsync(InternalServerDescriptor? svr, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Destroy the given server.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void destroyServer(string name, string uuid, int revision, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1423,14 +1370,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyServerAsync(string name, string uuid, int revision, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Destroy the server if it's not active.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void destroyServerWithoutRestart(string name, string uuid, int revision, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1439,32 +1385,30 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyServerWithoutRestartAsync(string name, string uuid, int revision, string replicaName, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
-        ///  replicaAdded below).
+        /// replicaAdded below).
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void registerWithReplica(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
-        ///  replicaAdded below).
+        /// replicaAdded below).
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task registerWithReplicaAsync(InternalRegistryPrx? replica, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the node name.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         string getName(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1473,14 +1417,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string> getNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the node hostname.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         string getHostname(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1489,14 +1432,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string> getHostnameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the node load.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         LoadInfo getLoad(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1505,14 +1447,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<LoadInfo> getLoadAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the number of processor sockets for the machine where this node is running.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         int getProcessorSocketCount(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1521,14 +1462,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<int> getProcessorSocketCountAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Shutdown the node.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1537,7 +1477,7 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
@@ -1547,7 +1487,6 @@ namespace IceGrid
         /// The node call this method to keep the session alive.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void keepAlive(LoadInfo load, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1556,33 +1495,30 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task keepAliveAsync(LoadInfo load, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Set the replica observer.
-        /// The node calls this method when it's ready to receive notifications for the replicas.
-        ///  It only calls this for the session with the master.
+        /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+        /// It only calls this for the session with the master.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void setReplicaObserver(ReplicaObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Set the replica observer.
-        /// The node calls this method when it's ready to receive notifications for the replicas.
+        /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+        /// It only calls this for the session with the master.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setReplicaObserverAsync(ReplicaObserverPrx? observer, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Return the node session timeout.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         int getTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1591,14 +1527,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<int> getTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Return the node observer.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         NodeObserverPrx? getObserver(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1607,14 +1542,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<NodeObserverPrx?> getObserverAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Ask the registry to load the servers on the node.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void loadServers(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1623,14 +1557,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task loadServersAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the name of the servers deployed on the node.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         string[] getServers(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1639,35 +1572,32 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string[]> getServersAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Wait for the application update to complete (the application is completely updated once all the registry
-        ///  replicas have been updated).
-        /// This is used by the node to ensure that before to start a server all the
-        ///  replicas have the up-to-date descriptor of the server.
+        /// replicas have been updated). This is used by the node to ensure that before to start a server all the
+        /// replicas have the up-to-date descriptor of the server.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void waitForApplicationUpdate(string application, int revision, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Wait for the application update to complete (the application is completely updated once all the registry
-        ///  replicas have been updated).
-        /// This is used by the node to ensure that before to start a server all the
+        /// replicas have been updated). This is used by the node to ensure that before to start a server all the
+        /// replicas have the up-to-date descriptor of the server.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task waitForApplicationUpdateAsync(string application, int revision, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Destroy the session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1676,7 +1606,7 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
@@ -1690,7 +1620,6 @@ namespace IceGrid
         /// The replica call this method to keep the session alive.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void keepAlive(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1699,14 +1628,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task keepAliveAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Return the replica session timeout.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         int getTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1715,51 +1643,45 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<int> getTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Set the database observer.
-        /// Once the observer is subscribed, it will receive the database and database updates.
+        /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void setDatabaseObserver(DatabaseObserverPrx? dbObs, global::System.Collections.Generic.Dictionary<string, long>? serials, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Set the database observer.
-        /// Once the observer is subscribed, it will receive the database and database updates.
+        /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setDatabaseObserverAsync(DatabaseObserverPrx? dbObs, global::System.Collections.Generic.Dictionary<string, long>? serials, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// This method sets the endpoints of the replica.
-        /// This allows the master to create proxies with multiple endpoints
-        ///  for replicated objects (e.g.: IceGrid::Query object).
+        /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+        /// for replicated objects (e.g.: IceGrid::Query object).
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void setEndpoints(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// This method sets the endpoints of the replica.
-        /// This allows the master to create proxies with multiple endpoints
+        /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+        /// for replicated objects (e.g.: IceGrid::Query object).
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setEndpointsAsync(global::System.Collections.Generic.Dictionary<string, global::Ice.ObjectPrx?> endpoints, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Registers the replica well-known objects with the master.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void registerWellKnownObjects(ObjectInfo[] objects, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1768,52 +1690,47 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task registerWellKnownObjectsAsync(ObjectInfo[] objects, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Set the adapter direct proxy of the given adapter in the master.
-        /// This is used to support dynamic registration
-        ///  with the locator registry interface.
+        /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+        /// with the locator registry interface.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void setAdapterDirectProxy(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Set the adapter direct proxy of the given adapter in the master.
-        /// This is used to support dynamic registration
+        /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+        /// with the locator registry interface.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Notify the master that an update was received.
-        /// The master might wait for replication updates to be received by
-        ///  all the replicas before to continue.
+        /// Notify the master that an update was received. The master might wait for replication updates to be received by
+        /// all the replicas before to continue.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void receivedUpdate(TopicName name, int serial, string failure, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Notify the master that an update was received.
-        /// The master might wait for replication updates to be received by
+        /// Notify the master that an update was received. The master might wait for replication updates to be received by
+        /// all the replicas before to continue.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task receivedUpdateAsync(TopicName name, int serial, string failure, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Destroy the session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1822,102 +1739,119 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public interface InternalRegistryPrx : FileReaderPrx
     {
         /// <summary>
-        /// Register a node with the registry.
-        /// If a node with the same name is already registered,
-        ///  registerNode overrides the existing registration only when the previously
-        ///  registered node is not active.
+        /// Register a node with the registry. If a node with the same name is already registered,
+        /// registerNode overrides the existing registration only when the previously
+        /// registered node is not active.
         /// </summary>
-        ///  <param name="info">Some information on the node.
-        ///  </param>
-        /// <param name="prx">The proxy of the node.
-        ///  </param>
-        /// <param name="loadInf">The load information of the node.
-        ///  </param>
-        /// <returns>The node session proxy.
-        ///  </returns>
-        /// <exception name="NodeActiveException">Raised if the node is already registered and currently active.</exception>
+        /// <param name="info">
+        /// Some information on the node.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the node.
+        /// </param>
+        /// <param name="loadInf">
+        /// The load information of the node.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The node session proxy.
+        /// </returns>
+        /// <exception cref="IceGrid.NodeActiveException">
+        /// Raised if the node is already registered and currently active.
+        /// </exception>
         NodeSessionPrx? registerNode(InternalNodeInfo? info, NodePrx? prx, LoadInfo loadInf, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Register a node with the registry.
-        /// If a node with the same name is already registered,
+        /// Register a node with the registry. If a node with the same name is already registered,
+        /// registerNode overrides the existing registration only when the previously
+        /// registered node is not active.
         /// </summary>
-        ///  <param name="info">Some information on the node.
-        ///  </param>
-        /// <param name="prx">The proxy of the node.
-        ///  </param>
-        /// <param name="loadInf">The load information of the node.
-        ///  </param>
+        /// <param name="info">
+        /// Some information on the node.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the node.
+        /// </param>
+        /// <param name="loadInf">
+        /// The load information of the node.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.NodeActiveException">
+        /// Raised if the node is already registered and currently active.
+        /// </exception>
         global::System.Threading.Tasks.Task<NodeSessionPrx?> registerNodeAsync(InternalNodeInfo? info, NodePrx? prx, LoadInfo loadInf, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Register a replica with the registry.
-        /// If a replica with the same name is already registered,
-        ///  registerReplica overrides the existing registration only when the previously
-        ///  registered node is not active.
+        /// Register a replica with the registry. If a replica with the same name is already registered,
+        /// registerReplica overrides the existing registration only when the previously
+        /// registered node is not active.
         /// </summary>
-        ///  <param name="info">Some information on the replica.
-        ///  </param>
-        /// <param name="prx">The proxy of the replica.
-        ///  </param>
-        /// <returns>The replica session proxy.
-        ///  </returns>
-        /// <exception name="ReplicaActiveException">Raised if the replica is already registered and currently active.</exception>
+        /// <param name="info">
+        /// Some information on the replica.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the replica.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The replica session proxy.
+        /// </returns>
+        /// <exception cref="IceGrid.ReplicaActiveException">
+        /// Raised if the replica is already registered and currently active.
+        /// </exception>
         ReplicaSessionPrx? registerReplica(InternalReplicaInfo? info, InternalRegistryPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Register a replica with the registry.
-        /// If a replica with the same name is already registered,
+        /// Register a replica with the registry. If a replica with the same name is already registered,
+        /// registerReplica overrides the existing registration only when the previously
+        /// registered node is not active.
         /// </summary>
-        ///  <param name="info">Some information on the replica.
-        ///  </param>
-        /// <param name="prx">The proxy of the replica.
-        ///  </param>
+        /// <param name="info">
+        /// Some information on the replica.
+        /// </param>
+        /// <param name="prx">
+        /// The proxy of the replica.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.ReplicaActiveException">
+        /// Raised if the replica is already registered and currently active.
+        /// </exception>
         global::System.Threading.Tasks.Task<ReplicaSessionPrx?> registerReplicaAsync(InternalReplicaInfo? info, InternalRegistryPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Create a session with the given registry replica.
-        /// This method returns only once the session creation has been
-        ///  attempted.
+        /// Create a session with the given registry replica. This method returns only once the session creation has been
+        /// attempted.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void registerWithReplica(InternalRegistryPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Create a session with the given registry replica.
-        /// This method returns only once the session creation has been
+        /// Create a session with the given registry replica. This method returns only once the session creation has been
+        /// attempted.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task registerWithReplicaAsync(InternalRegistryPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Return the proxies of all the nodes known by this registry.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         NodePrx?[] getNodes(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1926,14 +1860,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<NodePrx?[]> getNodesAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Return the proxies of all the registry replicas known by this registry.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         InternalRegistryPrx?[] getReplicas(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1942,14 +1875,13 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<InternalRegistryPrx?[]> getReplicasAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Return applications, adapters, objects from this replica.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         ApplicationInfo[] getApplications(out long serial, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1958,7 +1890,7 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<InternalRegistry_GetApplicationsResult> getApplicationsAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         AdapterInfo[] getAdapters(out long serial, global::System.Collections.Generic.Dictionary<string, string>? context = null);
@@ -1973,7 +1905,6 @@ namespace IceGrid
         /// Shutdown this registry.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void shutdown(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -1982,7 +1913,7 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task shutdownAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

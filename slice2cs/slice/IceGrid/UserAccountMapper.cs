@@ -28,7 +28,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if a user account for a given session identifier can't be found.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::UserAccountNotFoundException")]
     public partial class UserAccountNotFoundException : Ice.UserException
     {
@@ -51,19 +50,21 @@ namespace IceGrid
     public partial interface UserAccountMapper : Ice.Object
     {
         /// <summary>
-        /// Get the name of the user account for the given user.
-        /// This is used by IceGrid nodes to figure out the user
-        ///  account to use to run servers.
+        /// Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+        /// account to use to run servers.
         /// </summary>
-        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
-        ///  defined, and the server's activation mode is session, the default value of user
-        ///  is the session identifier.
-        ///  </param>
-        /// <returns>The user account name.
-        ///  </returns>
-        /// <exception name="UserAccountNotFoundException">Raised if no user account is found for the given user.</exception>
+        /// <param name="user">
+        /// The value of the server descriptor's user attribute. If this attribute is not
+        /// defined, and the server's activation mode is session, the default value of user
+        /// is the session identifier.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The user account name.
+        /// </returns>
+        /// <exception cref="IceGrid.UserAccountNotFoundException">
+        /// Raised if no user account is found for the given user.
+        /// </exception>
         string getUserAccount(string user, Ice.Current current);
     }
 }
@@ -73,37 +74,42 @@ namespace IceGrid
     /// <summary>
     /// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
     /// </summary>
-
     public interface UserAccountMapperPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Get the name of the user account for the given user.
-        /// This is used by IceGrid nodes to figure out the user
-        ///  account to use to run servers.
+        /// Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+        /// account to use to run servers.
         /// </summary>
-        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
-        ///  defined, and the server's activation mode is session, the default value of user
-        ///  is the session identifier.
-        ///  </param>
-        /// <returns>The user account name.
-        ///  </returns>
-        /// <exception name="UserAccountNotFoundException">Raised if no user account is found for the given user.</exception>
+        /// <param name="user">
+        /// The value of the server descriptor's user attribute. If this attribute is not
+        /// defined, and the server's activation mode is session, the default value of user
+        /// is the session identifier.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The user account name.
+        /// </returns>
+        /// <exception cref="IceGrid.UserAccountNotFoundException">
+        /// Raised if no user account is found for the given user.
+        /// </exception>
         string getUserAccount(string user, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Get the name of the user account for the given user.
-        /// This is used by IceGrid nodes to figure out the user
+        /// Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+        /// account to use to run servers.
         /// </summary>
-        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
-        ///  defined, and the server's activation mode is session, the default value of user
-        ///  is the session identifier.
-        ///  </param>
+        /// <param name="user">
+        /// The value of the server descriptor's user attribute. If this attribute is not
+        /// defined, and the server's activation mode is session, the default value of user
+        /// is the session identifier.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.UserAccountNotFoundException">
+        /// Raised if no user account is found for the given user.
+        /// </exception>
         global::System.Threading.Tasks.Task<string> getUserAccountAsync(string user, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

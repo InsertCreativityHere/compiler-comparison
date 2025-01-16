@@ -28,7 +28,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if an error occurs during parsing.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::ParseException")]
     public partial class ParseException : Ice.UserException
     {
@@ -67,15 +66,19 @@ namespace IceGrid
         /// <summary>
         /// Parse a file.
         /// </summary>
-        /// <param name="xmlFile">Full pathname to the file.
-        ///  </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
-        ///  </param>
-        /// <returns>The application descriptor.
-        ///  </returns>
-        /// <exception name="ParseException">Raised if an error occurred during parsing.</exception>
+        /// <param name="xmlFile">
+        /// Full pathname to the file.
+        /// </param>
+        /// <param name="adminProxy">
+        /// An Admin proxy, used only to retrieve default templates when needed. May be null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The application descriptor.
+        /// </returns>
+        /// <exception cref="IceGrid.ParseException">
+        /// Raised if an error occurred during parsing.
+        /// </exception>
         ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, Ice.Current current);
     }
 }
@@ -83,37 +86,45 @@ namespace IceGrid
 namespace IceGrid
 {
     /// <summary>
-    /// icegridadmin provides a FileParser object to transform XML files into
-    ///  ApplicationDescriptor objects.
+    /// icegridadmin provides a <see cref="FileParser" /> object to transform XML files into
+    /// <see cref="ApplicationDescriptor" /> objects.
     /// </summary>
-
     public interface FileParserPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Parse a file.
         /// </summary>
-        /// <param name="xmlFile">Full pathname to the file.
-        ///  </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
-        ///  </param>
-        /// <returns>The application descriptor.
-        ///  </returns>
-        /// <exception name="ParseException">Raised if an error occurred during parsing.</exception>
+        /// <param name="xmlFile">
+        /// Full pathname to the file.
+        /// </param>
+        /// <param name="adminProxy">
+        /// An Admin proxy, used only to retrieve default templates when needed. May be null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The application descriptor.
+        /// </returns>
+        /// <exception cref="IceGrid.ParseException">
+        /// Raised if an error occurred during parsing.
+        /// </exception>
         ApplicationDescriptor parse(string xmlFile, AdminPrx? adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Parse a file.
         /// </summary>
-        /// <param name="xmlFile">Full pathname to the file.
-        ///  </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
-        ///  </param>
+        /// <param name="xmlFile">
+        /// Full pathname to the file.
+        /// </param>
+        /// <param name="adminProxy">
+        /// An Admin proxy, used only to retrieve default templates when needed. May be null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.ParseException">
+        /// Raised if an error occurred during parsing.
+        /// </exception>
         global::System.Threading.Tasks.Task<ApplicationDescriptor> parseAsync(string xmlFile, AdminPrx? adminProxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

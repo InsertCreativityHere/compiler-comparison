@@ -29,38 +29,40 @@ namespace Ice
     public partial interface PropertiesAdmin : Ice.Object
     {
         /// <summary>
-        /// Get a property by key.
-        /// If the property is not set, an empty string is returned.
+        /// Get a property by key. If the property is not set, an empty string is returned.
         /// </summary>
-        ///  <param name="key">The property key.
-        ///  </param>
-        /// <returns>The property value.</returns>
+        /// <param name="key">
+        /// The property key.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The property value.
+        /// </returns>
         string getProperty(string key, Ice.Current current);
 
         /// <summary>
-        /// Get all properties whose keys begin with prefix.
-        /// If prefix is an empty string then all
-        ///  properties are returned.
+        /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
+        /// properties are returned.
         /// </summary>
-        ///  <param name="prefix">The prefix to search for (empty string if none).
-        ///  </param>
-        /// <returns>The matching property set.</returns>
+        /// <param name="prefix">
+        /// The prefix to search for (empty string if none).
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The matching property set.
+        /// </returns>
         global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, Ice.Current current);
 
         /// <summary>
-        /// Update the communicator's properties with the given property set.
-        /// If an entry in newProperties
-        ///  matches the name of an existing property, that property's value is replaced with the new value. If the new
-        ///  value is an empty string, the property is removed. Any existing properties that are not modified or removed
-        ///  by the entries in newProperties are retained with their original values.
+        /// Update the communicator's properties with the given property set. If an entry in newProperties
+        /// matches the name of an existing property, that property's value is replaced with the new value. If the new
+        /// value is an empty string, the property is removed. Any existing properties that are not modified or removed
+        /// by the entries in newProperties are retained with their original values.
         /// </summary>
-        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
+        /// <param name="newProperties">
+        /// Properties to be added, changed, or removed.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, Ice.Current current);
     }
 }
@@ -70,77 +72,83 @@ namespace Ice
     /// <summary>
     /// The PropertiesAdmin interface provides remote access to the properties of a communicator.
     /// </summary>
-
     public interface PropertiesAdminPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Get a property by key.
-        /// If the property is not set, an empty string is returned.
+        /// Get a property by key. If the property is not set, an empty string is returned.
         /// </summary>
-        ///  <param name="key">The property key.
-        ///  </param>
-        /// <returns>The property value.</returns>
+        /// <param name="key">
+        /// The property key.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The property value.
+        /// </returns>
         string getProperty(string key, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Get a property by key.
-        /// If the property is not set, an empty string is returned.
+        /// Get a property by key. If the property is not set, an empty string is returned.
         /// </summary>
-        ///  <param name="key">The property key.
-        ///  </param>
+        /// <param name="key">
+        /// The property key.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<string> getPropertyAsync(string key, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Get all properties whose keys begin with prefix.
-        /// If prefix is an empty string then all
-        ///  properties are returned.
+        /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
+        /// properties are returned.
         /// </summary>
-        ///  <param name="prefix">The prefix to search for (empty string if none).
-        ///  </param>
-        /// <returns>The matching property set.</returns>
+        /// <param name="prefix">
+        /// The prefix to search for (empty string if none).
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The matching property set.
+        /// </returns>
         global::System.Collections.Generic.Dictionary<string, string> getPropertiesForPrefix(string prefix, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Get all properties whose keys begin with prefix.
-        /// If prefix is an empty string then all
+        /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
+        /// properties are returned.
         /// </summary>
-        ///  <param name="prefix">The prefix to search for (empty string if none).
-        ///  </param>
+        /// <param name="prefix">
+        /// The prefix to search for (empty string if none).
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getPropertiesForPrefixAsync(string prefix, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Update the communicator's properties with the given property set.
-        /// If an entry in newProperties
-        ///  matches the name of an existing property, that property's value is replaced with the new value. If the new
-        ///  value is an empty string, the property is removed. Any existing properties that are not modified or removed
-        ///  by the entries in newProperties are retained with their original values.
+        /// Update the communicator's properties with the given property set. If an entry in newProperties
+        /// matches the name of an existing property, that property's value is replaced with the new value. If the new
+        /// value is an empty string, the property is removed. Any existing properties that are not modified or removed
+        /// by the entries in newProperties are retained with their original values.
         /// </summary>
-        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
+        /// <param name="newProperties">
+        /// Properties to be added, changed, or removed.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Update the communicator's properties with the given property set.
-        /// If an entry in newProperties
+        /// Update the communicator's properties with the given property set. If an entry in newProperties
+        /// matches the name of an existing property, that property's value is replaced with the new value. If the new
+        /// value is an empty string, the property is removed. Any existing properties that are not modified or removed
+        /// by the entries in newProperties are retained with their original values.
         /// </summary>
-        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
+        /// <param name="newProperties">
+        /// Properties to be added, changed, or removed.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task setPropertiesAsync(global::System.Collections.Generic.Dictionary<string, string> newProperties, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

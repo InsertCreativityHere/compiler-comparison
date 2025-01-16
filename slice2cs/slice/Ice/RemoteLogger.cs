@@ -28,28 +28,23 @@ namespace Ice
     /// <summary>
     /// An enumeration representing the different types of log messages.
     /// </summary>
-
     public enum LogMessageType
     {
         /// <summary>
-        /// The RemoteLogger received a print message.
+        /// The <see cref="RemoteLogger" /> received a print message.
         /// </summary>
-
         PrintMessage,
         /// <summary>
-        /// The RemoteLogger received a trace message.
+        /// The <see cref="RemoteLogger" /> received a trace message.
         /// </summary>
-
         TraceMessage,
         /// <summary>
-        /// The RemoteLogger received a warning message.
+        /// The <see cref="RemoteLogger" /> received a warning message.
         /// </summary>
-
         WarningMessage,
         /// <summary>
-        /// The RemoteLogger received an error message.
+        /// The <see cref="RemoteLogger" /> received an error message.
         /// </summary>
-
         ErrorMessage
     }
 
@@ -127,27 +122,28 @@ namespace Ice
         /// <summary>
         /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         /// </summary>
-        /// <param name="prefix">The prefix of the associated local Logger.
-        ///  </param>
-        /// <param name="logMessages">Old log messages generated before "now".</param>
+        /// <param name="prefix">
+        /// The prefix of the associated local Logger.
+        /// </param>
+        /// <param name="logMessages">
+        /// Old log messages generated before "now".
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void init(string prefix, LogMessage[] logMessages, Ice.Current current);
 
         /// <summary>
-        /// Log a LogMessage.
-        /// Note that log may be called by LoggerAdmin before init.
+        /// Log a LogMessage. Note that log may be called by LoggerAdmin before init.
         /// </summary>
-        ///  <param name="message">The message to log.</param>
+        /// <param name="message">
+        /// The message to log.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void log(LogMessage message, Ice.Current current);
     }
 
     /// <summary>
     /// Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
     /// </summary>
-
     [Ice.SliceTypeId("::Ice::RemoteLoggerAlreadyAttachedException")]
     public partial class RemoteLoggerAlreadyAttachedException : Ice.UserException
     {
@@ -170,56 +166,67 @@ namespace Ice
     public partial interface LoggerAdmin : Ice.Object
     {
         /// <summary>
-        /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided
-        ///  RemoteLogger proxy.
+        /// Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+        /// RemoteLogger proxy.
         /// </summary>
-        ///  <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
-        ///  no filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
-        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
-        ///  trace categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
-        ///  value requests all messages available.
-        ///  </param>
-        /// <exception name="RemoteLoggerAlreadyAttachedException">Raised if this remote logger is already attached to this admin
-        ///  object.</exception>
+        /// <param name="prx">
+        /// A proxy to the remote logger.
+        /// </param>
+        /// <param name="messageTypes">
+        /// The list of message types that the remote logger wishes to receive. An empty list means
+        /// no filtering (send all message types).
+        /// </param>
+        /// <param name="traceCategories">
+        /// The categories of traces that the remote logger wishes to receive. This parameter is
+        /// ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+        /// trace categories).
+        /// </param>
+        /// <param name="messageMax">
+        /// The maximum number of log messages (of all types) to be provided to init. A negative
+        /// value requests all messages available.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <exception cref="Ice.RemoteLoggerAlreadyAttachedException">
+        /// Raised if this remote logger is already attached to this admin
+        /// object.
+        /// </exception>
         void attachRemoteLogger(RemoteLoggerPrx? prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, Ice.Current current);
 
         /// <summary>
         /// Detaches a RemoteLogger object from the local logger.
         /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <returns>True if the provided remote logger proxy was detached, and false otherwise.</returns>
+        /// <param name="prx">
+        /// A proxy to the remote logger.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// True if the provided remote logger proxy was detached, and false otherwise.
+        /// </returns>
         bool detachRemoteLogger(RemoteLoggerPrx? prx, Ice.Current current);
 
         /// <summary>
         /// Retrieves log messages recently logged.
         /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
-        ///  filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
-        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
-        ///  categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
-        ///  requests all messages available.
-        ///  </param>
-        /// <param name="prefix">The prefix of the associated local logger.
-        ///  </param>
-        /// <returns>The Log messages.</returns>
+        /// <param name="messageTypes">
+        /// The list of message types that the caller wishes to receive. An empty list means no
+        /// filtering (send all message types).
+        /// </param>
+        /// <param name="traceCategories">
+        /// The categories of traces that caller wish to receive. This parameter is ignored if
+        /// messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+        /// categories).
+        /// </param>
+        /// <param name="messageMax">
+        /// The maximum number of log messages (of all types) to be returned. A negative value
+        /// requests all messages available.
+        /// </param>
+        /// <param name="prefix">
+        /// The prefix of the associated local logger.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The Log messages.
+        /// </returns>
         LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, Ice.Current current);
     }
 }
@@ -232,166 +239,192 @@ namespace Ice
 namespace Ice
 {
     /// <summary>
-    /// The Ice remote logger interface.
-    /// An application can implement a RemoteLogger to receive the log messages sent
-    ///  to the local RemoteLogger of another Ice application.
+    /// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
+    /// to the local <see cref="RemoteLogger" /> of another Ice application.
     /// </summary>
-
     public interface RemoteLoggerPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         /// </summary>
-        /// <param name="prefix">The prefix of the associated local Logger.
-        ///  </param>
-        /// <param name="logMessages">Old log messages generated before "now".</param>
+        /// <param name="prefix">
+        /// The prefix of the associated local Logger.
+        /// </param>
+        /// <param name="logMessages">
+        /// Old log messages generated before "now".
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void init(string prefix, LogMessage[] logMessages, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         /// </summary>
-        /// <param name="prefix">The prefix of the associated local Logger.
-        ///  </param>
-        /// <param name="logMessages">Old log messages generated before "now".</param>
+        /// <param name="prefix">
+        /// The prefix of the associated local Logger.
+        /// </param>
+        /// <param name="logMessages">
+        /// Old log messages generated before "now".
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task initAsync(string prefix, LogMessage[] logMessages, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Log a LogMessage.
-        /// Note that log may be called by LoggerAdmin before init.
+        /// Log a LogMessage. Note that log may be called by LoggerAdmin before init.
         /// </summary>
-        ///  <param name="message">The message to log.</param>
+        /// <param name="message">
+        /// The message to log.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void log(LogMessage message, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Log a LogMessage.
-        /// Note that log may be called by LoggerAdmin before init.
+        /// Log a LogMessage. Note that log may be called by LoggerAdmin before init.
         /// </summary>
-        ///  <param name="message">The message to log.</param>
+        /// <param name="message">
+        /// The message to log.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task logAsync(LogMessage message, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
     /// The interface of the admin object that allows an Ice application the attach its
-    ///  RemoteLogger to the RemoteLogger of this admin object's Ice communicator.
+    /// <see cref="RemoteLogger" /> to the <see cref="RemoteLogger" /> of this admin object's Ice communicator.
     /// </summary>
-
     public interface LoggerAdminPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided
-        ///  RemoteLogger proxy.
+        /// Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+        /// RemoteLogger proxy.
         /// </summary>
-        ///  <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
-        ///  no filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
-        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
-        ///  trace categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
-        ///  value requests all messages available.
-        ///  </param>
-        /// <exception name="RemoteLoggerAlreadyAttachedException">Raised if this remote logger is already attached to this admin
-        ///  object.</exception>
+        /// <param name="prx">
+        /// A proxy to the remote logger.
+        /// </param>
+        /// <param name="messageTypes">
+        /// The list of message types that the remote logger wishes to receive. An empty list means
+        /// no filtering (send all message types).
+        /// </param>
+        /// <param name="traceCategories">
+        /// The categories of traces that the remote logger wishes to receive. This parameter is
+        /// ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+        /// trace categories).
+        /// </param>
+        /// <param name="messageMax">
+        /// The maximum number of log messages (of all types) to be provided to init. A negative
+        /// value requests all messages available.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="Ice.RemoteLoggerAlreadyAttachedException">
+        /// Raised if this remote logger is already attached to this admin
+        /// object.
+        /// </exception>
         void attachRemoteLogger(RemoteLoggerPrx? prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided
+        /// Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+        /// RemoteLogger proxy.
         /// </summary>
-        ///  <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
-        ///  no filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
-        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
-        ///  trace categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
-        ///  value requests all messages available.
-        ///  </param>
+        /// <param name="prx">
+        /// A proxy to the remote logger.
+        /// </param>
+        /// <param name="messageTypes">
+        /// The list of message types that the remote logger wishes to receive. An empty list means
+        /// no filtering (send all message types).
+        /// </param>
+        /// <param name="traceCategories">
+        /// The categories of traces that the remote logger wishes to receive. This parameter is
+        /// ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+        /// trace categories).
+        /// </param>
+        /// <param name="messageMax">
+        /// The maximum number of log messages (of all types) to be provided to init. A negative
+        /// value requests all messages available.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Ice.RemoteLoggerAlreadyAttachedException">
+        /// Raised if this remote logger is already attached to this admin
+        /// object.
+        /// </exception>
         global::System.Threading.Tasks.Task attachRemoteLoggerAsync(RemoteLoggerPrx? prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Detaches a RemoteLogger object from the local logger.
         /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///  </param>
-        /// <returns>True if the provided remote logger proxy was detached, and false otherwise.</returns>
+        /// <param name="prx">
+        /// A proxy to the remote logger.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// True if the provided remote logger proxy was detached, and false otherwise.
+        /// </returns>
         bool detachRemoteLogger(RemoteLoggerPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Detaches a RemoteLogger object from the local logger.
         /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///  </param>
+        /// <param name="prx">
+        /// A proxy to the remote logger.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<bool> detachRemoteLoggerAsync(RemoteLoggerPrx? prx, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Retrieves log messages recently logged.
         /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
-        ///  filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
-        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
-        ///  categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
-        ///  requests all messages available.
-        ///  </param>
-        /// <param name="prefix">The prefix of the associated local logger.
-        ///  </param>
-        /// <returns>The Log messages.</returns>
+        /// <param name="messageTypes">
+        /// The list of message types that the caller wishes to receive. An empty list means no
+        /// filtering (send all message types).
+        /// </param>
+        /// <param name="traceCategories">
+        /// The categories of traces that caller wish to receive. This parameter is ignored if
+        /// messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+        /// categories).
+        /// </param>
+        /// <param name="messageMax">
+        /// The maximum number of log messages (of all types) to be returned. A negative value
+        /// requests all messages available.
+        /// </param>
+        /// <param name="prefix">
+        /// The prefix of the associated local logger.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The Log messages.
+        /// </returns>
         LogMessage[] getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, out string prefix, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Retrieves log messages recently logged.
         /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
-        ///  filtering (send all message types).
-        ///  </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
-        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
-        ///  categories).
-        ///  </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
-        ///  requests all messages available.
-        ///  </param>
+        /// <param name="messageTypes">
+        /// The list of message types that the caller wishes to receive. An empty list means no
+        /// filtering (send all message types).
+        /// </param>
+        /// <param name="traceCategories">
+        /// The categories of traces that caller wish to receive. This parameter is ignored if
+        /// messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+        /// categories).
+        /// </param>
+        /// <param name="messageMax">
+        /// The maximum number of log messages (of all types) to be returned. A negative value
+        /// requests all messages available.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<LoggerAdmin_GetLogResult> getLogAsync(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

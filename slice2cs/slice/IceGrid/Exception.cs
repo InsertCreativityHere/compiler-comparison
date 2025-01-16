@@ -28,7 +28,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if an application does not exist.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::ApplicationNotExistException")]
     public partial class ApplicationNotExistException : Ice.UserException
     {
@@ -64,7 +63,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if a server does not exist.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::ServerNotExistException")]
     public partial class ServerNotExistException : Ice.UserException
     {
@@ -100,7 +98,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if a server failed to start.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::ServerStartException")]
     public partial class ServerStartException : Ice.UserException
     {
@@ -142,7 +139,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if a server failed to stop.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::ServerStopException")]
     public partial class ServerStopException : Ice.UserException
     {
@@ -184,7 +180,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if an adapter does not exist.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::AdapterNotExistException")]
     public partial class AdapterNotExistException : Ice.UserException
     {
@@ -220,7 +215,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if an object already exists.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::ObjectExistsException")]
     public partial class ObjectExistsException : Ice.UserException
     {
@@ -258,7 +252,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if an object is not registered.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::ObjectNotRegisteredException")]
     public partial class ObjectNotRegisteredException : Ice.UserException
     {
@@ -296,7 +289,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if a node does not exist.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::NodeNotExistException")]
     public partial class NodeNotExistException : Ice.UserException
     {
@@ -332,7 +324,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if a registry does not exist.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::RegistryNotExistException")]
     public partial class RegistryNotExistException : Ice.UserException
     {
@@ -368,7 +359,6 @@ namespace IceGrid
     /// <summary>
     /// An exception for deployment errors.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::DeploymentException")]
     public partial class DeploymentException : Ice.UserException
     {
@@ -404,7 +394,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if a node could not be reached.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::NodeUnreachableException")]
     public partial class NodeUnreachableException : Ice.UserException
     {
@@ -446,7 +435,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if a server could not be reached.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::ServerUnreachableException")]
     public partial class ServerUnreachableException : Ice.UserException
     {
@@ -488,7 +476,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if a registry could not be reached.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::RegistryUnreachableException")]
     public partial class RegistryUnreachableException : Ice.UserException
     {
@@ -530,7 +517,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if an unknown signal was sent to to a server.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::BadSignalException")]
     public partial class BadSignalException : Ice.UserException
     {
@@ -566,7 +552,6 @@ namespace IceGrid
     /// <summary>
     /// his exception is raised if a registry lock wasn't acquired or is already held by a session.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::AccessDeniedException")]
     public partial class AccessDeniedException : Ice.UserException
     {
@@ -602,7 +587,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if the allocation of an object failed.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::AllocationException")]
     public partial class AllocationException : Ice.UserException
     {
@@ -638,7 +622,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if the request to allocate an object times out.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::AllocationTimeoutException")]
     public partial class AllocationTimeoutException : AllocationException
     {
@@ -670,7 +653,6 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if a client is denied the ability to create a session with IceGrid.
     /// </summary>
-
     [Ice.SliceTypeId("::IceGrid::PermissionDeniedException")]
     public partial class PermissionDeniedException : Ice.UserException
     {
@@ -706,7 +688,8 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if an observer is already registered with the registry.
     /// </summary>
-
+    /// <seealso cref="AdminSession.setObservers" />
+    /// <seealso cref="AdminSession.setObserversByIdentity" />
     [Ice.SliceTypeId("::IceGrid::ObserverAlreadyRegisteredException")]
     public partial class ObserverAlreadyRegisteredException : Ice.UserException
     {
@@ -744,7 +727,12 @@ namespace IceGrid
     /// <summary>
     /// This exception is raised if a file is not available.
     /// </summary>
-
+    /// <seealso cref="AdminSession.openServerStdOut" />
+    /// <seealso cref="AdminSession.openServerStdErr" />
+    /// <seealso cref="AdminSession.openNodeStdOut" />
+    /// <seealso cref="AdminSession.openNodeStdErr" />
+    /// <seealso cref="AdminSession.openRegistryStdOut" />
+    /// <seealso cref="AdminSession.openRegistryStdErr" />
     [Ice.SliceTypeId("::IceGrid::FileNotAvailableException")]
     public partial class FileNotAvailableException : Ice.UserException
     {

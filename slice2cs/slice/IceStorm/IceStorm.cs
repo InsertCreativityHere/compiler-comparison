@@ -75,7 +75,6 @@ namespace IceStorm
     /// <summary>
     /// This exception indicates that an attempt was made to create a link that already exists.
     /// </summary>
-
     [Ice.SliceTypeId("::IceStorm::LinkExists")]
     public partial class LinkExists : Ice.UserException
     {
@@ -111,7 +110,6 @@ namespace IceStorm
     /// <summary>
     /// This exception indicates that an attempt was made to remove a link that does not exist.
     /// </summary>
-
     [Ice.SliceTypeId("::IceStorm::NoSuchLink")]
     public partial class NoSuchLink : Ice.UserException
     {
@@ -147,7 +145,6 @@ namespace IceStorm
     /// <summary>
     /// This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
     /// </summary>
-
     [Ice.SliceTypeId("::IceStorm::AlreadySubscribed")]
     public partial class AlreadySubscribed : Ice.UserException
     {
@@ -169,7 +166,6 @@ namespace IceStorm
     /// <summary>
     /// This exception indicates that an attempt was made to subscribe a proxy that is null.
     /// </summary>
-
     [Ice.SliceTypeId("::IceStorm::InvalidSubscriber")]
     public partial class InvalidSubscriber : Ice.UserException
     {
@@ -205,7 +201,6 @@ namespace IceStorm
     /// <summary>
     /// This exception indicates that a subscription failed due to an invalid QoS.
     /// </summary>
-
     [Ice.SliceTypeId("::IceStorm::BadQoS")]
     public partial class BadQoS : Ice.UserException
     {
@@ -244,115 +239,126 @@ namespace IceStorm
         /// <summary>
         /// Get the name of this topic.
         /// </summary>
-        /// <returns>The name of the topic.
-        ///  </returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The name of the topic.
+        /// </returns>
+        /// <seealso cref="TopicManager.create" />
         string getName(Ice.Current current);
 
         /// <summary>
-        /// Get a proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher calls getPublisher
-        ///  and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
-        ///  deployment is used this call may return a replicated proxy. The returned proxy is never null.
+        /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+        /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+        /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
         /// </summary>
-        ///  <returns>A proxy to publish data on this topic.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A proxy to publish data on this topic.
+        /// </returns>
         global::Ice.ObjectPrx? getPublisher(Ice.Current current);
 
         /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher
-        ///  calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
-        ///  never null.
+        /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+        /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+        /// never null.
         /// </summary>
-        ///  <returns>A proxy to publish data on this topic.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A proxy to publish data on this topic.
+        /// </returns>
         global::Ice.ObjectPrx? getNonReplicatedPublisher(Ice.Current current);
 
         /// <summary>
-        /// Subscribe with the given qos to this topic.
-        /// A per-subscriber publisher object is returned.
+        /// Subscribe with the given qos to this topic. A per-subscriber publisher object is returned.
         /// </summary>
-        ///  <param name="theQoS">The quality of service parameters for this subscription.
-        ///  </param>
-        /// <param name="subscriber">The subscriber's proxy. This proxy is never null.
-        ///  </param>
-        /// <returns>The per-subscriber publisher object. The returned object is never null.
-        ///  </returns>
-        /// <exception name="AlreadySubscribed">Raised if the subscriber object is already subscribed.
-        ///  </exception>
-        /// <exception name="InvalidSubscriber">Raised if the subscriber object is null.
-        ///  </exception>
-        /// <exception name="BadQoS">Raised if the requested quality of service is unavailable or invalid.
-        ///  </exception>
+        /// <param name="theQoS">
+        /// The quality of service parameters for this subscription.
+        /// </param>
+        /// <param name="subscriber">
+        /// The subscriber's proxy. This proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The per-subscriber publisher object. The returned object is never null.
+        /// </returns>
+        /// <exception cref="IceStorm.AlreadySubscribed">
+        /// Raised if the subscriber object is already subscribed.
+        /// </exception>
+        /// <exception cref="IceStorm.BadQoS">
+        /// Raised if the requested quality of service is unavailable or invalid.
+        /// </exception>
+        /// <exception cref="IceStorm.InvalidSubscriber">
+        /// Raised if the subscriber object is null.
+        /// </exception>
+        /// <seealso cref="unsubscribe" />
         global::Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, Ice.Current current);
 
         /// <summary>
         /// Unsubscribe the given subscriber.
         /// </summary>
-        /// <param name="subscriber">The proxy of an existing subscriber. This proxy is never null.
-        ///  </param>
+        /// <param name="subscriber">
+        /// The proxy of an existing subscriber. This proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <seealso cref="subscribeAndGetPublisher" />
         void unsubscribe(global::Ice.ObjectPrx? subscriber, Ice.Current current);
 
         /// <summary>
-        /// Create a link to the given topic.
-        /// All events originating on this topic will also be sent to
-        ///  linkTo.
+        /// Create a link to the given topic. All events originating on this topic will also be sent to
+        /// linkTo.
         /// </summary>
-        ///  <param name="linkTo">The topic to link to. This proxy is never null.
-        ///  </param>
-        /// <param name="cost">The cost to the linked topic.
-        ///  </param>
-        /// <exception name="LinkExists">Raised if a link to the same topic already exists.</exception>
+        /// <param name="linkTo">
+        /// The topic to link to. This proxy is never null.
+        /// </param>
+        /// <param name="cost">
+        /// The cost to the linked topic.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <exception cref="IceStorm.LinkExists">
+        /// Raised if a link to the same topic already exists.
+        /// </exception>
         void link(TopicPrx? linkTo, int cost, Ice.Current current);
 
         /// <summary>
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
-        /// <param name="linkTo">The topic to destroy the link to. This proxy is never null.
-        ///  </param>
-        /// <exception name="NoSuchLink">Raised if a link to the topic does not exist.</exception>
+        /// <param name="linkTo">
+        /// The topic to destroy the link to. This proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <exception cref="IceStorm.NoSuchLink">
+        /// Raised if a link to the topic does not exist.
+        /// </exception>
         void unlink(TopicPrx? linkTo, Ice.Current current);
 
         /// <summary>
         /// Retrieve information on the current links.
         /// </summary>
-        /// <returns>A sequence of LinkInfo objects.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A sequence of LinkInfo objects.
+        /// </returns>
         LinkInfo[] getLinkInfoSeq(Ice.Current current);
 
         /// <summary>
         /// Retrieve the list of subscribers for this topic.
         /// </summary>
-        /// <returns>The sequence of Ice identities for the subscriber objects.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The sequence of Ice identities for the subscriber objects.
+        /// </returns>
         global::Ice.Identity[] getSubscribers(Ice.Current current);
 
         /// <summary>
         /// Destroy the topic.
         /// </summary>
         /// <param name="current">The Current object for the dispatch.</param>
-
         void destroy(Ice.Current current);
     }
 
     /// <summary>
     /// This exception indicates that an attempt was made to create a topic that already exists.
     /// </summary>
-
     [Ice.SliceTypeId("::IceStorm::TopicExists")]
     public partial class TopicExists : Ice.UserException
     {
@@ -388,7 +394,6 @@ namespace IceStorm
     /// <summary>
     /// This exception indicates that an attempt was made to retrieve a topic that does not exist.
     /// </summary>
-
     [Ice.SliceTypeId("::IceStorm::NoSuchTopic")]
     public partial class NoSuchTopic : Ice.UserException
     {
@@ -425,36 +430,42 @@ namespace IceStorm
     public partial interface TopicManager : Ice.Object
     {
         /// <summary>
-        /// Create a new topic.
-        /// The topic name must be unique.
+        /// Create a new topic. The topic name must be unique.
         /// </summary>
-        ///  <param name="name">The name of the topic.
-        ///  </param>
-        /// <returns>A proxy to the topic instance. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="TopicExists">Raised if a topic with the same name already exists.</exception>
+        /// <param name="name">
+        /// The name of the topic.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A proxy to the topic instance. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceStorm.TopicExists">
+        /// Raised if a topic with the same name already exists.
+        /// </exception>
         TopicPrx? create(string name, Ice.Current current);
 
         /// <summary>
         /// Retrieve a topic by name.
         /// </summary>
-        /// <param name="name">The name of the topic.
-        ///  </param>
-        /// <returns>A proxy to the topic instance. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="NoSuchTopic">Raised if the topic does not exist.</exception>
+        /// <param name="name">
+        /// The name of the topic.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A proxy to the topic instance. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceStorm.NoSuchTopic">
+        /// Raised if the topic does not exist.
+        /// </exception>
         TopicPrx? retrieve(string name, Ice.Current current);
 
         /// <summary>
         /// Retrieve all topics managed by this topic manager.
         /// </summary>
-        /// <returns>A dictionary of string, topic proxy pairs.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A dictionary of string, topic proxy pairs.
+        /// </returns>
         global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(Ice.Current current);
     }
 
@@ -462,12 +473,12 @@ namespace IceStorm
     public partial interface Finder : Ice.Object
     {
         /// <summary>
-        /// Get the topic manager proxy.
-        /// The proxy might point to several replicas.
+        /// Get the topic manager proxy. The proxy might point to several replicas.
         /// </summary>
-        ///  <returns>The topic manager proxy. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The topic manager proxy. The returned proxy is never null.
+        /// </returns>
         TopicManagerPrx? getTopicManager(Ice.Current current);
     }
 }
@@ -475,19 +486,19 @@ namespace IceStorm
 namespace IceStorm
 {
     /// <summary>
-    /// Publishers publish information on a particular topic.
-    /// A topic logically represents a type.
+    /// Publishers publish information on a particular topic. A topic logically represents a type.
     /// </summary>
-
+    /// <seealso cref="TopicManager" />
     public interface TopicPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Get the name of this topic.
         /// </summary>
-        /// <returns>The name of the topic.
-        ///  </returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The name of the topic.
+        /// </returns>
+        /// <seealso cref="TopicManager.create" />
         string getName(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -496,160 +507,196 @@ namespace IceStorm
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <seealso cref="TopicManager.create" />
         global::System.Threading.Tasks.Task<string> getNameAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Get a proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher calls getPublisher
-        ///  and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
-        ///  deployment is used this call may return a replicated proxy. The returned proxy is never null.
+        /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+        /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+        /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
         /// </summary>
-        ///  <returns>A proxy to publish data on this topic.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy to publish data on this topic.
+        /// </returns>
         global::Ice.ObjectPrx? getPublisher(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Get a proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher calls getPublisher
+        /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+        /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+        /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getPublisherAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher
-        ///  calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
-        ///  never null.
+        /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+        /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+        /// never null.
         /// </summary>
-        ///  <returns>A proxy to publish data on this topic.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy to publish data on this topic.
+        /// </returns>
         global::Ice.ObjectPrx? getNonReplicatedPublisher(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this topic.
-        /// To publish data to a topic, the publisher
+        /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+        /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+        /// never null.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> getNonReplicatedPublisherAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Subscribe with the given qos to this topic.
-        /// A per-subscriber publisher object is returned.
+        /// Subscribe with the given qos to this topic. A per-subscriber publisher object is returned.
         /// </summary>
-        ///  <param name="theQoS">The quality of service parameters for this subscription.
-        ///  </param>
-        /// <param name="subscriber">The subscriber's proxy. This proxy is never null.
-        ///  </param>
-        /// <returns>The per-subscriber publisher object. The returned object is never null.
-        ///  </returns>
-        /// <exception name="AlreadySubscribed">Raised if the subscriber object is already subscribed.
-        ///  </exception>
-        /// <exception name="InvalidSubscriber">Raised if the subscriber object is null.
-        ///  </exception>
-        /// <exception name="BadQoS">Raised if the requested quality of service is unavailable or invalid.
-        ///  </exception>
+        /// <param name="theQoS">
+        /// The quality of service parameters for this subscription.
+        /// </param>
+        /// <param name="subscriber">
+        /// The subscriber's proxy. This proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The per-subscriber publisher object. The returned object is never null.
+        /// </returns>
+        /// <exception cref="IceStorm.AlreadySubscribed">
+        /// Raised if the subscriber object is already subscribed.
+        /// </exception>
+        /// <exception cref="IceStorm.BadQoS">
+        /// Raised if the requested quality of service is unavailable or invalid.
+        /// </exception>
+        /// <exception cref="IceStorm.InvalidSubscriber">
+        /// Raised if the subscriber object is null.
+        /// </exception>
+        /// <seealso cref="unsubscribe" />
         global::Ice.ObjectPrx? subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Subscribe with the given qos to this topic.
-        /// A per-subscriber publisher object is returned.
+        /// Subscribe with the given qos to this topic. A per-subscriber publisher object is returned.
         /// </summary>
-        ///  <param name="theQoS">The quality of service parameters for this subscription.
-        ///  </param>
-        /// <param name="subscriber">The subscriber's proxy. This proxy is never null.
-        ///  </param>
+        /// <param name="theQoS">
+        /// The quality of service parameters for this subscription.
+        /// </param>
+        /// <param name="subscriber">
+        /// The subscriber's proxy. This proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceStorm.AlreadySubscribed">
+        /// Raised if the subscriber object is already subscribed.
+        /// </exception>
+        /// <exception cref="IceStorm.BadQoS">
+        /// Raised if the requested quality of service is unavailable or invalid.
+        /// </exception>
+        /// <exception cref="IceStorm.InvalidSubscriber">
+        /// Raised if the subscriber object is null.
+        /// </exception>
+        /// <seealso cref="unsubscribe" />
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> subscribeAndGetPublisherAsync(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Unsubscribe the given subscriber.
         /// </summary>
-        /// <param name="subscriber">The proxy of an existing subscriber. This proxy is never null.
-        ///  </param>
+        /// <param name="subscriber">
+        /// The proxy of an existing subscriber. This proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <seealso cref="subscribeAndGetPublisher" />
         void unsubscribe(global::Ice.ObjectPrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Unsubscribe the given subscriber.
         /// </summary>
-        /// <param name="subscriber">The proxy of an existing subscriber. This proxy is never null.
-        ///  </param>
+        /// <param name="subscriber">
+        /// The proxy of an existing subscriber. This proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <seealso cref="subscribeAndGetPublisher" />
         global::System.Threading.Tasks.Task unsubscribeAsync(global::Ice.ObjectPrx? subscriber, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Create a link to the given topic.
-        /// All events originating on this topic will also be sent to
-        ///  linkTo.
+        /// Create a link to the given topic. All events originating on this topic will also be sent to
+        /// linkTo.
         /// </summary>
-        ///  <param name="linkTo">The topic to link to. This proxy is never null.
-        ///  </param>
-        /// <param name="cost">The cost to the linked topic.
-        ///  </param>
-        /// <exception name="LinkExists">Raised if a link to the same topic already exists.</exception>
+        /// <param name="linkTo">
+        /// The topic to link to. This proxy is never null.
+        /// </param>
+        /// <param name="cost">
+        /// The cost to the linked topic.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="IceStorm.LinkExists">
+        /// Raised if a link to the same topic already exists.
+        /// </exception>
         void link(TopicPrx? linkTo, int cost, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Create a link to the given topic.
-        /// All events originating on this topic will also be sent to
+        /// Create a link to the given topic. All events originating on this topic will also be sent to
+        /// linkTo.
         /// </summary>
-        ///  <param name="linkTo">The topic to link to. This proxy is never null.
-        ///  </param>
-        /// <param name="cost">The cost to the linked topic.
-        ///  </param>
+        /// <param name="linkTo">
+        /// The topic to link to. This proxy is never null.
+        /// </param>
+        /// <param name="cost">
+        /// The cost to the linked topic.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceStorm.LinkExists">
+        /// Raised if a link to the same topic already exists.
+        /// </exception>
         global::System.Threading.Tasks.Task linkAsync(TopicPrx? linkTo, int cost, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
-        /// <param name="linkTo">The topic to destroy the link to. This proxy is never null.
-        ///  </param>
-        /// <exception name="NoSuchLink">Raised if a link to the topic does not exist.</exception>
+        /// <param name="linkTo">
+        /// The topic to destroy the link to. This proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="IceStorm.NoSuchLink">
+        /// Raised if a link to the topic does not exist.
+        /// </exception>
         void unlink(TopicPrx? linkTo, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
-        /// <param name="linkTo">The topic to destroy the link to. This proxy is never null.
-        ///  </param>
+        /// <param name="linkTo">
+        /// The topic to destroy the link to. This proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceStorm.NoSuchLink">
+        /// Raised if a link to the topic does not exist.
+        /// </exception>
         global::System.Threading.Tasks.Task unlinkAsync(TopicPrx? linkTo, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Retrieve information on the current links.
         /// </summary>
-        /// <returns>A sequence of LinkInfo objects.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A sequence of LinkInfo objects.
+        /// </returns>
         LinkInfo[] getLinkInfoSeq(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -658,15 +705,16 @@ namespace IceStorm
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<LinkInfo[]> getLinkInfoSeqAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Retrieve the list of subscribers for this topic.
         /// </summary>
-        /// <returns>The sequence of Ice identities for the subscriber objects.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The sequence of Ice identities for the subscriber objects.
+        /// </returns>
         global::Ice.Identity[] getSubscribers(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -675,14 +723,13 @@ namespace IceStorm
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.Identity[]> getSubscribersAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Destroy the topic.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
-
         void destroy(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -691,70 +738,83 @@ namespace IceStorm
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
     /// A topic manager manages topics, and subscribers to topics.
     /// </summary>
-
+    /// <seealso cref="Topic" />
     public interface TopicManagerPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Create a new topic.
-        /// The topic name must be unique.
+        /// Create a new topic. The topic name must be unique.
         /// </summary>
-        ///  <param name="name">The name of the topic.
-        ///  </param>
-        /// <returns>A proxy to the topic instance. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="TopicExists">Raised if a topic with the same name already exists.</exception>
+        /// <param name="name">
+        /// The name of the topic.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy to the topic instance. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceStorm.TopicExists">
+        /// Raised if a topic with the same name already exists.
+        /// </exception>
         TopicPrx? create(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Create a new topic.
-        /// The topic name must be unique.
+        /// Create a new topic. The topic name must be unique.
         /// </summary>
-        ///  <param name="name">The name of the topic.
-        ///  </param>
+        /// <param name="name">
+        /// The name of the topic.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceStorm.TopicExists">
+        /// Raised if a topic with the same name already exists.
+        /// </exception>
         global::System.Threading.Tasks.Task<TopicPrx?> createAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Retrieve a topic by name.
         /// </summary>
-        /// <param name="name">The name of the topic.
-        ///  </param>
-        /// <returns>A proxy to the topic instance. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="NoSuchTopic">Raised if the topic does not exist.</exception>
+        /// <param name="name">
+        /// The name of the topic.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy to the topic instance. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceStorm.NoSuchTopic">
+        /// Raised if the topic does not exist.
+        /// </exception>
         TopicPrx? retrieve(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Retrieve a topic by name.
         /// </summary>
-        /// <param name="name">The name of the topic.
-        ///  </param>
+        /// <param name="name">
+        /// The name of the topic.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceStorm.NoSuchTopic">
+        /// Raised if the topic does not exist.
+        /// </exception>
         global::System.Threading.Tasks.Task<TopicPrx?> retrieveAsync(string name, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Retrieve all topics managed by this topic manager.
         /// </summary>
-        /// <returns>A dictionary of string, topic proxy pairs.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A dictionary of string, topic proxy pairs.
+        /// </returns>
         global::System.Collections.Generic.Dictionary<string, TopicPrx?> retrieveAll(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -763,7 +823,7 @@ namespace IceStorm
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, TopicPrx?>> retrieveAllAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
@@ -771,26 +831,24 @@ namespace IceStorm
     /// This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
     /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
     /// </summary>
-
     public interface FinderPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Get the topic manager proxy.
-        /// The proxy might point to several replicas.
+        /// Get the topic manager proxy. The proxy might point to several replicas.
         /// </summary>
-        ///  <returns>The topic manager proxy. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The topic manager proxy. The returned proxy is never null.
+        /// </returns>
         TopicManagerPrx? getTopicManager(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Get the topic manager proxy.
-        /// The proxy might point to several replicas.
+        /// Get the topic manager proxy. The proxy might point to several replicas.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<TopicManagerPrx?> getTopicManagerAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

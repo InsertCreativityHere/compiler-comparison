@@ -28,7 +28,6 @@ namespace Ice
     /// <summary>
     /// This exception is raised if an adapter cannot be found.
     /// </summary>
-
     [Ice.SliceTypeId("::Ice::AdapterNotFoundException")]
     public partial class AdapterNotFoundException : Ice.UserException
     {
@@ -50,7 +49,6 @@ namespace Ice
     /// <summary>
     /// This exception is raised if the replica group provided by the server is invalid.
     /// </summary>
-
     [Ice.SliceTypeId("::Ice::InvalidReplicaGroupIdException")]
     public partial class InvalidReplicaGroupIdException : Ice.UserException
     {
@@ -72,7 +70,6 @@ namespace Ice
     /// <summary>
     /// This exception is raised if a server tries to set endpoints for an adapter that is already active.
     /// </summary>
-
     [Ice.SliceTypeId("::Ice::AdapterAlreadyActiveException")]
     public partial class AdapterAlreadyActiveException : Ice.UserException
     {
@@ -94,7 +91,6 @@ namespace Ice
     /// <summary>
     /// This exception is raised if an object cannot be found.
     /// </summary>
-
     [Ice.SliceTypeId("::Ice::ObjectNotFoundException")]
     public partial class ObjectNotFoundException : Ice.UserException
     {
@@ -116,7 +112,6 @@ namespace Ice
     /// <summary>
     /// This exception is raised if a server cannot be found.
     /// </summary>
-
     [Ice.SliceTypeId("::Ice::ServerNotFoundException")]
     public partial class ServerNotFoundException : Ice.UserException
     {
@@ -140,29 +135,38 @@ namespace Ice
     {
         /// <summary>
         /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
-        ///  access the object.
+        /// access the object.
         /// </summary>
-        /// <param name="id">The identity.
-        ///  </param>
+        /// <param name="id">
+        /// The identity.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Ice.ObjectNotFoundException">
+        /// Raised if the object cannot be found.
+        /// </exception>
         global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, Ice.Current current);
 
         /// <summary>
         /// Find an adapter by id and return a proxy that contains its endpoints.
         /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
+        /// <param name="id">
+        /// The adapter id.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Ice.AdapterNotFoundException">
+        /// Raised if the adapter cannot be found.
+        /// </exception>
         global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, Ice.Current current);
 
         /// <summary>
         /// Get the locator registry.
         /// </summary>
-        /// <returns>The locator registry.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The locator registry.
+        /// </returns>
         LocatorRegistryPrx? getRegistry(Ice.Current current);
     }
 
@@ -172,38 +176,66 @@ namespace Ice
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
-        ///  </param>
+        /// <param name="id">
+        /// The adapter id.
+        /// </param>
+        /// <param name="proxy">
+        /// The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Ice.AdapterAlreadyActiveException">
+        /// Raised if an adapter with the same id is already active.
+        /// </exception>
+        /// <exception cref="Ice.AdapterNotFoundException">
+        /// Raised if the adapter cannot be found, or if the locator only allows
+        /// registered adapters to set their active proxy and the adapter is not registered with the locator.
+        /// </exception>
         global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, Ice.Current current);
 
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
-        /// <param name="adapterId">The adapter id.
-        ///  </param>
-        /// <param name="replicaGroupId">The replica group id.
-        ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
-        ///  </param>
+        /// <param name="adapterId">
+        /// The adapter id.
+        /// </param>
+        /// <param name="replicaGroupId">
+        /// The replica group id.
+        /// </param>
+        /// <param name="proxy">
+        /// The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Ice.AdapterAlreadyActiveException">
+        /// Raised if an adapter with the same id is already active.
+        /// </exception>
+        /// <exception cref="Ice.AdapterNotFoundException">
+        /// Raised if the adapter cannot be found, or if the locator only allows
+        /// registered adapters to set their active proxy and the adapter is not registered with the locator.
+        /// </exception>
+        /// <exception cref="Ice.InvalidReplicaGroupIdException">
+        /// Raised if the given replica group doesn't match the one registered
+        /// with the locator registry for this object adapter.
+        /// </exception>
         global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, Ice.Current current);
 
         /// <summary>
         /// Set the process proxy for a server.
         /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="proxy">The process proxy. The proxy is never null.
-        ///  </param>
+        /// <param name="id">
+        /// The server id.
+        /// </param>
+        /// <param name="proxy">
+        /// The process proxy. The proxy is never null.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Ice.ServerNotFoundException">
+        /// Raised if the server cannot be found.
+        /// </exception>
         global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, Ice.Current current);
     }
 
@@ -211,13 +243,13 @@ namespace Ice
     public partial interface LocatorFinder : Ice.Object
     {
         /// <summary>
-        /// Get the locator proxy implemented by the process hosting this finder object.
-        /// The proxy might point to
-        ///  several replicas. This proxy is never null.
+        /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+        /// several replicas. This proxy is never null.
         /// </summary>
-        ///  <returns>The locator proxy.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The locator proxy.
+        /// </returns>
         LocatorPrx? getLocator(Ice.Current current);
     }
 }
@@ -225,69 +257,82 @@ namespace Ice
 namespace Ice
 {
     /// <summary>
-    /// The Ice locator interface.
-    /// This interface is used by clients to lookup adapters and objects. It is also used by
-    ///  servers to get the locator registry proxy. &lt;p class="Note"&gt;The Locator interface is intended to be used
-    ///  by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
-    ///  of this interface directly.
+    /// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
+    /// servers to get the locator registry proxy. The <see cref="Locator" /> interface is intended to be used
+    /// by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
+    /// of this interface directly.
     /// </summary>
-
     public interface LocatorPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
-        ///  access the object.
+        /// access the object.
         /// </summary>
-        /// <param name="id">The identity.
-        ///  </param>
-        /// <returns>The proxy, or null if the object is not active.
-        ///  </returns>
-        /// <exception name="ObjectNotFoundException">Raised if the object cannot be found.</exception>
+        /// <param name="id">
+        /// The identity.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The proxy, or null if the object is not active.
+        /// </returns>
+        /// <exception cref="Ice.ObjectNotFoundException">
+        /// Raised if the object cannot be found.
+        /// </exception>
         ObjectPrx? findObjectById(Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
-        ///  access the object.
+        /// access the object.
         /// </summary>
-        /// <param name="id">The identity.
-        ///  </param>
+        /// <param name="id">
+        /// The identity.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Ice.ObjectNotFoundException">
+        /// Raised if the object cannot be found.
+        /// </exception>
         global::System.Threading.Tasks.Task<ObjectPrx?> findObjectByIdAsync(Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Find an adapter by id and return a proxy that contains its endpoints.
         /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <returns>The adapter proxy, or null if the adapter is not active.
-        ///  </returns>
-        /// <exception name="AdapterNotFoundException">Raised if the adapter cannot be found.</exception>
+        /// <param name="id">
+        /// The adapter id.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The adapter proxy, or null if the adapter is not active.
+        /// </returns>
+        /// <exception cref="Ice.AdapterNotFoundException">
+        /// Raised if the adapter cannot be found.
+        /// </exception>
         ObjectPrx? findAdapterById(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Find an adapter by id and return a proxy that contains its endpoints.
         /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
+        /// <param name="id">
+        /// The adapter id.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Ice.AdapterNotFoundException">
+        /// Raised if the adapter cannot be found.
+        /// </exception>
         global::System.Threading.Tasks.Task<ObjectPrx?> findAdapterByIdAsync(string id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the locator registry.
         /// </summary>
-        /// <returns>The locator registry.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The locator registry.
+        /// </returns>
         LocatorRegistryPrx? getRegistry(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -296,140 +341,177 @@ namespace Ice
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<LocatorRegistryPrx?> getRegistryAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
-    /// The Ice locator registry interface.
-    /// This interface is used by servers to register adapter endpoints with the
-    ///  locator. &lt;p class="Note"&gt; The LocatorRegistry interface is intended to be used by Ice internals and by
-    ///  locator implementations. Regular user code should not attempt to use any functionality of this interface
-    ///  directly.
+    /// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
+    /// locator.  The <see cref="LocatorRegistry" /> interface is intended to be used by Ice internals and by
+    /// locator implementations. Regular user code should not attempt to use any functionality of this interface
+    /// directly.
     /// </summary>
-
     public interface LocatorRegistryPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
-        ///  </param>
-        /// <exception name="AdapterNotFoundException">Raised if the adapter cannot be found, or if the locator only allows
-        ///  registered adapters to set their active proxy and the adapter is not registered with the locator.
-        ///  </exception>
-        /// <exception name="AdapterAlreadyActiveException">Raised if an adapter with the same id is already active.</exception>
+        /// <param name="id">
+        /// The adapter id.
+        /// </param>
+        /// <param name="proxy">
+        /// The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="Ice.AdapterAlreadyActiveException">
+        /// Raised if an adapter with the same id is already active.
+        /// </exception>
+        /// <exception cref="Ice.AdapterNotFoundException">
+        /// Raised if the adapter cannot be found, or if the locator only allows
+        /// registered adapters to set their active proxy and the adapter is not registered with the locator.
+        /// </exception>
         void setAdapterDirectProxy(string id, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
-        /// <param name="id">The adapter id.
-        ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
-        ///  </param>
+        /// <param name="id">
+        /// The adapter id.
+        /// </param>
+        /// <param name="proxy">
+        /// The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Ice.AdapterAlreadyActiveException">
+        /// Raised if an adapter with the same id is already active.
+        /// </exception>
+        /// <exception cref="Ice.AdapterNotFoundException">
+        /// Raised if the adapter cannot be found, or if the locator only allows
+        /// registered adapters to set their active proxy and the adapter is not registered with the locator.
+        /// </exception>
         global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
-        /// <param name="adapterId">The adapter id.
-        ///  </param>
-        /// <param name="replicaGroupId">The replica group id.
-        ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
-        ///  </param>
-        /// <exception name="AdapterNotFoundException">Raised if the adapter cannot be found, or if the locator only allows
-        ///  registered adapters to set their active proxy and the adapter is not registered with the locator.
-        ///  </exception>
-        /// <exception name="AdapterAlreadyActiveException">Raised if an adapter with the same id is already active.
-        ///  </exception>
-        /// <exception name="InvalidReplicaGroupIdException">Raised if the given replica group doesn't match the one registered
-        ///  with the locator registry for this object adapter.</exception>
+        /// <param name="adapterId">
+        /// The adapter id.
+        /// </param>
+        /// <param name="replicaGroupId">
+        /// The replica group id.
+        /// </param>
+        /// <param name="proxy">
+        /// The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="Ice.AdapterAlreadyActiveException">
+        /// Raised if an adapter with the same id is already active.
+        /// </exception>
+        /// <exception cref="Ice.AdapterNotFoundException">
+        /// Raised if the adapter cannot be found, or if the locator only allows
+        /// registered adapters to set their active proxy and the adapter is not registered with the locator.
+        /// </exception>
+        /// <exception cref="Ice.InvalidReplicaGroupIdException">
+        /// Raised if the given replica group doesn't match the one registered
+        /// with the locator registry for this object adapter.
+        /// </exception>
         void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
-        /// <param name="adapterId">The adapter id.
-        ///  </param>
-        /// <param name="replicaGroupId">The replica group id.
-        ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
-        ///  </param>
+        /// <param name="adapterId">
+        /// The adapter id.
+        /// </param>
+        /// <param name="replicaGroupId">
+        /// The replica group id.
+        /// </param>
+        /// <param name="proxy">
+        /// The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Ice.AdapterAlreadyActiveException">
+        /// Raised if an adapter with the same id is already active.
+        /// </exception>
+        /// <exception cref="Ice.AdapterNotFoundException">
+        /// Raised if the adapter cannot be found, or if the locator only allows
+        /// registered adapters to set their active proxy and the adapter is not registered with the locator.
+        /// </exception>
+        /// <exception cref="Ice.InvalidReplicaGroupIdException">
+        /// Raised if the given replica group doesn't match the one registered
+        /// with the locator registry for this object adapter.
+        /// </exception>
         global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Set the process proxy for a server.
         /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="proxy">The process proxy. The proxy is never null.
-        ///  </param>
-        /// <exception name="ServerNotFoundException">Raised if the server cannot be found.</exception>
+        /// <param name="id">
+        /// The server id.
+        /// </param>
+        /// <param name="proxy">
+        /// The process proxy. The proxy is never null.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <exception cref="Ice.ServerNotFoundException">
+        /// Raised if the server cannot be found.
+        /// </exception>
         void setServerProcessProxy(string id, ProcessPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Set the process proxy for a server.
         /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="proxy">The process proxy. The proxy is never null.
-        ///  </param>
+        /// <param name="id">
+        /// The server id.
+        /// </param>
+        /// <param name="proxy">
+        /// The process proxy. The proxy is never null.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="Ice.ServerNotFoundException">
+        /// Raised if the server cannot be found.
+        /// </exception>
         global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
-    /// This interface should be implemented by services implementing the Ice::Locator interface.
-    /// It should
-    ///  be advertised through an Ice object with the identity 'Ice/LocatorFinder'. This allows clients to
-    ///  retrieve the locator proxy with just the endpoint information of the service.
+    /// This interface should be implemented by services implementing the Ice::Locator interface. It should
+    /// be advertised through an Ice object with the identity 'Ice/LocatorFinder'. This allows clients to
+    /// retrieve the locator proxy with just the endpoint information of the service.
     /// </summary>
-
     public interface LocatorFinderPrx : Ice.ObjectPrx
     {
         /// <summary>
-        /// Get the locator proxy implemented by the process hosting this finder object.
-        /// The proxy might point to
-        ///  several replicas. This proxy is never null.
+        /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+        /// several replicas. This proxy is never null.
         /// </summary>
-        ///  <returns>The locator proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The locator proxy.
+        /// </returns>
         LocatorPrx? getLocator(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Get the locator proxy implemented by the process hosting this finder object.
-        /// The proxy might point to
+        /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+        /// several replicas. This proxy is never null.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<LocatorPrx?> getLocatorAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }

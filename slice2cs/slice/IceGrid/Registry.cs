@@ -28,23 +28,19 @@ namespace IceGrid
     /// <summary>
     /// Determines which load sampling interval to use.
     /// </summary>
-
     public enum LoadSample
     {
         /// <summary>
         /// Sample every minute.
         /// </summary>
-
         LoadSample1,
         /// <summary>
         /// Sample every five minutes.
         /// </summary>
-
         LoadSample5,
         /// <summary>
         /// Sample every fifteen minutes.
         /// </summary>
-
         LoadSample15
     }
 
@@ -69,61 +65,69 @@ namespace IceGrid
         /// <summary>
         /// Find a well-known object by identity.
         /// </summary>
-        /// <param name="id">The identity.
-        ///  </param>
-        /// <returns>The proxy or null if no such object has been found.</returns>
+        /// <param name="id">
+        /// The identity.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The proxy or null if no such object has been found.
+        /// </returns>
         global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, Ice.Current current);
 
         /// <summary>
-        /// Find a well-known object by type.
-        /// If there are several objects registered for the given type, the object is
-        ///  randomly selected.
+        /// Find a well-known object by type. If there are several objects registered for the given type, the object is
+        /// randomly selected.
         /// </summary>
-        ///  <param name="type">The object type.
-        ///  </param>
-        /// <returns>The proxy or null, if no such object has been found.</returns>
+        /// <param name="type">
+        /// The object type.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The proxy or null, if no such object has been found.
+        /// </returns>
         global::Ice.ObjectPrx? findObjectByType(string type, Ice.Current current);
 
         /// <summary>
-        /// Find a well-known object by type on the least-loaded node.
-        /// If the registry does not know which node hosts
-        ///  the object (for example, because the object was registered with a direct proxy), the registry assumes the
-        ///  object is hosted on a node that has a load average of 1.0.
+        /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+        /// the object (for example, because the object was registered with a direct proxy), the registry assumes the
+        /// object is hosted on a node that has a load average of 1.0.
         /// </summary>
-        ///  <param name="type">The object type.
-        ///  </param>
-        /// <param name="sample">The sampling interval.
-        ///  </param>
-        /// <returns>The proxy or null, if no such object has been found.</returns>
+        /// <param name="type">
+        /// The object type.
+        /// </param>
+        /// <param name="sample">
+        /// The sampling interval.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The proxy or null, if no such object has been found.
+        /// </returns>
         global::Ice.ObjectPrx? findObjectByTypeOnLeastLoadedNode(string type, LoadSample sample, Ice.Current current);
 
         /// <summary>
         /// Find all the well-known objects with the given type.
         /// </summary>
-        /// <param name="type">The object type.
-        ///  </param>
-        /// <returns>The proxies or an empty sequence, if no such objects have been found.</returns>
+        /// <param name="type">
+        /// The object type.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The proxies or an empty sequence, if no such objects have been found.
+        /// </returns>
         global::Ice.ObjectPrx?[] findAllObjectsByType(string type, Ice.Current current);
 
         /// <summary>
-        /// Find all the object replicas associated with the given proxy.
-        /// If the given proxy is not an indirect proxy
-        ///  from a replica group, an empty sequence is returned.
+        /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+        /// from a replica group, an empty sequence is returned.
         /// </summary>
-        ///  <param name="proxy">The object proxy.
-        ///  </param>
-        /// <returns>The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
-        ///  group.</returns>
+        /// <param name="proxy">
+        /// The object proxy.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+        /// group.
+        /// </returns>
         global::Ice.ObjectPrx?[] findAllReplicas(global::Ice.ObjectPrx? proxy, Ice.Current current);
     }
 
@@ -133,64 +137,76 @@ namespace IceGrid
         /// <summary>
         /// Create a client session.
         /// </summary>
-        /// <param name="userId">The user id.
-        ///  </param>
-        /// <param name="password">The password for the given user id.
-        ///  </param>
-        /// <returns>A proxy for the newly created session. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.</exception>
+        /// <param name="userId">
+        /// The user id.
+        /// </param>
+        /// <param name="password">
+        /// The password for the given user id.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A proxy for the newly created session. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceGrid.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
         SessionPrx? createSession(string userId, string password, Ice.Current current);
 
         /// <summary>
         /// Create an administrative session.
         /// </summary>
-        /// <returns>A proxy for the newly created session. The returned proxy is never null.
-        ///  </returns>
-        /// <param name="userId">The user id.
-        ///  </param>
-        /// <param name="password">The password for the given user id.
-        ///  </param>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.</exception>
+        /// <param name="userId">
+        /// The user id.
+        /// </param>
+        /// <param name="password">
+        /// The password for the given user id.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A proxy for the newly created session. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceGrid.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
         AdminSessionPrx? createAdminSession(string userId, string password, Ice.Current current);
 
         /// <summary>
         /// Create a client session from a secure connection.
         /// </summary>
-        /// <returns>A proxy for the newly created session. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A proxy for the newly created session. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceGrid.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
         SessionPrx? createSessionFromSecureConnection(Ice.Current current);
 
         /// <summary>
         /// Create an administrative session from a secure connection.
         /// </summary>
-        /// <returns>A proxy for the newly created session. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.</exception>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// A proxy for the newly created session. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceGrid.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
         AdminSessionPrx? createAdminSessionFromSecureConnection(Ice.Current current);
 
         /// <summary>
-        /// Gets the session timeout.
-        /// An Ice 3.7 or earlier client can use this value to determine how often it needs to
-        ///  send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
-        ///  a session alive in the IceGrid registry.
+        /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+        /// send heartbeats (using ACM) or call <see cref="Session.keepAlive" /> (resp. <see cref="AdminSession.keepAlive" />) to keep
+        /// a session alive in the IceGrid registry.
         /// </summary>
-        ///  <returns>The session timeout (in seconds).</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The session timeout (in seconds).
+        /// </returns>
         [global::System.Obsolete]
         int getSessionTimeout(Ice.Current current);
     }
@@ -201,17 +217,19 @@ namespace IceGrid
         /// <summary>
         /// Get the proxy of the registry object hosted by this IceGrid registry.
         /// </summary>
-        /// <returns>The proxy of the registry object. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The proxy of the registry object. The returned proxy is never null.
+        /// </returns>
         RegistryPrx? getLocalRegistry(Ice.Current current);
 
         /// <summary>
         /// Get the proxy of the query object hosted by this IceGrid registry.
         /// </summary>
-        /// <returns>The proxy of the query object. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the dispatch.</param>
-
+        /// <returns>
+        /// The proxy of the query object. The returned proxy is never null.
+        /// </returns>
         QueryPrx? getLocalQuery(Ice.Current current);
     }
 }
@@ -219,205 +237,241 @@ namespace IceGrid
 namespace IceGrid
 {
     /// <summary>
-    /// The IceGrid query interface.
-    /// This interface is accessible to Ice clients who wish to look up well-known
-    ///  objects.
+    /// The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+    /// objects.
     /// </summary>
-
     public interface QueryPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Find a well-known object by identity.
         /// </summary>
-        /// <param name="id">The identity.
-        ///  </param>
-        /// <returns>The proxy or null if no such object has been found.</returns>
+        /// <param name="id">
+        /// The identity.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The proxy or null if no such object has been found.
+        /// </returns>
         global::Ice.ObjectPrx? findObjectById(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Find a well-known object by identity.
         /// </summary>
-        /// <param name="id">The identity.
-        ///  </param>
+        /// <param name="id">
+        /// The identity.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByIdAsync(global::Ice.Identity id, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Find a well-known object by type.
-        /// If there are several objects registered for the given type, the object is
-        ///  randomly selected.
+        /// Find a well-known object by type. If there are several objects registered for the given type, the object is
+        /// randomly selected.
         /// </summary>
-        ///  <param name="type">The object type.
-        ///  </param>
-        /// <returns>The proxy or null, if no such object has been found.</returns>
+        /// <param name="type">
+        /// The object type.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The proxy or null, if no such object has been found.
+        /// </returns>
         global::Ice.ObjectPrx? findObjectByType(string type, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Find a well-known object by type.
-        /// If there are several objects registered for the given type, the object is
+        /// Find a well-known object by type. If there are several objects registered for the given type, the object is
+        /// randomly selected.
         /// </summary>
-        ///  <param name="type">The object type.
-        ///  </param>
+        /// <param name="type">
+        /// The object type.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByTypeAsync(string type, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Find a well-known object by type on the least-loaded node.
-        /// If the registry does not know which node hosts
-        ///  the object (for example, because the object was registered with a direct proxy), the registry assumes the
-        ///  object is hosted on a node that has a load average of 1.0.
+        /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+        /// the object (for example, because the object was registered with a direct proxy), the registry assumes the
+        /// object is hosted on a node that has a load average of 1.0.
         /// </summary>
-        ///  <param name="type">The object type.
-        ///  </param>
-        /// <param name="sample">The sampling interval.
-        ///  </param>
-        /// <returns>The proxy or null, if no such object has been found.</returns>
+        /// <param name="type">
+        /// The object type.
+        /// </param>
+        /// <param name="sample">
+        /// The sampling interval.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The proxy or null, if no such object has been found.
+        /// </returns>
         global::Ice.ObjectPrx? findObjectByTypeOnLeastLoadedNode(string type, LoadSample sample, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Find a well-known object by type on the least-loaded node.
-        /// If the registry does not know which node hosts
+        /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+        /// the object (for example, because the object was registered with a direct proxy), the registry assumes the
+        /// object is hosted on a node that has a load average of 1.0.
         /// </summary>
-        ///  <param name="type">The object type.
-        ///  </param>
-        /// <param name="sample">The sampling interval.
-        ///  </param>
+        /// <param name="type">
+        /// The object type.
+        /// </param>
+        /// <param name="sample">
+        /// The sampling interval.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?> findObjectByTypeOnLeastLoadedNodeAsync(string type, LoadSample sample, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Find all the well-known objects with the given type.
         /// </summary>
-        /// <param name="type">The object type.
-        ///  </param>
-        /// <returns>The proxies or an empty sequence, if no such objects have been found.</returns>
+        /// <param name="type">
+        /// The object type.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The proxies or an empty sequence, if no such objects have been found.
+        /// </returns>
         global::Ice.ObjectPrx?[] findAllObjectsByType(string type, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Find all the well-known objects with the given type.
         /// </summary>
-        /// <param name="type">The object type.
-        ///  </param>
+        /// <param name="type">
+        /// The object type.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?[]> findAllObjectsByTypeAsync(string type, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Find all the object replicas associated with the given proxy.
-        /// If the given proxy is not an indirect proxy
-        ///  from a replica group, an empty sequence is returned.
+        /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+        /// from a replica group, an empty sequence is returned.
         /// </summary>
-        ///  <param name="proxy">The object proxy.
-        ///  </param>
-        /// <returns>The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
-        ///  group.</returns>
+        /// <param name="proxy">
+        /// The object proxy.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+        /// group.
+        /// </returns>
         global::Ice.ObjectPrx?[] findAllReplicas(global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Find all the object replicas associated with the given proxy.
-        /// If the given proxy is not an indirect proxy
+        /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+        /// from a replica group, an empty sequence is returned.
         /// </summary>
-        ///  <param name="proxy">The object proxy.
-        ///  </param>
+        /// <param name="proxy">
+        /// The object proxy.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx?[]> findAllReplicasAsync(global::Ice.ObjectPrx? proxy, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
     /// The IceGrid registry allows clients create sessions directly with the registry.
     /// </summary>
-
+    /// <seealso cref="Session" />
+    /// <seealso cref="AdminSession" />
     public interface RegistryPrx : Ice.ObjectPrx
     {
         /// <summary>
         /// Create a client session.
         /// </summary>
-        /// <param name="userId">The user id.
-        ///  </param>
-        /// <param name="password">The password for the given user id.
-        ///  </param>
-        /// <returns>A proxy for the newly created session. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.</exception>
+        /// <param name="userId">
+        /// The user id.
+        /// </param>
+        /// <param name="password">
+        /// The password for the given user id.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy for the newly created session. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceGrid.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
         SessionPrx? createSession(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Create a client session.
         /// </summary>
-        /// <param name="userId">The user id.
-        ///  </param>
-        /// <param name="password">The password for the given user id.
-        ///  </param>
+        /// <param name="userId">
+        /// The user id.
+        /// </param>
+        /// <param name="password">
+        /// The password for the given user id.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
         global::System.Threading.Tasks.Task<SessionPrx?> createSessionAsync(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Create an administrative session.
         /// </summary>
-        /// <returns>A proxy for the newly created session. The returned proxy is never null.
-        ///  </returns>
-        /// <param name="userId">The user id.
-        ///  </param>
-        /// <param name="password">The password for the given user id.
-        ///  </param>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.</exception>
+        /// <param name="userId">
+        /// The user id.
+        /// </param>
+        /// <param name="password">
+        /// The password for the given user id.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy for the newly created session. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceGrid.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
         AdminSessionPrx? createAdminSession(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
         /// Create an administrative session.
         /// </summary>
-        /// <param name="userId">The user id.
-        ///  </param>
-        /// <param name="password">The password for the given user id.
-        ///  </param>
+        /// <param name="userId">
+        /// The user id.
+        /// </param>
+        /// <param name="password">
+        /// The password for the given user id.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
         global::System.Threading.Tasks.Task<AdminSessionPrx?> createAdminSessionAsync(string userId, string password, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Create a client session from a secure connection.
         /// </summary>
-        /// <returns>A proxy for the newly created session. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy for the newly created session. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceGrid.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
         SessionPrx? createSessionFromSecureConnection(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -426,18 +480,24 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
         global::System.Threading.Tasks.Task<SessionPrx?> createSessionFromSecureConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Create an administrative session from a secure connection.
         /// </summary>
-        /// <returns>A proxy for the newly created session. The returned proxy is never null.
-        ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
-        ///  user is not allowed access.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// A proxy for the newly created session. The returned proxy is never null.
+        /// </returns>
+        /// <exception cref="IceGrid.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
         AdminSessionPrx? createAdminSessionFromSecureConnection(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -446,46 +506,53 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        /// <exception cref="IceGrid.PermissionDeniedException">
+        /// Raised if the password for the given user id is not correct, or if the
+        /// user is not allowed access.
+        /// </exception>
         global::System.Threading.Tasks.Task<AdminSessionPrx?> createAdminSessionFromSecureConnectionAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
-        /// Gets the session timeout.
-        /// An Ice 3.7 or earlier client can use this value to determine how often it needs to
-        ///  send heartbeats (using ACM) or call Session.keepAlive (resp. AdminSession.keepAlive) to keep
-        ///  a session alive in the IceGrid registry.
+        /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+        /// send heartbeats (using ACM) or call <see cref="Session.keepAlive" /> (resp. <see cref="AdminSession.keepAlive" />) to keep
+        /// a session alive in the IceGrid registry.
         /// </summary>
-        ///  <returns>The session timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The session timeout (in seconds).
+        /// </returns>
         [global::System.Obsolete]
         int getSessionTimeout(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
-        /// Gets the session timeout.
-        /// An Ice 3.7 or earlier client can use this value to determine how often it needs to
+        /// Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
+        /// send heartbeats (using ACM) or call <see cref="Session.keepAlive" /> (resp. <see cref="AdminSession.keepAlive" />) to keep
+        /// a session alive in the IceGrid registry.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         [global::System.Obsolete]
         global::System.Threading.Tasks.Task<int> getSessionTimeoutAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     /// <summary>
-    /// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
-    ///  registry.
+    /// The IceGrid locator interface provides access to the <see cref="Query" /> and <see cref="Registry" /> object of the IceGrid
+    /// registry.
     /// </summary>
-
+    /// <seealso cref="Query" />
+    /// <seealso cref="Registry" />
     public interface LocatorPrx : global::Ice.LocatorPrx
     {
         /// <summary>
         /// Get the proxy of the registry object hosted by this IceGrid registry.
         /// </summary>
-        /// <returns>The proxy of the registry object. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The proxy of the registry object. The returned proxy is never null.
+        /// </returns>
         RegistryPrx? getLocalRegistry(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -494,15 +561,16 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<RegistryPrx?> getLocalRegistryAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
         /// <summary>
         /// Get the proxy of the query object hosted by this IceGrid registry.
         /// </summary>
-        /// <returns>The proxy of the query object. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
-
+        /// <returns>
+        /// The proxy of the query object. The returned proxy is never null.
+        /// </returns>
         QueryPrx? getLocalQuery(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         /// <summary>
@@ -511,7 +579,7 @@ namespace IceGrid
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <returns>A task that represents the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<QueryPrx?> getLocalQueryAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 }
