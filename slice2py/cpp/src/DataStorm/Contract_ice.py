@@ -36,6 +36,7 @@ if 'ClearHistoryPolicy' not in _M_DataStormContract.__dict__:
     class ClearHistoryPolicy(Ice.EnumBase):
         """
         Defines policies for clearing the data sample history of a reader in response to sample events.
+        
         Enumerators:
         OnAdd -- The reader clears its history when a new data sample is added.
         OnRemove -- The reader clears its history when a data sample is removed.
@@ -262,6 +263,7 @@ if 'TopicInfo' not in _M_DataStormContract.__dict__:
             The name of the topic.
         ids : int[]
             The list of active topic reader or writer IDs.
+            
             - In a publisher session,  the `ids` field contains the active topic writer IDs.
             - In a subscriber session,  the `ids` field contains the active topic reader IDs.
         """
@@ -483,6 +485,7 @@ if 'ElementData' not in _M_DataStormContract.__dict__:
             The configuration settings for the data reader or data writer.
         lastIds : dict where keys are int and values are int
             A mapping of data writer IDs to the last sample IDs received by the data reader.
+            
             - The key represents the data writer ID.
             - The value represents the last sample ID received from the corresponding data writer.
         """
@@ -613,10 +616,12 @@ if 'ElementDataAck' not in _M_DataStormContract.__dict__:
             The configuration settings for the data reader or data writer.
         lastIds : dict where keys are int and values are int
             A mapping of data writer IDs to the last sample IDs received by the data reader.
+            
             - The key represents the data writer ID.
             - The value represents the last sample ID received from the corresponding data writer.
         samples : DataStormContract.DataSample[]
             A sequence of samples in the writer's queue, used to initialize the reader.
+            
             - When this struct is sent from a subscriber to a publisher, this field is empty.
             - When sent from a publisher to a subscriber, this field contains the queued samples.
         peerId : int
@@ -771,9 +776,12 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def announceTopics(self, topics, initialize, context=None):
             """
             Announces topics to the peer during session establishment or when adding new topics.
+            
             - During session establishment, announces existing topics.
             - For established sessions, announces newly added topics.
+            
             A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
+            
             The receiving peer invokes attachTopic for topics it is interested in.
             
             Parameters
@@ -790,9 +798,12 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def announceTopicsAsync(self, topics, initialize, context=None):
             """
             Announces topics to the peer during session establishment or when adding new topics.
+            
             - During session establishment, announces existing topics.
             - For established sessions, announces newly added topics.
+            
             A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
+            
             The receiving peer invokes attachTopic for topics it is interested in.
             
             Parameters
@@ -814,6 +825,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachTopic(self, topic, context=None):
             """
             This operation is invoked if the session is interested in the announced topic. Which occurs when:
+            
             - The session has a reader for a topic that the peer writes, or
             - The session has a writer for a topic that the peer reads.
             
@@ -829,6 +841,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachTopicAsync(self, topic, context=None):
             """
             This operation is invoked if the session is interested in the announced topic. Which occurs when:
+            
             - The session has a reader for a topic that the peer writes, or
             - The session has a writer for a topic that the peer reads.
             
@@ -849,6 +862,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def detachTopic(self, topicId, context=None):
             """
             Detaches a topic from the session, typically called when the topic is destroyed.
+            
             This operation is invoked by the topic on listener sessions during its destruction.
             
             Parameters
@@ -863,6 +877,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def detachTopicAsync(self, topicId, context=None):
             """
             Detaches a topic from the session, typically called when the topic is destroyed.
+            
             This operation is invoked by the topic on listener sessions during its destruction.
             
             Parameters
@@ -882,6 +897,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachTags(self, topicId, tags, initialize, context=None):
             """
             Attaches the specified tags to the subscriber of a topic.
+            
             Tags are used to support partial update samples.
             
             Parameters
@@ -900,6 +916,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachTagsAsync(self, topicId, tags, initialize, context=None):
             """
             Attaches the specified tags to the subscriber of a topic.
+            
             Tags are used to support partial update samples.
             
             Parameters
@@ -958,8 +975,10 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def announceElements(self, topicId, elements, context=None):
             """
             Announces elements associated with a topic to the peer.
+            
             This operation informs the peer about new data readers or data writers associated with the specified topic.
             The receiving peer will invoke `attachElements` for any elements it is interested in.
+            
             - A publisher session announces its data writers.
             - A subscriber session announces its data readers.
             
@@ -977,8 +996,10 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def announceElementsAsync(self, topicId, elements, context=None):
             """
             Announces elements associated with a topic to the peer.
+            
             This operation informs the peer about new data readers or data writers associated with the specified topic.
             The receiving peer will invoke `attachElements` for any elements it is interested in.
+            
             - A publisher session announces its data writers.
             - A subscriber session announces its data readers.
             
@@ -1001,6 +1022,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachElements(self, topicId, elements, initialize, context=None):
             """
             Attaches the specified elements to the subscribers of a topic.
+            
             This operation associates the provided elements, such as keys or filters, with the subscribers of the given
             topic.
             
@@ -1020,6 +1042,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachElementsAsync(self, topicId, elements, initialize, context=None):
             """
             Attaches the specified elements to the subscribers of a topic.
+            
             This operation associates the provided elements, such as keys or filters, with the subscribers of the given
             topic.
             
@@ -1044,6 +1067,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachElementsAck(self, topicId, elements, context=None):
             """
             Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+            
             This method confirms that the specified elements, such as keys or filters, have been successfully attached
             to the session.
             
@@ -1061,6 +1085,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachElementsAckAsync(self, topicId, elements, context=None):
             """
             Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+            
             This method confirms that the specified elements, such as keys or filters, have been successfully attached
             to the session.
             
@@ -1083,6 +1108,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def detachElements(self, topicId, elements, context=None):
             """
             Instructs the peer to detach specific elements associated with a topic.
+            
             This operation is invoked when the specified elements, such as keys or filters, are no longer valid
             and should be removed from the peer's session.
             
@@ -1100,6 +1126,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def detachElementsAsync(self, topicId, elements, context=None):
             """
             Instructs the peer to detach specific elements associated with a topic.
+            
             This operation is invoked when the specified elements, such as keys or filters, are no longer valid
             and should be removed from the peer's session.
             
@@ -1157,6 +1184,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def disconnected(self, context=None):
             """
             Notifies the peer that the session is being disconnected.
+            
             For sessions established through a relay node, this operation is invoked by the relay node if the connection
             between the relay node and the target node is lost.
             
@@ -1170,6 +1198,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def disconnectedAsync(self, context=None):
             """
             Notifies the peer that the session is being disconnected.
+            
             For sessions established through a relay node, this operation is invoked by the relay node if the connection
             between the relay node and the target node is lost.
             
@@ -1217,9 +1246,12 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def announceTopics(self, topics, initialize, current=None):
             """
             Announces topics to the peer during session establishment or when adding new topics.
+            
             - During session establishment, announces existing topics.
             - For established sessions, announces newly added topics.
+            
             A publisher session announces the topics it writes, and a subscriber session announces the topics it reads.
+            
             The receiving peer invokes attachTopic for topics it is interested in.
             
             Parameters
@@ -1241,6 +1273,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachTopic(self, topic, current=None):
             """
             This operation is invoked if the session is interested in the announced topic. Which occurs when:
+            
             - The session has a reader for a topic that the peer writes, or
             - The session has a writer for a topic that the peer reads.
             
@@ -1261,6 +1294,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def detachTopic(self, topicId, current=None):
             """
             Detaches a topic from the session, typically called when the topic is destroyed.
+            
             This operation is invoked by the topic on listener sessions during its destruction.
             
             Parameters
@@ -1280,6 +1314,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachTags(self, topicId, tags, initialize, current=None):
             """
             Attaches the specified tags to the subscriber of a topic.
+            
             Tags are used to support partial update samples.
             
             Parameters
@@ -1323,8 +1358,10 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def announceElements(self, topicId, elements, current=None):
             """
             Announces elements associated with a topic to the peer.
+            
             This operation informs the peer about new data readers or data writers associated with the specified topic.
             The receiving peer will invoke `attachElements` for any elements it is interested in.
+            
             - A publisher session announces its data writers.
             - A subscriber session announces its data readers.
             
@@ -1347,6 +1384,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachElements(self, topicId, elements, initialize, current=None):
             """
             Attaches the specified elements to the subscribers of a topic.
+            
             This operation associates the provided elements, such as keys or filters, with the subscribers of the given
             topic.
             
@@ -1371,6 +1409,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def attachElementsAck(self, topicId, elements, current=None):
             """
             Acknowledges the attachment of elements to the session in response to a previous attachElements request.
+            
             This method confirms that the specified elements, such as keys or filters, have been successfully attached
             to the session.
             
@@ -1393,6 +1432,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def detachElements(self, topicId, elements, current=None):
             """
             Instructs the peer to detach specific elements associated with a topic.
+            
             This operation is invoked when the specified elements, such as keys or filters, are no longer valid
             and should be removed from the peer's session.
             
@@ -1435,6 +1475,7 @@ if 'SessionPrx' not in _M_DataStormContract.__dict__:
         def disconnected(self, current=None):
             """
             Notifies the peer that the session is being disconnected.
+            
             For sessions established through a relay node, this operation is invoked by the relay node if the connection
             between the relay node and the target node is lost.
             
@@ -1719,9 +1760,11 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
             """
             Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
             publisher node in one of the following scenarios:
+            
             - The subscriber has received a topic writer announcement from the publisher and has a matching topic
             reader.
             - The publisher node has previously sent a initiateCreateSession request.
+            
             The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
             to continue session establishment. If an active session already exists with the subscriber node, the
             request is ignored.
@@ -1743,9 +1786,11 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
             """
             Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
             publisher node in one of the following scenarios:
+            
             - The subscriber has received a topic writer announcement from the publisher and has a matching topic
             reader.
             - The publisher node has previously sent a initiateCreateSession request.
+            
             The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
             to continue session establishment. If an active session already exists with the subscriber node, the
             request is ignored.
@@ -1855,9 +1900,11 @@ if 'NodePrx' not in _M_DataStormContract.__dict__:
             """
             Initiates the creation of a subscriber session with a node. The subscriber node sends this request to a
             publisher node in one of the following scenarios:
+            
             - The subscriber has received a topic writer announcement from the publisher and has a matching topic
             reader.
             - The publisher node has previously sent a initiateCreateSession request.
+            
             The publisher node dispatching this request then sends a confirmCreateSession request to the subscriber node
             to continue session establishment. If an active session already exists with the subscriber node, the
             request is ignored.

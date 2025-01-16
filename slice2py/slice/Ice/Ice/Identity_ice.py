@@ -26,8 +26,8 @@ if 'Identity' not in _M_Ice.__dict__:
     _M_Ice.Identity = None
     class Identity(object):
         """
-        The identity of an Ice object. In a proxy, an empty Identity#name denotes a nil proxy. An identity with
-        an empty Identity#name and a non-empty Identity#category is illegal. You cannot add a servant
+        The identity of an Ice object. In a proxy, an empty `Identity.name` denotes a nil proxy. An identity with
+        an empty `Identity.name` and a non-empty `Identity.category` is illegal. You cannot add a servant
         with an empty name to the Active Servant Map.
         
         Attributes

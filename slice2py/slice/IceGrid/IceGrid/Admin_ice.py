@@ -40,6 +40,7 @@ if 'ServerState' not in _M_IceGrid.__dict__:
     class ServerState(Ice.EnumBase):
         """
         An enumeration representing the state of the server.
+        
         Enumerators:
         Inactive -- The server is not running.
         Activating -- The server is being activated and will change to the active state when the registered server object adapters
@@ -1639,7 +1640,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             Returns
             -------
             IceGrid.AdapterInfo[]
-                A sequence of adapter information structures. If the given id refers to an adapter, this sequencewill contain only one element. If the given id refers to a replica group, the sequence will contain theadapter information of each member of the replica group.
+                A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+                will contain only one element. If the given id refers to a replica group, the sequence will contain the
+                adapter information of each member of the replica group.
             
             Raises
             ------
@@ -5318,7 +5321,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             objects : IceGrid.ObjectInfo[]
-                The objects registered with the Admin interface (not through the deployment
+                The objects registered with the `Admin` interface (not through the deployment
                 mechanism).
             context : Ice.Context
                 The request context for the invocation.
@@ -5333,7 +5336,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             objects : IceGrid.ObjectInfo[]
-                The objects registered with the Admin interface (not through the deployment
+                The objects registered with the `Admin` interface (not through the deployment
                 mechanism).
             context : Ice.Context
                 The request context for the invocation.
@@ -5348,7 +5351,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
         def objectAdded(self, info, context=None):
             """
             The objectAdded operation is called to notify an observer when an object was added to the
-            Admin interface.
+            `Admin` interface.
             
             Parameters
             ----------
@@ -5362,7 +5365,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
         def objectAddedAsync(self, info, context=None):
             """
             The objectAdded operation is called to notify an observer when an object was added to the
-            Admin interface.
+            `Admin` interface.
             
             Parameters
             ----------
@@ -5380,7 +5383,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
 
         def objectUpdated(self, info, context=None):
             """
-            objectUpdated is called to notify an observer when an object registered with the Admin
+            objectUpdated is called to notify an observer when an object registered with the `Admin`
             interface was updated.
             
             Parameters
@@ -5394,7 +5397,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
 
         def objectUpdatedAsync(self, info, context=None):
             """
-            objectUpdated is called to notify an observer when an object registered with the Admin
+            objectUpdated is called to notify an observer when an object registered with the `Admin`
             interface was updated.
             
             Parameters
@@ -5413,7 +5416,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
 
         def objectRemoved(self, id, context=None):
             """
-            objectRemoved is called to notify an observer when an object registered with the Admin
+            objectRemoved is called to notify an observer when an object registered with the `Admin`
             interface was removed.
             
             Parameters
@@ -5427,7 +5430,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
 
         def objectRemovedAsync(self, id, context=None):
             """
-            objectRemoved is called to notify an observer when an object registered with the Admin
+            objectRemoved is called to notify an observer when an object registered with the `Admin`
             interface was removed.
             
             Parameters
@@ -5481,7 +5484,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             objects : IceGrid.ObjectInfo[]
-                The objects registered with the Admin interface (not through the deployment
+                The objects registered with the `Admin` interface (not through the deployment
                 mechanism).
             current : Ice.Current
                 The Current object for the dispatch.
@@ -5496,7 +5499,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
         def objectAdded(self, info, current=None):
             """
             The objectAdded operation is called to notify an observer when an object was added to the
-            Admin interface.
+            `Admin` interface.
             
             Parameters
             ----------
@@ -5514,7 +5517,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
 
         def objectUpdated(self, info, current=None):
             """
-            objectUpdated is called to notify an observer when an object registered with the Admin
+            objectUpdated is called to notify an observer when an object registered with the `Admin`
             interface was updated.
             
             Parameters
@@ -5533,7 +5536,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
 
         def objectRemoved(self, id, current=None):
             """
-            objectRemoved is called to notify an observer when an object registered with the Admin
+            objectRemoved is called to notify an observer when an object registered with the `Admin`
             interface was removed.
             
             Parameters

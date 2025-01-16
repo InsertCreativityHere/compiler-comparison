@@ -6,6 +6,7 @@ Ice.updateModule("IceStormElection")
 
 # Modules:
 import DBTypes_ice
+import Election_ice
 import LLURecord_ice
 
 # Submodules:

@@ -29,6 +29,7 @@ if 'SampleEvent' not in _M_DataStorm.__dict__:
         The sample event matches the operation used by the DataWriter to update the data element. It also provides
         information on what to expect from the sample. A sample with the Add or Update event always provide a value
         while a sample with the Remove type doesn't.
+        
         Enumerators:
         Add -- The element has been added.
         Update -- The element has been updated.

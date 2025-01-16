@@ -30,11 +30,12 @@ if 'LogMessageType' not in _M_Ice.__dict__:
     class LogMessageType(Ice.EnumBase):
         """
         An enumeration representing the different types of log messages.
+        
         Enumerators:
-        PrintMessage -- The RemoteLogger received a print message.
-        TraceMessage -- The RemoteLogger received a trace message.
-        WarningMessage -- The RemoteLogger received a warning message.
-        ErrorMessage -- The RemoteLogger received an error message.
+        PrintMessage -- The `RemoteLogger` received a print message.
+        TraceMessage -- The `RemoteLogger` received a trace message.
+        WarningMessage -- The `RemoteLogger` received a warning message.
+        ErrorMessage -- The `RemoteLogger` received an error message.
         """
 
         def __init__(self, _n, _v):
@@ -69,9 +70,9 @@ if 'LogMessage' not in _M_Ice.__dict__:
         Attributes
         ----------
         _type : Ice.LogMessageType
-            The type of message sent to the RemoteLogger.
+            The type of message sent to the `RemoteLogger`.
         timestamp : int
-            The date and time when the RemoteLogger received this message, expressed as the number of microseconds
+            The date and time when the `RemoteLogger` received this message, expressed as the number of microseconds
             since the Unix Epoch (00:00:00 UTC on 1 January 1970)
         traceCategory : str
             For a message of type trace, the trace category of this log message; otherwise, the empty string.

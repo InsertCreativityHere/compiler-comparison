@@ -313,4 +313,1100 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             ----------
             llu : IceStormElection.LogUpdate
                 The log update token.
+            topic : str
+            subscribers : Ice.Identity[]
+                The identities of the subscribers to remove.
+            context : Ice.Context
+                The request context for the invocation.
             
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an inconsisency was detected.
+            """
+            return _M_IceStormElection.ReplicaObserver._op_removeSubscriber.invoke(self, ((llu, topic, subscribers), context))
+
+        def removeSubscriberAsync(self, llu, topic, subscribers, context=None):
+            """
+            Remove a subscriber from a topic.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            topic : str
+            subscribers : Ice.Identity[]
+                The identities of the subscribers to remove.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceStormElection.ReplicaObserver._op_removeSubscriber.invokeAsync(self, ((llu, topic, subscribers), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceStormElection.ReplicaObserverPrx.ice_checkedCast(proxy, '::IceStormElection::ReplicaObserver', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceStormElection.ReplicaObserverPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceStormElection::ReplicaObserver'
+    _M_IceStormElection._t_ReplicaObserverPrx = IcePy.defineProxy('::IceStormElection::ReplicaObserver', ReplicaObserverPrx)
+
+    _M_IceStormElection.ReplicaObserverPrx = ReplicaObserverPrx
+    del ReplicaObserverPrx
+
+    _M_IceStormElection.ReplicaObserver = None
+    class ReplicaObserver(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceStormElection::ReplicaObserver')
+
+        def ice_id(self, current=None):
+            return '::IceStormElection::ReplicaObserver'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceStormElection::ReplicaObserver'
+
+        def init(self, llu, content, current=None):
+            """
+            Initialize the observer.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The last log update seen by the master.
+            content : IceStormElection.TopicContent[]
+                The topic content.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an
+                inconsisency was detected.
+            """
+            raise NotImplementedError("servant method 'init' not implemented")
+
+        def createTopic(self, llu, name, current=None):
+            """
+            Create the topic with the given name.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            name : str
+                The topic name.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an
+                inconsisency was detected.
+            """
+            raise NotImplementedError("servant method 'createTopic' not implemented")
+
+        def destroyTopic(self, llu, name, current=None):
+            """
+            Destroy the topic with the given name.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            name : str
+                The topic name.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an
+                inconsisency was detected.
+            """
+            raise NotImplementedError("servant method 'destroyTopic' not implemented")
+
+        def addSubscriber(self, llu, topic, record, current=None):
+            """
+            Add a subscriber to a topic.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            topic : str
+                The topic name to which to add the subscriber.
+            record : IceStorm.SubscriberRecord
+                The subscriber information.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an
+                inconsisency was detected.
+            """
+            raise NotImplementedError("servant method 'addSubscriber' not implemented")
+
+        def removeSubscriber(self, llu, topic, subscribers, current=None):
+            """
+            Remove a subscriber from a topic.
+            
+            Parameters
+            ----------
+            llu : IceStormElection.LogUpdate
+                The log update token.
+            topic : str
+            subscribers : Ice.Identity[]
+                The identities of the subscribers to remove.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ObserverInconsistencyException
+                Raised if an inconsisency was detected.
+            """
+            raise NotImplementedError("servant method 'removeSubscriber' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStormElection._t_ReplicaObserverDisp)
+
+        __repr__ = __str__
+
+    ReplicaObserver._op_init = IcePy.Operation('init', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), _M_IceStormElection._t_TopicContentSeq, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
+    ReplicaObserver._op_createTopic = IcePy.Operation('createTopic', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
+    ReplicaObserver._op_destroyTopic = IcePy.Operation('destroyTopic', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
+    ReplicaObserver._op_addSubscriber = IcePy.Operation('addSubscriber', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_string, False, 0), ((), _M_IceStorm._t_SubscriberRecord, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
+    ReplicaObserver._op_removeSubscriber = IcePy.Operation('removeSubscriber', Ice.OperationMode.Normal, False, None, (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_string, False, 0), ((), _M_Ice._t_IdentitySeq, False, 0)), (), None, (_M_IceStormElection._t_ObserverInconsistencyException,))
+
+    _M_IceStormElection.ReplicaObserver = ReplicaObserver
+    del ReplicaObserver
+
+if 'TopicManagerSync' not in _M_IceStormElection.__dict__:
+    _M_IceStormElection._t_TopicManagerSyncPrx = IcePy.declareProxy('::IceStormElection::TopicManagerSync')
+
+if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
+    _M_IceStormElection.TopicManagerSyncPrx = None
+    class TopicManagerSyncPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new TopicManagerSyncPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
+        def getContent(self, context=None):
+            """
+            Retrieve the topic content.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Returns a tuple of (IceStormElection.LogUpdate, IceStormElection.TopicContent[])
+                A tuple containing:
+                - IceStormElection.LogUpdate
+                    The last log update token.
+                - IceStormElection.TopicContent[]
+                    The topic content.
+            """
+            return _M_IceStormElection.TopicManagerSync._op_getContent.invoke(self, ((), context))
+
+        def getContentAsync(self, context=None):
+            """
+            Retrieve the topic content.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceStormElection.TopicManagerSync._op_getContent.invokeAsync(self, ((), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceStormElection.TopicManagerSyncPrx.ice_checkedCast(proxy, '::IceStormElection::TopicManagerSync', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceStormElection.TopicManagerSyncPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceStormElection::TopicManagerSync'
+    _M_IceStormElection._t_TopicManagerSyncPrx = IcePy.defineProxy('::IceStormElection::TopicManagerSync', TopicManagerSyncPrx)
+
+    _M_IceStormElection.TopicManagerSyncPrx = TopicManagerSyncPrx
+    del TopicManagerSyncPrx
+
+    _M_IceStormElection.TopicManagerSync = None
+    class TopicManagerSync(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceStormElection::TopicManagerSync')
+
+        def ice_id(self, current=None):
+            return '::IceStormElection::TopicManagerSync'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceStormElection::TopicManagerSync'
+
+        def getContent(self, current=None):
+            """
+            Retrieve the topic content.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getContent' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStormElection._t_TopicManagerSyncDisp)
+
+        __repr__ = __str__
+
+    TopicManagerSync._op_getContent = IcePy.Operation('getContent', Ice.OperationMode.Normal, False, None, (), (), (((), _M_IceStormElection._t_LogUpdate, False, 0), ((), _M_IceStormElection._t_TopicContentSeq, False, 0)), None, ())
+
+    _M_IceStormElection.TopicManagerSync = TopicManagerSync
+    del TopicManagerSync
+
+if 'NodeState' not in _M_IceStormElection.__dict__:
+    _M_IceStormElection.NodeState = None
+    class NodeState(Ice.EnumBase):
+        """
+        The node state.
+        
+        Enumerators:
+        NodeStateInactive -- The node is inactive and awaiting an election.
+        NodeStateElection -- The node is electing a leader.
+        NodeStateReorganization -- The replica group is reorganizing.
+        NodeStateNormal -- The replica group is active & replicating.
+        """
+
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
+
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
+
+    NodeState.NodeStateInactive = NodeState("NodeStateInactive", 0)
+    NodeState.NodeStateElection = NodeState("NodeStateElection", 1)
+    NodeState.NodeStateReorganization = NodeState("NodeStateReorganization", 2)
+    NodeState.NodeStateNormal = NodeState("NodeStateNormal", 3)
+    NodeState._enumerators = { 0:NodeState.NodeStateInactive, 1:NodeState.NodeStateElection, 2:NodeState.NodeStateReorganization, 3:NodeState.NodeStateNormal }
+
+    _M_IceStormElection._t_NodeState = IcePy.defineEnum('::IceStormElection::NodeState', NodeState, (), NodeState._enumerators)
+
+    _M_IceStormElection.NodeState = NodeState
+    del NodeState
+
+if 'Node' not in _M_IceStormElection.__dict__:
+    _M_IceStormElection._t_NodePrx = IcePy.declareProxy('::IceStormElection::Node')
+
+if 'NodeInfo' not in _M_IceStormElection.__dict__:
+    _M_IceStormElection.NodeInfo = None
+    class NodeInfo(object):
+        """
+        All nodes in the replication group.
+        
+        Attributes
+        ----------
+        id : int
+            The identity of the node.
+        n : (IceStormElection.NodePrx or None)
+            The node proxy.
+        """
+        def __init__(self, id=0, n=None):
+            self.id = id
+            self.n = n
+
+        def __eq__(self, other):
+            if other is None:
+                return False
+            elif not isinstance(other, _M_IceStormElection.NodeInfo):
+                return NotImplemented
+            else:
+                if self.id != other.id:
+                    return False
+                if self.n != other.n:
+                    return False
+                return True
+
+        def __ne__(self, other):
+            return not self.__eq__(other)
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStormElection._t_NodeInfo)
+
+        __repr__ = __str__
+
+    _M_IceStormElection._t_NodeInfo = IcePy.defineStruct('::IceStormElection::NodeInfo', NodeInfo, (), (
+        ('id', (), IcePy._t_int),
+        ('n', (), _M_IceStormElection._t_NodePrx)
+    ))
+
+    _M_IceStormElection.NodeInfo = NodeInfo
+    del NodeInfo
+
+if '_t_NodeInfoSeq' not in _M_IceStormElection.__dict__:
+    _M_IceStormElection._t_NodeInfoSeq = IcePy.defineSequence('::IceStormElection::NodeInfoSeq', (), _M_IceStormElection._t_NodeInfo)
+
+if 'GroupInfo' not in _M_IceStormElection.__dict__:
+    _M_IceStormElection.GroupInfo = None
+    class GroupInfo(object):
+        """
+        The group info.
+        
+        Attributes
+        ----------
+        id : int
+            The identity of the node.
+        llu : IceStormElection.LogUpdate
+            The last known log update for this node.
+        """
+        def __init__(self, id=0, llu=None):
+            self.id = id
+            self.llu = llu if llu is not None else _M_IceStormElection.LogUpdate()
+
+        def __hash__(self):
+            _h = 0
+            _h = 5 * _h + _builtins.hash(self.id)
+            _h = 5 * _h + _builtins.hash(self.llu)
+            return _h % 0x7fffffff
+
+        def __compare(self, other):
+            if other is None:
+                return 1
+            elif not isinstance(other, _M_IceStormElection.GroupInfo):
+                return NotImplemented
+            else:
+                if self.id is None or other.id is None:
+                    if self.id != other.id:
+                        return (-1 if self.id is None else 1)
+                else:
+                    if self.id < other.id:
+                        return -1
+                    elif self.id > other.id:
+                        return 1
+                if self.llu is None or other.llu is None:
+                    if self.llu != other.llu:
+                        return (-1 if self.llu is None else 1)
+                else:
+                    if self.llu < other.llu:
+                        return -1
+                    elif self.llu > other.llu:
+                        return 1
+                return 0
+
+        def __lt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r < 0
+
+        def __le__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r <= 0
+
+        def __gt__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r > 0
+
+        def __ge__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r >= 0
+
+        def __eq__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r == 0
+
+        def __ne__(self, other):
+            r = self.__compare(other)
+            if r is NotImplemented:
+                return r
+            else:
+                return r != 0
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStormElection._t_GroupInfo)
+
+        __repr__ = __str__
+
+    _M_IceStormElection._t_GroupInfo = IcePy.defineStruct('::IceStormElection::GroupInfo', GroupInfo, (), (
+        ('id', (), IcePy._t_int),
+        ('llu', (), _M_IceStormElection._t_LogUpdate)
+    ))
+
+    _M_IceStormElection.GroupInfo = GroupInfo
+    del GroupInfo
+
+if '_t_GroupInfoSeq' not in _M_IceStormElection.__dict__:
+    _M_IceStormElection._t_GroupInfoSeq = IcePy.defineSequence('::IceStormElection::GroupInfoSeq', (), _M_IceStormElection._t_GroupInfo)
+
+if 'QueryInfo' not in _M_IceStormElection.__dict__:
+    _M_IceStormElection.QueryInfo = None
+    class QueryInfo(object):
+        def __init__(self, id=0, coord=0, group='', replica=None, state=_M_IceStormElection.NodeState.NodeStateInactive, up=None, max=0):
+            self.id = id
+            self.coord = coord
+            self.group = group
+            self.replica = replica
+            self.state = state
+            self.up = up
+            self.max = max
+
+        def __eq__(self, other):
+            if other is None:
+                return False
+            elif not isinstance(other, _M_IceStormElection.QueryInfo):
+                return NotImplemented
+            else:
+                if self.id != other.id:
+                    return False
+                if self.coord != other.coord:
+                    return False
+                if self.group != other.group:
+                    return False
+                if self.replica != other.replica:
+                    return False
+                if self.state != other.state:
+                    return False
+                if self.up != other.up:
+                    return False
+                if self.max != other.max:
+                    return False
+                return True
+
+        def __ne__(self, other):
+            return not self.__eq__(other)
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStormElection._t_QueryInfo)
+
+        __repr__ = __str__
+
+    _M_IceStormElection._t_QueryInfo = IcePy.defineStruct('::IceStormElection::QueryInfo', QueryInfo, (), (
+        ('id', (), IcePy._t_int),
+        ('coord', (), IcePy._t_int),
+        ('group', (), IcePy._t_string),
+        ('replica', (), IcePy._t_ObjectPrx),
+        ('state', (), _M_IceStormElection._t_NodeState),
+        ('up', (), _M_IceStormElection._t_GroupInfoSeq),
+        ('max', (), IcePy._t_int)
+    ))
+
+    _M_IceStormElection.QueryInfo = QueryInfo
+    del QueryInfo
+
+if 'NodePrx' not in _M_IceStormElection.__dict__:
+    _M_IceStormElection.NodePrx = None
+    class NodePrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new NodePrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
+        def invitation(self, j, gn, context=None):
+            """
+            Invite the node into a group with the given coordinator and group name.
+            
+            Parameters
+            ----------
+            j : int
+                The group coordinator.
+            gn : str
+                The group name.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceStormElection.Node._op_invitation.invoke(self, ((j, gn), context))
+
+        def invitationAsync(self, j, gn, context=None):
+            """
+            Invite the node into a group with the given coordinator and group name.
+            
+            Parameters
+            ----------
+            j : int
+                The group coordinator.
+            gn : str
+                The group name.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceStormElection.Node._op_invitation.invokeAsync(self, ((j, gn), context))
+
+        def ready(self, j, gn, coordinator, max, generation, context=None):
+            """
+            Call from the group coordinator to a node to inform the node that the replica group is active.
+            
+            Parameters
+            ----------
+            j : int
+                The group coordinator.
+            gn : str
+                The group name.
+            coordinator : (Ice.ObjectPrx or None)
+                The proxy to the coordinator.
+            max : int
+                The highest priority node seen by this replica group.
+            generation : int
+                The current generation count.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceStormElection.Node._op_ready.invoke(self, ((j, gn, coordinator, max, generation), context))
+
+        def readyAsync(self, j, gn, coordinator, max, generation, context=None):
+            """
+            Call from the group coordinator to a node to inform the node that the replica group is active.
+            
+            Parameters
+            ----------
+            j : int
+                The group coordinator.
+            gn : str
+                The group name.
+            coordinator : (Ice.ObjectPrx or None)
+                The proxy to the coordinator.
+            max : int
+                The highest priority node seen by this replica group.
+            generation : int
+                The current generation count.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceStormElection.Node._op_ready.invokeAsync(self, ((j, gn, coordinator, max, generation), context))
+
+        def accept(self, j, gn, forwardedInvites, observer, llu, max, context=None):
+            """
+            Called to accept an invitation into the given group.
+            
+            Parameters
+            ----------
+            j : int
+                The id of the node accepting the invitation.
+            gn : str
+                The group name.
+            forwardedInvites : int[]
+                The ids of the nodes to which invitations were forwarded.
+            observer : (Ice.ObjectPrx or None)
+                The observer.
+            llu : IceStormElection.LogUpdate
+                The last log update for the given node.
+            max : int
+                The highest priority node seen by this replica group.
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceStormElection.Node._op_accept.invoke(self, ((j, gn, forwardedInvites, observer, llu, max), context))
+
+        def acceptAsync(self, j, gn, forwardedInvites, observer, llu, max, context=None):
+            """
+            Called to accept an invitation into the given group.
+            
+            Parameters
+            ----------
+            j : int
+                The id of the node accepting the invitation.
+            gn : str
+                The group name.
+            forwardedInvites : int[]
+                The ids of the nodes to which invitations were forwarded.
+            observer : (Ice.ObjectPrx or None)
+                The observer.
+            llu : IceStormElection.LogUpdate
+                The last log update for the given node.
+            max : int
+                The highest priority node seen by this replica group.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceStormElection.Node._op_accept.invokeAsync(self, ((j, gn, forwardedInvites, observer, llu, max), context))
+
+        def areYouCoordinator(self, context=None):
+            """
+            Determine if this node is a coordinator.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            bool
+                True if the node is a coordinator, false otherwise.
+            """
+            return _M_IceStormElection.Node._op_areYouCoordinator.invoke(self, ((), context))
+
+        def areYouCoordinatorAsync(self, context=None):
+            """
+            Determine if this node is a coordinator.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceStormElection.Node._op_areYouCoordinator.invokeAsync(self, ((), context))
+
+        def areYouThere(self, gn, j, context=None):
+            """
+            Determine if the node is a member of the given group with the given coordinator.
+            
+            Parameters
+            ----------
+            gn : str
+                The group name.
+            j : int
+                The group coordinator.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            bool
+                True if the node is a member, false otherwise.
+            """
+            return _M_IceStormElection.Node._op_areYouThere.invoke(self, ((gn, j), context))
+
+        def areYouThereAsync(self, gn, j, context=None):
+            """
+            Determine if the node is a member of the given group with the given coordinator.
+            
+            Parameters
+            ----------
+            gn : str
+                The group name.
+            j : int
+                The group coordinator.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceStormElection.Node._op_areYouThere.invokeAsync(self, ((gn, j), context))
+
+        def sync(self, context=None):
+            """
+            Get the sync object for the replica hosted by this node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            (Ice.ObjectPrx or None)
+                The sync object.
+            """
+            return _M_IceStormElection.Node._op_sync.invoke(self, ((), context))
+
+        def syncAsync(self, context=None):
+            """
+            Get the sync object for the replica hosted by this node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceStormElection.Node._op_sync.invokeAsync(self, ((), context))
+
+        def nodes(self, context=None):
+            """
+            Get the replication group information.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            IceStormElection.NodeInfo[]
+                The set of configured nodes and the associated priority.
+            """
+            return _M_IceStormElection.Node._op_nodes.invoke(self, ((), context))
+
+        def nodesAsync(self, context=None):
+            """
+            Get the replication group information.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceStormElection.Node._op_nodes.invokeAsync(self, ((), context))
+
+        def query(self, context=None):
+            """
+            Get the query information for the given node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            IceStormElection.QueryInfo
+                The query information.
+            """
+            return _M_IceStormElection.Node._op_query.invoke(self, ((), context))
+
+        def queryAsync(self, context=None):
+            """
+            Get the query information for the given node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceStormElection.Node._op_query.invokeAsync(self, ((), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceStormElection.NodePrx.ice_checkedCast(proxy, '::IceStormElection::Node', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceStormElection.NodePrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceStormElection::Node'
+    _M_IceStormElection._t_NodePrx = IcePy.defineProxy('::IceStormElection::Node', NodePrx)
+
+    _M_IceStormElection.NodePrx = NodePrx
+    del NodePrx
+
+    _M_IceStormElection.Node = None
+    class Node(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceStormElection::Node')
+
+        def ice_id(self, current=None):
+            return '::IceStormElection::Node'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceStormElection::Node'
+
+        def invitation(self, j, gn, current=None):
+            """
+            Invite the node into a group with the given coordinator and group name.
+            
+            Parameters
+            ----------
+            j : int
+                The group coordinator.
+            gn : str
+                The group name.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'invitation' not implemented")
+
+        def ready(self, j, gn, coordinator, max, generation, current=None):
+            """
+            Call from the group coordinator to a node to inform the node that the replica group is active.
+            
+            Parameters
+            ----------
+            j : int
+                The group coordinator.
+            gn : str
+                The group name.
+            coordinator : (Ice.ObjectPrx or None)
+                The proxy to the coordinator.
+            max : int
+                The highest priority node seen by this replica group.
+            generation : int
+                The current generation count.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'ready' not implemented")
+
+        def accept(self, j, gn, forwardedInvites, observer, llu, max, current=None):
+            """
+            Called to accept an invitation into the given group.
+            
+            Parameters
+            ----------
+            j : int
+                The id of the node accepting the invitation.
+            gn : str
+                The group name.
+            forwardedInvites : int[]
+                The ids of the nodes to which invitations were forwarded.
+            observer : (Ice.ObjectPrx or None)
+                The observer.
+            llu : IceStormElection.LogUpdate
+                The last log update for the given node.
+            max : int
+                The highest priority node seen by this replica group.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'accept' not implemented")
+
+        def areYouCoordinator(self, current=None):
+            """
+            Determine if this node is a coordinator.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'areYouCoordinator' not implemented")
+
+        def areYouThere(self, gn, j, current=None):
+            """
+            Determine if the node is a member of the given group with the given coordinator.
+            
+            Parameters
+            ----------
+            gn : str
+                The group name.
+            j : int
+                The group coordinator.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'areYouThere' not implemented")
+
+        def sync(self, current=None):
+            """
+            Get the sync object for the replica hosted by this node.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'sync' not implemented")
+
+        def nodes(self, current=None):
+            """
+            Get the replication group information.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'nodes' not implemented")
+
+        def query(self, current=None):
+            """
+            Get the query information for the given node.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'query' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceStormElection._t_NodeDisp)
+
+        __repr__ = __str__
+
+    Node._op_invitation = IcePy.Operation('invitation', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
+    Node._op_ready = IcePy.Operation('ready', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_long, False, 0)), (), None, ())
+    Node._op_accept = IcePy.Operation('accept', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0), ((), _M_Ice._t_IntSeq, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), _M_IceStormElection._t_LogUpdate, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    Node._op_areYouCoordinator = IcePy.Operation('areYouCoordinator', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    Node._op_areYouThere = IcePy.Operation('areYouThere', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_bool, False, 0), ())
+    Node._op_sync = IcePy.Operation('sync', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Node._op_nodes = IcePy.Operation('nodes', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStormElection._t_NodeInfoSeq, False, 0), ())
+    Node._op_query = IcePy.Operation('query', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStormElection._t_QueryInfo, False, 0), ())
+
+    _M_IceStormElection.Node = Node
+    del Node
+
+# End of module IceStormElection

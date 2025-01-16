@@ -39,6 +39,7 @@ if 'LoadSample' not in _M_IceGrid.__dict__:
     class LoadSample(Ice.EnumBase):
         """
         Determines which load sampling interval to use.
+        
         Enumerators:
         LoadSample1 -- Sample every minute.
         LoadSample5 -- Sample every five minutes.
@@ -258,7 +259,8 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             Returns
             -------
             (Ice.ObjectPrx or None)[]
-                The proxies of each object replica or an empty sequence, if the given proxy is not from a replicagroup.
+                The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+                group.
             """
             return _M_IceGrid.Query._op_findAllReplicas.invoke(self, ((proxy, ), context))
 
@@ -616,7 +618,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
         def getSessionTimeout(self, context=None):
             """
             Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-            send heartbeats (using ACM) or call Session#keepAlive (resp. AdminSession#keepAlive) to keep
+            send heartbeats (using ACM) or call `Session.keepAlive` (resp. `AdminSession.keepAlive`) to keep
             a session alive in the IceGrid registry.
             
             Parameters
@@ -634,7 +636,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
         def getSessionTimeoutAsync(self, context=None):
             """
             Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-            send heartbeats (using ACM) or call Session#keepAlive (resp. AdminSession#keepAlive) to keep
+            send heartbeats (using ACM) or call `Session.keepAlive` (resp. `AdminSession.keepAlive`) to keep
             a session alive in the IceGrid registry.
             
             Parameters
@@ -777,7 +779,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
         def getSessionTimeout(self, current=None):
             """
             Gets the session timeout. An Ice 3.7 or earlier client can use this value to determine how often it needs to
-            send heartbeats (using ACM) or call Session#keepAlive (resp. AdminSession#keepAlive) to keep
+            send heartbeats (using ACM) or call `Session.keepAlive` (resp. `AdminSession.keepAlive`) to keep
             a session alive in the IceGrid registry.
             
             Parameters

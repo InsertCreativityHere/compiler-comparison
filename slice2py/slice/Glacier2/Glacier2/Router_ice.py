@@ -121,8 +121,8 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
 
         def createSession(self, userId, password, context=None):
             """
-            Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
-            Session object is returned to the client. Otherwise, null is returned and only an internal session
+            Create a per-client session with the router. If a `SessionManager` has been installed, a proxy to a
+            `Session` object is returned to the client. Otherwise, null is returned and only an internal session
             (i.e., not visible to the client) is created.
             If a session proxy is returned, it must be configured to route through the router that created it. This will
             happen automatically if the router is configured as the client's default router at the time the session
@@ -140,7 +140,7 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
             Returns
             -------
             (Glacier2.SessionPrx or None)
-                A proxy for the newly created session, or null if no SessionManager has been installed.
+                A proxy for the newly created session, or null if no `SessionManager` has been installed.
             
             Raises
             ------
@@ -154,8 +154,8 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
 
         def createSessionAsync(self, userId, password, context=None):
             """
-            Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
-            Session object is returned to the client. Otherwise, null is returned and only an internal session
+            Create a per-client session with the router. If a `SessionManager` has been installed, a proxy to a
+            `Session` object is returned to the client. Otherwise, null is returned and only an internal session
             (i.e., not visible to the client) is created.
             If a session proxy is returned, it must be configured to route through the router that created it. This will
             happen automatically if the router is configured as the client's default router at the time the session
@@ -180,8 +180,8 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
         def createSessionFromSecureConnection(self, context=None):
             """
             Create a per-client session with the router. The user is authenticated through the SSL certificates that
-            have been associated with the connection. If a SessionManager has been installed, a proxy to a
-            Session object is returned to the client. Otherwise, null is returned and only an internal session
+            have been associated with the connection. If a `SessionManager` has been installed, a proxy to a
+            `Session` object is returned to the client. Otherwise, null is returned and only an internal session
             (i.e., not visible to the client) is created.
             If a session proxy is returned, it must be configured to route through the router that created it. This will
             happen automatically if the router is configured as the client's default router at the time the session
@@ -195,7 +195,7 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
             Returns
             -------
             (Glacier2.SessionPrx or None)
-                A proxy for the newly created session, or null if no SessionManager has been installed.
+                A proxy for the newly created session, or null if no `SessionManager` has been installed.
             
             Raises
             ------
@@ -210,8 +210,8 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
         def createSessionFromSecureConnectionAsync(self, context=None):
             """
             Create a per-client session with the router. The user is authenticated through the SSL certificates that
-            have been associated with the connection. If a SessionManager has been installed, a proxy to a
-            Session object is returned to the client. Otherwise, null is returned and only an internal session
+            have been associated with the connection. If a `SessionManager` has been installed, a proxy to a
+            `Session` object is returned to the client. Otherwise, null is returned and only an internal session
             (i.e., not visible to the client) is created.
             If a session proxy is returned, it must be configured to route through the router that created it. This will
             happen automatically if the router is configured as the client's default router at the time the session
@@ -408,8 +408,8 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
 
         def createSession(self, userId, password, current=None):
             """
-            Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
-            Session object is returned to the client. Otherwise, null is returned and only an internal session
+            Create a per-client session with the router. If a `SessionManager` has been installed, a proxy to a
+            `Session` object is returned to the client. Otherwise, null is returned and only an internal session
             (i.e., not visible to the client) is created.
             If a session proxy is returned, it must be configured to route through the router that created it. This will
             happen automatically if the router is configured as the client's default router at the time the session
@@ -442,8 +442,8 @@ if 'RouterPrx' not in _M_Glacier2.__dict__:
         def createSessionFromSecureConnection(self, current=None):
             """
             Create a per-client session with the router. The user is authenticated through the SSL certificates that
-            have been associated with the connection. If a SessionManager has been installed, a proxy to a
-            Session object is returned to the client. Otherwise, null is returned and only an internal session
+            have been associated with the connection. If a `SessionManager` has been installed, a proxy to a
+            `Session` object is returned to the client. Otherwise, null is returned and only an internal session
             (i.e., not visible to the client) is created.
             If a session proxy is returned, it must be configured to route through the router that created it. This will
             happen automatically if the router is configured as the client's default router at the time the session

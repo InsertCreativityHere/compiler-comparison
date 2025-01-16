@@ -27,6 +27,7 @@ if 'OperationMode' not in _M_Ice.__dict__:
     class OperationMode(Ice.EnumBase):
         """
         Determines the retry behavior an invocation in case of a (potentially) recoverable error.
+        
         Enumerators:
         Normal -- Ordinary operations have Normal mode. These operations modify object state; invoking such an
         operation twice in a row has different semantics than invoking it once. The Ice run time guarantees that it

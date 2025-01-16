@@ -928,7 +928,7 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
         def create(self, userId, control, context=None):
             """
             Create a new session. The implementation must return a non-null proxy or raise
-            CannotCreateSessionException if the session cannot be created.
+            `CannotCreateSessionException` if the session cannot be created.
             
             Parameters
             ----------
@@ -955,7 +955,7 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
         def createAsync(self, userId, control, context=None):
             """
             Create a new session. The implementation must return a non-null proxy or raise
-            CannotCreateSessionException if the session cannot be created.
+            `CannotCreateSessionException` if the session cannot be created.
             
             Parameters
             ----------
@@ -1006,7 +1006,7 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
         def create(self, userId, control, current=None):
             """
             Create a new session. The implementation must return a non-null proxy or raise
-            CannotCreateSessionException if the session cannot be created.
+            `CannotCreateSessionException` if the session cannot be created.
             
             Parameters
             ----------

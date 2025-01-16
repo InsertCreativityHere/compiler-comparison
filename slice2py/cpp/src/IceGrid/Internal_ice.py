@@ -251,6 +251,7 @@ if 'AdapterPrx' not in _M_IceGrid.__dict__:
             
             Returns
             -------
+            (Ice.ObjectPrx or None)
             """
             return _M_IceGrid.Adapter._op_activate.invoke(self, ((), context))
 
@@ -312,4 +313,3326 @@ if 'AdapterPrx' not in _M_IceGrid.__dict__:
             
             Parameters
             ----------
+            proxy : (Ice.ObjectPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
             
+            Raises
+            ------
+            AdapterActiveException
+                The adapter is already active. It's not possible to override the direct proxy of
+                an active adapter.
+            """
+            return _M_IceGrid.Adapter._op_setDirectProxy.invoke(self, ((proxy, ), context))
+
+        def setDirectProxyAsync(self, proxy, context=None):
+            """
+            Set the direct proxy for this adapter.
+            
+            Parameters
+            ----------
+            proxy : (Ice.ObjectPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Adapter._op_setDirectProxy.invokeAsync(self, ((proxy, ), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.AdapterPrx.ice_checkedCast(proxy, '::IceGrid::Adapter', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.AdapterPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::Adapter'
+    _M_IceGrid._t_AdapterPrx = IcePy.defineProxy('::IceGrid::Adapter', AdapterPrx)
+
+    _M_IceGrid.AdapterPrx = AdapterPrx
+    del AdapterPrx
+
+    _M_IceGrid.Adapter = None
+    class Adapter(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::Adapter')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::Adapter'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::Adapter'
+
+        def activate(self, current=None):
+            """
+            Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+            proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+            adapter is inactive or the adapter direct proxy it's active.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'activate' not implemented")
+
+        def getDirectProxy(self, current=None):
+            """
+            Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+            contains the last known adapter endpoints.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getDirectProxy' not implemented")
+
+        def setDirectProxy(self, proxy, current=None):
+            """
+            Set the direct proxy for this adapter.
+            
+            Parameters
+            ----------
+            proxy : (Ice.ObjectPrx or None)
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            AdapterActiveException
+                The adapter is already active. It's not possible to override the direct proxy of
+                an active adapter.
+            """
+            raise NotImplementedError("servant method 'setDirectProxy' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_AdapterDisp)
+
+        __repr__ = __str__
+
+    Adapter._op_activate = IcePy.Operation('activate', Ice.OperationMode.Normal, True, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), ())
+    Adapter._op_getDirectProxy = IcePy.Operation('getDirectProxy', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_IceGrid._t_AdapterNotActiveException,))
+    Adapter._op_setDirectProxy = IcePy.Operation('setDirectProxy', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_ObjectPrx, False, 0),), (), None, (_M_IceGrid._t_AdapterActiveException,))
+
+    _M_IceGrid.Adapter = Adapter
+    del Adapter
+
+if 'AdapterExistsException' not in _M_IceGrid.__dict__:
+    _M_IceGrid.AdapterExistsException = None
+    class AdapterExistsException(Ice.UserException):
+        """
+        This exception is raised if an adapter with the same name already exists.
+        """
+        def __init__(self, id=''):
+            self.id = id
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::IceGrid::AdapterExistsException'
+
+    _M_IceGrid._t_AdapterExistsException = IcePy.defineException('::IceGrid::AdapterExistsException', AdapterExistsException, (), None, (('id', (), IcePy._t_string, False, 0),))
+    AdapterExistsException._ice_type = _M_IceGrid._t_AdapterExistsException
+
+    _M_IceGrid.AdapterExistsException = AdapterExistsException
+    del AdapterExistsException
+
+if '_t_AdapterPrxDict' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_AdapterPrxDict = IcePy.defineDictionary('::IceGrid::AdapterPrxDict', (), IcePy._t_string, _M_IceGrid._t_AdapterPrx)
+
+if 'FileReader' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_FileReaderPrx = IcePy.declareProxy('::IceGrid::FileReader')
+
+if 'FileReaderPrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.FileReaderPrx = None
+    class FileReaderPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new FileReaderPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
+        def getOffsetFromEnd(self, filename, lines, context=None):
+            """
+            Count the number of given lines from the end of the file and return the file offset.
+            
+            Parameters
+            ----------
+            filename : str
+            lines : int
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            int
+            """
+            return _M_IceGrid.FileReader._op_getOffsetFromEnd.invoke(self, ((filename, lines), context))
+
+        def getOffsetFromEndAsync(self, filename, lines, context=None):
+            """
+            Count the number of given lines from the end of the file and return the file offset.
+            
+            Parameters
+            ----------
+            filename : str
+            lines : int
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.FileReader._op_getOffsetFromEnd.invokeAsync(self, ((filename, lines), context))
+
+        def read(self, filename, pos, size, context=None):
+            """
+            Read lines (or size bytes) at the specified position from the given file.
+            
+            Parameters
+            ----------
+            filename : str
+            pos : int
+            size : int
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Returns a tuple of (bool, int, str[])
+                A tuple containing:
+                - bool
+                - int
+                - str[]
+            """
+            return _M_IceGrid.FileReader._op_read.invoke(self, ((filename, pos, size), context))
+
+        def readAsync(self, filename, pos, size, context=None):
+            """
+            Read lines (or size bytes) at the specified position from the given file.
+            
+            Parameters
+            ----------
+            filename : str
+            pos : int
+            size : int
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.FileReader._op_read.invokeAsync(self, ((filename, pos, size), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.FileReaderPrx.ice_checkedCast(proxy, '::IceGrid::FileReader', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.FileReaderPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::FileReader'
+    _M_IceGrid._t_FileReaderPrx = IcePy.defineProxy('::IceGrid::FileReader', FileReaderPrx)
+
+    _M_IceGrid.FileReaderPrx = FileReaderPrx
+    del FileReaderPrx
+
+    _M_IceGrid.FileReader = None
+    class FileReader(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::FileReader')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::FileReader'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::FileReader'
+
+        def getOffsetFromEnd(self, filename, lines, current=None):
+            """
+            Count the number of given lines from the end of the file and return the file offset.
+            
+            Parameters
+            ----------
+            filename : str
+            lines : int
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getOffsetFromEnd' not implemented")
+
+        def read(self, filename, pos, size, current=None):
+            """
+            Read lines (or size bytes) at the specified position from the given file.
+            
+            Parameters
+            ----------
+            filename : str
+            pos : int
+            size : int
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'read' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_FileReaderDisp)
+
+        __repr__ = __str__
+
+    FileReader._op_getOffsetFromEnd = IcePy.Operation('getOffsetFromEnd', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), ((), IcePy._t_long, False, 0), (_M_IceGrid._t_FileNotAvailableException,))
+    FileReader._op_read = IcePy.Operation('read', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_long, False, 0), ((), IcePy._t_int, False, 0)), (((), IcePy._t_long, False, 0), ((), _M_Ice._t_StringSeq, False, 0)), ((), IcePy._t_bool, False, 0), (_M_IceGrid._t_FileNotAvailableException,))
+
+    _M_IceGrid.FileReader = FileReader
+    del FileReader
+
+if 'Server' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_ServerPrx = IcePy.declareProxy('::IceGrid::Server')
+
+if 'ServerPrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.ServerPrx = None
+    class ServerPrx(_M_IceGrid.FileReaderPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ServerPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
+        def start(self, context=None):
+            """
+            Start the server.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.Server._op_start.invoke(self, ((), context))
+
+        def startAsync(self, context=None):
+            """
+            Start the server.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Server._op_start.invokeAsync(self, ((), context))
+
+        def stop(self, context=None):
+            """
+            Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+            configurable amount of time, it will be killed.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.Server._op_stop.invoke(self, ((), context))
+
+        def stopAsync(self, context=None):
+            """
+            Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+            configurable amount of time, it will be killed.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Server._op_stop.invokeAsync(self, ((), context))
+
+        def checkUpdate(self, svr, noRestart, context=None):
+            """
+            Check if the given server can be loaded on this node.
+            
+            Parameters
+            ----------
+            svr : IceGrid.InternalServerDescriptor
+            noRestart : bool
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            bool
+                True if the server is inactive.
+            
+            Raises
+            ------
+            DeploymentException
+                Raised if the server can't be updated.
+            """
+            return _M_IceGrid.Server._op_checkUpdate.invoke(self, ((svr, noRestart), context))
+
+        def checkUpdateAsync(self, svr, noRestart, context=None):
+            """
+            Check if the given server can be loaded on this node.
+            
+            Parameters
+            ----------
+            svr : IceGrid.InternalServerDescriptor
+            noRestart : bool
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Server._op_checkUpdate.invokeAsync(self, ((svr, noRestart), context))
+
+        def setEnabled(self, enable, context=None):
+            """
+            Enable or disable the server.
+            
+            Parameters
+            ----------
+            enable : bool
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.Server._op_setEnabled.invoke(self, ((enable, ), context))
+
+        def setEnabledAsync(self, enable, context=None):
+            """
+            Enable or disable the server.
+            
+            Parameters
+            ----------
+            enable : bool
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Server._op_setEnabled.invokeAsync(self, ((enable, ), context))
+
+        def isEnabled(self, context=None):
+            """
+            Check if the server is enabled.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            bool
+            """
+            return _M_IceGrid.Server._op_isEnabled.invoke(self, ((), context))
+
+        def isEnabledAsync(self, context=None):
+            """
+            Check if the server is enabled.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Server._op_isEnabled.invokeAsync(self, ((), context))
+
+        def sendSignal(self, signal, context=None):
+            """
+            Send signal to the server
+            
+            Parameters
+            ----------
+            signal : str
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.Server._op_sendSignal.invoke(self, ((signal, ), context))
+
+        def sendSignalAsync(self, signal, context=None):
+            """
+            Send signal to the server
+            
+            Parameters
+            ----------
+            signal : str
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Server._op_sendSignal.invokeAsync(self, ((signal, ), context))
+
+        def writeMessage(self, message, fd, context=None):
+            """
+            Write message on servers' stdout or stderr.
+            
+            Parameters
+            ----------
+            message : str
+            fd : int
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.Server._op_writeMessage.invoke(self, ((message, fd), context))
+
+        def writeMessageAsync(self, message, fd, context=None):
+            """
+            Write message on servers' stdout or stderr.
+            
+            Parameters
+            ----------
+            message : str
+            fd : int
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Server._op_writeMessage.invokeAsync(self, ((message, fd), context))
+
+        def getState(self, context=None):
+            """
+            Return the server state.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            IceGrid.ServerState
+                The server state.
+            """
+            return _M_IceGrid.Server._op_getState.invoke(self, ((), context))
+
+        def getStateAsync(self, context=None):
+            """
+            Return the server state.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Server._op_getState.invokeAsync(self, ((), context))
+
+        def getPid(self, context=None):
+            """
+            Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+            it's the pid value returned by the fork() system call and converted to an integer.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            int
+            """
+            return _M_IceGrid.Server._op_getPid.invoke(self, ((), context))
+
+        def getPidAsync(self, context=None):
+            """
+            Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+            it's the pid value returned by the fork() system call and converted to an integer.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Server._op_getPid.invokeAsync(self, ((), context))
+
+        def setProcess(self, proc, context=None):
+            """
+            Set the process proxy.
+            
+            Parameters
+            ----------
+            proc : (Ice.ProcessPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.Server._op_setProcess.invoke(self, ((proc, ), context))
+
+        def setProcessAsync(self, proc, context=None):
+            """
+            Set the process proxy.
+            
+            Parameters
+            ----------
+            proc : (Ice.ProcessPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Server._op_setProcess.invokeAsync(self, ((proc, ), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.ServerPrx.ice_checkedCast(proxy, '::IceGrid::Server', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.ServerPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::Server'
+    _M_IceGrid._t_ServerPrx = IcePy.defineProxy('::IceGrid::Server', ServerPrx)
+
+    _M_IceGrid.ServerPrx = ServerPrx
+    del ServerPrx
+
+    _M_IceGrid.Server = None
+    class Server(_M_IceGrid.FileReader):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::FileReader', '::IceGrid::Server')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::Server'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::Server'
+
+        def start(self, current=None):
+            """
+            Start the server.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'start' not implemented")
+
+        def stop(self, current=None):
+            """
+            Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+            configurable amount of time, it will be killed.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'stop' not implemented")
+
+        def checkUpdate(self, svr, noRestart, current=None):
+            """
+            Check if the given server can be loaded on this node.
+            
+            Parameters
+            ----------
+            svr : IceGrid.InternalServerDescriptor
+            noRestart : bool
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            DeploymentException
+                Raised if the server can't be updated.
+            """
+            raise NotImplementedError("servant method 'checkUpdate' not implemented")
+
+        def setEnabled(self, enable, current=None):
+            """
+            Enable or disable the server.
+            
+            Parameters
+            ----------
+            enable : bool
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'setEnabled' not implemented")
+
+        def isEnabled(self, current=None):
+            """
+            Check if the server is enabled.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'isEnabled' not implemented")
+
+        def sendSignal(self, signal, current=None):
+            """
+            Send signal to the server
+            
+            Parameters
+            ----------
+            signal : str
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'sendSignal' not implemented")
+
+        def writeMessage(self, message, fd, current=None):
+            """
+            Write message on servers' stdout or stderr.
+            
+            Parameters
+            ----------
+            message : str
+            fd : int
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'writeMessage' not implemented")
+
+        def getState(self, current=None):
+            """
+            Return the server state.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getState' not implemented")
+
+        def getPid(self, current=None):
+            """
+            Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+            it's the pid value returned by the fork() system call and converted to an integer.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getPid' not implemented")
+
+        def setProcess(self, proc, current=None):
+            """
+            Set the process proxy.
+            
+            Parameters
+            ----------
+            proc : (Ice.ProcessPrx or None)
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'setProcess' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_ServerDisp)
+
+        __repr__ = __str__
+
+    Server._op_start = IcePy.Operation('start', Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_IceGrid._t_ServerStartException,))
+    Server._op_stop = IcePy.Operation('stop', Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_IceGrid._t_ServerStopException,))
+    Server._op_checkUpdate = IcePy.Operation('checkUpdate', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalServerDescriptor, False, 0), ((), IcePy._t_bool, False, 0)), (), ((), IcePy._t_bool, False, 0), (_M_IceGrid._t_DeploymentException,))
+    Server._op_setEnabled = IcePy.Operation('setEnabled', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0),), (), None, ())
+    Server._op_isEnabled = IcePy.Operation('isEnabled', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    Server._op_sendSignal = IcePy.Operation('sendSignal', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceGrid._t_BadSignalException,))
+    Server._op_writeMessage = IcePy.Operation('writeMessage', Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    Server._op_getState = IcePy.Operation('getState', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_ServerState, False, 0), ())
+    Server._op_getPid = IcePy.Operation('getPid', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    Server._op_setProcess = IcePy.Operation('setProcess', Ice.OperationMode.Normal, True, None, (), (((), _M_Ice._t_ProcessPrx, False, 0),), (), None, ())
+
+    _M_IceGrid.Server = Server
+    del Server
+
+if 'InternalRegistry' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_InternalRegistryPrx = IcePy.declareProxy('::IceGrid::InternalRegistry')
+
+if '_t_InternalRegistryPrxSeq' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_InternalRegistryPrxSeq = IcePy.defineSequence('::IceGrid::InternalRegistryPrxSeq', (), _M_IceGrid._t_InternalRegistryPrx)
+
+if 'ReplicaObserver' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_ReplicaObserverPrx = IcePy.declareProxy('::IceGrid::ReplicaObserver')
+
+if 'ReplicaObserverPrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.ReplicaObserverPrx = None
+    class ReplicaObserverPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ReplicaObserverPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
+        def replicaInit(self, replicas, context=None):
+            """
+            Initialization of the replica observer.
+            
+            Parameters
+            ----------
+            replicas : (IceGrid.InternalRegistryPrx or None)[]
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.ReplicaObserver._op_replicaInit.invoke(self, ((replicas, ), context))
+
+        def replicaInitAsync(self, replicas, context=None):
+            """
+            Initialization of the replica observer.
+            
+            Parameters
+            ----------
+            replicas : (IceGrid.InternalRegistryPrx or None)[]
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.ReplicaObserver._op_replicaInit.invokeAsync(self, ((replicas, ), context))
+
+        def replicaAdded(self, replica, context=None):
+            """
+            Notification that a replica has been added. The node should establish a session with this new replica.
+            
+            Parameters
+            ----------
+            replica : (IceGrid.InternalRegistryPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.ReplicaObserver._op_replicaAdded.invoke(self, ((replica, ), context))
+
+        def replicaAddedAsync(self, replica, context=None):
+            """
+            Notification that a replica has been added. The node should establish a session with this new replica.
+            
+            Parameters
+            ----------
+            replica : (IceGrid.InternalRegistryPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.ReplicaObserver._op_replicaAdded.invokeAsync(self, ((replica, ), context))
+
+        def replicaRemoved(self, replica, context=None):
+            """
+            Notification that a replica has been removed. The node should destroy the session to this replica.
+            
+            Parameters
+            ----------
+            replica : (IceGrid.InternalRegistryPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.ReplicaObserver._op_replicaRemoved.invoke(self, ((replica, ), context))
+
+        def replicaRemovedAsync(self, replica, context=None):
+            """
+            Notification that a replica has been removed. The node should destroy the session to this replica.
+            
+            Parameters
+            ----------
+            replica : (IceGrid.InternalRegistryPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.ReplicaObserver._op_replicaRemoved.invokeAsync(self, ((replica, ), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.ReplicaObserverPrx.ice_checkedCast(proxy, '::IceGrid::ReplicaObserver', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.ReplicaObserverPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::ReplicaObserver'
+    _M_IceGrid._t_ReplicaObserverPrx = IcePy.defineProxy('::IceGrid::ReplicaObserver', ReplicaObserverPrx)
+
+    _M_IceGrid.ReplicaObserverPrx = ReplicaObserverPrx
+    del ReplicaObserverPrx
+
+    _M_IceGrid.ReplicaObserver = None
+    class ReplicaObserver(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::ReplicaObserver')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::ReplicaObserver'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::ReplicaObserver'
+
+        def replicaInit(self, replicas, current=None):
+            """
+            Initialization of the replica observer.
+            
+            Parameters
+            ----------
+            replicas : (IceGrid.InternalRegistryPrx or None)[]
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'replicaInit' not implemented")
+
+        def replicaAdded(self, replica, current=None):
+            """
+            Notification that a replica has been added. The node should establish a session with this new replica.
+            
+            Parameters
+            ----------
+            replica : (IceGrid.InternalRegistryPrx or None)
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'replicaAdded' not implemented")
+
+        def replicaRemoved(self, replica, current=None):
+            """
+            Notification that a replica has been removed. The node should destroy the session to this replica.
+            
+            Parameters
+            ----------
+            replica : (IceGrid.InternalRegistryPrx or None)
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'replicaRemoved' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_ReplicaObserverDisp)
+
+        __repr__ = __str__
+
+    ReplicaObserver._op_replicaInit = IcePy.Operation('replicaInit', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalRegistryPrxSeq, False, 0),), (), None, ())
+    ReplicaObserver._op_replicaAdded = IcePy.Operation('replicaAdded', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalRegistryPrx, False, 0),), (), None, ())
+    ReplicaObserver._op_replicaRemoved = IcePy.Operation('replicaRemoved', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalRegistryPrx, False, 0),), (), None, ())
+
+    _M_IceGrid.ReplicaObserver = ReplicaObserver
+    del ReplicaObserver
+
+if 'Node' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_NodePrx = IcePy.declareProxy('::IceGrid::Node')
+
+if 'NodePrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.NodePrx = None
+    class NodePrx(_M_IceGrid.FileReaderPrx, _M_IceGrid.ReplicaObserverPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new NodePrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
+        def loadServer(self, svr, replicaName, context=None):
+            """
+            Load the given server. If the server resources weren't already created (database environment directories,
+            property files, etc), they will be created. The returned proxy is never null.
+            
+            Parameters
+            ----------
+            svr : IceGrid.InternalServerDescriptor
+            replicaName : str
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Returns a tuple of ((IceGrid.ServerPrx or None), dict where keys are str and values are (IceGrid.AdapterPrx or None), int, int)
+                A tuple containing:
+                - (IceGrid.ServerPrx or None)
+                - dict where keys are str and values are (IceGrid.AdapterPrx or None)
+                - int
+                - int
+            """
+            return _M_IceGrid.Node._op_loadServer.invoke(self, ((svr, replicaName), context))
+
+        def loadServerAsync(self, svr, replicaName, context=None):
+            """
+            Load the given server. If the server resources weren't already created (database environment directories,
+            property files, etc), they will be created. The returned proxy is never null.
+            
+            Parameters
+            ----------
+            svr : IceGrid.InternalServerDescriptor
+            replicaName : str
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Node._op_loadServer.invokeAsync(self, ((svr, replicaName), context))
+
+        def loadServerWithoutRestart(self, svr, replicaName, context=None):
+            """
+            Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+            (database environment directories, property files, etc), they will be created. If the server can't be updated
+            without a restart, a DeploymentException is raised. The returned proxy is never null.
+            
+            Parameters
+            ----------
+            svr : IceGrid.InternalServerDescriptor
+            replicaName : str
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Returns a tuple of ((IceGrid.ServerPrx or None), dict where keys are str and values are (IceGrid.AdapterPrx or None), int, int)
+                A tuple containing:
+                - (IceGrid.ServerPrx or None)
+                - dict where keys are str and values are (IceGrid.AdapterPrx or None)
+                - int
+                - int
+            """
+            return _M_IceGrid.Node._op_loadServerWithoutRestart.invoke(self, ((svr, replicaName), context))
+
+        def loadServerWithoutRestartAsync(self, svr, replicaName, context=None):
+            """
+            Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+            (database environment directories, property files, etc), they will be created. If the server can't be updated
+            without a restart, a DeploymentException is raised. The returned proxy is never null.
+            
+            Parameters
+            ----------
+            svr : IceGrid.InternalServerDescriptor
+            replicaName : str
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Node._op_loadServerWithoutRestart.invokeAsync(self, ((svr, replicaName), context))
+
+        def destroyServer(self, name, uuid, revision, replicaName, context=None):
+            """
+            Destroy the given server.
+            
+            Parameters
+            ----------
+            name : str
+            uuid : str
+            revision : int
+            replicaName : str
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.Node._op_destroyServer.invoke(self, ((name, uuid, revision, replicaName), context))
+
+        def destroyServerAsync(self, name, uuid, revision, replicaName, context=None):
+            """
+            Destroy the given server.
+            
+            Parameters
+            ----------
+            name : str
+            uuid : str
+            revision : int
+            replicaName : str
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Node._op_destroyServer.invokeAsync(self, ((name, uuid, revision, replicaName), context))
+
+        def destroyServerWithoutRestart(self, name, uuid, revision, replicaName, context=None):
+            """
+            Destroy the server if it's not active.
+            
+            Parameters
+            ----------
+            name : str
+            uuid : str
+            revision : int
+            replicaName : str
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.Node._op_destroyServerWithoutRestart.invoke(self, ((name, uuid, revision, replicaName), context))
+
+        def destroyServerWithoutRestartAsync(self, name, uuid, revision, replicaName, context=None):
+            """
+            Destroy the server if it's not active.
+            
+            Parameters
+            ----------
+            name : str
+            uuid : str
+            revision : int
+            replicaName : str
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Node._op_destroyServerWithoutRestart.invokeAsync(self, ((name, uuid, revision, replicaName), context))
+
+        def registerWithReplica(self, replica, context=None):
+            """
+            Establish a session to the given replica, this method only returns once the registration was attempted (unlike
+            replicaAdded below).
+            
+            Parameters
+            ----------
+            replica : (IceGrid.InternalRegistryPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.Node._op_registerWithReplica.invoke(self, ((replica, ), context))
+
+        def registerWithReplicaAsync(self, replica, context=None):
+            """
+            Establish a session to the given replica, this method only returns once the registration was attempted (unlike
+            replicaAdded below).
+            
+            Parameters
+            ----------
+            replica : (IceGrid.InternalRegistryPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Node._op_registerWithReplica.invokeAsync(self, ((replica, ), context))
+
+        def getName(self, context=None):
+            """
+            Get the node name.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            str
+            """
+            return _M_IceGrid.Node._op_getName.invoke(self, ((), context))
+
+        def getNameAsync(self, context=None):
+            """
+            Get the node name.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Node._op_getName.invokeAsync(self, ((), context))
+
+        def getHostname(self, context=None):
+            """
+            Get the node hostname.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            str
+            """
+            return _M_IceGrid.Node._op_getHostname.invoke(self, ((), context))
+
+        def getHostnameAsync(self, context=None):
+            """
+            Get the node hostname.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Node._op_getHostname.invokeAsync(self, ((), context))
+
+        def getLoad(self, context=None):
+            """
+            Get the node load.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            IceGrid.LoadInfo
+            """
+            return _M_IceGrid.Node._op_getLoad.invoke(self, ((), context))
+
+        def getLoadAsync(self, context=None):
+            """
+            Get the node load.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Node._op_getLoad.invokeAsync(self, ((), context))
+
+        def getProcessorSocketCount(self, context=None):
+            """
+            Get the number of processor sockets for the machine where this node is running.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            int
+            """
+            return _M_IceGrid.Node._op_getProcessorSocketCount.invoke(self, ((), context))
+
+        def getProcessorSocketCountAsync(self, context=None):
+            """
+            Get the number of processor sockets for the machine where this node is running.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Node._op_getProcessorSocketCount.invokeAsync(self, ((), context))
+
+        def shutdown(self, context=None):
+            """
+            Shutdown the node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.Node._op_shutdown.invoke(self, ((), context))
+
+        def shutdownAsync(self, context=None):
+            """
+            Shutdown the node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.Node._op_shutdown.invokeAsync(self, ((), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.NodePrx.ice_checkedCast(proxy, '::IceGrid::Node', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.NodePrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::Node'
+    _M_IceGrid._t_NodePrx = IcePy.defineProxy('::IceGrid::Node', NodePrx)
+
+    _M_IceGrid.NodePrx = NodePrx
+    del NodePrx
+
+    _M_IceGrid.Node = None
+    class Node(_M_IceGrid.FileReader, _M_IceGrid.ReplicaObserver):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::FileReader', '::IceGrid::Node', '::IceGrid::ReplicaObserver')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::Node'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::Node'
+
+        def loadServer(self, svr, replicaName, current=None):
+            """
+            Load the given server. If the server resources weren't already created (database environment directories,
+            property files, etc), they will be created. The returned proxy is never null.
+            
+            Parameters
+            ----------
+            svr : IceGrid.InternalServerDescriptor
+            replicaName : str
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'loadServer' not implemented")
+
+        def loadServerWithoutRestart(self, svr, replicaName, current=None):
+            """
+            Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+            (database environment directories, property files, etc), they will be created. If the server can't be updated
+            without a restart, a DeploymentException is raised. The returned proxy is never null.
+            
+            Parameters
+            ----------
+            svr : IceGrid.InternalServerDescriptor
+            replicaName : str
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'loadServerWithoutRestart' not implemented")
+
+        def destroyServer(self, name, uuid, revision, replicaName, current=None):
+            """
+            Destroy the given server.
+            
+            Parameters
+            ----------
+            name : str
+            uuid : str
+            revision : int
+            replicaName : str
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'destroyServer' not implemented")
+
+        def destroyServerWithoutRestart(self, name, uuid, revision, replicaName, current=None):
+            """
+            Destroy the server if it's not active.
+            
+            Parameters
+            ----------
+            name : str
+            uuid : str
+            revision : int
+            replicaName : str
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'destroyServerWithoutRestart' not implemented")
+
+        def registerWithReplica(self, replica, current=None):
+            """
+            Establish a session to the given replica, this method only returns once the registration was attempted (unlike
+            replicaAdded below).
+            
+            Parameters
+            ----------
+            replica : (IceGrid.InternalRegistryPrx or None)
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'registerWithReplica' not implemented")
+
+        def getName(self, current=None):
+            """
+            Get the node name.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getName' not implemented")
+
+        def getHostname(self, current=None):
+            """
+            Get the node hostname.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getHostname' not implemented")
+
+        def getLoad(self, current=None):
+            """
+            Get the node load.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getLoad' not implemented")
+
+        def getProcessorSocketCount(self, current=None):
+            """
+            Get the number of processor sockets for the machine where this node is running.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getProcessorSocketCount' not implemented")
+
+        def shutdown(self, current=None):
+            """
+            Shutdown the node.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'shutdown' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_NodeDisp)
+
+        __repr__ = __str__
+
+    Node._op_loadServer = IcePy.Operation('loadServer', Ice.OperationMode.Idempotent, True, None, (), (((), _M_IceGrid._t_InternalServerDescriptor, False, 0), ((), IcePy._t_string, False, 0)), (((), _M_IceGrid._t_AdapterPrxDict, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), ((), _M_IceGrid._t_ServerPrx, False, 0), (_M_IceGrid._t_DeploymentException,))
+    Node._op_loadServerWithoutRestart = IcePy.Operation('loadServerWithoutRestart', Ice.OperationMode.Idempotent, True, None, (), (((), _M_IceGrid._t_InternalServerDescriptor, False, 0), ((), IcePy._t_string, False, 0)), (((), _M_IceGrid._t_AdapterPrxDict, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), ((), _M_IceGrid._t_ServerPrx, False, 0), (_M_IceGrid._t_DeploymentException,))
+    Node._op_destroyServer = IcePy.Operation('destroyServer', Ice.OperationMode.Idempotent, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceGrid._t_DeploymentException,))
+    Node._op_destroyServerWithoutRestart = IcePy.Operation('destroyServerWithoutRestart', Ice.OperationMode.Idempotent, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceGrid._t_DeploymentException,))
+    Node._op_registerWithReplica = IcePy.Operation('registerWithReplica', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalRegistryPrx, False, 0),), (), None, ())
+    Node._op_getName = IcePy.Operation('getName', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    Node._op_getHostname = IcePy.Operation('getHostname', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
+    Node._op_getLoad = IcePy.Operation('getLoad', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_LoadInfo, False, 0), ())
+    Node._op_getProcessorSocketCount = IcePy.Operation('getProcessorSocketCount', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    Node._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+
+    _M_IceGrid.Node = Node
+    del Node
+
+if '_t_NodePrxSeq' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_NodePrxSeq = IcePy.defineSequence('::IceGrid::NodePrxSeq', (), _M_IceGrid._t_NodePrx)
+
+if 'NodeActiveException' not in _M_IceGrid.__dict__:
+    _M_IceGrid.NodeActiveException = None
+    class NodeActiveException(Ice.UserException):
+        """
+        This exception is raised if a node is already registered and active.
+        """
+        def __init__(self):
+            pass
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::IceGrid::NodeActiveException'
+
+    _M_IceGrid._t_NodeActiveException = IcePy.defineException('::IceGrid::NodeActiveException', NodeActiveException, (), None, ())
+    NodeActiveException._ice_type = _M_IceGrid._t_NodeActiveException
+
+    _M_IceGrid.NodeActiveException = NodeActiveException
+    del NodeActiveException
+
+if 'NodeSession' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_NodeSessionPrx = IcePy.declareProxy('::IceGrid::NodeSession')
+
+if 'NodeSessionPrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.NodeSessionPrx = None
+    class NodeSessionPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new NodeSessionPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
+        def keepAlive(self, load, context=None):
+            """
+            The node call this method to keep the session alive.
+            
+            Parameters
+            ----------
+            load : IceGrid.LoadInfo
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_keepAlive.invoke(self, ((load, ), context))
+
+        def keepAliveAsync(self, load, context=None):
+            """
+            The node call this method to keep the session alive.
+            
+            Parameters
+            ----------
+            load : IceGrid.LoadInfo
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_keepAlive.invokeAsync(self, ((load, ), context))
+
+        def setReplicaObserver(self, observer, context=None):
+            """
+            Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+            It only calls this for the session with the master.
+            
+            Parameters
+            ----------
+            observer : (IceGrid.ReplicaObserverPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_setReplicaObserver.invoke(self, ((observer, ), context))
+
+        def setReplicaObserverAsync(self, observer, context=None):
+            """
+            Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+            It only calls this for the session with the master.
+            
+            Parameters
+            ----------
+            observer : (IceGrid.ReplicaObserverPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_setReplicaObserver.invokeAsync(self, ((observer, ), context))
+
+        def getTimeout(self, context=None):
+            """
+            Return the node session timeout.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            int
+            """
+            return _M_IceGrid.NodeSession._op_getTimeout.invoke(self, ((), context))
+
+        def getTimeoutAsync(self, context=None):
+            """
+            Return the node session timeout.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_getTimeout.invokeAsync(self, ((), context))
+
+        def getObserver(self, context=None):
+            """
+            Return the node observer.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            (IceGrid.NodeObserverPrx or None)
+            """
+            return _M_IceGrid.NodeSession._op_getObserver.invoke(self, ((), context))
+
+        def getObserverAsync(self, context=None):
+            """
+            Return the node observer.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_getObserver.invokeAsync(self, ((), context))
+
+        def loadServers(self, context=None):
+            """
+            Ask the registry to load the servers on the node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_loadServers.invoke(self, ((), context))
+
+        def loadServersAsync(self, context=None):
+            """
+            Ask the registry to load the servers on the node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_loadServers.invokeAsync(self, ((), context))
+
+        def getServers(self, context=None):
+            """
+            Get the name of the servers deployed on the node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            str[]
+            """
+            return _M_IceGrid.NodeSession._op_getServers.invoke(self, ((), context))
+
+        def getServersAsync(self, context=None):
+            """
+            Get the name of the servers deployed on the node.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_getServers.invokeAsync(self, ((), context))
+
+        def waitForApplicationUpdate(self, application, revision, context=None):
+            """
+            Wait for the application update to complete (the application is completely updated once all the registry
+            replicas have been updated). This is used by the node to ensure that before to start a server all the
+            replicas have the up-to-date descriptor of the server.
+            
+            Parameters
+            ----------
+            application : str
+            revision : int
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_waitForApplicationUpdate.invoke(self, ((application, revision), context))
+
+        def waitForApplicationUpdateAsync(self, application, revision, context=None):
+            """
+            Wait for the application update to complete (the application is completely updated once all the registry
+            replicas have been updated). This is used by the node to ensure that before to start a server all the
+            replicas have the up-to-date descriptor of the server.
+            
+            Parameters
+            ----------
+            application : str
+            revision : int
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_waitForApplicationUpdate.invokeAsync(self, ((application, revision), context))
+
+        def destroy(self, context=None):
+            """
+            Destroy the session.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_destroy.invoke(self, ((), context))
+
+        def destroyAsync(self, context=None):
+            """
+            Destroy the session.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.NodeSession._op_destroy.invokeAsync(self, ((), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.NodeSessionPrx.ice_checkedCast(proxy, '::IceGrid::NodeSession', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.NodeSessionPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::NodeSession'
+    _M_IceGrid._t_NodeSessionPrx = IcePy.defineProxy('::IceGrid::NodeSession', NodeSessionPrx)
+
+    _M_IceGrid.NodeSessionPrx = NodeSessionPrx
+    del NodeSessionPrx
+
+    _M_IceGrid.NodeSession = None
+    class NodeSession(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::NodeSession')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::NodeSession'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::NodeSession'
+
+        def keepAlive(self, load, current=None):
+            """
+            The node call this method to keep the session alive.
+            
+            Parameters
+            ----------
+            load : IceGrid.LoadInfo
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'keepAlive' not implemented")
+
+        def setReplicaObserver(self, observer, current=None):
+            """
+            Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+            It only calls this for the session with the master.
+            
+            Parameters
+            ----------
+            observer : (IceGrid.ReplicaObserverPrx or None)
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'setReplicaObserver' not implemented")
+
+        def getTimeout(self, current=None):
+            """
+            Return the node session timeout.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getTimeout' not implemented")
+
+        def getObserver(self, current=None):
+            """
+            Return the node observer.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getObserver' not implemented")
+
+        def loadServers(self, current=None):
+            """
+            Ask the registry to load the servers on the node.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'loadServers' not implemented")
+
+        def getServers(self, current=None):
+            """
+            Get the name of the servers deployed on the node.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getServers' not implemented")
+
+        def waitForApplicationUpdate(self, application, revision, current=None):
+            """
+            Wait for the application update to complete (the application is completely updated once all the registry
+            replicas have been updated). This is used by the node to ensure that before to start a server all the
+            replicas have the up-to-date descriptor of the server.
+            
+            Parameters
+            ----------
+            application : str
+            revision : int
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'waitForApplicationUpdate' not implemented")
+
+        def destroy(self, current=None):
+            """
+            Destroy the session.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'destroy' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_NodeSessionDisp)
+
+        __repr__ = __str__
+
+    NodeSession._op_keepAlive = IcePy.Operation('keepAlive', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_LoadInfo, False, 0),), (), None, ())
+    NodeSession._op_setReplicaObserver = IcePy.Operation('setReplicaObserver', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_ReplicaObserverPrx, False, 0),), (), None, ())
+    NodeSession._op_getTimeout = IcePy.Operation('getTimeout', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    NodeSession._op_getObserver = IcePy.Operation('getObserver', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_NodeObserverPrx, False, 0), ())
+    NodeSession._op_loadServers = IcePy.Operation('loadServers', Ice.OperationMode.Idempotent, True, None, (), (), (), None, ())
+    NodeSession._op_getServers = IcePy.Operation('getServers', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
+    NodeSession._op_waitForApplicationUpdate = IcePy.Operation('waitForApplicationUpdate', Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
+    NodeSession._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_IceGrid.NodeSession = NodeSession
+    del NodeSession
+
+if 'ReplicaActiveException' not in _M_IceGrid.__dict__:
+    _M_IceGrid.ReplicaActiveException = None
+    class ReplicaActiveException(Ice.UserException):
+        """
+        This exception is raised if a replica is already registered and active.
+        """
+        def __init__(self):
+            pass
+
+        def __str__(self):
+            return IcePy.stringifyException(self)
+
+        __repr__ = __str__
+
+        _ice_id = '::IceGrid::ReplicaActiveException'
+
+    _M_IceGrid._t_ReplicaActiveException = IcePy.defineException('::IceGrid::ReplicaActiveException', ReplicaActiveException, (), None, ())
+    ReplicaActiveException._ice_type = _M_IceGrid._t_ReplicaActiveException
+
+    _M_IceGrid.ReplicaActiveException = ReplicaActiveException
+    del ReplicaActiveException
+
+if 'TopicName' not in _M_IceGrid.__dict__:
+    _M_IceGrid.TopicName = None
+    class TopicName(Ice.EnumBase):
+
+        def __init__(self, _n, _v):
+            Ice.EnumBase.__init__(self, _n, _v)
+
+        def valueOf(self, _n):
+            if _n in self._enumerators:
+                return self._enumerators[_n]
+            return None
+        valueOf = classmethod(valueOf)
+
+    TopicName.RegistryObserver = TopicName("RegistryObserver", 0)
+    TopicName.NodeObserver = TopicName("NodeObserver", 1)
+    TopicName.ApplicationObserver = TopicName("ApplicationObserver", 2)
+    TopicName.AdapterObserver = TopicName("AdapterObserver", 3)
+    TopicName.ObjectObserver = TopicName("ObjectObserver", 4)
+    TopicName._enumerators = { 0:TopicName.RegistryObserver, 1:TopicName.NodeObserver, 2:TopicName.ApplicationObserver, 3:TopicName.AdapterObserver, 4:TopicName.ObjectObserver }
+
+    _M_IceGrid._t_TopicName = IcePy.defineEnum('::IceGrid::TopicName', TopicName, (), TopicName._enumerators)
+
+    _M_IceGrid.TopicName = TopicName
+    del TopicName
+
+if 'DatabaseObserver' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_DatabaseObserverPrx = IcePy.declareProxy('::IceGrid::DatabaseObserver')
+
+if 'DatabaseObserverPrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.DatabaseObserverPrx = None
+    class DatabaseObserverPrx(_M_IceGrid.ApplicationObserverPrx, _M_IceGrid.ObjectObserverPrx, _M_IceGrid.AdapterObserverPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new DatabaseObserverPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.DatabaseObserverPrx.ice_checkedCast(proxy, '::IceGrid::DatabaseObserver', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.DatabaseObserverPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::DatabaseObserver'
+    _M_IceGrid._t_DatabaseObserverPrx = IcePy.defineProxy('::IceGrid::DatabaseObserver', DatabaseObserverPrx)
+
+    _M_IceGrid.DatabaseObserverPrx = DatabaseObserverPrx
+    del DatabaseObserverPrx
+
+    _M_IceGrid.DatabaseObserver = None
+    class DatabaseObserver(_M_IceGrid.ApplicationObserver, _M_IceGrid.ObjectObserver, _M_IceGrid.AdapterObserver):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::AdapterObserver', '::IceGrid::ApplicationObserver', '::IceGrid::DatabaseObserver', '::IceGrid::ObjectObserver')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::DatabaseObserver'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::DatabaseObserver'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_DatabaseObserverDisp)
+
+        __repr__ = __str__
+
+    _M_IceGrid.DatabaseObserver = DatabaseObserver
+    del DatabaseObserver
+
+if '_t_StringLongDict' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_StringLongDict = IcePy.defineDictionary('::IceGrid::StringLongDict', (), IcePy._t_string, IcePy._t_long)
+
+if 'ReplicaSession' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_ReplicaSessionPrx = IcePy.declareProxy('::IceGrid::ReplicaSession')
+
+if 'ReplicaSessionPrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.ReplicaSessionPrx = None
+    class ReplicaSessionPrx(Ice.ObjectPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new ReplicaSessionPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
+        def keepAlive(self, context=None):
+            """
+            The replica call this method to keep the session alive.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_keepAlive.invoke(self, ((), context))
+
+        def keepAliveAsync(self, context=None):
+            """
+            The replica call this method to keep the session alive.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_keepAlive.invokeAsync(self, ((), context))
+
+        def getTimeout(self, context=None):
+            """
+            Return the replica session timeout.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            int
+            """
+            return _M_IceGrid.ReplicaSession._op_getTimeout.invoke(self, ((), context))
+
+        def getTimeoutAsync(self, context=None):
+            """
+            Return the replica session timeout.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_getTimeout.invokeAsync(self, ((), context))
+
+        def setDatabaseObserver(self, dbObs, serials=None, context=None):
+            """
+            Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
+            
+            Parameters
+            ----------
+            dbObs : (IceGrid.DatabaseObserverPrx or None)
+            serials : (dict where keys are str and values are int or None)
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_setDatabaseObserver.invoke(self, ((dbObs, serials), context))
+
+        def setDatabaseObserverAsync(self, dbObs, serials, context=None):
+            """
+            Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
+            
+            Parameters
+            ----------
+            dbObs : (IceGrid.DatabaseObserverPrx or None)
+            serials : (dict where keys are str and values are int or None)
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_setDatabaseObserver.invokeAsync(self, ((dbObs, serials), context))
+
+        def setEndpoints(self, endpoints, context=None):
+            """
+            This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+            for replicated objects (e.g.: IceGrid::Query object).
+            
+            Parameters
+            ----------
+            endpoints : dict where keys are str and values are (Ice.ObjectPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_setEndpoints.invoke(self, ((endpoints, ), context))
+
+        def setEndpointsAsync(self, endpoints, context=None):
+            """
+            This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+            for replicated objects (e.g.: IceGrid::Query object).
+            
+            Parameters
+            ----------
+            endpoints : dict where keys are str and values are (Ice.ObjectPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_setEndpoints.invokeAsync(self, ((endpoints, ), context))
+
+        def registerWellKnownObjects(self, objects, context=None):
+            """
+            Registers the replica well-known objects with the master.
+            
+            Parameters
+            ----------
+            objects : IceGrid.ObjectInfo[]
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_registerWellKnownObjects.invoke(self, ((objects, ), context))
+
+        def registerWellKnownObjectsAsync(self, objects, context=None):
+            """
+            Registers the replica well-known objects with the master.
+            
+            Parameters
+            ----------
+            objects : IceGrid.ObjectInfo[]
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_registerWellKnownObjects.invokeAsync(self, ((objects, ), context))
+
+        def setAdapterDirectProxy(self, adapterId, replicaGroupId, proxy, context=None):
+            """
+            Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+            with the locator registry interface.
+            
+            Parameters
+            ----------
+            adapterId : str
+            replicaGroupId : str
+            proxy : (Ice.ObjectPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_setAdapterDirectProxy.invoke(self, ((adapterId, replicaGroupId, proxy), context))
+
+        def setAdapterDirectProxyAsync(self, adapterId, replicaGroupId, proxy, context=None):
+            """
+            Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+            with the locator registry interface.
+            
+            Parameters
+            ----------
+            adapterId : str
+            replicaGroupId : str
+            proxy : (Ice.ObjectPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_setAdapterDirectProxy.invokeAsync(self, ((adapterId, replicaGroupId, proxy), context))
+
+        def receivedUpdate(self, name, serial, failure, context=None):
+            """
+            Notify the master that an update was received. The master might wait for replication updates to be received by
+            all the replicas before to continue.
+            
+            Parameters
+            ----------
+            name : IceGrid.TopicName
+            serial : int
+            failure : str
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_receivedUpdate.invoke(self, ((name, serial, failure), context))
+
+        def receivedUpdateAsync(self, name, serial, failure, context=None):
+            """
+            Notify the master that an update was received. The master might wait for replication updates to be received by
+            all the replicas before to continue.
+            
+            Parameters
+            ----------
+            name : IceGrid.TopicName
+            serial : int
+            failure : str
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_receivedUpdate.invokeAsync(self, ((name, serial, failure), context))
+
+        def destroy(self, context=None):
+            """
+            Destroy the session.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_destroy.invoke(self, ((), context))
+
+        def destroyAsync(self, context=None):
+            """
+            Destroy the session.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.ReplicaSession._op_destroy.invokeAsync(self, ((), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.ReplicaSessionPrx.ice_checkedCast(proxy, '::IceGrid::ReplicaSession', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.ReplicaSessionPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::ReplicaSession'
+    _M_IceGrid._t_ReplicaSessionPrx = IcePy.defineProxy('::IceGrid::ReplicaSession', ReplicaSessionPrx)
+
+    _M_IceGrid.ReplicaSessionPrx = ReplicaSessionPrx
+    del ReplicaSessionPrx
+
+    _M_IceGrid.ReplicaSession = None
+    class ReplicaSession(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::ReplicaSession')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::ReplicaSession'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::ReplicaSession'
+
+        def keepAlive(self, current=None):
+            """
+            The replica call this method to keep the session alive.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'keepAlive' not implemented")
+
+        def getTimeout(self, current=None):
+            """
+            Return the replica session timeout.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getTimeout' not implemented")
+
+        def setDatabaseObserver(self, dbObs, serials, current=None):
+            """
+            Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
+            
+            Parameters
+            ----------
+            dbObs : (IceGrid.DatabaseObserverPrx or None)
+            serials : (dict where keys are str and values are int or None)
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'setDatabaseObserver' not implemented")
+
+        def setEndpoints(self, endpoints, current=None):
+            """
+            This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+            for replicated objects (e.g.: IceGrid::Query object).
+            
+            Parameters
+            ----------
+            endpoints : dict where keys are str and values are (Ice.ObjectPrx or None)
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'setEndpoints' not implemented")
+
+        def registerWellKnownObjects(self, objects, current=None):
+            """
+            Registers the replica well-known objects with the master.
+            
+            Parameters
+            ----------
+            objects : IceGrid.ObjectInfo[]
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'registerWellKnownObjects' not implemented")
+
+        def setAdapterDirectProxy(self, adapterId, replicaGroupId, proxy, current=None):
+            """
+            Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+            with the locator registry interface.
+            
+            Parameters
+            ----------
+            adapterId : str
+            replicaGroupId : str
+            proxy : (Ice.ObjectPrx or None)
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'setAdapterDirectProxy' not implemented")
+
+        def receivedUpdate(self, name, serial, failure, current=None):
+            """
+            Notify the master that an update was received. The master might wait for replication updates to be received by
+            all the replicas before to continue.
+            
+            Parameters
+            ----------
+            name : IceGrid.TopicName
+            serial : int
+            failure : str
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'receivedUpdate' not implemented")
+
+        def destroy(self, current=None):
+            """
+            Destroy the session.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'destroy' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_ReplicaSessionDisp)
+
+        __repr__ = __str__
+
+    ReplicaSession._op_keepAlive = IcePy.Operation('keepAlive', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    ReplicaSession._op_getTimeout = IcePy.Operation('getTimeout', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
+    ReplicaSession._op_setDatabaseObserver = IcePy.Operation('setDatabaseObserver', Ice.OperationMode.Idempotent, False, None, (), (((), _M_IceGrid._t_DatabaseObserverPrx, False, 0), ((), _M_IceGrid._t_StringLongDict, True, 1)), (), None, (_M_IceGrid._t_ObserverAlreadyRegisteredException, _M_IceGrid._t_DeploymentException))
+    ReplicaSession._op_setEndpoints = IcePy.Operation('setEndpoints', Ice.OperationMode.Idempotent, False, None, (), (((), _M_IceGrid._t_StringObjectProxyDict, False, 0),), (), None, ())
+    ReplicaSession._op_registerWellKnownObjects = IcePy.Operation('registerWellKnownObjects', Ice.OperationMode.Idempotent, False, None, (), (((), _M_IceGrid._t_ObjectInfoSeq, False, 0),), (), None, ())
+    ReplicaSession._op_setAdapterDirectProxy = IcePy.Operation('setAdapterDirectProxy', Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_ObjectPrx, False, 0)), (), None, (_M_IceGrid._t_AdapterNotExistException, _M_IceGrid._t_AdapterExistsException))
+    ReplicaSession._op_receivedUpdate = IcePy.Operation('receivedUpdate', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_TopicName, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, ())
+    ReplicaSession._op_destroy = IcePy.Operation('destroy', Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_IceGrid.ReplicaSession = ReplicaSession
+    del ReplicaSession
+
+if 'InternalNodeInfo' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_InternalNodeInfo = IcePy.declareValue('::IceGrid::InternalNodeInfo')
+
+if 'InternalNodeInfo' not in _M_IceGrid.__dict__:
+    _M_IceGrid.InternalNodeInfo = None
+    class InternalNodeInfo(Ice.Value):
+        """
+        Information about an IceGrid node.
+        
+        Attributes
+        ----------
+        name : str
+            The name of the node.
+        os : str
+            The operating system name.
+        hostname : str
+            The network name of the host running this node (as defined in uname()).
+        release : str
+            The operation system release level (as defined in uname()).
+        version : str
+            The operation system version (as defined in uname()).
+        machine : str
+            The machine hardware type (as defined in uname()).
+        nProcessors : int
+            The number of processor threads (e.g. 8 on system with 1 quad-core CPU, with 2 threads per core)
+        dataDir : str
+            The path to the node data directory.
+        iceSoVersion : (str or None)
+            The Ice SO version of this node, for example 38. It is typically used to load the same version of the IceStorm
+            service in IceBox.
+        """
+        def __init__(self, name='', os='', hostname='', release='', version='', machine='', nProcessors=0, dataDir='', iceSoVersion=None):
+            self.name = name
+            self.os = os
+            self.hostname = hostname
+            self.release = release
+            self.version = version
+            self.machine = machine
+            self.nProcessors = nProcessors
+            self.dataDir = dataDir
+            self.iceSoVersion = iceSoVersion
+
+        def ice_id(self):
+            return '::IceGrid::InternalNodeInfo'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::InternalNodeInfo'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_InternalNodeInfo)
+
+        __repr__ = __str__
+
+    _M_IceGrid._t_InternalNodeInfo = IcePy.defineValue('::IceGrid::InternalNodeInfo', InternalNodeInfo, -1, (), False, None, (
+        ('name', (), IcePy._t_string, False, 0),
+        ('os', (), IcePy._t_string, False, 0),
+        ('hostname', (), IcePy._t_string, False, 0),
+        ('release', (), IcePy._t_string, False, 0),
+        ('version', (), IcePy._t_string, False, 0),
+        ('machine', (), IcePy._t_string, False, 0),
+        ('nProcessors', (), IcePy._t_int, False, 0),
+        ('dataDir', (), IcePy._t_string, False, 0),
+        ('iceSoVersion', (), IcePy._t_string, True, 1)
+    ))
+    InternalNodeInfo._ice_type = _M_IceGrid._t_InternalNodeInfo
+
+    _M_IceGrid.InternalNodeInfo = InternalNodeInfo
+    del InternalNodeInfo
+
+if 'InternalReplicaInfo' not in _M_IceGrid.__dict__:
+    _M_IceGrid._t_InternalReplicaInfo = IcePy.declareValue('::IceGrid::InternalReplicaInfo')
+
+if 'InternalReplicaInfo' not in _M_IceGrid.__dict__:
+    _M_IceGrid.InternalReplicaInfo = None
+    class InternalReplicaInfo(Ice.Value):
+        """
+        Information about an IceGrid registry replica.
+        
+        Attributes
+        ----------
+        name : str
+            The name of the registry.
+        hostname : str
+            The network name of the host running this registry (as defined in uname()).
+        """
+        def __init__(self, name='', hostname=''):
+            self.name = name
+            self.hostname = hostname
+
+        def ice_id(self):
+            return '::IceGrid::InternalReplicaInfo'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::InternalReplicaInfo'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_InternalReplicaInfo)
+
+        __repr__ = __str__
+
+    _M_IceGrid._t_InternalReplicaInfo = IcePy.defineValue('::IceGrid::InternalReplicaInfo', InternalReplicaInfo, -1, (), False, None, (
+        ('name', (), IcePy._t_string, False, 0),
+        ('hostname', (), IcePy._t_string, False, 0)
+    ))
+    InternalReplicaInfo._ice_type = _M_IceGrid._t_InternalReplicaInfo
+
+    _M_IceGrid.InternalReplicaInfo = InternalReplicaInfo
+    del InternalReplicaInfo
+
+if 'InternalRegistryPrx' not in _M_IceGrid.__dict__:
+    _M_IceGrid.InternalRegistryPrx = None
+    class InternalRegistryPrx(_M_IceGrid.FileReaderPrx):
+
+        def __init__(self, communicator, proxyString):
+            """
+            Creates a new InternalRegistryPrx proxy
+            
+            Parameters
+            ----------
+            communicator : Ice.Communicator
+                The communicator of the new proxy.
+            proxyString : str
+                The string representation of the proxy.
+            
+            Raises
+            ------
+            ParseException
+                Thrown when proxyString is not a valid proxy string.
+            """
+            super().__init__(communicator, proxyString)
+
+        def registerNode(self, info, prx, loadInf, context=None):
+            """
+            Register a node with the registry. If a node with the same name is already registered,
+            registerNode overrides the existing registration only when the previously
+            registered node is not active.
+            
+            Parameters
+            ----------
+            info : IceGrid.InternalNodeInfo
+                Some information on the node.
+            prx : (IceGrid.NodePrx or None)
+                The proxy of the node.
+            loadInf : IceGrid.LoadInfo
+                The load information of the node.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            (IceGrid.NodeSessionPrx or None)
+                The node session proxy.
+            
+            Raises
+            ------
+            NodeActiveException
+                Raised if the node is already registered and currently active.
+            """
+            return _M_IceGrid.InternalRegistry._op_registerNode.invoke(self, ((info, prx, loadInf), context))
+
+        def registerNodeAsync(self, info, prx, loadInf, context=None):
+            """
+            Register a node with the registry. If a node with the same name is already registered,
+            registerNode overrides the existing registration only when the previously
+            registered node is not active.
+            
+            Parameters
+            ----------
+            info : IceGrid.InternalNodeInfo
+                Some information on the node.
+            prx : (IceGrid.NodePrx or None)
+                The proxy of the node.
+            loadInf : IceGrid.LoadInfo
+                The load information of the node.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.InternalRegistry._op_registerNode.invokeAsync(self, ((info, prx, loadInf), context))
+
+        def registerReplica(self, info, prx, context=None):
+            """
+            Register a replica with the registry. If a replica with the same name is already registered,
+            registerReplica overrides the existing registration only when the previously
+            registered node is not active.
+            
+            Parameters
+            ----------
+            info : IceGrid.InternalReplicaInfo
+                Some information on the replica.
+            prx : (IceGrid.InternalRegistryPrx or None)
+                The proxy of the replica.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            (IceGrid.ReplicaSessionPrx or None)
+                The replica session proxy.
+            
+            Raises
+            ------
+            ReplicaActiveException
+                Raised if the replica is already registered and currently active.
+            """
+            return _M_IceGrid.InternalRegistry._op_registerReplica.invoke(self, ((info, prx), context))
+
+        def registerReplicaAsync(self, info, prx, context=None):
+            """
+            Register a replica with the registry. If a replica with the same name is already registered,
+            registerReplica overrides the existing registration only when the previously
+            registered node is not active.
+            
+            Parameters
+            ----------
+            info : IceGrid.InternalReplicaInfo
+                Some information on the replica.
+            prx : (IceGrid.InternalRegistryPrx or None)
+                The proxy of the replica.
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.InternalRegistry._op_registerReplica.invokeAsync(self, ((info, prx), context))
+
+        def registerWithReplica(self, prx, context=None):
+            """
+            Create a session with the given registry replica. This method returns only once the session creation has been
+            attempted.
+            
+            Parameters
+            ----------
+            prx : (IceGrid.InternalRegistryPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.InternalRegistry._op_registerWithReplica.invoke(self, ((prx, ), context))
+
+        def registerWithReplicaAsync(self, prx, context=None):
+            """
+            Create a session with the given registry replica. This method returns only once the session creation has been
+            attempted.
+            
+            Parameters
+            ----------
+            prx : (IceGrid.InternalRegistryPrx or None)
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.InternalRegistry._op_registerWithReplica.invokeAsync(self, ((prx, ), context))
+
+        def getNodes(self, context=None):
+            """
+            Return the proxies of all the nodes known by this registry.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            (IceGrid.NodePrx or None)[]
+            """
+            return _M_IceGrid.InternalRegistry._op_getNodes.invoke(self, ((), context))
+
+        def getNodesAsync(self, context=None):
+            """
+            Return the proxies of all the nodes known by this registry.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.InternalRegistry._op_getNodes.invokeAsync(self, ((), context))
+
+        def getReplicas(self, context=None):
+            """
+            Return the proxies of all the registry replicas known by this registry.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            (IceGrid.InternalRegistryPrx or None)[]
+            """
+            return _M_IceGrid.InternalRegistry._op_getReplicas.invoke(self, ((), context))
+
+        def getReplicasAsync(self, context=None):
+            """
+            Return the proxies of all the registry replicas known by this registry.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.InternalRegistry._op_getReplicas.invokeAsync(self, ((), context))
+
+        def getApplications(self, context=None):
+            """
+            Return applications, adapters, objects from this replica.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Returns a tuple of (IceGrid.ApplicationInfo[], int)
+                A tuple containing:
+                - IceGrid.ApplicationInfo[]
+                - int
+            """
+            return _M_IceGrid.InternalRegistry._op_getApplications.invoke(self, ((), context))
+
+        def getApplicationsAsync(self, context=None):
+            """
+            Return applications, adapters, objects from this replica.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.InternalRegistry._op_getApplications.invokeAsync(self, ((), context))
+
+        def getAdapters(self, context=None):
+            return _M_IceGrid.InternalRegistry._op_getAdapters.invoke(self, ((), context))
+
+        def getAdaptersAsync(self, context=None):
+            return _M_IceGrid.InternalRegistry._op_getAdapters.invokeAsync(self, ((), context))
+
+        def getObjects(self, context=None):
+            return _M_IceGrid.InternalRegistry._op_getObjects.invoke(self, ((), context))
+
+        def getObjectsAsync(self, context=None):
+            return _M_IceGrid.InternalRegistry._op_getObjects.invokeAsync(self, ((), context))
+
+        def shutdown(self, context=None):
+            """
+            Shutdown this registry.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            """
+            return _M_IceGrid.InternalRegistry._op_shutdown.invoke(self, ((), context))
+
+        def shutdownAsync(self, context=None):
+            """
+            Shutdown this registry.
+            
+            Parameters
+            ----------
+            context : Ice.Context
+                The request context for the invocation.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the invocation.
+            """
+            return _M_IceGrid.InternalRegistry._op_shutdown.invokeAsync(self, ((), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_IceGrid.InternalRegistryPrx.ice_checkedCast(proxy, '::IceGrid::InternalRegistry', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_IceGrid.InternalRegistryPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::InternalRegistry'
+    _M_IceGrid._t_InternalRegistryPrx = IcePy.defineProxy('::IceGrid::InternalRegistry', InternalRegistryPrx)
+
+    _M_IceGrid.InternalRegistryPrx = InternalRegistryPrx
+    del InternalRegistryPrx
+
+    _M_IceGrid.InternalRegistry = None
+    class InternalRegistry(_M_IceGrid.FileReader):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::IceGrid::FileReader', '::IceGrid::InternalRegistry')
+
+        def ice_id(self, current=None):
+            return '::IceGrid::InternalRegistry'
+
+        @staticmethod
+        def ice_staticId():
+            return '::IceGrid::InternalRegistry'
+
+        def registerNode(self, info, prx, loadInf, current=None):
+            """
+            Register a node with the registry. If a node with the same name is already registered,
+            registerNode overrides the existing registration only when the previously
+            registered node is not active.
+            
+            Parameters
+            ----------
+            info : IceGrid.InternalNodeInfo
+                Some information on the node.
+            prx : (IceGrid.NodePrx or None)
+                The proxy of the node.
+            loadInf : IceGrid.LoadInfo
+                The load information of the node.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            NodeActiveException
+                Raised if the node is already registered and currently active.
+            """
+            raise NotImplementedError("servant method 'registerNode' not implemented")
+
+        def registerReplica(self, info, prx, current=None):
+            """
+            Register a replica with the registry. If a replica with the same name is already registered,
+            registerReplica overrides the existing registration only when the previously
+            registered node is not active.
+            
+            Parameters
+            ----------
+            info : IceGrid.InternalReplicaInfo
+                Some information on the replica.
+            prx : (IceGrid.InternalRegistryPrx or None)
+                The proxy of the replica.
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            
+            Raises
+            ------
+            ReplicaActiveException
+                Raised if the replica is already registered and currently active.
+            """
+            raise NotImplementedError("servant method 'registerReplica' not implemented")
+
+        def registerWithReplica(self, prx, current=None):
+            """
+            Create a session with the given registry replica. This method returns only once the session creation has been
+            attempted.
+            
+            Parameters
+            ----------
+            prx : (IceGrid.InternalRegistryPrx or None)
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'registerWithReplica' not implemented")
+
+        def getNodes(self, current=None):
+            """
+            Return the proxies of all the nodes known by this registry.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getNodes' not implemented")
+
+        def getReplicas(self, current=None):
+            """
+            Return the proxies of all the registry replicas known by this registry.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getReplicas' not implemented")
+
+        def getApplications(self, current=None):
+            """
+            Return applications, adapters, objects from this replica.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'getApplications' not implemented")
+
+        def getAdapters(self, current=None):
+            raise NotImplementedError("servant method 'getAdapters' not implemented")
+
+        def getObjects(self, current=None):
+            raise NotImplementedError("servant method 'getObjects' not implemented")
+
+        def shutdown(self, current=None):
+            """
+            Shutdown this registry.
+            
+            Parameters
+            ----------
+            current : Ice.Current
+                The Current object for the dispatch.
+            
+            Returns
+            -------
+            Ice.Future
+                A future object that is completed with the result of the dispatch.
+            """
+            raise NotImplementedError("servant method 'shutdown' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_IceGrid._t_InternalRegistryDisp)
+
+        __repr__ = __str__
+
+    InternalRegistry._op_registerNode = IcePy.Operation('registerNode', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalNodeInfo, False, 0), ((), _M_IceGrid._t_NodePrx, False, 0), ((), _M_IceGrid._t_LoadInfo, False, 0)), (), ((), _M_IceGrid._t_NodeSessionPrx, False, 0), (_M_IceGrid._t_NodeActiveException, _M_IceGrid._t_PermissionDeniedException))
+    InternalRegistry._op_registerReplica = IcePy.Operation('registerReplica', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalReplicaInfo, False, 0), ((), _M_IceGrid._t_InternalRegistryPrx, False, 0)), (), ((), _M_IceGrid._t_ReplicaSessionPrx, False, 0), (_M_IceGrid._t_ReplicaActiveException, _M_IceGrid._t_PermissionDeniedException))
+    InternalRegistry._op_registerWithReplica = IcePy.Operation('registerWithReplica', Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalRegistryPrx, False, 0),), (), None, ())
+    InternalRegistry._op_getNodes = IcePy.Operation('getNodes', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_NodePrxSeq, False, 0), ())
+    InternalRegistry._op_getReplicas = IcePy.Operation('getReplicas', Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceGrid._t_InternalRegistryPrxSeq, False, 0), ())
+    InternalRegistry._op_getApplications = IcePy.Operation('getApplications', Ice.OperationMode.Idempotent, False, None, (), (), (((), IcePy._t_long, False, 0),), ((), _M_IceGrid._t_ApplicationInfoSeq, False, 0), ())
+    InternalRegistry._op_getAdapters = IcePy.Operation('getAdapters', Ice.OperationMode.Idempotent, False, None, (), (), (((), IcePy._t_long, False, 0),), ((), _M_IceGrid._t_AdapterInfoSeq, False, 0), ())
+    InternalRegistry._op_getObjects = IcePy.Operation('getObjects', Ice.OperationMode.Idempotent, False, None, (), (), (((), IcePy._t_long, False, 0),), ((), _M_IceGrid._t_ObjectInfoSeq, False, 0), ())
+    InternalRegistry._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
+
+    _M_IceGrid.InternalRegistry = InternalRegistry
+    del InternalRegistry
+
+# End of module IceGrid

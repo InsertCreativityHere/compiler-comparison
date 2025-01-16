@@ -26,7 +26,7 @@ _M_Ice = Ice.openModule('Ice')
 _M_IceMX = Ice.openModule('IceMX')
 __name__ = 'IceMX'
 _M_IceMX.__doc__ = """
-The Ice Management eXtension facility. It provides the IceMX#MetricsAdmin interface for management clients
+The Ice Management eXtension facility. It provides the `IceMX.MetricsAdmin` interface for management clients
 to retrieve metrics from Ice applications.
 """
 
@@ -641,7 +641,7 @@ if 'ThreadMetrics' not in _M_IceMX.__dict__:
             The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
         inUseForOther : int
             The number of threads which are currently performing other activities. These are all other that are not
-            counted with inUseForUser or inUseForIO, such as DNS lookups, garbage collection).
+            counted with `inUseForUser` or `inUseForIO`, such as DNS lookups, garbage collection).
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, inUseForIO=0, inUseForUser=0, inUseForOther=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
@@ -726,7 +726,7 @@ if 'ChildInvocationMetrics' not in _M_IceMX.__dict__:
         """
         Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
         collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
-        embedded within InvocationMetrics.
+        embedded within `InvocationMetrics`.
         
         Attributes
         ----------
@@ -770,7 +770,7 @@ if 'CollocatedMetrics' not in _M_IceMX.__dict__:
     class CollocatedMetrics(_M_IceMX.ChildInvocationMetrics):
         """
         Provides information on invocations that are collocated. Collocated metrics are embedded within
-        InvocationMetrics.
+        `InvocationMetrics`.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
             _M_IceMX.ChildInvocationMetrics.__init__(self, id, total, current, totalLifetime, failures, size, replySize)
@@ -801,7 +801,7 @@ if 'RemoteMetrics' not in _M_IceMX.__dict__:
     class RemoteMetrics(_M_IceMX.ChildInvocationMetrics):
         """
         Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
-        within InvocationMetrics.
+        within `InvocationMetrics`.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
             _M_IceMX.ChildInvocationMetrics.__init__(self, id, total, current, totalLifetime, failures, size, replySize)
