@@ -6,7 +6,7 @@
 %   name - The service name.
 %   entry - The entry point of the IceBox service.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Descriptor.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ServiceDescriptor < IceGrid.CommunicatorDescriptor

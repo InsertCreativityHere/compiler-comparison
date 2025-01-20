@@ -5,7 +5,7 @@
 % AdaptiveLoadBalancingPolicy Properties:
 %   loadSample - The load sample to use for the load balancing.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Descriptor.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef AdaptiveLoadBalancingPolicy < IceGrid.LoadBalancingPolicy

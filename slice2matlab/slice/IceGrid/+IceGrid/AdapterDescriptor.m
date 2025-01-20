@@ -13,7 +13,7 @@
 %   objects - The well-known object descriptors associated with this object adapter.
 %   allocatables - The allocatable object descriptors associated with this object adapter.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Descriptor.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef AdapterDescriptor

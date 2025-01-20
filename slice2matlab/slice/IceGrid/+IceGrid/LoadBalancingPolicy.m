@@ -5,7 +5,7 @@
 % LoadBalancingPolicy Properties:
 %   nReplicas - The number of replicas that will be used to gather the endpoints of a replica group.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Descriptor.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef LoadBalancingPolicy < Ice.Value

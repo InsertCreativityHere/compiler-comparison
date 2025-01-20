@@ -11,7 +11,7 @@
 %   event - The event type associated with this sample (e.g., Add, Update, PartialUpdate, Remove).
 %   value - The payload data of the sample.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef DataSample

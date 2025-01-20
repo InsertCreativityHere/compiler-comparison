@@ -1,5 +1,5 @@
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from ServerPrivateAMD.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef D1 < Test.B

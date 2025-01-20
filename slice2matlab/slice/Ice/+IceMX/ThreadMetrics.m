@@ -7,7 +7,7 @@
 %   inUseForUser - The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
 %   inUseForOther - The number of threads which are currently performing other activities.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Metrics.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ThreadMetrics < IceMX.Metrics

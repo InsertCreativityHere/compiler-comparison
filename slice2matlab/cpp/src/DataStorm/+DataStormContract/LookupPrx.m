@@ -16,7 +16,7 @@
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef LookupPrx < Ice.ObjectPrx

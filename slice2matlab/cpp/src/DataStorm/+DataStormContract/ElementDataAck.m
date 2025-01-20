@@ -9,7 +9,7 @@
 %   samples - A sequence of samples in the writer's queue, used to initialize the reader.
 %   peerId - The unique identifier for the peer's data reader or data writer.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ElementDataAck

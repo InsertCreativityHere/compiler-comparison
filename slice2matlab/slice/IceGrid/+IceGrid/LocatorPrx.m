@@ -13,7 +13,7 @@
 %
 % See also IceGrid.Query, IceGrid.Registry
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Registry.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef LocatorPrx < Ice.LocatorPrx

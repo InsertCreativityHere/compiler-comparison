@@ -7,7 +7,7 @@
 %   proxy - A dummy direct proxy that contains the adapter endpoints.
 %   replicaGroupId - The replica group id of the object adapter, or empty if the adapter doesn't belong to a replica group.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Admin.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef AdapterInfo

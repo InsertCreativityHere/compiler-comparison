@@ -8,7 +8,7 @@
 %   logs - The path of each log file.
 %   description - A description of this descriptor.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Descriptor.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef CommunicatorDescriptor < Ice.Value

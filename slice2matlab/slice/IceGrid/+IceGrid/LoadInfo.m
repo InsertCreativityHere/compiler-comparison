@@ -7,7 +7,7 @@
 %   avg5 - The load average over the past 5 minutes.
 %   avg15 - The load average over the past 15 minutes.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Admin.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef LoadInfo

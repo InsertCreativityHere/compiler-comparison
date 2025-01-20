@@ -6,7 +6,7 @@
 %   published - Number of events published on the topic by publishers.
 %   forwarded - Number of events forwarded on the topic by IceStorm topic links.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Metrics.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef TopicMetrics < IceMX.Metrics

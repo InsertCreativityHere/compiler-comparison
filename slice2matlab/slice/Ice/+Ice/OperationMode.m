@@ -7,7 +7,7 @@
 %   Nonmutating - Operations that are nonmutating must not modify object state.
 %   Idempotent - Operations that use the Slice idempotent keyword can modify object state, but invoking an operation twice in a row must result in the same object state as invoking it once.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from OperationMode.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef OperationMode < uint8

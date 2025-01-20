@@ -2,7 +2,7 @@
 %
 % This exception is raised if the replica group provided by the server is invalid.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Locator.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef InvalidReplicaGroupIdException < Ice.UserException

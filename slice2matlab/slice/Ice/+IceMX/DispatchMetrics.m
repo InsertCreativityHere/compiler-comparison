@@ -7,7 +7,7 @@
 %   size - The size of the dispatch.
 %   replySize - The size of the dispatch reply.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Metrics.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef DispatchMetrics < IceMX.Metrics

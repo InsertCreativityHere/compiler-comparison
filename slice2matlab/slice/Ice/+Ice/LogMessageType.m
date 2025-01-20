@@ -8,7 +8,7 @@
 %   WarningMessage - The RemoteLogger received a warning message.
 %   ErrorMessage - The RemoteLogger received an error message.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from RemoteLogger.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef LogMessageType < uint8

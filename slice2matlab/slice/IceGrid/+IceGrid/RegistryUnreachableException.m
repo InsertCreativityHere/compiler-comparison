@@ -6,7 +6,7 @@
 %   name - The name of the registry that is not reachable.
 %   reason - The reason why the registry couldn't be reached.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Exception.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef RegistryUnreachableException < Ice.UserException

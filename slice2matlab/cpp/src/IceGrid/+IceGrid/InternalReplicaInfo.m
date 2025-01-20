@@ -6,7 +6,7 @@
 %   name - The name of the registry.
 %   hostname - The network name of the host running this registry (as defined in uname()).
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Internal.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef InternalReplicaInfo < Ice.Value

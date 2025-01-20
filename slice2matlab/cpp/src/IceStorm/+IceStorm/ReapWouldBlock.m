@@ -2,7 +2,7 @@
 %
 % Thrown if the reap call would block.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from IceStormInternal.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ReapWouldBlock < Ice.UserException

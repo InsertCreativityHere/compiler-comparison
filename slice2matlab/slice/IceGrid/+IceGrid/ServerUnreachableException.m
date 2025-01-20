@@ -6,7 +6,7 @@
 %   name - The id of the server that is not reachable.
 %   reason - The reason why the server couldn't be reached.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Exception.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ServerUnreachableException < Ice.UserException

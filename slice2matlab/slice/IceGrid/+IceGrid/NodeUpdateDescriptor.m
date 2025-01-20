@@ -14,7 +14,7 @@
 %   removeServers - The ids of the servers to remove.
 %   loadFactor - The updated load factor of the node (or null if the load factor was not updated).
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Descriptor.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef NodeUpdateDescriptor

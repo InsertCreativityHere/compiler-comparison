@@ -6,7 +6,7 @@
 %   name - The unique name of the filter, used for identification.
 %   criteria - The encoded criteria for instantiating the filter.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef FilterInfo

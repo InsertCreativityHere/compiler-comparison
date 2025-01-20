@@ -5,7 +5,7 @@
 % BoxedString Properties:
 %   value - The value of the boxed string.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Descriptor.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef BoxedString < Ice.Value

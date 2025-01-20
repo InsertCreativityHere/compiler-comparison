@@ -16,7 +16,7 @@
 %
 % See also Service
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from ServiceManager.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ServiceManagerPrx < Ice.ObjectPrx

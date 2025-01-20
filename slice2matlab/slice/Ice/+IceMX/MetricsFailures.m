@@ -6,7 +6,7 @@
 %   id - The identifier of the metrics object associated to the failures.
 %   failures - The failures observed for this metrics.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Metrics.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef MetricsFailures

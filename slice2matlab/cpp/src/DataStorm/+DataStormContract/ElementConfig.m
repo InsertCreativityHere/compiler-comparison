@@ -11,7 +11,7 @@
 %   sampleLifetime - An optional lifetime, specified in milliseconds, representing the maximum time samples are kept in the writer or reader sample queue.
 %   clearHistory - An optional clear history policy that determines when the reader or writer sample history is cleared.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Contract.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef ElementConfig < Ice.Value

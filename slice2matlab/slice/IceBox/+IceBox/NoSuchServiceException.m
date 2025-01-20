@@ -2,7 +2,7 @@
 %
 % This exception is thrown if a service name does not refer to an existing service.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from ServiceManager.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef NoSuchServiceException < Ice.UserException

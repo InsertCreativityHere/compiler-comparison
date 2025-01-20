@@ -3,7 +3,7 @@
 % Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
 % within InvocationMetrics.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from Metrics.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef RemoteMetrics < IceMX.ChildInvocationMetrics

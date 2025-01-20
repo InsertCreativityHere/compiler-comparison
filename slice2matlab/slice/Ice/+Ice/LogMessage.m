@@ -8,7 +8,7 @@
 %   traceCategory - For a message of type trace, the trace category of this log message; otherwise, the empty string.
 %   message - The log message itself.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from RemoteLogger.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef LogMessage

@@ -8,7 +8,7 @@
 %   data - The encoded data for the operation's input parameters.
 %   context - The Ice::Current::Context data from the originating request.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from IceStormInternal.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef EventData

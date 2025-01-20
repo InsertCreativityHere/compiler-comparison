@@ -6,7 +6,7 @@
 %   generation - The generation.
 %   iteration - The iteration within this generation.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from LLURecord.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef LogUpdate

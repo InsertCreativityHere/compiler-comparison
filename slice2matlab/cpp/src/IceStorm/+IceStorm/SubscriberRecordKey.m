@@ -8,7 +8,7 @@
 %   topic - The topic identity.
 %   id - The identity of the subscriber.
 
-% Copyright (c) ZeroC, Inc. All rights reserved.
+% Copyright (c) ZeroC, Inc.
 % Generated from SubscriberRecord.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef SubscriberRecordKey
