@@ -168,6 +168,12 @@ Test::ConcreteClass::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::ConcreteClass::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "i = ", this->i);
+}
+
 ::Ice::ValuePtr
 Test::ConcreteClass::_iceCloneImpl() const
 {

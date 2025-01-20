@@ -1367,6 +1367,21 @@ Inner::Test::Inner2::IPrx::ice_staticId() noexcept
     return "::Inner::Test::Inner2::I";
 }
 
+void
+Test::S::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "v = ", this->v);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::S& value)
+{
+    os << "Test::S{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::C::ice_staticId() noexcept
 {
@@ -1377,6 +1392,12 @@ const char*
 Test::C::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::C::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "s = ", this->s);
 }
 
 ::Ice::ValuePtr
@@ -1401,6 +1422,21 @@ Test::C::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::S1::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "s = ", this->s);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::S1& value)
+{
+    os << "Test::S1{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::C1::ice_staticId() noexcept
 {
@@ -1411,6 +1447,12 @@ const char*
 Test::C1::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::C1::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "s = ", this->s);
 }
 
 ::Ice::ValuePtr
@@ -1435,6 +1477,23 @@ Test::C1::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::S2::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "E1 = ", this->E1);
+    Ice::print(os << ", S1 = ", this->S1);
+    Ice::print(os << ", C1 = ", this->C1);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::S2& value)
+{
+    os << "Test::S2{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::C2::ice_staticId() noexcept
 {
@@ -1445,6 +1504,14 @@ const char*
 Test::C2::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::C2::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "E1 = ", this->E1);
+    Ice::print(os << ", S1 = ", this->S1);
+    Ice::print(os << ", C1 = ", this->C1);
 }
 
 ::Ice::ValuePtr
@@ -1469,6 +1536,36 @@ Test::C2::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::Inner::S::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "v = ", this->v);
+}
+
+::std::ostream&
+Test::Inner::operator<<(::std::ostream& os, const ::Test::Inner::S& value)
+{
+    os << "Test::Inner::S{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::Inner::Inner2::S::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "v = ", this->v);
+}
+
+::std::ostream&
+Test::Inner::Inner2::operator<<(::std::ostream& os, const ::Test::Inner::Inner2::S& value)
+{
+    os << "Test::Inner::Inner2::S{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::Inner::Inner2::C::ice_staticId() noexcept
 {
@@ -1479,6 +1576,12 @@ const char*
 Test::Inner::Inner2::C::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Inner::Inner2::C::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "s = ", this->s);
 }
 
 ::Ice::ValuePtr
@@ -1513,6 +1616,12 @@ const char*
 Test::Inner::C::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Inner::C::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "s = ", this->s);
 }
 
 ::Ice::ValuePtr

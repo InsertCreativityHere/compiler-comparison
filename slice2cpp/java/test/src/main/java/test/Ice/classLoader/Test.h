@@ -151,10 +151,13 @@ public:
 
     ::std::int32_t i;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     ConcreteClass(const ConcreteClass&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

@@ -663,6 +663,74 @@ DataStormContract::LookupPrx::ice_staticId() noexcept
     return "::DataStormContract::Lookup";
 }
 
+void
+DataStormContract::DataSample::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", keyId = ", this->keyId);
+    Ice::print(os << ", keyValue = ", this->keyValue);
+    Ice::print(os << ", timestamp = ", this->timestamp);
+    Ice::print(os << ", tag = ", this->tag);
+    Ice::print(os << ", event = ", this->event);
+    Ice::print(os << ", value = ", this->value);
+}
+
+::std::ostream&
+DataStormContract::operator<<(::std::ostream& os, const ::DataStormContract::DataSample& value)
+{
+    os << "DataStormContract::DataSample{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+DataStormContract::DataSamples::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", samples = ", this->samples);
+}
+
+void
+DataStormContract::ElementInfo::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", name = ", this->name);
+    Ice::print(os << ", value = ", this->value);
+}
+
+void
+DataStormContract::TopicInfo::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+    Ice::print(os << ", ids = ", this->ids);
+}
+
+void
+DataStormContract::TopicSpec::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", name = ", this->name);
+    Ice::print(os << ", elements = ", this->elements);
+    Ice::print(os << ", tags = ", this->tags);
+}
+
+void
+DataStormContract::FilterInfo::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+    Ice::print(os << ", criteria = ", this->criteria);
+}
+
+::std::ostream&
+DataStormContract::operator<<(::std::ostream& os, const ::DataStormContract::FilterInfo& value)
+{
+    os << "DataStormContract::FilterInfo{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 DataStormContract::ElementConfig::ice_staticId() noexcept
 {
@@ -673,6 +741,18 @@ const char*
 DataStormContract::ElementConfig::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+DataStormContract::ElementConfig::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "facet = ", this->facet);
+    Ice::print(os << ", sampleFilter = ", this->sampleFilter);
+    Ice::print(os << ", name = ", this->name);
+    Ice::print(os << ", priority = ", this->priority);
+    Ice::print(os << ", sampleCount = ", this->sampleCount);
+    Ice::print(os << ", sampleLifetime = ", this->sampleLifetime);
+    Ice::print(os << ", clearHistory = ", this->clearHistory);
 }
 
 ::Ice::ValuePtr
@@ -695,6 +775,46 @@ DataStormContract::ElementConfig::_iceReadImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll({1, 2, 3, 4, 10, 11, 12}, this->facet, this->sampleFilter, this->name, this->priority, this->sampleCount, this->sampleLifetime, this->clearHistory);
     istr->endSlice();
+}
+
+void
+DataStormContract::ElementData::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", config = ", this->config);
+    Ice::print(os << ", lastIds = ", this->lastIds);
+}
+
+void
+DataStormContract::ElementSpec::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "elements = ", this->elements);
+    Ice::print(os << ", id = ", this->id);
+    Ice::print(os << ", name = ", this->name);
+    Ice::print(os << ", value = ", this->value);
+    Ice::print(os << ", peerId = ", this->peerId);
+    Ice::print(os << ", peerName = ", this->peerName);
+}
+
+void
+DataStormContract::ElementDataAck::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", config = ", this->config);
+    Ice::print(os << ", lastIds = ", this->lastIds);
+    Ice::print(os << ", samples = ", this->samples);
+    Ice::print(os << ", peerId = ", this->peerId);
+}
+
+void
+DataStormContract::ElementSpecAck::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "elements = ", this->elements);
+    Ice::print(os << ", id = ", this->id);
+    Ice::print(os << ", name = ", this->name);
+    Ice::print(os << ", value = ", this->value);
+    Ice::print(os << ", peerId = ", this->peerId);
+    Ice::print(os << ", peerName = ", this->peerName);
 }
 
 ::std::vector<::std::string>

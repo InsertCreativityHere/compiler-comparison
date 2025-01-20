@@ -805,10 +805,13 @@ public:
 
     ::std::optional<::std::int32_t> a;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     OneOptional(const OneOptional&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -824,7 +827,13 @@ struct SmallStruct
     {
         return std::tie(m);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const SmallStruct&);
 
 struct FixedStruct
 {
@@ -836,7 +845,13 @@ struct FixedStruct
     {
         return std::tie(m);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const FixedStruct&);
 
 struct VarStruct
 {
@@ -848,7 +863,13 @@ struct VarStruct
     {
         return std::tie(m);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const VarStruct&);
 
 class MultiOptional : public ::Ice::Value
 {
@@ -933,10 +954,13 @@ public:
     ::std::optional<::Test::BoolSeq> bos;
     ::std::optional<::Test::Serializable> ser;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     MultiOptional(const MultiOptional&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -979,10 +1003,13 @@ public:
     ::std::optional<::std::int32_t> mb;
     ::std::optional<::std::int32_t> mc;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     A(const A&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1022,10 +1049,13 @@ public:
     ::std::int32_t requiredB = 0;
     ::std::optional<::std::int32_t> md;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     B(const B&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1065,10 +1095,13 @@ public:
     ::std::string ss;
     ::std::optional<::std::string> ms;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1107,10 +1140,13 @@ public:
     ::std::optional<::std::int32_t> a = 5;
     ::std::optional<::std::string> s{"test"};
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     WD(const WD&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1276,9 +1312,12 @@ protected:
 
     ::std::optional<::Test::SmallStructList> lp;
 
+    void ice_printFields(std::ostream& os) const override;
+
     OptionalWithCustom(const OptionalWithCustom&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1315,10 +1354,13 @@ public:
 
     ::Test::FixedStruct fse;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     E(const E&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1356,10 +1398,13 @@ public:
 
     ::std::optional<::Test::FixedStruct> fsf;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     F(const F&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1375,7 +1420,13 @@ struct G1
     {
         return std::tie(a);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const G1&);
 
 struct G2
 {
@@ -1387,7 +1438,13 @@ struct G2
     {
         return std::tie(a);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const G2&);
 
 class G : public ::Ice::Value
 {
@@ -1426,10 +1483,13 @@ public:
     ::std::optional<::Test::G2> gg2Opt;
     ::Test::G1 gg1;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     G(const G&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

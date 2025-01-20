@@ -426,6 +426,28 @@ Clash::Cls::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Clash::Cls::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "s = ", this->s);
+    Ice::print(os << ", context = ", this->context);
+    Ice::print(os << ", current = ", this->current);
+    Ice::print(os << ", response = ", this->response);
+    Ice::print(os << ", typeId = ", this->typeId);
+    Ice::print(os << ", del = ", this->del);
+    Ice::print(os << ", cookie = ", this->cookie);
+    Ice::print(os << ", ex = ", this->ex);
+    Ice::print(os << ", result = ", this->result);
+    Ice::print(os << ", istr = ", this->istr);
+    Ice::print(os << ", ostr = ", this->ostr);
+    Ice::print(os << ", inS = ", this->inS);
+    Ice::print(os << ", in = ", this->in);
+    Ice::print(os << ", proxy = ", this->proxy);
+    Ice::print(os << ", obj = ", this->obj);
+    Ice::print(os << ", getCookie = ", this->getCookie);
+    Ice::print(os << ", clone = ", this->clone);
+}
+
 ::Ice::ValuePtr
 Clash::Cls::_iceCloneImpl() const
 {
@@ -448,6 +470,26 @@ Clash::Cls::_iceReadImpl(::Ice::InputStream* istr)
     istr->readAll(this->s, this->context, this->current, this->response, this->typeId, this->del, this->ex, this->result, this->istr, this->ostr, this->inS, this->in, this->proxy, this->obj, this->getCookie, this->clone);
     istr->readAll({1}, this->cookie);
     istr->endSlice();
+}
+
+void
+Clash::St::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "v = ", this->v);
+    Ice::print(os << ", istr = ", this->istr);
+    Ice::print(os << ", ostr = ", this->ostr);
+    Ice::print(os << ", rhs = ", this->rhs);
+    Ice::print(os << ", hashCode = ", this->hashCode);
+    Ice::print(os << ", clone = ", this->clone);
+}
+
+::std::ostream&
+Clash::operator<<(::std::ostream& os, const ::Clash::St& value)
+{
+    os << "Clash::St{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
 }
 
 const char*

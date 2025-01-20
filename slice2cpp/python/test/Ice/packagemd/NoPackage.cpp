@@ -59,6 +59,12 @@ Test1::C1::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test1::C1::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "i = ", this->i);
+}
+
 ::Ice::ValuePtr
 Test1::C1::_iceCloneImpl() const
 {
@@ -91,6 +97,13 @@ const char*
 Test1::C2::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test1::C2::ice_printFields(std::ostream& os) const
+{
+    C1::ice_printFields(os);
+    Ice::print(os << ", l = ", this->l);
 }
 
 ::Ice::ValuePtr

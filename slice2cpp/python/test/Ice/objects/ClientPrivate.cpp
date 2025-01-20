@@ -166,6 +166,12 @@ Test::COneMember::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::COneMember::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "e = ", this->e);
+}
+
 ::Ice::ValuePtr
 Test::COneMember::_iceCloneImpl() const
 {
@@ -198,6 +204,13 @@ const char*
 Test::CTwoMembers::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::CTwoMembers::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "e1 = ", this->e1);
+    Ice::print(os << ", e2 = ", this->e2);
 }
 
 ::Ice::ValuePtr
@@ -304,6 +317,37 @@ Test::ETwoMembers::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->e1, this->e2);
     istr->endSlice();
+}
+
+void
+Test::SOneMember::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "e = ", this->e);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::SOneMember& value)
+{
+    os << "Test::SOneMember{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::STwoMembers::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "e1 = ", this->e1);
+    Ice::print(os << ", e2 = ", this->e2);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::STwoMembers& value)
+{
+    os << "Test::STwoMembers{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
 }
 
 ::std::vector<::std::string>

@@ -555,10 +555,13 @@ public:
 
     ::std::int32_t aA;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     A(const A&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -596,10 +599,13 @@ public:
 
     ::std::int32_t bB;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     B(const B&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -637,10 +643,13 @@ public:
 
     ::std::int32_t cC;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -678,10 +687,13 @@ public:
 
     ::std::int32_t dD;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     D(const D&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -723,10 +735,13 @@ public:
 
     ::std::int32_t aA;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     A(const A&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -764,10 +779,13 @@ public:
 
     ::std::int32_t bB;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     B(const B&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -805,10 +823,13 @@ public:
 
     ::std::int32_t cC;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -846,10 +867,13 @@ public:
 
     ::std::int32_t dD;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     D(const D&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -891,10 +915,13 @@ public:
 
     ::std::int32_t aA;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     A(const A&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -932,10 +959,13 @@ public:
 
     ::std::int32_t bB;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     B(const B&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -973,10 +1003,13 @@ public:
 
     ::std::int32_t cC;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1014,10 +1047,13 @@ public:
 
     ::std::int32_t dD;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     D(const D&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1059,10 +1095,13 @@ public:
 
     ::std::int32_t aA;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     A(const A&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1100,10 +1139,13 @@ public:
 
     ::std::int32_t bB;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     B(const B&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1141,10 +1183,13 @@ public:
 
     ::std::int32_t cC;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1182,10 +1227,13 @@ public:
 
     ::std::int32_t dD;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     D(const D&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1227,10 +1275,13 @@ public:
 
     ::std::int32_t aA;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     A(const A&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1268,10 +1319,13 @@ public:
 
     ::std::int32_t bB;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     B(const B&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1309,10 +1363,13 @@ public:
 
     ::std::int32_t cC;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1350,10 +1407,13 @@ public:
 
     ::std::int32_t dD;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     D(const D&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1395,10 +1455,13 @@ public:
 
     ::std::int32_t aA;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     A(const A&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1436,10 +1499,13 @@ public:
 
     ::std::int32_t bB;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     B(const B&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1477,10 +1543,13 @@ public:
 
     ::std::int32_t cC;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1518,10 +1587,13 @@ public:
 
     ::std::int32_t dD;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     D(const D&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

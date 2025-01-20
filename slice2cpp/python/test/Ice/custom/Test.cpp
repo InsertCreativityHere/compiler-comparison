@@ -1015,6 +1015,28 @@ Test::CustomPrx::ice_staticId() noexcept
     return "::Test::Custom";
 }
 
+void
+Test::S::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "b1 = ", this->b1);
+    Ice::print(os << ", b2 = ", this->b2);
+    Ice::print(os << ", b3 = ", this->b3);
+    Ice::print(os << ", b4 = ", this->b4);
+    Ice::print(os << ", s1 = ", this->s1);
+    Ice::print(os << ", s2 = ", this->s2);
+    Ice::print(os << ", s3 = ", this->s3);
+    Ice::print(os << ", s4 = ", this->s4);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::S& value)
+{
+    os << "Test::S{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::C::ice_staticId() noexcept
 {
@@ -1025,6 +1047,19 @@ const char*
 Test::C::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::C::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "b1 = ", this->b1);
+    Ice::print(os << ", b2 = ", this->b2);
+    Ice::print(os << ", b3 = ", this->b3);
+    Ice::print(os << ", b4 = ", this->b4);
+    Ice::print(os << ", s1 = ", this->s1);
+    Ice::print(os << ", s2 = ", this->s2);
+    Ice::print(os << ", s3 = ", this->s3);
+    Ice::print(os << ", s4 = ", this->s4);
 }
 
 ::Ice::ValuePtr
@@ -1059,6 +1094,18 @@ const char*
 Test::D::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::D::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "boolSeq = ", this->boolSeq);
+    Ice::print(os << ", byteSeq = ", this->byteSeq);
+    Ice::print(os << ", shortSeq = ", this->shortSeq);
+    Ice::print(os << ", intSeq = ", this->intSeq);
+    Ice::print(os << ", longSeq = ", this->longSeq);
+    Ice::print(os << ", floatSeq = ", this->floatSeq);
+    Ice::print(os << ", doubleSeq = ", this->doubleSeq);
 }
 
 ::Ice::ValuePtr

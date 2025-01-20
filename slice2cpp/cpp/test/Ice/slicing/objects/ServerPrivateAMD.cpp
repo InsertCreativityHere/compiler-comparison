@@ -62,6 +62,13 @@ Test::SBSUnknownDerived::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::SBSUnknownDerived::ice_printFields(std::ostream& os) const
+{
+    SBase::ice_printFields(os);
+    Ice::print(os << ", sbsud = ", this->sbsud);
+}
+
 ::Ice::ValuePtr
 Test::SBSUnknownDerived::_iceCloneImpl() const
 {
@@ -98,6 +105,13 @@ Test::SUnknown::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::SUnknown::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "su = ", this->su);
+    Ice::print(os << ", cycle = ", this->cycle);
+}
+
 ::Ice::ValuePtr
 Test::SUnknown::_iceCloneImpl() const
 {
@@ -130,6 +144,14 @@ const char*
 Test::D2::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::D2::ice_printFields(std::ostream& os) const
+{
+    B::ice_printFields(os);
+    Ice::print(os << ", sd2 = ", this->sd2);
+    Ice::print(os << ", pd2 = ", this->pd2);
 }
 
 ::Ice::ValuePtr
@@ -166,6 +188,14 @@ const char*
 Test::D4::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::D4::ice_printFields(std::ostream& os) const
+{
+    B::ice_printFields(os);
+    Ice::print(os << ", p1 = ", this->p1);
+    Ice::print(os << ", p2 = ", this->p2);
 }
 
 ::Ice::ValuePtr
@@ -240,6 +270,12 @@ Test::MyClass::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::MyClass::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "i = ", this->i);
+}
+
 ::Ice::ValuePtr
 Test::MyClass::_iceCloneImpl() const
 {
@@ -272,6 +308,15 @@ const char*
 Test::PSUnknown::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::PSUnknown::ice_printFields(std::ostream& os) const
+{
+    Preserved::ice_printFields(os);
+    Ice::print(os << ", psu = ", this->psu);
+    Ice::print(os << ", graph = ", this->graph);
+    Ice::print(os << ", cl = ", this->cl);
 }
 
 ::Ice::ValuePtr
@@ -308,6 +353,13 @@ const char*
 Test::PSUnknown2::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::PSUnknown2::ice_printFields(std::ostream& os) const
+{
+    Preserved::ice_printFields(os);
+    Ice::print(os << ", pb = ", this->pb);
 }
 
 ::Ice::ValuePtr

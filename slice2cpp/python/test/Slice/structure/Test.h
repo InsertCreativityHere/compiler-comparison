@@ -55,7 +55,13 @@ struct S1
     {
         return std::tie(name);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const S1&);
 
 struct S2
 {
@@ -74,7 +80,13 @@ struct S2
     {
         return std::tie(bo, by, sh, i, l, str, seq, s);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const S2&);
 
 class C : public ::Ice::Value
 {
@@ -107,10 +119,13 @@ public:
 
     ::std::string name;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -128,7 +143,13 @@ struct S3
     {
         return std::tie(obj, sd, prx);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const S3&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

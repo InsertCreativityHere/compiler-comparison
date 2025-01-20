@@ -166,6 +166,24 @@ classdef::break::elseifPrx::ice_staticId() noexcept
     return "::classdef::break::elseif";
 }
 
+void
+classdef::break::bitor::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "case = ", this->case);
+    Ice::print(os << ", continue = ", this->continue);
+    Ice::print(os << ", eq = ", this->eq);
+    Ice::print(os << ", ne = ", this->ne);
+}
+
+::std::ostream&
+classdef::break::operator<<(::std::ostream& os, const ::classdef::break::bitor& value)
+{
+    os << "classdef::break::bitor{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 classdef::break::logical::ice_staticId() noexcept
 {
@@ -176,6 +194,14 @@ const char*
 classdef::break::logical::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+classdef::break::logical::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "else = ", this->else);
+    Ice::print(os << ", for = ", this->for);
+    Ice::print(os << ", int64 = ", this->int64);
 }
 
 ::Ice::ValuePtr
@@ -210,6 +236,13 @@ const char*
 classdef::break::xor::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+classdef::break::xor::ice_printFields(std::ostream& os) const
+{
+    logical::ice_printFields(os);
+    Ice::print(os << ", return = ", this->return);
 }
 
 ::Ice::ValuePtr
@@ -248,6 +281,13 @@ classdef::break::try::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+classdef::break::try::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "while = ", this->while);
+    Ice::print(os << ", delete = ", this->delete);
+}
+
 ::Ice::ValuePtr
 classdef::break::try::_iceCloneImpl() const
 {
@@ -280,6 +320,16 @@ const char*
 classdef::break::properties::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+classdef::break::properties::ice_printFields(std::ostream& os) const
+{
+    try::ice_printFields(os);
+    Ice::print(os << ", if = ", this->if);
+    Ice::print(os << ", catch = ", this->catch);
+    Ice::print(os << ", spmd = ", this->spmd);
+    Ice::print(os << ", otherwise = ", this->otherwise);
 }
 
 ::Ice::ValuePtr

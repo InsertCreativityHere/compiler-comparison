@@ -352,7 +352,13 @@ struct LogMessage
     {
         return std::tie(type, timestamp, traceCategory, message);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICE_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICE_API ::std::ostream& operator<<(::std::ostream&, const LogMessage&);
 
 /// Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
 class ICE_CLASS(ICE_API) RemoteLoggerAlreadyAttachedException : public UserException

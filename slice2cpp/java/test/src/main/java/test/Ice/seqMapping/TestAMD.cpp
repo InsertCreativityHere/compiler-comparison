@@ -210,6 +210,22 @@ Test::MyClassPrx::ice_staticId() noexcept
     return "::Test::MyClass";
 }
 
+void
+Test::Foo::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "SLmem = ", this->SLmem);
+    Ice::print(os << ", SLSmem = ", this->SLSmem);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Foo& value)
+{
+    os << "Test::Foo{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::Bar::ice_staticId() noexcept
 {
@@ -254,6 +270,13 @@ const char*
 Test::Baz::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Baz::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "SLmem = ", this->SLmem);
+    Ice::print(os << ", SLSmem = ", this->SLSmem);
 }
 
 ::Ice::ValuePtr

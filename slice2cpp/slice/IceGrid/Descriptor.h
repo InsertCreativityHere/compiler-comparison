@@ -158,7 +158,13 @@ struct PropertyDescriptor
     {
         return std::tie(name, value);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const PropertyDescriptor&);
 
 /// A property set descriptor.
 struct PropertySetDescriptor
@@ -174,7 +180,13 @@ struct PropertySetDescriptor
     {
         return std::tie(references, properties);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const PropertySetDescriptor&);
 
 /// An Ice object descriptor.
 struct ObjectDescriptor
@@ -193,7 +205,13 @@ struct ObjectDescriptor
     {
         return std::tie(id, type, proxyOptions);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const ObjectDescriptor&);
 
 /// An Ice object adapter descriptor.
 struct AdapterDescriptor
@@ -226,7 +244,13 @@ struct AdapterDescriptor
     {
         return std::tie(name, description, id, replicaGroupId, priority, registerProcess, serverLifetime, objects, allocatables);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const AdapterDescriptor&);
 
 /// A communicator descriptor.
 class ICE_CLASS(ICEGRID_API) CommunicatorDescriptor : public ::Ice::Value
@@ -274,10 +298,13 @@ public:
     /// A description of this descriptor.
     ::std::string description;
 
+    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     CommunicatorDescriptor(const CommunicatorDescriptor&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -299,7 +326,13 @@ struct DistributionDescriptor
     {
         return std::tie(icepatch, directories);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const DistributionDescriptor&);
 
 /// An Ice server descriptor.
 class ICE_CLASS(ICEGRID_API) ServerDescriptor : public CommunicatorDescriptor
@@ -390,10 +423,13 @@ public:
     /// The user account used to run the server.
     ::std::string user;
 
+    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     ServerDescriptor(const ServerDescriptor&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -442,10 +478,13 @@ public:
     /// The entry point of the IceBox service.
     ::std::string entry;
 
+    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     ServiceDescriptor(const ServiceDescriptor&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -470,7 +509,13 @@ struct ServerInstanceDescriptor
     {
         return std::tie(templateName, parameterValues, propertySet, servicePropertySets);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const ServerInstanceDescriptor&);
 
 /// A template descriptor for server or service templates.
 struct TemplateDescriptor
@@ -488,7 +533,13 @@ struct TemplateDescriptor
     {
         return std::tie(descriptor, parameters, parameterDefaults);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const TemplateDescriptor&);
 
 /// A service template instance descriptor.
 struct ServiceInstanceDescriptor
@@ -508,7 +559,13 @@ struct ServiceInstanceDescriptor
     {
         return std::tie(templateName, parameterValues, descriptor, propertySet);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const ServiceInstanceDescriptor&);
 
 /// An IceBox server descriptor.
 class ICE_CLASS(ICEGRID_API) IceBoxDescriptor : public ServerDescriptor
@@ -562,10 +619,13 @@ public:
     /// The service instances.
     ::IceGrid::ServiceInstanceDescriptorSeq services;
 
+    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     IceBoxDescriptor(const IceBoxDescriptor&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -593,7 +653,13 @@ struct NodeDescriptor
     {
         return std::tie(variables, serverInstances, servers, loadFactor, description, propertySets);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const NodeDescriptor&);
 
 /// A base class for load balancing policies.
 class ICE_CLASS(ICEGRID_API) LoadBalancingPolicy : public ::Ice::Value
@@ -629,10 +695,13 @@ public:
     /// The number of replicas that will be used to gather the endpoints of a replica group.
     ::std::string nReplicas;
 
+    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     LoadBalancingPolicy(const LoadBalancingPolicy&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -657,6 +726,7 @@ protected:
     RandomLoadBalancingPolicy(const RandomLoadBalancingPolicy&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -681,6 +751,7 @@ protected:
     OrderedLoadBalancingPolicy(const OrderedLoadBalancingPolicy&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -705,6 +776,7 @@ protected:
     RoundRobinLoadBalancingPolicy(const RoundRobinLoadBalancingPolicy&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -747,10 +819,13 @@ public:
     /// representing respectively the load average over the past minute, the past 5 minutes and the past 15 minutes.
     ::std::string loadSample;
 
+    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     AdaptiveLoadBalancingPolicy(const AdaptiveLoadBalancingPolicy&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -778,7 +853,13 @@ struct ReplicaGroupDescriptor
     {
         return std::tie(id, loadBalancing, proxyOptions, objects, description, filter);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const ReplicaGroupDescriptor&);
 
 /// An application descriptor.
 struct ApplicationDescriptor
@@ -808,7 +889,13 @@ struct ApplicationDescriptor
     {
         return std::tie(name, variables, replicaGroups, serverTemplates, serviceTemplates, nodes, distrib, description, propertySets);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const ApplicationDescriptor&);
 
 /// A "boxed" string.
 class ICE_CLASS(ICEGRID_API) BoxedString : public ::Ice::Value
@@ -844,10 +931,13 @@ public:
     /// The value of the boxed string.
     ::std::string value;
 
+    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     BoxedString(const BoxedString&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -883,7 +973,13 @@ struct NodeUpdateDescriptor
     {
         return std::tie(name, description, variables, removeVariables, propertySets, removePropertySets, serverInstances, servers, removeServers, loadFactor);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const NodeUpdateDescriptor&);
 
 /// A "boxed" distribution descriptor.
 class ICE_CLASS(ICEGRID_API) BoxedDistributionDescriptor : public ::Ice::Value
@@ -919,10 +1015,13 @@ public:
     /// The value of the boxed distribution descriptor.
     ::IceGrid::DistributionDescriptor value;
 
+    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     BoxedDistributionDescriptor(const BoxedDistributionDescriptor&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -968,7 +1067,13 @@ struct ApplicationUpdateDescriptor
     {
         return std::tie(name, description, distrib, variables, removeVariables, propertySets, removePropertySets, replicaGroups, removeReplicaGroups, serverTemplates, removeServerTemplates, serviceTemplates, removeServiceTemplates, nodes, removeNodes);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const ApplicationUpdateDescriptor&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

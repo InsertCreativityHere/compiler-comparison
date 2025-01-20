@@ -55,6 +55,14 @@ Test::Stock::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::Stock::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "price = ", this->price);
+    Ice::print(os << ", lastBid = ", this->lastBid);
+    Ice::print(os << ", lastAsk = ", this->lastAsk);
+}
+
 ::Ice::ValuePtr
 Test::Stock::_iceCloneImpl() const
 {

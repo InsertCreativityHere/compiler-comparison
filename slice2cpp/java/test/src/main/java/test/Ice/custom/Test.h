@@ -623,7 +623,13 @@ struct A
     {
         return std::tie(i);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const A&);
 
 struct S
 {
@@ -635,7 +641,13 @@ struct S
     {
         return std::tie(en);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const S&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

@@ -43,6 +43,43 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
 }
 
+void
+Test::S1::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::S1& value)
+{
+    os << "Test::S1{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::S2::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "bo = ", this->bo);
+    Ice::print(os << ", by = ", this->by);
+    Ice::print(os << ", sh = ", this->sh);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", seq = ", this->seq);
+    Ice::print(os << ", s = ", this->s);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::S2& value)
+{
+    os << "Test::S2{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::C::ice_staticId() noexcept
 {
@@ -53,6 +90,12 @@ const char*
 Test::C::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::C::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
 }
 
 ::Ice::ValuePtr
@@ -75,4 +118,21 @@ Test::C::_iceReadImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->name);
     istr->endSlice();
+}
+
+void
+Test::S3::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "obj = ", this->obj);
+    Ice::print(os << ", sd = ", this->sd);
+    Ice::print(os << ", prx = ", this->prx);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::S3& value)
+{
+    os << "Test::S3{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
 }

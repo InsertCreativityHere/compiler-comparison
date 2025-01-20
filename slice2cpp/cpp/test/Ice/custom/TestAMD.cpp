@@ -1438,6 +1438,38 @@ Test::TestIntfPrx::ice_staticId() noexcept
     return "::Test::TestIntf";
 }
 
+void
+Test::Fixed::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "s = ", this->s);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Fixed& value)
+{
+    os << "Test::Fixed{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::Variable::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "s = ", this->s);
+    Ice::print(os << ", bl = ", this->bl);
+    Ice::print(os << ", ss = ", this->ss);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Variable& value)
+{
+    os << "Test::Variable{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::C::ice_staticId() noexcept
 {
@@ -1482,6 +1514,12 @@ Test::DictClass::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::DictClass::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "isdict = ", this->isdict);
+}
+
 ::Ice::ValuePtr
 Test::DictClass::_iceCloneImpl() const
 {
@@ -1502,6 +1540,27 @@ Test::DictClass::_iceReadImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->isdict);
     istr->endSlice();
+}
+
+void
+Test::BufferStruct::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "byteBuf = ", this->byteBuf);
+    Ice::print(os << ", boolBuf = ", this->boolBuf);
+    Ice::print(os << ", shortBuf = ", this->shortBuf);
+    Ice::print(os << ", intBuf = ", this->intBuf);
+    Ice::print(os << ", longBuf = ", this->longBuf);
+    Ice::print(os << ", floatBuf = ", this->floatBuf);
+    Ice::print(os << ", doubleBuf = ", this->doubleBuf);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::BufferStruct& value)
+{
+    os << "Test::BufferStruct{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
 }
 
 ::std::vector<::std::string>

@@ -18,6 +18,11 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include "Identity.h"
+#include <Ice/Ice.h>
+#include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
+#include <algorithm>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -35,3 +40,10 @@
 #       error Ice version mismatch: an exact match is required for beta generated code
 #   endif
 #endif
+
+void
+Ice::Identity::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+    Ice::print(os << ", category = ", this->category);
+}

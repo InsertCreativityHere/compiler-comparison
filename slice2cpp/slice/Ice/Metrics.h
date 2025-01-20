@@ -353,10 +353,13 @@ public:
     /// The number of failures observed.
     ::std::int32_t failures = 0;
 
+    ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     Metrics(const Metrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -376,7 +379,13 @@ struct MetricsFailures
     {
         return std::tie(id, failures);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICE_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICE_API ::std::ostream& operator<<(::std::ostream&, const MetricsFailures&);
 
 /// Raised if a metrics view cannot be found.
 class ICE_CLASS(ICE_API) UnknownMetricsView : public ::Ice::UserException
@@ -445,10 +454,13 @@ public:
     /// counted with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
     ::std::int32_t inUseForOther = 0;
 
+    ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     ThreadMetrics(const ThreadMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -502,10 +514,13 @@ public:
     /// The size of the dispatch reply. This corresponds to the size of the marshaled output and return parameters.
     ::std::int64_t replySize = INT64_C(0);
 
+    ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     DispatchMetrics(const DispatchMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -558,10 +573,13 @@ public:
     /// parameters.
     ::std::int64_t replySize = INT64_C(0);
 
+    ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     ChildInvocationMetrics(const ChildInvocationMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -587,6 +605,7 @@ protected:
     CollocatedMetrics(const CollocatedMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -612,6 +631,7 @@ protected:
     RemoteMetrics(const RemoteMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -671,10 +691,13 @@ public:
     /// @see CollocatedMetrics
     ::IceMX::MetricsMap collocated;
 
+    ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     InvocationMetrics(const InvocationMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -724,10 +747,13 @@ public:
     /// The number of bytes sent by the connection.
     ::std::int64_t sentBytes = INT64_C(0);
 
+    ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     ConnectionMetrics(const ConnectionMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;

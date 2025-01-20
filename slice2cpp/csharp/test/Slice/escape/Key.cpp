@@ -419,6 +419,21 @@ System::TestPrx::ice_staticId() noexcept
     return "::System::Test";
 }
 
+void
+abstract::break::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "readonly = ", this->readonly);
+}
+
+::std::ostream&
+abstract::operator<<(::std::ostream& os, const ::abstract::break& value)
+{
+    os << "abstract::break{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 abstract::delegate::ice_staticId() noexcept
 {
@@ -429,6 +444,14 @@ const char*
 abstract::delegate::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+abstract::delegate::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "if = ", this->if);
+    Ice::print(os << ", else = ", this->else);
+    Ice::print(os << ", event = ", this->event);
 }
 
 ::Ice::ValuePtr
@@ -463,6 +486,16 @@ const char*
 abstract::optionalMembers::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+abstract::optionalMembers::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "for = ", this->for);
+    Ice::print(os << ", goto = ", this->goto);
+    Ice::print(os << ", if = ", this->if);
+    Ice::print(os << ", internal = ", this->internal);
+    Ice::print(os << ", namespace = ", this->namespace);
 }
 
 ::Ice::ValuePtr

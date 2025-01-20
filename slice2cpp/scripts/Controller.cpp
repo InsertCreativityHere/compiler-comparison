@@ -663,6 +663,18 @@ Test::Common::Config::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::Common::Config::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "protocol = ", this->protocol);
+    Ice::print(os << ", mx = ", this->mx);
+    Ice::print(os << ", serialize = ", this->serialize);
+    Ice::print(os << ", compress = ", this->compress);
+    Ice::print(os << ", ipv6 = ", this->ipv6);
+    Ice::print(os << ", cprops = ", this->cprops);
+    Ice::print(os << ", sprops = ", this->sprops);
+}
+
 ::Ice::ValuePtr
 Test::Common::Config::_iceCloneImpl() const
 {
@@ -695,6 +707,16 @@ const char*
 Test::Common::OptionOverrides::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Common::OptionOverrides::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "protocol = ", this->protocol);
+    Ice::print(os << ", mx = ", this->mx);
+    Ice::print(os << ", serialize = ", this->serialize);
+    Ice::print(os << ", compress = ", this->compress);
+    Ice::print(os << ", ipv6 = ", this->ipv6);
 }
 
 ::Ice::ValuePtr

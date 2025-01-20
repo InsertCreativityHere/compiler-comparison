@@ -179,6 +179,36 @@ and::friendPrx::ice_staticId() noexcept
     return "::and::friend";
 }
 
+void
+and::guard::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "default = ", this->default);
+}
+
+::std::ostream&
+and::operator<<(::std::ostream& os, const ::and::guard& value)
+{
+    os << "and::guard{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+and::defer::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "else = ", this->else);
+}
+
+::std::ostream&
+and::operator<<(::std::ostream& os, const ::and::defer& value)
+{
+    os << "and::defer{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 and::switch::ice_staticId() noexcept
 {
@@ -189,6 +219,14 @@ const char*
 and::switch::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+and::switch::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "if = ", this->if);
+    Ice::print(os << ", export = ", this->export);
+    Ice::print(os << ", volatile = ", this->volatile);
 }
 
 ::Ice::ValuePtr

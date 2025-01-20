@@ -2024,6 +2024,13 @@ IceGrid::InternalDbEnvDescriptor::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+IceGrid::InternalDbEnvDescriptor::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+    Ice::print(os << ", properties = ", this->properties);
+}
+
 ::Ice::ValuePtr
 IceGrid::InternalDbEnvDescriptor::_iceCloneImpl() const
 {
@@ -2058,6 +2065,13 @@ IceGrid::InternalAdapterDescriptor::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+IceGrid::InternalAdapterDescriptor::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", serverLifetime = ", this->serverLifetime);
+}
+
 ::Ice::ValuePtr
 IceGrid::InternalAdapterDescriptor::_iceCloneImpl() const
 {
@@ -2090,6 +2104,30 @@ const char*
 IceGrid::InternalServerDescriptor::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+IceGrid::InternalServerDescriptor::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", application = ", this->application);
+    Ice::print(os << ", uuid = ", this->uuid);
+    Ice::print(os << ", revision = ", this->revision);
+    Ice::print(os << ", sessionId = ", this->sessionId);
+    Ice::print(os << ", exe = ", this->exe);
+    Ice::print(os << ", pwd = ", this->pwd);
+    Ice::print(os << ", user = ", this->user);
+    Ice::print(os << ", activation = ", this->activation);
+    Ice::print(os << ", activationTimeout = ", this->activationTimeout);
+    Ice::print(os << ", deactivationTimeout = ", this->deactivationTimeout);
+    Ice::print(os << ", processRegistered = ", this->processRegistered);
+    Ice::print(os << ", options = ", this->options);
+    Ice::print(os << ", envs = ", this->envs);
+    Ice::print(os << ", logs = ", this->logs);
+    Ice::print(os << ", adapters = ", this->adapters);
+    Ice::print(os << ", dbEnvs = ", this->dbEnvs);
+    Ice::print(os << ", properties = ", this->properties);
+    Ice::print(os << ", services = ", this->services);
 }
 
 ::Ice::ValuePtr
@@ -2292,6 +2330,20 @@ IceGrid::InternalNodeInfo::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+IceGrid::InternalNodeInfo::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+    Ice::print(os << ", os = ", this->os);
+    Ice::print(os << ", hostname = ", this->hostname);
+    Ice::print(os << ", release = ", this->release);
+    Ice::print(os << ", version = ", this->version);
+    Ice::print(os << ", machine = ", this->machine);
+    Ice::print(os << ", nProcessors = ", this->nProcessors);
+    Ice::print(os << ", dataDir = ", this->dataDir);
+    Ice::print(os << ", iceSoVersion = ", this->iceSoVersion);
+}
+
 ::Ice::ValuePtr
 IceGrid::InternalNodeInfo::_iceCloneImpl() const
 {
@@ -2326,6 +2378,13 @@ const char*
 IceGrid::InternalReplicaInfo::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+IceGrid::InternalReplicaInfo::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+    Ice::print(os << ", hostname = ", this->hostname);
 }
 
 ::Ice::ValuePtr

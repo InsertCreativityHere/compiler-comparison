@@ -674,7 +674,13 @@ struct Fixed
     {
         return std::tie(s);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Fixed&);
 
 struct Variable
 {
@@ -688,7 +694,13 @@ struct Variable
     {
         return std::tie(s, bl, ss);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Variable&);
 
 class C : public ::Ice::Value
 {
@@ -710,6 +722,7 @@ protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -746,10 +759,13 @@ public:
 
     ::Test::IntStringDict isdict;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     DictClass(const DictClass&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -771,7 +787,13 @@ struct BufferStruct
     {
         return std::tie(byteBuf, boolBuf, shortBuf, intBuf, longBuf, floatBuf, doubleBuf);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const BufferStruct&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

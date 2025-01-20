@@ -363,7 +363,13 @@ struct xor
     {
         return std::tie(abstract, clone, private, protected, public, this, throw, use, var);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const xor&);
 
 class echo : public ::Ice::Value
 {
@@ -402,10 +408,13 @@ public:
     ::std::optional<::and::diePrx> elseif;
     ::std::int32_t empty;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     echo(const echo&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

@@ -596,7 +596,13 @@ struct LinkInfo
     {
         return std::tie(theTopic, name, cost);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICESTORM_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICESTORM_API ::std::ostream& operator<<(::std::ostream&, const LinkInfo&);
 
 /// This exception indicates that an attempt was made to create a link that already exists.
 class ICE_CLASS(ICESTORM_API) LinkExists : public ::Ice::UserException

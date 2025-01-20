@@ -351,6 +351,16 @@ IceMX::Metrics::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+IceMX::Metrics::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", total = ", this->total);
+    Ice::print(os << ", current = ", this->current);
+    Ice::print(os << ", totalLifetime = ", this->totalLifetime);
+    Ice::print(os << ", failures = ", this->failures);
+}
+
 ::Ice::ValuePtr
 IceMX::Metrics::_iceCloneImpl() const
 {
@@ -371,6 +381,22 @@ IceMX::Metrics::_iceReadImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->id, this->total, this->current, this->totalLifetime, this->failures);
     istr->endSlice();
+}
+
+void
+IceMX::MetricsFailures::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", failures = ", this->failures);
+}
+
+::std::ostream&
+IceMX::operator<<(::std::ostream& os, const ::IceMX::MetricsFailures& value)
+{
+    os << "IceMX::MetricsFailures{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
 }
 
 const char*
@@ -417,6 +443,15 @@ IceMX::ThreadMetrics::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+IceMX::ThreadMetrics::ice_printFields(std::ostream& os) const
+{
+    Metrics::ice_printFields(os);
+    Ice::print(os << ", inUseForIO = ", this->inUseForIO);
+    Ice::print(os << ", inUseForUser = ", this->inUseForUser);
+    Ice::print(os << ", inUseForOther = ", this->inUseForOther);
+}
+
 ::Ice::ValuePtr
 IceMX::ThreadMetrics::_iceCloneImpl() const
 {
@@ -453,6 +488,15 @@ IceMX::DispatchMetrics::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+IceMX::DispatchMetrics::ice_printFields(std::ostream& os) const
+{
+    Metrics::ice_printFields(os);
+    Ice::print(os << ", userException = ", this->userException);
+    Ice::print(os << ", size = ", this->size);
+    Ice::print(os << ", replySize = ", this->replySize);
+}
+
 ::Ice::ValuePtr
 IceMX::DispatchMetrics::_iceCloneImpl() const
 {
@@ -487,6 +531,14 @@ const char*
 IceMX::ChildInvocationMetrics::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+IceMX::ChildInvocationMetrics::ice_printFields(std::ostream& os) const
+{
+    Metrics::ice_printFields(os);
+    Ice::print(os << ", size = ", this->size);
+    Ice::print(os << ", replySize = ", this->replySize);
 }
 
 ::Ice::ValuePtr
@@ -593,6 +645,16 @@ IceMX::InvocationMetrics::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+IceMX::InvocationMetrics::ice_printFields(std::ostream& os) const
+{
+    Metrics::ice_printFields(os);
+    Ice::print(os << ", retry = ", this->retry);
+    Ice::print(os << ", userException = ", this->userException);
+    Ice::print(os << ", remotes = ", this->remotes);
+    Ice::print(os << ", collocated = ", this->collocated);
+}
+
 ::Ice::ValuePtr
 IceMX::InvocationMetrics::_iceCloneImpl() const
 {
@@ -627,6 +689,14 @@ const char*
 IceMX::ConnectionMetrics::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+IceMX::ConnectionMetrics::ice_printFields(std::ostream& os) const
+{
+    Metrics::ice_printFields(os);
+    Ice::print(os << ", receivedBytes = ", this->receivedBytes);
+    Ice::print(os << ", sentBytes = ", this->sentBytes);
 }
 
 ::Ice::ValuePtr

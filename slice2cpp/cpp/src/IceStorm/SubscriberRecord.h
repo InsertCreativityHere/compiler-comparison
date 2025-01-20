@@ -56,7 +56,13 @@ struct SubscriberRecordKey
     {
         return std::tie(topic, id);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const SubscriberRecordKey&);
 
 /// Used to store persistent information for persistent subscribers.
 struct SubscriberRecord
@@ -82,7 +88,13 @@ struct SubscriberRecord
     {
         return std::tie(topicName, id, link, obj, theQoS, cost, theTopic);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const SubscriberRecord&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

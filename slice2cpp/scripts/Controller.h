@@ -558,10 +558,13 @@ public:
     ::std::optional<::Test::Common::StringSeq> cprops;
     ::std::optional<::Test::Common::StringSeq> sprops;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     Config(const Config&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -606,10 +609,13 @@ public:
     ::std::optional<::Test::Common::BoolSeq> compress;
     ::std::optional<::Test::Common::BoolSeq> ipv6;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     OptionOverrides(const OptionOverrides&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

@@ -195,6 +195,24 @@ IceStorm::TopicManagerInternalPrx::ice_staticId() noexcept
     return "::IceStorm::TopicManagerInternal";
 }
 
+void
+IceStorm::EventData::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "op = ", this->op);
+    Ice::print(os << ", mode = ", this->mode);
+    Ice::print(os << ", data = ", this->data);
+    Ice::print(os << ", context = ", this->context);
+}
+
+::std::ostream&
+IceStorm::operator<<(::std::ostream& os, const ::IceStorm::EventData& value)
+{
+    os << "IceStorm::EventData{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 IceStorm::ReapWouldBlock::ice_staticId() noexcept
 {

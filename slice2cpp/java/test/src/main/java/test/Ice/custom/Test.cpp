@@ -1919,6 +1919,36 @@ Test::TestIntfPrx::ice_staticId() noexcept
     return "::Test::TestIntf";
 }
 
+void
+Test::A::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "i = ", this->i);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::A& value)
+{
+    os << "Test::A{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::S::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "en = ", this->en);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::S& value)
+{
+    os << "Test::S{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {

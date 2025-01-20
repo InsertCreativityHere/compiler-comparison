@@ -568,6 +568,22 @@ IceStormElection::NodePrx::ice_staticId() noexcept
     return "::IceStormElection::Node";
 }
 
+void
+IceStormElection::TopicContent::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", records = ", this->records);
+}
+
+::std::ostream&
+IceStormElection::operator<<(::std::ostream& os, const ::IceStormElection::TopicContent& value)
+{
+    os << "IceStormElection::TopicContent{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 IceStormElection::ObserverInconsistencyException::ice_staticId() noexcept
 {
@@ -600,6 +616,59 @@ IceStormElection::ObserverInconsistencyException::_readImpl(::Ice::InputStream* 
     istr->startSlice();
     istr->readAll(this->reason);
     istr->endSlice();
+}
+
+void
+IceStormElection::NodeInfo::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", n = ", this->n);
+}
+
+::std::ostream&
+IceStormElection::operator<<(::std::ostream& os, const ::IceStormElection::NodeInfo& value)
+{
+    os << "IceStormElection::NodeInfo{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+IceStormElection::GroupInfo::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", llu = ", this->llu);
+}
+
+::std::ostream&
+IceStormElection::operator<<(::std::ostream& os, const ::IceStormElection::GroupInfo& value)
+{
+    os << "IceStormElection::GroupInfo{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+IceStormElection::QueryInfo::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", coord = ", this->coord);
+    Ice::print(os << ", group = ", this->group);
+    Ice::print(os << ", replica = ", this->replica);
+    Ice::print(os << ", state = ", this->state);
+    Ice::print(os << ", up = ", this->up);
+    Ice::print(os << ", max = ", this->max);
+}
+
+::std::ostream&
+IceStormElection::operator<<(::std::ostream& os, const ::IceStormElection::QueryInfo& value)
+{
+    os << "IceStormElection::QueryInfo{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
 }
 
 ::std::vector<::std::string>

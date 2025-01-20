@@ -61,6 +61,14 @@ Test::D3::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::D3::ice_printFields(std::ostream& os) const
+{
+    B::ice_printFields(os);
+    Ice::print(os << ", sd3 = ", this->sd3);
+    Ice::print(os << ", pd3 = ", this->pd3);
+}
+
 ::Ice::ValuePtr
 Test::D3::_iceCloneImpl() const
 {
@@ -95,6 +103,13 @@ const char*
 Test::PCUnknown::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::PCUnknown::ice_printFields(std::ostream& os) const
+{
+    PBase::ice_printFields(os);
+    Ice::print(os << ", pu = ", this->pu);
 }
 
 ::Ice::ValuePtr
@@ -133,6 +148,13 @@ Test::PCDerived::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::PCDerived::ice_printFields(std::ostream& os) const
+{
+    PDerived::ice_printFields(os);
+    Ice::print(os << ", pbs = ", this->pbs);
+}
+
 ::Ice::ValuePtr
 Test::PCDerived::_iceCloneImpl() const
 {
@@ -167,6 +189,13 @@ const char*
 Test::PCDerived2::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::PCDerived2::ice_printFields(std::ostream& os) const
+{
+    PCDerived::ice_printFields(os);
+    Ice::print(os << ", pcd2 = ", this->pcd2);
 }
 
 ::Ice::ValuePtr
@@ -205,6 +234,13 @@ Test::PCDerived3::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::PCDerived3::ice_printFields(std::ostream& os) const
+{
+    PCDerived2::ice_printFields(os);
+    Ice::print(os << ", pcd3 = ", this->pcd3);
+}
+
 ::Ice::ValuePtr
 Test::PCDerived3::_iceCloneImpl() const
 {
@@ -239,6 +275,13 @@ const char*
 Test::CompactPCDerived::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::CompactPCDerived::ice_printFields(std::ostream& os) const
+{
+    CompactPDerived::ice_printFields(os);
+    Ice::print(os << ", pbs = ", this->pbs);
 }
 
 ::Ice::ValuePtr

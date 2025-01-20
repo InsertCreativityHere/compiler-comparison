@@ -53,6 +53,30 @@ Test::MyInterfacePrx::ice_staticId() noexcept
     return "::Test::MyInterface";
 }
 
+void
+Test::LargeStruct::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "bo = ", this->bo);
+    Ice::print(os << ", by = ", this->by);
+    Ice::print(os << ", sh = ", this->sh);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", e = ", this->e);
+    Ice::print(os << ", p = ", this->p);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::LargeStruct& value)
+{
+    os << "Test::LargeStruct{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::OptionalClass::ice_staticId() noexcept
 {
@@ -63,6 +87,15 @@ const char*
 Test::OptionalClass::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::OptionalClass::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "bo = ", this->bo);
+    Ice::print(os << ", by = ", this->by);
+    Ice::print(os << ", sh = ", this->sh);
+    Ice::print(os << ", i = ", this->i);
 }
 
 ::Ice::ValuePtr
@@ -99,6 +132,25 @@ const char*
 Test::MyClass::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MyClass::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "c = ", this->c);
+    Ice::print(os << ", o = ", this->o);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", seq1 = ", this->seq1);
+    Ice::print(os << ", seq2 = ", this->seq2);
+    Ice::print(os << ", seq3 = ", this->seq3);
+    Ice::print(os << ", seq4 = ", this->seq4);
+    Ice::print(os << ", seq5 = ", this->seq5);
+    Ice::print(os << ", seq6 = ", this->seq6);
+    Ice::print(os << ", seq7 = ", this->seq7);
+    Ice::print(os << ", seq8 = ", this->seq8);
+    Ice::print(os << ", seq9 = ", this->seq9);
+    Ice::print(os << ", seq10 = ", this->seq10);
+    Ice::print(os << ", d = ", this->d);
 }
 
 ::Ice::ValuePtr
@@ -165,6 +217,29 @@ Test::MyException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::Sub::NestedStruct::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "bo = ", this->bo);
+    Ice::print(os << ", by = ", this->by);
+    Ice::print(os << ", sh = ", this->sh);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", e = ", this->e);
+}
+
+::std::ostream&
+Test::Sub::operator<<(::std::ostream& os, const ::Test::Sub::NestedStruct& value)
+{
+    os << "Test::Sub::NestedStruct{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::Sub::NestedException::ice_staticId() noexcept
 {
@@ -197,6 +272,29 @@ Test::Sub::NestedException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->str);
     istr->endSlice();
+}
+
+void
+Test2::Sub2::NestedStruct2::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "bo = ", this->bo);
+    Ice::print(os << ", by = ", this->by);
+    Ice::print(os << ", sh = ", this->sh);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", e = ", this->e);
+}
+
+::std::ostream&
+Test2::Sub2::operator<<(::std::ostream& os, const ::Test2::Sub2::NestedStruct2& value)
+{
+    os << "Test2::Sub2::NestedStruct2{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
 }
 
 const char*

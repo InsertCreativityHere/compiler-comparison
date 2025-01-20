@@ -1174,7 +1174,13 @@ struct S
     {
         return std::tie(i);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const S&);
 
 struct SD
 {
@@ -1186,7 +1192,13 @@ struct SD
     {
         return std::tie(i);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const SD&);
 
 class CV : public ::Ice::Value
 {
@@ -1219,10 +1231,13 @@ public:
 
     ::std::int32_t i;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     CV(const CV&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1259,10 +1274,13 @@ public:
 
     ::Test::CVPtr v;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     CR(const CR&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

@@ -92,10 +92,13 @@ public:
     /// Number of events forwarded on the topic by IceStorm topic links.
     ::std::int64_t forwarded = INT64_C(0);
 
+    ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     TopicMetrics(const TopicMetrics&) = default;
 
     ICE_MEMBER(ICESTORM_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICESTORM_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -149,10 +152,13 @@ public:
     /// Number of forwarded events.
     ::std::int64_t delivered = INT64_C(0);
 
+    ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     SubscriberMetrics(const SubscriberMetrics&) = default;
 
     ICE_MEMBER(ICESTORM_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICESTORM_API) void _iceReadImpl(::Ice::InputStream*) override;

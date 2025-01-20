@@ -209,7 +209,13 @@ struct bitor
     {
         return std::tie(case, continue, eq, ne);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const bitor&);
 
 class logical : public ::Ice::Value
 {
@@ -246,10 +252,13 @@ public:
     ::classdef::break::bitor for;
     bool int64 = true;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     logical(const logical&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -287,10 +296,13 @@ public:
 
     ::std::int32_t return = 1;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     xor(const xor&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -329,10 +341,13 @@ public:
     ::std::int32_t while = 1;
     ::std::int32_t delete = 2;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     try(const try&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -376,10 +391,13 @@ public:
     ::classdef::break::parfor spmd;
     ::classdef::break::switch otherwise;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     properties(const properties&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

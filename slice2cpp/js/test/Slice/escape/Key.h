@@ -525,7 +525,13 @@ struct break
     {
         return std::tie(while, clone, equals, hashCode, constructor);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const break&);
 
 class delete : public ::Ice::Value
 {
@@ -570,10 +576,13 @@ public:
     ::std::string hashCode;
     ::std::string constructor;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     delete(const delete&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -620,10 +629,13 @@ public:
     ::std::optional<::std::string> debugger;
     ::std::optional<::await::explicitPrx> null;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     package(const package&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

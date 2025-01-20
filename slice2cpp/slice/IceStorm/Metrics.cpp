@@ -59,6 +59,14 @@ IceMX::TopicMetrics::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+IceMX::TopicMetrics::ice_printFields(std::ostream& os) const
+{
+    Metrics::ice_printFields(os);
+    Ice::print(os << ", published = ", this->published);
+    Ice::print(os << ", forwarded = ", this->forwarded);
+}
+
 ::Ice::ValuePtr
 IceMX::TopicMetrics::_iceCloneImpl() const
 {
@@ -93,6 +101,15 @@ const char*
 IceMX::SubscriberMetrics::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+IceMX::SubscriberMetrics::ice_printFields(std::ostream& os) const
+{
+    Metrics::ice_printFields(os);
+    Ice::print(os << ", queued = ", this->queued);
+    Ice::print(os << ", outstanding = ", this->outstanding);
+    Ice::print(os << ", delivered = ", this->delivered);
 }
 
 ::Ice::ValuePtr

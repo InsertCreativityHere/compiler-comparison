@@ -67,7 +67,13 @@ struct SSLInfo
     {
         return std::tie(remoteHost, remotePort, localHost, localPort, cipher, certs);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    GLACIER2_API void ice_printFields(::std::ostream& os) const;
 };
+
+GLACIER2_API ::std::ostream& operator<<(::std::ostream&, const SSLInfo&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

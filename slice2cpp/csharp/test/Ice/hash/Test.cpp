@@ -185,6 +185,104 @@ Test::OtherException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::PointF::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "x = ", this->x);
+    Ice::print(os << ", y = ", this->y);
+    Ice::print(os << ", z = ", this->z);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::PointF& value)
+{
+    os << "Test::PointF{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::PointD::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "x = ", this->x);
+    Ice::print(os << ", y = ", this->y);
+    Ice::print(os << ", z = ", this->z);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::PointD& value)
+{
+    os << "Test::PointD{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::Point::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "x = ", this->x);
+    Ice::print(os << ", y = ", this->y);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Point& value)
+{
+    os << "Test::Point{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::Polyline::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "vertices = ", this->vertices);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Polyline& value)
+{
+    os << "Test::Polyline{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::Color::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "r = ", this->r);
+    Ice::print(os << ", g = ", this->g);
+    Ice::print(os << ", b = ", this->b);
+    Ice::print(os << ", a = ", this->a);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Color& value)
+{
+    os << "Test::Color{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::ColorPalette::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "colors = ", this->colors);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::ColorPalette& value)
+{
+    os << "Test::ColorPalette{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::Pen::ice_staticId() noexcept
 {
@@ -195,6 +293,13 @@ const char*
 Test::Pen::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Pen::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "thickness = ", this->thickness);
+    Ice::print(os << ", color = ", this->color);
 }
 
 ::Ice::ValuePtr
@@ -217,4 +322,21 @@ Test::Pen::_iceReadImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->thickness, this->color);
     istr->endSlice();
+}
+
+void
+Test::Draw::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "backgroundColor = ", this->backgroundColor);
+    Ice::print(os << ", pen = ", this->pen);
+    Ice::print(os << ", shared = ", this->shared);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Draw& value)
+{
+    os << "Test::Draw{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
 }

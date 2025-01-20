@@ -521,7 +521,13 @@ struct break
     {
         return std::tie(readonly);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const break&);
 
 class delegate : public ::Ice::Value
 {
@@ -558,10 +564,13 @@ public:
     ::std::optional<::abstract::casePrx> else;
     ::std::int32_t event;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     delegate(const delegate&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -606,10 +615,13 @@ public:
     ::std::optional<::abstract::while> internal;
     ::std::optional<::std::string> namespace;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     optionalMembers(const optionalMembers&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

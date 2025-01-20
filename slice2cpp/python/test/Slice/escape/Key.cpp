@@ -175,6 +175,21 @@ and::printPrx::ice_staticId() noexcept
     return "::and::print";
 }
 
+void
+and::continue::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "def = ", this->def);
+}
+
+::std::ostream&
+and::operator<<(::std::ostream& os, const ::and::continue& value)
+{
+    os << "and::continue{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 and::for::ice_staticId() noexcept
 {
@@ -185,6 +200,14 @@ const char*
 and::for::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+and::for::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "lambda = ", this->lambda);
+    Ice::print(os << ", from = ", this->from);
+    Ice::print(os << ", global = ", this->global);
 }
 
 ::Ice::ValuePtr

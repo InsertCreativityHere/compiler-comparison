@@ -216,6 +216,29 @@ and::forPrx::ice_staticId() noexcept
     return "::and::for";
 }
 
+void
+and::xor::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "abstract = ", this->abstract);
+    Ice::print(os << ", clone = ", this->clone);
+    Ice::print(os << ", private = ", this->private);
+    Ice::print(os << ", protected = ", this->protected);
+    Ice::print(os << ", public = ", this->public);
+    Ice::print(os << ", this = ", this->this);
+    Ice::print(os << ", throw = ", this->throw);
+    Ice::print(os << ", use = ", this->use);
+    Ice::print(os << ", var = ", this->var);
+}
+
+::std::ostream&
+and::operator<<(::std::ostream& os, const ::and::xor& value)
+{
+    os << "and::xor{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 and::echo::ice_staticId() noexcept
 {
@@ -226,6 +249,15 @@ const char*
 and::echo::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+and::echo::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "if = ", this->if);
+    Ice::print(os << ", else = ", this->else);
+    Ice::print(os << ", elseif = ", this->elseif);
+    Ice::print(os << ", empty = ", this->empty);
 }
 
 ::Ice::ValuePtr

@@ -298,7 +298,13 @@ struct continue
     {
         return std::tie(def);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const continue&);
 
 class for : public ::Ice::Value
 {
@@ -335,10 +341,13 @@ public:
     ::std::optional<::and::execPrx> from;
     ::std::int32_t global;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     for(const for&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

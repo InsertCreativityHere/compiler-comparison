@@ -89,6 +89,12 @@ Test::F1::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::F1::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+}
+
 ::Ice::ValuePtr
 Test::F1::_iceCloneImpl() const
 {

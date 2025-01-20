@@ -423,6 +423,22 @@ Test::MyClassPrx::ice_staticId() noexcept
     return "::Test::MyClass";
 }
 
+void
+Test::TEstNv::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "d = ", this->d);
+    Ice::print(os << ", s = ", this->s);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::TEstNv& value)
+{
+    os << "Test::TEstNv{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 ::std::vector<::std::string>
 Test::MyClass::ice_ids(const ::Ice::Current&) const
 {

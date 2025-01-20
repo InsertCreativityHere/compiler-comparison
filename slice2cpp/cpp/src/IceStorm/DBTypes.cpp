@@ -40,3 +40,19 @@
 namespace
 {
 }
+
+void
+IceStorm::AllData::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "llus = ", this->llus);
+    Ice::print(os << ", subscribers = ", this->subscribers);
+}
+
+::std::ostream&
+IceStorm::operator<<(::std::ostream& os, const ::IceStorm::AllData& value)
+{
+    os << "IceStorm::AllData{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}

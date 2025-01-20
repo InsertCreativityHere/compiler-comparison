@@ -631,7 +631,13 @@ struct TopicContent
     {
         return std::tie(id, records);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const TopicContent&);
 
 /// Thrown if an observer detects an inconsistency.
 class ObserverInconsistencyException : public ::Ice::UserException
@@ -688,7 +694,13 @@ struct NodeInfo
     {
         return std::tie(id, n);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const NodeInfo&);
 
 /// The group info.
 struct GroupInfo
@@ -704,7 +716,13 @@ struct GroupInfo
     {
         return std::tie(id, llu);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const GroupInfo&);
 
 struct QueryInfo
 {
@@ -729,7 +747,13 @@ struct QueryInfo
     {
         return std::tie(id, coord, group, replica, state, up, max);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const QueryInfo&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

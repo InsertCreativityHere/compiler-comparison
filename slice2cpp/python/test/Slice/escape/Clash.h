@@ -280,10 +280,13 @@ public:
     ::std::string in;
     ::std::string proxy;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     Cls(const Cls&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -303,7 +306,13 @@ struct St
     {
         return std::tie(v, istr, ostr, rhs, other);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const St&);
 
 class Ex : public ::Ice::UserException
 {

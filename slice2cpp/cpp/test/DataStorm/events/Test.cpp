@@ -44,6 +44,23 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::Extended> iceC_Test_Extended_init("::Test::Extended");
 }
 
+void
+Test::StructValue::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "firstName = ", this->firstName);
+    Ice::print(os << ", lastName = ", this->lastName);
+    Ice::print(os << ", age = ", this->age);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::StructValue& value)
+{
+    os << "Test::StructValue{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::Base::ice_staticId() noexcept
 {
@@ -54,6 +71,12 @@ const char*
 Test::Base::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Base::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "b = ", this->b);
 }
 
 ::Ice::ValuePtr
@@ -88,6 +111,13 @@ const char*
 Test::Extended::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Extended::ice_printFields(std::ostream& os) const
+{
+    Base::ice_printFields(os);
+    Ice::print(os << ", e = ", this->e);
 }
 
 ::Ice::ValuePtr

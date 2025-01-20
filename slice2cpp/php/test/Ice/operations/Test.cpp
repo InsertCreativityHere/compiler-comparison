@@ -2661,6 +2661,55 @@ Test2::MyDerivedClassPrx::ice_staticId() noexcept
     return "::Test2::MyDerivedClass";
 }
 
+void
+Test::AnotherStruct::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "s = ", this->s);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::AnotherStruct& value)
+{
+    os << "Test::AnotherStruct{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::Structure::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "p = ", this->p);
+    Ice::print(os << ", e = ", this->e);
+    Ice::print(os << ", s = ", this->s);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Structure& value)
+{
+    os << "Test::Structure{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::MyStruct1::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "tesT = ", this->tesT);
+    Ice::print(os << ", myClass = ", this->myClass);
+    Ice::print(os << ", myStruct1 = ", this->myStruct1);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::MyStruct1& value)
+{
+    os << "Test::MyStruct1{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::MyClass1::ice_staticId() noexcept
 {
@@ -2671,6 +2720,14 @@ const char*
 Test::MyClass1::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MyClass1::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "tesT = ", this->tesT);
+    Ice::print(os << ", myClass = ", this->myClass);
+    Ice::print(os << ", myClass1 = ", this->myClass1);
 }
 
 ::Ice::ValuePtr

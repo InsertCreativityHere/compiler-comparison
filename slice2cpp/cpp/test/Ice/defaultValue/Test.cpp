@@ -46,6 +46,112 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedEx> iceC_Test_DerivedEx_init("::Test::DerivedEx");
 }
 
+void
+Test::Struct1::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "boolFalse = ", this->boolFalse);
+    Ice::print(os << ", boolTrue = ", this->boolTrue);
+    Ice::print(os << ", b = ", this->b);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", c1 = ", this->c1);
+    Ice::print(os << ", c2 = ", this->c2);
+    Ice::print(os << ", c3 = ", this->c3);
+    Ice::print(os << ", nc1 = ", this->nc1);
+    Ice::print(os << ", nc2 = ", this->nc2);
+    Ice::print(os << ", nc3 = ", this->nc3);
+    Ice::print(os << ", noDefault = ", this->noDefault);
+    Ice::print(os << ", zeroI = ", this->zeroI);
+    Ice::print(os << ", zeroL = ", this->zeroL);
+    Ice::print(os << ", zeroF = ", this->zeroF);
+    Ice::print(os << ", zeroDotF = ", this->zeroDotF);
+    Ice::print(os << ", zeroD = ", this->zeroD);
+    Ice::print(os << ", zeroDotD = ", this->zeroDotD);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Struct1& value)
+{
+    os << "Test::Struct1{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::Struct2::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "boolTrue = ", this->boolTrue);
+    Ice::print(os << ", b = ", this->b);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", c1 = ", this->c1);
+    Ice::print(os << ", c2 = ", this->c2);
+    Ice::print(os << ", c3 = ", this->c3);
+    Ice::print(os << ", nc1 = ", this->nc1);
+    Ice::print(os << ", nc2 = ", this->nc2);
+    Ice::print(os << ", nc3 = ", this->nc3);
+    Ice::print(os << ", zeroI = ", this->zeroI);
+    Ice::print(os << ", zeroL = ", this->zeroL);
+    Ice::print(os << ", zeroF = ", this->zeroF);
+    Ice::print(os << ", zeroDotF = ", this->zeroDotF);
+    Ice::print(os << ", zeroD = ", this->zeroD);
+    Ice::print(os << ", zeroDotD = ", this->zeroDotD);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Struct2& value)
+{
+    os << "Test::Struct2{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::Struct3::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "boolFalse = ", this->boolFalse);
+    Ice::print(os << ", boolTrue = ", this->boolTrue);
+    Ice::print(os << ", b = ", this->b);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", c1 = ", this->c1);
+    Ice::print(os << ", c2 = ", this->c2);
+    Ice::print(os << ", c3 = ", this->c3);
+    Ice::print(os << ", nc1 = ", this->nc1);
+    Ice::print(os << ", nc2 = ", this->nc2);
+    Ice::print(os << ", nc3 = ", this->nc3);
+    Ice::print(os << ", noDefault = ", this->noDefault);
+    Ice::print(os << ", zeroI = ", this->zeroI);
+    Ice::print(os << ", zeroL = ", this->zeroL);
+    Ice::print(os << ", zeroF = ", this->zeroF);
+    Ice::print(os << ", zeroDotF = ", this->zeroDotF);
+    Ice::print(os << ", zeroD = ", this->zeroD);
+    Ice::print(os << ", zeroDotD = ", this->zeroDotD);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Struct3& value)
+{
+    os << "Test::Struct3{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::Base::ice_staticId() noexcept
 {
@@ -56,6 +162,27 @@ const char*
 Test::Base::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Base::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "boolFalse = ", this->boolFalse);
+    Ice::print(os << ", boolTrue = ", this->boolTrue);
+    Ice::print(os << ", b = ", this->b);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", noDefault = ", this->noDefault);
+    Ice::print(os << ", zeroI = ", this->zeroI);
+    Ice::print(os << ", zeroL = ", this->zeroL);
+    Ice::print(os << ", zeroF = ", this->zeroF);
+    Ice::print(os << ", zeroDotF = ", this->zeroDotF);
+    Ice::print(os << ", zeroD = ", this->zeroD);
+    Ice::print(os << ", zeroDotD = ", this->zeroDotD);
 }
 
 ::Ice::ValuePtr
@@ -90,6 +217,18 @@ const char*
 Test::Derived::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Derived::ice_printFields(std::ostream& os) const
+{
+    Base::ice_printFields(os);
+    Ice::print(os << ", c1 = ", this->c1);
+    Ice::print(os << ", c2 = ", this->c2);
+    Ice::print(os << ", c3 = ", this->c3);
+    Ice::print(os << ", nc1 = ", this->nc1);
+    Ice::print(os << ", nc2 = ", this->nc2);
+    Ice::print(os << ", nc3 = ", this->nc3);
 }
 
 ::Ice::ValuePtr

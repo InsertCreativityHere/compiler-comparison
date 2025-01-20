@@ -268,7 +268,13 @@ struct and
     {
         return std::tie(begin);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const and&);
 
 class display : public ::Ice::Value
 {
@@ -307,10 +313,13 @@ public:
     ::std::optional<::BEGIN::breakPrx> dup;
     ::std::int32_t else;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     display(const display&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

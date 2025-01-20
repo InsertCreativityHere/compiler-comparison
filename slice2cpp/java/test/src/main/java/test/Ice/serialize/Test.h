@@ -178,7 +178,13 @@ struct Struct1
     {
         return std::tie(bo, by, sh, i, l, f, d, str, e, p);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Struct1&);
 
 class Base : public ::Ice::Value
 {
@@ -231,10 +237,13 @@ public:
     ::Test::StringMyEnumD d3;
     ::Test::StringBaseD d4;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     Base(const Base&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -272,10 +281,13 @@ public:
 
     ::std::optional<::Ice::ObjectPrx> p;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     Derived(const Derived&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

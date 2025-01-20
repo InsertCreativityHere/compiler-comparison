@@ -241,6 +241,24 @@ Ice::LoggerAdminPrx::ice_staticId() noexcept
     return "::Ice::LoggerAdmin";
 }
 
+void
+Ice::LogMessage::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "type = ", this->type);
+    Ice::print(os << ", timestamp = ", this->timestamp);
+    Ice::print(os << ", traceCategory = ", this->traceCategory);
+    Ice::print(os << ", message = ", this->message);
+}
+
+::std::ostream&
+Ice::operator<<(::std::ostream& os, const ::Ice::LogMessage& value)
+{
+    os << "Ice::LogMessage{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Ice::RemoteLoggerAlreadyAttachedException::ice_staticId() noexcept
 {

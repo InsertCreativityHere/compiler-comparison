@@ -40,3 +40,22 @@
 namespace
 {
 }
+
+void
+IceGrid::AllData::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "applications = ", this->applications);
+    Ice::print(os << ", adapters = ", this->adapters);
+    Ice::print(os << ", objects = ", this->objects);
+    Ice::print(os << ", internalObjects = ", this->internalObjects);
+    Ice::print(os << ", serials = ", this->serials);
+}
+
+::std::ostream&
+IceGrid::operator<<(::std::ostream& os, const ::IceGrid::AllData& value)
+{
+    os << "IceGrid::AllData{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}

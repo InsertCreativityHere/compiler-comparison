@@ -40,3 +40,20 @@
 namespace
 {
 }
+
+void
+IceStorm::LinkRecord::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "obj = ", this->obj);
+    Ice::print(os << ", cost = ", this->cost);
+    Ice::print(os << ", theTopic = ", this->theTopic);
+}
+
+::std::ostream&
+IceStorm::operator<<(::std::ostream& os, const ::IceStorm::LinkRecord& value)
+{
+    os << "IceStorm::LinkRecord{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}

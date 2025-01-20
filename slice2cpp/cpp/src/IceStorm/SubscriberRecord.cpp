@@ -40,3 +40,40 @@
 namespace
 {
 }
+
+void
+IceStorm::SubscriberRecordKey::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "topic = ", this->topic);
+    Ice::print(os << ", id = ", this->id);
+}
+
+::std::ostream&
+IceStorm::operator<<(::std::ostream& os, const ::IceStorm::SubscriberRecordKey& value)
+{
+    os << "IceStorm::SubscriberRecordKey{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+IceStorm::SubscriberRecord::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "topicName = ", this->topicName);
+    Ice::print(os << ", id = ", this->id);
+    Ice::print(os << ", link = ", this->link);
+    Ice::print(os << ", obj = ", this->obj);
+    Ice::print(os << ", theQoS = ", this->theQoS);
+    Ice::print(os << ", cost = ", this->cost);
+    Ice::print(os << ", theTopic = ", this->theTopic);
+}
+
+::std::ostream&
+IceStorm::operator<<(::std::ostream& os, const ::IceStorm::SubscriberRecord& value)
+{
+    os << "IceStorm::SubscriberRecord{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}

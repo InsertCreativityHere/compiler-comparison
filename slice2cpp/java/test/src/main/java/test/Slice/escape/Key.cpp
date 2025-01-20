@@ -179,6 +179,21 @@ abstract::newPrx::ice_staticId() noexcept
     return "::abstract::new";
 }
 
+void
+abstract::break::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "case = ", this->case);
+}
+
+::std::ostream&
+abstract::operator<<(::std::ostream& os, const ::abstract::break& value)
+{
+    os << "abstract::break{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 abstract::else::ice_staticId() noexcept
 {
@@ -189,6 +204,14 @@ const char*
 abstract::else::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+abstract::else::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "if = ", this->if);
+    Ice::print(os << ", equals = ", this->equals);
+    Ice::print(os << ", final = ", this->final);
 }
 
 ::Ice::ValuePtr

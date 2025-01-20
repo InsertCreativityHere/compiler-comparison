@@ -158,7 +158,13 @@ struct LargeStruct
     {
         return std::tie(bo, by, sh, i, l, f, d, str, e, p, ss);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const LargeStruct&);
 
 struct Point
 {
@@ -171,7 +177,13 @@ struct Point
     {
         return std::tie(x, y);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Point&);
 
 class OptionalClass : public ::Ice::Value
 {
@@ -228,10 +240,13 @@ public:
     ::std::optional<::Ice::StringSeq> stringSeq14;
     ::std::optional<::Test::Point> p15;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     OptionalClass(const OptionalClass&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -296,10 +311,13 @@ public:
     ::Test::MyClassS seq10;
     ::Test::StringMyClassD d;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     MyClass(const MyClass&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

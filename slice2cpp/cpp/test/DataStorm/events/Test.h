@@ -52,7 +52,13 @@ struct StructValue
     {
         return std::tie(firstName, lastName, age);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const StructValue&);
 
 class Base : public ::Ice::Value
 {
@@ -85,10 +91,13 @@ public:
 
     ::std::string b;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     Base(const Base&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -126,10 +135,13 @@ public:
 
     ::std::int32_t e;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     Extended(const Extended&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

@@ -158,7 +158,13 @@ struct Foo
     {
         return std::tie(SLmem, SLSmem);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Foo&);
 
 class Bar : public ::Ice::UserException
 {
@@ -233,10 +239,13 @@ public:
     ::Test::SerialLarge SLmem;
     ::Test::SLS SLSmem;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     Baz(const Baz&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

@@ -58,6 +58,19 @@ IceMX::SessionMetrics::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+IceMX::SessionMetrics::ice_printFields(std::ostream& os) const
+{
+    Metrics::ice_printFields(os);
+    Ice::print(os << ", forwardedClient = ", this->forwardedClient);
+    Ice::print(os << ", forwardedServer = ", this->forwardedServer);
+    Ice::print(os << ", routingTableSize = ", this->routingTableSize);
+    Ice::print(os << ", queuedClient = ", this->queuedClient);
+    Ice::print(os << ", queuedServer = ", this->queuedServer);
+    Ice::print(os << ", overriddenClient = ", this->overriddenClient);
+    Ice::print(os << ", overriddenServer = ", this->overriddenServer);
+}
+
 ::Ice::ValuePtr
 IceMX::SessionMetrics::_iceCloneImpl() const
 {

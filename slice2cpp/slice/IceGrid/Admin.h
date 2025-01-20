@@ -2912,7 +2912,13 @@ struct ObjectInfo
     {
         return std::tie(proxy, type);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const ObjectInfo&);
 
 /// Information about an adapter registered with the IceGrid registry.
 struct AdapterInfo
@@ -2930,7 +2936,13 @@ struct AdapterInfo
     {
         return std::tie(id, proxy, replicaGroupId);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const AdapterInfo&);
 
 /// Information about a server managed by an IceGrid node.
 struct ServerInfo
@@ -2954,7 +2966,13 @@ struct ServerInfo
     {
         return std::tie(application, uuid, revision, node, descriptor, sessionId);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const ServerInfo&);
 
 /// Information about an IceGrid node.
 struct NodeInfo
@@ -2983,7 +3001,13 @@ struct NodeInfo
     {
         return std::tie(name, os, hostname, release, version, machine, nProcessors, dataDir);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const NodeInfo&);
 
 /// Information about an IceGrid registry replica.
 struct RegistryInfo
@@ -2999,7 +3023,13 @@ struct RegistryInfo
     {
         return std::tie(name, hostname);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const RegistryInfo&);
 
 /// Information about the load of a node.
 struct LoadInfo
@@ -3017,7 +3047,13 @@ struct LoadInfo
     {
         return std::tie(avg1, avg5, avg15);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const LoadInfo&);
 
 /// Information about an IceGrid application.
 struct ApplicationInfo
@@ -3043,7 +3079,13 @@ struct ApplicationInfo
     {
         return std::tie(uuid, createTime, createUser, updateTime, updateUser, revision, descriptor);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const ApplicationInfo&);
 
 /// Information about updates to an IceGrid application.
 struct ApplicationUpdateInfo
@@ -3063,7 +3105,13 @@ struct ApplicationUpdateInfo
     {
         return std::tie(updateTime, updateUser, revision, descriptor);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const ApplicationUpdateInfo&);
 
 /// Dynamic information about the state of a server.
 struct ServerDynamicInfo
@@ -3083,7 +3131,13 @@ struct ServerDynamicInfo
     {
         return std::tie(id, state, pid, enabled);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const ServerDynamicInfo&);
 
 /// Dynamic information about the state of an adapter.
 struct AdapterDynamicInfo
@@ -3099,7 +3153,13 @@ struct AdapterDynamicInfo
     {
         return std::tie(id, proxy);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const AdapterDynamicInfo&);
 
 /// Dynamic information about the state of a node.
 struct NodeDynamicInfo
@@ -3117,7 +3177,13 @@ struct NodeDynamicInfo
     {
         return std::tie(info, servers, adapters);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICEGRID_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const NodeDynamicInfo&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

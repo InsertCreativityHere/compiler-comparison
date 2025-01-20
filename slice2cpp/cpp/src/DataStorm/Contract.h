@@ -1062,7 +1062,13 @@ struct DataSample
     {
         return std::tie(id, keyId, keyValue, timestamp, tag, event, value);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const DataSample&);
 
 /// Represents a collection of data samples produced by a specific writer.
 struct DataSamples
@@ -1078,7 +1084,13 @@ struct DataSamples
     {
         return std::tie(id, samples);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const DataSamples&);
 
 /// Provides metadata about an element, such as a key, filter, or tag.
 struct ElementInfo
@@ -1097,7 +1109,13 @@ struct ElementInfo
     {
         return std::tie(id, name, value);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const ElementInfo&);
 
 /// Contains metadata about a topic, including its name and associated reader/writer IDs.
 /// @see Session#announceTopics
@@ -1117,7 +1135,13 @@ struct TopicInfo
     {
         return std::tie(name, ids);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const TopicInfo&);
 
 /// Provides detailed information about topic readers and topic writers, including its ID, name, keys, filters,
 /// and tags.
@@ -1140,7 +1164,13 @@ struct TopicSpec
     {
         return std::tie(id, name, elements, tags);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const TopicSpec&);
 
 /// Represents a sample filter that specifies which samples should be sent to a data reader.
 struct FilterInfo
@@ -1156,7 +1186,13 @@ struct FilterInfo
     {
         return std::tie(name, criteria);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const FilterInfo&);
 
 /// Represents the configuration of a data reader or data writer, including optional filters and priorities.
 class ElementConfig : public ::Ice::Value
@@ -1220,10 +1256,13 @@ public:
     /// See also the `DataStorm.Topic.ClearHistory` property.
     ::std::optional<::DataStormContract::ClearHistoryPolicy> clearHistory;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     ElementConfig(const ElementConfig&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1248,7 +1287,13 @@ struct ElementData
     {
         return std::tie(id, config, lastIds);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const ElementData&);
 
 /// Represents detailed information about topic elements, which can be a key or a filter.
 struct ElementSpec
@@ -1274,7 +1319,13 @@ struct ElementSpec
     {
         return std::tie(elements, id, name, value, peerId, peerName);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const ElementSpec&);
 
 /// Represents an acknowledgment of the attachment of data readers or data writers associated with a key or filter.
 struct ElementDataAck
@@ -1302,7 +1353,13 @@ struct ElementDataAck
     {
         return std::tie(id, config, lastIds, samples, peerId);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const ElementDataAck&);
 
 /// Represents an acknowledgment of the attachment of an element, which can be a key or a filter.
 struct ElementSpecAck
@@ -1328,7 +1385,13 @@ struct ElementSpecAck
     {
         return std::tie(elements, id, name, value, peerId, peerName);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const ElementSpecAck&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

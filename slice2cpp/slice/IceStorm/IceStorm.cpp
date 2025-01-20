@@ -565,6 +565,23 @@ IceStorm::FinderPrx::ice_staticId() noexcept
     return "::IceStorm::Finder";
 }
 
+void
+IceStorm::LinkInfo::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "theTopic = ", this->theTopic);
+    Ice::print(os << ", name = ", this->name);
+    Ice::print(os << ", cost = ", this->cost);
+}
+
+::std::ostream&
+IceStorm::operator<<(::std::ostream& os, const ::IceStorm::LinkInfo& value)
+{
+    os << "IceStorm::LinkInfo{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 IceStorm::LinkExists::ice_staticId() noexcept
 {

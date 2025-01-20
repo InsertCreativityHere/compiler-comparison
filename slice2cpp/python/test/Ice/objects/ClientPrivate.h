@@ -135,6 +135,7 @@ protected:
     Empty(const Empty&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -160,6 +161,7 @@ protected:
     AlsoEmpty(const AlsoEmpty&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -196,10 +198,13 @@ public:
 
     ::Test::EmptyPtr e;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     COneMember(const COneMember&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -238,10 +243,13 @@ public:
     ::Test::EmptyPtr e1;
     ::Test::EmptyPtr e2;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     CTwoMembers(const CTwoMembers&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -343,7 +351,13 @@ struct SOneMember
     {
         return std::tie(e);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const SOneMember&);
 
 struct STwoMembers
 {
@@ -356,7 +370,13 @@ struct STwoMembers
     {
         return std::tie(e1, e2);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const STwoMembers&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

@@ -55,6 +55,13 @@ Test::Derived::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::Derived::ice_printFields(std::ostream& os) const
+{
+    Base::ice_printFields(os);
+    Ice::print(os << ", b = ", this->b);
+}
+
 ::Ice::ValuePtr
 Test::Derived::_iceCloneImpl() const
 {

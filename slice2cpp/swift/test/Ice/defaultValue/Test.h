@@ -133,7 +133,13 @@ struct Struct1
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Struct1&);
 
 struct Struct2
 {
@@ -164,7 +170,13 @@ struct Struct2
     {
         return std::tie(boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Struct2&);
 
 struct Struct3
 {
@@ -197,7 +209,13 @@ struct Struct3
     {
         return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Struct3&);
 
 class Base : public ::Ice::Value
 {
@@ -260,10 +278,13 @@ public:
     double zeroD = 0;
     double zeroDotD = 0;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     Base(const Base&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -311,10 +332,13 @@ public:
     ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     Derived(const Derived&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

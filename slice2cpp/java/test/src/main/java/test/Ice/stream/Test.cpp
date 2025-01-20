@@ -51,6 +51,47 @@ Test::MyInterfacePrx::ice_staticId() noexcept
     return "::Test::MyInterface";
 }
 
+void
+Test::LargeStruct::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "bo = ", this->bo);
+    Ice::print(os << ", by = ", this->by);
+    Ice::print(os << ", sh = ", this->sh);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", e = ", this->e);
+    Ice::print(os << ", p = ", this->p);
+    Ice::print(os << ", ss = ", this->ss);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::LargeStruct& value)
+{
+    os << "Test::LargeStruct{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::Point::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "x = ", this->x);
+    Ice::print(os << ", y = ", this->y);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Point& value)
+{
+    os << "Test::Point{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::OptionalClass::ice_staticId() noexcept
 {
@@ -61,6 +102,24 @@ const char*
 Test::OptionalClass::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::OptionalClass::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "bo = ", this->bo);
+    Ice::print(os << ", by = ", this->by);
+    Ice::print(os << ", sh = ", this->sh);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", enumS4 = ", this->enumS4);
+    Ice::print(os << ", byteBoolD6 = ", this->byteBoolD6);
+    Ice::print(os << ", shortIntD7 = ", this->shortIntD7);
+    Ice::print(os << ", enum8 = ", this->enum8);
+    Ice::print(os << ", intSeq12 = ", this->intSeq12);
+    Ice::print(os << ", byteSeq13 = ", this->byteSeq13);
+    Ice::print(os << ", stringSeq14 = ", this->stringSeq14);
+    Ice::print(os << ", p15 = ", this->p15);
 }
 
 ::Ice::ValuePtr
@@ -97,6 +156,26 @@ const char*
 Test::MyClass::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MyClass::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "c = ", this->c);
+    Ice::print(os << ", prx = ", this->prx);
+    Ice::print(os << ", o = ", this->o);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", seq1 = ", this->seq1);
+    Ice::print(os << ", seq2 = ", this->seq2);
+    Ice::print(os << ", seq3 = ", this->seq3);
+    Ice::print(os << ", seq4 = ", this->seq4);
+    Ice::print(os << ", seq5 = ", this->seq5);
+    Ice::print(os << ", seq6 = ", this->seq6);
+    Ice::print(os << ", seq7 = ", this->seq7);
+    Ice::print(os << ", seq8 = ", this->seq8);
+    Ice::print(os << ", seq9 = ", this->seq9);
+    Ice::print(os << ", seq10 = ", this->seq10);
+    Ice::print(os << ", d = ", this->d);
 }
 
 ::Ice::ValuePtr

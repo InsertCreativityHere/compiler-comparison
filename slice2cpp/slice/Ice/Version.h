@@ -20,6 +20,7 @@
 #include <Ice/Config.h>
 #include <Ice/Comparable.h>
 #include <cstdint>
+#include <ostream>
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850
@@ -50,7 +51,13 @@ struct ProtocolVersion
     {
         return std::tie(major, minor);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICE_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICE_API ::std::ostream& operator<<(::std::ostream&, const ProtocolVersion&);
 
 /// A version structure for the encoding version.
 struct EncodingVersion
@@ -64,7 +71,13 @@ struct EncodingVersion
     {
         return std::tie(major, minor);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICE_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICE_API ::std::ostream& operator<<(::std::ostream&, const EncodingVersion&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

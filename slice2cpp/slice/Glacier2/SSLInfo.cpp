@@ -39,3 +39,23 @@
 #       error Ice version mismatch: an exact match is required for beta generated code
 #   endif
 #endif
+
+void
+Glacier2::SSLInfo::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "remoteHost = ", this->remoteHost);
+    Ice::print(os << ", remotePort = ", this->remotePort);
+    Ice::print(os << ", localHost = ", this->localHost);
+    Ice::print(os << ", localPort = ", this->localPort);
+    Ice::print(os << ", cipher = ", this->cipher);
+    Ice::print(os << ", certs = ", this->certs);
+}
+
+::std::ostream&
+Glacier2::operator<<(::std::ostream& os, const ::Glacier2::SSLInfo& value)
+{
+    os << "Glacier2::SSLInfo{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}

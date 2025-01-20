@@ -47,7 +47,13 @@ struct StructKey
     {
         return std::tie(value);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const StructKey&);
 
 class ClassKey : public ::Ice::Value
 {
@@ -80,10 +86,13 @@ public:
 
     ::std::int32_t value;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     ClassKey(const ClassKey&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

@@ -204,7 +204,13 @@ struct PointF
     {
         return std::tie(x, y, z);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const PointF&);
 
 struct PointD
 {
@@ -218,7 +224,13 @@ struct PointD
     {
         return std::tie(x, y, z);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const PointD&);
 
 struct Point
 {
@@ -231,7 +243,13 @@ struct Point
     {
         return std::tie(x, y);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Point&);
 
 struct Polyline
 {
@@ -243,7 +261,13 @@ struct Polyline
     {
         return std::tie(vertices);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Polyline&);
 
 struct Color
 {
@@ -258,7 +282,13 @@ struct Color
     {
         return std::tie(r, g, b, a);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Color&);
 
 struct ColorPalette
 {
@@ -270,7 +300,13 @@ struct ColorPalette
     {
         return std::tie(colors);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const ColorPalette&);
 
 class Pen : public ::Ice::Value
 {
@@ -305,10 +341,13 @@ public:
     ::std::int32_t thickness;
     ::Test::Color color;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     Pen(const Pen&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -326,7 +365,13 @@ struct Draw
     {
         return std::tie(backgroundColor, pen, shared);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Draw&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

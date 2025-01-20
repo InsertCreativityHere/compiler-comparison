@@ -1101,7 +1101,13 @@ struct AnotherStruct
     {
         return std::tie(s);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const AnotherStruct&);
 
 struct Structure
 {
@@ -1115,7 +1121,13 @@ struct Structure
     {
         return std::tie(p, e, s);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const Structure&);
 
 struct MyStruct1
 {
@@ -1129,7 +1141,13 @@ struct MyStruct1
     {
         return std::tie(tesT, myClass, myStruct1);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const MyStruct1&);
 
 class MyClass1 : public ::Ice::Value
 {
@@ -1166,10 +1184,13 @@ public:
     ::std::optional<::Test::MyClassPrx> myClass;
     ::std::string myClass1;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     MyClass1(const MyClass1&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

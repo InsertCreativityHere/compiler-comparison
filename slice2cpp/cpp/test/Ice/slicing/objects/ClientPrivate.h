@@ -85,10 +85,13 @@ public:
     ::std::string sd3;
     ::Test::BPtr pd3;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     D3(const D3&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -126,10 +129,13 @@ public:
 
     ::std::string pu;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     PCUnknown(const PCUnknown&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -167,10 +173,13 @@ public:
 
     ::Test::PBaseSeq pbs;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     PCDerived(const PCDerived&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -208,10 +217,13 @@ public:
 
     ::std::int32_t pcd2;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     PCDerived2(const PCDerived2&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -249,10 +261,13 @@ public:
 
     ::Ice::ValuePtr pcd3;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     PCDerived3(const PCDerived3&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -290,10 +305,13 @@ public:
 
     ::Test::PBaseSeq pbs;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     CompactPCDerived(const CompactPCDerived&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

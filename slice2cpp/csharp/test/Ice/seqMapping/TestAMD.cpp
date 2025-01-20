@@ -3400,6 +3400,36 @@ Test::MyClassPrx::ice_staticId() noexcept
     return "::Test::MyClass";
 }
 
+void
+Test::S::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "i = ", this->i);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::S& value)
+{
+    os << "Test::S{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::SD::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "i = ", this->i);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::SD& value)
+{
+    os << "Test::SD{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::CV::ice_staticId() noexcept
 {
@@ -3410,6 +3440,12 @@ const char*
 Test::CV::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::CV::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "i = ", this->i);
 }
 
 ::Ice::ValuePtr
@@ -3444,6 +3480,12 @@ const char*
 Test::CR::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::CR::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "v = ", this->v);
 }
 
 ::Ice::ValuePtr

@@ -56,6 +56,13 @@ Test::Default::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::Default::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "x = ", this->x);
+    Ice::print(os << ", y = ", this->y);
+}
+
 ::Ice::ValuePtr
 Test::Default::_iceCloneImpl() const
 {
@@ -88,6 +95,13 @@ const char*
 Test::NoDefault::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::NoDefault::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "x = ", this->x);
+    Ice::print(os << ", y = ", this->y);
 }
 
 ::Ice::ValuePtr

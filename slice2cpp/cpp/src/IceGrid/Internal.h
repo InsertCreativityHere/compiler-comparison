@@ -1809,10 +1809,13 @@ public:
     /// The database properties.
     ::IceGrid::PropertyDescriptorSeq properties;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     InternalDbEnvDescriptor(const InternalDbEnvDescriptor&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1855,10 +1858,13 @@ public:
     /// Specifies if the lifetime of the adapter is the same as the server.
     bool serverLifetime;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     InternalAdapterDescriptor(const InternalAdapterDescriptor&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1967,10 +1973,13 @@ public:
     /// IceBox service names
     ::std::optional<::Ice::StringSeq> services;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     InternalServerDescriptor(const InternalServerDescriptor&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -2176,10 +2185,13 @@ public:
     /// service in IceBox.
     ::std::optional<::std::string> iceSoVersion;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     InternalNodeInfo(const InternalNodeInfo&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -2223,10 +2235,13 @@ public:
     /// The network name of the host running this registry (as defined in uname()).
     ::std::string hostname;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     InternalReplicaInfo(const InternalReplicaInfo&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

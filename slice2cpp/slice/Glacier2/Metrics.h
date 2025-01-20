@@ -109,10 +109,13 @@ public:
     /// Number of server requests overridden.
     ::std::int32_t overriddenServer = 0;
 
+    ICE_MEMBER(GLACIER2_API) void ice_printFields(std::ostream& os) const override;
+
 protected:
     SessionMetrics(const SessionMetrics&) = default;
 
     ICE_MEMBER(GLACIER2_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     ICE_MEMBER(GLACIER2_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(GLACIER2_API) void _iceReadImpl(::Ice::InputStream*) override;

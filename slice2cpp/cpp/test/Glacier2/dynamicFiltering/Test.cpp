@@ -203,6 +203,26 @@ Test::TestSessionPrx::ice_staticId() noexcept
     return "::Test::TestSession";
 }
 
+void
+Test::TestToken::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "expectedResult = ", this->expectedResult);
+    Ice::print(os << ", description = ", this->description);
+    Ice::print(os << ", code = ", this->code);
+    Ice::print(os << ", config = ", this->config);
+    Ice::print(os << ", caseIndex = ", this->caseIndex);
+    Ice::print(os << ", testReference = ", this->testReference);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::TestToken& value)
+{
+    os << "Test::TestToken{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 ::std::vector<::std::string>
 Test::Backend::ice_ids(const ::Ice::Current&) const
 {

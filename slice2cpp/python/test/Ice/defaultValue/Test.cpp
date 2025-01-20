@@ -50,6 +50,76 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaults> iceC_Test_ClassNoDefaults_init("::Test::ClassNoDefaults");
 }
 
+void
+Test::Struct1::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "boolFalse = ", this->boolFalse);
+    Ice::print(os << ", boolTrue = ", this->boolTrue);
+    Ice::print(os << ", b = ", this->b);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", c1 = ", this->c1);
+    Ice::print(os << ", c2 = ", this->c2);
+    Ice::print(os << ", c3 = ", this->c3);
+    Ice::print(os << ", nc1 = ", this->nc1);
+    Ice::print(os << ", nc2 = ", this->nc2);
+    Ice::print(os << ", nc3 = ", this->nc3);
+    Ice::print(os << ", noDefault = ", this->noDefault);
+    Ice::print(os << ", zeroI = ", this->zeroI);
+    Ice::print(os << ", zeroL = ", this->zeroL);
+    Ice::print(os << ", zeroF = ", this->zeroF);
+    Ice::print(os << ", zeroDotF = ", this->zeroDotF);
+    Ice::print(os << ", zeroD = ", this->zeroD);
+    Ice::print(os << ", zeroDotD = ", this->zeroDotD);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Struct1& value)
+{
+    os << "Test::Struct1{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::Struct2::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "boolTrue = ", this->boolTrue);
+    Ice::print(os << ", b = ", this->b);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", c1 = ", this->c1);
+    Ice::print(os << ", c2 = ", this->c2);
+    Ice::print(os << ", c3 = ", this->c3);
+    Ice::print(os << ", nc1 = ", this->nc1);
+    Ice::print(os << ", nc2 = ", this->nc2);
+    Ice::print(os << ", nc3 = ", this->nc3);
+    Ice::print(os << ", zeroI = ", this->zeroI);
+    Ice::print(os << ", zeroL = ", this->zeroL);
+    Ice::print(os << ", zeroF = ", this->zeroF);
+    Ice::print(os << ", zeroDotF = ", this->zeroDotF);
+    Ice::print(os << ", zeroD = ", this->zeroD);
+    Ice::print(os << ", zeroDotD = ", this->zeroDotD);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Struct2& value)
+{
+    os << "Test::Struct2{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::Base::ice_staticId() noexcept
 {
@@ -60,6 +130,27 @@ const char*
 Test::Base::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Base::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "boolFalse = ", this->boolFalse);
+    Ice::print(os << ", boolTrue = ", this->boolTrue);
+    Ice::print(os << ", b = ", this->b);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", noDefault = ", this->noDefault);
+    Ice::print(os << ", zeroI = ", this->zeroI);
+    Ice::print(os << ", zeroL = ", this->zeroL);
+    Ice::print(os << ", zeroF = ", this->zeroF);
+    Ice::print(os << ", zeroDotF = ", this->zeroDotF);
+    Ice::print(os << ", zeroD = ", this->zeroD);
+    Ice::print(os << ", zeroDotD = ", this->zeroDotD);
 }
 
 ::Ice::ValuePtr
@@ -94,6 +185,18 @@ const char*
 Test::Derived::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Derived::ice_printFields(std::ostream& os) const
+{
+    Base::ice_printFields(os);
+    Ice::print(os << ", c1 = ", this->c1);
+    Ice::print(os << ", c2 = ", this->c2);
+    Ice::print(os << ", c3 = ", this->c3);
+    Ice::print(os << ", nc1 = ", this->nc1);
+    Ice::print(os << ", nc2 = ", this->nc2);
+    Ice::print(os << ", nc3 = ", this->nc3);
 }
 
 ::Ice::ValuePtr
@@ -190,6 +293,48 @@ Test::DerivedEx::_readImpl(::Ice::InputStream* istr)
     BaseEx::_readImpl(istr);
 }
 
+void
+Test::InnerStruct::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "a = ", this->a);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::InnerStruct& value)
+{
+    os << "Test::InnerStruct{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
+void
+Test::StructNoDefaults::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "bo = ", this->bo);
+    Ice::print(os << ", b = ", this->b);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", c1 = ", this->c1);
+    Ice::print(os << ", bs = ", this->bs);
+    Ice::print(os << ", iseq = ", this->iseq);
+    Ice::print(os << ", dict = ", this->dict);
+    Ice::print(os << ", st = ", this->st);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::StructNoDefaults& value)
+{
+    os << "Test::StructNoDefaults{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::ExceptionNoDefaultsBase::ice_staticId() noexcept
 {
@@ -272,6 +417,14 @@ Test::ClassNoDefaultsBase::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::ClassNoDefaultsBase::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "str = ", this->str);
+    Ice::print(os << ", c1 = ", this->c1);
+    Ice::print(os << ", bs = ", this->bs);
+}
+
 ::Ice::ValuePtr
 Test::ClassNoDefaultsBase::_iceCloneImpl() const
 {
@@ -304,6 +457,14 @@ const char*
 Test::ClassNoDefaults::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::ClassNoDefaults::ice_printFields(std::ostream& os) const
+{
+    ClassNoDefaultsBase::ice_printFields(os);
+    Ice::print(os << ", st = ", this->st);
+    Ice::print(os << ", dict = ", this->dict);
 }
 
 ::Ice::ValuePtr

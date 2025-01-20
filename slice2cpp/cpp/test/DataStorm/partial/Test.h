@@ -70,10 +70,13 @@ public:
     float lastBid;
     float lastAsk;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     Stock(const Stock&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

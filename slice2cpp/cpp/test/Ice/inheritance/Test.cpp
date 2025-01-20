@@ -380,6 +380,12 @@ Test::MC::A::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::MC::A::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "aA = ", this->aA);
+}
+
 ::Ice::ValuePtr
 Test::MC::A::_iceCloneImpl() const
 {
@@ -412,6 +418,13 @@ const char*
 Test::MC::B::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MC::B::ice_printFields(std::ostream& os) const
+{
+    A::ice_printFields(os);
+    Ice::print(os << ", bB = ", this->bB);
 }
 
 ::Ice::ValuePtr
@@ -450,6 +463,13 @@ Test::MC::C::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::MC::C::ice_printFields(std::ostream& os) const
+{
+    B::ice_printFields(os);
+    Ice::print(os << ", cC = ", this->cC);
+}
+
 ::Ice::ValuePtr
 Test::MC::C::_iceCloneImpl() const
 {
@@ -484,6 +504,13 @@ const char*
 Test::MC::D::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MC::D::ice_printFields(std::ostream& os) const
+{
+    C::ice_printFields(os);
+    Ice::print(os << ", dD = ", this->dD);
 }
 
 ::Ice::ValuePtr
@@ -522,6 +549,12 @@ Test::MD::A::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::MD::A::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "aA = ", this->aA);
+}
+
 ::Ice::ValuePtr
 Test::MD::A::_iceCloneImpl() const
 {
@@ -554,6 +587,13 @@ const char*
 Test::MD::B::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MD::B::ice_printFields(std::ostream& os) const
+{
+    A::ice_printFields(os);
+    Ice::print(os << ", bB = ", this->bB);
 }
 
 ::Ice::ValuePtr
@@ -592,6 +632,13 @@ Test::MD::C::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::MD::C::ice_printFields(std::ostream& os) const
+{
+    B::ice_printFields(os);
+    Ice::print(os << ", cC = ", this->cC);
+}
+
 ::Ice::ValuePtr
 Test::MD::C::_iceCloneImpl() const
 {
@@ -626,6 +673,13 @@ const char*
 Test::MD::D::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MD::D::ice_printFields(std::ostream& os) const
+{
+    C::ice_printFields(os);
+    Ice::print(os << ", dD = ", this->dD);
 }
 
 ::Ice::ValuePtr
@@ -664,6 +718,12 @@ Test::ME::A::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::ME::A::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "aA = ", this->aA);
+}
+
 ::Ice::ValuePtr
 Test::ME::A::_iceCloneImpl() const
 {
@@ -696,6 +756,13 @@ const char*
 Test::ME::B::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::ME::B::ice_printFields(std::ostream& os) const
+{
+    A::ice_printFields(os);
+    Ice::print(os << ", bB = ", this->bB);
 }
 
 ::Ice::ValuePtr
@@ -734,6 +801,13 @@ Test::ME::C::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::ME::C::ice_printFields(std::ostream& os) const
+{
+    B::ice_printFields(os);
+    Ice::print(os << ", cC = ", this->cC);
+}
+
 ::Ice::ValuePtr
 Test::ME::C::_iceCloneImpl() const
 {
@@ -768,6 +842,13 @@ const char*
 Test::ME::D::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::ME::D::ice_printFields(std::ostream& os) const
+{
+    C::ice_printFields(os);
+    Ice::print(os << ", dD = ", this->dD);
 }
 
 ::Ice::ValuePtr
@@ -806,6 +887,12 @@ Test::MF::A::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::MF::A::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "aA = ", this->aA);
+}
+
 ::Ice::ValuePtr
 Test::MF::A::_iceCloneImpl() const
 {
@@ -838,6 +925,13 @@ const char*
 Test::MF::B::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MF::B::ice_printFields(std::ostream& os) const
+{
+    A::ice_printFields(os);
+    Ice::print(os << ", bB = ", this->bB);
 }
 
 ::Ice::ValuePtr
@@ -876,6 +970,13 @@ Test::MF::C::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::MF::C::ice_printFields(std::ostream& os) const
+{
+    B::ice_printFields(os);
+    Ice::print(os << ", cC = ", this->cC);
+}
+
 ::Ice::ValuePtr
 Test::MF::C::_iceCloneImpl() const
 {
@@ -910,6 +1011,13 @@ const char*
 Test::MF::D::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MF::D::ice_printFields(std::ostream& os) const
+{
+    C::ice_printFields(os);
+    Ice::print(os << ", dD = ", this->dD);
 }
 
 ::Ice::ValuePtr
@@ -948,6 +1056,12 @@ Test::MG::A::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::MG::A::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "aA = ", this->aA);
+}
+
 ::Ice::ValuePtr
 Test::MG::A::_iceCloneImpl() const
 {
@@ -980,6 +1094,13 @@ const char*
 Test::MG::B::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MG::B::ice_printFields(std::ostream& os) const
+{
+    A::ice_printFields(os);
+    Ice::print(os << ", bB = ", this->bB);
 }
 
 ::Ice::ValuePtr
@@ -1018,6 +1139,13 @@ Test::MG::C::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::MG::C::ice_printFields(std::ostream& os) const
+{
+    B::ice_printFields(os);
+    Ice::print(os << ", cC = ", this->cC);
+}
+
 ::Ice::ValuePtr
 Test::MG::C::_iceCloneImpl() const
 {
@@ -1052,6 +1180,13 @@ const char*
 Test::MG::D::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MG::D::ice_printFields(std::ostream& os) const
+{
+    C::ice_printFields(os);
+    Ice::print(os << ", dD = ", this->dD);
 }
 
 ::Ice::ValuePtr
@@ -1090,6 +1225,12 @@ Test::MH::A::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::MH::A::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "aA = ", this->aA);
+}
+
 ::Ice::ValuePtr
 Test::MH::A::_iceCloneImpl() const
 {
@@ -1122,6 +1263,13 @@ const char*
 Test::MH::B::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MH::B::ice_printFields(std::ostream& os) const
+{
+    A::ice_printFields(os);
+    Ice::print(os << ", bB = ", this->bB);
 }
 
 ::Ice::ValuePtr
@@ -1160,6 +1308,13 @@ Test::MH::C::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::MH::C::ice_printFields(std::ostream& os) const
+{
+    B::ice_printFields(os);
+    Ice::print(os << ", cC = ", this->cC);
+}
+
 ::Ice::ValuePtr
 Test::MH::C::_iceCloneImpl() const
 {
@@ -1194,6 +1349,13 @@ const char*
 Test::MH::D::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::MH::D::ice_printFields(std::ostream& os) const
+{
+    C::ice_printFields(os);
+    Ice::print(os << ", dD = ", this->dD);
 }
 
 ::Ice::ValuePtr

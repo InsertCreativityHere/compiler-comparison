@@ -1422,6 +1422,12 @@ Test::BaseClass::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::BaseClass::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "bc = ", this->bc);
+}
+
 ::Ice::ValuePtr
 Test::BaseClass::_iceCloneImpl() const
 {
@@ -1454,6 +1460,13 @@ const char*
 Test::PreservedClass::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::PreservedClass::ice_printFields(std::ostream& os) const
+{
+    BaseClass::ice_printFields(os);
+    Ice::print(os << ", pc = ", this->pc);
 }
 
 ::Ice::ValuePtr

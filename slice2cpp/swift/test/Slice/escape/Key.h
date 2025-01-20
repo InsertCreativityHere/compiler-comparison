@@ -308,7 +308,13 @@ struct guard
     {
         return std::tie(default);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const guard&);
 
 struct defer
 {
@@ -320,7 +326,13 @@ struct defer
     {
         return std::tie(else);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const defer&);
 
 class switch : public ::Ice::Value
 {
@@ -357,10 +369,13 @@ public:
     ::std::optional<::and::funcPrx> export;
     ::std::int32_t volatile;
 
+    void ice_printFields(std::ostream& os) const override;
+
 protected:
     switch(const switch&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

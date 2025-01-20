@@ -43,6 +43,21 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::ClassKey> iceC_Test_ClassKey_init("::Test::ClassKey");
 }
 
+void
+Test::StructKey::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "value = ", this->value);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::StructKey& value)
+{
+    os << "Test::StructKey{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::ClassKey::ice_staticId() noexcept
 {
@@ -53,6 +68,12 @@ const char*
 Test::ClassKey::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::ClassKey::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "value = ", this->value);
 }
 
 ::Ice::ValuePtr

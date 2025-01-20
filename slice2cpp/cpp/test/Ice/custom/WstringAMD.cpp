@@ -322,6 +322,21 @@ Test2::WstringClassPrx::ice_staticId() noexcept
     return "::Test2::WstringClass";
 }
 
+void
+Test1::WstringStruct::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "s = ", this->s);
+}
+
+::std::ostream&
+Test1::operator<<(::std::ostream& os, const ::Test1::WstringStruct& value)
+{
+    os << "Test1::WstringStruct{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test1::WstringException::ice_staticId() noexcept
 {
@@ -354,6 +369,21 @@ Test1::WstringException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->reason);
     istr->endSlice();
+}
+
+void
+Test2::WstringStruct::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "s = ", this->s);
+}
+
+::std::ostream&
+Test2::operator<<(::std::ostream& os, const ::Test2::WstringStruct& value)
+{
+    os << "Test2::WstringStruct{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
 }
 
 const char*

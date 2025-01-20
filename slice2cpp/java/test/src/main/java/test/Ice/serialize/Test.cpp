@@ -166,6 +166,30 @@ Test::InitialPrx::ice_staticId() noexcept
     return "::Test::Initial";
 }
 
+void
+Test::Struct1::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "bo = ", this->bo);
+    Ice::print(os << ", by = ", this->by);
+    Ice::print(os << ", sh = ", this->sh);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", e = ", this->e);
+    Ice::print(os << ", p = ", this->p);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::Struct1& value)
+{
+    os << "Test::Struct1{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::Base::ice_staticId() noexcept
 {
@@ -176,6 +200,22 @@ const char*
 Test::Base::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Base::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "b = ", this->b);
+    Ice::print(os << ", o = ", this->o);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", seq1 = ", this->seq1);
+    Ice::print(os << ", seq2 = ", this->seq2);
+    Ice::print(os << ", seq3 = ", this->seq3);
+    Ice::print(os << ", seq4 = ", this->seq4);
+    Ice::print(os << ", d1 = ", this->d1);
+    Ice::print(os << ", d2 = ", this->d2);
+    Ice::print(os << ", d3 = ", this->d3);
+    Ice::print(os << ", d4 = ", this->d4);
 }
 
 ::Ice::ValuePtr
@@ -210,6 +250,13 @@ const char*
 Test::Derived::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Derived::ice_printFields(std::ostream& os) const
+{
+    Base::ice_printFields(os);
+    Ice::print(os << ", p = ", this->p);
 }
 
 ::Ice::ValuePtr

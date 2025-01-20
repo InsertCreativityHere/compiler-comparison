@@ -1264,6 +1264,21 @@ Test::InitialPrx::ice_staticId() noexcept
     return "::Test::Initial";
 }
 
+void
+Test::S::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "str = ", this->str);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::S& value)
+{
+    os << "Test::S{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::Base::ice_staticId() noexcept
 {
@@ -1274,6 +1289,13 @@ const char*
 Test::Base::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Base::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "theS = ", this->theS);
+    Ice::print(os << ", str = ", this->str);
 }
 
 ::Ice::ValuePtr
@@ -1310,6 +1332,15 @@ Test::A::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::A::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "theB = ", this->theB);
+    Ice::print(os << ", theC = ", this->theC);
+    Ice::print(os << ", preMarshalInvoked = ", this->preMarshalInvoked);
+    Ice::print(os << ", postUnmarshalInvoked = ", this->postUnmarshalInvoked);
+}
+
 ::Ice::ValuePtr
 Test::A::_iceCloneImpl() const
 {
@@ -1342,6 +1373,13 @@ const char*
 Test::B::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::B::ice_printFields(std::ostream& os) const
+{
+    A::ice_printFields(os);
+    Ice::print(os << ", theA = ", this->theA);
 }
 
 ::Ice::ValuePtr
@@ -1380,6 +1418,14 @@ Test::C::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::C::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "theB = ", this->theB);
+    Ice::print(os << ", preMarshalInvoked = ", this->preMarshalInvoked);
+    Ice::print(os << ", postUnmarshalInvoked = ", this->postUnmarshalInvoked);
+}
+
 ::Ice::ValuePtr
 Test::C::_iceCloneImpl() const
 {
@@ -1412,6 +1458,16 @@ const char*
 Test::D::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::D::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "theA = ", this->theA);
+    Ice::print(os << ", theB = ", this->theB);
+    Ice::print(os << ", theC = ", this->theC);
+    Ice::print(os << ", preMarshalInvoked = ", this->preMarshalInvoked);
+    Ice::print(os << ", postUnmarshalInvoked = ", this->postUnmarshalInvoked);
 }
 
 ::Ice::ValuePtr
@@ -1448,6 +1504,13 @@ Test::E::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::E::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "i = ", this->i);
+    Ice::print(os << ", s = ", this->s);
+}
+
 ::Ice::ValuePtr
 Test::E::_iceCloneImpl() const
 {
@@ -1480,6 +1543,13 @@ const char*
 Test::F::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::F::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "e1 = ", this->e1);
+    Ice::print(os << ", e2 = ", this->e2);
 }
 
 ::Ice::ValuePtr
@@ -1616,6 +1686,12 @@ Test::A1::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::A1::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+}
+
 ::Ice::ValuePtr
 Test::A1::_iceCloneImpl() const
 {
@@ -1650,6 +1726,13 @@ Test::B1::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::B1::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "a1 = ", this->a1);
+    Ice::print(os << ", a2 = ", this->a2);
+}
+
 ::Ice::ValuePtr
 Test::B1::_iceCloneImpl() const
 {
@@ -1682,6 +1765,14 @@ const char*
 Test::D1::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::D1::ice_printFields(std::ostream& os) const
+{
+    B1::ice_printFields(os);
+    Ice::print(os << ", a3 = ", this->a3);
+    Ice::print(os << ", a4 = ", this->a4);
 }
 
 ::Ice::ValuePtr
@@ -1798,6 +1889,12 @@ Test::Inner::A::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::Inner::A::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "theA = ", this->theA);
+}
+
 ::Ice::ValuePtr
 Test::Inner::A::_iceCloneImpl() const
 {
@@ -1864,6 +1961,12 @@ const char*
 Test::Inner::Sub::A::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::Inner::Sub::A::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "theA = ", this->theA);
 }
 
 ::Ice::ValuePtr
@@ -1934,6 +2037,12 @@ Test::Recursive::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::Recursive::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "v = ", this->v);
+}
+
 ::Ice::ValuePtr
 Test::Recursive::_iceCloneImpl() const
 {
@@ -1966,6 +2075,12 @@ const char*
 Test::K::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::K::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "value = ", this->value);
 }
 
 ::Ice::ValuePtr
@@ -2002,6 +2117,12 @@ Test::L::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::L::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "data = ", this->data);
+}
+
 ::Ice::ValuePtr
 Test::L::_iceCloneImpl() const
 {
@@ -2024,6 +2145,22 @@ Test::L::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::StructKey::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "i = ", this->i);
+    Ice::print(os << ", s = ", this->s);
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, const ::Test::StructKey& value)
+{
+    os << "Test::StructKey{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 Test::M::ice_staticId() noexcept
 {
@@ -2034,6 +2171,12 @@ const char*
 Test::M::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::M::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "v = ", this->v);
 }
 
 ::Ice::ValuePtr
@@ -2068,6 +2211,13 @@ const char*
 Test::F3::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+Test::F3::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "f1 = ", this->f1);
+    Ice::print(os << ", f2 = ", this->f2);
 }
 
 ::Ice::ValuePtr

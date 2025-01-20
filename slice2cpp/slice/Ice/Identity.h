@@ -59,7 +59,13 @@ struct Identity
     {
         return std::tie(name, category);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    ICE_API void ice_printFields(::std::ostream& os) const;
 };
+
+ICE_API ::std::ostream& operator<<(::std::ostream&, const Identity&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;

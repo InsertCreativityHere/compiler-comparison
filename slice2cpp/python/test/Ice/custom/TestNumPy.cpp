@@ -701,6 +701,18 @@ Test::NumPy::D::ice_id() const noexcept
     return ice_staticId();
 }
 
+void
+Test::NumPy::D::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "boolSeq = ", this->boolSeq);
+    Ice::print(os << ", byteSeq = ", this->byteSeq);
+    Ice::print(os << ", shortSeq = ", this->shortSeq);
+    Ice::print(os << ", intSeq = ", this->intSeq);
+    Ice::print(os << ", longSeq = ", this->longSeq);
+    Ice::print(os << ", floatSeq = ", this->floatSeq);
+    Ice::print(os << ", doubleSeq = ", this->doubleSeq);
+}
+
 ::Ice::ValuePtr
 Test::NumPy::D::_iceCloneImpl() const
 {

@@ -421,6 +421,25 @@ System::TestPrx::ice_staticId() noexcept
     return "::System::Test";
 }
 
+void
+await::break::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "while = ", this->while);
+    Ice::print(os << ", clone = ", this->clone);
+    Ice::print(os << ", equals = ", this->equals);
+    Ice::print(os << ", hashCode = ", this->hashCode);
+    Ice::print(os << ", constructor = ", this->constructor);
+}
+
+::std::ostream&
+await::operator<<(::std::ostream& os, const ::await::break& value)
+{
+    os << "await::break{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 await::delete::ice_staticId() noexcept
 {
@@ -431,6 +450,18 @@ const char*
 await::delete::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+await::delete::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "if = ", this->if);
+    Ice::print(os << ", else = ", this->else);
+    Ice::print(os << ", export = ", this->export);
+    Ice::print(os << ", clone = ", this->clone);
+    Ice::print(os << ", equals = ", this->equals);
+    Ice::print(os << ", hashCode = ", this->hashCode);
+    Ice::print(os << ", constructor = ", this->constructor);
 }
 
 ::Ice::ValuePtr
@@ -465,6 +496,17 @@ const char*
 await::package::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+await::package::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "for = ", this->for);
+    Ice::print(os << ", goto = ", this->goto);
+    Ice::print(os << ", if = ", this->if);
+    Ice::print(os << ", internal = ", this->internal);
+    Ice::print(os << ", debugger = ", this->debugger);
+    Ice::print(os << ", null = ", this->null);
 }
 
 ::Ice::ValuePtr

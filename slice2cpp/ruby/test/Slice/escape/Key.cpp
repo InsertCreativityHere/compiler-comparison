@@ -224,6 +224,21 @@ BEGIN::extendPrx::ice_staticId() noexcept
     return "::BEGIN::extend";
 }
 
+void
+BEGIN::and::ice_printFields(::std::ostream& os) const
+{
+    Ice::print(os << "begin = ", this->begin);
+}
+
+::std::ostream&
+BEGIN::operator<<(::std::ostream& os, const ::BEGIN::and& value)
+{
+    os << "BEGIN::and{";
+    value.ice_printFields(os);
+    os << '}';
+    return os;
+}
+
 const char*
 BEGIN::display::ice_staticId() noexcept
 {
@@ -234,6 +249,15 @@ const char*
 BEGIN::display::ice_id() const noexcept
 {
     return ice_staticId();
+}
+
+void
+BEGIN::display::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "when = ", this->when);
+    Ice::print(os << ", do = ", this->do);
+    Ice::print(os << ", dup = ", this->dup);
+    Ice::print(os << ", else = ", this->else);
 }
 
 ::Ice::ValuePtr

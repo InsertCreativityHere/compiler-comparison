@@ -222,7 +222,13 @@ struct TEstNv
     {
         return std::tie(d, s);
     }
+
+    /// Outputs the name and value of each field of this instance to the stream.
+    /// @param os The output stream.
+    void ice_printFields(::std::ostream& os) const;
 };
+
+::std::ostream& operator<<(::std::ostream&, const TEstNv&);
 
 using Ice::Tuple::operator<;
 using Ice::Tuple::operator<=;
