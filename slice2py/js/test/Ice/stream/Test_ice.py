@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright (c) ZeroC, Inc.
 #
 # Ice version 3.8.0-alpha.0
