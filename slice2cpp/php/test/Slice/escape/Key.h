@@ -406,8 +406,6 @@ public:
     ::std::int32_t empty;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     echo(const echo&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

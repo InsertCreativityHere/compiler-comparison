@@ -1199,8 +1199,6 @@ public:
     ::std::int32_t i;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CV(const CV&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1242,8 +1240,6 @@ public:
     ::Test::CVPtr v;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CR(const CR&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

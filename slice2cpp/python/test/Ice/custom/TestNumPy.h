@@ -368,8 +368,6 @@ public:
     ::std::optional<::Test::NumPy::DoubleSeq1> doubleSeq;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     D(const D&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

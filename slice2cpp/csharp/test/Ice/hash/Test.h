@@ -345,8 +345,6 @@ public:
     ::Test::Color color;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Pen(const Pen&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

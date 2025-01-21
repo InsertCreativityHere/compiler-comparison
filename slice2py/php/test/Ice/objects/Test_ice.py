@@ -262,68 +262,6 @@ if 'D' not in _M_Test.__dict__:
     _M_Test.D = D
     del D
 
-if 'E' not in _M_Test.__dict__:
-    _M_Test._t_E = IcePy.declareValue('::Test::E')
-
-if 'E' not in _M_Test.__dict__:
-    _M_Test.E = None
-    class E(Ice.Value):
-        def __init__(self, _i=0, _s=''):
-            self._i = _i
-            self._s = _s
-
-        def ice_id(self):
-            return '::Test::E'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::E'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_E)
-
-        __repr__ = __str__
-
-    _M_Test._t_E = IcePy.defineValue('::Test::E', E, -1, (), False, None, (
-        ('_i', (), IcePy._t_int, False, 0),
-        ('_s', (), IcePy._t_string, False, 0)
-    ))
-    E._ice_type = _M_Test._t_E
-
-    _M_Test.E = E
-    del E
-
-if 'F' not in _M_Test.__dict__:
-    _M_Test._t_F = IcePy.declareValue('::Test::F')
-
-if 'F' not in _M_Test.__dict__:
-    _M_Test.F = None
-    class F(Ice.Value):
-        def __init__(self, _e1=None, e2=None):
-            self._e1 = _e1
-            self.e2 = e2
-
-        def ice_id(self):
-            return '::Test::F'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::F'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_F)
-
-        __repr__ = __str__
-
-    _M_Test._t_F = IcePy.defineValue('::Test::F', F, -1, (), False, None, (
-        ('_e1', (), _M_Test._t_E, False, 0),
-        ('e2', (), _M_Test._t_E, False, 0)
-    ))
-    F._ice_type = _M_Test._t_F
-
-    _M_Test.F = F
-    del F
-
 if 'G' not in _M_Test.__dict__:
     _M_Test._t_G = IcePy.declareValue('::Test::G')
 
@@ -850,18 +788,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getDAsync(self, context=None):
             return _M_Test.Initial._op_getD.invokeAsync(self, ((), context))
 
-        def getE(self, context=None):
-            return _M_Test.Initial._op_getE.invoke(self, ((), context))
-
-        def getEAsync(self, context=None):
-            return _M_Test.Initial._op_getE.invokeAsync(self, ((), context))
-
-        def getF(self, context=None):
-            return _M_Test.Initial._op_getF.invoke(self, ((), context))
-
-        def getFAsync(self, context=None):
-            return _M_Test.Initial._op_getF.invokeAsync(self, ((), context))
-
         def setRecursive(self, p, context=None):
             return _M_Test.Initial._op_setRecursive.invoke(self, ((p, ), context))
 
@@ -1020,12 +946,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getD(self, current=None):
             raise NotImplementedError("servant method 'getD' not implemented")
 
-        def getE(self, current=None):
-            raise NotImplementedError("servant method 'getE' not implemented")
-
-        def getF(self, current=None):
-            raise NotImplementedError("servant method 'getF' not implemented")
-
         def setRecursive(self, p, current=None):
             raise NotImplementedError("servant method 'setRecursive' not implemented")
 
@@ -1125,8 +1045,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_getB2 = IcePy.Operation('getB2', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
     Initial._op_getC = IcePy.Operation('getC', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_C, False, 0), ())
     Initial._op_getD = IcePy.Operation('getD', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_D, False, 0), ())
-    Initial._op_getE = IcePy.Operation('getE', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_E, False, 0), ())
-    Initial._op_getF = IcePy.Operation('getF', Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_F, False, 0), ())
     Initial._op_setRecursive = IcePy.Operation('setRecursive', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Recursive, False, 0),), (), None, ())
     Initial._op_setCycle = IcePy.Operation('setCycle', Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Recursive, False, 0),), (), None, ())
     Initial._op_acceptsClassCycles = IcePy.Operation('acceptsClassCycles', Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())

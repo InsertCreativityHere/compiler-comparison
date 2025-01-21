@@ -675,7 +675,6 @@ public:
     /// @return The cloned value.
     [[nodiscard]] CPtr ice_clone() const { return ::std::static_pointer_cast<C>(_iceCloneImpl()); }
 
-protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -717,8 +716,6 @@ public:
     ::Test::IntStringDict isdict;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     DictClass(const DictClass&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

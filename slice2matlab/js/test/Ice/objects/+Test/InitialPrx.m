@@ -90,46 +90,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('getD', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
-        function result = getE(obj, varargin)
-            is_ = obj.iceInvoke('getE', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result_h_ = IceInternal.ValueHolder();
-            is_.readValue(@(v) result_h_.set(v), 'Test.E');
-            is_.readPendingValues();
-            is_.endEncapsulation();
-            result = result_h_.value;
-        end
-        function r_ = getEAsync(obj, varargin)
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = IceInternal.ValueHolder();
-                is_.readValue(@(v) result.set(v), 'Test.E');
-                is_.readPendingValues();
-                is_.endEncapsulation();
-                varargout{1} = result.value;
-            end
-            r_ = obj.iceInvokeAsync('getE', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = getF(obj, varargin)
-            is_ = obj.iceInvoke('getF', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result_h_ = IceInternal.ValueHolder();
-            is_.readValue(@(v) result_h_.set(v), 'Test.F');
-            is_.readPendingValues();
-            is_.endEncapsulation();
-            result = result_h_.value;
-        end
-        function r_ = getFAsync(obj, varargin)
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = IceInternal.ValueHolder();
-                is_.readValue(@(v) result.set(v), 'Test.F');
-                is_.readPendingValues();
-                is_.endEncapsulation();
-                varargout{1} = result.value;
-            end
-            r_ = obj.iceInvokeAsync('getF', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
         function setRecursive(obj, p, varargin)
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(p);

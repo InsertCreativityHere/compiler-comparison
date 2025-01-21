@@ -25,9 +25,9 @@ public class E extends com.zeroc.Ice.Value
         this.s = s;
     }
 
-    protected int i;
+    public int i;
 
-    protected String s;
+    public String s;
 
     public E clone()
     {

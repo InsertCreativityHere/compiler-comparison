@@ -41,12 +41,6 @@ namespace Test
     class D;
     using DPtr = ::std::shared_ptr<D>;
 
-    class E;
-    using EPtr = ::std::shared_ptr<E>;
-
-    class F;
-    using FPtr = ::std::shared_ptr<F>;
-
     class G;
     using GPtr = ::std::shared_ptr<G>;
 
@@ -199,28 +193,6 @@ public:
 
     /// \cond INTERNAL
     void _iceI_getD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<DPtr>>&, const ::Ice::Context&) const;
-    /// \endcond
-
-    EPtr getE(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] ::std::future<EPtr> getEAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getEAsync(::std::function<void(::Test::EPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<EPtr>>&, const ::Ice::Context&) const;
-    /// \endcond
-
-    FPtr getF(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] ::std::future<FPtr> getFAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getFAsync(::std::function<void(::Test::FPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FPtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
     void setRecursive(const RecursivePtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -708,8 +680,6 @@ public:
     ::std::string str;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Base(const Base&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -797,8 +767,6 @@ public:
     bool postUnmarshalInvoked;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     A(const A&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -841,8 +809,6 @@ public:
     ::Test::APtr theA;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     B(const B&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -888,8 +854,6 @@ public:
     bool postUnmarshalInvoked;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -939,105 +903,7 @@ public:
     bool postUnmarshalInvoked;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     D(const D&) = default;
-
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
-
-    void _iceReadImpl(::Ice::InputStream*) override;
-};
-
-class E : public ::Ice::Value
-{
-public:
-    /// Default constructor.
-    E() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    E(::std::int32_t i, ::std::string s) noexcept :
-        i(i),
-        s(::std::move(s))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&> ice_tuple() const
-    {
-        return std::tie(i, s);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] EPtr ice_clone() const { return ::std::static_pointer_cast<E>(_iceCloneImpl()); }
-
-protected:
-
-    ::std::int32_t i;
-    ::std::string s;
-
-    void ice_printFields(std::ostream& os) const override;
-
-    E(const E&) = default;
-
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
-
-    void _iceReadImpl(::Ice::InputStream*) override;
-};
-
-class F : public ::Ice::Value
-{
-public:
-    /// Default constructor.
-    F() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    F(::Test::EPtr e1, ::Test::EPtr e2) noexcept :
-        e1(::std::move(e1)),
-        e2(::std::move(e2))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::EPtr&, const ::Test::EPtr&> ice_tuple() const
-    {
-        return std::tie(e1, e2);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] FPtr ice_clone() const { return ::std::static_pointer_cast<F>(_iceCloneImpl()); }
-
-protected:
-
-    ::Test::EPtr e1;
-
-public:
-
-    ::Test::EPtr e2;
-
-    void ice_printFields(std::ostream& os) const override;
-
-protected:
-    F(const F&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
 
@@ -1060,7 +926,6 @@ public:using Base::Base;
     /// @return The cloned value.
     [[nodiscard]] GPtr ice_clone() const { return ::std::static_pointer_cast<G>(_iceCloneImpl()); }
 
-protected:
     G(const G&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1086,7 +951,6 @@ public:
     /// @return The cloned value.
     [[nodiscard]] CompactPtr ice_clone() const { return ::std::static_pointer_cast<Compact>(_iceCloneImpl()); }
 
-protected:
     Compact(const Compact&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1110,7 +974,6 @@ public:using Compact::Compact;
     /// @return The cloned value.
     [[nodiscard]] CompactExtPtr ice_clone() const { return ::std::static_pointer_cast<CompactExt>(_iceCloneImpl()); }
 
-protected:
     CompactExt(const CompactExt&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1155,8 +1018,6 @@ public:
     ::Test::APtr theA;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     A(const A&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1241,8 +1102,6 @@ public:
     ::Test::Inner::APtr theA;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     A(const A&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1328,8 +1187,6 @@ public:
     ::std::string name;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     A1(const A1&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1373,8 +1230,6 @@ public:
     ::Test::A1Ptr a2;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     B1(const B1&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1419,8 +1274,6 @@ public:
     ::Test::A1Ptr a4;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     D1(const D1&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1551,8 +1404,6 @@ public:
     ::Test::RecursivePtr v;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Recursive(const Recursive&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1594,8 +1445,6 @@ public:
     ::Ice::ValuePtr value;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     K(const K&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1637,8 +1486,6 @@ public:
     ::std::string data;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     L(const L&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1699,8 +1546,6 @@ public:
     ::Test::LMap v;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     M(const M&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1744,8 +1589,6 @@ public:
     ::std::optional<::Test::F2Prx> f2;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     F3(const F3&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1771,7 +1614,6 @@ public:
     /// @return The cloned value.
     [[nodiscard]] EmptyPtr ice_clone() const { return ::std::static_pointer_cast<Empty>(_iceCloneImpl()); }
 
-protected:
     Empty(const Empty&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1797,7 +1639,6 @@ public:
     /// @return The cloned value.
     [[nodiscard]] AlsoEmptyPtr ice_clone() const { return ::std::static_pointer_cast<AlsoEmpty>(_iceCloneImpl()); }
 
-protected:
     AlsoEmpty(const AlsoEmpty&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1839,8 +1680,6 @@ public:
     ::Test::EmptyPtr e;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     COneMember(const COneMember&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1884,8 +1723,6 @@ public:
     ::Test::EmptyPtr e2;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CTwoMembers(const CTwoMembers&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -2077,16 +1914,6 @@ public:
     virtual DPtr getD(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_getD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual EPtr getE(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getE(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual FPtr getF(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getF(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void setRecursive(RecursivePtr p, const ::Ice::Current& current) = 0;

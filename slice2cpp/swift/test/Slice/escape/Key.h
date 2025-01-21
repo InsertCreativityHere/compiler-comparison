@@ -367,8 +367,6 @@ public:
     ::std::int32_t volatile;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     switch(const switch&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

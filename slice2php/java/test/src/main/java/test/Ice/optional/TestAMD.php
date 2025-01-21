@@ -848,10 +848,9 @@ namespace Test
     global $Test__t_OptionalWithCustom;
     class OptionalWithCustom extends \Ice\Value
     {
-        public function __construct($l=\Ice\None, $lp=\Ice\None)
+        public function __construct($l=\Ice\None)
         {
             $this->l = $l;
-            $this->lp = $lp;
         }
 
         public function ice_id()
@@ -871,14 +870,12 @@ namespace Test
         }
 
         public $l;
-        protected $lp;
     }
 
     global $Ice__t_Value;
     global $Test__t_SmallStructList;
     $Test__t_OptionalWithCustom = IcePHP_defineClass('::Test::OptionalWithCustom', '\\Test\\OptionalWithCustom', -1, false, $Ice__t_Value, array(
-        array('l', $Test__t_SmallStructList, true, 1),
-        array('lp', $Test__t_SmallStructList, true, 2)));
+        array('l', $Test__t_SmallStructList, true, 1)));
 }
 
 namespace Test

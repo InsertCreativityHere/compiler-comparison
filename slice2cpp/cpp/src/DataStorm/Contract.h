@@ -1254,8 +1254,6 @@ public:
     ::std::optional<::DataStormContract::ClearHistoryPolicy> clearHistory;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     ElementConfig(const ElementConfig&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

@@ -6,17 +6,12 @@ classdef OptionalWithCustom < Ice.Value
     properties
         l
     end
-    properties(Access=protected)
-        lp
-    end
     methods
-        function obj = OptionalWithCustom(l, lp)
+        function obj = OptionalWithCustom(l)
             if nargin == 0
                 obj.l = IceInternal.UnsetI.Instance;
-                obj.lp = IceInternal.UnsetI.Instance;
             elseif ne(l, IceInternal.NoInit.Instance)
                 obj.l = l;
-                obj.lp = lp;
             end
         end
         function id = ice_id(obj)
@@ -27,13 +22,11 @@ classdef OptionalWithCustom < Ice.Value
         function iceWriteImpl(obj, os)
             os.startSlice('::Test::OptionalWithCustom', -1, true);
             Test.SmallStructList.writeOpt(os, 1, obj.l);
-            Test.SmallStructList.writeOpt(os, 2, obj.lp);
             os.endSlice();
         end
         function iceReadImpl(obj, is)
             is.startSlice();
             obj.l = Test.SmallStructList.readOpt(is, 1);
-            obj.lp = Test.SmallStructList.readOpt(is, 2);
             is.endSlice();
         end
     end

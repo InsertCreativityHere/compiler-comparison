@@ -471,8 +471,6 @@ public:
     ::Test::StringTuple s4;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -526,8 +524,6 @@ public:
     ::std::optional<::Test::DoubleSeq1> doubleSeq;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     D(const D&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

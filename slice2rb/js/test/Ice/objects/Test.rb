@@ -171,7 +171,6 @@ module ::Test
             end
 
             attr_accessor :i, :s
-            protected :i, :i=, :s, :s=
         end
 
         T_E.defineClass(E, -1, false, nil, [
@@ -193,7 +192,6 @@ module ::Test
             end
 
             attr_accessor :e1, :e2
-            protected :e1, :e1=
         end
 
         T_F.defineClass(F, -1, false, nil, [
@@ -570,14 +568,6 @@ module ::Test
                 InitialPrx_mixin::OP_getD.invoke(self, [], context)
             end
 
-            def getE(context=nil)
-                InitialPrx_mixin::OP_getE.invoke(self, [], context)
-            end
-
-            def getF(context=nil)
-                InitialPrx_mixin::OP_getF.invoke(self, [], context)
-            end
-
             def setRecursive(p, context=nil)
                 InitialPrx_mixin::OP_setRecursive.invoke(self, [p], context)
             end
@@ -687,8 +677,6 @@ module ::Test
         InitialPrx_mixin::OP_getB2 = ::Ice::__defineOperation('getB2', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_B, false, 0], [])
         InitialPrx_mixin::OP_getC = ::Ice::__defineOperation('getC', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_C, false, 0], [])
         InitialPrx_mixin::OP_getD = ::Ice::__defineOperation('getD', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_D, false, 0], [])
-        InitialPrx_mixin::OP_getE = ::Ice::__defineOperation('getE', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_E, false, 0], [])
-        InitialPrx_mixin::OP_getF = ::Ice::__defineOperation('getF', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_F, false, 0], [])
         InitialPrx_mixin::OP_setRecursive = ::Ice::__defineOperation('setRecursive', ::Ice::OperationMode::Normal, nil, [[::Test::T_Recursive, false, 0]], [], nil, [])
         InitialPrx_mixin::OP_setCycle = ::Ice::__defineOperation('setCycle', ::Ice::OperationMode::Normal, nil, [[::Test::T_Recursive, false, 0]], [], nil, [])
         InitialPrx_mixin::OP_acceptsClassCycles = ::Ice::__defineOperation('acceptsClassCycles', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])

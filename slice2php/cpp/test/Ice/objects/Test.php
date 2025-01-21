@@ -304,95 +304,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_E;
-    $Test__t_E = IcePHP_declareClass('::Test::E');
-}
-
-namespace Test
-{
-    global $Test__t_E;
-    class E extends \Ice\Value
-    {
-        public function __construct($i=0, $s='')
-        {
-            $this->i = $i;
-            $this->s = $s;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::E';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::E';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_E;
-            return IcePHP_stringify($this, $Test__t_E);
-        }
-
-        protected $i;
-        protected $s;
-    }
-
-    global $Ice__t_Value;
-    global $IcePHP__t_int;
-    global $IcePHP__t_string;
-    $Test__t_E = IcePHP_defineClass('::Test::E', '\\Test\\E', -1, false, $Ice__t_Value, array(
-        array('i', $IcePHP__t_int, false, 0),
-        array('s', $IcePHP__t_string, false, 0)));
-}
-
-namespace Test
-{
-    global $Test__t_F;
-    $Test__t_F = IcePHP_declareClass('::Test::F');
-}
-
-namespace Test
-{
-    global $Test__t_F;
-    class F extends \Ice\Value
-    {
-        public function __construct($e1=null, $e2=null)
-        {
-            $this->e1 = $e1;
-            $this->e2 = $e2;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::F';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::F';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_F;
-            return IcePHP_stringify($this, $Test__t_F);
-        }
-
-        protected $e1;
-        public $e2;
-    }
-
-    global $Ice__t_Value;
-    global $Test__t_E;
-    $Test__t_F = IcePHP_defineClass('::Test::F', '\\Test\\F', -1, false, $Ice__t_Value, array(
-        array('e1', $Test__t_E, false, 0),
-        array('e2', $Test__t_E, false, 0)));
-}
-
-namespace Test
-{
     global $Test__t_G;
     $Test__t_G = IcePHP_declareClass('::Test::G');
 }
@@ -1283,8 +1194,6 @@ namespace Test
     global $Test__t_B;
     global $Test__t_C;
     global $Test__t_D;
-    global $Test__t_E;
-    global $Test__t_F;
     global $Test__t_Recursive;
     global $IcePHP__t_bool;
     global $Test__t_K;
@@ -1306,8 +1215,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'getB2', 0, -1, null, null, array($Test__t_B), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'getC', 0, -1, null, null, array($Test__t_C), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'getD', 0, -1, null, null, array($Test__t_D), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getE', 0, -1, null, null, array($Test__t_E), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getF', 0, -1, null, null, array($Test__t_F), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'setRecursive', 0, -1, array(array($Test__t_Recursive)), null, null, null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'setCycle', 0, -1, array(array($Test__t_Recursive)), null, null, null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'acceptsClassCycles', 0, -1, null, null, array($IcePHP__t_bool), null);

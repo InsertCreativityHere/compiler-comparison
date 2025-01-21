@@ -296,8 +296,6 @@ public:
     ::std::string description;
 
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     CommunicatorDescriptor(const CommunicatorDescriptor&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -421,8 +419,6 @@ public:
     ::std::string user;
 
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     ServerDescriptor(const ServerDescriptor&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -476,8 +472,6 @@ public:
     ::std::string entry;
 
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     ServiceDescriptor(const ServiceDescriptor&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -617,8 +611,6 @@ public:
     ::IceGrid::ServiceInstanceDescriptorSeq services;
 
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     IceBoxDescriptor(const IceBoxDescriptor&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -693,8 +685,6 @@ public:
     ::std::string nReplicas;
 
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     LoadBalancingPolicy(const LoadBalancingPolicy&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -719,7 +709,6 @@ public:using LoadBalancingPolicy::LoadBalancingPolicy;
     /// @return The cloned value.
     [[nodiscard]] RandomLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<RandomLoadBalancingPolicy>(_iceCloneImpl()); }
 
-protected:
     RandomLoadBalancingPolicy(const RandomLoadBalancingPolicy&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -744,7 +733,6 @@ public:using LoadBalancingPolicy::LoadBalancingPolicy;
     /// @return The cloned value.
     [[nodiscard]] OrderedLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<OrderedLoadBalancingPolicy>(_iceCloneImpl()); }
 
-protected:
     OrderedLoadBalancingPolicy(const OrderedLoadBalancingPolicy&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -769,7 +757,6 @@ public:using LoadBalancingPolicy::LoadBalancingPolicy;
     /// @return The cloned value.
     [[nodiscard]] RoundRobinLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast<RoundRobinLoadBalancingPolicy>(_iceCloneImpl()); }
 
-protected:
     RoundRobinLoadBalancingPolicy(const RoundRobinLoadBalancingPolicy&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -817,8 +804,6 @@ public:
     ::std::string loadSample;
 
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     AdaptiveLoadBalancingPolicy(const AdaptiveLoadBalancingPolicy&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -929,8 +914,6 @@ public:
     ::std::string value;
 
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     BoxedString(const BoxedString&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1013,8 +996,6 @@ public:
     ::IceGrid::DistributionDescriptor value;
 
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     BoxedDistributionDescriptor(const BoxedDistributionDescriptor&) = default;
 
     ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

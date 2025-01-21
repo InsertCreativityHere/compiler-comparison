@@ -250,8 +250,6 @@ public:
     ::std::optional<::std::int32_t> i;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     OptionalClass(const OptionalClass&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -319,8 +317,6 @@ public:
     ::Test::StringMyClassD d;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     MyClass(const MyClass&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

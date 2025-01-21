@@ -585,8 +585,6 @@ public:
     ::std::string sb;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     SBase(const SBase&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -629,8 +627,6 @@ public:
     ::std::string sbskd;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     SBSKnownDerived(const SBSKnownDerived&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -674,8 +670,6 @@ public:
     ::Test::BPtr pb;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     B(const B&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -720,8 +714,6 @@ public:
     ::Test::BPtr pd1;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     D1(const D1&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -763,8 +755,6 @@ public:
     ::Test::BSeq s;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     SS1(const SS1&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -806,8 +796,6 @@ public:
     ::Test::BSeq s;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     SS2(const SS2&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -957,8 +945,6 @@ public:
     ::std::int32_t pi;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     PBase(const PBase&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1001,8 +987,6 @@ public:
     ::std::string ps;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Preserved(const Preserved&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1045,8 +1029,6 @@ public:
     ::Test::PBasePtr pb;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     PDerived(const PDerived&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1089,8 +1071,6 @@ public:
     ::Test::PBasePtr pb;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CompactPDerived(const CompactPDerived&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1132,8 +1112,6 @@ public:
     ::Test::PNodePtr next;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     PNode(const PNode&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1195,8 +1173,6 @@ public:
     ::Test::BPtr pd3;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     D3(const D3&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1239,8 +1215,6 @@ public:
     ::std::string pu;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     PCUnknown(const PCUnknown&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1283,8 +1257,6 @@ public:
     ::Test::PBaseSeq pbs;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     PCDerived(const PCDerived&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1327,8 +1299,6 @@ public:
     ::std::int32_t pcd2;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     PCDerived2(const PCDerived2&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1371,8 +1341,6 @@ public:
     ::Ice::ValuePtr pcd3;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     PCDerived3(const PCDerived3&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1415,8 +1383,6 @@ public:
     ::Test::PBaseSeq pbs;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CompactPCDerived(const CompactPCDerived&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1458,8 +1424,6 @@ public:
     ::Test::ForwardPtr f;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Hidden(const Hidden&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1501,8 +1465,6 @@ public:
     ::Test::HiddenPtr h;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Forward(const Forward&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

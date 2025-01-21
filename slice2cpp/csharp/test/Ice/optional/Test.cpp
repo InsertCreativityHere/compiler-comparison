@@ -46,7 +46,6 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::OptionalException> iceC_Test_OptionalException_init("::Test::OptionalException");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedException> iceC_Test_DerivedException_init("::Test::DerivedException");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::RequiredException> iceC_Test_RequiredException_init("::Test::RequiredException");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::OptionalWithCustom> iceC_Test_OptionalWithCustom_init("::Test::OptionalWithCustom");
     const ::IceInternal::DefaultValueFactoryInit<::Test::E> iceC_Test_E_init("::Test::E");
     const ::IceInternal::DefaultValueFactoryInit<::Test::F> iceC_Test_F_init("::Test::F");
     const ::IceInternal::DefaultValueFactoryInit<::Test::G> iceC_Test_G_init("::Test::G");
@@ -2400,47 +2399,6 @@ Test::RequiredException::_readImpl(::Ice::InputStream* istr)
     istr->readAll(this->ss);
     istr->endSlice();
     OptionalException::_readImpl(istr);
-}
-
-const char*
-Test::OptionalWithCustom::ice_staticId() noexcept
-{
-    return "::Test::OptionalWithCustom";
-}
-
-const char*
-Test::OptionalWithCustom::ice_id() const noexcept
-{
-    return ice_staticId();
-}
-
-void
-Test::OptionalWithCustom::ice_printFields(std::ostream& os) const
-{
-    Ice::print(os << "l = ", this->l);
-    Ice::print(os << ", lp = ", this->lp);
-}
-
-::Ice::ValuePtr
-Test::OptionalWithCustom::_iceCloneImpl() const
-{
-    return CloneEnabler<OptionalWithCustom>::clone(*this);
-}
-
-void
-Test::OptionalWithCustom::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll({1, 2}, this->l, this->lp);
-    ostr->endSlice();
-}
-
-void
-Test::OptionalWithCustom::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    istr->readAll({1, 2}, this->l, this->lp);
-    istr->endSlice();
 }
 
 const char*

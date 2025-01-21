@@ -84,8 +84,6 @@ public:
     ::std::int32_t value;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     ClassKey(const ClassKey&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

@@ -489,19 +489,14 @@ module ::Test
     if not defined?(::Test::OptionalWithCustom)
         class OptionalWithCustom < ::Ice::Value
 
-            def initialize(l=::Ice::Unset, lp=::Ice::Unset)
+            def initialize(l=::Ice::Unset)
                 @l = l
-                @lp = lp
             end
 
-            attr_accessor :l, :lp
-            protected :lp, :lp=
+            attr_accessor :l
         end
 
-        T_OptionalWithCustom.defineClass(OptionalWithCustom, -1, false, nil, [
-            ['l', ::Test::T_SmallStructList, true, 1],
-            ['lp', ::Test::T_SmallStructList, true, 2]
-        ])
+        T_OptionalWithCustom.defineClass(OptionalWithCustom, -1, false, nil, [['l', ::Test::T_SmallStructList, true, 1]])
     end
 
     if not defined?(::Test::T_E)

@@ -731,9 +731,8 @@ if 'OptionalWithCustom' not in _M_Test.__dict__:
 if 'OptionalWithCustom' not in _M_Test.__dict__:
     _M_Test.OptionalWithCustom = None
     class OptionalWithCustom(Ice.Value):
-        def __init__(self, l=None, _lp=None):
+        def __init__(self, l=None):
             self.l = l
-            self._lp = _lp
 
         def ice_id(self):
             return '::Test::OptionalWithCustom'
@@ -747,10 +746,7 @@ if 'OptionalWithCustom' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_OptionalWithCustom = IcePy.defineValue('::Test::OptionalWithCustom', OptionalWithCustom, -1, (), False, None, (
-        ('l', (), _M_Test._t_SmallStructList, True, 1),
-        ('_lp', (), _M_Test._t_SmallStructList, True, 2)
-    ))
+    _M_Test._t_OptionalWithCustom = IcePy.defineValue('::Test::OptionalWithCustom', OptionalWithCustom, -1, (), False, None, (('l', (), _M_Test._t_SmallStructList, True, 1),))
     OptionalWithCustom._ice_type = _M_Test._t_OptionalWithCustom
 
     _M_Test.OptionalWithCustom = OptionalWithCustom

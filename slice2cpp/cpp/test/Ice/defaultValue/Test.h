@@ -276,8 +276,6 @@ public:
     double zeroDotD = 0;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Base(const Base&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -330,8 +328,6 @@ public:
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Derived(const Derived&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

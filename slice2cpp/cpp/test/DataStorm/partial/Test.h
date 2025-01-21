@@ -68,8 +68,6 @@ public:
     float lastAsk;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Stock(const Stock&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

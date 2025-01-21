@@ -101,9 +101,6 @@ namespace Test
     class WD;
     using WDPtr = ::std::shared_ptr<WD>;
 
-    class OptionalWithCustom;
-    using OptionalWithCustomPtr = ::std::shared_ptr<OptionalWithCustom>;
-
     class E;
     using EPtr = ::std::shared_ptr<E>;
 
@@ -779,8 +776,6 @@ public:
     ::std::optional<::std::int32_t> a;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     OneOptional(const OneOptional&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -928,8 +923,6 @@ public:
     ::std::optional<::Test::Serializable> ser;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     MultiOptional(const MultiOptional&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -977,8 +970,6 @@ public:
     ::std::optional<::std::int32_t> mc;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     A(const A&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1023,8 +1014,6 @@ public:
     ::std::optional<::std::int32_t> md;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     B(const B&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1069,8 +1058,6 @@ public:
     ::std::optional<::std::string> ms;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1114,8 +1101,6 @@ public:
     ::std::optional<::std::string> s{"test"};
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     WD(const WD&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1255,53 +1240,6 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-class OptionalWithCustom : public ::Ice::Value
-{
-public:
-    /// Default constructor.
-    OptionalWithCustom() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    OptionalWithCustom(::std::optional<::Test::SmallStructList> l, ::std::optional<::Test::SmallStructList> lp) noexcept :
-        l(::std::move(l)),
-        lp(::std::move(lp))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::optional<::Test::SmallStructList>&, const ::std::optional<::Test::SmallStructList>&> ice_tuple() const
-    {
-        return std::tie(l, lp);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] OptionalWithCustomPtr ice_clone() const { return ::std::static_pointer_cast<OptionalWithCustom>(_iceCloneImpl()); }
-
-    ::std::optional<::Test::SmallStructList> l;
-
-protected:
-
-    ::std::optional<::Test::SmallStructList> lp;
-
-    void ice_printFields(std::ostream& os) const override;
-
-    OptionalWithCustom(const OptionalWithCustom&) = default;
-
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
-
-    void _iceReadImpl(::Ice::InputStream*) override;
-};
-
 class E : public ::Ice::Value
 {
 public:
@@ -1334,8 +1272,6 @@ public:
     ::Test::FixedStruct fse;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     E(const E&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1378,8 +1314,6 @@ public:
     ::std::optional<::Test::FixedStruct> fsf;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     F(const F&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1463,8 +1397,6 @@ public:
     ::Test::G1 gg1;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     G(const G&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

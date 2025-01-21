@@ -69,8 +69,6 @@ public:
     ::std::int32_t y;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Default(const Default&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -114,8 +112,6 @@ public:
     ::std::int32_t y = 10;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     NoDefault(const NoDefault&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

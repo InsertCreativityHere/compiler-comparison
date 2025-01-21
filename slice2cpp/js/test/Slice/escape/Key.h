@@ -574,8 +574,6 @@ public:
     ::std::string constructor;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     delete(const delete&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -627,8 +625,6 @@ public:
     ::std::optional<::await::explicitPrx> null;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     package(const package&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

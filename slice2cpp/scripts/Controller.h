@@ -556,8 +556,6 @@ public:
     ::std::optional<::Test::Common::StringSeq> sprops;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Config(const Config&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -607,8 +605,6 @@ public:
     ::std::optional<::Test::Common::BoolSeq> ipv6;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     OptionOverrides(const OptionOverrides&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

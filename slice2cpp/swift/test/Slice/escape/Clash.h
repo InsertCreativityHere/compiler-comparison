@@ -278,8 +278,6 @@ public:
     ::std::string proxy;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Cls(const Cls&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

@@ -112,7 +112,6 @@ public:
     /// @return The cloned value.
     [[nodiscard]] UserInfoPtr ice_clone() const { return ::std::static_pointer_cast<UserInfo>(_iceCloneImpl()); }
 
-protected:
     UserInfo(const UserInfo&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

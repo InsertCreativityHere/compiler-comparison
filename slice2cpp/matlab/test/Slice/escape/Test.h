@@ -250,8 +250,6 @@ public:
     bool int64 = true;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     logical(const logical&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -294,8 +292,6 @@ public:
     ::std::int32_t return = 1;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     xor(const xor&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -339,8 +335,6 @@ public:
     ::std::int32_t delete = 2;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     try(const try&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -389,8 +383,6 @@ public:
     ::classdef::break::switch otherwise;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     properties(const properties&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

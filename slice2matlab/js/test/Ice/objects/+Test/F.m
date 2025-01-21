@@ -4,10 +4,8 @@
 
 classdef F < Ice.Value
     properties
-        e2
-    end
-    properties(Access=protected)
         e1
+        e2
     end
     methods
         function obj = F(e1, e2)

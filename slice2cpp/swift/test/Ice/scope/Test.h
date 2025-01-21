@@ -752,8 +752,6 @@ public:
     ::Test::S s;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -813,8 +811,6 @@ public:
     ::std::string s;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     C1(const C1&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -886,8 +882,6 @@ public:
     ::Test::S1Map S1Map;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     C2(const C2&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -971,8 +965,6 @@ public:
     ::Test::Inner::Inner2::S s;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1023,8 +1015,6 @@ public:
     ::Test::Inner::S s;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

@@ -67,8 +67,6 @@ public:
     ::std::string b;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Derived(const Derived&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

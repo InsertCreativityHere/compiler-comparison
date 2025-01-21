@@ -2462,7 +2462,6 @@ void
 Test::OptionalWithCustom::ice_printFields(std::ostream& os) const
 {
     Ice::print(os << "l = ", this->l);
-    Ice::print(os << ", lp = ", this->lp);
 }
 
 ::Ice::ValuePtr
@@ -2475,7 +2474,7 @@ void
 Test::OptionalWithCustom::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll({1, 2}, this->l, this->lp);
+    ostr->writeAll({1}, this->l);
     ostr->endSlice();
 }
 
@@ -2483,7 +2482,7 @@ void
 Test::OptionalWithCustom::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    istr->readAll({1, 2}, this->l, this->lp);
+    istr->readAll({1}, this->l);
     istr->endSlice();
 }
 

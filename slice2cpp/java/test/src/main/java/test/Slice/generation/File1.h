@@ -115,7 +115,6 @@ public:
     /// @return The cloned value.
     [[nodiscard]] Class1Ptr ice_clone() const { return ::std::static_pointer_cast<Class1>(_iceCloneImpl()); }
 
-protected:
     Class1(const Class1&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

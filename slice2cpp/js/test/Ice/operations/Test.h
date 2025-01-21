@@ -1391,8 +1391,6 @@ public:
     ::std::string myClass1;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     MyClass1(const MyClass1&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

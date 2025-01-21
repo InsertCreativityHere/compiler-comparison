@@ -42,8 +42,6 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::B> iceC_Test_B_init("::Test::B");
     const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
     const ::IceInternal::DefaultValueFactoryInit<::Test::D> iceC_Test_D_init("::Test::D");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::E> iceC_Test_E_init("::Test::E");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::F> iceC_Test_F_init("::Test::F");
     const ::IceInternal::DefaultValueFactoryInit<::Test::G> iceC_Test_G_init("::Test::G");
     const ::IceInternal::DefaultValueFactoryInit<::Test::Compact> iceC_Test_Compact_init("::Test::Compact");
     const ::IceInternal::CompactIdInit iceC_Test_Compact_compactIdInit ("::Test::Compact", 1);
@@ -244,78 +242,6 @@ Test::InitialPrx::_iceI_getD(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         [](::Ice::InputStream* istr)
         {
             DPtr ret;
-            istr->readAll(ret);
-            istr->readPendingValues();
-            return ret;
-        });
-}
-
-::Test::EPtr
-Test::InitialPrx::getE(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<EPtr>(true, this, &InitialPrx::_iceI_getE, context).get();
-}
-
-::std::future<::Test::EPtr>
-Test::InitialPrx::getEAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<EPtr>(false, this, &InitialPrx::_iceI_getE, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::getEAsync(::std::function<void(::Test::EPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<EPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getE, context);
-}
-
-void
-Test::InitialPrx::_iceI_getE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<EPtr>>& outAsync, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "getE";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        nullptr,
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            EPtr ret;
-            istr->readAll(ret);
-            istr->readPendingValues();
-            return ret;
-        });
-}
-
-::Test::FPtr
-Test::InitialPrx::getF(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<FPtr>(true, this, &InitialPrx::_iceI_getF, context).get();
-}
-
-::std::future<::Test::FPtr>
-Test::InitialPrx::getFAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<FPtr>(false, this, &InitialPrx::_iceI_getF, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::getFAsync(::std::function<void(::Test::FPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<FPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getF, context);
-}
-
-void
-Test::InitialPrx::_iceI_getF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FPtr>>& outAsync, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "getF";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        nullptr,
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            FPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -1343,88 +1269,6 @@ Test::D::_iceReadImpl(::Ice::InputStream* istr)
 }
 
 const char*
-Test::E::ice_staticId() noexcept
-{
-    return "::Test::E";
-}
-
-const char*
-Test::E::ice_id() const noexcept
-{
-    return ice_staticId();
-}
-
-void
-Test::E::ice_printFields(std::ostream& os) const
-{
-    Ice::print(os << "i = ", this->i);
-    Ice::print(os << ", s = ", this->s);
-}
-
-::Ice::ValuePtr
-Test::E::_iceCloneImpl() const
-{
-    return CloneEnabler<E>::clone(*this);
-}
-
-void
-Test::E::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll(this->i, this->s);
-    ostr->endSlice();
-}
-
-void
-Test::E::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    istr->readAll(this->i, this->s);
-    istr->endSlice();
-}
-
-const char*
-Test::F::ice_staticId() noexcept
-{
-    return "::Test::F";
-}
-
-const char*
-Test::F::ice_id() const noexcept
-{
-    return ice_staticId();
-}
-
-void
-Test::F::ice_printFields(std::ostream& os) const
-{
-    Ice::print(os << "e1 = ", this->e1);
-    Ice::print(os << ", e2 = ", this->e2);
-}
-
-::Ice::ValuePtr
-Test::F::_iceCloneImpl() const
-{
-    return CloneEnabler<F>::clone(*this);
-}
-
-void
-Test::F::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll(this->e1, this->e2);
-    ostr->endSlice();
-}
-
-void
-Test::F::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    istr->readAll(this->e1, this->e2);
-    istr->endSlice();
-}
-
-const char*
 Test::G::ice_staticId() noexcept
 {
     return "::Test::G";
@@ -2320,42 +2164,6 @@ Test::Initial::_iceD_getD(
 
 /// \cond INTERNAL
 void
-Test::Initial::_iceD_getE(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    request.inputStream().skipEmptyEncapsulation();
-    const EPtr ret = this->getE(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(ret);
-            ostr->writePendingValues();
-        },
-        request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::Initial::_iceD_getF(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    request.inputStream().skipEmptyEncapsulation();
-    const FPtr ret = this->getF(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(ret);
-            ostr->writePendingValues();
-        },
-        request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::Initial::_iceD_setRecursive(
     ::Ice::IncomingRequest& request,
     ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
@@ -2758,10 +2566,10 @@ Test::Initial::_iceD_hasF3(
 void
 Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"acceptsClassCycles", "getAMDMB", "getAll", "getB1", "getB2", "getC", "getCompact", "getD", "getD1", "getE", "getF", "getK", "getMB", "hasF3", "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBaseSeq", "opF1", "opF2", "opF3", "opValue", "opValueMap", "opValueSeq", "setCycle", "setG", "setRecursive", "shutdown", "throwEDerived"};
+    static constexpr ::std::string_view allOperations[] = {"acceptsClassCycles", "getAMDMB", "getAll", "getB1", "getB2", "getC", "getCompact", "getD", "getD1", "getK", "getMB", "hasF3", "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBaseSeq", "opF1", "opF2", "opF3", "opValue", "opValueMap", "opValueSeq", "setCycle", "setG", "setRecursive", "shutdown", "throwEDerived"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 30, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 28, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
@@ -2817,105 +2625,95 @@ Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         }
         case 9:
         {
-            _iceD_getE(request, ::std::move(sendResponse));
+            _iceD_getK(request, ::std::move(sendResponse));
             break;
         }
         case 10:
         {
-            _iceD_getF(request, ::std::move(sendResponse));
+            _iceD_getMB(request, ::std::move(sendResponse));
             break;
         }
         case 11:
         {
-            _iceD_getK(request, ::std::move(sendResponse));
+            _iceD_hasF3(request, ::std::move(sendResponse));
             break;
         }
         case 12:
         {
-            _iceD_getMB(request, ::std::move(sendResponse));
+            _iceD_ice_id(request, ::std::move(sendResponse));
             break;
         }
         case 13:
         {
-            _iceD_hasF3(request, ::std::move(sendResponse));
+            _iceD_ice_ids(request, ::std::move(sendResponse));
             break;
         }
         case 14:
         {
-            _iceD_ice_id(request, ::std::move(sendResponse));
+            _iceD_ice_isA(request, ::std::move(sendResponse));
             break;
         }
         case 15:
         {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
+            _iceD_ice_ping(request, ::std::move(sendResponse));
             break;
         }
         case 16:
         {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
+            _iceD_opBaseSeq(request, ::std::move(sendResponse));
             break;
         }
         case 17:
         {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
+            _iceD_opF1(request, ::std::move(sendResponse));
             break;
         }
         case 18:
         {
-            _iceD_opBaseSeq(request, ::std::move(sendResponse));
+            _iceD_opF2(request, ::std::move(sendResponse));
             break;
         }
         case 19:
         {
-            _iceD_opF1(request, ::std::move(sendResponse));
+            _iceD_opF3(request, ::std::move(sendResponse));
             break;
         }
         case 20:
         {
-            _iceD_opF2(request, ::std::move(sendResponse));
+            _iceD_opValue(request, ::std::move(sendResponse));
             break;
         }
         case 21:
         {
-            _iceD_opF3(request, ::std::move(sendResponse));
+            _iceD_opValueMap(request, ::std::move(sendResponse));
             break;
         }
         case 22:
         {
-            _iceD_opValue(request, ::std::move(sendResponse));
+            _iceD_opValueSeq(request, ::std::move(sendResponse));
             break;
         }
         case 23:
         {
-            _iceD_opValueMap(request, ::std::move(sendResponse));
+            _iceD_setCycle(request, ::std::move(sendResponse));
             break;
         }
         case 24:
         {
-            _iceD_opValueSeq(request, ::std::move(sendResponse));
+            _iceD_setG(request, ::std::move(sendResponse));
             break;
         }
         case 25:
         {
-            _iceD_setCycle(request, ::std::move(sendResponse));
+            _iceD_setRecursive(request, ::std::move(sendResponse));
             break;
         }
         case 26:
         {
-            _iceD_setG(request, ::std::move(sendResponse));
-            break;
-        }
-        case 27:
-        {
-            _iceD_setRecursive(request, ::std::move(sendResponse));
-            break;
-        }
-        case 28:
-        {
             _iceD_shutdown(request, ::std::move(sendResponse));
             break;
         }
-        case 29:
+        case 27:
         {
             _iceD_throwEDerived(request, ::std::move(sendResponse));
             break;

@@ -351,8 +351,6 @@ public:
     ::std::int32_t failures = 0;
 
     ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     Metrics(const Metrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -452,8 +450,6 @@ public:
     ::std::int32_t inUseForOther = 0;
 
     ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     ThreadMetrics(const ThreadMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -512,8 +508,6 @@ public:
     ::std::int64_t replySize = INT64_C(0);
 
     ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     DispatchMetrics(const DispatchMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -571,8 +565,6 @@ public:
     ::std::int64_t replySize = INT64_C(0);
 
     ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     ChildInvocationMetrics(const ChildInvocationMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -598,7 +590,6 @@ public:using ChildInvocationMetrics::ChildInvocationMetrics;
     /// @return The cloned value.
     [[nodiscard]] CollocatedMetricsPtr ice_clone() const { return ::std::static_pointer_cast<CollocatedMetrics>(_iceCloneImpl()); }
 
-protected:
     CollocatedMetrics(const CollocatedMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -624,7 +615,6 @@ public:using ChildInvocationMetrics::ChildInvocationMetrics;
     /// @return The cloned value.
     [[nodiscard]] RemoteMetricsPtr ice_clone() const { return ::std::static_pointer_cast<RemoteMetrics>(_iceCloneImpl()); }
 
-protected:
     RemoteMetrics(const RemoteMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -689,8 +679,6 @@ public:
     ::IceMX::MetricsMap collocated;
 
     ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     InvocationMetrics(const InvocationMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -745,8 +733,6 @@ public:
     ::std::int64_t sentBytes = INT64_C(0);
 
     ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
-
-protected:
     ConnectionMetrics(const ConnectionMetrics&) = default;
 
     ICE_MEMBER(ICE_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

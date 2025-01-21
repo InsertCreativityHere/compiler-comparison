@@ -239,8 +239,6 @@ public:
     ::Test::SLS SLSmem;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     Baz(const Baz&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

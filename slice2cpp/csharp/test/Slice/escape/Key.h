@@ -562,8 +562,6 @@ public:
     ::std::int32_t event;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     delegate(const delegate&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -613,8 +611,6 @@ public:
     ::std::optional<::std::string> namespace;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     optionalMembers(const optionalMembers&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

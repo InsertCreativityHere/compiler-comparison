@@ -824,50 +824,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_OptionalWithCustom;
-    $Test__t_OptionalWithCustom = IcePHP_declareClass('::Test::OptionalWithCustom');
-}
-
-namespace Test
-{
-    global $Test__t_OptionalWithCustom;
-    class OptionalWithCustom extends \Ice\Value
-    {
-        public function __construct($l=\Ice\None, $lp=\Ice\None)
-        {
-            $this->l = $l;
-            $this->lp = $lp;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::OptionalWithCustom';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::OptionalWithCustom';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_OptionalWithCustom;
-            return IcePHP_stringify($this, $Test__t_OptionalWithCustom);
-        }
-
-        public $l;
-        protected $lp;
-    }
-
-    global $Ice__t_Value;
-    global $Test__t_SmallStructList;
-    $Test__t_OptionalWithCustom = IcePHP_defineClass('::Test::OptionalWithCustom', '\\Test\\OptionalWithCustom', -1, false, $Ice__t_Value, array(
-        array('l', $Test__t_SmallStructList, true, 1),
-        array('lp', $Test__t_SmallStructList, true, 2)));
-}
-
-namespace Test
-{
     global $Test__t_E;
     $Test__t_E = IcePHP_declareClass('::Test::E');
 }

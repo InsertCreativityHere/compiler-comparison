@@ -1807,8 +1807,6 @@ public:
     ::IceGrid::PropertyDescriptorSeq properties;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     InternalDbEnvDescriptor(const InternalDbEnvDescriptor&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1856,8 +1854,6 @@ public:
     bool serverLifetime;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     InternalAdapterDescriptor(const InternalAdapterDescriptor&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1971,8 +1967,6 @@ public:
     ::std::optional<::Ice::StringSeq> services;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     InternalServerDescriptor(const InternalServerDescriptor&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -2187,8 +2181,6 @@ public:
     ::std::optional<::std::string> iceSoVersion;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     InternalNodeInfo(const InternalNodeInfo&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -2237,8 +2229,6 @@ public:
     ::std::string hostname;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     InternalReplicaInfo(const InternalReplicaInfo&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

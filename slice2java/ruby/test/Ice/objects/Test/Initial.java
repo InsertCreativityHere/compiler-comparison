@@ -384,10 +384,6 @@ public interface Initial extends com.zeroc.Ice.Object
 
     D getD(com.zeroc.Ice.Current current);
 
-    E getE(com.zeroc.Ice.Current current);
-
-    F getF(com.zeroc.Ice.Current current);
-
     void setRecursive(Recursive p, com.zeroc.Ice.Current current);
 
     void setCycle(Recursive r, com.zeroc.Ice.Current current);
@@ -510,34 +506,6 @@ public interface Initial extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
         request.inputStream.skipEmptyEncapsulation();
         D ret = obj.getD(request.current);
-        var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, null);
-        ostr.writeValue(ret);
-        ostr.writePendingValues();
-        ostr.endEncapsulation();
-        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
-    }
-
-    /** @hidden */
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getE(Initial obj, com.zeroc.Ice.IncomingRequest request)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
-        request.inputStream.skipEmptyEncapsulation();
-        E ret = obj.getE(request.current);
-        var ostr = request.current.startReplyStream();
-        ostr.startEncapsulation(request.current.encoding, null);
-        ostr.writeValue(ret);
-        ostr.writePendingValues();
-        ostr.endEncapsulation();
-        return java.util.concurrent.CompletableFuture.completedFuture(new com.zeroc.Ice.OutgoingResponse(ostr));
-    }
-
-    /** @hidden */
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_getF(Initial obj, com.zeroc.Ice.IncomingRequest request)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
-        request.inputStream.skipEmptyEncapsulation();
-        F ret = obj.getF(request.current);
         var ostr = request.current.startReplyStream();
         ostr.startEncapsulation(request.current.encoding, null);
         ostr.writeValue(ret);
@@ -872,8 +840,6 @@ public interface Initial extends com.zeroc.Ice.Object
             case "getB2" -> Initial._iceD_getB2(this, request);
             case "getC" -> Initial._iceD_getC(this, request);
             case "getD" -> Initial._iceD_getD(this, request);
-            case "getE" -> Initial._iceD_getE(this, request);
-            case "getF" -> Initial._iceD_getF(this, request);
             case "setRecursive" -> Initial._iceD_setRecursive(this, request);
             case "setCycle" -> Initial._iceD_setCycle(this, request);
             case "acceptsClassCycles" -> Initial._iceD_acceptsClassCycles(this, request);

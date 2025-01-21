@@ -128,7 +128,6 @@ public:
     /// @return The cloned value.
     [[nodiscard]] EmptyPtr ice_clone() const { return ::std::static_pointer_cast<Empty>(_iceCloneImpl()); }
 
-protected:
     Empty(const Empty&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -154,7 +153,6 @@ public:
     /// @return The cloned value.
     [[nodiscard]] AlsoEmptyPtr ice_clone() const { return ::std::static_pointer_cast<AlsoEmpty>(_iceCloneImpl()); }
 
-protected:
     AlsoEmpty(const AlsoEmpty&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -196,8 +194,6 @@ public:
     ::Test::EmptyPtr e;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     COneMember(const COneMember&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -241,8 +237,6 @@ public:
     ::Test::EmptyPtr e2;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CTwoMembers(const CTwoMembers&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

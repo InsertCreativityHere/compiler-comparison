@@ -716,8 +716,6 @@ Ice.defineOperations(
         "getB2": [, , , ["Test.B", true], , , , , true],
         "getC": [, , , ["Test.C", true], , , , , true],
         "getD": [, , , ["Test.D", true], , , , , true],
-        "getE": [, , , ["Test.E", true], , , , , true],
-        "getF": [, , , ["Test.F", true], , , , , true],
         "setRecursive": [, , , , [["Test.Recursive", true]], , , true, ],
         "setCycle": [, , , , [["Test.Recursive", true]], , , true, ],
         "acceptsClassCycles": [, , , [1], , , , , ],

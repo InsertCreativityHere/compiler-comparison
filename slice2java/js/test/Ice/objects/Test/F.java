@@ -24,7 +24,7 @@ public class F extends com.zeroc.Ice.Value
         this.e2 = e2;
     }
 
-    protected E e1;
+    public E e1;
 
     public E e2;
 

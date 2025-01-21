@@ -486,28 +486,6 @@ module ::Test
         T_RequiredException = ::Ice::__defineException('::Test::RequiredException', RequiredException, ::Test::T_OptionalException, [["ss", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::T_OptionalWithCustom)
-        T_OptionalWithCustom = ::Ice::__declareClass('::Test::OptionalWithCustom')
-    end
-
-    if not defined?(::Test::OptionalWithCustom)
-        class OptionalWithCustom < ::Ice::Value
-
-            def initialize(l=::Ice::Unset, lp=::Ice::Unset)
-                @l = l
-                @lp = lp
-            end
-
-            attr_accessor :l, :lp
-            protected :lp, :lp=
-        end
-
-        T_OptionalWithCustom.defineClass(OptionalWithCustom, -1, false, nil, [
-            ['l', ::Test::T_SmallStructList, true, 1],
-            ['lp', ::Test::T_SmallStructList, true, 2]
-        ])
-    end
-
     if not defined?(::Test::T_E)
         T_E = ::Ice::__declareClass('::Test::E')
     end

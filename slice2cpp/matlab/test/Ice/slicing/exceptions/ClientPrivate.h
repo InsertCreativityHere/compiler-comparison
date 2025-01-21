@@ -708,8 +708,6 @@ public:
     ::std::string bc;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     BaseClass(const BaseClass&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -752,8 +750,6 @@ public:
     ::std::string pc;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     PreservedClass(const PreservedClass&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

@@ -18,10 +18,9 @@ public class OptionalWithCustom extends com.zeroc.Ice.Value
     {
     }
 
-    public OptionalWithCustom(java.util.List<SmallStruct> l, java.util.List<SmallStruct> lp)
+    public OptionalWithCustom(java.util.List<SmallStruct> l)
     {
         setL(l);
-        setLp(lp);
     }
 
     private java.util.List<SmallStruct> l;
@@ -77,59 +76,6 @@ public class OptionalWithCustom extends com.zeroc.Ice.Value
         }
     }
 
-    protected java.util.List<SmallStruct> lp;
-    private boolean _lp;
-
-    public java.util.List<SmallStruct> getLp()
-    {
-        if(!_lp)
-        {
-            throw new java.util.NoSuchElementException("lp is not set");
-        }
-        return lp;
-    }
-
-    public void setLp(java.util.List<SmallStruct> lp)
-    {
-        _lp = true;
-        this.lp = lp;
-    }
-
-    public boolean hasLp()
-    {
-        return _lp;
-    }
-
-    public void clearLp()
-    {
-        _lp = false;
-    }
-
-    public void optionalLp(java.util.Optional<java.util.List<SmallStruct>> v)
-    {
-        if(v == null || !v.isPresent())
-        {
-            _lp = false;
-        }
-        else
-        {
-            _lp = true;
-            lp = v.get();
-        }
-    }
-
-    public java.util.Optional<java.util.List<SmallStruct>> optionalLp()
-    {
-        if(_lp)
-        {
-            return java.util.Optional.of(lp);
-        }
-        else
-        {
-            return java.util.Optional.empty();
-        }
-    }
-
     public OptionalWithCustom clone()
     {
         return (OptionalWithCustom)super.clone();
@@ -147,7 +93,7 @@ public class OptionalWithCustom extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    private static final long serialVersionUID = 4640621481806595613L;
+    private static final long serialVersionUID = 504026651055432422L;
 
     /** @hidden */
     @Override
@@ -157,10 +103,6 @@ public class OptionalWithCustom extends com.zeroc.Ice.Value
         if(_l)
         {
             SmallStructListHelper.write(ostr_, 1, l);
-        }
-        if(_lp)
-        {
-            SmallStructListHelper.write(ostr_, 2, lp);
         }
         ostr_.endSlice();
     }
@@ -173,10 +115,6 @@ public class OptionalWithCustom extends com.zeroc.Ice.Value
         if(_l = istr_.readOptional(1, com.zeroc.Ice.OptionalFormat.VSize))
         {
             l = SmallStructListHelper.read(istr_);
-        }
-        if(_lp = istr_.readOptional(2, com.zeroc.Ice.OptionalFormat.VSize))
-        {
-            lp = SmallStructListHelper.read(istr_);
         }
         istr_.endSlice();
     }

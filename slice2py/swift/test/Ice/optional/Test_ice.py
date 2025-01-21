@@ -728,37 +728,6 @@ if 'RequiredException' not in _M_Test.__dict__:
     _M_Test.RequiredException = RequiredException
     del RequiredException
 
-if 'OptionalWithCustom' not in _M_Test.__dict__:
-    _M_Test._t_OptionalWithCustom = IcePy.declareValue('::Test::OptionalWithCustom')
-
-if 'OptionalWithCustom' not in _M_Test.__dict__:
-    _M_Test.OptionalWithCustom = None
-    class OptionalWithCustom(Ice.Value):
-        def __init__(self, l=None, _lp=None):
-            self.l = l
-            self._lp = _lp
-
-        def ice_id(self):
-            return '::Test::OptionalWithCustom'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::OptionalWithCustom'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_OptionalWithCustom)
-
-        __repr__ = __str__
-
-    _M_Test._t_OptionalWithCustom = IcePy.defineValue('::Test::OptionalWithCustom', OptionalWithCustom, -1, (), False, None, (
-        ('l', (), _M_Test._t_SmallStructList, True, 1),
-        ('_lp', (), _M_Test._t_SmallStructList, True, 2)
-    ))
-    OptionalWithCustom._ice_type = _M_Test._t_OptionalWithCustom
-
-    _M_Test.OptionalWithCustom = OptionalWithCustom
-    del OptionalWithCustom
-
 if 'E' not in _M_Test.__dict__:
     _M_Test._t_E = IcePy.declareValue('::Test::E')
 

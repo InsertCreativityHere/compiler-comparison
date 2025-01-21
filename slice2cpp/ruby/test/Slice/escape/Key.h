@@ -311,8 +311,6 @@ public:
     ::std::int32_t else;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     display(const display&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

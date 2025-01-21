@@ -158,50 +158,6 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::T_E)
-        T_E = ::Ice::__declareClass('::Test::E')
-    end
-
-    if not defined?(::Test::E)
-        class E < ::Ice::Value
-
-            def initialize(i=0, s='')
-                @i = i
-                @s = s
-            end
-
-            attr_accessor :i, :s
-            protected :i, :i=, :s, :s=
-        end
-
-        T_E.defineClass(E, -1, false, nil, [
-            ['i', ::Ice::T_int, false, 0],
-            ['s', ::Ice::T_string, false, 0]
-        ])
-    end
-
-    if not defined?(::Test::T_F)
-        T_F = ::Ice::__declareClass('::Test::F')
-    end
-
-    if not defined?(::Test::F)
-        class F < ::Ice::Value
-
-            def initialize(e1=nil, e2=nil)
-                @e1 = e1
-                @e2 = e2
-            end
-
-            attr_accessor :e1, :e2
-            protected :e1, :e1=
-        end
-
-        T_F.defineClass(F, -1, false, nil, [
-            ['e1', ::Test::T_E, false, 0],
-            ['e2', ::Test::T_E, false, 0]
-        ])
-    end
-
     if not defined?(::Test::T_G)
         T_G = ::Ice::__declareClass('::Test::G')
     end
@@ -483,14 +439,6 @@ module ::Test
                 InitialPrx_mixin::OP_getD.invoke(self, [], context)
             end
 
-            def getE(context=nil)
-                InitialPrx_mixin::OP_getE.invoke(self, [], context)
-            end
-
-            def getF(context=nil)
-                InitialPrx_mixin::OP_getF.invoke(self, [], context)
-            end
-
             def setRecursive(p, context=nil)
                 InitialPrx_mixin::OP_setRecursive.invoke(self, [p], context)
             end
@@ -580,8 +528,6 @@ module ::Test
         InitialPrx_mixin::OP_getB2 = ::Ice::__defineOperation('getB2', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_B, false, 0], [])
         InitialPrx_mixin::OP_getC = ::Ice::__defineOperation('getC', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_C, false, 0], [])
         InitialPrx_mixin::OP_getD = ::Ice::__defineOperation('getD', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_D, false, 0], [])
-        InitialPrx_mixin::OP_getE = ::Ice::__defineOperation('getE', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_E, false, 0], [])
-        InitialPrx_mixin::OP_getF = ::Ice::__defineOperation('getF', ::Ice::OperationMode::Normal, nil, [], [], [::Test::T_F, false, 0], [])
         InitialPrx_mixin::OP_setRecursive = ::Ice::__defineOperation('setRecursive', ::Ice::OperationMode::Normal, nil, [[::Test::T_Recursive, false, 0]], [], nil, [])
         InitialPrx_mixin::OP_setCycle = ::Ice::__defineOperation('setCycle', ::Ice::OperationMode::Normal, nil, [[::Test::T_Recursive, false, 0]], [], nil, [])
         InitialPrx_mixin::OP_acceptsClassCycles = ::Ice::__defineOperation('acceptsClassCycles', ::Ice::OperationMode::Normal, nil, [], [], [::Ice::T_bool, false, 0], [])

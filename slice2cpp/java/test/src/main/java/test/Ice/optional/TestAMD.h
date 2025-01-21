@@ -755,8 +755,6 @@ public:
     ::std::optional<::std::int32_t> a;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     OneOptional(const OneOptional&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -904,8 +902,6 @@ public:
     ::std::optional<::Test::Serializable> ser;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     MultiOptional(const MultiOptional&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -953,8 +949,6 @@ public:
     ::std::optional<::std::int32_t> mc;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     A(const A&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -999,8 +993,6 @@ public:
     ::std::optional<::std::int32_t> md;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     B(const B&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1045,8 +1037,6 @@ public:
     ::std::optional<::std::string> ms;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     C(const C&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1090,8 +1080,6 @@ public:
     ::std::optional<::std::string> s{"test"};
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     WD(const WD&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1238,9 +1226,8 @@ public:
     OptionalWithCustom() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    OptionalWithCustom(::std::optional<::Test::SmallStructList> l, ::std::optional<::Test::SmallStructList> lp) noexcept :
-        l(::std::move(l)),
-        lp(::std::move(lp))
+    explicit OptionalWithCustom(::std::optional<::Test::SmallStructList> l) noexcept :
+        l(::std::move(l))
     {
     }
 
@@ -1252,9 +1239,9 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::optional<::Test::SmallStructList>&, const ::std::optional<::Test::SmallStructList>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::optional<::Test::SmallStructList>&> ice_tuple() const
     {
-        return std::tie(l, lp);
+        return std::tie(l);
     }
 
     /// Creates a shallow polymorphic copy of this instance.
@@ -1263,12 +1250,7 @@ public:
 
     ::std::optional<::Test::SmallStructList> l;
 
-protected:
-
-    ::std::optional<::Test::SmallStructList> lp;
-
     void ice_printFields(std::ostream& os) const override;
-
     OptionalWithCustom(const OptionalWithCustom&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1310,8 +1292,6 @@ public:
     ::Test::FixedStruct fse;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     E(const E&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1354,8 +1334,6 @@ public:
     ::std::optional<::Test::FixedStruct> fsf;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     F(const F&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -1439,8 +1417,6 @@ public:
     ::Test::G1 gg1;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     G(const G&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

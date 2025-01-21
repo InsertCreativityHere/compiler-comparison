@@ -334,89 +334,6 @@ namespace Test
         }
     }
 
-    [Ice.SliceTypeId("::Test::E")]
-    public partial class E : Ice.Value
-    {
-        protected int i;
-
-        protected string s = "";
-
-        partial void ice_initialize();
-
-        public E(int i, string s)
-        {
-            this.i = i;
-            global::System.ArgumentNullException.ThrowIfNull(s);
-            this.s = s;
-            ice_initialize();
-        }
-
-        public E()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::E";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeInt(i);
-            ostr_.writeString(s);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            i = istr_.readInt();
-            s = istr_.readString();
-            istr_.endSlice();
-        }
-    }
-
-    [Ice.SliceTypeId("::Test::F")]
-    public partial class F : Ice.Value
-    {
-        protected E? e1;
-
-        public E? e2;
-
-        partial void ice_initialize();
-
-        public F(E? e1, E? e2)
-        {
-            this.e1 = e1;
-            this.e2 = e2;
-            ice_initialize();
-        }
-
-        public F()
-        {
-            ice_initialize();
-        }
-
-        public static new string ice_staticId() => "::Test::F";
-        public override string ice_id() => ice_staticId();
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeValue(e1);
-            ostr_.writeValue(e2);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.readValue((E? v) => { this.e1 = v; });
-            istr_.readValue((E? v) => { this.e2 = v; });
-            istr_.endSlice();
-        }
-    }
-
     [Ice.SliceTypeId("::Test::G")]
     public partial class G : Base
     {
@@ -1161,10 +1078,6 @@ namespace Test
 
         D? getD(Ice.Current current);
 
-        E? getE(Ice.Current current);
-
-        F? getF(Ice.Current current);
-
         void setRecursive(Recursive? p, Ice.Current current);
 
         void setCycle(Recursive? r, Ice.Current current);
@@ -1597,14 +1510,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task<D?> getDAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
 
-        E? getE(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<E?> getEAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        F? getF(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task<F?> getFAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
         void setRecursive(Recursive? p, global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task setRecursiveAsync(Recursive? p, global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
@@ -2011,30 +1916,6 @@ namespace Test
             try
             {
                 return _iceI_getDAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public E? getE(global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                return _iceI_getEAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public F? getF(global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                return _iceI_getFAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch (global::System.AggregateException ex_)
             {
@@ -2502,72 +2383,6 @@ namespace Test
                 {
                     D? ret = null;
                     istr.readValue((D? v) => {ret = v; });
-                    istr.readPendingValues();
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<E?> getEAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_getEAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<E?> _iceI_getEAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_getE_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<E?>(progress, cancel);
-            _iceI_getE(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _getE_name = "getE";
-
-        private void _iceI_getE(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<E?>(completed);
-            outAsync.invoke(
-                _getE_name,
-                Ice.OperationMode.Normal,
-                null,
-                context,
-                synchronous,
-                read: (Ice.InputStream istr) =>
-                {
-                    E? ret = null;
-                    istr.readValue((E? v) => {ret = v; });
-                    istr.readPendingValues();
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<F?> getFAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_getFAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<F?> _iceI_getFAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_getF_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<F?>(progress, cancel);
-            _iceI_getF(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _getF_name = "getF";
-
-        private void _iceI_getF(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<F?>(completed);
-            outAsync.invoke(
-                _getF_name,
-                Ice.OperationMode.Normal,
-                null,
-                context,
-                synchronous,
-                read: (Ice.InputStream istr) =>
-                {
-                    F? ret = null;
-                    istr.readValue((F? v) => {ret = v; });
                     istr.readPendingValues();
                     return ret;
                 });
@@ -3816,10 +3631,6 @@ namespace Test
 
         public abstract D? getD(Ice.Current current);
 
-        public abstract E? getE(Ice.Current current);
-
-        public abstract F? getF(Ice.Current current);
-
         public abstract void setRecursive(Recursive? p, Ice.Current current);
 
         public abstract void setCycle(Recursive? r, Ice.Current current);
@@ -3880,8 +3691,6 @@ namespace Test
                 "getB2" => Initial.iceD_getB2Async(this, request),
                 "getC" => Initial.iceD_getCAsync(this, request),
                 "getD" => Initial.iceD_getDAsync(this, request),
-                "getE" => Initial.iceD_getEAsync(this, request),
-                "getF" => Initial.iceD_getFAsync(this, request),
                 "setRecursive" => Initial.iceD_setRecursiveAsync(this, request),
                 "setCycle" => Initial.iceD_setCycleAsync(this, request),
                 "acceptsClassCycles" => Initial.iceD_acceptsClassCyclesAsync(this, request),
@@ -4024,36 +3833,6 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             var ret = obj.getD(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getEAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getE(request.current);
-            var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
-            ostr.startEncapsulation(request.current.encoding, null);
-            ostr.writeValue(ret);
-            ostr.writePendingValues();
-            ostr.endEncapsulation();
-            return new(new Ice.OutgoingResponse(ostr));
-        }
-
-        protected static global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_getFAsync(
-            Initial obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            var ret = obj.getF(request.current);
             var ostr = Ice.CurrentExtensions.startReplyStream(request.current);
             ostr.startEncapsulation(request.current.encoding, null);
             ostr.writeValue(ret);

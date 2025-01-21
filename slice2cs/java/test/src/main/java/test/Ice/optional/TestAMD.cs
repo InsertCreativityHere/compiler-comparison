@@ -849,14 +849,11 @@ namespace Test
     {
         public SmallStruct[]? l;
 
-        protected SmallStruct[]? lp;
-
         partial void ice_initialize();
 
-        public OptionalWithCustom(SmallStruct[]? l, SmallStruct[]? lp)
+        public OptionalWithCustom(SmallStruct[]? l)
         {
             this.l = l;
-            this.lp = lp;
             ice_initialize();
         }
 
@@ -875,10 +872,6 @@ namespace Test
             {
                 SmallStructListHelper.write(ostr_, l);
             }
-            if (lp is not null && ostr_.writeOptional(2, Ice.OptionalFormat.VSize))
-            {
-                SmallStructListHelper.write(ostr_, lp);
-            }
             ostr_.endSlice();
         }
 
@@ -894,16 +887,6 @@ namespace Test
             else
             {
                 l = null;
-            }
-            if (istr_.readOptional(2, Ice.OptionalFormat.VSize))
-            {
-                SmallStruct[] tmpVal;
-                tmpVal = SmallStructListHelper.read(istr_);
-                lp = tmpVal;
-            }
-            else
-            {
-                lp = null;
             }
             istr_.endSlice();
         }

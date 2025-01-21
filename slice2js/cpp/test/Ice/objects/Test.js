@@ -224,56 +224,6 @@ Test.D = class extends Ice.Value
 Ice.defineValue(Test.D, "::Test::D");
 Ice.TypeRegistry.declareValueType("Test.D", Test.D);
 
-Test.E = class extends Ice.Value
-{
-    constructor(i = 0, s = "")
-    {
-        super();
-        this.i = i;
-        this.s = s;
-    }
-
-    _iceWriteMemberImpl(ostr)
-    {
-        ostr.writeInt(this.i);
-        ostr.writeString(this.s);
-    }
-
-    _iceReadMemberImpl(istr)
-    {
-        this.i = istr.readInt();
-        this.s = istr.readString();
-    }
-};
-
-Ice.defineValue(Test.E, "::Test::E");
-Ice.TypeRegistry.declareValueType("Test.E", Test.E);
-
-Test.F = class extends Ice.Value
-{
-    constructor(e1 = null, e2 = null)
-    {
-        super();
-        this.e1 = e1;
-        this.e2 = e2;
-    }
-
-    _iceWriteMemberImpl(ostr)
-    {
-        ostr.writeValue(this.e1);
-        ostr.writeValue(this.e2);
-    }
-
-    _iceReadMemberImpl(istr)
-    {
-        istr.readValue(obj => this.e1 = obj, Ice.TypeRegistry.getValueType("Test.E"));
-        istr.readValue(obj => this.e2 = obj, Ice.TypeRegistry.getValueType("Test.E"));
-    }
-};
-
-Ice.defineValue(Test.F, "::Test::F");
-Ice.TypeRegistry.declareValueType("Test.F", Test.F);
-
 Test.G = class extends Test.Base
 {
     constructor(theS, str)
@@ -815,8 +765,6 @@ Ice.defineOperations(
         "getB2": [, , , ["Test.B", true], , , , , true],
         "getC": [, , , ["Test.C", true], , , , , true],
         "getD": [, , , ["Test.D", true], , , , , true],
-        "getE": [, , , ["Test.E", true], , , , , true],
-        "getF": [, , , ["Test.F", true], , , , , true],
         "setRecursive": [, , , , [["Test.Recursive", true]], , , true, ],
         "setCycle": [, , , , [["Test.Recursive", true]], , , true, ],
         "acceptsClassCycles": [, , , [1], , , , , ],

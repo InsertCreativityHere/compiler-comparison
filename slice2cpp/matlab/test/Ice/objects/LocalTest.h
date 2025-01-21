@@ -126,8 +126,6 @@ public:
     ::std::int32_t i;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     C1(const C1&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -313,8 +311,6 @@ public:
     ::LocalTest::S1 s1;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CB1(const CB1&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -356,8 +352,6 @@ public:
     ::LocalTest::C1Seq c1seq;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CB2(const CB2&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -399,8 +393,6 @@ public:
     ::LocalTest::S1Seq s1seq;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CB3(const CB3&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -442,8 +434,6 @@ public:
     ::LocalTest::C1Dict c1dict;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CB4(const CB4&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -485,8 +475,6 @@ public:
     ::LocalTest::S1Dict s1dict;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CB5(const CB5&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -528,8 +516,6 @@ public:
     ::LocalTest::C1SeqSeq c1seqseq;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CB6(const CB6&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -571,8 +557,6 @@ public:
     ::LocalTest::S1SeqSeq s1seqseq;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CB7(const CB7&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
@@ -618,8 +602,6 @@ public:
     ::LocalTest::S1Dict s1dict;
 
     void ice_printFields(std::ostream& os) const override;
-
-protected:
     CB8(const CB8&) = default;
 
     [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;

@@ -509,31 +509,6 @@ Ice.TypeRegistry.declareUserExceptionType(
     "Test.RequiredException",
     Test.RequiredException);
 
-Test.OptionalWithCustom = class extends Ice.Value
-{
-    constructor(l = undefined, lp = undefined)
-    {
-        super();
-        this.l = l;
-        this.lp = lp;
-    }
-
-    _iceWriteMemberImpl(ostr)
-    {
-        Test.SmallStructListHelper.writeOptional(ostr, 1, this.l);
-        Test.SmallStructListHelper.writeOptional(ostr, 2, this.lp);
-    }
-
-    _iceReadMemberImpl(istr)
-    {
-        this.l = Test.SmallStructListHelper.readOptional(istr, 1);
-        this.lp = Test.SmallStructListHelper.readOptional(istr, 2);
-    }
-};
-
-Ice.defineValue(Test.OptionalWithCustom, "::Test::OptionalWithCustom");
-Ice.TypeRegistry.declareValueType("Test.OptionalWithCustom", Test.OptionalWithCustom);
-
 Test.E = class extends Ice.Value
 {
     constructor(fse = new Test.FixedStruct())

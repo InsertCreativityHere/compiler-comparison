@@ -311,8 +311,8 @@ namespace Test
             return IcePHP_stringify($this, $Test__t_E);
         }
 
-        protected $i;
-        protected $s;
+        public $i;
+        public $s;
     }
 
     global $Ice__t_Value;
@@ -356,7 +356,7 @@ namespace Test
             return IcePHP_stringify($this, $Test__t_F);
         }
 
-        protected $e1;
+        public $e1;
         public $e2;
     }
 
@@ -1133,8 +1133,6 @@ namespace Test
     global $Test__t_B;
     global $Test__t_C;
     global $Test__t_D;
-    global $Test__t_E;
-    global $Test__t_F;
     global $Test__t_Recursive;
     global $IcePHP__t_bool;
     global $Test__t_K;
@@ -1156,8 +1154,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'getB2', 0, -1, null, null, array($Test__t_B), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'getC', 0, -1, null, null, array($Test__t_C), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'getD', 0, -1, null, null, array($Test__t_D), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getE', 0, -1, null, null, array($Test__t_E), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getF', 0, -1, null, null, array($Test__t_F), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'setRecursive', 0, -1, array(array($Test__t_Recursive)), null, null, null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'setCycle', 0, -1, array(array($Test__t_Recursive)), null, null, null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'acceptsClassCycles', 0, -1, null, null, array($IcePHP__t_bool), null);
