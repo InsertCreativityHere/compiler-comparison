@@ -37,6 +37,22 @@
 #   endif
 #endif
 
+::std::ostream&
+IceGrid::operator<<(::std::ostream& os, LoadSample value)
+{
+    switch (value)
+    {
+        case LoadSample::LoadSample1:
+            return os << "LoadSample1";
+        case LoadSample::LoadSample5:
+            return os << "LoadSample5";
+        case LoadSample::LoadSample15:
+            return os << "LoadSample15";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
 }

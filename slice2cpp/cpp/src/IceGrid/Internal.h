@@ -73,6 +73,7 @@ namespace IceGrid
         AdapterObserver,
         ObjectObserver
     };
+    ::std::ostream& operator<<(::std::ostream&, TopicName);
 
     class DatabaseObserverPrx;
 

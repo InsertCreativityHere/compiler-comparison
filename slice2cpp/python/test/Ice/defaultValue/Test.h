@@ -30,6 +30,7 @@ namespace Test
         green,
         blue
     };
+    ::std::ostream& operator<<(::std::ostream&, Color);
 
 
     namespace Nested
@@ -40,6 +41,7 @@ namespace Test
             green,
             blue
         };
+        ::std::ostream& operator<<(::std::ostream&, Color);
 
     }
     struct Struct1;

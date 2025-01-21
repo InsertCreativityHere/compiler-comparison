@@ -47,6 +47,7 @@ namespace IceGrid
         /// Sample every fifteen minutes.
         LoadSample15
     };
+    ICEGRID_API ::std::ostream& operator<<(::std::ostream&, LoadSample);
 
     class QueryPrx;
 

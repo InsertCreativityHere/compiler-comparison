@@ -37,6 +37,30 @@
 #   endif
 #endif
 
+::std::ostream&
+IceGrid::operator<<(::std::ostream& os, ServerState value)
+{
+    switch (value)
+    {
+        case ServerState::Inactive:
+            return os << "Inactive";
+        case ServerState::Activating:
+            return os << "Activating";
+        case ServerState::ActivationTimedOut:
+            return os << "ActivationTimedOut";
+        case ServerState::Active:
+            return os << "Active";
+        case ServerState::Deactivating:
+            return os << "Deactivating";
+        case ServerState::Destroying:
+            return os << "Destroying";
+        case ServerState::Destroyed:
+            return os << "Destroyed";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
 }

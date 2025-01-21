@@ -33,6 +33,7 @@ namespace Test
         Running,
         Finished
     };
+    ::std::ostream& operator<<(::std::ostream&, StateCode);
 
     struct TestToken;
 

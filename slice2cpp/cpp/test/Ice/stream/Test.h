@@ -31,6 +31,7 @@ namespace Test
         enum2,
         enum3
     };
+    ::std::ostream& operator<<(::std::ostream&, MyEnum);
 
     class MyInterfacePrx;
 
@@ -91,6 +92,7 @@ namespace Test
             nestedEnum2,
             nestedEnum3
         };
+        ::std::ostream& operator<<(::std::ostream&, NestedEnum);
 
         struct NestedStruct;
 
@@ -108,6 +110,7 @@ namespace Test2
             nestedEnum5,
             nestedEnum6
         };
+        ::std::ostream& operator<<(::std::ostream&, NestedEnum2);
 
         struct NestedStruct2;
 

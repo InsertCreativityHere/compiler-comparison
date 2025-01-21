@@ -34,6 +34,18 @@
 #   endif
 #endif
 
+::std::ostream&
+Test::operator<<(::std::ostream& os, MyEnum value)
+{
+    switch (value)
+    {
+        case MyEnum::MyEnumMember:
+            return os << "MyEnumMember";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;

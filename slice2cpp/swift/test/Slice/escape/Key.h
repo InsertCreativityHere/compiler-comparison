@@ -29,6 +29,7 @@ namespace and
         let,
         var
     };
+    ::std::ostream& operator<<(::std::ostream&, continue);
 
     struct guard;
 

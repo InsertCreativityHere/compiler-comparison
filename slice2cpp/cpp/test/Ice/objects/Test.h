@@ -59,6 +59,7 @@ namespace Test
         First = 1,
         Second = 2
     };
+    ::std::ostream& operator<<(::std::ostream&, CompactIdEnum);
 
     class Compact;
     using CompactPtr = ::std::shared_ptr<Compact>;

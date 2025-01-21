@@ -34,6 +34,38 @@
 #   endif
 #endif
 
+::std::ostream&
+Test::operator<<(::std::ostream& os, Color value)
+{
+    switch (value)
+    {
+        case Color::red:
+            return os << "red";
+        case Color::green:
+            return os << "green";
+        case Color::blue:
+            return os << "blue";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
+::std::ostream&
+Test::Nested::operator<<(::std::ostream& os, Color value)
+{
+    switch (value)
+    {
+        case Color::red:
+            return os << "red";
+        case Color::green:
+            return os << "green";
+        case Color::blue:
+            return os << "blue";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;

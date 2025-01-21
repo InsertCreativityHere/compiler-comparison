@@ -31,6 +31,7 @@ namespace Test
         enum2,
         enum3
     };
+    ::std::ostream& operator<<(::std::ostream&, MyEnum);
 
     class MyClass;
     using MyClassPtr = ::std::shared_ptr<MyClass>;

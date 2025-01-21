@@ -34,6 +34,18 @@
 #   endif
 #endif
 
+::std::ostream&
+abstract::operator<<(::std::ostream& os, as value)
+{
+    switch (value)
+    {
+        case as::base:
+            return os << "base";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;

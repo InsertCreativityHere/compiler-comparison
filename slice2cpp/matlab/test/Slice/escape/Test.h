@@ -62,6 +62,7 @@ namespace classdef
             xor,
             LAST
         };
+        ::std::ostream& operator<<(::std::ostream&, bitand);
 
         struct bitor;
 

@@ -34,6 +34,26 @@
 #   endif
 #endif
 
+::std::ostream&
+IceGrid::operator<<(::std::ostream& os, TopicName value)
+{
+    switch (value)
+    {
+        case TopicName::RegistryObserver:
+            return os << "RegistryObserver";
+        case TopicName::NodeObserver:
+            return os << "NodeObserver";
+        case TopicName::ApplicationObserver:
+            return os << "ApplicationObserver";
+        case TopicName::AdapterObserver:
+            return os << "AdapterObserver";
+        case TopicName::ObjectObserver:
+            return os << "ObjectObserver";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;

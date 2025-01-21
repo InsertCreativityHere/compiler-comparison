@@ -28,6 +28,7 @@ namespace abstract
     {
         base
     };
+    ::std::ostream& operator<<(::std::ostream&, as);
 
     struct break;
 

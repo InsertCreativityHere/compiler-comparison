@@ -35,6 +35,7 @@ namespace Test
     {
         MyEnumMember
     };
+    ::std::ostream& operator<<(::std::ostream&, MyEnum);
 
     struct SmallStruct;
 

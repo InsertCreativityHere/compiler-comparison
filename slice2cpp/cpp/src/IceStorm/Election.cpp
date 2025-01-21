@@ -34,6 +34,24 @@
 #   endif
 #endif
 
+::std::ostream&
+IceStormElection::operator<<(::std::ostream& os, NodeState value)
+{
+    switch (value)
+    {
+        case NodeState::NodeStateInactive:
+            return os << "NodeStateInactive";
+        case NodeState::NodeStateElection:
+            return os << "NodeStateElection";
+        case NodeState::NodeStateReorganization:
+            return os << "NodeStateReorganization";
+        case NodeState::NodeStateNormal:
+            return os << "NodeStateNormal";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;

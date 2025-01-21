@@ -34,6 +34,22 @@
 #   endif
 #endif
 
+::std::ostream&
+Test::operator<<(::std::ostream& os, E value)
+{
+    switch (value)
+    {
+        case E::E1:
+            return os << "E1";
+        case E::E2:
+            return os << "E2";
+        case E::E3:
+            return os << "E3";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 ::Test::ASeq
 Test::TestIntfPrx::opASeq(const ASeq& iceP_inSeq, ASeq& iceP_outSeq, const ::Ice::Context& context) const
 {

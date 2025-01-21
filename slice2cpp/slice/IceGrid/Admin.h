@@ -57,6 +57,7 @@ namespace IceGrid
         /// The server is destroyed.
         Destroyed
     };
+    ICEGRID_API ::std::ostream& operator<<(::std::ostream&, ServerState);
 
     /// A dictionary of proxies.
     using StringObjectProxyDict = ::std::map<::std::string, ::std::optional<::Ice::ObjectPrx>>;

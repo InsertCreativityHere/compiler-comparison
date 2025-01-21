@@ -38,6 +38,7 @@ namespace Ice
         /// The {@link RemoteLogger} received an error message.
         ErrorMessage
     };
+    ICE_API ::std::ostream& operator<<(::std::ostream&, LogMessageType);
 
     /// A sequence of {@link LogMessageType}.
     using LogMessageTypeSeq = ::std::vector<LogMessageType>;

@@ -202,6 +202,7 @@ namespace Test
         B,
         C
     };
+    ::std::ostream& operator<<(::std::ostream&, En);
 
     using AEnS = ::std::vector<En>;
 

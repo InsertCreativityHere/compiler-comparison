@@ -10,6 +10,9 @@
 //
 // </auto-generated>
 
+#ifndef DATASTORM_API_EXPORTS
+#   define DATASTORM_API_EXPORTS
+#endif
 #define ICE_BUILDING_GENERATED_CODE
 #include "Sample.h"
 #include <Ice/AsyncResponseHandler.h>
@@ -33,3 +36,21 @@
 #       error Ice version mismatch: an exact match is required for beta generated code
 #   endif
 #endif
+
+::std::ostream&
+DataStorm::operator<<(::std::ostream& os, SampleEvent value)
+{
+    switch (value)
+    {
+        case SampleEvent::Add:
+            return os << "Add";
+        case SampleEvent::Update:
+            return os << "Update";
+        case SampleEvent::PartialUpdate:
+            return os << "PartialUpdate";
+        case SampleEvent::Remove:
+            return os << "Remove";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}

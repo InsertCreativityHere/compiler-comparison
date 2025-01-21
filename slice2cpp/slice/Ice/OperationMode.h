@@ -43,6 +43,7 @@ namespace Ice
         /// and propagate the failure to the application only if the second attempt fails.
         Idempotent
     };
+    ICE_API ::std::ostream& operator<<(::std::ostream&, OperationMode);
 
 }
 

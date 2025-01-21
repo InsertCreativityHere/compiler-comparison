@@ -49,6 +49,7 @@ namespace IceStormElection
         /// The replica group is active & replicating.
         NodeStateNormal
     };
+    ::std::ostream& operator<<(::std::ostream&, NodeState);
 
     class NodePrx;
 

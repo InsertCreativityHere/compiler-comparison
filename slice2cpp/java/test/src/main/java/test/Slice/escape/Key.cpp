@@ -34,6 +34,18 @@
 #   endif
 #endif
 
+::std::ostream&
+abstract::operator<<(::std::ostream& os, assert value)
+{
+    switch (value)
+    {
+        case assert::boolean:
+            return os << "boolean";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;

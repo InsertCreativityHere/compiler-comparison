@@ -43,6 +43,7 @@ namespace Test
         v2,
         v3
     };
+    ::std::ostream& operator<<(::std::ostream&, E1);
 
     struct S1;
 

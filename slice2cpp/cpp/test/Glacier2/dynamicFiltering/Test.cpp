@@ -34,6 +34,22 @@
 #   endif
 #endif
 
+::std::ostream&
+Test::operator<<(::std::ostream& os, StateCode value)
+{
+    switch (value)
+    {
+        case StateCode::Initial:
+            return os << "Initial";
+        case StateCode::Running:
+            return os << "Running";
+        case StateCode::Finished:
+            return os << "Finished";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
 }

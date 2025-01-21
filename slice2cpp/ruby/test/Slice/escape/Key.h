@@ -28,6 +28,7 @@ namespace BEGIN
     {
         alias
     };
+    ::std::ostream& operator<<(::std::ostream&, END);
 
     struct and;
 

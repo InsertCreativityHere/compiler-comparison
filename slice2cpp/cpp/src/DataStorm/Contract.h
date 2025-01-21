@@ -42,6 +42,7 @@ namespace DataStormContract
         /// The reader never clears its history.
         Never
     };
+    ::std::ostream& operator<<(::std::ostream&, ClearHistoryPolicy);
 
     using LongLongDict = ::std::map<::std::int64_t, ::std::int64_t>;
 

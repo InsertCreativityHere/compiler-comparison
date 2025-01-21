@@ -34,6 +34,54 @@
 #   endif
 #endif
 
+::std::ostream&
+Test::operator<<(::std::ostream& os, MyEnum value)
+{
+    switch (value)
+    {
+        case MyEnum::enum1:
+            return os << "enum1";
+        case MyEnum::enum2:
+            return os << "enum2";
+        case MyEnum::enum3:
+            return os << "enum3";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
+::std::ostream&
+Test::Sub::operator<<(::std::ostream& os, NestedEnum value)
+{
+    switch (value)
+    {
+        case NestedEnum::nestedEnum1:
+            return os << "nestedEnum1";
+        case NestedEnum::nestedEnum2:
+            return os << "nestedEnum2";
+        case NestedEnum::nestedEnum3:
+            return os << "nestedEnum3";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
+::std::ostream&
+Test2::Sub2::operator<<(::std::ostream& os, NestedEnum2 value)
+{
+    switch (value)
+    {
+        case NestedEnum2::nestedEnum4:
+            return os << "nestedEnum4";
+        case NestedEnum2::nestedEnum5:
+            return os << "nestedEnum5";
+        case NestedEnum2::nestedEnum6:
+            return os << "nestedEnum6";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;

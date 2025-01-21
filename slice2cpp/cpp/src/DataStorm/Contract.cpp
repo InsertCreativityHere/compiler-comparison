@@ -34,6 +34,26 @@
 #   endif
 #endif
 
+::std::ostream&
+DataStormContract::operator<<(::std::ostream& os, ClearHistoryPolicy value)
+{
+    switch (value)
+    {
+        case ClearHistoryPolicy::OnAdd:
+            return os << "OnAdd";
+        case ClearHistoryPolicy::OnRemove:
+            return os << "OnRemove";
+        case ClearHistoryPolicy::OnAll:
+            return os << "OnAll";
+        case ClearHistoryPolicy::OnAllExceptPartialUpdate:
+            return os << "OnAllExceptPartialUpdate";
+        case ClearHistoryPolicy::Never:
+            return os << "Never";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;

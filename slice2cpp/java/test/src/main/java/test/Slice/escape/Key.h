@@ -28,6 +28,7 @@ namespace abstract
     {
         boolean
     };
+    ::std::ostream& operator<<(::std::ostream&, assert);
 
     struct break;
 

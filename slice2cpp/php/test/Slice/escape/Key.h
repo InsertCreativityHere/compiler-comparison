@@ -28,6 +28,7 @@ namespace and
     {
         as
     };
+    ::std::ostream& operator<<(::std::ostream&, array);
 
     struct xor;
 

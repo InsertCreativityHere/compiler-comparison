@@ -37,6 +37,24 @@
 #   endif
 #endif
 
+::std::ostream&
+Ice::operator<<(::std::ostream& os, LogMessageType value)
+{
+    switch (value)
+    {
+        case LogMessageType::PrintMessage:
+            return os << "PrintMessage";
+        case LogMessageType::TraceMessage:
+            return os << "TraceMessage";
+        case LogMessageType::WarningMessage:
+            return os << "WarningMessage";
+        case LogMessageType::ErrorMessage:
+            return os << "ErrorMessage";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;

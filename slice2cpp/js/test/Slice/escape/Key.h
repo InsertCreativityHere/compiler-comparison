@@ -28,6 +28,7 @@ namespace await
     {
         base
     };
+    ::std::ostream& operator<<(::std::ostream&, var);
 
     struct break;
 

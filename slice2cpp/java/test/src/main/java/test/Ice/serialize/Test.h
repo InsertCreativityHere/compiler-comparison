@@ -30,6 +30,7 @@ namespace Test
         enum2,
         enum3
     };
+    ::std::ostream& operator<<(::std::ostream&, MyEnum);
 
     class InitialPrx;
 

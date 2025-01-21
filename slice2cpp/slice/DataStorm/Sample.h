@@ -22,6 +22,14 @@
 #   endif
 #endif
 
+#ifndef DATASTORM_API
+#   if defined(DATASTORM_API_EXPORTS)
+#       define DATASTORM_API ICE_DECLSPEC_EXPORT
+#   else
+#       define DATASTORM_API ICE_DECLSPEC_IMPORT
+#   endif
+#endif
+
 namespace DataStorm
 {
     /// The sample event matches the operation used by the DataWriter to update the data element. It also provides
@@ -38,6 +46,7 @@ namespace DataStorm
         /// The element has been removed.
         Remove
     };
+    DATASTORM_API ::std::ostream& operator<<(::std::ostream&, SampleEvent);
 
     /// A sequence of sample event.
     using SampleEventSeq = ::std::vector<SampleEvent>;

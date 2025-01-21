@@ -37,3 +37,19 @@
 #       error Ice version mismatch: an exact match is required for beta generated code
 #   endif
 #endif
+
+::std::ostream&
+Ice::operator<<(::std::ostream& os, OperationMode value)
+{
+    switch (value)
+    {
+        case OperationMode::Normal:
+            return os << "Normal";
+        case OperationMode::Nonmutating:
+            return os << "Nonmutating";
+        case OperationMode::Idempotent:
+            return os << "Idempotent";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}

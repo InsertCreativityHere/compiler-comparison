@@ -54,6 +54,7 @@ namespace Test
         benum10 = 41,
         benum11 = 126
     };
+    ::std::ostream& operator<<(::std::ostream&, ByteEnum);
 
     using ByteEnumSeq = ::std::vector<ByteEnum>;
 
@@ -71,6 +72,7 @@ namespace Test
         senum10 = 41,
         senum11 = 32766
     };
+    ::std::ostream& operator<<(::std::ostream&, ShortEnum);
 
     using ShortEnumSeq = ::std::vector<ShortEnum>;
 
@@ -89,6 +91,7 @@ namespace Test
         ienum11 = 2147483647,
         ienum12 = 2147483646
     };
+    ::std::ostream& operator<<(::std::ostream&, IntEnum);
 
     using IntEnumSeq = ::std::vector<IntEnum>;
 
@@ -98,6 +101,7 @@ namespace Test
         green,
         blue
     };
+    ::std::ostream& operator<<(::std::ostream&, SimpleEnum);
 
     using SimpleEnumSeq = ::std::vector<SimpleEnum>;
 

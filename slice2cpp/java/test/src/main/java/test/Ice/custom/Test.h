@@ -67,6 +67,7 @@ namespace Test
         E2,
         E3
     };
+    ::std::ostream& operator<<(::std::ostream&, E);
 
     using ESeq = ::std::vector<E>;
 

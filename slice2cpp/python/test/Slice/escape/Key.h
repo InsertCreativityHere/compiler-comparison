@@ -28,6 +28,7 @@ namespace and
     {
         break
     };
+    ::std::ostream& operator<<(::std::ostream&, assert);
 
     struct continue;
 
@@ -52,6 +53,7 @@ namespace and
     {
         None
     };
+    ::std::ostream& operator<<(::std::ostream&, EnumNone);
 
 }
 

@@ -34,6 +34,80 @@
 #   endif
 #endif
 
+::std::ostream&
+classdef::break::operator<<(::std::ostream& os, bitand value)
+{
+    switch (value)
+    {
+        case bitand::break:
+            return os << "break";
+        case bitand::case:
+            return os << "case";
+        case bitand::catch:
+            return os << "catch";
+        case bitand::classdef:
+            return os << "classdef";
+        case bitand::continue:
+            return os << "continue";
+        case bitand::else:
+            return os << "else";
+        case bitand::elseif:
+            return os << "elseif";
+        case bitand::end:
+            return os << "end";
+        case bitand::enumeration:
+            return os << "enumeration";
+        case bitand::events:
+            return os << "events";
+        case bitand::for:
+            return os << "for";
+        case bitand::function:
+            return os << "function";
+        case bitand::global:
+            return os << "global";
+        case bitand::if:
+            return os << "if";
+        case bitand::methods:
+            return os << "methods";
+        case bitand::otherwise:
+            return os << "otherwise";
+        case bitand::parfor:
+            return os << "parfor";
+        case bitand::persistent:
+            return os << "persistent";
+        case bitand::properties:
+            return os << "properties";
+        case bitand::return:
+            return os << "return";
+        case bitand::spmd:
+            return os << "spmd";
+        case bitand::switch:
+            return os << "switch";
+        case bitand::try:
+            return os << "try";
+        case bitand::while:
+            return os << "while";
+        case bitand::abs:
+            return os << "abs";
+        case bitand::and:
+            return os << "and";
+        case bitand::char:
+            return os << "char";
+        case bitand::eq:
+            return os << "eq";
+        case bitand::length:
+            return os << "length";
+        case bitand::size:
+            return os << "size";
+        case bitand::xor:
+            return os << "xor";
+        case bitand::LAST:
+            return os << "LAST";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 namespace
 {
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;

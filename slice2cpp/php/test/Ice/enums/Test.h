@@ -54,6 +54,7 @@ namespace Test
         benum10 = 41,
         benum11 = 126
     };
+    ::std::ostream& operator<<(::std::ostream&, ByteEnum);
 
     enum class ShortEnum : ::std::int32_t // NOLINT(performance-enum-size)
     {
@@ -69,6 +70,7 @@ namespace Test
         senum10 = 41,
         senum11 = 32766
     };
+    ::std::ostream& operator<<(::std::ostream&, ShortEnum);
 
     enum class IntEnum : ::std::int32_t
     {
@@ -85,6 +87,7 @@ namespace Test
         ienum11 = 2147483647,
         ienum12 = 2147483646
     };
+    ::std::ostream& operator<<(::std::ostream&, IntEnum);
 
     enum class SimpleEnum : ::std::uint8_t
     {
@@ -92,6 +95,7 @@ namespace Test
         green,
         blue
     };
+    ::std::ostream& operator<<(::std::ostream&, SimpleEnum);
 
     class TestIntfPrx;
 

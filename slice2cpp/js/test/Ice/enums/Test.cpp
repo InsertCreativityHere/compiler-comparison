@@ -34,6 +34,120 @@
 #   endif
 #endif
 
+::std::ostream&
+Test::operator<<(::std::ostream& os, ByteEnum value)
+{
+    switch (value)
+    {
+        case ByteEnum::benum1:
+            return os << "benum1";
+        case ByteEnum::benum2:
+            return os << "benum2";
+        case ByteEnum::benum3:
+            return os << "benum3";
+        case ByteEnum::benum4:
+            return os << "benum4";
+        case ByteEnum::benum5:
+            return os << "benum5";
+        case ByteEnum::benum6:
+            return os << "benum6";
+        case ByteEnum::benum7:
+            return os << "benum7";
+        case ByteEnum::benum8:
+            return os << "benum8";
+        case ByteEnum::benum9:
+            return os << "benum9";
+        case ByteEnum::benum10:
+            return os << "benum10";
+        case ByteEnum::benum11:
+            return os << "benum11";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, ShortEnum value)
+{
+    switch (value)
+    {
+        case ShortEnum::senum1:
+            return os << "senum1";
+        case ShortEnum::senum2:
+            return os << "senum2";
+        case ShortEnum::senum3:
+            return os << "senum3";
+        case ShortEnum::senum4:
+            return os << "senum4";
+        case ShortEnum::senum5:
+            return os << "senum5";
+        case ShortEnum::senum6:
+            return os << "senum6";
+        case ShortEnum::senum7:
+            return os << "senum7";
+        case ShortEnum::senum8:
+            return os << "senum8";
+        case ShortEnum::senum9:
+            return os << "senum9";
+        case ShortEnum::senum10:
+            return os << "senum10";
+        case ShortEnum::senum11:
+            return os << "senum11";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, IntEnum value)
+{
+    switch (value)
+    {
+        case IntEnum::ienum1:
+            return os << "ienum1";
+        case IntEnum::ienum2:
+            return os << "ienum2";
+        case IntEnum::ienum3:
+            return os << "ienum3";
+        case IntEnum::ienum4:
+            return os << "ienum4";
+        case IntEnum::ienum5:
+            return os << "ienum5";
+        case IntEnum::ienum6:
+            return os << "ienum6";
+        case IntEnum::ienum7:
+            return os << "ienum7";
+        case IntEnum::ienum8:
+            return os << "ienum8";
+        case IntEnum::ienum9:
+            return os << "ienum9";
+        case IntEnum::ienum10:
+            return os << "ienum10";
+        case IntEnum::ienum11:
+            return os << "ienum11";
+        case IntEnum::ienum12:
+            return os << "ienum12";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
+::std::ostream&
+Test::operator<<(::std::ostream& os, SimpleEnum value)
+{
+    switch (value)
+    {
+        case SimpleEnum::red:
+            return os << "red";
+        case SimpleEnum::green:
+            return os << "green";
+        case SimpleEnum::blue:
+            return os << "blue";
+        default:
+            return os << static_cast<::std::int32_t>(value);
+    }
+}
+
 ::Test::ByteEnum
 Test::TestIntfPrx::opByte(ByteEnum iceP_b1, ByteEnum& iceP_b2, const ::Ice::Context& context) const
 {
