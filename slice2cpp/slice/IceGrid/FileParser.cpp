@@ -101,6 +101,12 @@ IceGrid::FileParserPrx::ice_staticId() noexcept
     return "::IceGrid::FileParser";
 }
 
+void
+IceGrid::ParseException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
+}
+
 const char*
 IceGrid::ParseException::ice_staticId() noexcept
 {

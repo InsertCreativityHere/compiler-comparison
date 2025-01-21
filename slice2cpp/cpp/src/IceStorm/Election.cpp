@@ -581,6 +581,12 @@ IceStormElection::operator<<(::std::ostream& os, const ::IceStormElection::Topic
     return os;
 }
 
+void
+IceStormElection::ObserverInconsistencyException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
+}
+
 const char*
 IceStormElection::ObserverInconsistencyException::ice_staticId() noexcept
 {

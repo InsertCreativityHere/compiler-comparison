@@ -1009,58 +1009,6 @@ public interface ThrowerPrx extends com.zeroc.Ice.ObjectPrx
         E.class
     };
 
-    default void throwF()
-        throws F
-    {
-        throwF(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default void throwF(java.util.Map<String, String> context)
-        throws F
-    {
-        try
-        {
-            _iceI_throwFAsync(context, true).waitForResponseOrUserEx();
-        }
-        catch(F ex)
-        {
-            throw ex;
-        }
-        catch(com.zeroc.Ice.UserException ex)
-        {
-            throw com.zeroc.Ice.UnknownUserException.fromTypeId(ex.ice_id());
-        }
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> throwFAsync()
-    {
-        return _iceI_throwFAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> throwFAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_throwFAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.Ice.OutgoingAsync<Void> _iceI_throwFAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.Ice.OutgoingAsync<Void> f = new com.zeroc.Ice.OutgoingAsync<>(this, "throwF", null, sync, _iceE_throwF);
-        f.invoke(true, context, null, null, null);
-        return f;
-    }
-
-    /** @hidden */
-    static final Class<?>[] _iceE_throwF =
-    {
-        F.class
-    };
-
     /**
      * Creates a new proxy that implements {@link ThrowerPrx}.
      * @param communicator The communicator of the new proxy.

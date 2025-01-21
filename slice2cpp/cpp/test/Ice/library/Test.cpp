@@ -94,6 +94,12 @@ Test::MyInterfacePrx::ice_staticId() noexcept
     return "::Test::MyInterface";
 }
 
+void
+Test::UserError::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "message = ", this->message);
+}
+
 const char*
 Test::UserError::ice_staticId() noexcept
 {

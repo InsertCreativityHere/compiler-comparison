@@ -738,6 +738,12 @@ Test::Common::OptionOverrides::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::Common::TestCaseNotExistException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
+}
+
 const char*
 Test::Common::TestCaseNotExistException::ice_staticId() noexcept
 {
@@ -772,6 +778,12 @@ Test::Common::TestCaseNotExistException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::Common::TestCaseFailedException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "output = ", this->output);
+}
+
 const char*
 Test::Common::TestCaseFailedException::ice_staticId() noexcept
 {
@@ -804,6 +816,12 @@ Test::Common::TestCaseFailedException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->output);
     istr->endSlice();
+}
+
+void
+Test::Common::ProcessFailedException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
 }
 
 const char*

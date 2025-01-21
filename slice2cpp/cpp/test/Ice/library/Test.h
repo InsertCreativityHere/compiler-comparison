@@ -122,6 +122,8 @@ public:
         return std::tie(message);
     }
 
+
+    ICE_MEMBER(LIBRARY_TEST_API) void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     ICE_MEMBER(LIBRARY_TEST_API) static const char* ice_staticId() noexcept;

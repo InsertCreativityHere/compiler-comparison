@@ -96,18 +96,6 @@ module ::Test
         T_E = ::Ice::__defineException('::Test::E', E, nil, [["data", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::F)
-        class F < Ice::UserException
-            def to_s
-                '::Test::F'
-            end
-
-            attr_accessor :data
-        end
-
-        T_F = ::Ice::__defineException('::Test::F', F, nil, [["data", ::Ice::T_string, false, 0]])
-    end
-
     module Mod
 
         if not defined?(::Test::Mod::A)

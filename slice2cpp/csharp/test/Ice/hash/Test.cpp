@@ -76,6 +76,12 @@ Test::BaseException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::InvalidPointException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "index = ", this->index);
+}
+
 const char*
 Test::InvalidPointException::ice_staticId() noexcept
 {
@@ -112,6 +118,12 @@ Test::InvalidPointException::_readImpl(::Ice::InputStream* istr)
     BaseException::_readImpl(istr);
 }
 
+void
+Test::InvalidLengthException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "length = ", this->length);
+}
+
 const char*
 Test::InvalidLengthException::ice_staticId() noexcept
 {
@@ -146,6 +158,15 @@ Test::InvalidLengthException::_readImpl(::Ice::InputStream* istr)
     istr->readAll(this->length);
     istr->endSlice();
     BaseException::_readImpl(istr);
+}
+
+void
+Test::OtherException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "x = ", this->x);
+    Ice::print(os << ", y = ", this->y);
+    Ice::print(os << ", z = ", this->z);
+    Ice::print(os << ", b = ", this->b);
 }
 
 const char*

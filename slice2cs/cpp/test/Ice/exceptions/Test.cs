@@ -187,38 +187,6 @@ namespace Test
         }
     }
 
-    [Ice.SliceTypeId("::Test::F")]
-    public partial class F : Ice.UserException
-    {
-        public string ice_data_ = "";
-
-        public F(string ice_data_)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(ice_data_);
-            this.ice_data_ = ice_data_;
-        }
-
-        public F()
-        {
-        }
-
-        public override string ice_id() => "::Test::F";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::F", -1, true);
-            ostr_.writeString(ice_data_);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            ice_data_ = istr_.readString();
-            istr_.endSlice();
-        }
-    }
-
     namespace Mod
     {
         [Ice.SliceTypeId("::Test::Mod::A")]

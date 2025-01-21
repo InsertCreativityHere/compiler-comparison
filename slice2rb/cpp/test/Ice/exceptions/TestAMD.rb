@@ -96,18 +96,6 @@ module ::Test
         T_E = ::Ice::__defineException('::Test::E', E, nil, [["data", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::F)
-        class F < Ice::UserException
-            def to_s
-                '::Test::F'
-            end
-
-            attr_accessor :data
-        end
-
-        T_F = ::Ice::__defineException('::Test::F', F, nil, [["data", ::Ice::T_string, false, 0]])
-    end
-
     module Mod
 
         if not defined?(::Test::Mod::A)
@@ -213,10 +201,6 @@ module ::Test
             def throwE(context=nil)
                 ThrowerPrx_mixin::OP_throwE.invoke(self, [], context)
             end
-
-            def throwF(context=nil)
-                ThrowerPrx_mixin::OP_throwF.invoke(self, [], context)
-            end
         end
 
         class ThrowerPrx < ::Ice::ObjectPrx
@@ -248,7 +232,6 @@ module ::Test
         ThrowerPrx_mixin::OP_throwAfterResponse = ::Ice::__defineOperation('throwAfterResponse', ::Ice::OperationMode::Normal, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_throwAfterException = ::Ice::__defineOperation('throwAfterException', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_A])
         ThrowerPrx_mixin::OP_throwE = ::Ice::__defineOperation('throwE', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_E])
-        ThrowerPrx_mixin::OP_throwF = ::Ice::__defineOperation('throwF', ::Ice::OperationMode::Normal, nil, [], [], nil, [::Test::T_F])
     end
 
     if not defined?(::Test::T_WrongOperationPrx)

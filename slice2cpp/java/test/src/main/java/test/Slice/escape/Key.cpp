@@ -233,6 +233,12 @@ abstract::else::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+abstract::hashCode::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "if = ", this->if);
+}
+
 const char*
 abstract::hashCode::ice_staticId() noexcept
 {
@@ -265,6 +271,14 @@ abstract::hashCode::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->if);
     istr->endSlice();
+}
+
+void
+abstract::import::ice_printFields(std::ostream& os) const
+{
+    hashCode::ice_printFields(os);
+    Ice::print(os << ", instanceof = ", this->instanceof);
+    Ice::print(os << ", native = ", this->native);
 }
 
 const char*

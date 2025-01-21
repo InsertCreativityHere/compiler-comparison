@@ -183,30 +183,6 @@ namespace Test
         array('data', $IcePHP__t_string, false, 0)));
 }
 
-namespace Test
-{
-    global $Test__t_F;
-    class F extends \Ice\UserException
-    {
-        public function ice_id()
-        {
-            return '::Test::F';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_F;
-            return IcePHP_stringifyException($this, $Test__t_F);
-        }
-
-        public $data;
-    }
-    global $IcePHP__t_string;
-
-    $Test__t_F = IcePHP_defineException('::Test::F', '\\Test\\F', null, array(
-        array('data', $IcePHP__t_string, false, 0)));
-}
-
 namespace Test\Mod
 {
     global $Test_Mod__t_A;

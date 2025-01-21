@@ -523,6 +523,12 @@ Glacier2::SSLSessionManagerPrx::ice_staticId() noexcept
     return "::Glacier2::SSLSessionManager";
 }
 
+void
+Glacier2::CannotCreateSessionException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
+}
+
 const char*
 Glacier2::CannotCreateSessionException::ice_staticId() noexcept
 {

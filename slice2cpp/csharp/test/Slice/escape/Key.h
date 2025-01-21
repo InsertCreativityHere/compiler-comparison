@@ -646,6 +646,8 @@ public:
         return std::tie(for);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -686,6 +688,8 @@ public:
         return std::tie(for, goto, if);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -739,6 +743,8 @@ public:
         return std::tie(Data, HelpLink, InnerException, Message, Source, StackTrace, TargetSite, HResult, Equals, GetBaseException, GetHashCode, GetObjectData, GetType, ReferenceEquals, ToString);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;

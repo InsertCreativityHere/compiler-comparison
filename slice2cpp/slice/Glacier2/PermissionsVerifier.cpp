@@ -169,6 +169,12 @@ Glacier2::SSLPermissionsVerifierPrx::ice_staticId() noexcept
     return "::Glacier2::SSLPermissionsVerifier";
 }
 
+void
+Glacier2::PermissionDeniedException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
+}
+
 const char*
 Glacier2::PermissionDeniedException::ice_staticId() noexcept
 {

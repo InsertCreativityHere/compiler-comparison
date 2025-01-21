@@ -257,6 +257,8 @@ public:
         return std::tie(b);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -296,6 +298,8 @@ public:
         return std::tie(b, kd);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -335,6 +339,8 @@ public:
         return std::tie(b, ki);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -374,6 +380,8 @@ public:
         return std::tie(b, ki, kmd);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -413,6 +421,8 @@ public:
         return std::tie(b, ud);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -452,6 +462,8 @@ public:
         return std::tie(b, ui);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -491,6 +503,8 @@ public:
         return std::tie(b, ki, umd1);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -530,6 +544,8 @@ public:
         return std::tie(b, ui, umd2);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;

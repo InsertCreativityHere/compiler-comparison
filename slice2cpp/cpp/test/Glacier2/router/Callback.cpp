@@ -411,6 +411,13 @@ Test::CallbackPrx::ice_staticId() noexcept
     return "::Test::Callback";
 }
 
+void
+Test::CallbackException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "someValue = ", this->someValue);
+    Ice::print(os << ", someString = ", this->someString);
+}
+
 const char*
 Test::CallbackException::ice_staticId() noexcept
 {

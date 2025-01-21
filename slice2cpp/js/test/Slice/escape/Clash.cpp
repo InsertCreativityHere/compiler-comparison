@@ -489,6 +489,14 @@ Clash::operator<<(::std::ostream& os, const ::Clash::St& value)
     return os;
 }
 
+void
+Clash::Ex::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "istr = ", this->istr);
+    Ice::print(os << ", ostr = ", this->ostr);
+    Ice::print(os << ", cause = ", this->cause);
+}
+
 const char*
 Clash::Ex::ice_staticId() noexcept
 {

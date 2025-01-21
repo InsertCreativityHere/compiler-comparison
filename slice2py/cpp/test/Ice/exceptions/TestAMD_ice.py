@@ -185,25 +185,6 @@ if 'E' not in _M_Test.__dict__:
     _M_Test.E = E
     del E
 
-if 'F' not in _M_Test.__dict__:
-    _M_Test.F = None
-    class F(Ice.UserException):
-        def __init__(self, data=''):
-            self.data = data
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::F'
-
-    _M_Test._t_F = IcePy.defineException('::Test::F', F, (), None, (('data', (), IcePy._t_string, False, 0),))
-    F._ice_type = _M_Test._t_F
-
-    _M_Test.F = F
-    del F
-
 # Start of module Test.Mod
 _M_Test.Mod = Ice.openModule('Test.Mod')
 __name__ = 'Test.Mod'
@@ -386,12 +367,6 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwEAsync(self, context=None):
             return _M_Test.Thrower._op_throwE.invokeAsync(self, ((), context))
 
-        def throwF(self, context=None):
-            return _M_Test.Thrower._op_throwF.invoke(self, ((), context))
-
-        def throwFAsync(self, context=None):
-            return _M_Test.Thrower._op_throwF.invokeAsync(self, ((), context))
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.ThrowerPrx.ice_checkedCast(proxy, '::Test::Thrower', facetOrContext, context)
@@ -487,9 +462,6 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwE(self, current=None):
             raise NotImplementedError("servant method 'throwE' not implemented")
 
-        def throwF(self, current=None):
-            raise NotImplementedError("servant method 'throwF' not implemented")
-
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_ThrowerDisp)
 
@@ -517,7 +489,6 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
     Thrower._op_throwAfterResponse = IcePy.Operation('throwAfterResponse', Ice.OperationMode.Normal, True, None, (), (), (), None, ())
     Thrower._op_throwAfterException = IcePy.Operation('throwAfterException', Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Test._t_A,))
     Thrower._op_throwE = IcePy.Operation('throwE', Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Test._t_E,))
-    Thrower._op_throwF = IcePy.Operation('throwF', Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Test._t_F,))
 
     _M_Test.Thrower = Thrower
     del Thrower

@@ -279,6 +279,12 @@ BEGIN::display::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+BEGIN::next::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "new = ", this->new);
+}
+
 const char*
 BEGIN::next::ice_staticId() noexcept
 {
@@ -311,6 +317,14 @@ BEGIN::next::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->new);
     istr->endSlice();
+}
+
+void
+BEGIN::nil::ice_printFields(std::ostream& os) const
+{
+    next::ice_printFields(os);
+    Ice::print(os << ", not = ", this->not);
+    Ice::print(os << ", or = ", this->or);
 }
 
 const char*

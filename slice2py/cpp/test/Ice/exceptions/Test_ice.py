@@ -185,25 +185,6 @@ if 'E' not in _M_Test.__dict__:
     _M_Test.E = E
     del E
 
-if 'F' not in _M_Test.__dict__:
-    _M_Test.F = None
-    class F(Ice.UserException):
-        def __init__(self, data=''):
-            self.data = data
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::F'
-
-    _M_Test._t_F = IcePy.defineException('::Test::F', F, (), None, (('data', (), IcePy._t_string, False, 0),))
-    F._ice_type = _M_Test._t_F
-
-    _M_Test.F = F
-    del F
-
 # Start of module Test.Mod
 _M_Test.Mod = Ice.openModule('Test.Mod')
 __name__ = 'Test.Mod'

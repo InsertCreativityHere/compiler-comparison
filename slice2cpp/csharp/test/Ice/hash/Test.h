@@ -90,6 +90,8 @@ public:
         return std::tie(index);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -129,6 +131,8 @@ public:
         return std::tie(length);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -170,6 +174,8 @@ public:
         return std::tie(x, y, z, b);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;

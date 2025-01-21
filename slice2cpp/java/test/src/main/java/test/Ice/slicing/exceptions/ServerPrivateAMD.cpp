@@ -627,6 +627,12 @@ Test::TestIntfPrx::ice_staticId() noexcept
     return "::Test::TestIntf";
 }
 
+void
+Test::Base::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "b = ", this->b);
+}
+
 const char*
 Test::Base::ice_staticId() noexcept
 {
@@ -659,6 +665,13 @@ Test::Base::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->b);
     istr->endSlice();
+}
+
+void
+Test::KnownDerived::ice_printFields(std::ostream& os) const
+{
+    Base::ice_printFields(os);
+    Ice::print(os << ", kd = ", this->kd);
 }
 
 const char*
@@ -697,6 +710,13 @@ Test::KnownDerived::_readImpl(::Ice::InputStream* istr)
     Base::_readImpl(istr);
 }
 
+void
+Test::KnownIntermediate::ice_printFields(std::ostream& os) const
+{
+    Base::ice_printFields(os);
+    Ice::print(os << ", ki = ", this->ki);
+}
+
 const char*
 Test::KnownIntermediate::ice_staticId() noexcept
 {
@@ -731,6 +751,13 @@ Test::KnownIntermediate::_readImpl(::Ice::InputStream* istr)
     istr->readAll(this->ki);
     istr->endSlice();
     Base::_readImpl(istr);
+}
+
+void
+Test::KnownMostDerived::ice_printFields(std::ostream& os) const
+{
+    KnownIntermediate::ice_printFields(os);
+    Ice::print(os << ", kmd = ", this->kmd);
 }
 
 const char*
@@ -769,6 +796,13 @@ Test::KnownMostDerived::_readImpl(::Ice::InputStream* istr)
     KnownIntermediate::_readImpl(istr);
 }
 
+void
+Test::UnknownDerived::ice_printFields(std::ostream& os) const
+{
+    Base::ice_printFields(os);
+    Ice::print(os << ", ud = ", this->ud);
+}
+
 const char*
 Test::UnknownDerived::ice_staticId() noexcept
 {
@@ -803,6 +837,13 @@ Test::UnknownDerived::_readImpl(::Ice::InputStream* istr)
     istr->readAll(this->ud);
     istr->endSlice();
     Base::_readImpl(istr);
+}
+
+void
+Test::UnknownIntermediate::ice_printFields(std::ostream& os) const
+{
+    Base::ice_printFields(os);
+    Ice::print(os << ", ui = ", this->ui);
 }
 
 const char*
@@ -841,6 +882,13 @@ Test::UnknownIntermediate::_readImpl(::Ice::InputStream* istr)
     Base::_readImpl(istr);
 }
 
+void
+Test::UnknownMostDerived1::ice_printFields(std::ostream& os) const
+{
+    KnownIntermediate::ice_printFields(os);
+    Ice::print(os << ", umd1 = ", this->umd1);
+}
+
 const char*
 Test::UnknownMostDerived1::ice_staticId() noexcept
 {
@@ -875,6 +923,13 @@ Test::UnknownMostDerived1::_readImpl(::Ice::InputStream* istr)
     istr->readAll(this->umd1);
     istr->endSlice();
     KnownIntermediate::_readImpl(istr);
+}
+
+void
+Test::UnknownMostDerived2::ice_printFields(std::ostream& os) const
+{
+    UnknownIntermediate::ice_printFields(os);
+    Ice::print(os << ", umd2 = ", this->umd2);
 }
 
 const char*

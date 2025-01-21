@@ -795,6 +795,12 @@ Test::WrongOperationPrx::ice_staticId() noexcept
     return "::Test::WrongOperation";
 }
 
+void
+Test::A::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "aMem = ", this->aMem);
+}
+
 const char*
 Test::A::ice_staticId() noexcept
 {
@@ -827,6 +833,13 @@ Test::A::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->aMem);
     istr->endSlice();
+}
+
+void
+Test::B::ice_printFields(std::ostream& os) const
+{
+    A::ice_printFields(os);
+    Ice::print(os << ", bMem = ", this->bMem);
 }
 
 const char*
@@ -865,6 +878,13 @@ Test::B::_readImpl(::Ice::InputStream* istr)
     A::_readImpl(istr);
 }
 
+void
+Test::C::ice_printFields(std::ostream& os) const
+{
+    B::ice_printFields(os);
+    Ice::print(os << ", cMem = ", this->cMem);
+}
+
 const char*
 Test::C::ice_staticId() noexcept
 {
@@ -899,6 +919,12 @@ Test::C::_readImpl(::Ice::InputStream* istr)
     istr->readAll(this->cMem);
     istr->endSlice();
     B::_readImpl(istr);
+}
+
+void
+Test::D::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "dMem = ", this->dMem);
 }
 
 const char*

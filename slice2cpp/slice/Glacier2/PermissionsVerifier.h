@@ -230,6 +230,8 @@ public:
         return std::tie(reason);
     }
 
+
+    ICE_MEMBER(GLACIER2_API) void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     ICE_MEMBER(GLACIER2_API) static const char* ice_staticId() noexcept;

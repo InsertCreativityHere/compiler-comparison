@@ -62,6 +62,12 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::FileNotAvailableException> iceC_IceGrid_FileNotAvailableException_init("::IceGrid::FileNotAvailableException");
 }
 
+void
+IceGrid::ApplicationNotExistException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+}
+
 const char*
 IceGrid::ApplicationNotExistException::ice_staticId() noexcept
 {
@@ -94,6 +100,12 @@ IceGrid::ApplicationNotExistException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->name);
     istr->endSlice();
+}
+
+void
+IceGrid::ServerNotExistException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
 }
 
 const char*
@@ -130,6 +142,13 @@ IceGrid::ServerNotExistException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+IceGrid::ServerStartException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", reason = ", this->reason);
+}
+
 const char*
 IceGrid::ServerStartException::ice_staticId() noexcept
 {
@@ -162,6 +181,13 @@ IceGrid::ServerStartException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->id, this->reason);
     istr->endSlice();
+}
+
+void
+IceGrid::ServerStopException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+    Ice::print(os << ", reason = ", this->reason);
 }
 
 const char*
@@ -198,6 +224,12 @@ IceGrid::ServerStopException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+IceGrid::AdapterNotExistException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+}
+
 const char*
 IceGrid::AdapterNotExistException::ice_staticId() noexcept
 {
@@ -230,6 +262,12 @@ IceGrid::AdapterNotExistException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->id);
     istr->endSlice();
+}
+
+void
+IceGrid::ObjectExistsException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
 }
 
 const char*
@@ -266,6 +304,12 @@ IceGrid::ObjectExistsException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+IceGrid::ObjectNotRegisteredException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+}
+
 const char*
 IceGrid::ObjectNotRegisteredException::ice_staticId() noexcept
 {
@@ -298,6 +342,12 @@ IceGrid::ObjectNotRegisteredException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->id);
     istr->endSlice();
+}
+
+void
+IceGrid::NodeNotExistException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
 }
 
 const char*
@@ -334,6 +384,12 @@ IceGrid::NodeNotExistException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+IceGrid::RegistryNotExistException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+}
+
 const char*
 IceGrid::RegistryNotExistException::ice_staticId() noexcept
 {
@@ -366,6 +422,12 @@ IceGrid::RegistryNotExistException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->name);
     istr->endSlice();
+}
+
+void
+IceGrid::DeploymentException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
 }
 
 const char*
@@ -402,6 +464,13 @@ IceGrid::DeploymentException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+IceGrid::NodeUnreachableException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+    Ice::print(os << ", reason = ", this->reason);
+}
+
 const char*
 IceGrid::NodeUnreachableException::ice_staticId() noexcept
 {
@@ -434,6 +503,13 @@ IceGrid::NodeUnreachableException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->name, this->reason);
     istr->endSlice();
+}
+
+void
+IceGrid::ServerUnreachableException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+    Ice::print(os << ", reason = ", this->reason);
 }
 
 const char*
@@ -470,6 +546,13 @@ IceGrid::ServerUnreachableException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+IceGrid::RegistryUnreachableException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+    Ice::print(os << ", reason = ", this->reason);
+}
+
 const char*
 IceGrid::RegistryUnreachableException::ice_staticId() noexcept
 {
@@ -502,6 +585,12 @@ IceGrid::RegistryUnreachableException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->name, this->reason);
     istr->endSlice();
+}
+
+void
+IceGrid::BadSignalException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
 }
 
 const char*
@@ -538,6 +627,12 @@ IceGrid::BadSignalException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+IceGrid::AccessDeniedException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "lockUserId = ", this->lockUserId);
+}
+
 const char*
 IceGrid::AccessDeniedException::ice_staticId() noexcept
 {
@@ -570,6 +665,12 @@ IceGrid::AccessDeniedException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->lockUserId);
     istr->endSlice();
+}
+
+void
+IceGrid::AllocationException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
 }
 
 const char*
@@ -640,6 +741,12 @@ IceGrid::AllocationTimeoutException::_readImpl(::Ice::InputStream* istr)
     AllocationException::_readImpl(istr);
 }
 
+void
+IceGrid::PermissionDeniedException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
+}
+
 const char*
 IceGrid::PermissionDeniedException::ice_staticId() noexcept
 {
@@ -674,6 +781,12 @@ IceGrid::PermissionDeniedException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+IceGrid::ObserverAlreadyRegisteredException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
+}
+
 const char*
 IceGrid::ObserverAlreadyRegisteredException::ice_staticId() noexcept
 {
@@ -706,6 +819,12 @@ IceGrid::ObserverAlreadyRegisteredException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->id);
     istr->endSlice();
+}
+
+void
+IceGrid::FileNotAvailableException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
 }
 
 const char*

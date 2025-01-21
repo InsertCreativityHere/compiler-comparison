@@ -353,6 +353,17 @@ classdef::break::properties::_iceReadImpl(::Ice::InputStream* istr)
     try::_iceReadImpl(istr);
 }
 
+void
+classdef::break::persistent::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "identifier = ", this->identifier);
+    Ice::print(os << ", message = ", this->message);
+    Ice::print(os << ", stack = ", this->stack);
+    Ice::print(os << ", cause = ", this->cause);
+    Ice::print(os << ", type = ", this->type);
+    Ice::print(os << ", end = ", this->end);
+}
+
 const char*
 classdef::break::persistent::ice_staticId() noexcept
 {
@@ -393,6 +404,13 @@ classdef::break::persistent::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->identifier, this->message, this->stack, this->cause, this->type, this->end);
     istr->endSlice();
+}
+
+void
+classdef::break::global::ice_printFields(std::ostream& os) const
+{
+    persistent::ice_printFields(os);
+    Ice::print(os << ", enumeration = ", this->enumeration);
 }
 
 const char*

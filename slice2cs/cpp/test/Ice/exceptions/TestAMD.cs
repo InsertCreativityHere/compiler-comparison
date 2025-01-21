@@ -187,38 +187,6 @@ namespace Test
         }
     }
 
-    [Ice.SliceTypeId("::Test::F")]
-    public partial class F : Ice.UserException
-    {
-        public string ice_data_ = "";
-
-        public F(string ice_data_)
-        {
-            global::System.ArgumentNullException.ThrowIfNull(ice_data_);
-            this.ice_data_ = ice_data_;
-        }
-
-        public F()
-        {
-        }
-
-        public override string ice_id() => "::Test::F";
-
-        protected override void iceWriteImpl(Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::F", -1, true);
-            ostr_.writeString(ice_data_);
-            ostr_.endSlice();
-        }
-
-        protected override void iceReadImpl(Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            ice_data_ = istr_.readString();
-            istr_.endSlice();
-        }
-    }
-
     namespace Mod
     {
         [Ice.SliceTypeId("::Test::Mod::A")]
@@ -301,8 +269,6 @@ namespace Test
         global::System.Threading.Tasks.Task throwAfterExceptionAsync(Ice.Current current);
 
         global::System.Threading.Tasks.Task throwEAsync(Ice.Current current);
-
-        global::System.Threading.Tasks.Task throwFAsync(Ice.Current current);
     }
 
     [Ice.SliceTypeId("::Test::WrongOperation")]
@@ -407,10 +373,6 @@ namespace Test
         void throwE(global::System.Collections.Generic.Dictionary<string, string>? context = null);
 
         global::System.Threading.Tasks.Task throwEAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
-
-        void throwF(global::System.Collections.Generic.Dictionary<string, string>? context = null);
-
-        global::System.Threading.Tasks.Task throwFAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default);
     }
 
     public interface WrongOperationPrx : Ice.ObjectPrx
@@ -732,18 +694,6 @@ namespace Test
             try
             {
                 _iceI_throwEAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch (global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException!;
-            }
-        }
-
-        public void throwF(global::System.Collections.Generic.Dictionary<string, string>? context = null)
-        {
-            try
-            {
-                _iceI_throwFAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch (global::System.AggregateException ex_)
             {
@@ -1536,46 +1486,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task throwFAsync(global::System.Collections.Generic.Dictionary<string, string>? context = null, global::System.IProgress<bool>? progress = null, global::System.Threading.CancellationToken cancel = default)
-        {
-            return _iceI_throwFAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_throwFAsync(global::System.Collections.Generic.Dictionary<string, string>? context, global::System.IProgress<bool>? progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_throwF_name);
-            var completed = new Ice.Internal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_throwF(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _throwF_name = "throwF";
-
-        private void _iceI_throwF(global::System.Collections.Generic.Dictionary<string, string>? context, bool synchronous, Ice.Internal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _throwF_name,
-                Ice.OperationMode.Normal,
-                null,
-                context,
-                synchronous,
-                userException: (Ice.UserException ex) =>
-                {
-                    try
-                    {
-                        throw ex;
-                    }
-                    catch(F)
-                    {
-                        throw;
-                    }
-                    catch(Ice.UserException)
-                    {
-                    }
-                });
-        }
-
         public static ThrowerPrx createProxy(Ice.Communicator communicator, string proxyString) =>
             new ThrowerPrxHelper(Ice.ObjectPrxHelper.createProxy(communicator, proxyString));
 
@@ -1767,8 +1677,6 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task throwEAsync(Ice.Current current);
 
-        public abstract global::System.Threading.Tasks.Task throwFAsync(Ice.Current current);
-
         public override string ice_id(Ice.Current current) => ice_staticId();
 
         public static new string ice_staticId() => "::Test::Thrower";
@@ -1798,7 +1706,6 @@ namespace Test
                 "throwAfterResponse" => Thrower.iceD_throwAfterResponseAsync(this, request),
                 "throwAfterException" => Thrower.iceD_throwAfterExceptionAsync(this, request),
                 "throwE" => Thrower.iceD_throwEAsync(this, request),
-                "throwF" => Thrower.iceD_throwFAsync(this, request),
                 "ice_id" => Ice.Object.iceD_ice_idAsync(this, request),
                 "ice_ids" => Ice.Object.iceD_ice_idsAsync(this, request),
                 "ice_isA" => Ice.Object.iceD_ice_isAAsync(this, request),
@@ -2139,16 +2046,6 @@ namespace Test
             Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
             request.inputStream.skipEmptyEncapsulation();
             await obj.throwEAsync(request.current).ConfigureAwait(false);
-            return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
-        }
-
-        protected static async global::System.Threading.Tasks.ValueTask<Ice.OutgoingResponse> iceD_throwFAsync(
-            Thrower obj,
-            Ice.IncomingRequest request)
-        {
-            Ice.ObjectImpl.iceCheckMode(Ice.OperationMode.Normal, request.current.mode);
-            request.inputStream.skipEmptyEncapsulation();
-            await obj.throwFAsync(request.current).ConfigureAwait(false);
             return Ice.CurrentExtensions.createEmptyOutgoingResponse(request.current);
         }
     }

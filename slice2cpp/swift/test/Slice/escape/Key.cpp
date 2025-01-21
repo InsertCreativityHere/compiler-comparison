@@ -248,6 +248,12 @@ and::switch::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+and::return::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "Int32 = ", this->Int32);
+}
+
 const char*
 and::return::ice_staticId() noexcept
 {
@@ -280,6 +286,14 @@ and::return::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->Int32);
     istr->endSlice();
+}
+
+void
+and::as::ice_printFields(std::ostream& os) const
+{
+    return::ice_printFields(os);
+    Ice::print(os << ", static = ", this->static);
+    Ice::print(os << ", switch = ", this->switch);
 }
 
 const char*

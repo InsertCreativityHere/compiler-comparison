@@ -2312,6 +2312,14 @@ Test::WD::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::OptionalException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "req = ", this->req);
+    Ice::print(os << ", a = ", this->a);
+    Ice::print(os << ", b = ", this->b);
+}
+
 const char*
 Test::OptionalException::ice_staticId() noexcept
 {
@@ -2346,6 +2354,15 @@ Test::OptionalException::_readImpl(::Ice::InputStream* istr)
     istr->readAll(this->req);
     istr->readAll({1, 2}, this->a, this->b);
     istr->endSlice();
+}
+
+void
+Test::DerivedException::ice_printFields(std::ostream& os) const
+{
+    OptionalException::ice_printFields(os);
+    Ice::print(os << ", d1 = ", this->d1);
+    Ice::print(os << ", ss = ", this->ss);
+    Ice::print(os << ", d2 = ", this->d2);
 }
 
 const char*
@@ -2384,6 +2401,13 @@ Test::DerivedException::_readImpl(::Ice::InputStream* istr)
     istr->readAll({600}, this->ss);
     istr->endSlice();
     OptionalException::_readImpl(istr);
+}
+
+void
+Test::RequiredException::ice_printFields(std::ostream& os) const
+{
+    OptionalException::ice_printFields(os);
+    Ice::print(os << ", ss = ", this->ss);
 }
 
 const char*

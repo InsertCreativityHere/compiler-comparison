@@ -1450,6 +1450,12 @@ Test::Base::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::BaseEx::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
+}
+
 const char*
 Test::BaseEx::ice_staticId() noexcept
 {
@@ -1878,6 +1884,12 @@ Test::Inner::A::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::Inner::Ex::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
+}
+
 const char*
 Test::Inner::Ex::ice_staticId() noexcept
 {
@@ -1950,6 +1962,12 @@ Test::Inner::Sub::A::_iceReadImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->theA);
     istr->endSlice();
+}
+
+void
+Test::Inner::Sub::Ex::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
 }
 
 const char*
@@ -2111,6 +2129,13 @@ Test::D1::_iceReadImpl(::Ice::InputStream* istr)
     B1::_iceReadImpl(istr);
 }
 
+void
+Test::EBase::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "a1 = ", this->a1);
+    Ice::print(os << ", a2 = ", this->a2);
+}
+
 const char*
 Test::EBase::ice_staticId() noexcept
 {
@@ -2151,6 +2176,14 @@ Test::EBase::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->a1, this->a2);
     istr->endSlice();
+}
+
+void
+Test::EDerived::ice_printFields(std::ostream& os) const
+{
+    EBase::ice_printFields(os);
+    Ice::print(os << ", a3 = ", this->a3);
+    Ice::print(os << ", a4 = ", this->a4);
 }
 
 const char*
@@ -2551,6 +2584,12 @@ Test::CTwoMembers::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::EOneMember::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "e = ", this->e);
+}
+
 const char*
 Test::EOneMember::ice_staticId() noexcept
 {
@@ -2591,6 +2630,13 @@ Test::EOneMember::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->e);
     istr->endSlice();
+}
+
+void
+Test::ETwoMembers::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "e1 = ", this->e1);
+    Ice::print(os << ", e2 = ", this->e2);
 }
 
 const char*

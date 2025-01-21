@@ -625,6 +625,8 @@ public:
         return std::tie(name);
     }
 
+
+    ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
@@ -666,6 +668,8 @@ public:
         return std::tie(name);
     }
 
+
+    ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
@@ -725,6 +729,8 @@ public:
         return std::tie(reason);
     }
 
+
+    ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
@@ -766,6 +772,8 @@ public:
         return std::tie(reason);
     }
 
+
+    ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
@@ -807,6 +815,8 @@ public:
         return std::tie(name);
     }
 
+
+    ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
@@ -848,6 +858,8 @@ public:
         return std::tie(name);
     }
 
+
+    ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;

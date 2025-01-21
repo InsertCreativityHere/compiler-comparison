@@ -331,17 +331,6 @@ public:
     void _iceI_throwE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwF(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    [[nodiscard]] ::std::future<void> throwFAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwFAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
-    /// \endcond
-
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -466,6 +455,8 @@ public:
         return std::tie(aMem);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -505,6 +496,8 @@ public:
         return std::tie(aMem, bMem);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -544,6 +537,8 @@ public:
         return std::tie(aMem, bMem, cMem);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -582,6 +577,8 @@ public:
         return std::tie(dMem);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -620,48 +617,8 @@ public:
         return std::tie(data);
     }
 
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    ::std::string data;
-
-protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
-
-    void _readImpl(::Ice::InputStream*) override;
-};
-
-class F : public ::Ice::UserException
-{
-public:
-    /// Default constructor.
-    F() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    F(::std::string data) noexcept :
-        data(::std::move(data))
-    {
-    }
-
-    /// Copy constructor.
-    F(const F&) noexcept = default;
-
-    /// Outputs a custom description of this exception to a stream.
-    /// @param stream The output stream.
-    void ice_print(::std::ostream& stream) const override;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(data);
-    }
-
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -704,6 +661,8 @@ public:
         return std::tie(aMem, a2Mem);
     }
 
+
+    void ice_printFields(std::ostream& os) const override;
     /// Obtains the Slice type ID of this exception.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
@@ -878,11 +837,6 @@ public:
     virtual void throwEAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_throwE(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual void throwFAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwF(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL

@@ -170,6 +170,12 @@ Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::MyException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "c = ", this->c);
+}
+
 const char*
 Test::MyException::ice_staticId() noexcept
 {

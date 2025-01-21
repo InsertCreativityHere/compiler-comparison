@@ -225,43 +225,6 @@ Ice.TypeRegistry.declareUserExceptionType(
     "Test.E",
     Test.E);
 
-Test.F = class extends Ice.UserException
-{
-    constructor(data = "", _cause = "")
-    {
-        super(_cause);
-        this.data = data;
-    }
-
-    static get _parent()
-    {
-        return Ice.UserException;
-    }
-
-    static get _ice_id()
-    {
-        return "::Test::F";
-    }
-
-    _mostDerivedType()
-    {
-        return Test.F;
-    }
-
-    _writeMemberImpl(ostr)
-    {
-        ostr.writeString(this.data);
-    }
-
-    _readMemberImpl(istr)
-    {
-        this.data = istr.readString();
-    }
-};
-Ice.TypeRegistry.declareUserExceptionType(
-    "Test.F",
-    Test.F);
-
 Test.Mod.A = class extends Test.A
 {
     constructor(aMem, a2Mem = 0, _cause = "")

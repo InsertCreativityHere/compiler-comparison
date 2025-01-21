@@ -1736,6 +1736,13 @@ Test::operator<<(::std::ostream& os, const ::Test::SS3& value)
     return os;
 }
 
+void
+Test::BaseException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "sbe = ", this->sbe);
+    Ice::print(os << ", pb = ", this->pb);
+}
+
 const char*
 Test::BaseException::ice_staticId() noexcept
 {
@@ -1776,6 +1783,14 @@ Test::BaseException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->sbe, this->pb);
     istr->endSlice();
+}
+
+void
+Test::DerivedException::ice_printFields(std::ostream& os) const
+{
+    BaseException::ice_printFields(os);
+    Ice::print(os << ", sde = ", this->sde);
+    Ice::print(os << ", pd1 = ", this->pd1);
 }
 
 const char*

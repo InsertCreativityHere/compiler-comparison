@@ -42,7 +42,6 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::D> iceC_Test_D_init("::Test::D");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::E> iceC_Test_E_init("::Test::E");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::F> iceC_Test_F_init("::Test::F");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Mod::A> iceC_Test_Mod_A_init("::Test::Mod::A");
 }
 
@@ -849,6 +848,12 @@ Test::WrongOperationPrx::ice_staticId() noexcept
     return "::Test::WrongOperation";
 }
 
+void
+Test::A::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "aMem = ", this->aMem);
+}
+
 const char*
 Test::A::ice_staticId() noexcept
 {
@@ -881,6 +886,13 @@ Test::A::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->aMem);
     istr->endSlice();
+}
+
+void
+Test::B::ice_printFields(std::ostream& os) const
+{
+    A::ice_printFields(os);
+    Ice::print(os << ", bMem = ", this->bMem);
 }
 
 const char*
@@ -919,6 +931,13 @@ Test::B::_readImpl(::Ice::InputStream* istr)
     A::_readImpl(istr);
 }
 
+void
+Test::C::ice_printFields(std::ostream& os) const
+{
+    B::ice_printFields(os);
+    Ice::print(os << ", cMem = ", this->cMem);
+}
+
 const char*
 Test::C::ice_staticId() noexcept
 {
@@ -955,6 +974,12 @@ Test::C::_readImpl(::Ice::InputStream* istr)
     B::_readImpl(istr);
 }
 
+void
+Test::D::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "dMem = ", this->dMem);
+}
+
 const char*
 Test::D::ice_staticId() noexcept
 {
@@ -987,6 +1012,12 @@ Test::D::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->dMem);
     istr->endSlice();
+}
+
+void
+Test::E::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "data = ", this->data);
 }
 
 const char*
@@ -1023,38 +1054,11 @@ Test::E::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
-const char*
-Test::F::ice_staticId() noexcept
-{
-    return "::Test::F";
-}
-
-const char*
-Test::F::ice_id() const noexcept
-{
-    return ice_staticId();
-}
-
 void
-Test::F::ice_throw() const
+Test::Mod::A::ice_printFields(std::ostream& os) const
 {
-    throw *this;
-}
-
-void
-Test::F::_writeImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ostr->writeAll(this->data);
-    ostr->endSlice();
-}
-
-void
-Test::F::_readImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    istr->readAll(this->data);
-    istr->endSlice();
+    ::Test::A::ice_printFields(os);
+    Ice::print(os << ", a2Mem = ", this->a2Mem);
 }
 
 const char*

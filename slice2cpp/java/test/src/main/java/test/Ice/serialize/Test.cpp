@@ -280,6 +280,13 @@ Test::Derived::_iceReadImpl(::Ice::InputStream* istr)
     Base::_iceReadImpl(istr);
 }
 
+void
+Test::Ex::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "s = ", this->s);
+    Ice::print(os << ", b = ", this->b);
+}
+
 const char*
 Test::Ex::ice_staticId() noexcept
 {

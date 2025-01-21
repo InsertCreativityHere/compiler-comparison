@@ -187,6 +187,12 @@ Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::MyException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "c = ", this->c);
+}
+
 const char*
 Test::MyException::ice_staticId() noexcept
 {
@@ -252,6 +258,12 @@ Test::Sub::operator<<(::std::ostream& os, const ::Test::Sub::NestedStruct& value
     return os;
 }
 
+void
+Test::Sub::NestedException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "str = ", this->str);
+}
+
 const char*
 Test::Sub::NestedException::ice_staticId() noexcept
 {
@@ -307,6 +319,12 @@ Test2::Sub2::operator<<(::std::ostream& os, const ::Test2::Sub2::NestedStruct2& 
     value.ice_printFields(os);
     os << '}';
     return os;
+}
+
+void
+Test2::Sub2::NestedException2::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "str = ", this->str);
 }
 
 const char*

@@ -334,6 +334,12 @@ Test1::operator<<(::std::ostream& os, const ::Test1::WstringStruct& value)
     return os;
 }
 
+void
+Test1::WstringException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
+}
+
 const char*
 Test1::WstringException::ice_staticId() noexcept
 {
@@ -381,6 +387,12 @@ Test2::operator<<(::std::ostream& os, const ::Test2::WstringStruct& value)
     value.ice_printFields(os);
     os << '}';
     return os;
+}
+
+void
+Test2::WstringException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
 }
 
 const char*

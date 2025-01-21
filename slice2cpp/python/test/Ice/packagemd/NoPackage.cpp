@@ -127,6 +127,12 @@ Test1::C2::_iceReadImpl(::Ice::InputStream* istr)
     C1::_iceReadImpl(istr);
 }
 
+void
+Test1::E1::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "i = ", this->i);
+}
+
 const char*
 Test1::E1::ice_staticId() noexcept
 {
@@ -159,6 +165,13 @@ Test1::E1::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->i);
     istr->endSlice();
+}
+
+void
+Test1::E2::ice_printFields(std::ostream& os) const
+{
+    E1::ice_printFields(os);
+    Ice::print(os << ", l = ", this->l);
 }
 
 const char*
@@ -195,6 +208,12 @@ Test1::E2::_readImpl(::Ice::InputStream* istr)
     istr->readAll(this->l);
     istr->endSlice();
     E1::_readImpl(istr);
+}
+
+void
+Test1::def::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "i = ", this->i);
 }
 
 const char*

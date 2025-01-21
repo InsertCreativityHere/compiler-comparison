@@ -1738,6 +1738,13 @@ Test::operator<<(::std::ostream& os, const ::Test::SS3& value)
     return os;
 }
 
+void
+Test::BaseException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "sbe = ", this->sbe);
+    Ice::print(os << ", pb = ", this->pb);
+}
+
 const char*
 Test::BaseException::ice_staticId() noexcept
 {
@@ -1778,6 +1785,14 @@ Test::BaseException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->sbe, this->pb);
     istr->endSlice();
+}
+
+void
+Test::DerivedException::ice_printFields(std::ostream& os) const
+{
+    BaseException::ice_printFields(os);
+    Ice::print(os << ", sde = ", this->sde);
+    Ice::print(os << ", pd1 = ", this->pd1);
 }
 
 const char*
@@ -2229,6 +2244,14 @@ Test::D4::_iceReadImpl(::Ice::InputStream* istr)
     B::_iceReadImpl(istr);
 }
 
+void
+Test::UnknownDerivedException::ice_printFields(std::ostream& os) const
+{
+    BaseException::ice_printFields(os);
+    Ice::print(os << ", sude = ", this->sude);
+    Ice::print(os << ", pd2 = ", this->pd2);
+}
+
 const char*
 Test::UnknownDerivedException::ice_staticId() noexcept
 {
@@ -2391,6 +2414,12 @@ Test::PSUnknown2::_iceReadImpl(::Ice::InputStream* istr)
     istr->readAll(this->pb);
     istr->endSlice();
     Preserved::_iceReadImpl(istr);
+}
+
+void
+Test::PSUnknownException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "p = ", this->p);
 }
 
 const char*

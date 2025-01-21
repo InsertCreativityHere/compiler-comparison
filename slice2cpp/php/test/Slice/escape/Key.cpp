@@ -279,6 +279,12 @@ and::echo::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+and::endif::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "endswitch = ", this->endswitch);
+}
+
 const char*
 and::endif::ice_staticId() noexcept
 {
@@ -311,6 +317,14 @@ and::endif::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->endswitch);
     istr->endSlice();
+}
+
+void
+and::endwhile::ice_printFields(std::ostream& os) const
+{
+    endif::ice_printFields(os);
+    Ice::print(os << ", eval = ", this->eval);
+    Ice::print(os << ", exit = ", this->exit);
 }
 
 const char*

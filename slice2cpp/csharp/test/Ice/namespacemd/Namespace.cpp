@@ -126,6 +126,12 @@ WithNamespace::C2::_iceReadImpl(::Ice::InputStream* istr)
     C1::_iceReadImpl(istr);
 }
 
+void
+WithNamespace::E1::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "i = ", this->i);
+}
+
 const char*
 WithNamespace::E1::ice_staticId() noexcept
 {
@@ -158,6 +164,13 @@ WithNamespace::E1::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->i);
     istr->endSlice();
+}
+
+void
+WithNamespace::E2::ice_printFields(std::ostream& os) const
+{
+    E1::ice_printFields(os);
+    Ice::print(os << ", l = ", this->l);
 }
 
 const char*

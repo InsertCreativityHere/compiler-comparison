@@ -579,6 +579,12 @@ IceStorm::operator<<(::std::ostream& os, const ::IceStorm::LinkInfo& value)
     return os;
 }
 
+void
+IceStorm::LinkExists::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+}
+
 const char*
 IceStorm::LinkExists::ice_staticId() noexcept
 {
@@ -611,6 +617,12 @@ IceStorm::LinkExists::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->name);
     istr->endSlice();
+}
+
+void
+IceStorm::NoSuchLink::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
 }
 
 const char*
@@ -679,6 +691,12 @@ IceStorm::AlreadySubscribed::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+IceStorm::InvalidSubscriber::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
+}
+
 const char*
 IceStorm::InvalidSubscriber::ice_staticId() noexcept
 {
@@ -711,6 +729,12 @@ IceStorm::InvalidSubscriber::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->reason);
     istr->endSlice();
+}
+
+void
+IceStorm::BadQoS::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "reason = ", this->reason);
 }
 
 const char*
@@ -747,6 +771,12 @@ IceStorm::BadQoS::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+IceStorm::TopicExists::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
+}
+
 const char*
 IceStorm::TopicExists::ice_staticId() noexcept
 {
@@ -779,6 +809,12 @@ IceStorm::TopicExists::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->name);
     istr->endSlice();
+}
+
+void
+IceStorm::NoSuchTopic::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "name = ", this->name);
 }
 
 const char*

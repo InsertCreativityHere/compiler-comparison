@@ -232,6 +232,12 @@ Test::CTwoMembers::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+Test::EOneMember::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "e = ", this->e);
+}
+
 const char*
 Test::EOneMember::ice_staticId() noexcept
 {
@@ -272,6 +278,13 @@ Test::EOneMember::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->e);
     istr->endSlice();
+}
+
+void
+Test::ETwoMembers::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "e1 = ", this->e1);
+    Ice::print(os << ", e2 = ", this->e2);
 }
 
 const char*

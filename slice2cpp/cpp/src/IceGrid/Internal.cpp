@@ -2183,6 +2183,12 @@ IceGrid::AdapterActiveException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+IceGrid::AdapterNotActiveException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "activatable = ", this->activatable);
+}
+
 const char*
 IceGrid::AdapterNotActiveException::ice_staticId() noexcept
 {
@@ -2215,6 +2221,12 @@ IceGrid::AdapterNotActiveException::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->activatable);
     istr->endSlice();
+}
+
+void
+IceGrid::AdapterExistsException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "id = ", this->id);
 }
 
 const char*

@@ -259,12 +259,6 @@ classdef ThrowerPrx < Ice.ObjectPrx
         function r_ = throwEAsync(obj, varargin)
             r_ = obj.iceInvokeAsync('throwE', 0, true, [], 0, [], Test.ThrowerPrx.throwE_ex_, varargin{:});
         end
-        function throwF(obj, varargin)
-            obj.iceInvoke('throwF', 0, true, [], false, Test.ThrowerPrx.throwF_ex_, varargin{:});
-        end
-        function r_ = throwFAsync(obj, varargin)
-            r_ = obj.iceInvokeAsync('throwF', 0, true, [], 0, [], Test.ThrowerPrx.throwF_ex_, varargin{:});
-        end
     end
     methods(Static)
         function id = ice_staticId()
@@ -309,6 +303,5 @@ classdef ThrowerPrx < Ice.ObjectPrx
         throwModA_ex_ = { 'Test.Mod.A' }
         throwAfterException_ex_ = { 'Test.A' }
         throwE_ex_ = { 'Test.E' }
-        throwF_ex_ = { 'Test.F' }
     end
 end

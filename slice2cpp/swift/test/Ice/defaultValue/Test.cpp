@@ -252,6 +252,27 @@ Test::Derived::_iceReadImpl(::Ice::InputStream* istr)
     Base::_iceReadImpl(istr);
 }
 
+void
+Test::BaseEx::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "boolFalse = ", this->boolFalse);
+    Ice::print(os << ", boolTrue = ", this->boolTrue);
+    Ice::print(os << ", b = ", this->b);
+    Ice::print(os << ", s = ", this->s);
+    Ice::print(os << ", i = ", this->i);
+    Ice::print(os << ", l = ", this->l);
+    Ice::print(os << ", f = ", this->f);
+    Ice::print(os << ", d = ", this->d);
+    Ice::print(os << ", str = ", this->str);
+    Ice::print(os << ", noDefault = ", this->noDefault);
+    Ice::print(os << ", zeroI = ", this->zeroI);
+    Ice::print(os << ", zeroL = ", this->zeroL);
+    Ice::print(os << ", zeroF = ", this->zeroF);
+    Ice::print(os << ", zeroDotF = ", this->zeroDotF);
+    Ice::print(os << ", zeroD = ", this->zeroD);
+    Ice::print(os << ", zeroDotD = ", this->zeroDotD);
+}
+
 const char*
 Test::BaseEx::ice_staticId() noexcept
 {
@@ -284,6 +305,18 @@ Test::BaseEx::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->boolFalse, this->boolTrue, this->b, this->s, this->i, this->l, this->f, this->d, this->str, this->noDefault, this->zeroI, this->zeroL, this->zeroF, this->zeroDotF, this->zeroD, this->zeroDotD);
     istr->endSlice();
+}
+
+void
+Test::DerivedEx::ice_printFields(std::ostream& os) const
+{
+    BaseEx::ice_printFields(os);
+    Ice::print(os << ", c1 = ", this->c1);
+    Ice::print(os << ", c2 = ", this->c2);
+    Ice::print(os << ", c3 = ", this->c3);
+    Ice::print(os << ", nc1 = ", this->nc1);
+    Ice::print(os << ", nc2 = ", this->nc2);
+    Ice::print(os << ", nc3 = ", this->nc3);
 }
 
 const char*

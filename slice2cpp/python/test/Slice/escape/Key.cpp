@@ -229,6 +229,12 @@ and::for::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+and::is::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "lambda = ", this->lambda);
+}
+
 const char*
 and::is::ice_staticId() noexcept
 {
@@ -261,6 +267,14 @@ and::is::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->lambda);
     istr->endSlice();
+}
+
+void
+and::not::ice_printFields(std::ostream& os) const
+{
+    is::ice_printFields(os);
+    Ice::print(os << ", or = ", this->or);
+    Ice::print(os << ", pass = ", this->pass);
 }
 
 const char*

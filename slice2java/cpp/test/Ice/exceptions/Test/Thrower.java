@@ -69,9 +69,6 @@ public interface Thrower extends com.zeroc.Ice.Object
     java.util.concurrent.CompletionStage<Void> throwEAsync(com.zeroc.Ice.Current current)
         throws E;
 
-    java.util.concurrent.CompletionStage<Void> throwFAsync(com.zeroc.Ice.Current current)
-        throws F;
-
     /** @hidden */
     static final String[] _iceIds =
     {
@@ -394,16 +391,6 @@ public interface Thrower extends com.zeroc.Ice.Object
         return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
     }
 
-    /** @hidden */
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> _iceD_throwF(Thrower obj, com.zeroc.Ice.IncomingRequest request)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, request.current.mode);
-        request.inputStream.skipEmptyEncapsulation();
-        var result = obj.throwFAsync(request.current);
-        return result.thenApply(r -> request.current.createEmptyOutgoingResponse());
-    }
-
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutgoingResponse> dispatch(com.zeroc.Ice.IncomingRequest request)
         throws com.zeroc.Ice.UserException
@@ -432,7 +419,6 @@ public interface Thrower extends com.zeroc.Ice.Object
             case "throwAfterResponse" -> Thrower._iceD_throwAfterResponse(this, request);
             case "throwAfterException" -> Thrower._iceD_throwAfterException(this, request);
             case "throwE" -> Thrower._iceD_throwE(this, request);
-            case "throwF" -> Thrower._iceD_throwF(this, request);
             case "ice_id" -> com.zeroc.Ice.Object._iceD_ice_id(this, request);
             case "ice_ids" -> com.zeroc.Ice.Object._iceD_ice_ids(this, request);
             case "ice_isA" -> com.zeroc.Ice.Object._iceD_ice_isA(this, request);

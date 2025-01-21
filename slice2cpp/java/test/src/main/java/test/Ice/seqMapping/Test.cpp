@@ -223,6 +223,13 @@ Test::operator<<(::std::ostream& os, const ::Test::Foo& value)
     return os;
 }
 
+void
+Test::Bar::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "SLmem = ", this->SLmem);
+    Ice::print(os << ", SLSmem = ", this->SLSmem);
+}
+
 const char*
 Test::Bar::ice_staticId() noexcept
 {

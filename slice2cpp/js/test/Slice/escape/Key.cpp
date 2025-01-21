@@ -528,6 +528,12 @@ await::package::_iceReadImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+void
+await::fixed::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "for = ", this->for);
+}
+
 const char*
 await::fixed::ice_staticId() noexcept
 {
@@ -560,6 +566,14 @@ await::fixed::_readImpl(::Ice::InputStream* istr)
     istr->startSlice();
     istr->readAll(this->for);
     istr->endSlice();
+}
+
+void
+await::foreach::ice_printFields(std::ostream& os) const
+{
+    fixed::ice_printFields(os);
+    Ice::print(os << ", goto = ", this->goto);
+    Ice::print(os << ", if = ", this->if);
 }
 
 const char*
@@ -596,6 +610,26 @@ await::foreach::_readImpl(::Ice::InputStream* istr)
     istr->readAll(this->goto, this->if);
     istr->endSlice();
     fixed::_readImpl(istr);
+}
+
+void
+await::BaseMethods::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "Data = ", this->Data);
+    Ice::print(os << ", HelpLink = ", this->HelpLink);
+    Ice::print(os << ", InnerException = ", this->InnerException);
+    Ice::print(os << ", Message = ", this->Message);
+    Ice::print(os << ", Source = ", this->Source);
+    Ice::print(os << ", StackTrace = ", this->StackTrace);
+    Ice::print(os << ", TargetSite = ", this->TargetSite);
+    Ice::print(os << ", HResult = ", this->HResult);
+    Ice::print(os << ", Equals = ", this->Equals);
+    Ice::print(os << ", GetBaseException = ", this->GetBaseException);
+    Ice::print(os << ", GetHashCode = ", this->GetHashCode);
+    Ice::print(os << ", GetObjectData = ", this->GetObjectData);
+    Ice::print(os << ", GetType = ", this->GetType);
+    Ice::print(os << ", ReferenceEquals = ", this->ReferenceEquals);
+    Ice::print(os << ", ToString = ", this->ToString);
 }
 
 const char*

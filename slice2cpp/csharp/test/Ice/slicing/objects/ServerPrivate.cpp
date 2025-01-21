@@ -220,6 +220,14 @@ Test::D4::_iceReadImpl(::Ice::InputStream* istr)
     B::_iceReadImpl(istr);
 }
 
+void
+Test::UnknownDerivedException::ice_printFields(std::ostream& os) const
+{
+    BaseException::ice_printFields(os);
+    Ice::print(os << ", sude = ", this->sude);
+    Ice::print(os << ", pd2 = ", this->pd2);
+}
+
 const char*
 Test::UnknownDerivedException::ice_staticId() noexcept
 {
@@ -382,6 +390,12 @@ Test::PSUnknown2::_iceReadImpl(::Ice::InputStream* istr)
     istr->readAll(this->pb);
     istr->endSlice();
     Preserved::_iceReadImpl(istr);
+}
+
+void
+Test::PSUnknownException::ice_printFields(std::ostream& os) const
+{
+    Ice::print(os << "p = ", this->p);
 }
 
 const char*
