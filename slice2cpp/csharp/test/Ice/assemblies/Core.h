@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef Core_h_
 #define Core_h_
 

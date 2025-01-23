@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef DBTypes_h_
 #define DBTypes_h_
 

@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef Internal_h_
 #define Internal_h_
 

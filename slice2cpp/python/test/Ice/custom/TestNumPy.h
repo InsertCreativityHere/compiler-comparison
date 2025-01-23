@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef TestNumPy_h_
 #define TestNumPy_h_
 

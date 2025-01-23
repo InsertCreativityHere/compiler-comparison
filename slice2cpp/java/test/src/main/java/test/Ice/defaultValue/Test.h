@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef Test_h_
 #define Test_h_
 

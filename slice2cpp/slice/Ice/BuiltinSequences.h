@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef BuiltinSequences_h_
 #define BuiltinSequences_h_
 

@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef SliceChecksumDict_h_
 #define SliceChecksumDict_h_
 

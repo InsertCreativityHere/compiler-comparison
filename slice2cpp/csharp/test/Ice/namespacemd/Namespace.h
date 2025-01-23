@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef Namespace_h_
 #define Namespace_h_
 

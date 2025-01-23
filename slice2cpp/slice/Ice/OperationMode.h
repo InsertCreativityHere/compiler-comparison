@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef OperationMode_h_
 #define OperationMode_h_
 

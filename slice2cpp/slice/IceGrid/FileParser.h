@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef FileParser_h_
 #define FileParser_h_
 

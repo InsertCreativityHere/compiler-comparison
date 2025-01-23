@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef RemoteLogger_h_
 #define RemoteLogger_h_
 

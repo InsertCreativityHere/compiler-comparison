@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef SSLInfo_h_
 #define SSLInfo_h_
 

@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef EndpointTypes_h_
 #define EndpointTypes_h_
 

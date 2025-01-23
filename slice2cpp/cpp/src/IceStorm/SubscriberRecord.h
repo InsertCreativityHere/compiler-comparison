@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef SubscriberRecord_h_
 #define SubscriberRecord_h_
 

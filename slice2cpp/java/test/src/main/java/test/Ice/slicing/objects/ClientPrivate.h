@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef ClientPrivate_h_
 #define ClientPrivate_h_
 

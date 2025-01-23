@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef PropertiesAdmin_h_
 #define PropertiesAdmin_h_
 

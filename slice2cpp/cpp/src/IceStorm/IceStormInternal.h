@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef IceStormInternal_h_
 #define IceStormInternal_h_
 

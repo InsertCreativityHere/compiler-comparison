@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef NoNamespace_h_
 #define NoNamespace_h_
 

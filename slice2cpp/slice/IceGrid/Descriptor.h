@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef Descriptor_h_
 #define Descriptor_h_
 

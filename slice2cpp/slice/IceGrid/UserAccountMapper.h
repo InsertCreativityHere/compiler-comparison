@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef UserAccountMapper_h_
 #define UserAccountMapper_h_
 

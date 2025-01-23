@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef PropertyDict_h_
 #define PropertyDict_h_
 

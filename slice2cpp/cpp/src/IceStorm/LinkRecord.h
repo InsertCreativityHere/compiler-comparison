@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef LinkRecord_h_
 #define LinkRecord_h_
 

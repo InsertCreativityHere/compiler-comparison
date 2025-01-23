@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef PermissionsVerifier_h_
 #define PermissionsVerifier_h_
 

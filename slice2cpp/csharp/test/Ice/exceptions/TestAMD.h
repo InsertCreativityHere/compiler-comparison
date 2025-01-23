@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef TestAMD_h_
 #define TestAMD_h_
 

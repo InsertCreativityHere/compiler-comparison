@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef ServerPrivate_h_
 #define ServerPrivate_h_
 

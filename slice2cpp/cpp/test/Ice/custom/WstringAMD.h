@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef WstringAMD_h_
 #define WstringAMD_h_
 

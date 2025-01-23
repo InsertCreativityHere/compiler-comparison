@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef NoPackage_h_
 #define NoPackage_h_
 

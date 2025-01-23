@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef DerivedEx_h_
 #define DerivedEx_h_
 

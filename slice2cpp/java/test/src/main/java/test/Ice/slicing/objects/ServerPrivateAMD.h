@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef ServerPrivateAMD_h_
 #define ServerPrivateAMD_h_
 

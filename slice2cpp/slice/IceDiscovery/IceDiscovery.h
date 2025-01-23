@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef IceDiscovery_h_
 #define IceDiscovery_h_
 

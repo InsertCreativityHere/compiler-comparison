@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef ServiceManager_h_
 #define ServiceManager_h_
 

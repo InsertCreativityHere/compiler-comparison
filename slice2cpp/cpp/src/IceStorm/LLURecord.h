@@ -10,6 +10,8 @@
 //
 // </auto-generated>
 
+// clang-format off
+
 #ifndef LLURecord_h_
 #define LLURecord_h_
 
