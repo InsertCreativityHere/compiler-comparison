@@ -58,6 +58,8 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::MyException> iceC_Test_MyException_init("::Test::MyException");
 }
 
+Test::MyInterfacePrx::~MyInterfacePrx() = default;
+
 const char*
 Test::MyInterfacePrx::ice_staticId() noexcept
 {

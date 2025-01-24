@@ -61,6 +61,8 @@ public:
 
     F2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~F2Prx() override;
+
     F2Prx& operator=(const F2Prx& rhs) noexcept
     {
         if (this != &rhs)

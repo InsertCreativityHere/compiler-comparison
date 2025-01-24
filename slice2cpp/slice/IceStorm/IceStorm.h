@@ -349,6 +349,8 @@ public:
 
     TopicPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TopicPrx() override;
+
     TopicPrx& operator=(const TopicPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -473,6 +475,8 @@ public:
 
     TopicManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TopicManagerPrx() override;
+
     TopicManagerPrx& operator=(const TopicManagerPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -542,6 +546,8 @@ public:
     FinderPrx(FinderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     FinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~FinderPrx() override;
 
     FinderPrx& operator=(const FinderPrx& rhs) noexcept
     {

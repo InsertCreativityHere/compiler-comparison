@@ -86,6 +86,8 @@ abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::Out
         nullptr);
 }
 
+abstract::catchPrx::~catchPrx() = default;
+
 const char*
 abstract::catchPrx::ice_staticId() noexcept
 {
@@ -120,11 +122,15 @@ abstract::defaultPrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr);
 }
 
+abstract::defaultPrx::~defaultPrx() = default;
+
 const char*
 abstract::defaultPrx::ice_staticId() noexcept
 {
     return "::abstract::default";
 }
+
+abstract::finalizePrx::~finalizePrx() = default;
 
 const char*
 abstract::finalizePrx::ice_staticId() noexcept
@@ -181,6 +187,8 @@ abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAs
             }
         });
 }
+
+abstract::newPrx::~newPrx() = default;
 
 const char*
 abstract::newPrx::ice_staticId() noexcept

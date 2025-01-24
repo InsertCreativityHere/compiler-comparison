@@ -155,6 +155,8 @@ public:
 
     elseifPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~elseifPrx() override;
+
     elseifPrx& operator=(const elseifPrx& rhs) noexcept
     {
         if (this != &rhs)

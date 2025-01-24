@@ -58,6 +58,8 @@ public:
 
     ClockPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ClockPrx() override;
+
     ClockPrx& operator=(const ClockPrx& rhs) noexcept
     {
         if (this != &rhs)

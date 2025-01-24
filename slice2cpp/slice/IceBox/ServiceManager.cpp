@@ -107,6 +107,8 @@ IceBox::ServiceObserverPrx::_iceI_servicesStopped(const ::std::shared_ptr<::IceI
         nullptr);
 }
 
+IceBox::ServiceObserverPrx::~ServiceObserverPrx() = default;
+
 const char*
 IceBox::ServiceObserverPrx::ice_staticId() noexcept
 {
@@ -269,6 +271,8 @@ IceBox::ServiceManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
         nullptr,
         nullptr);
 }
+
+IceBox::ServiceManagerPrx::~ServiceManagerPrx() = default;
 
 const char*
 IceBox::ServiceManagerPrx::ice_staticId() noexcept

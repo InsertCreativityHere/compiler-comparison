@@ -93,6 +93,8 @@ public:
 
     CallbackPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~CallbackPrx() override;
+
     CallbackPrx& operator=(const CallbackPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -269,6 +271,8 @@ public:
     MyClassPrx(MyClassPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     MyClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~MyClassPrx() override;
 
     MyClassPrx& operator=(const MyClassPrx& rhs) noexcept
     {

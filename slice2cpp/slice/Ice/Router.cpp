@@ -140,6 +140,8 @@ Ice::RouterPrx::_iceI_addProxies(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
+Ice::RouterPrx::~RouterPrx() = default;
+
 const char*
 Ice::RouterPrx::ice_staticId() noexcept
 {
@@ -174,6 +176,8 @@ Ice::RouterFinderPrx::_iceI_getRouter(const ::std::shared_ptr<::IceInternal::Out
         nullptr,
         nullptr);
 }
+
+Ice::RouterFinderPrx::~RouterFinderPrx() = default;
 
 const char*
 Ice::RouterFinderPrx::ice_staticId() noexcept

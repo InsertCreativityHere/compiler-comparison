@@ -93,6 +93,8 @@ public:
 
     UserAccountMapperPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~UserAccountMapperPrx() override;
+
     UserAccountMapperPrx& operator=(const UserAccountMapperPrx& rhs) noexcept
     {
         if (this != &rhs)

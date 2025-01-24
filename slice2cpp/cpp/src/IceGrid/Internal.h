@@ -186,6 +186,8 @@ public:
 
     AdapterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~AdapterPrx() override;
+
     AdapterPrx& operator=(const AdapterPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -274,6 +276,8 @@ public:
     FileReaderPrx(FileReaderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     FileReaderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~FileReaderPrx() override;
 
     FileReaderPrx& operator=(const FileReaderPrx& rhs) noexcept
     {
@@ -557,6 +561,8 @@ public:
 
     ServerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ServerPrx() override;
+
     ServerPrx& operator=(const ServerPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -671,6 +677,8 @@ public:
     ReplicaObserverPrx(ReplicaObserverPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     ReplicaObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~ReplicaObserverPrx() override;
 
     ReplicaObserverPrx& operator=(const ReplicaObserverPrx& rhs) noexcept
     {
@@ -954,6 +962,8 @@ public:
 
     NodePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~NodePrx() override;
+
     NodePrx& operator=(const NodePrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -1188,6 +1198,8 @@ public:
 
     NodeSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~NodeSessionPrx() override;
+
     NodeSessionPrx& operator=(const NodeSessionPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -1237,6 +1249,8 @@ public:
     DatabaseObserverPrx(DatabaseObserverPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     DatabaseObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~DatabaseObserverPrx() override;
 
     DatabaseObserverPrx& operator=(const DatabaseObserverPrx& rhs) noexcept
     {
@@ -1471,6 +1485,8 @@ public:
     ReplicaSessionPrx(ReplicaSessionPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     ReplicaSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~ReplicaSessionPrx() override;
 
     ReplicaSessionPrx& operator=(const ReplicaSessionPrx& rhs) noexcept
     {
@@ -1731,6 +1747,8 @@ public:
     InternalRegistryPrx(InternalRegistryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     InternalRegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~InternalRegistryPrx() override;
 
     InternalRegistryPrx& operator=(const InternalRegistryPrx& rhs) noexcept
     {

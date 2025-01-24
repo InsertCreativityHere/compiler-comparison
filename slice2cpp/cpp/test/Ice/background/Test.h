@@ -91,6 +91,8 @@ public:
 
     BackgroundPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~BackgroundPrx() override;
+
     BackgroundPrx& operator=(const BackgroundPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -256,6 +258,8 @@ public:
     BackgroundControllerPrx(BackgroundControllerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     BackgroundControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~BackgroundControllerPrx() override;
 
     BackgroundControllerPrx& operator=(const BackgroundControllerPrx& rhs) noexcept
     {

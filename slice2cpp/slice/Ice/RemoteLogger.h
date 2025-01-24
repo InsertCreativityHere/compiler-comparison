@@ -128,6 +128,8 @@ public:
 
     RemoteLoggerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~RemoteLoggerPrx() override;
+
     RemoteLoggerPrx& operator=(const RemoteLoggerPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -296,6 +298,8 @@ public:
     LoggerAdminPrx(LoggerAdminPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     LoggerAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~LoggerAdminPrx() override;
 
     LoggerAdminPrx& operator=(const LoggerAdminPrx& rhs) noexcept
     {

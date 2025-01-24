@@ -285,6 +285,8 @@ public:
 
     CustomPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~CustomPrx() override;
+
     CustomPrx& operator=(const CustomPrx& rhs) noexcept
     {
         if (this != &rhs)

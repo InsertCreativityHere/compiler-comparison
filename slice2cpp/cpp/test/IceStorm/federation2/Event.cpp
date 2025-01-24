@@ -65,6 +65,8 @@ Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
         nullptr);
 }
 
+Test::EventPrx::~EventPrx() = default;
+
 const char*
 Test::EventPrx::ice_staticId() noexcept
 {

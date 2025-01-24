@@ -80,6 +80,8 @@ public:
 
     EchoPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~EchoPrx() override;
+
     EchoPrx& operator=(const EchoPrx& rhs) noexcept
     {
         if (this != &rhs)

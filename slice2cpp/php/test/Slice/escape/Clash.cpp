@@ -404,6 +404,8 @@ Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsync
         });
 }
 
+Clash::IntfPrx::~IntfPrx() = default;
+
 const char*
 Clash::IntfPrx::ice_staticId() noexcept
 {

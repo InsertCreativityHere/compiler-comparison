@@ -44,6 +44,8 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Mod::A> iceC_Test_Mod_A_init("::Test::Mod::A");
 }
 
+Test::EmptyPrx::~EmptyPrx() = default;
+
 const char*
 Test::EmptyPrx::ice_staticId() noexcept
 {
@@ -737,6 +739,8 @@ Test::ThrowerPrx::_iceI_throwLocalExceptionIdempotent(const ::std::shared_ptr<::
         nullptr);
 }
 
+Test::ThrowerPrx::~ThrowerPrx() = default;
+
 const char*
 Test::ThrowerPrx::ice_staticId() noexcept
 {
@@ -770,6 +774,8 @@ Test::WrongOperationPrx::_iceI_noSuchOperation(const ::std::shared_ptr<::IceInte
         nullptr,
         nullptr);
 }
+
+Test::WrongOperationPrx::~WrongOperationPrx() = default;
 
 const char*
 Test::WrongOperationPrx::ice_staticId() noexcept

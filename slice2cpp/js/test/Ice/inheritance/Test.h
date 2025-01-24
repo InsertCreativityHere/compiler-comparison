@@ -179,6 +179,8 @@ public:
 
     IAPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~IAPrx() override;
+
     IAPrx& operator=(const IAPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -245,6 +247,8 @@ public:
 
     IB1Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~IB1Prx() override;
+
     IB1Prx& operator=(const IB1Prx& rhs) noexcept
     {
         if (this != &rhs)
@@ -309,6 +313,8 @@ public:
     IB2Prx(IB2Prx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     IB2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~IB2Prx() override;
 
     IB2Prx& operator=(const IB2Prx& rhs) noexcept
     {
@@ -379,6 +385,8 @@ public:
     ICPrx(ICPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     ICPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~ICPrx() override;
 
     ICPrx& operator=(const ICPrx& rhs) noexcept
     {
@@ -486,6 +494,8 @@ public:
 
     InitialPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~InitialPrx() override;
+
     InitialPrx& operator=(const InitialPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -574,6 +584,8 @@ public:
     EchoPrx(EchoPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     EchoPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~EchoPrx() override;
 
     EchoPrx& operator=(const EchoPrx& rhs) noexcept
     {

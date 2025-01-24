@@ -469,6 +469,8 @@ public:
 
     InitialPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~InitialPrx() override;
+
     InitialPrx& operator=(const InitialPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -524,6 +526,8 @@ public:
     UnexpectedObjectExceptionTestPrx(UnexpectedObjectExceptionTestPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     UnexpectedObjectExceptionTestPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~UnexpectedObjectExceptionTestPrx() override;
 
     UnexpectedObjectExceptionTestPrx& operator=(const UnexpectedObjectExceptionTestPrx& rhs) noexcept
     {

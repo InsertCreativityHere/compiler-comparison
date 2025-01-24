@@ -63,6 +63,8 @@ Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::Outg
         nullptr);
 }
 
+Test::TestFacetPrx::~TestFacetPrx() = default;
+
 const char*
 Test::TestFacetPrx::ice_staticId() noexcept
 {

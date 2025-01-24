@@ -71,6 +71,8 @@ IceStorm::TopicLinkPrx::_iceI_forward(const ::std::shared_ptr<::IceInternal::Out
         nullptr);
 }
 
+IceStorm::TopicLinkPrx::~TopicLinkPrx() = default;
+
 const char*
 IceStorm::TopicLinkPrx::ice_staticId() noexcept
 {
@@ -151,6 +153,8 @@ IceStorm::TopicInternalPrx::_iceI_reap(const ::std::shared_ptr<::IceInternal::Ou
         });
 }
 
+IceStorm::TopicInternalPrx::~TopicInternalPrx() = default;
+
 const char*
 IceStorm::TopicInternalPrx::ice_staticId() noexcept
 {
@@ -185,6 +189,8 @@ IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode(const ::std::shared_ptr<
         nullptr,
         nullptr);
 }
+
+IceStorm::TopicManagerInternalPrx::~TopicManagerInternalPrx() = default;
 
 const char*
 IceStorm::TopicManagerInternalPrx::ice_staticId() noexcept

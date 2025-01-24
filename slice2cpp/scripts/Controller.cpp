@@ -209,6 +209,8 @@ Test::Common::TestCasePrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::
         nullptr);
 }
 
+Test::Common::TestCasePrx::~TestCasePrx() = default;
+
 const char*
 Test::Common::TestCasePrx::ice_staticId() noexcept
 {
@@ -360,6 +362,8 @@ Test::Common::ControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceInternal
         nullptr);
 }
 
+Test::Common::ControllerPrx::~ControllerPrx() = default;
+
 const char*
 Test::Common::ControllerPrx::ice_staticId() noexcept
 {
@@ -485,6 +489,8 @@ Test::Common::ProcessPrx::_iceI_terminate(const ::std::shared_ptr<::IceInternal:
         nullptr);
 }
 
+Test::Common::ProcessPrx::~ProcessPrx() = default;
+
 const char*
 Test::Common::ProcessPrx::ice_staticId() noexcept
 {
@@ -568,6 +574,8 @@ Test::Common::ProcessControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceI
         nullptr);
 }
 
+Test::Common::ProcessControllerPrx::~ProcessControllerPrx() = default;
+
 const char*
 Test::Common::ProcessControllerPrx::ice_staticId() noexcept
 {
@@ -605,6 +613,8 @@ Test::Common::BrowserProcessControllerPrx::_iceI_redirect(const ::std::shared_pt
         nullptr);
 }
 
+Test::Common::BrowserProcessControllerPrx::~BrowserProcessControllerPrx() = default;
+
 const char*
 Test::Common::BrowserProcessControllerPrx::ice_staticId() noexcept
 {
@@ -641,6 +651,8 @@ Test::Common::ProcessControllerRegistryPrx::_iceI_setProcessController(const ::s
         },
         nullptr);
 }
+
+Test::Common::ProcessControllerRegistryPrx::~ProcessControllerRegistryPrx() = default;
 
 const char*
 Test::Common::ProcessControllerRegistryPrx::ice_staticId() noexcept

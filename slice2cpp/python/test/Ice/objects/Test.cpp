@@ -1181,6 +1181,8 @@ Test::InitialPrx::_iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr);
 }
 
+Test::InitialPrx::~InitialPrx() = default;
+
 const char*
 Test::InitialPrx::ice_staticId() noexcept
 {

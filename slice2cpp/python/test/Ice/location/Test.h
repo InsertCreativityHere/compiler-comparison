@@ -72,6 +72,8 @@ public:
 
     TestLocatorRegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TestLocatorRegistryPrx() override;
+
     TestLocatorRegistryPrx& operator=(const TestLocatorRegistryPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -136,6 +138,8 @@ public:
     TestLocatorPrx(TestLocatorPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     TestLocatorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~TestLocatorPrx() override;
 
     TestLocatorPrx& operator=(const TestLocatorPrx& rhs) noexcept
     {
@@ -208,6 +212,8 @@ public:
 
     ServerManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ServerManagerPrx() override;
+
     ServerManagerPrx& operator=(const ServerManagerPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -263,6 +269,8 @@ public:
     HelloPrx(HelloPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     HelloPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~HelloPrx() override;
 
     HelloPrx& operator=(const HelloPrx& rhs) noexcept
     {
@@ -352,6 +360,8 @@ public:
     TestIntfPrx(TestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~TestIntfPrx() override;
 
     TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
     {

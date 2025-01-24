@@ -88,6 +88,8 @@ IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::Ic
         });
 }
 
+IceGrid::UserAccountMapperPrx::~UserAccountMapperPrx() = default;
+
 const char*
 IceGrid::UserAccountMapperPrx::ice_staticId() noexcept
 {

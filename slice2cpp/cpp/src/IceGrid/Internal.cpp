@@ -185,6 +185,8 @@ IceGrid::AdapterPrx::_iceI_setDirectProxy(const ::std::shared_ptr<::IceInternal:
         });
 }
 
+IceGrid::AdapterPrx::~AdapterPrx() = default;
+
 const char*
 IceGrid::AdapterPrx::ice_staticId() noexcept
 {
@@ -293,6 +295,8 @@ IceGrid::FileReaderPrx::_iceI_read(const ::std::shared_ptr<::IceInternal::Outgoi
             return v;
         });
 }
+
+IceGrid::FileReaderPrx::~FileReaderPrx() = default;
 
 const char*
 IceGrid::FileReaderPrx::ice_staticId() noexcept
@@ -655,6 +659,8 @@ IceGrid::ServerPrx::_iceI_setProcess(const ::std::shared_ptr<::IceInternal::Outg
         nullptr);
 }
 
+IceGrid::ServerPrx::~ServerPrx() = default;
+
 const char*
 IceGrid::ServerPrx::ice_staticId() noexcept
 {
@@ -753,6 +759,8 @@ IceGrid::ReplicaObserverPrx::_iceI_replicaRemoved(const ::std::shared_ptr<::IceI
         },
         nullptr);
 }
+
+IceGrid::ReplicaObserverPrx::~ReplicaObserverPrx() = default;
 
 const char*
 IceGrid::ReplicaObserverPrx::ice_staticId() noexcept
@@ -1145,6 +1153,8 @@ IceGrid::NodePrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
+IceGrid::NodePrx::~NodePrx() = default;
+
 const char*
 IceGrid::NodePrx::ice_staticId() noexcept
 {
@@ -1387,11 +1397,15 @@ IceGrid::NodeSessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Ou
         nullptr);
 }
 
+IceGrid::NodeSessionPrx::~NodeSessionPrx() = default;
+
 const char*
 IceGrid::NodeSessionPrx::ice_staticId() noexcept
 {
     return "::IceGrid::NodeSession";
 }
+
+IceGrid::DatabaseObserverPrx::~DatabaseObserverPrx() = default;
 
 const char*
 IceGrid::DatabaseObserverPrx::ice_staticId() noexcept
@@ -1675,6 +1689,8 @@ IceGrid::ReplicaSessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal:
         nullptr,
         nullptr);
 }
+
+IceGrid::ReplicaSessionPrx::~ReplicaSessionPrx() = default;
 
 const char*
 IceGrid::ReplicaSessionPrx::ice_staticId() noexcept
@@ -2022,6 +2038,8 @@ IceGrid::InternalRegistryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceIntern
         nullptr,
         nullptr);
 }
+
+IceGrid::InternalRegistryPrx::~InternalRegistryPrx() = default;
 
 const char*
 IceGrid::InternalRegistryPrx::ice_staticId() noexcept

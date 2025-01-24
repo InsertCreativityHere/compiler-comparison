@@ -91,6 +91,8 @@ public:
 
     HelloPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~HelloPrx() override;
+
     HelloPrx& operator=(const HelloPrx& rhs) noexcept
     {
         if (this != &rhs)

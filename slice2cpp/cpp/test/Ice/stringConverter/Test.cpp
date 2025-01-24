@@ -145,6 +145,8 @@ Test::MyObjectPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
+Test::MyObjectPrx::~MyObjectPrx() = default;
+
 const char*
 Test::MyObjectPrx::ice_staticId() noexcept
 {

@@ -62,6 +62,8 @@ public:
 
     RegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~RegistryPrx() override;
+
     RegistryPrx& operator=(const RegistryPrx& rhs) noexcept
     {
         if (this != &rhs)

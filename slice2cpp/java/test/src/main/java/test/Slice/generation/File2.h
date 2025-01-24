@@ -58,6 +58,8 @@ public:
 
     Interface2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~Interface2Prx() override;
+
     Interface2Prx& operator=(const Interface2Prx& rhs) noexcept
     {
         if (this != &rhs)

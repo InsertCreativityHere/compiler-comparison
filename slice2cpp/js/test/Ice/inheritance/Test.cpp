@@ -95,6 +95,8 @@ Test::MA::IAPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsync
         nullptr);
 }
 
+Test::MA::IAPrx::~IAPrx() = default;
+
 const char*
 Test::MA::IAPrx::ice_staticId() noexcept
 {
@@ -132,6 +134,8 @@ Test::MB::IB1Prx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         },
         nullptr);
 }
+
+Test::MB::IB1Prx::~IB1Prx() = default;
 
 const char*
 Test::MB::IB1Prx::ice_staticId() noexcept
@@ -171,6 +175,8 @@ Test::MB::IB2Prx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr);
 }
 
+Test::MB::IB2Prx::~IB2Prx() = default;
+
 const char*
 Test::MB::IB2Prx::ice_staticId() noexcept
 {
@@ -208,6 +214,8 @@ Test::MA::ICPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsync
         },
         nullptr);
 }
+
+Test::MA::ICPrx::~ICPrx() = default;
 
 const char*
 Test::MA::ICPrx::ice_staticId() noexcept
@@ -359,6 +367,8 @@ Test::InitialPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         nullptr);
 }
 
+Test::InitialPrx::~InitialPrx() = default;
+
 const char*
 Test::InitialPrx::ice_staticId() noexcept
 {
@@ -476,6 +486,8 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr,
         nullptr);
 }
+
+Test::EchoPrx::~EchoPrx() = default;
 
 const char*
 Test::EchoPrx::ice_staticId() noexcept

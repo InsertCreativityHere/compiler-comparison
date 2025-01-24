@@ -217,6 +217,8 @@ Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<:
         });
 }
 
+Test::RelayPrx::~RelayPrx() = default;
+
 const char*
 Test::RelayPrx::ice_staticId() noexcept
 {
@@ -1186,6 +1188,8 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         nullptr);
 }
+
+Test::TestIntfPrx::~TestIntfPrx() = default;
 
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept

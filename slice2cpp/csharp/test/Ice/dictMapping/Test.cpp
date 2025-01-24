@@ -414,6 +414,8 @@ Test::MyClassPrx::_iceI_opNDGSS(const ::std::shared_ptr<::IceInternal::OutgoingA
         });
 }
 
+Test::MyClassPrx::~MyClassPrx() = default;
+
 const char*
 Test::MyClassPrx::ice_staticId() noexcept
 {

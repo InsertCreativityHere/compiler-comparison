@@ -93,6 +93,8 @@ public:
 
     PermissionsVerifierPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~PermissionsVerifierPrx() override;
+
     PermissionsVerifierPrx& operator=(const PermissionsVerifierPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -171,6 +173,8 @@ public:
     SSLPermissionsVerifierPrx(SSLPermissionsVerifierPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     SSLPermissionsVerifierPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~SSLPermissionsVerifierPrx() override;
 
     SSLPermissionsVerifierPrx& operator=(const SSLPermissionsVerifierPrx& rhs) noexcept
     {

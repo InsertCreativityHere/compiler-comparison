@@ -65,6 +65,8 @@ Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr);
 }
 
+Test::TestIntfPrx::~TestIntfPrx() = default;
+
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
@@ -186,6 +188,8 @@ Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
         nullptr);
 }
 
+Test::RemoteCommunicatorPrx::~RemoteCommunicatorPrx() = default;
+
 const char*
 Test::RemoteCommunicatorPrx::ice_staticId() noexcept
 {
@@ -251,6 +255,8 @@ Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::Ice
         nullptr,
         nullptr);
 }
+
+Test::RemoteCommunicatorFactoryPrx::~RemoteCommunicatorFactoryPrx() = default;
 
 const char*
 Test::RemoteCommunicatorFactoryPrx::ice_staticId() noexcept

@@ -69,6 +69,8 @@ IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator(const ::std::shared_ptr<
         nullptr);
 }
 
+IceLocatorDiscovery::LookupReplyPrx::~LookupReplyPrx() = default;
+
 const char*
 IceLocatorDiscovery::LookupReplyPrx::ice_staticId() noexcept
 {
@@ -105,6 +107,8 @@ IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceI
         },
         nullptr);
 }
+
+IceLocatorDiscovery::LookupPrx::~LookupPrx() = default;
 
 const char*
 IceLocatorDiscovery::LookupPrx::ice_staticId() noexcept

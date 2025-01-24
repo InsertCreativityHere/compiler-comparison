@@ -58,6 +58,8 @@ public:
 
     ControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ControllerPrx() override;
+
     ControllerPrx& operator=(const ControllerPrx& rhs) noexcept
     {
         if (this != &rhs)

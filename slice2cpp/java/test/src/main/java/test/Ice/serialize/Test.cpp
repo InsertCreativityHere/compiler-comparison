@@ -173,6 +173,8 @@ Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
+Test::InitialPrx::~InitialPrx() = default;
+
 const char*
 Test::InitialPrx::ice_staticId() noexcept
 {

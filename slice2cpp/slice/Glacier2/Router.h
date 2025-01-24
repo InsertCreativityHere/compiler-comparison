@@ -298,6 +298,8 @@ public:
 
     RouterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~RouterPrx() override;
+
     RouterPrx& operator=(const RouterPrx& rhs) noexcept
     {
         if (this != &rhs)

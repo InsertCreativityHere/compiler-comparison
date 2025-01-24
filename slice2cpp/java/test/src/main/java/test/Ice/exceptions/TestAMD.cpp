@@ -755,6 +755,8 @@ Test::ThrowerPrx::_iceI_throwAfterException(const ::std::shared_ptr<::IceInterna
         });
 }
 
+Test::ThrowerPrx::~ThrowerPrx() = default;
+
 const char*
 Test::ThrowerPrx::ice_staticId() noexcept
 {
@@ -788,6 +790,8 @@ Test::WrongOperationPrx::_iceI_noSuchOperation(const ::std::shared_ptr<::IceInte
         nullptr,
         nullptr);
 }
+
+Test::WrongOperationPrx::~WrongOperationPrx() = default;
 
 const char*
 Test::WrongOperationPrx::ice_staticId() noexcept

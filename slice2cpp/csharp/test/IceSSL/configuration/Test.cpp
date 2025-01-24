@@ -124,6 +124,8 @@ Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr);
 }
 
+Test::ServerPrx::~ServerPrx() = default;
+
 const char*
 Test::ServerPrx::ice_staticId() noexcept
 {
@@ -221,6 +223,8 @@ Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
         nullptr);
 }
 
+Test::ServerFactoryPrx::~ServerFactoryPrx() = default;
+
 const char*
 Test::ServerFactoryPrx::ice_staticId() noexcept
 {
@@ -254,6 +258,8 @@ Test::PingablePrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr,
         nullptr);
 }
+
+Test::PingablePrx::~PingablePrx() = default;
 
 const char*
 Test::PingablePrx::ice_staticId() noexcept

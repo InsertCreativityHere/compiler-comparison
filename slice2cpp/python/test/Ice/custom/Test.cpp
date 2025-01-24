@@ -1006,6 +1006,8 @@ Test::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr);
 }
 
+Test::CustomPrx::~CustomPrx() = default;
+
 const char*
 Test::CustomPrx::ice_staticId() noexcept
 {

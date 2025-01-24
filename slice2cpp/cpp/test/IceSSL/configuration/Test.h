@@ -73,6 +73,8 @@ public:
 
     ServerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ServerPrx() override;
+
     ServerPrx& operator=(const ServerPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -150,6 +152,8 @@ public:
     ServerFactoryPrx(ServerFactoryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     ServerFactoryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~ServerFactoryPrx() override;
 
     ServerFactoryPrx& operator=(const ServerFactoryPrx& rhs) noexcept
     {

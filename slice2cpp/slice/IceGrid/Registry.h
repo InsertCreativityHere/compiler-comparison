@@ -224,6 +224,8 @@ public:
 
     QueryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~QueryPrx() override;
+
     QueryPrx& operator=(const QueryPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -413,6 +415,8 @@ public:
 
     RegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~RegistryPrx() override;
+
     RegistryPrx& operator=(const RegistryPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -512,6 +516,8 @@ public:
     LocatorPrx(LocatorPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     LocatorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~LocatorPrx() override;
 
     LocatorPrx& operator=(const LocatorPrx& rhs) noexcept
     {

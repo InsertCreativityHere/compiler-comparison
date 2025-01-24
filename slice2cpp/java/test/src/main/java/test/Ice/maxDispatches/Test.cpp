@@ -119,6 +119,8 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
+Test::TestIntfPrx::~TestIntfPrx() = default;
+
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
@@ -209,6 +211,8 @@ Test::ResponderPrx::_iceI_pendingResponseCount(const ::std::shared_ptr<::IceInte
         nullptr,
         nullptr);
 }
+
+Test::ResponderPrx::~ResponderPrx() = default;
 
 const char*
 Test::ResponderPrx::ice_staticId() noexcept

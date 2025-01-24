@@ -96,6 +96,8 @@ Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
+Ice::ProcessPrx::~ProcessPrx() = default;
+
 const char*
 Ice::ProcessPrx::ice_staticId() noexcept
 {

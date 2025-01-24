@@ -451,6 +451,8 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
+Test::TestIntfPrx::~TestIntfPrx() = default;
+
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
@@ -487,6 +489,8 @@ Test::TestActivationPrx::_iceI_activateServantLocator(const ::std::shared_ptr<::
         },
         nullptr);
 }
+
+Test::TestActivationPrx::~TestActivationPrx() = default;
 
 const char*
 Test::TestActivationPrx::ice_staticId() noexcept

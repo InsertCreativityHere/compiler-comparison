@@ -62,6 +62,8 @@ public:
 
     DelayedTestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~DelayedTestIntfPrx() override;
+
     DelayedTestIntfPrx& operator=(const DelayedTestIntfPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -123,6 +125,8 @@ public:
 
     TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TestIntfPrx() override;
+
     TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -182,6 +186,8 @@ public:
     TestIntfBidirPrx(TestIntfBidirPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     TestIntfBidirPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~TestIntfBidirPrx() override;
 
     TestIntfBidirPrx& operator=(const TestIntfBidirPrx& rhs) noexcept
     {

@@ -173,6 +173,8 @@ Test::HelloPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr);
 }
 
+Test::HelloPrx::~HelloPrx() = default;
+
 const char*
 Test::HelloPrx::ice_staticId() noexcept
 {

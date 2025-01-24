@@ -184,6 +184,8 @@ Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr);
 }
 
+Test::RetryPrx::~RetryPrx() = default;
+
 const char*
 Test::RetryPrx::ice_staticId() noexcept
 {

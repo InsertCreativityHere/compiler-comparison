@@ -528,6 +528,8 @@ public:
 
     SessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~SessionPrx() override;
+
     SessionPrx& operator=(const SessionPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -578,6 +580,8 @@ public:
     PublisherSessionPrx(PublisherSessionPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     PublisherSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~PublisherSessionPrx() override;
 
     PublisherSessionPrx& operator=(const PublisherSessionPrx& rhs) noexcept
     {
@@ -664,6 +668,8 @@ public:
     SubscriberSessionPrx(SubscriberSessionPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     SubscriberSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~SubscriberSessionPrx() override;
 
     SubscriberSessionPrx& operator=(const SubscriberSessionPrx& rhs) noexcept
     {
@@ -840,6 +846,8 @@ public:
 
     NodePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~NodePrx() override;
+
     NodePrx& operator=(const NodePrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -1000,6 +1008,8 @@ public:
     LookupPrx(LookupPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     LookupPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~LookupPrx() override;
 
     LookupPrx& operator=(const LookupPrx& rhs) noexcept
     {

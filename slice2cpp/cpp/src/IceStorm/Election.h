@@ -239,6 +239,8 @@ public:
 
     ReplicaObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ReplicaObserverPrx() override;
+
     ReplicaObserverPrx& operator=(const ReplicaObserverPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -308,6 +310,8 @@ public:
     TopicManagerSyncPrx(TopicManagerSyncPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     TopicManagerSyncPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~TopicManagerSyncPrx() override;
 
     TopicManagerSyncPrx& operator=(const TopicManagerSyncPrx& rhs) noexcept
     {
@@ -580,6 +584,8 @@ public:
     NodePrx(NodePrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     NodePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~NodePrx() override;
 
     NodePrx& operator=(const NodePrx& rhs) noexcept
     {

@@ -179,6 +179,8 @@ public:
 
     HoldPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~HoldPrx() override;
+
     HoldPrx& operator=(const HoldPrx& rhs) noexcept
     {
         if (this != &rhs)

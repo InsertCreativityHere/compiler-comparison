@@ -123,6 +123,8 @@ public:
 
     InitialPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~InitialPrx() override;
+
     InitialPrx& operator=(const InitialPrx& rhs) noexcept
     {
         if (this != &rhs)

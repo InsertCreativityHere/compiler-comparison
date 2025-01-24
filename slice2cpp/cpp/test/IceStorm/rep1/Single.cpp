@@ -65,6 +65,8 @@ Test::SinglePrx::_iceI_event(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         nullptr);
 }
 
+Test::SinglePrx::~SinglePrx() = default;
+
 const char*
 Test::SinglePrx::ice_staticId() noexcept
 {

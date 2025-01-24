@@ -169,11 +169,15 @@ BEGIN::breakPrx::_iceI_instance_variables(const ::std::shared_ptr<::IceInternal:
         nullptr);
 }
 
+BEGIN::breakPrx::~breakPrx() = default;
+
 const char*
 BEGIN::breakPrx::ice_staticId() noexcept
 {
     return "::BEGIN::break";
 }
+
+BEGIN::elsifPrx::~elsifPrx() = default;
 
 const char*
 BEGIN::elsifPrx::ice_staticId() noexcept
@@ -226,6 +230,8 @@ BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsync
             }
         });
 }
+
+BEGIN::extendPrx::~extendPrx() = default;
 
 const char*
 BEGIN::extendPrx::ice_staticId() noexcept

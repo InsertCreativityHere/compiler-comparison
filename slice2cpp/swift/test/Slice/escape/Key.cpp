@@ -88,6 +88,8 @@ and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
         nullptr);
 }
 
+and::breakPrx::~breakPrx() = default;
+
 const char*
 and::breakPrx::ice_staticId() noexcept
 {
@@ -122,11 +124,15 @@ and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
         nullptr);
 }
 
+and::funcPrx::~funcPrx() = default;
+
 const char*
 and::funcPrx::ice_staticId() noexcept
 {
     return "::and::func";
 }
+
+and::doPrx::~doPrx() = default;
 
 const char*
 and::doPrx::ice_staticId() noexcept
@@ -183,6 +189,8 @@ and::friendPrx::_iceI_goto(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
             }
         });
 }
+
+and::friendPrx::~friendPrx() = default;
 
 const char*
 and::friendPrx::ice_staticId() noexcept

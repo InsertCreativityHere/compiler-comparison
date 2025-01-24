@@ -680,6 +680,8 @@ Test::NumPy::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
         nullptr);
 }
 
+Test::NumPy::CustomPrx::~CustomPrx() = default;
+
 const char*
 Test::NumPy::CustomPrx::ice_staticId() noexcept
 {

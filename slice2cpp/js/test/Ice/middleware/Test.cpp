@@ -175,6 +175,8 @@ Test::EchoPrx::_iceI_supportsCompress(const ::std::shared_ptr<::IceInternal::Out
         nullptr);
 }
 
+Test::EchoPrx::~EchoPrx() = default;
+
 const char*
 Test::EchoPrx::ice_staticId() noexcept
 {
@@ -237,6 +239,8 @@ Test::MyObjectPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         nullptr);
 }
+
+Test::MyObjectPrx::~MyObjectPrx() = default;
 
 const char*
 Test::MyObjectPrx::ice_staticId() noexcept

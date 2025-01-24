@@ -309,6 +309,8 @@ Glacier2::RouterPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::
         nullptr);
 }
 
+Glacier2::RouterPrx::~RouterPrx() = default;
+
 const char*
 Glacier2::RouterPrx::ice_staticId() noexcept
 {

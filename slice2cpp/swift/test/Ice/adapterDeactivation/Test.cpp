@@ -90,6 +90,8 @@ Test::TestIntfPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
+Test::TestIntfPrx::~TestIntfPrx() = default;
+
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {

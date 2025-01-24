@@ -93,6 +93,8 @@ Test::ServerPrx::_iceI_checkCert(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
+Test::ServerPrx::~ServerPrx() = default;
+
 const char*
 Test::ServerPrx::ice_staticId() noexcept
 {
@@ -189,6 +191,8 @@ Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
         nullptr,
         nullptr);
 }
+
+Test::ServerFactoryPrx::~ServerFactoryPrx() = default;
 
 const char*
 Test::ServerFactoryPrx::ice_staticId() noexcept

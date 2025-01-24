@@ -396,6 +396,8 @@ IceStorm::TopicPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
+IceStorm::TopicPrx::~TopicPrx() = default;
+
 const char*
 IceStorm::TopicPrx::ice_staticId() noexcept
 {
@@ -521,6 +523,8 @@ IceStorm::TopicManagerPrx::_iceI_retrieveAll(const ::std::shared_ptr<::IceIntern
         nullptr);
 }
 
+IceStorm::TopicManagerPrx::~TopicManagerPrx() = default;
+
 const char*
 IceStorm::TopicManagerPrx::ice_staticId() noexcept
 {
@@ -555,6 +559,8 @@ IceStorm::FinderPrx::_iceI_getTopicManager(const ::std::shared_ptr<::IceInternal
         nullptr,
         nullptr);
 }
+
+IceStorm::FinderPrx::~FinderPrx() = default;
 
 const char*
 IceStorm::FinderPrx::ice_staticId() noexcept

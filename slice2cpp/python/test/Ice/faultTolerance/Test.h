@@ -91,6 +91,8 @@ public:
 
     TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TestIntfPrx() override;
+
     TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
     {
         if (this != &rhs)

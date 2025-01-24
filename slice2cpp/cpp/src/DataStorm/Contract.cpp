@@ -401,11 +401,15 @@ DataStormContract::SessionPrx::_iceI_disconnected(const ::std::shared_ptr<::IceI
         nullptr);
 }
 
+DataStormContract::SessionPrx::~SessionPrx() = default;
+
 const char*
 DataStormContract::SessionPrx::ice_staticId() noexcept
 {
     return "::DataStormContract::Session";
 }
+
+DataStormContract::PublisherSessionPrx::~PublisherSessionPrx() = default;
 
 const char*
 DataStormContract::PublisherSessionPrx::ice_staticId() noexcept
@@ -443,6 +447,8 @@ DataStormContract::SubscriberSessionPrx::_iceI_s(const ::std::shared_ptr<::IceIn
         },
         nullptr);
 }
+
+DataStormContract::SubscriberSessionPrx::~SubscriberSessionPrx() = default;
 
 const char*
 DataStormContract::SubscriberSessionPrx::ice_staticId() noexcept
@@ -542,6 +548,8 @@ DataStormContract::NodePrx::_iceI_confirmCreateSession(const ::std::shared_ptr<:
         },
         nullptr);
 }
+
+DataStormContract::NodePrx::~NodePrx() = default;
 
 const char*
 DataStormContract::NodePrx::ice_staticId() noexcept
@@ -673,6 +681,8 @@ DataStormContract::LookupPrx::_iceI_createSession(const ::std::shared_ptr<::IceI
         },
         nullptr);
 }
+
+DataStormContract::LookupPrx::~LookupPrx() = default;
 
 const char*
 DataStormContract::LookupPrx::ice_staticId() noexcept

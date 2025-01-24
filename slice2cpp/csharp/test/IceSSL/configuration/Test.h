@@ -86,6 +86,8 @@ public:
 
     ServerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ServerPrx() override;
+
     ServerPrx& operator=(const ServerPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -164,6 +166,8 @@ public:
 
     ServerFactoryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ServerFactoryPrx() override;
+
     ServerFactoryPrx& operator=(const ServerFactoryPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -219,6 +223,8 @@ public:
     PingablePrx(PingablePrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     PingablePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~PingablePrx() override;
 
     PingablePrx& operator=(const PingablePrx& rhs) noexcept
     {

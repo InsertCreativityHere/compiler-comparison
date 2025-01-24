@@ -65,6 +65,8 @@ Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
         nullptr);
 }
 
+Test::ClockPrx::~ClockPrx() = default;
+
 const char*
 Test::ClockPrx::ice_staticId() noexcept
 {

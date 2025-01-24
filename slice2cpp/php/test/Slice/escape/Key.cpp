@@ -86,6 +86,8 @@ and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
         nullptr);
 }
 
+and::breakPrx::~breakPrx() = default;
+
 const char*
 and::breakPrx::ice_staticId() noexcept
 {
@@ -123,6 +125,8 @@ and::functionPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
+and::functionPrx::~functionPrx() = default;
+
 const char*
 and::functionPrx::ice_staticId() noexcept
 {
@@ -157,11 +161,15 @@ and::diePrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void
         nullptr);
 }
 
+and::diePrx::~diePrx() = default;
+
 const char*
 and::diePrx::ice_staticId() noexcept
 {
     return "::and::die";
 }
+
+and::enddeclarePrx::~enddeclarePrx() = default;
 
 const char*
 and::enddeclarePrx::ice_staticId() noexcept
@@ -218,6 +226,8 @@ and::forPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
             }
         });
 }
+
+and::forPrx::~forPrx() = default;
 
 const char*
 and::forPrx::ice_staticId() noexcept

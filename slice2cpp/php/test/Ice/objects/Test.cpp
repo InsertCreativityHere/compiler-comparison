@@ -64,11 +64,15 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ETwoMembers> iceC_Test_ETwoMembers_init("::Test::ETwoMembers");
 }
 
+Test::IPrx::~IPrx() = default;
+
 const char*
 Test::IPrx::ice_staticId() noexcept
 {
     return "::Test::I";
 }
+
+Test::JPrx::~JPrx() = default;
 
 const char*
 Test::JPrx::ice_staticId() noexcept
@@ -992,6 +996,8 @@ Test::InitialPrx::_iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr);
 }
 
+Test::InitialPrx::~InitialPrx() = default;
+
 const char*
 Test::InitialPrx::ice_staticId() noexcept
 {
@@ -1033,6 +1039,8 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
             return ret;
         });
 }
+
+Test::UnexpectedObjectExceptionTestPrx::~UnexpectedObjectExceptionTestPrx() = default;
 
 const char*
 Test::UnexpectedObjectExceptionTestPrx::ice_staticId() noexcept

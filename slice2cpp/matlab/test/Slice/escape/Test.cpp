@@ -231,6 +231,8 @@ classdef::break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInter
         nullptr);
 }
 
+classdef::break::elseifPrx::~elseifPrx() = default;
+
 const char*
 classdef::break::elseifPrx::ice_staticId() noexcept
 {

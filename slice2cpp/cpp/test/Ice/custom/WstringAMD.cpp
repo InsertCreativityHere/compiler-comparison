@@ -174,6 +174,8 @@ Test1::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal:
         });
 }
 
+Test1::WstringClassPrx::~WstringClassPrx() = default;
+
 const char*
 Test1::WstringClassPrx::ice_staticId() noexcept
 {
@@ -312,6 +314,8 @@ Test2::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal:
             }
         });
 }
+
+Test2::WstringClassPrx::~WstringClassPrx() = default;
 
 const char*
 Test2::WstringClassPrx::ice_staticId() noexcept

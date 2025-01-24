@@ -1424,6 +1424,8 @@ public:
 
     AdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~AdminPrx() override;
+
     AdminPrx& operator=(const AdminPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -1524,6 +1526,8 @@ public:
     FileIteratorPrx(FileIteratorPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     FileIteratorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~FileIteratorPrx() override;
 
     FileIteratorPrx& operator=(const FileIteratorPrx& rhs) noexcept
     {
@@ -1648,6 +1652,8 @@ public:
     RegistryObserverPrx(RegistryObserverPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     RegistryObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~RegistryObserverPrx() override;
 
     RegistryObserverPrx& operator=(const RegistryObserverPrx& rhs) noexcept
     {
@@ -1833,6 +1839,8 @@ public:
 
     NodeObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~NodeObserverPrx() override;
+
     NodeObserverPrx& operator=(const NodeObserverPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -2004,6 +2012,8 @@ public:
 
     ApplicationObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ApplicationObserverPrx() override;
+
     ApplicationObserverPrx& operator=(const ApplicationObserverPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -2161,6 +2171,8 @@ public:
     AdapterObserverPrx(AdapterObserverPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     AdapterObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~AdapterObserverPrx() override;
 
     AdapterObserverPrx& operator=(const AdapterObserverPrx& rhs) noexcept
     {
@@ -2322,6 +2334,8 @@ public:
     ObjectObserverPrx(ObjectObserverPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     ObjectObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~ObjectObserverPrx() override;
 
     ObjectObserverPrx& operator=(const ObjectObserverPrx& rhs) noexcept
     {
@@ -2857,6 +2871,8 @@ public:
     AdminSessionPrx(AdminSessionPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     AdminSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~AdminSessionPrx() override;
 
     AdminSessionPrx& operator=(const AdminSessionPrx& rhs) noexcept
     {

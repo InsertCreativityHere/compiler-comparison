@@ -148,6 +148,8 @@ Test::CallbackPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal:
         nullptr);
 }
 
+Test::CallbackPrx::~CallbackPrx() = default;
+
 const char*
 Test::CallbackPrx::ice_staticId() noexcept
 {
@@ -503,6 +505,8 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr,
         nullptr);
 }
+
+Test::MyClassPrx::~MyClassPrx() = default;
 
 const char*
 Test::MyClassPrx::ice_staticId() noexcept

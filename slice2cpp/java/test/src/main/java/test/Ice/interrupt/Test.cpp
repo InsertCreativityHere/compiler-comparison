@@ -201,6 +201,8 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
+Test::TestIntfPrx::~TestIntfPrx() = default;
+
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
@@ -304,6 +306,8 @@ Test::TestIntfControllerPrx::_iceI_interrupt(const ::std::shared_ptr<::IceIntern
             }
         });
 }
+
+Test::TestIntfControllerPrx::~TestIntfControllerPrx() = default;
 
 const char*
 Test::TestIntfControllerPrx::ice_staticId() noexcept

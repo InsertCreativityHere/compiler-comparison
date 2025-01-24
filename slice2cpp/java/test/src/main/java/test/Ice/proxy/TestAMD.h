@@ -76,6 +76,8 @@ public:
 
     MyClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~MyClassPrx() override;
+
     MyClassPrx& operator=(const MyClassPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -137,6 +139,8 @@ public:
 
     MyDerivedClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~MyDerivedClassPrx() override;
+
     MyDerivedClassPrx& operator=(const MyDerivedClassPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -191,6 +195,8 @@ public:
 
     MyOtherDerivedClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~MyOtherDerivedClassPrx() override;
+
     MyOtherDerivedClassPrx& operator=(const MyOtherDerivedClassPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -244,6 +250,8 @@ public:
     DiamondClassPrx(DiamondClassPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     DiamondClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~DiamondClassPrx() override;
 
     DiamondClassPrx& operator=(const DiamondClassPrx& rhs) noexcept
     {

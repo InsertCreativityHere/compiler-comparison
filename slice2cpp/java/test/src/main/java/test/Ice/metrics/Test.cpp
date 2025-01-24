@@ -310,6 +310,8 @@ Test::MetricsPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
+Test::MetricsPrx::~MetricsPrx() = default;
+
 const char*
 Test::MetricsPrx::ice_staticId() noexcept
 {
@@ -371,6 +373,8 @@ Test::ControllerPrx::_iceI_resume(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         nullptr);
 }
+
+Test::ControllerPrx::~ControllerPrx() = default;
 
 const char*
 Test::ControllerPrx::ice_staticId() noexcept

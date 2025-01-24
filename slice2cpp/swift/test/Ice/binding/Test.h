@@ -62,6 +62,8 @@ public:
 
     TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TestIntfPrx() override;
+
     TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -128,6 +130,8 @@ public:
     RemoteObjectAdapterPrx(RemoteObjectAdapterPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     RemoteObjectAdapterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~RemoteObjectAdapterPrx() override;
 
     RemoteObjectAdapterPrx& operator=(const RemoteObjectAdapterPrx& rhs) noexcept
     {
@@ -206,6 +210,8 @@ public:
     RemoteCommunicatorPrx(RemoteCommunicatorPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     RemoteCommunicatorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~RemoteCommunicatorPrx() override;
 
     RemoteCommunicatorPrx& operator=(const RemoteCommunicatorPrx& rhs) noexcept
     {

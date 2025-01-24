@@ -69,6 +69,8 @@ Test::TestLocatorRegistryPrx::_iceI_addObject(const ::std::shared_ptr<::IceInter
         nullptr);
 }
 
+Test::TestLocatorRegistryPrx::~TestLocatorRegistryPrx() = default;
+
 const char*
 Test::TestLocatorRegistryPrx::ice_staticId() noexcept
 {
@@ -103,6 +105,8 @@ Test::TestLocatorPrx::_iceI_getRequestCount(const ::std::shared_ptr<::IceInterna
         nullptr,
         nullptr);
 }
+
+Test::TestLocatorPrx::~TestLocatorPrx() = default;
 
 const char*
 Test::TestLocatorPrx::ice_staticId() noexcept
@@ -166,6 +170,8 @@ Test::ServerManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
         nullptr);
 }
 
+Test::ServerManagerPrx::~ServerManagerPrx() = default;
+
 const char*
 Test::ServerManagerPrx::ice_staticId() noexcept
 {
@@ -199,6 +205,8 @@ Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr,
         nullptr);
 }
+
+Test::HelloPrx::~HelloPrx() = default;
 
 const char*
 Test::HelloPrx::ice_staticId() noexcept
@@ -319,6 +327,8 @@ Test::TestIntfPrx::_iceI_migrateHello(const ::std::shared_ptr<::IceInternal::Out
         nullptr,
         nullptr);
 }
+
+Test::TestIntfPrx::~TestIntfPrx() = default;
 
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept

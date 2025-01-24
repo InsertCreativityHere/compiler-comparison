@@ -70,6 +70,8 @@ public:
 
     Initial2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~Initial2Prx() override;
+
     Initial2Prx& operator=(const Initial2Prx& rhs) noexcept
     {
         if (this != &rhs)

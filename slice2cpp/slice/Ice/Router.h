@@ -131,6 +131,8 @@ public:
 
     RouterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~RouterPrx() override;
+
     RouterPrx& operator=(const RouterPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -204,6 +206,8 @@ public:
     RouterFinderPrx(RouterFinderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     RouterFinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~RouterFinderPrx() override;
 
     RouterFinderPrx& operator=(const RouterFinderPrx& rhs) noexcept
     {

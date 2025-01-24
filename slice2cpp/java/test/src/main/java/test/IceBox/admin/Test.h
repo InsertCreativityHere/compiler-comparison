@@ -59,6 +59,8 @@ public:
 
     TestFacetPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TestFacetPrx() override;
+
     TestFacetPrx& operator=(const TestFacetPrx& rhs) noexcept
     {
         if (this != &rhs)

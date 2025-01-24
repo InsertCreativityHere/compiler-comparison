@@ -104,6 +104,8 @@ public:
 
     ProcessPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ProcessPrx() override;
+
     ProcessPrx& operator=(const ProcessPrx& rhs) noexcept
     {
         if (this != &rhs)

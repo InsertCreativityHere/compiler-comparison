@@ -94,6 +94,8 @@ Test::SessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
+Test::SessionPrx::~SessionPrx() = default;
+
 const char*
 Test::SessionPrx::ice_staticId() noexcept
 {

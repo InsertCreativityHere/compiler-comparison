@@ -88,6 +88,8 @@ public:
 
     TopicLinkPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TopicLinkPrx() override;
+
     TopicLinkPrx& operator=(const TopicLinkPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -189,6 +191,8 @@ public:
 
     TopicInternalPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TopicInternalPrx() override;
+
     TopicInternalPrx& operator=(const TopicInternalPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -267,6 +271,8 @@ public:
     TopicManagerInternalPrx(TopicManagerInternalPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     TopicManagerInternalPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~TopicManagerInternalPrx() override;
 
     TopicManagerInternalPrx& operator=(const TopicManagerInternalPrx& rhs) noexcept
     {

@@ -89,6 +89,8 @@ public:
 
     FileParserPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~FileParserPrx() override;
+
     FileParserPrx& operator=(const FileParserPrx& rhs) noexcept
     {
         if (this != &rhs)

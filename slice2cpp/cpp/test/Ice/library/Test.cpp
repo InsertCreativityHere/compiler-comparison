@@ -88,6 +88,8 @@ Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAs
         });
 }
 
+Test::MyInterfacePrx::~MyInterfacePrx() = default;
+
 const char*
 Test::MyInterfacePrx::ice_staticId() noexcept
 {

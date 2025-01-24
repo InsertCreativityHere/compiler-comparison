@@ -330,6 +330,8 @@ IceMX::MetricsAdminPrx::_iceI_getMetricsFailures(const ::std::shared_ptr<::IceIn
         });
 }
 
+IceMX::MetricsAdminPrx::~MetricsAdminPrx() = default;
+
 const char*
 IceMX::MetricsAdminPrx::ice_staticId() noexcept
 {

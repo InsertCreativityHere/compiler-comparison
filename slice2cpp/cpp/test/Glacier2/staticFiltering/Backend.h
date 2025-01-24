@@ -58,6 +58,8 @@ public:
 
     BackendPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~BackendPrx() override;
+
     BackendPrx& operator=(const BackendPrx& rhs) noexcept
     {
         if (this != &rhs)

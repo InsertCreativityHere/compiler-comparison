@@ -526,6 +526,8 @@ Test::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
         nullptr);
 }
 
+Test::IPrx::~IPrx() = default;
+
 const char*
 Test::IPrx::ice_staticId() noexcept
 {
@@ -829,6 +831,8 @@ Test::Inner::Inner2::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
         nullptr,
         nullptr);
 }
+
+Test::Inner::Inner2::IPrx::~IPrx() = default;
 
 const char*
 Test::Inner::Inner2::IPrx::ice_staticId() noexcept
@@ -1134,6 +1138,8 @@ Test::Inner::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
+Test::Inner::IPrx::~IPrx() = default;
+
 const char*
 Test::Inner::IPrx::ice_staticId() noexcept
 {
@@ -1437,6 +1443,8 @@ Inner::Test::Inner2::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
         nullptr,
         nullptr);
 }
+
+Inner::Test::Inner2::IPrx::~IPrx() = default;
 
 const char*
 Inner::Test::Inner2::IPrx::ice_staticId() noexcept

@@ -184,6 +184,8 @@ Test::HoldPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr);
 }
 
+Test::HoldPrx::~HoldPrx() = default;
+
 const char*
 Test::HoldPrx::ice_staticId() noexcept
 {

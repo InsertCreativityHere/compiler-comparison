@@ -263,6 +263,8 @@ public:
 
     MetricsAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~MetricsAdminPrx() override;
+
     MetricsAdminPrx& operator=(const MetricsAdminPrx& rhs) noexcept
     {
         if (this != &rhs)

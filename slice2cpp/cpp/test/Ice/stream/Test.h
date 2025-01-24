@@ -136,6 +136,8 @@ public:
 
     MyInterfacePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~MyInterfacePrx() override;
+
     MyInterfacePrx& operator=(const MyInterfacePrx& rhs) noexcept
     {
         if (this != &rhs)

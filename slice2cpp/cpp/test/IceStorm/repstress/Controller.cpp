@@ -62,6 +62,8 @@ Test::ControllerPrx::_iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr);
 }
 
+Test::ControllerPrx::~ControllerPrx() = default;
+
 const char*
 Test::ControllerPrx::ice_staticId() noexcept
 {

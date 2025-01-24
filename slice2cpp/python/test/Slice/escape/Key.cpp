@@ -98,6 +98,8 @@ and::delPrx::_iceI_elif(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr);
 }
 
+and::delPrx::~delPrx() = default;
+
 const char*
 and::delPrx::ice_staticId() noexcept
 {
@@ -132,11 +134,15 @@ and::execPrx::_iceI_finally(const ::std::shared_ptr<::IceInternal::OutgoingAsync
         nullptr);
 }
 
+and::execPrx::~execPrx() = default;
+
 const char*
 and::execPrx::ice_staticId() noexcept
 {
     return "::and::exec";
 }
+
+and::ifPrx::~ifPrx() = default;
 
 const char*
 and::ifPrx::ice_staticId() noexcept
@@ -189,6 +195,8 @@ and::printPrx::_iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
             }
         });
 }
+
+and::printPrx::~printPrx() = default;
 
 const char*
 and::printPrx::ice_staticId() noexcept

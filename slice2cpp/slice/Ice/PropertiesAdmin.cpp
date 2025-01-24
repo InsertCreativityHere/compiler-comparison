@@ -132,6 +132,8 @@ Ice::PropertiesAdminPrx::_iceI_setProperties(const ::std::shared_ptr<::IceIntern
         nullptr);
 }
 
+Ice::PropertiesAdminPrx::~PropertiesAdminPrx() = default;
+
 const char*
 Ice::PropertiesAdminPrx::ice_staticId() noexcept
 {

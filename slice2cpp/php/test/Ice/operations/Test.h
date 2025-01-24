@@ -909,6 +909,8 @@ public:
 
     MyClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~MyClassPrx() override;
+
     MyClassPrx& operator=(const MyClassPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -992,6 +994,8 @@ public:
 
     MyDerivedClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~MyDerivedClassPrx() override;
+
     MyDerivedClassPrx& operator=(const MyDerivedClassPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -1050,6 +1054,8 @@ public:
     MyDerivedClassPrx(MyDerivedClassPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     MyDerivedClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~MyDerivedClassPrx() override;
 
     MyDerivedClassPrx& operator=(const MyDerivedClassPrx& rhs) noexcept
     {

@@ -96,6 +96,8 @@ IceDiscovery::LookupReplyPrx::_iceI_foundAdapterById(const ::std::shared_ptr<::I
         nullptr);
 }
 
+IceDiscovery::LookupReplyPrx::~LookupReplyPrx() = default;
+
 const char*
 IceDiscovery::LookupReplyPrx::ice_staticId() noexcept
 {
@@ -163,6 +165,8 @@ IceDiscovery::LookupPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInte
         },
         nullptr);
 }
+
+IceDiscovery::LookupPrx::~LookupPrx() = default;
 
 const char*
 IceDiscovery::LookupPrx::ice_staticId() noexcept

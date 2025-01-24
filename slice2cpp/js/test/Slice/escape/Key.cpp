@@ -88,6 +88,8 @@ await::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAsync
         nullptr);
 }
 
+await::casePrx::~casePrx() = default;
+
 const char*
 await::casePrx::ice_staticId() noexcept
 {
@@ -122,11 +124,15 @@ await::typeofPrx::_iceI_default(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr);
 }
 
+await::typeofPrx::~typeofPrx() = default;
+
 const char*
 await::typeofPrx::ice_staticId() noexcept
 {
     return "::await::typeof";
 }
+
+await::explicitPrx::~explicitPrx() = default;
 
 const char*
 await::explicitPrx::ice_staticId() noexcept
@@ -300,6 +306,8 @@ await::optionalParamsPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::O
         });
 }
 
+await::optionalParamsPrx::~optionalParamsPrx() = default;
+
 const char*
 await::optionalParamsPrx::ice_staticId() noexcept
 {
@@ -356,6 +364,8 @@ await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         });
 }
 
+await::implicitPrx::~implicitPrx() = default;
+
 const char*
 await::implicitPrx::ice_staticId() noexcept
 {
@@ -390,6 +400,8 @@ await::System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
+await::System::TestPrx::~TestPrx() = default;
+
 const char*
 await::System::TestPrx::ice_staticId() noexcept
 {
@@ -423,6 +435,8 @@ System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
         nullptr,
         nullptr);
 }
+
+System::TestPrx::~TestPrx() = default;
 
 const char*
 System::TestPrx::ice_staticId() noexcept

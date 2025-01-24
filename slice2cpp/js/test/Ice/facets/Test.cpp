@@ -34,6 +34,8 @@
 #   endif
 #endif
 
+Test::EmptyPrx::~EmptyPrx() = default;
+
 const char*
 Test::EmptyPrx::ice_staticId() noexcept
 {
@@ -68,6 +70,8 @@ Test::APrx::_iceI_callA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr,
         nullptr);
 }
+
+Test::APrx::~APrx() = default;
 
 const char*
 Test::APrx::ice_staticId() noexcept
@@ -104,6 +108,8 @@ Test::BPrx::_iceI_callB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr);
 }
 
+Test::BPrx::~BPrx() = default;
+
 const char*
 Test::BPrx::ice_staticId() noexcept
 {
@@ -138,6 +144,8 @@ Test::CPrx::_iceI_callC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr,
         nullptr);
 }
+
+Test::CPrx::~CPrx() = default;
 
 const char*
 Test::CPrx::ice_staticId() noexcept
@@ -174,6 +182,8 @@ Test::DPrx::_iceI_callD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr);
 }
 
+Test::DPrx::~DPrx() = default;
+
 const char*
 Test::DPrx::ice_staticId() noexcept
 {
@@ -209,6 +219,8 @@ Test::EPrx::_iceI_callE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr);
 }
 
+Test::EPrx::~EPrx() = default;
+
 const char*
 Test::EPrx::ice_staticId() noexcept
 {
@@ -243,6 +255,8 @@ Test::FPrx::_iceI_callF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr,
         nullptr);
 }
+
+Test::FPrx::~FPrx() = default;
 
 const char*
 Test::FPrx::ice_staticId() noexcept
@@ -307,6 +321,8 @@ Test::GPrx::_iceI_callG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr);
 }
 
+Test::GPrx::~GPrx() = default;
+
 const char*
 Test::GPrx::ice_staticId() noexcept
 {
@@ -341,6 +357,8 @@ Test::HPrx::_iceI_callH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr,
         nullptr);
 }
+
+Test::HPrx::~HPrx() = default;
 
 const char*
 Test::HPrx::ice_staticId() noexcept
@@ -459,6 +477,8 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr,
         nullptr);
 }
+
+Test::EchoPrx::~EchoPrx() = default;
 
 const char*
 Test::EchoPrx::ice_staticId() noexcept

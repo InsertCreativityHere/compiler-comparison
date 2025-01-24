@@ -120,6 +120,8 @@ Test::TestIntfPrx::_iceI_getConnectionInfoAsContext(const ::std::shared_ptr<::Ic
         nullptr);
 }
 
+Test::TestIntfPrx::~TestIntfPrx() = default;
+
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {

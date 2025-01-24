@@ -102,6 +102,8 @@ Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr);
 }
 
+Test::Initial2Prx::~Initial2Prx() = default;
+
 const char*
 Test::Initial2Prx::ice_staticId() noexcept
 {

@@ -95,6 +95,8 @@ IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::Outgo
         });
 }
 
+IceGrid::FileParserPrx::~FileParserPrx() = default;
+
 const char*
 IceGrid::FileParserPrx::ice_staticId() noexcept
 {

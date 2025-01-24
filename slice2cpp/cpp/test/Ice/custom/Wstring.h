@@ -98,6 +98,8 @@ public:
 
     WstringClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~WstringClassPrx() override;
+
     WstringClassPrx& operator=(const WstringClassPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -180,6 +182,8 @@ public:
     WstringClassPrx(WstringClassPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     WstringClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~WstringClassPrx() override;
 
     WstringClassPrx& operator=(const WstringClassPrx& rhs) noexcept
     {

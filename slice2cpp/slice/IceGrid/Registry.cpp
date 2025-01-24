@@ -217,6 +217,8 @@ IceGrid::QueryPrx::_iceI_findAllReplicas(const ::std::shared_ptr<::IceInternal::
         nullptr);
 }
 
+IceGrid::QueryPrx::~QueryPrx() = default;
+
 const char*
 IceGrid::QueryPrx::ice_staticId() noexcept
 {
@@ -426,6 +428,8 @@ IceGrid::RegistryPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInter
         nullptr);
 }
 
+IceGrid::RegistryPrx::~RegistryPrx() = default;
+
 const char*
 IceGrid::RegistryPrx::ice_staticId() noexcept
 {
@@ -489,6 +493,8 @@ IceGrid::LocatorPrx::_iceI_getLocalQuery(const ::std::shared_ptr<::IceInternal::
         nullptr,
         nullptr);
 }
+
+IceGrid::LocatorPrx::~LocatorPrx() = default;
 
 const char*
 IceGrid::LocatorPrx::ice_staticId() noexcept

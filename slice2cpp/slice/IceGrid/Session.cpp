@@ -243,6 +243,8 @@ IceGrid::SessionPrx::_iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInt
         nullptr);
 }
 
+IceGrid::SessionPrx::~SessionPrx() = default;
+
 const char*
 IceGrid::SessionPrx::ice_staticId() noexcept
 {

@@ -62,6 +62,8 @@ Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr);
 }
 
+Test::PingReplyPrx::~PingReplyPrx() = default;
+
 const char*
 Test::PingReplyPrx::ice_staticId() noexcept
 {
@@ -188,6 +190,8 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         nullptr);
 }
+
+Test::TestIntfPrx::~TestIntfPrx() = default;
 
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept

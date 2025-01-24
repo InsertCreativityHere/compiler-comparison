@@ -1189,6 +1189,8 @@ Test::InitialPrx::_iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr);
 }
 
+Test::InitialPrx::~InitialPrx() = default;
+
 const char*
 Test::InitialPrx::ice_staticId() noexcept
 {
@@ -1230,6 +1232,8 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
             return ret;
         });
 }
+
+Test::UnexpectedObjectExceptionTestPrx::~UnexpectedObjectExceptionTestPrx() = default;
 
 const char*
 Test::UnexpectedObjectExceptionTestPrx::ice_staticId() noexcept
@@ -1292,6 +1296,8 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr,
         nullptr);
 }
+
+Test::EchoPrx::~EchoPrx() = default;
 
 const char*
 Test::EchoPrx::ice_staticId() noexcept

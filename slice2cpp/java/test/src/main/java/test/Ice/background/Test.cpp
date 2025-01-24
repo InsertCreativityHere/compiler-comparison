@@ -121,6 +121,8 @@ Test::BackgroundPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
+Test::BackgroundPrx::~BackgroundPrx() = default;
+
 const char*
 Test::BackgroundPrx::ice_staticId() noexcept
 {
@@ -461,6 +463,8 @@ Test::BackgroundControllerPrx::_iceI_buffered(const ::std::shared_ptr<::IceInter
         },
         nullptr);
 }
+
+Test::BackgroundControllerPrx::~BackgroundControllerPrx() = default;
 
 const char*
 Test::BackgroundControllerPrx::ice_staticId() noexcept

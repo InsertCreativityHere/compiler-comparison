@@ -68,6 +68,8 @@ Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr);
 }
 
+Test::PingReplyPrx::~PingReplyPrx() = default;
+
 const char*
 Test::PingReplyPrx::ice_staticId() noexcept
 {
@@ -553,6 +555,8 @@ Test::TestIntfPrx::_iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr);
 }
 
+Test::TestIntfPrx::~TestIntfPrx() = default;
+
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
@@ -615,6 +619,8 @@ Test::TestIntfControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceIn
         nullptr);
 }
 
+Test::TestIntfControllerPrx::~TestIntfControllerPrx() = default;
+
 const char*
 Test::TestIntfControllerPrx::ice_staticId() noexcept
 {
@@ -664,6 +670,8 @@ Test::Outer::Inner::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal:
             return v;
         });
 }
+
+Test::Outer::Inner::TestIntfPrx::~TestIntfPrx() = default;
 
 const char*
 Test::Outer::Inner::TestIntfPrx::ice_staticId() noexcept

@@ -81,6 +81,8 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
         });
 }
 
+Test::UnexpectedObjectExceptionTestPrx::~UnexpectedObjectExceptionTestPrx() = default;
+
 const char*
 Test::UnexpectedObjectExceptionTestPrx::ice_staticId() noexcept
 {

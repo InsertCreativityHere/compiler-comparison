@@ -118,6 +118,8 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr);
 }
 
+Test::EchoPrx::~EchoPrx() = default;
+
 const char*
 Test::EchoPrx::ice_staticId() noexcept
 {

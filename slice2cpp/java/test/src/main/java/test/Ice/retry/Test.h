@@ -102,6 +102,8 @@ public:
 
     RetryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~RetryPrx() override;
+
     RetryPrx& operator=(const RetryPrx& rhs) noexcept
     {
         if (this != &rhs)

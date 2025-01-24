@@ -123,6 +123,8 @@ Ice::RemoteLoggerPrx::_iceI_log(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr);
 }
 
+Ice::RemoteLoggerPrx::~RemoteLoggerPrx() = default;
+
 const char*
 Ice::RemoteLoggerPrx::ice_staticId() noexcept
 {
@@ -249,6 +251,8 @@ Ice::LoggerAdminPrx::_iceI_getLog(const ::std::shared_ptr<::IceInternal::Outgoin
             return v;
         });
 }
+
+Ice::LoggerAdminPrx::~LoggerAdminPrx() = default;
 
 const char*
 Ice::LoggerAdminPrx::ice_staticId() noexcept

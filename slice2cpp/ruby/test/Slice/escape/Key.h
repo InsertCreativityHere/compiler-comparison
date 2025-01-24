@@ -112,6 +112,8 @@ public:
 
     breakPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~breakPrx() override;
+
     breakPrx& operator=(const breakPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -161,6 +163,8 @@ public:
     elsifPrx(elsifPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     elsifPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~elsifPrx() override;
 
     elsifPrx& operator=(const elsifPrx& rhs) noexcept
     {
@@ -221,6 +225,8 @@ public:
     extendPrx(extendPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     extendPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~extendPrx() override;
 
     extendPrx& operator=(const extendPrx& rhs) noexcept
     {

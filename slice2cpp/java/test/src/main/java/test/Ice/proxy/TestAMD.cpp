@@ -91,6 +91,8 @@ Test::MyClassPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr);
 }
 
+Test::MyClassPrx::~MyClassPrx() = default;
+
 const char*
 Test::MyClassPrx::ice_staticId() noexcept
 {
@@ -129,17 +131,23 @@ Test::MyDerivedClassPrx::_iceI_echo(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
+Test::MyDerivedClassPrx::~MyDerivedClassPrx() = default;
+
 const char*
 Test::MyDerivedClassPrx::ice_staticId() noexcept
 {
     return "::Test::MyDerivedClass";
 }
 
+Test::MyOtherDerivedClassPrx::~MyOtherDerivedClassPrx() = default;
+
 const char*
 Test::MyOtherDerivedClassPrx::ice_staticId() noexcept
 {
     return "::Test::MyOtherDerivedClass";
 }
+
+Test::DiamondClassPrx::~DiamondClassPrx() = default;
 
 const char*
 Test::DiamondClassPrx::ice_staticId() noexcept

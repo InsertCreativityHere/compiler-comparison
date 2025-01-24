@@ -110,6 +110,8 @@ Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
+Test::BackendPrx::~BackendPrx() = default;
+
 const char*
 Test::BackendPrx::ice_staticId() noexcept
 {
@@ -176,6 +178,8 @@ Test::TestControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::O
         nullptr);
 }
 
+Test::TestControllerPrx::~TestControllerPrx() = default;
+
 const char*
 Test::TestControllerPrx::ice_staticId() noexcept
 {
@@ -209,6 +213,8 @@ Test::TestSessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outg
         nullptr,
         nullptr);
 }
+
+Test::TestSessionPrx::~TestSessionPrx() = default;
 
 const char*
 Test::TestSessionPrx::ice_staticId() noexcept

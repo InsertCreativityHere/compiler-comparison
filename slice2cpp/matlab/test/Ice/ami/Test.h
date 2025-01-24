@@ -74,6 +74,8 @@ public:
 
     PingReplyPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~PingReplyPrx() override;
+
     PingReplyPrx& operator=(const PingReplyPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -361,6 +363,8 @@ public:
 
     TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TestIntfPrx() override;
+
     TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -428,6 +432,8 @@ public:
 
     TestIntfControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TestIntfControllerPrx() override;
+
     TestIntfControllerPrx& operator=(const TestIntfControllerPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -489,6 +495,8 @@ public:
     TestIntfPrx(TestIntfPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~TestIntfPrx() override;
 
     TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
     {

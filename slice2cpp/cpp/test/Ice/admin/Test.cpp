@@ -356,6 +356,8 @@ Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
         nullptr);
 }
 
+Test::RemoteCommunicatorPrx::~RemoteCommunicatorPrx() = default;
+
 const char*
 Test::RemoteCommunicatorPrx::ice_staticId() noexcept
 {
@@ -422,6 +424,8 @@ Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::Ice
         nullptr);
 }
 
+Test::RemoteCommunicatorFactoryPrx::~RemoteCommunicatorFactoryPrx() = default;
+
 const char*
 Test::RemoteCommunicatorFactoryPrx::ice_staticId() noexcept
 {
@@ -455,6 +459,8 @@ Test::TestFacetPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         nullptr,
         nullptr);
 }
+
+Test::TestFacetPrx::~TestFacetPrx() = default;
 
 const char*
 Test::TestFacetPrx::ice_staticId() noexcept

@@ -62,6 +62,8 @@ Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
+Test::BackendPrx::~BackendPrx() = default;
+
 const char*
 Test::BackendPrx::ice_staticId() noexcept
 {

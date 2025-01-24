@@ -113,6 +113,8 @@ public:
 
     LookupReplyPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~LookupReplyPrx() override;
+
     LookupReplyPrx& operator=(const LookupReplyPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -232,6 +234,8 @@ public:
     LookupPrx(LookupPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     LookupPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~LookupPrx() override;
 
     LookupPrx& operator=(const LookupPrx& rhs) noexcept
     {

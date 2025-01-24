@@ -2809,6 +2809,8 @@ Test::MyClassPrx::_iceI_opMDict2(const ::std::shared_ptr<::IceInternal::Outgoing
         });
 }
 
+Test::MyClassPrx::~MyClassPrx() = default;
+
 const char*
 Test::MyClassPrx::ice_staticId() noexcept
 {
@@ -2915,11 +2917,15 @@ Test::MyDerivedClassPrx::_iceI_opMyStruct1(const ::std::shared_ptr<::IceInternal
         nullptr);
 }
 
+Test::MyDerivedClassPrx::~MyDerivedClassPrx() = default;
+
 const char*
 Test::MyDerivedClassPrx::ice_staticId() noexcept
 {
     return "::Test::MyDerivedClass";
 }
+
+Test2::MyDerivedClassPrx::~MyDerivedClassPrx() = default;
 
 const char*
 Test2::MyDerivedClassPrx::ice_staticId() noexcept

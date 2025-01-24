@@ -118,6 +118,8 @@ public:
 
     TestCasePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TestCasePrx() override;
+
     TestCasePrx& operator=(const TestCasePrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -207,6 +209,8 @@ public:
 
     ControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ControllerPrx() override;
+
     ControllerPrx& operator=(const ControllerPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -285,6 +289,8 @@ public:
 
     ProcessPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ProcessPrx() override;
+
     ProcessPrx& operator=(const ProcessPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -352,6 +358,8 @@ public:
 
     ProcessControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ProcessControllerPrx() override;
+
     ProcessControllerPrx& operator=(const ProcessControllerPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -413,6 +421,8 @@ public:
 
     BrowserProcessControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~BrowserProcessControllerPrx() override;
+
     BrowserProcessControllerPrx& operator=(const BrowserProcessControllerPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -472,6 +482,8 @@ public:
     ProcessControllerRegistryPrx(ProcessControllerRegistryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     ProcessControllerRegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~ProcessControllerRegistryPrx() override;
 
     ProcessControllerRegistryPrx& operator=(const ProcessControllerRegistryPrx& rhs) noexcept
     {

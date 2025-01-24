@@ -62,6 +62,8 @@ Test::Interface2Prx::_iceI_method(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
+Test::Interface2Prx::~Interface2Prx() = default;
+
 const char*
 Test::Interface2Prx::ice_staticId() noexcept
 {

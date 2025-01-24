@@ -58,6 +58,8 @@ public:
 
     EventPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~EventPrx() override;
+
     EventPrx& operator=(const EventPrx& rhs) noexcept
     {
         if (this != &rhs)

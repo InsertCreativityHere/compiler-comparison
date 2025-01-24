@@ -147,6 +147,8 @@ Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         nullptr);
 }
 
+Test::TestIntfPrx::~TestIntfPrx() = default;
+
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
@@ -180,6 +182,8 @@ Test::CleanerPrx::_iceI_cleanup(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr,
         nullptr);
 }
+
+Test::CleanerPrx::~CleanerPrx() = default;
 
 const char*
 Test::CleanerPrx::ice_staticId() noexcept

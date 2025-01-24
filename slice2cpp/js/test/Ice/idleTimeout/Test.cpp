@@ -65,6 +65,8 @@ Test::DelayedTestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::Out
         nullptr);
 }
 
+Test::DelayedTestIntfPrx::~DelayedTestIntfPrx() = default;
+
 const char*
 Test::DelayedTestIntfPrx::ice_staticId() noexcept
 {
@@ -98,6 +100,8 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         nullptr);
 }
+
+Test::TestIntfPrx::~TestIntfPrx() = default;
 
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept
@@ -135,6 +139,8 @@ Test::TestIntfBidirPrx::_iceI_makeSleep(const ::std::shared_ptr<::IceInternal::O
         },
         nullptr);
 }
+
+Test::TestIntfBidirPrx::~TestIntfBidirPrx() = default;
 
 const char*
 Test::TestIntfBidirPrx::ice_staticId() noexcept

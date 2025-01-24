@@ -92,6 +92,8 @@ User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::Outg
         });
 }
 
+User::RegistryPrx::~RegistryPrx() = default;
+
 const char*
 User::RegistryPrx::ice_staticId() noexcept
 {

@@ -57,6 +57,8 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::DictClass> iceC_Test_DictClass_init("::Test::DictClass");
 }
 
+Test::DPrx::~DPrx() = default;
+
 const char*
 Test::DPrx::ice_staticId() noexcept
 {
@@ -1444,6 +1446,8 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         nullptr);
 }
+
+Test::TestIntfPrx::~TestIntfPrx() = default;
 
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept

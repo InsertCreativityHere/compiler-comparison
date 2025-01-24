@@ -94,6 +94,8 @@ public:
 
     SessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~SessionPrx() override;
+
     SessionPrx& operator=(const SessionPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -218,6 +220,8 @@ public:
     StringSetPrx(StringSetPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     StringSetPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~StringSetPrx() override;
 
     StringSetPrx& operator=(const StringSetPrx& rhs) noexcept
     {
@@ -345,6 +349,8 @@ public:
     IdentitySetPrx(IdentitySetPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     IdentitySetPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~IdentitySetPrx() override;
 
     IdentitySetPrx& operator=(const IdentitySetPrx& rhs) noexcept
     {
@@ -507,6 +513,8 @@ public:
 
     SessionControlPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~SessionControlPrx() override;
+
     SessionControlPrx& operator=(const SessionControlPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -594,6 +602,8 @@ public:
 
     SessionManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~SessionManagerPrx() override;
+
     SessionManagerPrx& operator=(const SessionManagerPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -673,6 +683,8 @@ public:
     SSLSessionManagerPrx(SSLSessionManagerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     SSLSessionManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~SSLSessionManagerPrx() override;
 
     SSLSessionManagerPrx& operator=(const SSLSessionManagerPrx& rhs) noexcept
     {

@@ -167,6 +167,8 @@ Ice::LocatorPrx::_iceI_getRegistry(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr);
 }
 
+Ice::LocatorPrx::~LocatorPrx() = default;
+
 const char*
 Ice::LocatorPrx::ice_staticId() noexcept
 {
@@ -320,6 +322,8 @@ Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy(const ::std::shared_ptr<::I
         });
 }
 
+Ice::LocatorRegistryPrx::~LocatorRegistryPrx() = default;
+
 const char*
 Ice::LocatorRegistryPrx::ice_staticId() noexcept
 {
@@ -354,6 +358,8 @@ Ice::LocatorFinderPrx::_iceI_getLocator(const ::std::shared_ptr<::IceInternal::O
         nullptr,
         nullptr);
 }
+
+Ice::LocatorFinderPrx::~LocatorFinderPrx() = default;
 
 const char*
 Ice::LocatorFinderPrx::ice_staticId() noexcept

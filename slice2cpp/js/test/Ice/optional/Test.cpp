@@ -91,6 +91,8 @@ Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr);
 }
 
+Test::MyInterfacePrx::~MyInterfacePrx() = default;
+
 const char*
 Test::MyInterfacePrx::ice_staticId() noexcept
 {
@@ -1988,6 +1990,8 @@ Test::InitialPrx::_iceI_supportsJavaSerializable(const ::std::shared_ptr<::IceIn
         nullptr);
 }
 
+Test::InitialPrx::~InitialPrx() = default;
+
 const char*
 Test::InitialPrx::ice_staticId() noexcept
 {
@@ -2105,6 +2109,8 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr,
         nullptr);
 }
+
+Test::EchoPrx::~EchoPrx() = default;
 
 const char*
 Test::EchoPrx::ice_staticId() noexcept

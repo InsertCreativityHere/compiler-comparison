@@ -57,6 +57,8 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::CR> iceC_Test_CR_init("::Test::CR");
 }
 
+Test::IPrx::~IPrx() = default;
+
 const char*
 Test::IPrx::ice_staticId() noexcept
 {
@@ -3406,6 +3408,8 @@ Test::MyClassPrx::_iceI_opCustomCVSS(const ::std::shared_ptr<::IceInternal::Outg
             return v;
         });
 }
+
+Test::MyClassPrx::~MyClassPrx() = default;
 
 const char*
 Test::MyClassPrx::ice_staticId() noexcept

@@ -283,6 +283,8 @@ IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber(const ::std::shared
         });
 }
 
+IceStormElection::ReplicaObserverPrx::~ReplicaObserverPrx() = default;
+
 const char*
 IceStormElection::ReplicaObserverPrx::ice_staticId() noexcept
 {
@@ -329,6 +331,8 @@ IceStormElection::TopicManagerSyncPrx::_iceI_getContent(const ::std::shared_ptr<
             return v;
         });
 }
+
+IceStormElection::TopicManagerSyncPrx::~TopicManagerSyncPrx() = default;
 
 const char*
 IceStormElection::TopicManagerSyncPrx::ice_staticId() noexcept
@@ -576,6 +580,8 @@ IceStormElection::NodePrx::_iceI_query(const ::std::shared_ptr<::IceInternal::Ou
         nullptr,
         nullptr);
 }
+
+IceStormElection::NodePrx::~NodePrx() = default;
 
 const char*
 IceStormElection::NodePrx::ice_staticId() noexcept

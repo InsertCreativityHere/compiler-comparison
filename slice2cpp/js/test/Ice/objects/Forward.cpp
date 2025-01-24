@@ -68,6 +68,8 @@ Test::F2Prx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void
         nullptr);
 }
 
+Test::F2Prx::~F2Prx() = default;
+
 const char*
 Test::F2Prx::ice_staticId() noexcept
 {

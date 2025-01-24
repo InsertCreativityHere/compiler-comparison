@@ -88,6 +88,8 @@ abstract::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr);
 }
 
+abstract::casePrx::~casePrx() = default;
+
 const char*
 abstract::casePrx::ice_staticId() noexcept
 {
@@ -122,11 +124,15 @@ abstract::decimalPrx::_iceI_default(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
+abstract::decimalPrx::~decimalPrx() = default;
+
 const char*
 abstract::decimalPrx::ice_staticId() noexcept
 {
     return "::abstract::decimal";
 }
+
+abstract::explicitPrx::~explicitPrx() = default;
 
 const char*
 abstract::explicitPrx::ice_staticId() noexcept
@@ -298,6 +304,8 @@ abstract::optionalParamsPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal
         });
 }
 
+abstract::optionalParamsPrx::~optionalParamsPrx() = default;
+
 const char*
 abstract::optionalParamsPrx::ice_staticId() noexcept
 {
@@ -354,6 +362,8 @@ abstract::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingA
         });
 }
 
+abstract::implicitPrx::~implicitPrx() = default;
+
 const char*
 abstract::implicitPrx::ice_staticId() noexcept
 {
@@ -388,6 +398,8 @@ abstract::System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
+abstract::System::TestPrx::~TestPrx() = default;
+
 const char*
 abstract::System::TestPrx::ice_staticId() noexcept
 {
@@ -421,6 +433,8 @@ System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
         nullptr,
         nullptr);
 }
+
+System::TestPrx::~TestPrx() = default;
 
 const char*
 System::TestPrx::ice_staticId() noexcept

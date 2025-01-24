@@ -92,6 +92,8 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::Sub2::NestedException2> iceC_Test2_Sub2_NestedException2_init("::Test2::Sub2::NestedException2");
 }
 
+Test::MyInterfacePrx::~MyInterfacePrx() = default;
+
 const char*
 Test::MyInterfacePrx::ice_staticId() noexcept
 {

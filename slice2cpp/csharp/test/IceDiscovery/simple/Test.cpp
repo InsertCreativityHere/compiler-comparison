@@ -63,6 +63,8 @@ Test::TestIntfPrx::_iceI_getAdapterId(const ::std::shared_ptr<::IceInternal::Out
         nullptr);
 }
 
+Test::TestIntfPrx::~TestIntfPrx() = default;
+
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
@@ -220,6 +222,8 @@ Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr,
         nullptr);
 }
+
+Test::ControllerPrx::~ControllerPrx() = default;
 
 const char*
 Test::ControllerPrx::ice_staticId() noexcept

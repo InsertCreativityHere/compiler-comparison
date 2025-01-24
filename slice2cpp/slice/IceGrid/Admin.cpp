@@ -2154,6 +2154,8 @@ IceGrid::AdminPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
+IceGrid::AdminPrx::~AdminPrx() = default;
+
 const char*
 IceGrid::AdminPrx::ice_staticId() noexcept
 {
@@ -2244,6 +2246,8 @@ IceGrid::FileIteratorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::O
         nullptr,
         nullptr);
 }
+
+IceGrid::FileIteratorPrx::~FileIteratorPrx() = default;
 
 const char*
 IceGrid::FileIteratorPrx::ice_staticId() noexcept
@@ -2343,6 +2347,8 @@ IceGrid::RegistryObserverPrx::_iceI_registryDown(const ::std::shared_ptr<::IceIn
         },
         nullptr);
 }
+
+IceGrid::RegistryObserverPrx::~RegistryObserverPrx() = default;
 
 const char*
 IceGrid::RegistryObserverPrx::ice_staticId() noexcept
@@ -2505,6 +2511,8 @@ IceGrid::NodeObserverPrx::_iceI_updateAdapter(const ::std::shared_ptr<::IceInter
         nullptr);
 }
 
+IceGrid::NodeObserverPrx::~NodeObserverPrx() = default;
+
 const char*
 IceGrid::NodeObserverPrx::ice_staticId() noexcept
 {
@@ -2638,6 +2646,8 @@ IceGrid::ApplicationObserverPrx::_iceI_applicationUpdated(const ::std::shared_pt
         nullptr);
 }
 
+IceGrid::ApplicationObserverPrx::~ApplicationObserverPrx() = default;
+
 const char*
 IceGrid::ApplicationObserverPrx::ice_staticId() noexcept
 {
@@ -2768,6 +2778,8 @@ IceGrid::AdapterObserverPrx::_iceI_adapterRemoved(const ::std::shared_ptr<::IceI
         nullptr);
 }
 
+IceGrid::AdapterObserverPrx::~AdapterObserverPrx() = default;
+
 const char*
 IceGrid::AdapterObserverPrx::ice_staticId() noexcept
 {
@@ -2897,6 +2909,8 @@ IceGrid::ObjectObserverPrx::_iceI_objectRemoved(const ::std::shared_ptr<::IceInt
         },
         nullptr);
 }
+
+IceGrid::ObjectObserverPrx::~ObjectObserverPrx() = default;
 
 const char*
 IceGrid::ObjectObserverPrx::ice_staticId() noexcept
@@ -3575,6 +3589,8 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut(const ::std::shared_ptr<::Ice
             }
         });
 }
+
+IceGrid::AdminSessionPrx::~AdminSessionPrx() = default;
 
 const char*
 IceGrid::AdminSessionPrx::ice_staticId() noexcept

@@ -71,6 +71,8 @@ Glacier2::SessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr);
 }
 
+Glacier2::SessionPrx::~SessionPrx() = default;
+
 const char*
 Glacier2::SessionPrx::ice_staticId() noexcept
 {
@@ -168,6 +170,8 @@ Glacier2::StringSetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr);
 }
 
+Glacier2::StringSetPrx::~StringSetPrx() = default;
+
 const char*
 Glacier2::StringSetPrx::ice_staticId() noexcept
 {
@@ -264,6 +268,8 @@ Glacier2::IdentitySetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr,
         nullptr);
 }
+
+Glacier2::IdentitySetPrx::~IdentitySetPrx() = default;
 
 const char*
 Glacier2::IdentitySetPrx::ice_staticId() noexcept
@@ -415,6 +421,8 @@ Glacier2::SessionControlPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
         nullptr);
 }
 
+Glacier2::SessionControlPrx::~SessionControlPrx() = default;
+
 const char*
 Glacier2::SessionControlPrx::ice_staticId() noexcept
 {
@@ -466,6 +474,8 @@ Glacier2::SessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal:
         });
 }
 
+Glacier2::SessionManagerPrx::~SessionManagerPrx() = default;
+
 const char*
 Glacier2::SessionManagerPrx::ice_staticId() noexcept
 {
@@ -516,6 +526,8 @@ Glacier2::SSLSessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceIntern
             }
         });
 }
+
+Glacier2::SSLSessionManagerPrx::~SSLSessionManagerPrx() = default;
 
 const char*
 Glacier2::SSLSessionManagerPrx::ice_staticId() noexcept

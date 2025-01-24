@@ -84,6 +84,8 @@ public:
 
     BackendPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~BackendPrx() override;
+
     BackendPrx& operator=(const BackendPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -151,6 +153,8 @@ public:
 
     TestControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TestControllerPrx() override;
+
     TestControllerPrx& operator=(const TestControllerPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -211,6 +215,8 @@ public:
     TestSessionPrx(TestSessionPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     TestSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~TestSessionPrx() override;
 
     TestSessionPrx& operator=(const TestSessionPrx& rhs) noexcept
     {

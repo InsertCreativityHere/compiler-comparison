@@ -201,6 +201,8 @@ Test::MyClassPrx::_iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal
         });
 }
 
+Test::MyClassPrx::~MyClassPrx() = default;
+
 const char*
 Test::MyClassPrx::ice_staticId() noexcept
 {

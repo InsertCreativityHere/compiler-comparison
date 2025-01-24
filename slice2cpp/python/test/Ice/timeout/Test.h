@@ -84,6 +84,8 @@ public:
 
     TimeoutPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~TimeoutPrx() override;
+
     TimeoutPrx& operator=(const TimeoutPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -161,6 +163,8 @@ public:
     ControllerPrx(ControllerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     ControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~ControllerPrx() override;
 
     ControllerPrx& operator=(const ControllerPrx& rhs) noexcept
     {

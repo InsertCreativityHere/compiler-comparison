@@ -75,6 +75,8 @@ public:
 
     SessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~SessionPrx() override;
+
     SessionPrx& operator=(const SessionPrx& rhs) noexcept
     {
         if (this != &rhs)

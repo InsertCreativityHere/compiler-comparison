@@ -111,6 +111,8 @@ public:
 
     ServiceObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
+    ~ServiceObserverPrx() override;
+
     ServiceObserverPrx& operator=(const ServiceObserverPrx& rhs) noexcept
     {
         if (this != &rhs)
@@ -258,6 +260,8 @@ public:
     ServiceManagerPrx(ServiceManagerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
     ServiceManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+    ~ServiceManagerPrx() override;
 
     ServiceManagerPrx& operator=(const ServiceManagerPrx& rhs) noexcept
     {

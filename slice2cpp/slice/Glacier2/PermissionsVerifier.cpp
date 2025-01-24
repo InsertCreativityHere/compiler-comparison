@@ -100,6 +100,8 @@ Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr
         });
 }
 
+Glacier2::PermissionsVerifierPrx::~PermissionsVerifierPrx() = default;
+
 const char*
 Glacier2::PermissionsVerifierPrx::ice_staticId() noexcept
 {
@@ -162,6 +164,8 @@ Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::I
             return v;
         });
 }
+
+Glacier2::SSLPermissionsVerifierPrx::~SSLPermissionsVerifierPrx() = default;
 
 const char*
 Glacier2::SSLPermissionsVerifierPrx::ice_staticId() noexcept

@@ -91,6 +91,8 @@ Test::PriorityPrx::_iceI_getPriority(const ::std::shared_ptr<::IceInternal::Outg
         nullptr);
 }
 
+Test::PriorityPrx::~PriorityPrx() = default;
+
 const char*
 Test::PriorityPrx::ice_staticId() noexcept
 {

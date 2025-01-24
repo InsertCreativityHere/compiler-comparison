@@ -182,6 +182,8 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr);
 }
 
+Test::MyClassPrx::~MyClassPrx() = default;
+
 const char*
 Test::MyClassPrx::ice_staticId() noexcept
 {

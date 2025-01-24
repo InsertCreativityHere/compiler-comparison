@@ -110,6 +110,8 @@ Test::CallbackReceiverPrx::_iceI_callbackEx(const ::std::shared_ptr<::IceInterna
         });
 }
 
+Test::CallbackReceiverPrx::~CallbackReceiverPrx() = default;
+
 const char*
 Test::CallbackReceiverPrx::ice_staticId() noexcept
 {
@@ -219,6 +221,8 @@ Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         nullptr);
 }
+
+Test::CallbackPrx::~CallbackPrx() = default;
 
 const char*
 Test::CallbackPrx::ice_staticId() noexcept

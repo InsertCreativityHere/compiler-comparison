@@ -63,6 +63,8 @@ Test::TestIntfPrx::_iceI_getAdapterName(const ::std::shared_ptr<::IceInternal::O
         nullptr);
 }
 
+Test::TestIntfPrx::~TestIntfPrx() = default;
+
 const char*
 Test::TestIntfPrx::ice_staticId() noexcept
 {
@@ -125,6 +127,8 @@ Test::RemoteObjectAdapterPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInte
         nullptr,
         nullptr);
 }
+
+Test::RemoteObjectAdapterPrx::~RemoteObjectAdapterPrx() = default;
 
 const char*
 Test::RemoteObjectAdapterPrx::ice_staticId() noexcept
@@ -222,6 +226,8 @@ Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInterna
         nullptr,
         nullptr);
 }
+
+Test::RemoteCommunicatorPrx::~RemoteCommunicatorPrx() = default;
 
 const char*
 Test::RemoteCommunicatorPrx::ice_staticId() noexcept
