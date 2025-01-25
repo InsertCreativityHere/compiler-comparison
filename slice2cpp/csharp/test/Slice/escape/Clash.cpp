@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,316 +37,316 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Clash::Cls> iceC_Clash_Cls_init("::Clash::Cls");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Clash::Ex> iceC_Clash_Ex_init("::Clash::Ex");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Clash::Cls> iceC_Clash_Cls_init("::Clash::Cls");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Clash::Ex> iceC_Clash_Ex_init("::Clash::Ex");
 }
 
 void
-Clash::IntfPrx::context(const ::Ice::Context& context) const
+Clash::IntfPrx::context(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_context, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_context, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::contextAsync(const ::Ice::Context& context) const
+Clash::IntfPrx::contextAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_context, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_context, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::contextAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Clash::IntfPrx::contextAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_context, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_context, context);
 }
 
 void
-Clash::IntfPrx::_iceI_context(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_context(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "context";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Clash::IntfPrx::current(const ::Ice::Context& context) const
+Clash::IntfPrx::current(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_current, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_current, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::currentAsync(const ::Ice::Context& context) const
+Clash::IntfPrx::currentAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_current, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_current, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::currentAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Clash::IntfPrx::currentAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_current, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_current, context);
 }
 
 void
-Clash::IntfPrx::_iceI_current(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_current(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "current";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Clash::IntfPrx::response(const ::Ice::Context& context) const
+Clash::IntfPrx::response(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_response, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_response, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::responseAsync(const ::Ice::Context& context) const
+Clash::IntfPrx::responseAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_response, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_response, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::responseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Clash::IntfPrx::responseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_response, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_response, context);
 }
 
 void
-Clash::IntfPrx::_iceI_response(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_response(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "response";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Clash::IntfPrx::typeId(const ::Ice::Context& context) const
+Clash::IntfPrx::typeId(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_typeId, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_typeId, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::typeIdAsync(const ::Ice::Context& context) const
+Clash::IntfPrx::typeIdAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_typeId, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_typeId, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::typeIdAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Clash::IntfPrx::typeIdAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_typeId, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_typeId, context);
 }
 
 void
-Clash::IntfPrx::_iceI_typeId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_typeId(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "typeId";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Clash::IntfPrx::del(const ::Ice::Context& context) const
+Clash::IntfPrx::del(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_del, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_del, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::delAsync(const ::Ice::Context& context) const
+Clash::IntfPrx::delAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_del, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_del, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::delAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Clash::IntfPrx::delAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_del, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_del, context);
 }
 
 void
-Clash::IntfPrx::_iceI_del(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_del(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "del";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Clash::IntfPrx::cookie(const ::Ice::Context& context) const
+Clash::IntfPrx::cookie(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_cookie, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_cookie, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::cookieAsync(const ::Ice::Context& context) const
+Clash::IntfPrx::cookieAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_cookie, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_cookie, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::cookieAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Clash::IntfPrx::cookieAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_cookie, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_cookie, context);
 }
 
 void
-Clash::IntfPrx::_iceI_cookie(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_cookie(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "cookie";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Clash::IntfPrx::sync(const ::Ice::Context& context) const
+Clash::IntfPrx::sync(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_sync, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_sync, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::syncAsync(const ::Ice::Context& context) const
+Clash::IntfPrx::syncAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_sync, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_sync, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::syncAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Clash::IntfPrx::syncAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_sync, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_sync, context);
 }
 
 void
-Clash::IntfPrx::_iceI_sync(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_sync(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "sync";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Clash::IntfPrx::inS(const ::Ice::Context& context) const
+Clash::IntfPrx::inS(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_inS, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_inS, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::inSAsync(const ::Ice::Context& context) const
+Clash::IntfPrx::inSAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_inS, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_inS, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::inSAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Clash::IntfPrx::inSAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_inS, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_inS, context);
 }
 
 void
-Clash::IntfPrx::_iceI_inS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_inS(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "inS";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Clash::IntfPrx::istr(const ::Ice::Context& context) const
+Clash::IntfPrx::istr(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_istr, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_istr, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::istrAsync(const ::Ice::Context& context) const
+Clash::IntfPrx::istrAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_istr, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_istr, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::istrAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Clash::IntfPrx::istrAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_istr, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_istr, context);
 }
 
 void
-Clash::IntfPrx::_iceI_istr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_istr(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "istr";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Clash::IntfPrx::obj(const ::Ice::Context& context) const
+Clash::IntfPrx::obj(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_obj, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_obj, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::objAsync(const ::Ice::Context& context) const
+Clash::IntfPrx::objAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_obj, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_obj, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::objAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Clash::IntfPrx::objAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_obj, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_obj, context);
 }
 
 void
-Clash::IntfPrx::_iceI_obj(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_obj(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "obj";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Clash::IntfPrx::op(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, ::std::optional<::std::string_view> iceP_proxy, ::std::optional<::std::int32_t> iceP_obj, const ::Ice::Context& context) const
+Clash::IntfPrx::op(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, ::std::optional<::std::string_view> iceP_proxy, ::std::optional<::std::int32_t> iceP_obj, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::opAsync(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, ::std::optional<::std::string_view> iceP_proxy, ::std::optional<::std::int32_t> iceP_obj, const ::Ice::Context& context) const
+Clash::IntfPrx::opAsync(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, ::std::optional<::std::string_view> iceP_proxy, ::std::optional<::std::int32_t> iceP_obj, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::opAsync(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, ::std::optional<::std::string_view> iceP_proxy, ::std::optional<::std::int32_t> iceP_obj, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Clash::IntfPrx::opAsync(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, ::std::optional<::std::string_view> iceP_proxy, ::std::optional<::std::int32_t> iceP_obj, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, context);
 }
 
 void
-Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, ::std::optional<::std::string_view> iceP_proxy, ::std::optional<::std::int32_t> iceP_obj, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, ::std::optional<::std::string_view> iceP_proxy, ::std::optional<::std::int32_t> iceP_obj, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "op";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr);
             ostr->writeAll({1, 2}, iceP_proxy, iceP_obj);
@@ -354,9 +355,9 @@ Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<v
 }
 
 void
-Clash::IntfPrx::opOut(::std::string& iceP_context, ::std::string& iceP_current, ::std::string& iceP_response, ::std::string& iceP_ex, ::std::string& iceP_sent, ::std::string& iceP_cookie, ::std::string& iceP_sync, ::std::string& iceP_result, ::std::string& iceP_istr, ::std::string& iceP_ostr, ::std::optional<::std::string>& iceP_proxy, ::std::optional<::std::int32_t>& iceP_obj, const ::Ice::Context& context) const
+Clash::IntfPrx::opOut(::std::string& iceP_context, ::std::string& iceP_current, ::std::string& iceP_response, ::std::string& iceP_ex, ::std::string& iceP_sent, ::std::string& iceP_cookie, ::std::string& iceP_sync, ::std::string& iceP_result, ::std::string& iceP_istr, ::std::string& iceP_ostr, ::std::optional<::std::string>& iceP_proxy, ::std::optional<::std::int32_t>& iceP_obj, const Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>>(true, this, &IntfPrx::_iceI_opOut, context).get();
+    auto result = IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>>(true, this, &IntfPrx::_iceI_opOut, context).get();
     iceP_context = ::std::move(::std::get<0>(result));
     iceP_current = ::std::move(::std::get<1>(result));
     iceP_response = ::std::move(::std::get<2>(result));
@@ -372,31 +373,31 @@ Clash::IntfPrx::opOut(::std::string& iceP_context, ::std::string& iceP_current, 
 }
 
 ::std::future<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>>
-Clash::IntfPrx::opOutAsync(const ::Ice::Context& context) const
+Clash::IntfPrx::opOutAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>>(false, this, &IntfPrx::_iceI_opOut, context);
+    return IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>>(false, this, &IntfPrx::_iceI_opOut, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::opOutAsync(::std::function<void(::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Clash::IntfPrx::opOutAsync(::std::function<void(::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = ::std::move(response)](::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_opOut, context);
+    return IceInternal::makeLambdaOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Clash::IntfPrx::_iceI_opOut, context);
 }
 
 void
-Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>>>& outAsync, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opOut";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>> v;
             istr->readAll(::std::get<0>(v), ::std::get<1>(v), ::std::get<2>(v), ::std::get<3>(v), ::std::get<4>(v), ::std::get<5>(v), ::std::get<6>(v), ::std::get<7>(v), ::std::get<8>(v), ::std::get<9>(v));
@@ -447,14 +448,14 @@ Clash::Cls::ice_printFields(std::ostream& os) const
     Ice::print(os << ", clone = ", this->clone);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Clash::Cls::_iceCloneImpl() const
 {
     return CloneEnabler<Cls>::clone(*this);
 }
 
 void
-Clash::Cls::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Clash::Cls::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->s, this->context, this->current, this->response, this->typeId, this->del, this->ex, this->result, this->istr, this->ostr, this->inS, this->in, this->proxy, this->obj, this->getCookie, this->clone);
@@ -463,7 +464,7 @@ Clash::Cls::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Clash::Cls::_iceReadImpl(::Ice::InputStream* istr)
+Clash::Cls::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->s, this->context, this->current, this->response, this->typeId, this->del, this->ex, this->result, this->istr, this->ostr, this->inS, this->in, this->proxy, this->obj, this->getCookie, this->clone);
@@ -518,7 +519,7 @@ Clash::Ex::ice_throw() const
 }
 
 void
-Clash::Ex::_writeImpl(::Ice::OutputStream* ostr) const
+Clash::Ex::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->istr, this->ostr, this->cause);
@@ -526,7 +527,7 @@ Clash::Ex::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Clash::Ex::_readImpl(::Ice::InputStream* istr)
+Clash::Ex::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->istr, this->ostr, this->cause);
@@ -534,14 +535,14 @@ Clash::Ex::_readImpl(::Ice::InputStream* istr)
 }
 
 ::std::vector<::std::string>
-Clash::Intf::ice_ids(const ::Ice::Current&) const
+Clash::Intf::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Clash::Intf", "::Ice::Object"};
     return allTypeIds;
 }
 
 ::std::string
-Clash::Intf::ice_id(const ::Ice::Current&) const
+Clash::Intf::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -555,140 +556,140 @@ Clash::Intf::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Clash::Intf::_iceD_context(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->context(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Clash::Intf::_iceD_current(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->current(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Clash::Intf::_iceD_response(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->response(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Clash::Intf::_iceD_typeId(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->typeId(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Clash::Intf::_iceD_del(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->del(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Clash::Intf::_iceD_cookie(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->cookie(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Clash::Intf::_iceD_sync(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->sync(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Clash::Intf::_iceD_inS(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->inS(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Clash::Intf::_iceD_istr(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->istr(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Clash::Intf::_iceD_obj(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->obj(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Clash::Intf::_iceD_op(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::string iceP_context;
@@ -707,17 +708,17 @@ Clash::Intf::_iceD_op(
     istr->readAll({1, 2}, iceP_proxy, iceP_obj);
     istr->endEncapsulation();
     this->op(::std::move(iceP_context), ::std::move(iceP_current), ::std::move(iceP_response), ::std::move(iceP_ex), ::std::move(iceP_sent), ::std::move(iceP_cookie), ::std::move(iceP_sync), ::std::move(iceP_result), ::std::move(iceP_istr), ::std::move(iceP_ostr), ::std::move(iceP_proxy), iceP_obj, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Clash::Intf::_iceD_opOut(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     ::std::string iceP_context;
     ::std::string iceP_current;
@@ -732,7 +733,7 @@ Clash::Intf::_iceD_opOut(
     ::std::optional<::std::string> iceP_proxy;
     ::std::optional<::std::int32_t> iceP_obj;
     this->opOut(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr);
             ostr->writeAll({1, 2}, iceP_proxy, iceP_obj);
@@ -743,19 +744,19 @@ Clash::Intf::_iceD_opOut(
 
 /// \cond INTERNAL
 void
-Clash::Intf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Clash::Intf::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"context", "cookie", "current", "del", "ice_id", "ice_ids", "ice_isA", "ice_ping", "inS", "istr", "obj", "op", "opOut", "response", "sync", "typeId"};
+    static constexpr ::std::array<::std::string_view, 16> allOperations{"context", "cookie", "current", "del", "ice_id", "ice_ids", "ice_isA", "ice_ping", "inS", "istr", "obj", "op", "opOut", "response", "sync", "typeId"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 16, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -840,7 +841,7 @@ Clash::Intf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ic
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

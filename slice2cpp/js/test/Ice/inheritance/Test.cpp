@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,59 +37,59 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MC::A> iceC_Test_MC_A_init("::Test::MC::A");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MC::B> iceC_Test_MC_B_init("::Test::MC::B");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MC::C> iceC_Test_MC_C_init("::Test::MC::C");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MC::D> iceC_Test_MC_D_init("::Test::MC::D");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MD::A> iceC_Test_MD_A_init("::Test::MD::A");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MD::B> iceC_Test_MD_B_init("::Test::MD::B");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MD::C> iceC_Test_MD_C_init("::Test::MD::C");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MD::D> iceC_Test_MD_D_init("::Test::MD::D");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::ME::A> iceC_Test_ME_A_init("::Test::ME::A");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::ME::B> iceC_Test_ME_B_init("::Test::ME::B");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::ME::C> iceC_Test_ME_C_init("::Test::ME::C");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::ME::D> iceC_Test_ME_D_init("::Test::ME::D");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MF::A> iceC_Test_MF_A_init("::Test::MF::A");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MF::B> iceC_Test_MF_B_init("::Test::MF::B");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MF::C> iceC_Test_MF_C_init("::Test::MF::C");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MF::D> iceC_Test_MF_D_init("::Test::MF::D");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MG::A> iceC_Test_MG_A_init("::Test::MG::A");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MG::B> iceC_Test_MG_B_init("::Test::MG::B");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MG::C> iceC_Test_MG_C_init("::Test::MG::C");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MG::D> iceC_Test_MG_D_init("::Test::MG::D");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MH::A> iceC_Test_MH_A_init("::Test::MH::A");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MH::B> iceC_Test_MH_B_init("::Test::MH::B");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MH::C> iceC_Test_MH_C_init("::Test::MH::C");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MH::D> iceC_Test_MH_D_init("::Test::MH::D");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test::MC::A> iceC_Test_MC_A_init("::Test::MC::A");
+    const IceInternal::DefaultValueFactoryInit<::Test::MC::B> iceC_Test_MC_B_init("::Test::MC::B");
+    const IceInternal::DefaultValueFactoryInit<::Test::MC::C> iceC_Test_MC_C_init("::Test::MC::C");
+    const IceInternal::DefaultValueFactoryInit<::Test::MC::D> iceC_Test_MC_D_init("::Test::MC::D");
+    const IceInternal::DefaultValueFactoryInit<::Test::MD::A> iceC_Test_MD_A_init("::Test::MD::A");
+    const IceInternal::DefaultValueFactoryInit<::Test::MD::B> iceC_Test_MD_B_init("::Test::MD::B");
+    const IceInternal::DefaultValueFactoryInit<::Test::MD::C> iceC_Test_MD_C_init("::Test::MD::C");
+    const IceInternal::DefaultValueFactoryInit<::Test::MD::D> iceC_Test_MD_D_init("::Test::MD::D");
+    const IceInternal::DefaultValueFactoryInit<::Test::ME::A> iceC_Test_ME_A_init("::Test::ME::A");
+    const IceInternal::DefaultValueFactoryInit<::Test::ME::B> iceC_Test_ME_B_init("::Test::ME::B");
+    const IceInternal::DefaultValueFactoryInit<::Test::ME::C> iceC_Test_ME_C_init("::Test::ME::C");
+    const IceInternal::DefaultValueFactoryInit<::Test::ME::D> iceC_Test_ME_D_init("::Test::ME::D");
+    const IceInternal::DefaultValueFactoryInit<::Test::MF::A> iceC_Test_MF_A_init("::Test::MF::A");
+    const IceInternal::DefaultValueFactoryInit<::Test::MF::B> iceC_Test_MF_B_init("::Test::MF::B");
+    const IceInternal::DefaultValueFactoryInit<::Test::MF::C> iceC_Test_MF_C_init("::Test::MF::C");
+    const IceInternal::DefaultValueFactoryInit<::Test::MF::D> iceC_Test_MF_D_init("::Test::MF::D");
+    const IceInternal::DefaultValueFactoryInit<::Test::MG::A> iceC_Test_MG_A_init("::Test::MG::A");
+    const IceInternal::DefaultValueFactoryInit<::Test::MG::B> iceC_Test_MG_B_init("::Test::MG::B");
+    const IceInternal::DefaultValueFactoryInit<::Test::MG::C> iceC_Test_MG_C_init("::Test::MG::C");
+    const IceInternal::DefaultValueFactoryInit<::Test::MG::D> iceC_Test_MG_D_init("::Test::MG::D");
+    const IceInternal::DefaultValueFactoryInit<::Test::MH::A> iceC_Test_MH_A_init("::Test::MH::A");
+    const IceInternal::DefaultValueFactoryInit<::Test::MH::B> iceC_Test_MH_B_init("::Test::MH::B");
+    const IceInternal::DefaultValueFactoryInit<::Test::MH::C> iceC_Test_MH_C_init("::Test::MH::C");
+    const IceInternal::DefaultValueFactoryInit<::Test::MH::D> iceC_Test_MH_D_init("::Test::MH::D");
 }
 
 ::std::optional<::Test::MA::IAPrx>
-Test::MA::IAPrx::iaop(const ::std::optional<IAPrx>& iceP_p, const ::Ice::Context& context) const
+Test::MA::IAPrx::iaop(const ::std::optional<IAPrx>& iceP_p, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<IAPrx>>(true, this, &IAPrx::_iceI_iaop, iceP_p, context).get();
+    return IceInternal::makePromiseOutgoing<::std::optional<IAPrx>>(true, this, &IAPrx::_iceI_iaop, iceP_p, context).get();
 }
 
 ::std::future<::std::optional<::Test::MA::IAPrx>>
-Test::MA::IAPrx::iaopAsync(const ::std::optional<IAPrx>& iceP_p, const ::Ice::Context& context) const
+Test::MA::IAPrx::iaopAsync(const ::std::optional<IAPrx>& iceP_p, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<IAPrx>>(false, this, &IAPrx::_iceI_iaop, iceP_p, context);
+    return IceInternal::makePromiseOutgoing<::std::optional<IAPrx>>(false, this, &IAPrx::_iceI_iaop, iceP_p, context);
 }
 
 ::std::function<void()>
-Test::MA::IAPrx::iaopAsync(const ::std::optional<IAPrx>& iceP_p, ::std::function<void(::std::optional<::Test::MA::IAPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::MA::IAPrx::iaopAsync(const ::std::optional<IAPrx>& iceP_p, ::std::function<void(::std::optional<::Test::MA::IAPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<IAPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MA::IAPrx::_iceI_iaop, iceP_p, context);
+    return IceInternal::makeLambdaOutgoing<::std::optional<IAPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MA::IAPrx::_iceI_iaop, iceP_p, context);
 }
 
 void
-Test::MA::IAPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IAPrx>>>& outAsync, const ::std::optional<IAPrx>& iceP_p, const ::Ice::Context& context) const
+Test::MA::IAPrx::_iceI_iaop(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<IAPrx>>>& outAsync, const ::std::optional<IAPrx>& iceP_p, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "iaop";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p);
         },
@@ -104,31 +105,31 @@ Test::MA::IAPrx::ice_staticId() noexcept
 }
 
 ::std::optional<::Test::MB::IB1Prx>
-Test::MB::IB1Prx::ib1op(const ::std::optional<IB1Prx>& iceP_p, const ::Ice::Context& context) const
+Test::MB::IB1Prx::ib1op(const ::std::optional<IB1Prx>& iceP_p, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<IB1Prx>>(true, this, &IB1Prx::_iceI_ib1op, iceP_p, context).get();
+    return IceInternal::makePromiseOutgoing<::std::optional<IB1Prx>>(true, this, &IB1Prx::_iceI_ib1op, iceP_p, context).get();
 }
 
 ::std::future<::std::optional<::Test::MB::IB1Prx>>
-Test::MB::IB1Prx::ib1opAsync(const ::std::optional<IB1Prx>& iceP_p, const ::Ice::Context& context) const
+Test::MB::IB1Prx::ib1opAsync(const ::std::optional<IB1Prx>& iceP_p, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<IB1Prx>>(false, this, &IB1Prx::_iceI_ib1op, iceP_p, context);
+    return IceInternal::makePromiseOutgoing<::std::optional<IB1Prx>>(false, this, &IB1Prx::_iceI_ib1op, iceP_p, context);
 }
 
 ::std::function<void()>
-Test::MB::IB1Prx::ib1opAsync(const ::std::optional<IB1Prx>& iceP_p, ::std::function<void(::std::optional<::Test::MB::IB1Prx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::MB::IB1Prx::ib1opAsync(const ::std::optional<IB1Prx>& iceP_p, ::std::function<void(::std::optional<::Test::MB::IB1Prx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<IB1Prx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MB::IB1Prx::_iceI_ib1op, iceP_p, context);
+    return IceInternal::makeLambdaOutgoing<::std::optional<IB1Prx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MB::IB1Prx::_iceI_ib1op, iceP_p, context);
 }
 
 void
-Test::MB::IB1Prx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IB1Prx>>>& outAsync, const ::std::optional<IB1Prx>& iceP_p, const ::Ice::Context& context) const
+Test::MB::IB1Prx::_iceI_ib1op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<IB1Prx>>>& outAsync, const ::std::optional<IB1Prx>& iceP_p, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "ib1op";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p);
         },
@@ -144,31 +145,31 @@ Test::MB::IB1Prx::ice_staticId() noexcept
 }
 
 ::std::optional<::Test::MB::IB2Prx>
-Test::MB::IB2Prx::ib2op(const ::std::optional<IB2Prx>& iceP_p, const ::Ice::Context& context) const
+Test::MB::IB2Prx::ib2op(const ::std::optional<IB2Prx>& iceP_p, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<IB2Prx>>(true, this, &IB2Prx::_iceI_ib2op, iceP_p, context).get();
+    return IceInternal::makePromiseOutgoing<::std::optional<IB2Prx>>(true, this, &IB2Prx::_iceI_ib2op, iceP_p, context).get();
 }
 
 ::std::future<::std::optional<::Test::MB::IB2Prx>>
-Test::MB::IB2Prx::ib2opAsync(const ::std::optional<IB2Prx>& iceP_p, const ::Ice::Context& context) const
+Test::MB::IB2Prx::ib2opAsync(const ::std::optional<IB2Prx>& iceP_p, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<IB2Prx>>(false, this, &IB2Prx::_iceI_ib2op, iceP_p, context);
+    return IceInternal::makePromiseOutgoing<::std::optional<IB2Prx>>(false, this, &IB2Prx::_iceI_ib2op, iceP_p, context);
 }
 
 ::std::function<void()>
-Test::MB::IB2Prx::ib2opAsync(const ::std::optional<IB2Prx>& iceP_p, ::std::function<void(::std::optional<::Test::MB::IB2Prx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::MB::IB2Prx::ib2opAsync(const ::std::optional<IB2Prx>& iceP_p, ::std::function<void(::std::optional<::Test::MB::IB2Prx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<IB2Prx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MB::IB2Prx::_iceI_ib2op, iceP_p, context);
+    return IceInternal::makeLambdaOutgoing<::std::optional<IB2Prx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MB::IB2Prx::_iceI_ib2op, iceP_p, context);
 }
 
 void
-Test::MB::IB2Prx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IB2Prx>>>& outAsync, const ::std::optional<IB2Prx>& iceP_p, const ::Ice::Context& context) const
+Test::MB::IB2Prx::_iceI_ib2op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<IB2Prx>>>& outAsync, const ::std::optional<IB2Prx>& iceP_p, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "ib2op";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p);
         },
@@ -184,31 +185,31 @@ Test::MB::IB2Prx::ice_staticId() noexcept
 }
 
 ::std::optional<::Test::MA::ICPrx>
-Test::MA::ICPrx::icop(const ::std::optional<ICPrx>& iceP_p, const ::Ice::Context& context) const
+Test::MA::ICPrx::icop(const ::std::optional<ICPrx>& iceP_p, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<ICPrx>>(true, this, &ICPrx::_iceI_icop, iceP_p, context).get();
+    return IceInternal::makePromiseOutgoing<::std::optional<ICPrx>>(true, this, &ICPrx::_iceI_icop, iceP_p, context).get();
 }
 
 ::std::future<::std::optional<::Test::MA::ICPrx>>
-Test::MA::ICPrx::icopAsync(const ::std::optional<ICPrx>& iceP_p, const ::Ice::Context& context) const
+Test::MA::ICPrx::icopAsync(const ::std::optional<ICPrx>& iceP_p, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<ICPrx>>(false, this, &ICPrx::_iceI_icop, iceP_p, context);
+    return IceInternal::makePromiseOutgoing<::std::optional<ICPrx>>(false, this, &ICPrx::_iceI_icop, iceP_p, context);
 }
 
 ::std::function<void()>
-Test::MA::ICPrx::icopAsync(const ::std::optional<ICPrx>& iceP_p, ::std::function<void(::std::optional<::Test::MA::ICPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::MA::ICPrx::icopAsync(const ::std::optional<ICPrx>& iceP_p, ::std::function<void(::std::optional<::Test::MA::ICPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<ICPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MA::ICPrx::_iceI_icop, iceP_p, context);
+    return IceInternal::makeLambdaOutgoing<::std::optional<ICPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MA::ICPrx::_iceI_icop, iceP_p, context);
 }
 
 void
-Test::MA::ICPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ICPrx>>>& outAsync, const ::std::optional<ICPrx>& iceP_p, const ::Ice::Context& context) const
+Test::MA::ICPrx::_iceI_icop(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<ICPrx>>>& outAsync, const ::std::optional<ICPrx>& iceP_p, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "icop";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p);
         },
@@ -224,145 +225,145 @@ Test::MA::ICPrx::ice_staticId() noexcept
 }
 
 void
-Test::InitialPrx::shutdown(const ::Ice::Context& context) const
+Test::InitialPrx::shutdown(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::InitialPrx::shutdownAsync(const ::Ice::Context& context) const
+Test::InitialPrx::shutdownAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_shutdown, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
 void
-Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::std::optional<::Test::MA::IAPrx>
-Test::InitialPrx::iaop(const ::Ice::Context& context) const
+Test::InitialPrx::iaop(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<::Test::MA::IAPrx>>(true, this, &InitialPrx::_iceI_iaop, context).get();
+    return IceInternal::makePromiseOutgoing<::std::optional<::Test::MA::IAPrx>>(true, this, &InitialPrx::_iceI_iaop, context).get();
 }
 
 ::std::future<::std::optional<::Test::MA::IAPrx>>
-Test::InitialPrx::iaopAsync(const ::Ice::Context& context) const
+Test::InitialPrx::iaopAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<::Test::MA::IAPrx>>(false, this, &InitialPrx::_iceI_iaop, context);
+    return IceInternal::makePromiseOutgoing<::std::optional<::Test::MA::IAPrx>>(false, this, &InitialPrx::_iceI_iaop, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::iaopAsync(::std::function<void(::std::optional<::Test::MA::IAPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::iaopAsync(::std::function<void(::std::optional<::Test::MA::IAPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Test::MA::IAPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_iaop, context);
+    return IceInternal::makeLambdaOutgoing<::std::optional<::Test::MA::IAPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_iaop, context);
 }
 
 void
-Test::InitialPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::IAPrx>>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_iaop(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::IAPrx>>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "iaop";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::std::optional<::Test::MB::IB1Prx>
-Test::InitialPrx::ib1op(const ::Ice::Context& context) const
+Test::InitialPrx::ib1op(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<::Test::MB::IB1Prx>>(true, this, &InitialPrx::_iceI_ib1op, context).get();
+    return IceInternal::makePromiseOutgoing<::std::optional<::Test::MB::IB1Prx>>(true, this, &InitialPrx::_iceI_ib1op, context).get();
 }
 
 ::std::future<::std::optional<::Test::MB::IB1Prx>>
-Test::InitialPrx::ib1opAsync(const ::Ice::Context& context) const
+Test::InitialPrx::ib1opAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<::Test::MB::IB1Prx>>(false, this, &InitialPrx::_iceI_ib1op, context);
+    return IceInternal::makePromiseOutgoing<::std::optional<::Test::MB::IB1Prx>>(false, this, &InitialPrx::_iceI_ib1op, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::ib1opAsync(::std::function<void(::std::optional<::Test::MB::IB1Prx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::ib1opAsync(::std::function<void(::std::optional<::Test::MB::IB1Prx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Test::MB::IB1Prx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_ib1op, context);
+    return IceInternal::makeLambdaOutgoing<::std::optional<::Test::MB::IB1Prx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_ib1op, context);
 }
 
 void
-Test::InitialPrx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB1Prx>>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_ib1op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB1Prx>>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "ib1op";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::std::optional<::Test::MB::IB2Prx>
-Test::InitialPrx::ib2op(const ::Ice::Context& context) const
+Test::InitialPrx::ib2op(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<::Test::MB::IB2Prx>>(true, this, &InitialPrx::_iceI_ib2op, context).get();
+    return IceInternal::makePromiseOutgoing<::std::optional<::Test::MB::IB2Prx>>(true, this, &InitialPrx::_iceI_ib2op, context).get();
 }
 
 ::std::future<::std::optional<::Test::MB::IB2Prx>>
-Test::InitialPrx::ib2opAsync(const ::Ice::Context& context) const
+Test::InitialPrx::ib2opAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<::Test::MB::IB2Prx>>(false, this, &InitialPrx::_iceI_ib2op, context);
+    return IceInternal::makePromiseOutgoing<::std::optional<::Test::MB::IB2Prx>>(false, this, &InitialPrx::_iceI_ib2op, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::ib2opAsync(::std::function<void(::std::optional<::Test::MB::IB2Prx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::ib2opAsync(::std::function<void(::std::optional<::Test::MB::IB2Prx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Test::MB::IB2Prx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_ib2op, context);
+    return IceInternal::makeLambdaOutgoing<::std::optional<::Test::MB::IB2Prx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_ib2op, context);
 }
 
 void
-Test::InitialPrx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB2Prx>>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_ib2op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB2Prx>>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "ib2op";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::std::optional<::Test::MA::ICPrx>
-Test::InitialPrx::icop(const ::Ice::Context& context) const
+Test::InitialPrx::icop(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<::Test::MA::ICPrx>>(true, this, &InitialPrx::_iceI_icop, context).get();
+    return IceInternal::makePromiseOutgoing<::std::optional<::Test::MA::ICPrx>>(true, this, &InitialPrx::_iceI_icop, context).get();
 }
 
 ::std::future<::std::optional<::Test::MA::ICPrx>>
-Test::InitialPrx::icopAsync(const ::Ice::Context& context) const
+Test::InitialPrx::icopAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<::Test::MA::ICPrx>>(false, this, &InitialPrx::_iceI_icop, context);
+    return IceInternal::makePromiseOutgoing<::std::optional<::Test::MA::ICPrx>>(false, this, &InitialPrx::_iceI_icop, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::icopAsync(::std::function<void(::std::optional<::Test::MA::ICPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::icopAsync(::std::function<void(::std::optional<::Test::MA::ICPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Test::MA::ICPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_icop, context);
+    return IceInternal::makeLambdaOutgoing<::std::optional<::Test::MA::ICPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_icop, context);
 }
 
 void
-Test::InitialPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::ICPrx>>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_icop(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::ICPrx>>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "icop";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -376,113 +377,113 @@ Test::InitialPrx::ice_staticId() noexcept
 }
 
 void
-Test::EchoPrx::setConnection(const ::Ice::Context& context) const
+Test::EchoPrx::setConnection(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_setConnection, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_setConnection, context).get();
 }
 
 ::std::future<void>
-Test::EchoPrx::setConnectionAsync(const ::Ice::Context& context) const
+Test::EchoPrx::setConnectionAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &EchoPrx::_iceI_setConnection, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &EchoPrx::_iceI_setConnection, context);
 }
 
 ::std::function<void()>
-Test::EchoPrx::setConnectionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::EchoPrx::setConnectionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::EchoPrx::_iceI_setConnection, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::EchoPrx::_iceI_setConnection, context);
 }
 
 void
-Test::EchoPrx::_iceI_setConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::EchoPrx::_iceI_setConnection(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "setConnection";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Test::EchoPrx::startBatch(const ::Ice::Context& context) const
+Test::EchoPrx::startBatch(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_startBatch, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_startBatch, context).get();
 }
 
 ::std::future<void>
-Test::EchoPrx::startBatchAsync(const ::Ice::Context& context) const
+Test::EchoPrx::startBatchAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &EchoPrx::_iceI_startBatch, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &EchoPrx::_iceI_startBatch, context);
 }
 
 ::std::function<void()>
-Test::EchoPrx::startBatchAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::EchoPrx::startBatchAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::EchoPrx::_iceI_startBatch, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::EchoPrx::_iceI_startBatch, context);
 }
 
 void
-Test::EchoPrx::_iceI_startBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::EchoPrx::_iceI_startBatch(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "startBatch";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Test::EchoPrx::flushBatch(const ::Ice::Context& context) const
+Test::EchoPrx::flushBatch(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_flushBatch, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_flushBatch, context).get();
 }
 
 ::std::future<void>
-Test::EchoPrx::flushBatchAsync(const ::Ice::Context& context) const
+Test::EchoPrx::flushBatchAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &EchoPrx::_iceI_flushBatch, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &EchoPrx::_iceI_flushBatch, context);
 }
 
 ::std::function<void()>
-Test::EchoPrx::flushBatchAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::EchoPrx::flushBatchAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::EchoPrx::_iceI_flushBatch, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::EchoPrx::_iceI_flushBatch, context);
 }
 
 void
-Test::EchoPrx::_iceI_flushBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::EchoPrx::_iceI_flushBatch(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "flushBatch";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Test::EchoPrx::shutdown(const ::Ice::Context& context) const
+Test::EchoPrx::shutdown(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_shutdown, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &EchoPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::EchoPrx::shutdownAsync(const ::Ice::Context& context) const
+Test::EchoPrx::shutdownAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &EchoPrx::_iceI_shutdown, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &EchoPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
-Test::EchoPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::EchoPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::EchoPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::EchoPrx::_iceI_shutdown, context);
 }
 
 void
-Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -513,14 +514,14 @@ Test::MC::A::ice_printFields(std::ostream& os) const
     Ice::print(os << "aA = ", this->aA);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MC::A::_iceCloneImpl() const
 {
     return CloneEnabler<A>::clone(*this);
 }
 
 void
-Test::MC::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MC::A::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->aA);
@@ -528,7 +529,7 @@ Test::MC::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MC::A::_iceReadImpl(::Ice::InputStream* istr)
+Test::MC::A::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->aA);
@@ -554,14 +555,14 @@ Test::MC::B::ice_printFields(std::ostream& os) const
     Ice::print(os << ", bB = ", this->bB);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MC::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
 }
 
 void
-Test::MC::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MC::B::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->bB);
@@ -570,7 +571,7 @@ Test::MC::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MC::B::_iceReadImpl(::Ice::InputStream* istr)
+Test::MC::B::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->bB);
@@ -597,14 +598,14 @@ Test::MC::C::ice_printFields(std::ostream& os) const
     Ice::print(os << ", cC = ", this->cC);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MC::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
 }
 
 void
-Test::MC::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MC::C::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->cC);
@@ -613,7 +614,7 @@ Test::MC::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MC::C::_iceReadImpl(::Ice::InputStream* istr)
+Test::MC::C::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->cC);
@@ -640,14 +641,14 @@ Test::MC::D::ice_printFields(std::ostream& os) const
     Ice::print(os << ", dD = ", this->dD);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MC::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
 }
 
 void
-Test::MC::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MC::D::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->dD);
@@ -656,7 +657,7 @@ Test::MC::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MC::D::_iceReadImpl(::Ice::InputStream* istr)
+Test::MC::D::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->dD);
@@ -682,14 +683,14 @@ Test::MD::A::ice_printFields(std::ostream& os) const
     Ice::print(os << "aA = ", this->aA);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MD::A::_iceCloneImpl() const
 {
     return CloneEnabler<A>::clone(*this);
 }
 
 void
-Test::MD::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MD::A::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->aA);
@@ -697,7 +698,7 @@ Test::MD::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MD::A::_iceReadImpl(::Ice::InputStream* istr)
+Test::MD::A::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->aA);
@@ -723,14 +724,14 @@ Test::MD::B::ice_printFields(std::ostream& os) const
     Ice::print(os << ", bB = ", this->bB);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MD::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
 }
 
 void
-Test::MD::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MD::B::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->bB);
@@ -739,7 +740,7 @@ Test::MD::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MD::B::_iceReadImpl(::Ice::InputStream* istr)
+Test::MD::B::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->bB);
@@ -766,14 +767,14 @@ Test::MD::C::ice_printFields(std::ostream& os) const
     Ice::print(os << ", cC = ", this->cC);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MD::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
 }
 
 void
-Test::MD::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MD::C::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->cC);
@@ -782,7 +783,7 @@ Test::MD::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MD::C::_iceReadImpl(::Ice::InputStream* istr)
+Test::MD::C::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->cC);
@@ -809,14 +810,14 @@ Test::MD::D::ice_printFields(std::ostream& os) const
     Ice::print(os << ", dD = ", this->dD);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MD::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
 }
 
 void
-Test::MD::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MD::D::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->dD);
@@ -825,7 +826,7 @@ Test::MD::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MD::D::_iceReadImpl(::Ice::InputStream* istr)
+Test::MD::D::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->dD);
@@ -851,14 +852,14 @@ Test::ME::A::ice_printFields(std::ostream& os) const
     Ice::print(os << "aA = ", this->aA);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::ME::A::_iceCloneImpl() const
 {
     return CloneEnabler<A>::clone(*this);
 }
 
 void
-Test::ME::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::ME::A::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->aA);
@@ -866,7 +867,7 @@ Test::ME::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::ME::A::_iceReadImpl(::Ice::InputStream* istr)
+Test::ME::A::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->aA);
@@ -892,14 +893,14 @@ Test::ME::B::ice_printFields(std::ostream& os) const
     Ice::print(os << ", bB = ", this->bB);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::ME::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
 }
 
 void
-Test::ME::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::ME::B::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->bB);
@@ -908,7 +909,7 @@ Test::ME::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::ME::B::_iceReadImpl(::Ice::InputStream* istr)
+Test::ME::B::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->bB);
@@ -935,14 +936,14 @@ Test::ME::C::ice_printFields(std::ostream& os) const
     Ice::print(os << ", cC = ", this->cC);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::ME::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
 }
 
 void
-Test::ME::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::ME::C::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->cC);
@@ -951,7 +952,7 @@ Test::ME::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::ME::C::_iceReadImpl(::Ice::InputStream* istr)
+Test::ME::C::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->cC);
@@ -978,14 +979,14 @@ Test::ME::D::ice_printFields(std::ostream& os) const
     Ice::print(os << ", dD = ", this->dD);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::ME::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
 }
 
 void
-Test::ME::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::ME::D::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->dD);
@@ -994,7 +995,7 @@ Test::ME::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::ME::D::_iceReadImpl(::Ice::InputStream* istr)
+Test::ME::D::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->dD);
@@ -1020,14 +1021,14 @@ Test::MF::A::ice_printFields(std::ostream& os) const
     Ice::print(os << "aA = ", this->aA);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MF::A::_iceCloneImpl() const
 {
     return CloneEnabler<A>::clone(*this);
 }
 
 void
-Test::MF::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MF::A::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->aA);
@@ -1035,7 +1036,7 @@ Test::MF::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MF::A::_iceReadImpl(::Ice::InputStream* istr)
+Test::MF::A::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->aA);
@@ -1061,14 +1062,14 @@ Test::MF::B::ice_printFields(std::ostream& os) const
     Ice::print(os << ", bB = ", this->bB);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MF::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
 }
 
 void
-Test::MF::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MF::B::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->bB);
@@ -1077,7 +1078,7 @@ Test::MF::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MF::B::_iceReadImpl(::Ice::InputStream* istr)
+Test::MF::B::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->bB);
@@ -1104,14 +1105,14 @@ Test::MF::C::ice_printFields(std::ostream& os) const
     Ice::print(os << ", cC = ", this->cC);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MF::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
 }
 
 void
-Test::MF::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MF::C::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->cC);
@@ -1120,7 +1121,7 @@ Test::MF::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MF::C::_iceReadImpl(::Ice::InputStream* istr)
+Test::MF::C::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->cC);
@@ -1147,14 +1148,14 @@ Test::MF::D::ice_printFields(std::ostream& os) const
     Ice::print(os << ", dD = ", this->dD);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MF::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
 }
 
 void
-Test::MF::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MF::D::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->dD);
@@ -1163,7 +1164,7 @@ Test::MF::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MF::D::_iceReadImpl(::Ice::InputStream* istr)
+Test::MF::D::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->dD);
@@ -1189,14 +1190,14 @@ Test::MG::A::ice_printFields(std::ostream& os) const
     Ice::print(os << "aA = ", this->aA);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MG::A::_iceCloneImpl() const
 {
     return CloneEnabler<A>::clone(*this);
 }
 
 void
-Test::MG::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MG::A::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->aA);
@@ -1204,7 +1205,7 @@ Test::MG::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MG::A::_iceReadImpl(::Ice::InputStream* istr)
+Test::MG::A::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->aA);
@@ -1230,14 +1231,14 @@ Test::MG::B::ice_printFields(std::ostream& os) const
     Ice::print(os << ", bB = ", this->bB);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MG::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
 }
 
 void
-Test::MG::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MG::B::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->bB);
@@ -1246,7 +1247,7 @@ Test::MG::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MG::B::_iceReadImpl(::Ice::InputStream* istr)
+Test::MG::B::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->bB);
@@ -1273,14 +1274,14 @@ Test::MG::C::ice_printFields(std::ostream& os) const
     Ice::print(os << ", cC = ", this->cC);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MG::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
 }
 
 void
-Test::MG::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MG::C::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->cC);
@@ -1289,7 +1290,7 @@ Test::MG::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MG::C::_iceReadImpl(::Ice::InputStream* istr)
+Test::MG::C::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->cC);
@@ -1316,14 +1317,14 @@ Test::MG::D::ice_printFields(std::ostream& os) const
     Ice::print(os << ", dD = ", this->dD);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MG::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
 }
 
 void
-Test::MG::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MG::D::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->dD);
@@ -1332,7 +1333,7 @@ Test::MG::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MG::D::_iceReadImpl(::Ice::InputStream* istr)
+Test::MG::D::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->dD);
@@ -1358,14 +1359,14 @@ Test::MH::A::ice_printFields(std::ostream& os) const
     Ice::print(os << "aA = ", this->aA);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MH::A::_iceCloneImpl() const
 {
     return CloneEnabler<A>::clone(*this);
 }
 
 void
-Test::MH::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MH::A::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->aA);
@@ -1373,7 +1374,7 @@ Test::MH::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MH::A::_iceReadImpl(::Ice::InputStream* istr)
+Test::MH::A::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->aA);
@@ -1399,14 +1400,14 @@ Test::MH::B::ice_printFields(std::ostream& os) const
     Ice::print(os << ", bB = ", this->bB);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MH::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
 }
 
 void
-Test::MH::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MH::B::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->bB);
@@ -1415,7 +1416,7 @@ Test::MH::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MH::B::_iceReadImpl(::Ice::InputStream* istr)
+Test::MH::B::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->bB);
@@ -1442,14 +1443,14 @@ Test::MH::C::ice_printFields(std::ostream& os) const
     Ice::print(os << ", cC = ", this->cC);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MH::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
 }
 
 void
-Test::MH::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MH::C::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->cC);
@@ -1458,7 +1459,7 @@ Test::MH::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MH::C::_iceReadImpl(::Ice::InputStream* istr)
+Test::MH::C::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->cC);
@@ -1485,14 +1486,14 @@ Test::MH::D::ice_printFields(std::ostream& os) const
     Ice::print(os << ", dD = ", this->dD);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MH::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
 }
 
 void
-Test::MH::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MH::D::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->dD);
@@ -1501,7 +1502,7 @@ Test::MH::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MH::D::_iceReadImpl(::Ice::InputStream* istr)
+Test::MH::D::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->dD);
@@ -1510,14 +1511,14 @@ Test::MH::D::_iceReadImpl(::Ice::InputStream* istr)
 }
 
 ::std::vector<::std::string>
-Test::MA::IA::ice_ids(const ::Ice::Current&) const
+Test::MA::IA::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MA::IA"};
     return allTypeIds;
 }
 
 ::std::string
-Test::MA::IA::ice_id(const ::Ice::Current&) const
+Test::MA::IA::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -1531,17 +1532,17 @@ Test::MA::IA::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::MA::IA::_iceD_iaop(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::optional<IAPrx> iceP_p;
     istr->readAll(iceP_p);
     istr->endEncapsulation();
     const ::std::optional<IAPrx> ret = this->iaop(::std::move(iceP_p), request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -1551,19 +1552,19 @@ Test::MA::IA::_iceD_iaop(
 
 /// \cond INTERNAL
 void
-Test::MA::IA::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MA::IA::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"iaop", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"iaop", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -1593,21 +1594,21 @@ Test::MA::IA::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::I
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-Test::MB::IB1::ice_ids(const ::Ice::Current&) const
+Test::MB::IB1::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MA::IA", "::Test::MB::IB1"};
     return allTypeIds;
 }
 
 ::std::string
-Test::MB::IB1::ice_id(const ::Ice::Current&) const
+Test::MB::IB1::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -1621,17 +1622,17 @@ Test::MB::IB1::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::MB::IB1::_iceD_ib1op(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::optional<IB1Prx> iceP_p;
     istr->readAll(iceP_p);
     istr->endEncapsulation();
     const ::std::optional<IB1Prx> ret = this->ib1op(::std::move(iceP_p), request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -1641,19 +1642,19 @@ Test::MB::IB1::_iceD_ib1op(
 
 /// \cond INTERNAL
 void
-Test::MB::IB1::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MB::IB1::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"iaop", "ib1op", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::array<::std::string_view, 6> allOperations{"iaop", "ib1op", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -1688,21 +1689,21 @@ Test::MB::IB1::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-Test::MB::IB2::ice_ids(const ::Ice::Current&) const
+Test::MB::IB2::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MA::IA", "::Test::MB::IB2"};
     return allTypeIds;
 }
 
 ::std::string
-Test::MB::IB2::ice_id(const ::Ice::Current&) const
+Test::MB::IB2::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -1716,17 +1717,17 @@ Test::MB::IB2::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::MB::IB2::_iceD_ib2op(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::optional<IB2Prx> iceP_p;
     istr->readAll(iceP_p);
     istr->endEncapsulation();
     const ::std::optional<IB2Prx> ret = this->ib2op(::std::move(iceP_p), request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -1736,19 +1737,19 @@ Test::MB::IB2::_iceD_ib2op(
 
 /// \cond INTERNAL
 void
-Test::MB::IB2::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MB::IB2::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"iaop", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::array<::std::string_view, 6> allOperations{"iaop", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -1783,21 +1784,21 @@ Test::MB::IB2::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-Test::MA::IC::ice_ids(const ::Ice::Current&) const
+Test::MA::IC::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MA::IA", "::Test::MA::IC", "::Test::MB::IB1", "::Test::MB::IB2"};
     return allTypeIds;
 }
 
 ::std::string
-Test::MA::IC::ice_id(const ::Ice::Current&) const
+Test::MA::IC::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -1811,17 +1812,17 @@ Test::MA::IC::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::MA::IC::_iceD_icop(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::optional<ICPrx> iceP_p;
     istr->readAll(iceP_p);
     istr->endEncapsulation();
     const ::std::optional<ICPrx> ret = this->icop(::std::move(iceP_p), request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -1831,19 +1832,19 @@ Test::MA::IC::_iceD_icop(
 
 /// \cond INTERNAL
 void
-Test::MA::IC::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MA::IC::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"iaop", "ib1op", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping", "icop"};
+    static constexpr ::std::array<::std::string_view, 8> allOperations{"iaop", "ib1op", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping", "icop"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -1888,21 +1889,21 @@ Test::MA::IC::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::I
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-Test::Initial::ice_ids(const ::Ice::Current&) const
+Test::Initial::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Initial"};
     return allTypeIds;
 }
 
 ::std::string
-Test::Initial::ice_id(const ::Ice::Current&) const
+Test::Initial::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -1916,26 +1917,26 @@ Test::Initial::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_shutdown(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->shutdown(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_iaop(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::std::optional<::Test::MA::IAPrx> ret = this->iaop(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -1946,13 +1947,13 @@ Test::Initial::_iceD_iaop(
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_ib1op(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::std::optional<::Test::MB::IB1Prx> ret = this->ib1op(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -1963,13 +1964,13 @@ Test::Initial::_iceD_ib1op(
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_ib2op(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::std::optional<::Test::MB::IB2Prx> ret = this->ib2op(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -1980,13 +1981,13 @@ Test::Initial::_iceD_ib2op(
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_icop(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::std::optional<::Test::MA::ICPrx> ret = this->icop(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -1996,19 +1997,19 @@ Test::Initial::_iceD_icop(
 
 /// \cond INTERNAL
 void
-Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"iaop", "ib1op", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping", "icop", "shutdown"};
+    static constexpr ::std::array<::std::string_view, 9> allOperations{"iaop", "ib1op", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping", "icop", "shutdown"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -2058,21 +2059,21 @@ Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-Test::Echo::ice_ids(const ::Ice::Current&) const
+Test::Echo::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Echo"};
     return allTypeIds;
 }
 
 ::std::string
-Test::Echo::ice_id(const ::Ice::Current&) const
+Test::Echo::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -2086,70 +2087,70 @@ Test::Echo::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::Echo::_iceD_setConnection(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->setConnection(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Echo::_iceD_startBatch(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->startBatch(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Echo::_iceD_flushBatch(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->flushBatch(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Echo::_iceD_shutdown(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->shutdown(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-Test::Echo::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Echo::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"flushBatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setConnection", "shutdown", "startBatch"};
+    static constexpr ::std::array<::std::string_view, 8> allOperations{"flushBatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setConnection", "shutdown", "startBatch"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -2194,7 +2195,7 @@ Test::Echo::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

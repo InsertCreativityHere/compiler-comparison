@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -84,12 +85,12 @@ Test2::Sub2::operator<<(::std::ostream& os, NestedEnum2 value)
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::OptionalClass> iceC_Test_OptionalClass_init("::Test::OptionalClass");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MyClass> iceC_Test_MyClass_init("::Test::MyClass");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::MyException> iceC_Test_MyException_init("::Test::MyException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Sub::NestedException> iceC_Test_Sub_NestedException_init("::Test::Sub::NestedException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::Sub2::NestedException2> iceC_Test2_Sub2_NestedException2_init("::Test2::Sub2::NestedException2");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test::OptionalClass> iceC_Test_OptionalClass_init("::Test::OptionalClass");
+    const IceInternal::DefaultValueFactoryInit<::Test::MyClass> iceC_Test_MyClass_init("::Test::MyClass");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::MyException> iceC_Test_MyException_init("::Test::MyException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::Sub::NestedException> iceC_Test_Sub_NestedException_init("::Test::Sub::NestedException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test2::Sub2::NestedException2> iceC_Test2_Sub2_NestedException2_init("::Test2::Sub2::NestedException2");
 }
 
 Test::MyInterfacePrx::~MyInterfacePrx() = default;
@@ -160,14 +161,14 @@ Test::OptionalClass::ice_printFields(std::ostream& os) const
     Ice::print(os << ", i = ", this->i);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::OptionalClass::_iceCloneImpl() const
 {
     return CloneEnabler<OptionalClass>::clone(*this);
 }
 
 void
-Test::OptionalClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::OptionalClass::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->bo, this->by);
@@ -176,7 +177,7 @@ Test::OptionalClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::OptionalClass::_iceReadImpl(::Ice::InputStream* istr)
+Test::OptionalClass::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->bo, this->by);
@@ -215,14 +216,14 @@ Test::MyClass::ice_printFields(std::ostream& os) const
     Ice::print(os << ", d = ", this->d);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MyClass::_iceCloneImpl() const
 {
     return CloneEnabler<MyClass>::clone(*this);
 }
 
 void
-Test::MyClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MyClass::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->c, this->o, this->s, this->seq1, this->seq2, this->seq3, this->seq4, this->seq5, this->seq6, this->seq7, this->seq8, this->seq9, this->seq10, this->d);
@@ -230,7 +231,7 @@ Test::MyClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
+Test::MyClass::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->c, this->o, this->s, this->seq1, this->seq2, this->seq3, this->seq4, this->seq5, this->seq6, this->seq7, this->seq8, this->seq9, this->seq10, this->d);
@@ -270,7 +271,7 @@ Test::MyException::_usesClasses() const
 /// \endcond
 
 void
-Test::MyException::_writeImpl(::Ice::OutputStream* ostr) const
+Test::MyException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->c);
@@ -278,7 +279,7 @@ Test::MyException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MyException::_readImpl(::Ice::InputStream* istr)
+Test::MyException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->c);
@@ -333,7 +334,7 @@ Test::Sub::NestedException::ice_throw() const
 }
 
 void
-Test::Sub::NestedException::_writeImpl(::Ice::OutputStream* ostr) const
+Test::Sub::NestedException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->str);
@@ -341,7 +342,7 @@ Test::Sub::NestedException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::Sub::NestedException::_readImpl(::Ice::InputStream* istr)
+Test::Sub::NestedException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->str);
@@ -396,7 +397,7 @@ Test2::Sub2::NestedException2::ice_throw() const
 }
 
 void
-Test2::Sub2::NestedException2::_writeImpl(::Ice::OutputStream* ostr) const
+Test2::Sub2::NestedException2::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->str);
@@ -404,7 +405,7 @@ Test2::Sub2::NestedException2::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test2::Sub2::NestedException2::_readImpl(::Ice::InputStream* istr)
+Test2::Sub2::NestedException2::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->str);
@@ -412,14 +413,14 @@ Test2::Sub2::NestedException2::_readImpl(::Ice::InputStream* istr)
 }
 
 ::std::vector<::std::string>
-Test::MyInterface::ice_ids(const ::Ice::Current&) const
+Test::MyInterface::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyInterface"};
     return allTypeIds;
 }
 
 ::std::string
-Test::MyInterface::ice_id(const ::Ice::Current&) const
+Test::MyInterface::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }

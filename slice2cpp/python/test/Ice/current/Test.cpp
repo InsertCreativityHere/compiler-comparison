@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -35,290 +36,290 @@
 #endif
 
 ::std::string
-Test::TestIntfPrx::getAdapterName(const ::Ice::Context& context) const
+Test::TestIntfPrx::getAdapterName(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getAdapterName, context).get();
+    return IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getAdapterName, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::getAdapterNameAsync(const ::Ice::Context& context) const
+Test::TestIntfPrx::getAdapterNameAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getAdapterName, context);
+    return IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getAdapterName, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getAdapterNameAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::getAdapterNameAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getAdapterName, context);
+    return IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getAdapterName, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_getAdapterName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getAdapterName(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getAdapterName";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::std::string
-Test::TestIntfPrx::getConnection(const ::Ice::Context& context) const
+Test::TestIntfPrx::getConnection(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getConnection, context).get();
+    return IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getConnection, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::getConnectionAsync(const ::Ice::Context& context) const
+Test::TestIntfPrx::getConnectionAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getConnection, context);
+    return IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getConnection, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getConnectionAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::getConnectionAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getConnection, context);
+    return IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getConnection, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_getConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getConnection(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getConnection";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::Ice::Identity
-Test::TestIntfPrx::getIdentity(const ::Ice::Context& context) const
+Test::TestIntfPrx::getIdentity(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::Ice::Identity>(true, this, &TestIntfPrx::_iceI_getIdentity, context).get();
+    return IceInternal::makePromiseOutgoing<::Ice::Identity>(true, this, &TestIntfPrx::_iceI_getIdentity, context).get();
 }
 
 ::std::future<::Ice::Identity>
-Test::TestIntfPrx::getIdentityAsync(const ::Ice::Context& context) const
+Test::TestIntfPrx::getIdentityAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::Ice::Identity>(false, this, &TestIntfPrx::_iceI_getIdentity, context);
+    return IceInternal::makePromiseOutgoing<::Ice::Identity>(false, this, &TestIntfPrx::_iceI_getIdentity, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getIdentityAsync(::std::function<void(::Ice::Identity)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::getIdentityAsync(::std::function<void(::Ice::Identity)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::Ice::Identity>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getIdentity, context);
+    return IceInternal::makeLambdaOutgoing<::Ice::Identity>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getIdentity, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_getIdentity(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Identity>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getIdentity(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::Identity>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getIdentity";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::std::string
-Test::TestIntfPrx::getFacet(const ::Ice::Context& context) const
+Test::TestIntfPrx::getFacet(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getFacet, context).get();
+    return IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getFacet, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::getFacetAsync(const ::Ice::Context& context) const
+Test::TestIntfPrx::getFacetAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getFacet, context);
+    return IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getFacet, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getFacetAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::getFacetAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getFacet, context);
+    return IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getFacet, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_getFacet(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getFacet(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getFacet";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::std::string
-Test::TestIntfPrx::getOperation(const ::Ice::Context& context) const
+Test::TestIntfPrx::getOperation(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getOperation, context).get();
+    return IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getOperation, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::getOperationAsync(const ::Ice::Context& context) const
+Test::TestIntfPrx::getOperationAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getOperation, context);
+    return IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getOperation, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getOperationAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::getOperationAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getOperation, context);
+    return IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getOperation, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_getOperation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getOperation(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getOperation";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::std::string
-Test::TestIntfPrx::getMode(const ::Ice::Context& context) const
+Test::TestIntfPrx::getMode(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getMode, context).get();
+    return IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getMode, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::getModeAsync(const ::Ice::Context& context) const
+Test::TestIntfPrx::getModeAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getMode, context);
+    return IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getMode, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getModeAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::getModeAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getMode, context);
+    return IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getMode, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_getMode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getMode(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getMode";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::Ice::Context
-Test::TestIntfPrx::getContext(const ::Ice::Context& context) const
+Test::TestIntfPrx::getContext(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::Ice::Context>(true, this, &TestIntfPrx::_iceI_getContext, context).get();
+    return IceInternal::makePromiseOutgoing<::Ice::Context>(true, this, &TestIntfPrx::_iceI_getContext, context).get();
 }
 
 ::std::future<::Ice::Context>
-Test::TestIntfPrx::getContextAsync(const ::Ice::Context& context) const
+Test::TestIntfPrx::getContextAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::Ice::Context>(false, this, &TestIntfPrx::_iceI_getContext, context);
+    return IceInternal::makePromiseOutgoing<::Ice::Context>(false, this, &TestIntfPrx::_iceI_getContext, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getContextAsync(::std::function<void(::Ice::Context)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::getContextAsync(::std::function<void(::Ice::Context)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::Ice::Context>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getContext, context);
+    return IceInternal::makeLambdaOutgoing<::Ice::Context>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getContext, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Context>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getContext(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::Context>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getContext";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::std::int32_t
-Test::TestIntfPrx::getRequestId(const ::Ice::Context& context) const
+Test::TestIntfPrx::getRequestId(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_getRequestId, context).get();
+    return IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_getRequestId, context).get();
 }
 
 ::std::future<::std::int32_t>
-Test::TestIntfPrx::getRequestIdAsync(const ::Ice::Context& context) const
+Test::TestIntfPrx::getRequestIdAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &TestIntfPrx::_iceI_getRequestId, context);
+    return IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &TestIntfPrx::_iceI_getRequestId, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getRequestIdAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::getRequestIdAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getRequestId, context);
+    return IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getRequestId, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_getRequestId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getRequestId(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getRequestId";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::std::string
-Test::TestIntfPrx::getEncoding(const ::Ice::Context& context) const
+Test::TestIntfPrx::getEncoding(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getEncoding, context).get();
+    return IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getEncoding, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::getEncodingAsync(const ::Ice::Context& context) const
+Test::TestIntfPrx::getEncodingAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getEncoding, context);
+    return IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getEncoding, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getEncodingAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::getEncodingAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getEncoding, context);
+    return IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_getEncoding, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_getEncoding(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getEncoding(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getEncoding";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
+Test::TestIntfPrx::shutdown(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
+Test::TestIntfPrx::shutdownAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_shutdown, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -332,14 +333,14 @@ Test::TestIntfPrx::ice_staticId() noexcept
 }
 
 ::std::vector<::std::string>
-Test::TestIntf::ice_ids(const ::Ice::Current&) const
+Test::TestIntf::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
 ::std::string
-Test::TestIntf::ice_id(const ::Ice::Current&) const
+Test::TestIntf::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -353,13 +354,13 @@ Test::TestIntf::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::TestIntf::_iceD_getAdapterName(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::std::string ret = this->getAdapterName(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -370,13 +371,13 @@ Test::TestIntf::_iceD_getAdapterName(
 /// \cond INTERNAL
 void
 Test::TestIntf::_iceD_getConnection(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::std::string ret = this->getConnection(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -387,13 +388,13 @@ Test::TestIntf::_iceD_getConnection(
 /// \cond INTERNAL
 void
 Test::TestIntf::_iceD_getIdentity(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::Ice::Identity ret = this->getIdentity(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -404,13 +405,13 @@ Test::TestIntf::_iceD_getIdentity(
 /// \cond INTERNAL
 void
 Test::TestIntf::_iceD_getFacet(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::std::string ret = this->getFacet(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -421,13 +422,13 @@ Test::TestIntf::_iceD_getFacet(
 /// \cond INTERNAL
 void
 Test::TestIntf::_iceD_getOperation(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::std::string ret = this->getOperation(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -438,13 +439,13 @@ Test::TestIntf::_iceD_getOperation(
 /// \cond INTERNAL
 void
 Test::TestIntf::_iceD_getMode(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::std::string ret = this->getMode(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -455,13 +456,13 @@ Test::TestIntf::_iceD_getMode(
 /// \cond INTERNAL
 void
 Test::TestIntf::_iceD_getContext(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::Ice::Context ret = this->getContext(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -472,13 +473,13 @@ Test::TestIntf::_iceD_getContext(
 /// \cond INTERNAL
 void
 Test::TestIntf::_iceD_getRequestId(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::std::int32_t ret = this->getRequestId(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -489,13 +490,13 @@ Test::TestIntf::_iceD_getRequestId(
 /// \cond INTERNAL
 void
 Test::TestIntf::_iceD_getEncoding(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::std::string ret = this->getEncoding(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -506,31 +507,31 @@ Test::TestIntf::_iceD_getEncoding(
 /// \cond INTERNAL
 void
 Test::TestIntf::_iceD_shutdown(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->shutdown(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::TestIntf::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"getAdapterName", "getConnection", "getContext", "getEncoding", "getFacet", "getIdentity", "getMode", "getOperation", "getRequestId", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
+    static constexpr ::std::array<::std::string_view, 14> allOperations{"getAdapterName", "getConnection", "getContext", "getEncoding", "getFacet", "getIdentity", "getMode", "getOperation", "getRequestId", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -605,7 +606,7 @@ Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

@@ -94,11 +94,11 @@ public:
     ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
     TopicMetrics(const TopicMetrics&) = default;
 
-    ICE_MEMBER(ICESTORM_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICESTORM_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICESTORM_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 /// Provides information on IceStorm subscribers.
@@ -152,11 +152,11 @@ public:
     ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
     SubscriberMetrics(const SubscriberMetrics&) = default;
 
-    ICE_MEMBER(ICESTORM_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICESTORM_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICESTORM_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICESTORM_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 }

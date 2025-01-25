@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,8 +37,8 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::Stock> iceC_Test_Stock_init("::Test::Stock");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test::Stock> iceC_Test_Stock_init("::Test::Stock");
 }
 
 const char*
@@ -60,14 +61,14 @@ Test::Stock::ice_printFields(std::ostream& os) const
     Ice::print(os << ", lastAsk = ", this->lastAsk);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::Stock::_iceCloneImpl() const
 {
     return CloneEnabler<Stock>::clone(*this);
 }
 
 void
-Test::Stock::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::Stock::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->price, this->lastBid, this->lastAsk);
@@ -75,7 +76,7 @@ Test::Stock::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::Stock::_iceReadImpl(::Ice::InputStream* istr)
+Test::Stock::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->price, this->lastBid, this->lastAsk);

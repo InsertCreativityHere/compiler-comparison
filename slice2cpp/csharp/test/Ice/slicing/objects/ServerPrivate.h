@@ -88,14 +88,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     SBSUnknownDerived(const SBSUnknownDerived&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class SUnknown : public ::Ice::Value
+class SUnknown : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -131,11 +131,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     SUnknown(const SUnknown&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class D2 : public B
@@ -175,11 +175,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     D2(const D2&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class D4 : public B
@@ -219,11 +219,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     D4(const D4&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class UnknownDerivedException : public BaseException
@@ -264,12 +264,12 @@ public:
     ::Test::D2Ptr pd2;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
-class MyClass : public ::Ice::Value
+class MyClass : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -303,11 +303,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     MyClass(const MyClass&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class PSUnknown : public Preserved
@@ -349,11 +349,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     PSUnknown(const PSUnknown&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class PSUnknown2 : public Preserved
@@ -391,11 +391,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     PSUnknown2(const PSUnknown2&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class PSUnknownException : public PreservedException
@@ -438,9 +438,9 @@ public:
     ::Test::PSUnknown2Ptr p;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
 }

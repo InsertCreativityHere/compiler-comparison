@@ -19,6 +19,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -39,9 +40,9 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::IceMX::TopicMetrics> iceC_IceMX_TopicMetrics_init("::IceMX::TopicMetrics");
-    const ::IceInternal::DefaultValueFactoryInit<::IceMX::SubscriberMetrics> iceC_IceMX_SubscriberMetrics_init("::IceMX::SubscriberMetrics");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::IceMX::TopicMetrics> iceC_IceMX_TopicMetrics_init("::IceMX::TopicMetrics");
+    const IceInternal::DefaultValueFactoryInit<::IceMX::SubscriberMetrics> iceC_IceMX_SubscriberMetrics_init("::IceMX::SubscriberMetrics");
 }
 
 const char*
@@ -64,14 +65,14 @@ IceMX::TopicMetrics::ice_printFields(std::ostream& os) const
     Ice::print(os << ", forwarded = ", this->forwarded);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceMX::TopicMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<TopicMetrics>::clone(*this);
 }
 
 void
-IceMX::TopicMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceMX::TopicMetrics::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->published, this->forwarded);
@@ -80,7 +81,7 @@ IceMX::TopicMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceMX::TopicMetrics::_iceReadImpl(::Ice::InputStream* istr)
+IceMX::TopicMetrics::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->published, this->forwarded);
@@ -109,14 +110,14 @@ IceMX::SubscriberMetrics::ice_printFields(std::ostream& os) const
     Ice::print(os << ", delivered = ", this->delivered);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceMX::SubscriberMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<SubscriberMetrics>::clone(*this);
 }
 
 void
-IceMX::SubscriberMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceMX::SubscriberMetrics::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->queued, this->outstanding, this->delivered);
@@ -125,7 +126,7 @@ IceMX::SubscriberMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceMX::SubscriberMetrics::_iceReadImpl(::Ice::InputStream* istr)
+IceMX::SubscriberMetrics::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->queued, this->outstanding, this->delivered);

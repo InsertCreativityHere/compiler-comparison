@@ -46,7 +46,7 @@ namespace Glacier2
 {
 
 /// The Glacier2 specialization of the <code>Ice::Router</code> interface.
-class GLACIER2_API RouterPrx : public ::Ice::Proxy<RouterPrx, ::Ice::RouterPrx>
+class GLACIER2_API RouterPrx : public Ice::Proxy<RouterPrx, ::Ice::RouterPrx>
 {
 public:
 
@@ -55,14 +55,14 @@ public:
     /// are not set, the returned category is an empty string.
     /// @param context The Context map to send with the invocation.
     /// @return The category.
-    ::std::string getCategoryForClient(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::string getCategoryForClient(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// This category must be used in the identities of all of the client's callback objects. This is necessary in
     /// order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
     /// are not set, the returned category is an empty string.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::string> getCategoryForClientAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> getCategoryForClientAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// This category must be used in the identities of all of the client's callback objects. This is necessary in
     /// order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
@@ -73,10 +73,10 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getCategoryForClientAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getCategoryForClientAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getCategoryForClient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
+    void _iceI_getCategoryForClient(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
@@ -95,7 +95,7 @@ public:
     /// @see Session
     /// @see SessionManager
     /// @see PermissionsVerifier
-    ::std::optional<SessionPrx> createSession(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::optional<SessionPrx> createSession(::std::string_view userId, ::std::string_view password, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
     /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
@@ -110,7 +110,7 @@ public:
     /// @see Session
     /// @see SessionManager
     /// @see PermissionsVerifier
-    [[nodiscard]] ::std::future<::std::optional<SessionPrx>> createSessionAsync(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<SessionPrx>> createSessionAsync(::std::string_view userId, ::std::string_view password, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
     /// {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
@@ -129,10 +129,10 @@ public:
     /// @see SessionManager
     /// @see PermissionsVerifier
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    createSessionAsync(::std::string_view userId, ::std::string_view password, ::std::function<void(::std::optional<::Glacier2::SessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    createSessionAsync(::std::string_view userId, ::std::string_view password, ::std::function<void(::std::optional<::Glacier2::SessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
+    void _iceI_createSession(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, ::std::string_view, ::std::string_view, const Ice::Context&) const;
     /// \endcond
 
     /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
@@ -150,7 +150,7 @@ public:
     /// @see Session
     /// @see SessionManager
     /// @see PermissionsVerifier
-    ::std::optional<SessionPrx> createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::optional<SessionPrx> createSessionFromSecureConnection(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
     /// have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
@@ -164,7 +164,7 @@ public:
     /// @see Session
     /// @see SessionManager
     /// @see PermissionsVerifier
-    [[nodiscard]] ::std::future<::std::optional<SessionPrx>> createSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<SessionPrx>> createSessionFromSecureConnectionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
     /// have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
@@ -182,23 +182,23 @@ public:
     /// @see SessionManager
     /// @see PermissionsVerifier
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    createSessionFromSecureConnectionAsync(::std::function<void(::std::optional<::Glacier2::SessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    createSessionFromSecureConnectionAsync(::std::function<void(::std::optional<::Glacier2::SessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, const ::Ice::Context&) const;
+    void _iceI_createSessionFromSecureConnection(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
     /// and earlier and does nothing in newer versions of Glacier2.
     /// @param context The Context map to send with the invocation.
     /// @throws Glacier2::SessionNotExistException Raised if no session exists for the caller (client).
-    void refreshSession(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void refreshSession(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
     /// and earlier and does nothing in newer versions of Glacier2.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> refreshSessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> refreshSessionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
     /// and earlier and does nothing in newer versions of Glacier2.
@@ -208,21 +208,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    refreshSessionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    refreshSessionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_refreshSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
+    void _iceI_refreshSession(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Destroy the calling client's session with this router.
     /// @param context The Context map to send with the invocation.
     /// @throws Glacier2::SessionNotExistException Raised if no session exists for the calling client.
-    void destroySession(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void destroySession(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Destroy the calling client's session with this router.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> destroySessionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> destroySessionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Destroy the calling client's session with this router.
     /// @param response The response callback.
@@ -231,21 +231,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    destroySessionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    destroySessionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
+    void _iceI_destroySession(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Get the idle timeout used by the server-side of the connection.
     /// @param context The Context map to send with the invocation.
     /// @return The idle timeout (in seconds).
-    ::std::int64_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::int64_t getSessionTimeout(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the idle timeout used by the server-side of the connection.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::int64_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int64_t> getSessionTimeoutAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Get the idle timeout used by the server-side of the connection.
     /// @param response The response callback.
@@ -254,21 +254,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getSessionTimeoutAsync(::std::function<void(::std::int64_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getSessionTimeoutAsync(::std::function<void(::std::int64_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int64_t>>&, const ::Ice::Context&) const;
+    void _iceI_getSessionTimeout(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::int64_t>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Get the idle timeout used by the server-side of the connection.
     /// @param context The Context map to send with the invocation.
     /// @return The idle timeout (in seconds).
-    ::std::int32_t getACMTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::int32_t getACMTimeout(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the idle timeout used by the server-side of the connection.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::int32_t> getACMTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::int32_t> getACMTimeoutAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Get the idle timeout used by the server-side of the connection.
     /// @param response The response callback.
@@ -277,10 +277,10 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getACMTimeoutAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getACMTimeoutAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::Ice::Context&) const;
+    void _iceI_getACMTimeout(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::int32_t>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
@@ -292,11 +292,11 @@ public:
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
 
-    RouterPrx(const RouterPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    RouterPrx(const RouterPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    RouterPrx(RouterPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    RouterPrx(RouterPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    RouterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    RouterPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~RouterPrx() override;
 
@@ -304,7 +304,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -313,19 +313,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static RouterPrx _fromReference(::IceInternal::ReferencePtr ref) { return RouterPrx(std::move(ref)); }
+    static RouterPrx _fromReference(IceInternal::ReferencePtr ref) { return RouterPrx(std::move(ref)); }
 
 protected:
 
     RouterPrx() = default;
 
-    explicit RouterPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit RouterPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -343,7 +343,7 @@ namespace Glacier2
 /// This exception is raised if a client tries to destroy a session with a router, but no session exists for the
 /// client.
 /// @see Router#destroySession
-class ICE_CLASS(GLACIER2_API) SessionNotExistException : public ::Ice::UserException
+class ICE_CLASS(GLACIER2_API) SessionNotExistException : public Ice::UserException
 {
 public:
     /// Obtains the Slice type ID of this exception.
@@ -355,9 +355,9 @@ public:
     ICE_MEMBER(GLACIER2_API) void ice_throw() const override;
 
 protected:
-    ICE_MEMBER(GLACIER2_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(GLACIER2_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(GLACIER2_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(GLACIER2_API) void _readImpl(Ice::InputStream*) override;
 };
 
 }
@@ -375,12 +375,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -391,9 +391,9 @@ public:
     /// are not set, the returned category is an empty string.
     /// @param current The Current object for the invocation.
     /// @return The category.
-    [[nodiscard]] virtual ::std::string getCategoryForClient(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::string getCategoryForClient(const Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    void _iceD_getCategoryForClient(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_getCategoryForClient(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
@@ -413,9 +413,9 @@ public:
     /// @see Session
     /// @see SessionManager
     /// @see PermissionsVerifier
-    virtual void createSessionAsync(::std::string userId, ::std::string password, ::std::function<void(const ::std::optional<SessionPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void createSessionAsync(::std::string userId, ::std::string password, ::std::function<void(const ::std::optional<SessionPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_createSession(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_createSession(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
@@ -434,46 +434,46 @@ public:
     /// @see Session
     /// @see SessionManager
     /// @see PermissionsVerifier
-    virtual void createSessionFromSecureConnectionAsync(::std::function<void(const ::std::optional<SessionPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void createSessionFromSecureConnectionAsync(::std::function<void(const ::std::optional<SessionPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_createSessionFromSecureConnection(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_createSessionFromSecureConnection(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Keep the session with this router alive. This operation is provided for backward compatibility with Ice 3.7
     /// and earlier and does nothing in newer versions of Glacier2.
     /// @param current The Current object for the invocation.
     /// @throws Glacier2::SessionNotExistException Raised if no session exists for the caller (client).
-    virtual void refreshSession(const ::Ice::Current& current) = 0;
+    virtual void refreshSession(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_refreshSession(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_refreshSession(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Destroy the calling client's session with this router.
     /// @param current The Current object for the invocation.
     /// @throws Glacier2::SessionNotExistException Raised if no session exists for the calling client.
-    virtual void destroySession(const ::Ice::Current& current) = 0;
+    virtual void destroySession(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_destroySession(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_destroySession(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Get the idle timeout used by the server-side of the connection.
     /// @param current The Current object for the invocation.
     /// @return The idle timeout (in seconds).
-    [[nodiscard]] virtual ::std::int64_t getSessionTimeout(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::int64_t getSessionTimeout(const Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    void _iceD_getSessionTimeout(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_getSessionTimeout(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Get the idle timeout used by the server-side of the connection.
     /// @param current The Current object for the invocation.
     /// @return The idle timeout (in seconds).
-    [[nodiscard]] virtual ::std::int32_t getACMTimeout(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::int32_t getACMTimeout(const Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    void _iceD_getACMTimeout(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_getACMTimeout(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

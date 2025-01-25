@@ -193,7 +193,7 @@ struct Struct2
 
 ::std::ostream& operator<<(::std::ostream&, const Struct2&);
 
-class Base : public ::Ice::Value
+class Base : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -257,11 +257,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     Base(const Base&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class Derived : public Base
@@ -309,14 +309,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     Derived(const Derived&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class BaseEx : public ::Ice::UserException
+class BaseEx : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -381,9 +381,9 @@ public:
     double zeroDotD = 0;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
 class DerivedEx : public BaseEx
@@ -432,9 +432,9 @@ public:
     ::Test::Nested::Color nc3 = ::Test::ConstNestedColor3;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
 struct InnerStruct
@@ -485,7 +485,7 @@ struct StructNoDefaults
 
 ::std::ostream& operator<<(::std::ostream&, const StructNoDefaults&);
 
-class ExceptionNoDefaultsBase : public ::Ice::UserException
+class ExceptionNoDefaultsBase : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -524,9 +524,9 @@ public:
     ::Test::ByteSeq bs;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
 class ExceptionNoDefaults : public ExceptionNoDefaultsBase
@@ -567,12 +567,12 @@ public:
     ::Test::IntStringDict dict;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
-class ClassNoDefaultsBase : public ::Ice::Value
+class ClassNoDefaultsBase : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -610,11 +610,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     ClassNoDefaultsBase(const ClassNoDefaultsBase&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class ClassNoDefaults : public ClassNoDefaultsBase
@@ -654,11 +654,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     ClassNoDefaults(const ClassNoDefaults&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 using Ice::Tuple::operator<;

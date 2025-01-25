@@ -87,7 +87,7 @@ struct S2
 
 ::std::ostream& operator<<(::std::ostream&, const S2&);
 
-class C : public ::Ice::Value
+class C : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -121,22 +121,22 @@ public:
     void ice_printFields(std::ostream& os) const override;
     C(const C&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 struct S3
 {
     ::Test::CPtr obj;
     ::Test::StringDict sd;
-    ::std::optional<::Ice::ObjectPrx> prx;
+    ::std::optional<Ice::ObjectPrx> prx;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::CPtr&, const ::Test::StringDict&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::Test::CPtr&, const ::Test::StringDict&, const ::std::optional<Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(obj, sd, prx);
     }

@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -35,58 +36,58 @@
 #endif
 
 void
-Test::BackgroundPrx::op(const ::Ice::Context& context) const
+Test::BackgroundPrx::op(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundPrx::_iceI_op, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundPrx::_iceI_op, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundPrx::opAsync(const ::Ice::Context& context) const
+Test::BackgroundPrx::opAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundPrx::_iceI_op, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundPrx::_iceI_op, context);
 }
 
 ::std::function<void()>
-Test::BackgroundPrx::opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundPrx::opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundPrx::_iceI_op, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundPrx::_iceI_op, context);
 }
 
 void
-Test::BackgroundPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::BackgroundPrx::_iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "op";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Test::BackgroundPrx::opWithPayload(const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
+Test::BackgroundPrx::opWithPayload(const ::Ice::ByteSeq& iceP_seq, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundPrx::_iceI_opWithPayload, iceP_seq, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundPrx::_iceI_opWithPayload, iceP_seq, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
+Test::BackgroundPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundPrx::_iceI_opWithPayload, iceP_seq, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundPrx::_iceI_opWithPayload, iceP_seq, context);
 }
 
 ::std::function<void()>
-Test::BackgroundPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundPrx::_iceI_opWithPayload, iceP_seq, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundPrx::_iceI_opWithPayload, iceP_seq, context);
 }
 
 void
-Test::BackgroundPrx::_iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
+Test::BackgroundPrx::_iceI_opWithPayload(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::ByteSeq& iceP_seq, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opWithPayload";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_seq);
         },
@@ -94,29 +95,29 @@ Test::BackgroundPrx::_iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::
 }
 
 void
-Test::BackgroundPrx::shutdown(const ::Ice::Context& context) const
+Test::BackgroundPrx::shutdown(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundPrx::_iceI_shutdown, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundPrx::shutdownAsync(const ::Ice::Context& context) const
+Test::BackgroundPrx::shutdownAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundPrx::_iceI_shutdown, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
-Test::BackgroundPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundPrx::_iceI_shutdown, context);
 }
 
 void
-Test::BackgroundPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::BackgroundPrx::_iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -130,30 +131,30 @@ Test::BackgroundPrx::ice_staticId() noexcept
 }
 
 void
-Test::BackgroundControllerPrx::pauseCall(::std::string_view iceP_call, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::pauseCall(::std::string_view iceP_call, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_pauseCall, iceP_call, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_pauseCall, iceP_call, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::pauseCallAsync(::std::string_view iceP_call, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::pauseCallAsync(::std::string_view iceP_call, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_pauseCall, iceP_call, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_pauseCall, iceP_call, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::pauseCallAsync(::std::string_view iceP_call, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::pauseCallAsync(::std::string_view iceP_call, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_pauseCall, iceP_call, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_pauseCall, iceP_call, context);
 }
 
 void
-Test::BackgroundControllerPrx::_iceI_pauseCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_call, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_pauseCall(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_call, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "pauseCall";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_call);
         },
@@ -161,30 +162,30 @@ Test::BackgroundControllerPrx::_iceI_pauseCall(const ::std::shared_ptr<::IceInte
 }
 
 void
-Test::BackgroundControllerPrx::resumeCall(::std::string_view iceP_call, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::resumeCall(::std::string_view iceP_call, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_resumeCall, iceP_call, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_resumeCall, iceP_call, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::resumeCallAsync(::std::string_view iceP_call, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::resumeCallAsync(::std::string_view iceP_call, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_resumeCall, iceP_call, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_resumeCall, iceP_call, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::resumeCallAsync(::std::string_view iceP_call, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::resumeCallAsync(::std::string_view iceP_call, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeCall, iceP_call, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeCall, iceP_call, context);
 }
 
 void
-Test::BackgroundControllerPrx::_iceI_resumeCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_call, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_resumeCall(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_call, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "resumeCall";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_call);
         },
@@ -192,86 +193,86 @@ Test::BackgroundControllerPrx::_iceI_resumeCall(const ::std::shared_ptr<::IceInt
 }
 
 void
-Test::BackgroundControllerPrx::holdAdapter(const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::holdAdapter(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_holdAdapter, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_holdAdapter, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::holdAdapterAsync(const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::holdAdapterAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_holdAdapter, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_holdAdapter, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::holdAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::holdAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_holdAdapter, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_holdAdapter, context);
 }
 
 void
-Test::BackgroundControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "holdAdapter";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Test::BackgroundControllerPrx::resumeAdapter(const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::resumeAdapter(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_resumeAdapter, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_resumeAdapter, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::resumeAdapterAsync(const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::resumeAdapterAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_resumeAdapter, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_resumeAdapter, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::resumeAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::resumeAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeAdapter, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeAdapter, context);
 }
 
 void
-Test::BackgroundControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "resumeAdapter";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Test::BackgroundControllerPrx::initializeException(bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::initializeException(bool iceP_enable, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_initializeException, iceP_enable, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_initializeException, iceP_enable, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::initializeExceptionAsync(bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::initializeExceptionAsync(bool iceP_enable, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_initializeException, iceP_enable, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_initializeException, iceP_enable, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::initializeExceptionAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::initializeExceptionAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_initializeException, iceP_enable, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_initializeException, iceP_enable, context);
 }
 
 void
-Test::BackgroundControllerPrx::_iceI_initializeException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_initializeException(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "initializeException";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_enable);
         },
@@ -279,30 +280,30 @@ Test::BackgroundControllerPrx::_iceI_initializeException(const ::std::shared_ptr
 }
 
 void
-Test::BackgroundControllerPrx::readReady(bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::readReady(bool iceP_enable, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_readReady, iceP_enable, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_readReady, iceP_enable, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::readReadyAsync(bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::readReadyAsync(bool iceP_enable, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_readReady, iceP_enable, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_readReady, iceP_enable, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::readReadyAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::readReadyAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readReady, iceP_enable, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readReady, iceP_enable, context);
 }
 
 void
-Test::BackgroundControllerPrx::_iceI_readReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_readReady(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "readReady";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_enable);
         },
@@ -310,30 +311,30 @@ Test::BackgroundControllerPrx::_iceI_readReady(const ::std::shared_ptr<::IceInte
 }
 
 void
-Test::BackgroundControllerPrx::readException(bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::readException(bool iceP_enable, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_readException, iceP_enable, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_readException, iceP_enable, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::readExceptionAsync(bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::readExceptionAsync(bool iceP_enable, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_readException, iceP_enable, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_readException, iceP_enable, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::readExceptionAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::readExceptionAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readException, iceP_enable, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readException, iceP_enable, context);
 }
 
 void
-Test::BackgroundControllerPrx::_iceI_readException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_readException(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "readException";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_enable);
         },
@@ -341,30 +342,30 @@ Test::BackgroundControllerPrx::_iceI_readException(const ::std::shared_ptr<::Ice
 }
 
 void
-Test::BackgroundControllerPrx::writeReady(bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::writeReady(bool iceP_enable, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_writeReady, iceP_enable, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_writeReady, iceP_enable, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::writeReadyAsync(bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::writeReadyAsync(bool iceP_enable, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_writeReady, iceP_enable, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_writeReady, iceP_enable, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::writeReadyAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::writeReadyAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeReady, iceP_enable, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeReady, iceP_enable, context);
 }
 
 void
-Test::BackgroundControllerPrx::_iceI_writeReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_writeReady(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "writeReady";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_enable);
         },
@@ -372,30 +373,30 @@ Test::BackgroundControllerPrx::_iceI_writeReady(const ::std::shared_ptr<::IceInt
 }
 
 void
-Test::BackgroundControllerPrx::writeException(bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::writeException(bool iceP_enable, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_writeException, iceP_enable, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_writeException, iceP_enable, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::writeExceptionAsync(bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::writeExceptionAsync(bool iceP_enable, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_writeException, iceP_enable, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_writeException, iceP_enable, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::writeExceptionAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::writeExceptionAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeException, iceP_enable, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeException, iceP_enable, context);
 }
 
 void
-Test::BackgroundControllerPrx::_iceI_writeException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_writeException(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "writeException";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_enable);
         },
@@ -403,30 +404,30 @@ Test::BackgroundControllerPrx::_iceI_writeException(const ::std::shared_ptr<::Ic
 }
 
 void
-Test::BackgroundControllerPrx::buffered(bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::buffered(bool iceP_enable, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_buffered, iceP_enable, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_buffered, iceP_enable, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::bufferedAsync(bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::bufferedAsync(bool iceP_enable, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_buffered, iceP_enable, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_buffered, iceP_enable, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::bufferedAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::bufferedAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_buffered, iceP_enable, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_buffered, iceP_enable, context);
 }
 
 void
-Test::BackgroundControllerPrx::_iceI_buffered(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_buffered(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "buffered";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_enable);
         },
@@ -442,14 +443,14 @@ Test::BackgroundControllerPrx::ice_staticId() noexcept
 }
 
 ::std::vector<::std::string>
-Test::Background::ice_ids(const ::Ice::Current&) const
+Test::Background::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Background"};
     return allTypeIds;
 }
 
 ::std::string
-Test::Background::ice_id(const ::Ice::Current&) const
+Test::Background::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -463,61 +464,61 @@ Test::Background::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::Background::_iceD_op(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->op(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Background::_iceD_opWithPayload(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::Ice::ByteSeq iceP_seq;
     istr->readAll(iceP_seq);
     istr->endEncapsulation();
     this->opWithPayload(::std::move(iceP_seq), request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Background::_iceD_shutdown(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->shutdown(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-Test::Background::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Background::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opWithPayload", "shutdown"};
+    static constexpr ::std::array<::std::string_view, 7> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opWithPayload", "shutdown"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -557,21 +558,21 @@ Test::Background::dispatch(::Ice::IncomingRequest& request, ::std::function<void
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-Test::BackgroundController::ice_ids(const ::Ice::Current&) const
+Test::BackgroundController::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::BackgroundController"};
     return allTypeIds;
 }
 
 ::std::string
-Test::BackgroundController::ice_id(const ::Ice::Current&) const
+Test::BackgroundController::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -585,180 +586,180 @@ Test::BackgroundController::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::BackgroundController::_iceD_pauseCall(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::string iceP_call;
     istr->readAll(iceP_call);
     istr->endEncapsulation();
     this->pauseCall(::std::move(iceP_call), request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::BackgroundController::_iceD_resumeCall(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::string iceP_call;
     istr->readAll(iceP_call);
     istr->endEncapsulation();
     this->resumeCall(::std::move(iceP_call), request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::BackgroundController::_iceD_holdAdapter(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->holdAdapter(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::BackgroundController::_iceD_resumeAdapter(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->resumeAdapter(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::BackgroundController::_iceD_initializeException(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     bool iceP_enable;
     istr->readAll(iceP_enable);
     istr->endEncapsulation();
     this->initializeException(iceP_enable, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::BackgroundController::_iceD_readReady(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     bool iceP_enable;
     istr->readAll(iceP_enable);
     istr->endEncapsulation();
     this->readReady(iceP_enable, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::BackgroundController::_iceD_readException(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     bool iceP_enable;
     istr->readAll(iceP_enable);
     istr->endEncapsulation();
     this->readException(iceP_enable, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::BackgroundController::_iceD_writeReady(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     bool iceP_enable;
     istr->readAll(iceP_enable);
     istr->endEncapsulation();
     this->writeReady(iceP_enable, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::BackgroundController::_iceD_writeException(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     bool iceP_enable;
     istr->readAll(iceP_enable);
     istr->endEncapsulation();
     this->writeException(iceP_enable, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::BackgroundController::_iceD_buffered(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     bool iceP_enable;
     istr->readAll(iceP_enable);
     istr->endEncapsulation();
     this->buffered(iceP_enable, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-Test::BackgroundController::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::BackgroundController::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"buffered", "holdAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "initializeException", "pauseCall", "readException", "readReady", "resumeAdapter", "resumeCall", "writeException", "writeReady"};
+    static constexpr ::std::array<::std::string_view, 14> allOperations{"buffered", "holdAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "initializeException", "pauseCall", "readException", "readReady", "resumeAdapter", "resumeCall", "writeException", "writeReady"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -833,7 +834,7 @@ Test::BackgroundController::dispatch(::Ice::IncomingRequest& request, ::std::fun
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

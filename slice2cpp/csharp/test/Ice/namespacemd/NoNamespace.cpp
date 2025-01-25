@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,12 +37,12 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::NoNamespace::C1> iceC_NoNamespace_C1_init("::NoNamespace::C1");
-    const ::IceInternal::DefaultValueFactoryInit<::NoNamespace::C2> iceC_NoNamespace_C2_init("::NoNamespace::C2");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::E1> iceC_NoNamespace_E1_init("::NoNamespace::E1");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::E2> iceC_NoNamespace_E2_init("::NoNamespace::E2");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::notify> iceC_NoNamespace_notify_init("::NoNamespace::notify");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::NoNamespace::C1> iceC_NoNamespace_C1_init("::NoNamespace::C1");
+    const IceInternal::DefaultValueFactoryInit<::NoNamespace::C2> iceC_NoNamespace_C2_init("::NoNamespace::C2");
+    const IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::E1> iceC_NoNamespace_E1_init("::NoNamespace::E1");
+    const IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::E2> iceC_NoNamespace_E2_init("::NoNamespace::E2");
+    const IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::notify> iceC_NoNamespace_notify_init("::NoNamespace::notify");
 }
 
 const char*
@@ -62,14 +63,14 @@ NoNamespace::C1::ice_printFields(std::ostream& os) const
     Ice::print(os << "i = ", this->i);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 NoNamespace::C1::_iceCloneImpl() const
 {
     return CloneEnabler<C1>::clone(*this);
 }
 
 void
-NoNamespace::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
+NoNamespace::C1::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->i);
@@ -77,7 +78,7 @@ NoNamespace::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-NoNamespace::C1::_iceReadImpl(::Ice::InputStream* istr)
+NoNamespace::C1::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->i);
@@ -103,14 +104,14 @@ NoNamespace::C2::ice_printFields(std::ostream& os) const
     Ice::print(os << ", l = ", this->l);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 NoNamespace::C2::_iceCloneImpl() const
 {
     return CloneEnabler<C2>::clone(*this);
 }
 
 void
-NoNamespace::C2::_iceWriteImpl(::Ice::OutputStream* ostr) const
+NoNamespace::C2::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->l);
@@ -119,7 +120,7 @@ NoNamespace::C2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-NoNamespace::C2::_iceReadImpl(::Ice::InputStream* istr)
+NoNamespace::C2::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->l);
@@ -152,7 +153,7 @@ NoNamespace::E1::ice_throw() const
 }
 
 void
-NoNamespace::E1::_writeImpl(::Ice::OutputStream* ostr) const
+NoNamespace::E1::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->i);
@@ -160,7 +161,7 @@ NoNamespace::E1::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-NoNamespace::E1::_readImpl(::Ice::InputStream* istr)
+NoNamespace::E1::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->i);
@@ -193,7 +194,7 @@ NoNamespace::E2::ice_throw() const
 }
 
 void
-NoNamespace::E2::_writeImpl(::Ice::OutputStream* ostr) const
+NoNamespace::E2::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->l);
@@ -202,7 +203,7 @@ NoNamespace::E2::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-NoNamespace::E2::_readImpl(::Ice::InputStream* istr)
+NoNamespace::E2::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->l);
@@ -235,7 +236,7 @@ NoNamespace::notify::ice_throw() const
 }
 
 void
-NoNamespace::notify::_writeImpl(::Ice::OutputStream* ostr) const
+NoNamespace::notify::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->i);
@@ -243,7 +244,7 @@ NoNamespace::notify::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-NoNamespace::notify::_readImpl(::Ice::InputStream* istr)
+NoNamespace::notify::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->i);

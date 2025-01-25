@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,34 +37,34 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::F1> iceC_Test_F1_init("::Test::F1");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test::F1> iceC_Test_F1_init("::Test::F1");
 }
 
 void
-Test::F2Prx::op(const ::Ice::Context& context) const
+Test::F2Prx::op(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &F2Prx::_iceI_op, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &F2Prx::_iceI_op, context).get();
 }
 
 ::std::future<void>
-Test::F2Prx::opAsync(const ::Ice::Context& context) const
+Test::F2Prx::opAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &F2Prx::_iceI_op, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &F2Prx::_iceI_op, context);
 }
 
 ::std::function<void()>
-Test::F2Prx::opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::F2Prx::opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::F2Prx::_iceI_op, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::F2Prx::_iceI_op, context);
 }
 
 void
-Test::F2Prx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::F2Prx::_iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "op";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -94,14 +95,14 @@ Test::F1::ice_printFields(std::ostream& os) const
     Ice::print(os << "name = ", this->name);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::F1::_iceCloneImpl() const
 {
     return CloneEnabler<F1>::clone(*this);
 }
 
 void
-Test::F1::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::F1::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->name);
@@ -109,7 +110,7 @@ Test::F1::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::F1::_iceReadImpl(::Ice::InputStream* istr)
+Test::F1::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->name);
@@ -117,14 +118,14 @@ Test::F1::_iceReadImpl(::Ice::InputStream* istr)
 }
 
 ::std::vector<::std::string>
-Test::F2::ice_ids(const ::Ice::Current&) const
+Test::F2::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::F2"};
     return allTypeIds;
 }
 
 ::std::string
-Test::F2::ice_id(const ::Ice::Current&) const
+Test::F2::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -138,31 +139,31 @@ Test::F2::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::F2::_iceD_op(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->op(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-Test::F2::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::F2::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -192,7 +193,7 @@ Test::F2::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

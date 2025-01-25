@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,15 +37,15 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test2::C1> iceC_Test2_C1_init("::Test2::C1");
-    const ::IceInternal::DefaultValueFactoryInit<::Test2::C2> iceC_Test2_C2_init("::Test2::C2");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::E1> iceC_Test2_E1_init("::Test2::E1");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::E2> iceC_Test2_E2_init("::Test2::E2");
-    const ::IceInternal::DefaultValueFactoryInit<::Test3::C1> iceC_Test3_C1_init("::Test3::C1");
-    const ::IceInternal::DefaultValueFactoryInit<::Test3::C2> iceC_Test3_C2_init("::Test3::C2");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test3::E1> iceC_Test3_E1_init("::Test3::E1");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test3::E2> iceC_Test3_E2_init("::Test3::E2");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test2::C1> iceC_Test2_C1_init("::Test2::C1");
+    const IceInternal::DefaultValueFactoryInit<::Test2::C2> iceC_Test2_C2_init("::Test2::C2");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test2::E1> iceC_Test2_E1_init("::Test2::E1");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test2::E2> iceC_Test2_E2_init("::Test2::E2");
+    const IceInternal::DefaultValueFactoryInit<::Test3::C1> iceC_Test3_C1_init("::Test3::C1");
+    const IceInternal::DefaultValueFactoryInit<::Test3::C2> iceC_Test3_C2_init("::Test3::C2");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test3::E1> iceC_Test3_E1_init("::Test3::E1");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test3::E2> iceC_Test3_E2_init("::Test3::E2");
 }
 
 const char*
@@ -65,14 +66,14 @@ Test2::C1::ice_printFields(std::ostream& os) const
     Ice::print(os << "i = ", this->i);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test2::C1::_iceCloneImpl() const
 {
     return CloneEnabler<C1>::clone(*this);
 }
 
 void
-Test2::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test2::C1::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->i);
@@ -80,7 +81,7 @@ Test2::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test2::C1::_iceReadImpl(::Ice::InputStream* istr)
+Test2::C1::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->i);
@@ -106,14 +107,14 @@ Test2::C2::ice_printFields(std::ostream& os) const
     Ice::print(os << ", l = ", this->l);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test2::C2::_iceCloneImpl() const
 {
     return CloneEnabler<C2>::clone(*this);
 }
 
 void
-Test2::C2::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test2::C2::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->l);
@@ -122,7 +123,7 @@ Test2::C2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test2::C2::_iceReadImpl(::Ice::InputStream* istr)
+Test2::C2::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->l);
@@ -155,7 +156,7 @@ Test2::E1::ice_throw() const
 }
 
 void
-Test2::E1::_writeImpl(::Ice::OutputStream* ostr) const
+Test2::E1::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->i);
@@ -163,7 +164,7 @@ Test2::E1::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test2::E1::_readImpl(::Ice::InputStream* istr)
+Test2::E1::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->i);
@@ -196,7 +197,7 @@ Test2::E2::ice_throw() const
 }
 
 void
-Test2::E2::_writeImpl(::Ice::OutputStream* ostr) const
+Test2::E2::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->l);
@@ -205,7 +206,7 @@ Test2::E2::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test2::E2::_readImpl(::Ice::InputStream* istr)
+Test2::E2::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->l);
@@ -231,14 +232,14 @@ Test3::C1::ice_printFields(std::ostream& os) const
     Ice::print(os << "i = ", this->i);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test3::C1::_iceCloneImpl() const
 {
     return CloneEnabler<C1>::clone(*this);
 }
 
 void
-Test3::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test3::C1::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->i);
@@ -246,7 +247,7 @@ Test3::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test3::C1::_iceReadImpl(::Ice::InputStream* istr)
+Test3::C1::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->i);
@@ -272,14 +273,14 @@ Test3::C2::ice_printFields(std::ostream& os) const
     Ice::print(os << ", l = ", this->l);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test3::C2::_iceCloneImpl() const
 {
     return CloneEnabler<C2>::clone(*this);
 }
 
 void
-Test3::C2::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test3::C2::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->l);
@@ -288,7 +289,7 @@ Test3::C2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test3::C2::_iceReadImpl(::Ice::InputStream* istr)
+Test3::C2::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->l);
@@ -321,7 +322,7 @@ Test3::E1::ice_throw() const
 }
 
 void
-Test3::E1::_writeImpl(::Ice::OutputStream* ostr) const
+Test3::E1::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->i);
@@ -329,7 +330,7 @@ Test3::E1::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test3::E1::_readImpl(::Ice::InputStream* istr)
+Test3::E1::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->i);
@@ -362,7 +363,7 @@ Test3::E2::ice_throw() const
 }
 
 void
-Test3::E2::_writeImpl(::Ice::OutputStream* ostr) const
+Test3::E2::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->l);
@@ -371,7 +372,7 @@ Test3::E2::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test3::E2::_readImpl(::Ice::InputStream* istr)
+Test3::E2::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->l);

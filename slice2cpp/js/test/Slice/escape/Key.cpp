@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -48,40 +49,40 @@ await::operator<<(::std::ostream& os, var value)
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::await::delete> iceC_await_delete_init("::await::delete");
-    const ::IceInternal::DefaultValueFactoryInit<::await::package> iceC_await_package_init("::await::package");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::await::fixed> iceC_await_fixed_init("::await::fixed");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::await::foreach> iceC_await_foreach_init("::await::foreach");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::await::BaseMethods> iceC_await_BaseMethods_init("::await::BaseMethods");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::await::delete> iceC_await_delete_init("::await::delete");
+    const IceInternal::DefaultValueFactoryInit<::await::package> iceC_await_package_init("::await::package");
+    const IceInternal::DefaultUserExceptionFactoryInit<::await::fixed> iceC_await_fixed_init("::await::fixed");
+    const IceInternal::DefaultUserExceptionFactoryInit<::await::foreach> iceC_await_foreach_init("::await::foreach");
+    const IceInternal::DefaultUserExceptionFactoryInit<::await::BaseMethods> iceC_await_BaseMethods_init("::await::BaseMethods");
 }
 
 void
-await::casePrx::catch(::std::int32_t iceP_checked, ::std::int32_t& iceP_continue, const ::Ice::Context& context) const
+await::casePrx::catch(::std::int32_t iceP_checked, ::std::int32_t& iceP_continue, const Ice::Context& context) const
 {
-    iceP_continue = ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &casePrx::_iceI_catch, iceP_checked, context).get();
+    iceP_continue = IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &casePrx::_iceI_catch, iceP_checked, context).get();
 }
 
 ::std::future<::std::int32_t>
-await::casePrx::catchAsync(::std::int32_t iceP_checked, const ::Ice::Context& context) const
+await::casePrx::catchAsync(::std::int32_t iceP_checked, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &casePrx::_iceI_catch, iceP_checked, context);
+    return IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &casePrx::_iceI_catch, iceP_checked, context);
 }
 
 ::std::function<void()>
-await::casePrx::catchAsync(::std::int32_t iceP_checked, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+await::casePrx::catchAsync(::std::int32_t iceP_checked, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::casePrx::_iceI_catch, iceP_checked, context);
+    return IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::casePrx::_iceI_catch, iceP_checked, context);
 }
 
 void
-await::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_checked, const ::Ice::Context& context) const
+await::casePrx::_iceI_catch(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_checked, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "catch";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_checked);
         },
@@ -97,29 +98,29 @@ await::casePrx::ice_staticId() noexcept
 }
 
 void
-await::typeofPrx::default(const ::Ice::Context& context) const
+await::typeofPrx::default(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &typeofPrx::_iceI_default, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &typeofPrx::_iceI_default, context).get();
 }
 
 ::std::future<void>
-await::typeofPrx::defaultAsync(const ::Ice::Context& context) const
+await::typeofPrx::defaultAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &typeofPrx::_iceI_default, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &typeofPrx::_iceI_default, context);
 }
 
 ::std::function<void()>
-await::typeofPrx::defaultAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+await::typeofPrx::defaultAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::typeofPrx::_iceI_default, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::typeofPrx::_iceI_default, context);
 }
 
 void
-await::typeofPrx::_iceI_default(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+await::typeofPrx::_iceI_default(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "default";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -141,36 +142,36 @@ await::explicitPrx::ice_staticId() noexcept
 }
 
 ::std::optional<::await::break>
-await::optionalParamsPrx::for(::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const ::Ice::Context& context) const
+await::optionalParamsPrx::for(::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<break>>(true, this, &optionalParamsPrx::_iceI_for, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context).get();
+    return IceInternal::makePromiseOutgoing<::std::optional<break>>(true, this, &optionalParamsPrx::_iceI_for, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context).get();
 }
 
 ::std::future<::std::optional<::await::break>>
-await::optionalParamsPrx::forAsync(::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const ::Ice::Context& context) const
+await::optionalParamsPrx::forAsync(::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<break>>(false, this, &optionalParamsPrx::_iceI_for, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context);
+    return IceInternal::makePromiseOutgoing<::std::optional<break>>(false, this, &optionalParamsPrx::_iceI_for, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context);
 }
 
 ::std::function<void()>
-await::optionalParamsPrx::forAsync(::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, ::std::function<void(::std::optional<::await::break>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+await::optionalParamsPrx::forAsync(::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, ::std::function<void(::std::optional<::await::break>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<break>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::optionalParamsPrx::_iceI_for, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context);
+    return IceInternal::makeLambdaOutgoing<::std::optional<break>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::optionalParamsPrx::_iceI_for, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context);
 }
 
 void
-await::optionalParamsPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<break>>>& outAsync, ::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const ::Ice::Context& context) const
+await::optionalParamsPrx::_iceI_for(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<break>>>& outAsync, ::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "for";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll({2, 3, 5, 7, 8}, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
         },
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::std::optional<break> ret;
             istr->readAll({1}, ret);
@@ -179,36 +180,36 @@ await::optionalParamsPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::Outgo
 }
 
 ::std::optional<::await::break>
-await::optionalParamsPrx::continue(::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const ::Ice::Context& context) const
+await::optionalParamsPrx::continue(::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<break>>(true, this, &optionalParamsPrx::_iceI_continue, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context).get();
+    return IceInternal::makePromiseOutgoing<::std::optional<break>>(true, this, &optionalParamsPrx::_iceI_continue, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context).get();
 }
 
 ::std::future<::std::optional<::await::break>>
-await::optionalParamsPrx::continueAsync(::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const ::Ice::Context& context) const
+await::optionalParamsPrx::continueAsync(::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<break>>(false, this, &optionalParamsPrx::_iceI_continue, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context);
+    return IceInternal::makePromiseOutgoing<::std::optional<break>>(false, this, &optionalParamsPrx::_iceI_continue, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context);
 }
 
 ::std::function<void()>
-await::optionalParamsPrx::continueAsync(::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, ::std::function<void(::std::optional<::await::break>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+await::optionalParamsPrx::continueAsync(::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, ::std::function<void(::std::optional<::await::break>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<break>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::optionalParamsPrx::_iceI_continue, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context);
+    return IceInternal::makeLambdaOutgoing<::std::optional<break>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::optionalParamsPrx::_iceI_continue, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, context);
 }
 
 void
-await::optionalParamsPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<break>>>& outAsync, ::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const ::Ice::Context& context) const
+await::optionalParamsPrx::_iceI_continue(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<break>>>& outAsync, ::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "continue";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll({2, 3, 5, 7, 8}, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
         },
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::std::optional<break> ret;
             istr->readAll({1}, ret);
@@ -217,9 +218,9 @@ await::optionalParamsPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::
 }
 
 ::std::optional<::await::break>
-await::optionalParamsPrx::in(::std::optional<var>& iceP_goto, ::std::optional<explicitPrx>& iceP_if, ::std::optional<while>& iceP_internal, ::std::optional<::std::string>& iceP_namespace, ::std::optional<explicitPrx>& iceP_null, const ::Ice::Context& context) const
+await::optionalParamsPrx::in(::std::optional<var>& iceP_goto, ::std::optional<explicitPrx>& iceP_if, ::std::optional<while>& iceP_internal, ::std::optional<::std::string>& iceP_namespace, ::std::optional<explicitPrx>& iceP_null, const Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>(true, this, &optionalParamsPrx::_iceI_in, context).get();
+    auto result = IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>(true, this, &optionalParamsPrx::_iceI_in, context).get();
     iceP_goto = ::std::get<1>(result);
     iceP_if = ::std::move(::std::get<2>(result));
     iceP_internal = ::std::move(::std::get<3>(result));
@@ -229,31 +230,31 @@ await::optionalParamsPrx::in(::std::optional<var>& iceP_goto, ::std::optional<ex
 }
 
 ::std::future<::std::tuple<::std::optional<::await::break>, ::std::optional<::await::var>, ::std::optional<::await::explicitPrx>, ::std::optional<::await::while>, ::std::optional<::std::string>, ::std::optional<::await::explicitPrx>>>
-await::optionalParamsPrx::inAsync(const ::Ice::Context& context) const
+await::optionalParamsPrx::inAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>(false, this, &optionalParamsPrx::_iceI_in, context);
+    return IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>(false, this, &optionalParamsPrx::_iceI_in, context);
 }
 
 ::std::function<void()>
-await::optionalParamsPrx::inAsync(::std::function<void(::std::optional<::await::break>, ::std::optional<::await::var>, ::std::optional<::await::explicitPrx>, ::std::optional<::await::while>, ::std::optional<::std::string>, ::std::optional<::await::explicitPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+await::optionalParamsPrx::inAsync(::std::function<void(::std::optional<::await::break>, ::std::optional<::await::var>, ::std::optional<::await::explicitPrx>, ::std::optional<::await::while>, ::std::optional<::std::string>, ::std::optional<::await::explicitPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &await::optionalParamsPrx::_iceI_in, context);
+    return IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &await::optionalParamsPrx::_iceI_in, context);
 }
 
 void
-await::optionalParamsPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>>& outAsync, const ::Ice::Context& context) const
+await::optionalParamsPrx::_iceI_in(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "in";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>> v;
             istr->readAll({1, 2, 3, 5, 7, 8}, ::std::get<0>(v), ::std::get<1>(v), ::std::get<2>(v), ::std::get<3>(v), ::std::get<4>(v), ::std::get<5>(v));
@@ -262,9 +263,9 @@ await::optionalParamsPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 
 ::std::optional<::await::break>
-await::optionalParamsPrx::foreach(::std::optional<var>& iceP_goto, ::std::optional<explicitPrx>& iceP_if, ::std::optional<while>& iceP_internal, ::std::optional<::std::string>& iceP_namespace, ::std::optional<explicitPrx>& iceP_null, const ::Ice::Context& context) const
+await::optionalParamsPrx::foreach(::std::optional<var>& iceP_goto, ::std::optional<explicitPrx>& iceP_if, ::std::optional<while>& iceP_internal, ::std::optional<::std::string>& iceP_namespace, ::std::optional<explicitPrx>& iceP_null, const Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>(true, this, &optionalParamsPrx::_iceI_foreach, context).get();
+    auto result = IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>(true, this, &optionalParamsPrx::_iceI_foreach, context).get();
     iceP_goto = ::std::get<1>(result);
     iceP_if = ::std::move(::std::get<2>(result));
     iceP_internal = ::std::move(::std::get<3>(result));
@@ -274,31 +275,31 @@ await::optionalParamsPrx::foreach(::std::optional<var>& iceP_goto, ::std::option
 }
 
 ::std::future<::std::tuple<::std::optional<::await::break>, ::std::optional<::await::var>, ::std::optional<::await::explicitPrx>, ::std::optional<::await::while>, ::std::optional<::std::string>, ::std::optional<::await::explicitPrx>>>
-await::optionalParamsPrx::foreachAsync(const ::Ice::Context& context) const
+await::optionalParamsPrx::foreachAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>(false, this, &optionalParamsPrx::_iceI_foreach, context);
+    return IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>(false, this, &optionalParamsPrx::_iceI_foreach, context);
 }
 
 ::std::function<void()>
-await::optionalParamsPrx::foreachAsync(::std::function<void(::std::optional<::await::break>, ::std::optional<::await::var>, ::std::optional<::await::explicitPrx>, ::std::optional<::await::while>, ::std::optional<::std::string>, ::std::optional<::await::explicitPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+await::optionalParamsPrx::foreachAsync(::std::function<void(::std::optional<::await::break>, ::std::optional<::await::var>, ::std::optional<::await::explicitPrx>, ::std::optional<::await::while>, ::std::optional<::std::string>, ::std::optional<::await::explicitPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &await::optionalParamsPrx::_iceI_foreach, context);
+    return IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &await::optionalParamsPrx::_iceI_foreach, context);
 }
 
 void
-await::optionalParamsPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>>& outAsync, const ::Ice::Context& context) const
+await::optionalParamsPrx::_iceI_foreach(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "foreach";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::std::tuple<::std::optional<break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>> v;
             istr->readAll({1, 2, 3, 5, 7, 8}, ::std::get<0>(v), ::std::get<1>(v), ::std::get<2>(v), ::std::get<3>(v), ::std::get<4>(v), ::std::get<5>(v));
@@ -315,50 +316,50 @@ await::optionalParamsPrx::ice_staticId() noexcept
 }
 
 ::await::var
-await::implicitPrx::in(const break& iceP_internal, const deletePtr& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const deletePtr& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
+await::implicitPrx::in(const break& iceP_internal, const deletePtr& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const deletePtr& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<var>(true, this, &implicitPrx::_iceI_in, iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context).get();
+    return IceInternal::makePromiseOutgoing<var>(true, this, &implicitPrx::_iceI_in, iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context).get();
 }
 
 ::std::future<::await::var>
-await::implicitPrx::inAsync(const break& iceP_internal, const deletePtr& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const deletePtr& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
+await::implicitPrx::inAsync(const break& iceP_internal, const deletePtr& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const deletePtr& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<var>(false, this, &implicitPrx::_iceI_in, iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context);
+    return IceInternal::makePromiseOutgoing<var>(false, this, &implicitPrx::_iceI_in, iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context);
 }
 
 ::std::function<void()>
-await::implicitPrx::inAsync(const break& iceP_internal, const deletePtr& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const deletePtr& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, ::std::function<void(::await::var)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+await::implicitPrx::inAsync(const break& iceP_internal, const deletePtr& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const deletePtr& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, ::std::function<void(::await::var)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<var>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::implicitPrx::_iceI_in, iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context);
+    return IceInternal::makeLambdaOutgoing<var>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::implicitPrx::_iceI_in, iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context);
 }
 
 void
-await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<var>>& outAsync, const break& iceP_internal, const deletePtr& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const deletePtr& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
+await::implicitPrx::_iceI_in(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<var>>& outAsync, const break& iceP_internal, const deletePtr& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const deletePtr& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "in";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private);
             ostr->writePendingValues();
         },
-        [](const ::Ice::UserException& ex)
+        [](const Ice::UserException& ex)
         {
             try
             {
                 ex.ice_throw();
             }
-            catch(const foreach&)
+            catch (const foreach&)
             {
                 throw;
             }
-            catch(const fixed&)
+            catch (const fixed&)
             {
                 throw;
             }
-            catch(const ::Ice::UserException&)
+            catch (const Ice::UserException&)
             {
             }
         });
@@ -373,29 +374,29 @@ await::implicitPrx::ice_staticId() noexcept
 }
 
 void
-await::System::TestPrx::op(const ::Ice::Context& context) const
+await::System::TestPrx::op(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestPrx::_iceI_op, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &TestPrx::_iceI_op, context).get();
 }
 
 ::std::future<void>
-await::System::TestPrx::opAsync(const ::Ice::Context& context) const
+await::System::TestPrx::opAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestPrx::_iceI_op, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &TestPrx::_iceI_op, context);
 }
 
 ::std::function<void()>
-await::System::TestPrx::opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+await::System::TestPrx::opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::System::TestPrx::_iceI_op, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::System::TestPrx::_iceI_op, context);
 }
 
 void
-await::System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+await::System::TestPrx::_iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "op";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -409,29 +410,29 @@ await::System::TestPrx::ice_staticId() noexcept
 }
 
 void
-System::TestPrx::op(const ::Ice::Context& context) const
+System::TestPrx::op(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestPrx::_iceI_op, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &TestPrx::_iceI_op, context).get();
 }
 
 ::std::future<void>
-System::TestPrx::opAsync(const ::Ice::Context& context) const
+System::TestPrx::opAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestPrx::_iceI_op, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &TestPrx::_iceI_op, context);
 }
 
 ::std::function<void()>
-System::TestPrx::opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+System::TestPrx::opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &System::TestPrx::_iceI_op, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &System::TestPrx::_iceI_op, context);
 }
 
 void
-System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+System::TestPrx::_iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "op";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -487,14 +488,14 @@ await::delete::ice_printFields(std::ostream& os) const
     Ice::print(os << ", constructor = ", this->constructor);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 await::delete::_iceCloneImpl() const
 {
     return CloneEnabler<delete>::clone(*this);
 }
 
 void
-await::delete::_iceWriteImpl(::Ice::OutputStream* ostr) const
+await::delete::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->if, this->else, this->export, this->clone, this->equals, this->hashCode, this->constructor);
@@ -502,7 +503,7 @@ await::delete::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-await::delete::_iceReadImpl(::Ice::InputStream* istr)
+await::delete::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->if, this->else, this->export, this->clone, this->equals, this->hashCode, this->constructor);
@@ -532,14 +533,14 @@ await::package::ice_printFields(std::ostream& os) const
     Ice::print(os << ", null = ", this->null);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 await::package::_iceCloneImpl() const
 {
     return CloneEnabler<package>::clone(*this);
 }
 
 void
-await::package::_iceWriteImpl(::Ice::OutputStream* ostr) const
+await::package::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll({1, 2, 3, 5, 7, 8}, this->for, this->goto, this->if, this->internal, this->debugger, this->null);
@@ -547,7 +548,7 @@ await::package::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-await::package::_iceReadImpl(::Ice::InputStream* istr)
+await::package::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll({1, 2, 3, 5, 7, 8}, this->for, this->goto, this->if, this->internal, this->debugger, this->null);
@@ -579,7 +580,7 @@ await::fixed::ice_throw() const
 }
 
 void
-await::fixed::_writeImpl(::Ice::OutputStream* ostr) const
+await::fixed::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->for);
@@ -587,7 +588,7 @@ await::fixed::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-await::fixed::_readImpl(::Ice::InputStream* istr)
+await::fixed::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->for);
@@ -621,7 +622,7 @@ await::foreach::ice_throw() const
 }
 
 void
-await::foreach::_writeImpl(::Ice::OutputStream* ostr) const
+await::foreach::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->goto, this->if);
@@ -630,7 +631,7 @@ await::foreach::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-await::foreach::_readImpl(::Ice::InputStream* istr)
+await::foreach::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->goto, this->if);
@@ -677,7 +678,7 @@ await::BaseMethods::ice_throw() const
 }
 
 void
-await::BaseMethods::_writeImpl(::Ice::OutputStream* ostr) const
+await::BaseMethods::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->Data, this->HelpLink, this->InnerException, this->Message, this->Source, this->StackTrace, this->TargetSite, this->HResult, this->Equals, this->GetBaseException, this->GetHashCode, this->GetObjectData, this->GetType, this->ReferenceEquals, this->ToString);
@@ -685,7 +686,7 @@ await::BaseMethods::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-await::BaseMethods::_readImpl(::Ice::InputStream* istr)
+await::BaseMethods::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->Data, this->HelpLink, this->InnerException, this->Message, this->Source, this->StackTrace, this->TargetSite, this->HResult, this->Equals, this->GetBaseException, this->GetHashCode, this->GetObjectData, this->GetType, this->ReferenceEquals, this->ToString);
@@ -693,14 +694,14 @@ await::BaseMethods::_readImpl(::Ice::InputStream* istr)
 }
 
 ::std::vector<::std::string>
-await::case::ice_ids(const ::Ice::Current&) const
+await::case::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::await::case"};
     return allTypeIds;
 }
 
 ::std::string
-await::case::ice_id(const ::Ice::Current&) const
+await::case::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -714,20 +715,20 @@ await::case::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 await::case::_iceD_catch(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::int32_t iceP_checked;
     istr->readAll(iceP_checked);
     istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseHandler = ::std::make_shared<IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     auto responseCb = [responseHandler](::std::int32_t iceP_continue)
     {
         responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
+            [&](Ice::OutputStream* ostr)
             {
                 ostr->writeAll(iceP_continue);
             });
@@ -745,19 +746,19 @@ await::case::_iceD_catch(
 
 /// \cond INTERNAL
 void
-await::case::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+await::case::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"catch", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"catch", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -787,21 +788,21 @@ await::case::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ic
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-await::typeof::ice_ids(const ::Ice::Current&) const
+await::typeof::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::await::typeof"};
     return allTypeIds;
 }
 
 ::std::string
-await::typeof::ice_id(const ::Ice::Current&) const
+await::typeof::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -815,31 +816,31 @@ await::typeof::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 await::typeof::_iceD_default(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->default(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-await::typeof::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+await::typeof::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"default", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"default", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -869,21 +870,21 @@ await::typeof::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-await::explicit::ice_ids(const ::Ice::Current&) const
+await::explicit::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::await::case", "::await::explicit", "::await::typeof"};
     return allTypeIds;
 }
 
 ::std::string
-await::explicit::ice_id(const ::Ice::Current&) const
+await::explicit::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -896,19 +897,19 @@ await::explicit::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-await::explicit::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+await::explicit::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"catch", "default", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::array<::std::string_view, 6> allOperations{"catch", "default", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -943,21 +944,21 @@ await::explicit::dispatch(::Ice::IncomingRequest& request, ::std::function<void(
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-await::optionalParams::ice_ids(const ::Ice::Current&) const
+await::optionalParams::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::await::optionalParams"};
     return allTypeIds;
 }
 
 ::std::string
-await::optionalParams::ice_id(const ::Ice::Current&) const
+await::optionalParams::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -971,10 +972,10 @@ await::optionalParams::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 await::optionalParams::_iceD_for(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::optional<var> iceP_goto;
@@ -985,7 +986,7 @@ await::optionalParams::_iceD_for(
     istr->readAll({2, 3, 5, 7, 8}, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
     istr->endEncapsulation();
     const ::std::optional<break> ret = this->for(iceP_goto, ::std::move(iceP_if), ::std::move(iceP_internal), ::std::move(iceP_namespace), ::std::move(iceP_null), request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll({1}, ret);
         },
@@ -996,10 +997,10 @@ await::optionalParams::_iceD_for(
 /// \cond INTERNAL
 void
 await::optionalParams::_iceD_continue(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::optional<var> iceP_goto;
@@ -1009,11 +1010,11 @@ await::optionalParams::_iceD_continue(
     ::std::optional<explicitPrx> iceP_null;
     istr->readAll({2, 3, 5, 7, 8}, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
     istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseHandler = ::std::make_shared<IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     auto responseCb = [responseHandler](const ::std::optional<break>& ret)
     {
         responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
+            [&](Ice::OutputStream* ostr)
             {
                 ostr->writeAll({1}, ret);
             });
@@ -1032,10 +1033,10 @@ await::optionalParams::_iceD_continue(
 /// \cond INTERNAL
 void
 await::optionalParams::_iceD_in(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     ::std::optional<var> iceP_goto;
     ::std::optional<explicitPrx> iceP_if;
@@ -1043,7 +1044,7 @@ await::optionalParams::_iceD_in(
     ::std::optional<::std::string> iceP_namespace;
     ::std::optional<explicitPrx> iceP_null;
     const ::std::optional<break> ret = this->in(iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null, request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 2, 3, 5, 7, 8}, ret, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
         },
@@ -1054,16 +1055,16 @@ await::optionalParams::_iceD_in(
 /// \cond INTERNAL
 void
 await::optionalParams::_iceD_foreach(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseHandler = ::std::make_shared<IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     auto responseCb = [responseHandler](const ::std::optional<break>& ret, ::std::optional<var> iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<while>& iceP_internal, ::std::optional<::std::string_view> iceP_namespace, const ::std::optional<explicitPrx>& iceP_null)
     {
         responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
+            [&](Ice::OutputStream* ostr)
             {
                 ostr->writeAll({1, 2, 3, 5, 7, 8}, ret, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
             });
@@ -1081,19 +1082,19 @@ await::optionalParams::_iceD_foreach(
 
 /// \cond INTERNAL
 void
-await::optionalParams::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+await::optionalParams::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"continue", "for", "foreach", "ice_id", "ice_ids", "ice_isA", "ice_ping", "in"};
+    static constexpr ::std::array<::std::string_view, 8> allOperations{"continue", "for", "foreach", "ice_id", "ice_ids", "ice_isA", "ice_ping", "in"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -1138,21 +1139,21 @@ await::optionalParams::dispatch(::Ice::IncomingRequest& request, ::std::function
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-await::implicit::ice_ids(const ::Ice::Current&) const
+await::implicit::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::await::implicit"};
     return allTypeIds;
 }
 
 ::std::string
-await::implicit::ice_id(const ::Ice::Current&) const
+await::implicit::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -1166,10 +1167,10 @@ await::implicit::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 await::implicit::_iceD_in(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     break iceP_internal;
@@ -1186,7 +1187,7 @@ await::implicit::_iceD_in(
     istr->readPendingValues();
     istr->endEncapsulation();
     const var ret = this->in(::std::move(iceP_internal), ::std::move(iceP_is), ::std::move(iceP_lock), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_null), ::std::move(iceP_operator), iceP_override, iceP_params, iceP_private, request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -1196,19 +1197,19 @@ await::implicit::_iceD_in(
 
 /// \cond INTERNAL
 void
-await::implicit::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+await::implicit::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "in"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "in"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -1238,21 +1239,21 @@ await::implicit::dispatch(::Ice::IncomingRequest& request, ::std::function<void(
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-await::System::Test::ice_ids(const ::Ice::Current&) const
+await::System::Test::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::await::System::Test"};
     return allTypeIds;
 }
 
 ::std::string
-await::System::Test::ice_id(const ::Ice::Current&) const
+await::System::Test::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -1266,31 +1267,31 @@ await::System::Test::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 await::System::Test::_iceD_op(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->op(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-await::System::Test::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+await::System::Test::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -1320,21 +1321,21 @@ await::System::Test::dispatch(::Ice::IncomingRequest& request, ::std::function<v
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-System::Test::ice_ids(const ::Ice::Current&) const
+System::Test::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::System::Test"};
     return allTypeIds;
 }
 
 ::std::string
-System::Test::ice_id(const ::Ice::Current&) const
+System::Test::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -1348,31 +1349,31 @@ System::Test::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 System::Test::_iceD_op(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->op(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-System::Test::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+System::Test::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -1402,7 +1403,7 @@ System::Test::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::I
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

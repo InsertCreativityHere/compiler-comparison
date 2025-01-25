@@ -45,7 +45,7 @@ namespace IceGrid
 
 /// <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
 /// {@link ApplicationDescriptor} objects.
-class ICEGRID_API FileParserPrx : public ::Ice::Proxy<FileParserPrx, ::Ice::ObjectPrx>
+class ICEGRID_API FileParserPrx : public Ice::Proxy<FileParserPrx, Ice::ObjectPrx>
 {
 public:
 
@@ -55,14 +55,14 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The application descriptor.
     /// @throws IceGrid::ParseException Raised if an error occurred during parsing.
-    ApplicationDescriptor parse(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ApplicationDescriptor parse(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Parse a file.
     /// @param xmlFile Full pathname to the file.
     /// @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<ApplicationDescriptor> parseAsync(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<ApplicationDescriptor> parseAsync(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Parse a file.
     /// @param xmlFile Full pathname to the file.
@@ -73,21 +73,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    parseAsync(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy, ::std::function<void(::IceGrid::ApplicationDescriptor)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    parseAsync(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy, ::std::function<void(::IceGrid::ApplicationDescriptor)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>&, ::std::string_view, const ::std::optional<AdminPrx>&, const ::Ice::Context&) const;
+    void _iceI_parse(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<ApplicationDescriptor>>&, ::std::string_view, const ::std::optional<AdminPrx>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    FileParserPrx(const FileParserPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    FileParserPrx(const FileParserPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    FileParserPrx(FileParserPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    FileParserPrx(FileParserPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    FileParserPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    FileParserPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~FileParserPrx() override;
 
@@ -95,7 +95,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -104,19 +104,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static FileParserPrx _fromReference(::IceInternal::ReferencePtr ref) { return FileParserPrx(std::move(ref)); }
+    static FileParserPrx _fromReference(IceInternal::ReferencePtr ref) { return FileParserPrx(std::move(ref)); }
 
 protected:
 
     FileParserPrx() = default;
 
-    explicit FileParserPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit FileParserPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -128,7 +128,7 @@ namespace IceGrid
 {
 
 /// This exception is raised if an error occurs during parsing.
-class ICE_CLASS(ICEGRID_API) ParseException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) ParseException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -165,9 +165,9 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 }
@@ -177,7 +177,7 @@ namespace IceGrid
 
 /// <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
 /// {@link ApplicationDescriptor} objects.
-class ICEGRID_API FileParser : public virtual ::Ice::Object
+class ICEGRID_API FileParser : public virtual Ice::Object
 {
 public:
 
@@ -186,12 +186,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -203,13 +203,13 @@ public:
     /// @param current The Current object for the invocation.
     /// @return The application descriptor.
     /// @throws IceGrid::ParseException Raised if an error occurred during parsing.
-    virtual ApplicationDescriptor parse(::std::string xmlFile, ::std::optional<AdminPrx> adminProxy, const ::Ice::Current& current) = 0;
+    virtual ApplicationDescriptor parse(::std::string xmlFile, ::std::optional<AdminPrx> adminProxy, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_parse(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_parse(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

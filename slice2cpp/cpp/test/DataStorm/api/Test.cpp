@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,8 +37,8 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::ClassKey> iceC_Test_ClassKey_init("::Test::ClassKey");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test::ClassKey> iceC_Test_ClassKey_init("::Test::ClassKey");
 }
 
 void
@@ -73,14 +74,14 @@ Test::ClassKey::ice_printFields(std::ostream& os) const
     Ice::print(os << "value = ", this->value);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::ClassKey::_iceCloneImpl() const
 {
     return CloneEnabler<ClassKey>::clone(*this);
 }
 
 void
-Test::ClassKey::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::ClassKey::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->value);
@@ -88,7 +89,7 @@ Test::ClassKey::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::ClassKey::_iceReadImpl(::Ice::InputStream* istr)
+Test::ClassKey::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->value);

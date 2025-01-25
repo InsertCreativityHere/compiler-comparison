@@ -41,30 +41,30 @@ namespace Test
 namespace Test
 {
 
-class LIBRARY_TEST_API MyInterfacePrx : public ::Ice::Proxy<MyInterfacePrx, ::Ice::ObjectPrx>
+class LIBRARY_TEST_API MyInterfacePrx : public Ice::Proxy<MyInterfacePrx, Ice::ObjectPrx>
 {
 public:
 
-    void op(bool throwIt, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void op(bool throwIt, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] ::std::future<void> opAsync(bool throwIt, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> opAsync(bool throwIt, const Ice::Context& context = Ice::noExplicitContext) const;
 
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opAsync(bool throwIt, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opAsync(bool throwIt, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::Ice::Context&) const;
+    void _iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, bool, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    MyInterfacePrx(const MyInterfacePrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    MyInterfacePrx(const MyInterfacePrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    MyInterfacePrx(MyInterfacePrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    MyInterfacePrx(MyInterfacePrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    MyInterfacePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    MyInterfacePrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~MyInterfacePrx() override;
 
@@ -72,7 +72,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -81,19 +81,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static MyInterfacePrx _fromReference(::IceInternal::ReferencePtr ref) { return MyInterfacePrx(std::move(ref)); }
+    static MyInterfacePrx _fromReference(IceInternal::ReferencePtr ref) { return MyInterfacePrx(std::move(ref)); }
 
 protected:
 
     MyInterfacePrx() = default;
 
-    explicit MyInterfacePrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit MyInterfacePrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -104,7 +104,7 @@ protected:
 namespace Test
 {
 
-class ICE_CLASS(LIBRARY_TEST_API) UserError : public ::Ice::UserException
+class ICE_CLASS(LIBRARY_TEST_API) UserError : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -139,9 +139,9 @@ public:
     ::std::string message;
 
 protected:
-    ICE_MEMBER(LIBRARY_TEST_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(LIBRARY_TEST_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(LIBRARY_TEST_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(LIBRARY_TEST_API) void _readImpl(Ice::InputStream*) override;
 };
 
 }
@@ -149,7 +149,7 @@ protected:
 namespace Test
 {
 
-class LIBRARY_TEST_API MyInterface : public virtual ::Ice::Object
+class LIBRARY_TEST_API MyInterface : public virtual Ice::Object
 {
 public:
 
@@ -158,24 +158,24 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual void op(bool throwIt, const ::Ice::Current& current) = 0;
+    virtual void op(bool throwIt, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_op(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

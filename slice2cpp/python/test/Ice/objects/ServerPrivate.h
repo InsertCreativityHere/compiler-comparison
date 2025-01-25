@@ -53,30 +53,30 @@ namespace Test
 namespace Test
 {
 
-class UnexpectedObjectExceptionTestPrx : public ::Ice::Proxy<UnexpectedObjectExceptionTestPrx, ::Ice::ObjectPrx>
+class UnexpectedObjectExceptionTestPrx : public Ice::Proxy<UnexpectedObjectExceptionTestPrx, Ice::ObjectPrx>
 {
 public:
 
-    AlsoEmptyPtr op(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    AlsoEmptyPtr op(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<AlsoEmptyPtr> opAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<AlsoEmptyPtr> opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opAsync(::std::function<void(::Test::AlsoEmptyPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opAsync(::std::function<void(::Test::AlsoEmptyPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<AlsoEmptyPtr>>&, const ::Ice::Context&) const;
+    void _iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<AlsoEmptyPtr>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    UnexpectedObjectExceptionTestPrx(const UnexpectedObjectExceptionTestPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    UnexpectedObjectExceptionTestPrx(const UnexpectedObjectExceptionTestPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    UnexpectedObjectExceptionTestPrx(UnexpectedObjectExceptionTestPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    UnexpectedObjectExceptionTestPrx(UnexpectedObjectExceptionTestPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    UnexpectedObjectExceptionTestPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    UnexpectedObjectExceptionTestPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~UnexpectedObjectExceptionTestPrx() override;
 
@@ -84,7 +84,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -93,19 +93,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static UnexpectedObjectExceptionTestPrx _fromReference(::IceInternal::ReferencePtr ref) { return UnexpectedObjectExceptionTestPrx(std::move(ref)); }
+    static UnexpectedObjectExceptionTestPrx _fromReference(IceInternal::ReferencePtr ref) { return UnexpectedObjectExceptionTestPrx(std::move(ref)); }
 
 protected:
 
     UnexpectedObjectExceptionTestPrx() = default;
 
-    explicit UnexpectedObjectExceptionTestPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit UnexpectedObjectExceptionTestPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -116,7 +116,7 @@ protected:
 namespace Test
 {
 
-class Empty : public ::Ice::Value
+class Empty : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -134,14 +134,14 @@ public:
 
     Empty(const Empty&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class AlsoEmpty : public ::Ice::Value
+class AlsoEmpty : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -159,14 +159,14 @@ public:
 
     AlsoEmpty(const AlsoEmpty&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class COneMember : public ::Ice::Value
+class COneMember : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -200,14 +200,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     COneMember(const COneMember&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class CTwoMembers : public ::Ice::Value
+class CTwoMembers : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -243,14 +243,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     CTwoMembers(const CTwoMembers&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class EOneMember : public ::Ice::UserException
+class EOneMember : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -289,12 +289,12 @@ public:
     ::Test::EmptyPtr e;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
-class ETwoMembers : public ::Ice::UserException
+class ETwoMembers : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -335,9 +335,9 @@ public:
     ::Test::EmptyPtr e2;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
 struct SOneMember
@@ -389,7 +389,7 @@ using Ice::Tuple::operator!=;
 namespace Test
 {
 
-class UnexpectedObjectExceptionTest : public virtual ::Ice::Object
+class UnexpectedObjectExceptionTest : public virtual Ice::Object
 {
 public:
 
@@ -398,24 +398,24 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual AlsoEmptyPtr op(const ::Ice::Current& current) = 0;
+    virtual AlsoEmptyPtr op(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_op(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

@@ -34,7 +34,7 @@ namespace Test
 namespace Test
 {
 
-class Stock : public ::Ice::Value
+class Stock : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -72,11 +72,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     Stock(const Stock&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 }

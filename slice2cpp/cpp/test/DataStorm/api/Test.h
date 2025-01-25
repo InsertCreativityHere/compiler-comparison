@@ -54,7 +54,7 @@ struct StructKey
 
 ::std::ostream& operator<<(::std::ostream&, const StructKey&);
 
-class ClassKey : public ::Ice::Value
+class ClassKey : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -88,11 +88,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     ClassKey(const ClassKey&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 using Ice::Tuple::operator<;

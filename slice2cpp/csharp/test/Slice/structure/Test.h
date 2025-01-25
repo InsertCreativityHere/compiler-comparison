@@ -44,7 +44,7 @@ namespace Test
 namespace Test
 {
 
-class C : public ::Ice::Value
+class C : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -78,11 +78,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     C(const C&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 struct S1
@@ -118,11 +118,11 @@ struct S2
     ::Test::StringDict sd;
     ::Test::S1 s;
     ::Test::CPtr cls;
-    ::std::optional<::Ice::ObjectPrx> prx;
+    ::std::optional<Ice::ObjectPrx> prx;
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::StringSeq&, const ::Test::IntList&, const ::Test::StringDict&, const ::Test::S1&, const ::Test::CPtr&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::StringSeq&, const ::Test::IntList&, const ::Test::StringDict&, const ::Test::S1&, const ::Test::CPtr&, const ::std::optional<Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, ss, il, sd, s, cls, prx);
     }

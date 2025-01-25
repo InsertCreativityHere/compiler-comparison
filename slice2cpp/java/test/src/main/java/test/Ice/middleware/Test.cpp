@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -35,30 +36,30 @@
 #endif
 
 ::std::string
-Test::MyObjectPrx::getName(const ::Ice::Context& context) const
+Test::MyObjectPrx::getName(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &MyObjectPrx::_iceI_getName, context).get();
+    return IceInternal::makePromiseOutgoing<::std::string>(true, this, &MyObjectPrx::_iceI_getName, context).get();
 }
 
 ::std::future<::std::string>
-Test::MyObjectPrx::getNameAsync(const ::Ice::Context& context) const
+Test::MyObjectPrx::getNameAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &MyObjectPrx::_iceI_getName, context);
+    return IceInternal::makePromiseOutgoing<::std::string>(false, this, &MyObjectPrx::_iceI_getName, context);
 }
 
 ::std::function<void()>
-Test::MyObjectPrx::getNameAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::MyObjectPrx::getNameAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_getName, context);
+    return IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_getName, context);
 }
 
 void
-Test::MyObjectPrx::_iceI_getName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
+Test::MyObjectPrx::_iceI_getName(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getName";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -72,14 +73,14 @@ Test::MyObjectPrx::ice_staticId() noexcept
 }
 
 ::std::vector<::std::string>
-Test::MyObject::ice_ids(const ::Ice::Current&) const
+Test::MyObject::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyObject"};
     return allTypeIds;
 }
 
 ::std::string
-Test::MyObject::ice_id(const ::Ice::Current&) const
+Test::MyObject::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -93,16 +94,16 @@ Test::MyObject::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::MyObject::_iceD_getName(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseHandler = ::std::make_shared<IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     auto responseCb = [responseHandler](::std::string_view ret)
     {
         responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
+            [&](Ice::OutputStream* ostr)
             {
                 ostr->writeAll(ret);
             });
@@ -120,19 +121,19 @@ Test::MyObject::_iceD_getName(
 
 /// \cond INTERNAL
 void
-Test::MyObject::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyObject::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"getName", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"getName", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -162,7 +163,7 @@ Test::MyObject::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

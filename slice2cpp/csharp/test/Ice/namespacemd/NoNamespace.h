@@ -37,7 +37,7 @@ namespace NoNamespace
 namespace NoNamespace
 {
 
-class C1 : public ::Ice::Value
+class C1 : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -71,11 +71,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     C1(const C1&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class C2 : public C1
@@ -113,14 +113,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     C2(const C2&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class E1 : public ::Ice::UserException
+class E1 : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -155,9 +155,9 @@ public:
     ::std::int32_t i;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
 class E2 : public E1
@@ -196,12 +196,12 @@ public:
     ::std::int64_t l;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
-class notify : public ::Ice::UserException
+class notify : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -236,9 +236,9 @@ public:
     ::std::int32_t i;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
 }

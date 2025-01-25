@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -68,11 +69,11 @@ Test::Nested::operator<<(::std::ostream& os, Color value)
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::Base> iceC_Test_Base_init("::Test::Base");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::Derived> iceC_Test_Derived_init("::Test::Derived");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaultsBase> iceC_Test_ClassNoDefaultsBase_init("::Test::ClassNoDefaultsBase");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaults> iceC_Test_ClassNoDefaults_init("::Test::ClassNoDefaults");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test::Base> iceC_Test_Base_init("::Test::Base");
+    const IceInternal::DefaultValueFactoryInit<::Test::Derived> iceC_Test_Derived_init("::Test::Derived");
+    const IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaultsBase> iceC_Test_ClassNoDefaultsBase_init("::Test::ClassNoDefaultsBase");
+    const IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaults> iceC_Test_ClassNoDefaults_init("::Test::ClassNoDefaults");
 }
 
 void
@@ -178,14 +179,14 @@ Test::Base::ice_printFields(std::ostream& os) const
     Ice::print(os << ", zeroDotD = ", this->zeroDotD);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::Base::_iceCloneImpl() const
 {
     return CloneEnabler<Base>::clone(*this);
 }
 
 void
-Test::Base::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::Base::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->boolFalse, this->boolTrue, this->b, this->s, this->i, this->l, this->f, this->d, this->str, this->noDefault, this->zeroI, this->zeroL, this->zeroF, this->zeroDotF, this->zeroD, this->zeroDotD);
@@ -193,7 +194,7 @@ Test::Base::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::Base::_iceReadImpl(::Ice::InputStream* istr)
+Test::Base::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->boolFalse, this->boolTrue, this->b, this->s, this->i, this->l, this->f, this->d, this->str, this->noDefault, this->zeroI, this->zeroL, this->zeroF, this->zeroDotF, this->zeroD, this->zeroDotD);
@@ -224,14 +225,14 @@ Test::Derived::ice_printFields(std::ostream& os) const
     Ice::print(os << ", nc3 = ", this->nc3);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::Derived::_iceCloneImpl() const
 {
     return CloneEnabler<Derived>::clone(*this);
 }
 
 void
-Test::Derived::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::Derived::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->c1, this->c2, this->c3, this->nc1, this->nc2, this->nc3);
@@ -240,7 +241,7 @@ Test::Derived::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::Derived::_iceReadImpl(::Ice::InputStream* istr)
+Test::Derived::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->c1, this->c2, this->c3, this->nc1, this->nc2, this->nc3);
@@ -310,14 +311,14 @@ Test::ClassNoDefaultsBase::ice_printFields(std::ostream& os) const
     Ice::print(os << ", bs = ", this->bs);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::ClassNoDefaultsBase::_iceCloneImpl() const
 {
     return CloneEnabler<ClassNoDefaultsBase>::clone(*this);
 }
 
 void
-Test::ClassNoDefaultsBase::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::ClassNoDefaultsBase::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->str, this->c1, this->bs);
@@ -325,7 +326,7 @@ Test::ClassNoDefaultsBase::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::ClassNoDefaultsBase::_iceReadImpl(::Ice::InputStream* istr)
+Test::ClassNoDefaultsBase::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->str, this->c1, this->bs);
@@ -352,14 +353,14 @@ Test::ClassNoDefaults::ice_printFields(std::ostream& os) const
     Ice::print(os << ", dict = ", this->dict);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::ClassNoDefaults::_iceCloneImpl() const
 {
     return CloneEnabler<ClassNoDefaults>::clone(*this);
 }
 
 void
-Test::ClassNoDefaults::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::ClassNoDefaults::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->st, this->dict);
@@ -368,7 +369,7 @@ Test::ClassNoDefaults::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::ClassNoDefaults::_iceReadImpl(::Ice::InputStream* istr)
+Test::ClassNoDefaults::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->st, this->dict);

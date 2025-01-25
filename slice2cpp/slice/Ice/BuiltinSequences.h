@@ -58,10 +58,10 @@ namespace Ice
     using StringSeq = ::std::vector<::std::string>;
 
     /// A sequence of objects.
-    using ObjectSeq = ::std::vector<ValuePtr>;
+    using ObjectSeq = ::std::vector<Ice::ValuePtr>;
 
     /// A sequence of object proxies.
-    using ObjectProxySeq = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
+    using ObjectProxySeq = ::std::vector<::std::optional<Ice::ObjectPrx>>;
 
 }
 

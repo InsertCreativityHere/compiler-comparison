@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -39,33 +40,33 @@ namespace
 }
 
 ::NoNamespace::C1Ptr
-Test::InitialPrx::getNoNamespaceC2AsC1(const ::Ice::Context& context) const
+Test::InitialPrx::getNoNamespaceC2AsC1(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::NoNamespace::C1Ptr>(true, this, &InitialPrx::_iceI_getNoNamespaceC2AsC1, context).get();
+    return IceInternal::makePromiseOutgoing<::NoNamespace::C1Ptr>(true, this, &InitialPrx::_iceI_getNoNamespaceC2AsC1, context).get();
 }
 
 ::std::future<::NoNamespace::C1Ptr>
-Test::InitialPrx::getNoNamespaceC2AsC1Async(const ::Ice::Context& context) const
+Test::InitialPrx::getNoNamespaceC2AsC1Async(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::NoNamespace::C1Ptr>(false, this, &InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
+    return IceInternal::makePromiseOutgoing<::NoNamespace::C1Ptr>(false, this, &InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::getNoNamespaceC2AsC1Async(::std::function<void(::NoNamespace::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::getNoNamespaceC2AsC1Async(::std::function<void(::NoNamespace::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::NoNamespace::C1Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
+    return IceInternal::makeLambdaOutgoing<::NoNamespace::C1Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
 }
 
 void
-Test::InitialPrx::_iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::NoNamespace::C1Ptr>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::NoNamespace::C1Ptr>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getNoNamespaceC2AsC1";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::NoNamespace::C1Ptr ret;
             istr->readAll(ret);
@@ -75,33 +76,33 @@ Test::InitialPrx::_iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<::IceIntern
 }
 
 ::NoNamespace::C2Ptr
-Test::InitialPrx::getNoNamespaceC2AsC2(const ::Ice::Context& context) const
+Test::InitialPrx::getNoNamespaceC2AsC2(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::NoNamespace::C2Ptr>(true, this, &InitialPrx::_iceI_getNoNamespaceC2AsC2, context).get();
+    return IceInternal::makePromiseOutgoing<::NoNamespace::C2Ptr>(true, this, &InitialPrx::_iceI_getNoNamespaceC2AsC2, context).get();
 }
 
 ::std::future<::NoNamespace::C2Ptr>
-Test::InitialPrx::getNoNamespaceC2AsC2Async(const ::Ice::Context& context) const
+Test::InitialPrx::getNoNamespaceC2AsC2Async(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::NoNamespace::C2Ptr>(false, this, &InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
+    return IceInternal::makePromiseOutgoing<::NoNamespace::C2Ptr>(false, this, &InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::getNoNamespaceC2AsC2Async(::std::function<void(::NoNamespace::C2Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::getNoNamespaceC2AsC2Async(::std::function<void(::NoNamespace::C2Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::NoNamespace::C2Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
+    return IceInternal::makeLambdaOutgoing<::NoNamespace::C2Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
 }
 
 void
-Test::InitialPrx::_iceI_getNoNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::NoNamespace::C2Ptr>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_getNoNamespaceC2AsC2(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::NoNamespace::C2Ptr>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getNoNamespaceC2AsC2";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::NoNamespace::C2Ptr ret;
             istr->readAll(ret);
@@ -111,159 +112,159 @@ Test::InitialPrx::_iceI_getNoNamespaceC2AsC2(const ::std::shared_ptr<::IceIntern
 }
 
 void
-Test::InitialPrx::throwNoNamespaceE2AsE1(const ::Ice::Context& context) const
+Test::InitialPrx::throwNoNamespaceE2AsE1(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE1, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE1, context).get();
 }
 
 ::std::future<void>
-Test::InitialPrx::throwNoNamespaceE2AsE1Async(const ::Ice::Context& context) const
+Test::InitialPrx::throwNoNamespaceE2AsE1Async(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE1, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::throwNoNamespaceE2AsE1Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::throwNoNamespaceE2AsE1Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceE2AsE1, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceE2AsE1, context);
 }
 
 void
-Test::InitialPrx::_iceI_throwNoNamespaceE2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_throwNoNamespaceE2AsE1(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "throwNoNamespaceE2AsE1";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
-        [](const ::Ice::UserException& ex)
+        [](const Ice::UserException& ex)
         {
             try
             {
                 ex.ice_throw();
             }
-            catch(const ::NoNamespace::E1&)
+            catch (const ::NoNamespace::E1&)
             {
                 throw;
             }
-            catch(const ::Ice::UserException&)
+            catch (const Ice::UserException&)
             {
             }
         });
 }
 
 void
-Test::InitialPrx::throwNoNamespaceE2AsE2(const ::Ice::Context& context) const
+Test::InitialPrx::throwNoNamespaceE2AsE2(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE2, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE2, context).get();
 }
 
 ::std::future<void>
-Test::InitialPrx::throwNoNamespaceE2AsE2Async(const ::Ice::Context& context) const
+Test::InitialPrx::throwNoNamespaceE2AsE2Async(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE2, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE2, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::throwNoNamespaceE2AsE2Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::throwNoNamespaceE2AsE2Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceE2AsE2, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceE2AsE2, context);
 }
 
 void
-Test::InitialPrx::_iceI_throwNoNamespaceE2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_throwNoNamespaceE2AsE2(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "throwNoNamespaceE2AsE2";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
-        [](const ::Ice::UserException& ex)
+        [](const Ice::UserException& ex)
         {
             try
             {
                 ex.ice_throw();
             }
-            catch(const ::NoNamespace::E2&)
+            catch (const ::NoNamespace::E2&)
             {
                 throw;
             }
-            catch(const ::Ice::UserException&)
+            catch (const Ice::UserException&)
             {
             }
         });
 }
 
 void
-Test::InitialPrx::throwNoNamespaceNotify(const ::Ice::Context& context) const
+Test::InitialPrx::throwNoNamespaceNotify(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwNoNamespaceNotify, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwNoNamespaceNotify, context).get();
 }
 
 ::std::future<void>
-Test::InitialPrx::throwNoNamespaceNotifyAsync(const ::Ice::Context& context) const
+Test::InitialPrx::throwNoNamespaceNotifyAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwNoNamespaceNotify, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwNoNamespaceNotify, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::throwNoNamespaceNotifyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::throwNoNamespaceNotifyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceNotify, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceNotify, context);
 }
 
 void
-Test::InitialPrx::_iceI_throwNoNamespaceNotify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_throwNoNamespaceNotify(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "throwNoNamespaceNotify";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
-        [](const ::Ice::UserException& ex)
+        [](const Ice::UserException& ex)
         {
             try
             {
                 ex.ice_throw();
             }
-            catch(const ::NoNamespace::notify&)
+            catch (const ::NoNamespace::notify&)
             {
                 throw;
             }
-            catch(const ::Ice::UserException&)
+            catch (const Ice::UserException&)
             {
             }
         });
 }
 
 ::WithNamespace::C1Ptr
-Test::InitialPrx::getWithNamespaceC2AsC1(const ::Ice::Context& context) const
+Test::InitialPrx::getWithNamespaceC2AsC1(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::WithNamespace::C1Ptr>(true, this, &InitialPrx::_iceI_getWithNamespaceC2AsC1, context).get();
+    return IceInternal::makePromiseOutgoing<::WithNamespace::C1Ptr>(true, this, &InitialPrx::_iceI_getWithNamespaceC2AsC1, context).get();
 }
 
 ::std::future<::WithNamespace::C1Ptr>
-Test::InitialPrx::getWithNamespaceC2AsC1Async(const ::Ice::Context& context) const
+Test::InitialPrx::getWithNamespaceC2AsC1Async(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::WithNamespace::C1Ptr>(false, this, &InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
+    return IceInternal::makePromiseOutgoing<::WithNamespace::C1Ptr>(false, this, &InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::getWithNamespaceC2AsC1Async(::std::function<void(::WithNamespace::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::getWithNamespaceC2AsC1Async(::std::function<void(::WithNamespace::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::WithNamespace::C1Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
+    return IceInternal::makeLambdaOutgoing<::WithNamespace::C1Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
 }
 
 void
-Test::InitialPrx::_iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::WithNamespace::C1Ptr>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::WithNamespace::C1Ptr>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getWithNamespaceC2AsC1";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::WithNamespace::C1Ptr ret;
             istr->readAll(ret);
@@ -273,33 +274,33 @@ Test::InitialPrx::_iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<::IceInte
 }
 
 ::WithNamespace::C2Ptr
-Test::InitialPrx::getWithNamespaceC2AsC2(const ::Ice::Context& context) const
+Test::InitialPrx::getWithNamespaceC2AsC2(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::WithNamespace::C2Ptr>(true, this, &InitialPrx::_iceI_getWithNamespaceC2AsC2, context).get();
+    return IceInternal::makePromiseOutgoing<::WithNamespace::C2Ptr>(true, this, &InitialPrx::_iceI_getWithNamespaceC2AsC2, context).get();
 }
 
 ::std::future<::WithNamespace::C2Ptr>
-Test::InitialPrx::getWithNamespaceC2AsC2Async(const ::Ice::Context& context) const
+Test::InitialPrx::getWithNamespaceC2AsC2Async(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::WithNamespace::C2Ptr>(false, this, &InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
+    return IceInternal::makePromiseOutgoing<::WithNamespace::C2Ptr>(false, this, &InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::getWithNamespaceC2AsC2Async(::std::function<void(::WithNamespace::C2Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::getWithNamespaceC2AsC2Async(::std::function<void(::WithNamespace::C2Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::WithNamespace::C2Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
+    return IceInternal::makeLambdaOutgoing<::WithNamespace::C2Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
 }
 
 void
-Test::InitialPrx::_iceI_getWithNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::WithNamespace::C2Ptr>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_getWithNamespaceC2AsC2(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::WithNamespace::C2Ptr>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getWithNamespaceC2AsC2";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::WithNamespace::C2Ptr ret;
             istr->readAll(ret);
@@ -309,113 +310,113 @@ Test::InitialPrx::_iceI_getWithNamespaceC2AsC2(const ::std::shared_ptr<::IceInte
 }
 
 void
-Test::InitialPrx::throwWithNamespaceE2AsE1(const ::Ice::Context& context) const
+Test::InitialPrx::throwWithNamespaceE2AsE1(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE1, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE1, context).get();
 }
 
 ::std::future<void>
-Test::InitialPrx::throwWithNamespaceE2AsE1Async(const ::Ice::Context& context) const
+Test::InitialPrx::throwWithNamespaceE2AsE1Async(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE1, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::throwWithNamespaceE2AsE1Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::throwWithNamespaceE2AsE1Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwWithNamespaceE2AsE1, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwWithNamespaceE2AsE1, context);
 }
 
 void
-Test::InitialPrx::_iceI_throwWithNamespaceE2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_throwWithNamespaceE2AsE1(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "throwWithNamespaceE2AsE1";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
-        [](const ::Ice::UserException& ex)
+        [](const Ice::UserException& ex)
         {
             try
             {
                 ex.ice_throw();
             }
-            catch(const ::WithNamespace::E1&)
+            catch (const ::WithNamespace::E1&)
             {
                 throw;
             }
-            catch(const ::Ice::UserException&)
+            catch (const Ice::UserException&)
             {
             }
         });
 }
 
 void
-Test::InitialPrx::throwWithNamespaceE2AsE2(const ::Ice::Context& context) const
+Test::InitialPrx::throwWithNamespaceE2AsE2(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE2, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE2, context).get();
 }
 
 ::std::future<void>
-Test::InitialPrx::throwWithNamespaceE2AsE2Async(const ::Ice::Context& context) const
+Test::InitialPrx::throwWithNamespaceE2AsE2Async(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE2, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE2, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::throwWithNamespaceE2AsE2Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::throwWithNamespaceE2AsE2Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwWithNamespaceE2AsE2, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwWithNamespaceE2AsE2, context);
 }
 
 void
-Test::InitialPrx::_iceI_throwWithNamespaceE2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_throwWithNamespaceE2AsE2(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "throwWithNamespaceE2AsE2";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
-        [](const ::Ice::UserException& ex)
+        [](const Ice::UserException& ex)
         {
             try
             {
                 ex.ice_throw();
             }
-            catch(const ::WithNamespace::E2&)
+            catch (const ::WithNamespace::E2&)
             {
                 throw;
             }
-            catch(const ::Ice::UserException&)
+            catch (const Ice::UserException&)
             {
             }
         });
 }
 
 void
-Test::InitialPrx::shutdown(const ::Ice::Context& context) const
+Test::InitialPrx::shutdown(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::InitialPrx::shutdownAsync(const ::Ice::Context& context) const
+Test::InitialPrx::shutdownAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_shutdown, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
 void
-Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -429,14 +430,14 @@ Test::InitialPrx::ice_staticId() noexcept
 }
 
 ::std::vector<::std::string>
-Test::Initial::ice_ids(const ::Ice::Current&) const
+Test::Initial::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Initial"};
     return allTypeIds;
 }
 
 ::std::string
-Test::Initial::ice_id(const ::Ice::Current&) const
+Test::Initial::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -450,13 +451,13 @@ Test::Initial::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_getNoNamespaceC2AsC1(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::NoNamespace::C1Ptr ret = this->getNoNamespaceC2AsC1(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
             ostr->writePendingValues();
@@ -468,13 +469,13 @@ Test::Initial::_iceD_getNoNamespaceC2AsC1(
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_getNoNamespaceC2AsC2(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::NoNamespace::C2Ptr ret = this->getNoNamespaceC2AsC2(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
             ostr->writePendingValues();
@@ -486,52 +487,52 @@ Test::Initial::_iceD_getNoNamespaceC2AsC2(
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_throwNoNamespaceE2AsE1(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->throwNoNamespaceE2AsE1(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_throwNoNamespaceE2AsE2(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->throwNoNamespaceE2AsE2(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_throwNoNamespaceNotify(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->throwNoNamespaceNotify(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_getWithNamespaceC2AsC1(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::WithNamespace::C1Ptr ret = this->getWithNamespaceC2AsC1(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
             ostr->writePendingValues();
@@ -543,13 +544,13 @@ Test::Initial::_iceD_getWithNamespaceC2AsC1(
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_getWithNamespaceC2AsC2(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::WithNamespace::C2Ptr ret = this->getWithNamespaceC2AsC2(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
             ostr->writePendingValues();
@@ -561,57 +562,57 @@ Test::Initial::_iceD_getWithNamespaceC2AsC2(
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_throwWithNamespaceE2AsE1(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->throwWithNamespaceE2AsE1(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_throwWithNamespaceE2AsE2(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->throwWithNamespaceE2AsE2(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Initial::_iceD_shutdown(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->shutdown(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Initial::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"getNoNamespaceC2AsC1", "getNoNamespaceC2AsC2", "getWithNamespaceC2AsC1", "getWithNamespaceC2AsC2", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "throwNoNamespaceE2AsE1", "throwNoNamespaceE2AsE2", "throwNoNamespaceNotify", "throwWithNamespaceE2AsE1", "throwWithNamespaceE2AsE2"};
+    static constexpr ::std::array<::std::string_view, 14> allOperations{"getNoNamespaceC2AsC1", "getNoNamespaceC2AsC2", "getWithNamespaceC2AsC1", "getWithNamespaceC2AsC2", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "throwNoNamespaceE2AsE1", "throwNoNamespaceE2AsE2", "throwNoNamespaceNotify", "throwWithNamespaceE2AsE1", "throwWithNamespaceE2AsE2"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -686,7 +687,7 @@ Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

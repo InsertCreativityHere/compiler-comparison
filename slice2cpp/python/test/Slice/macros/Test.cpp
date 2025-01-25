@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,9 +37,9 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::Default> iceC_Test_Default_init("::Test::Default");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::NoDefault> iceC_Test_NoDefault_init("::Test::NoDefault");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test::Default> iceC_Test_Default_init("::Test::Default");
+    const IceInternal::DefaultValueFactoryInit<::Test::NoDefault> iceC_Test_NoDefault_init("::Test::NoDefault");
 }
 
 const char*
@@ -60,14 +61,14 @@ Test::Default::ice_printFields(std::ostream& os) const
     Ice::print(os << ", y = ", this->y);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::Default::_iceCloneImpl() const
 {
     return CloneEnabler<Default>::clone(*this);
 }
 
 void
-Test::Default::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::Default::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->x, this->y);
@@ -75,7 +76,7 @@ Test::Default::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::Default::_iceReadImpl(::Ice::InputStream* istr)
+Test::Default::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->x, this->y);
@@ -101,14 +102,14 @@ Test::NoDefault::ice_printFields(std::ostream& os) const
     Ice::print(os << ", y = ", this->y);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::NoDefault::_iceCloneImpl() const
 {
     return CloneEnabler<NoDefault>::clone(*this);
 }
 
 void
-Test::NoDefault::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::NoDefault::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->x, this->y);
@@ -116,7 +117,7 @@ Test::NoDefault::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::NoDefault::_iceReadImpl(::Ice::InputStream* istr)
+Test::NoDefault::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->x, this->y);

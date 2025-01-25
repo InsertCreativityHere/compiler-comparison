@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -35,30 +36,30 @@
 #endif
 
 void
-Test::RetryPrx::op(bool iceP_kill, const ::Ice::Context& context) const
+Test::RetryPrx::op(bool iceP_kill, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_op, iceP_kill, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_op, iceP_kill, context).get();
 }
 
 ::std::future<void>
-Test::RetryPrx::opAsync(bool iceP_kill, const ::Ice::Context& context) const
+Test::RetryPrx::opAsync(bool iceP_kill, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_op, iceP_kill, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_op, iceP_kill, context);
 }
 
 ::std::function<void()>
-Test::RetryPrx::opAsync(bool iceP_kill, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::RetryPrx::opAsync(bool iceP_kill, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RetryPrx::_iceI_op, iceP_kill, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RetryPrx::_iceI_op, iceP_kill, context);
 }
 
 void
-Test::RetryPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_kill, const ::Ice::Context& context) const
+Test::RetryPrx::_iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_kill, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "op";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_kill);
         },
@@ -66,31 +67,31 @@ Test::RetryPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<v
 }
 
 ::std::int32_t
-Test::RetryPrx::opIdempotent(::std::int32_t iceP_c, const ::Ice::Context& context) const
+Test::RetryPrx::opIdempotent(::std::int32_t iceP_c, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context).get();
+    return IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context).get();
 }
 
 ::std::future<::std::int32_t>
-Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c, const ::Ice::Context& context) const
+Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context);
+    return IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context);
 }
 
 ::std::function<void()>
-Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RetryPrx::_iceI_opIdempotent, iceP_c, context);
+    return IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RetryPrx::_iceI_opIdempotent, iceP_c, context);
 }
 
 void
-Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_c, const ::Ice::Context& context) const
+Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_c, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opIdempotent";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c);
         },
@@ -98,58 +99,58 @@ Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 
 void
-Test::RetryPrx::opNotIdempotent(const ::Ice::Context& context) const
+Test::RetryPrx::opNotIdempotent(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_opNotIdempotent, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_opNotIdempotent, context).get();
 }
 
 ::std::future<void>
-Test::RetryPrx::opNotIdempotentAsync(const ::Ice::Context& context) const
+Test::RetryPrx::opNotIdempotentAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_opNotIdempotent, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_opNotIdempotent, context);
 }
 
 ::std::function<void()>
-Test::RetryPrx::opNotIdempotentAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::RetryPrx::opNotIdempotentAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RetryPrx::_iceI_opNotIdempotent, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RetryPrx::_iceI_opNotIdempotent, context);
 }
 
 void
-Test::RetryPrx::_iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::RetryPrx::_iceI_opNotIdempotent(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opNotIdempotent";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 void
-Test::RetryPrx::sleep(::std::int32_t iceP_delay, const ::Ice::Context& context) const
+Test::RetryPrx::sleep(::std::int32_t iceP_delay, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_sleep, iceP_delay, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_sleep, iceP_delay, context).get();
 }
 
 ::std::future<void>
-Test::RetryPrx::sleepAsync(::std::int32_t iceP_delay, const ::Ice::Context& context) const
+Test::RetryPrx::sleepAsync(::std::int32_t iceP_delay, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_sleep, iceP_delay, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_sleep, iceP_delay, context);
 }
 
 ::std::function<void()>
-Test::RetryPrx::sleepAsync(::std::int32_t iceP_delay, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::RetryPrx::sleepAsync(::std::int32_t iceP_delay, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RetryPrx::_iceI_sleep, iceP_delay, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RetryPrx::_iceI_sleep, iceP_delay, context);
 }
 
 void
-Test::RetryPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
+Test::RetryPrx::_iceI_sleep(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_delay, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "sleep";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_delay);
         },
@@ -157,29 +158,29 @@ Test::RetryPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 }
 
 void
-Test::RetryPrx::shutdown(const ::Ice::Context& context) const
+Test::RetryPrx::shutdown(const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_shutdown, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
-Test::RetryPrx::shutdownAsync(const ::Ice::Context& context) const
+Test::RetryPrx::shutdownAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_shutdown, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
-Test::RetryPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::RetryPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RetryPrx::_iceI_shutdown, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RetryPrx::_iceI_shutdown, context);
 }
 
 void
-Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "shutdown";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -193,14 +194,14 @@ Test::RetryPrx::ice_staticId() noexcept
 }
 
 ::std::vector<::std::string>
-Test::Retry::ice_ids(const ::Ice::Current&) const
+Test::Retry::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Retry"};
     return allTypeIds;
 }
 
 ::std::string
-Test::Retry::ice_id(const ::Ice::Current&) const
+Test::Retry::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -214,34 +215,34 @@ Test::Retry::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::Retry::_iceD_op(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     bool iceP_kill;
     istr->readAll(iceP_kill);
     istr->endEncapsulation();
     this->op(iceP_kill, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Retry::_iceD_opIdempotent(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::int32_t iceP_c;
     istr->readAll(iceP_c);
     istr->endEncapsulation();
     const ::std::int32_t ret = this->opIdempotent(iceP_c, request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -252,61 +253,61 @@ Test::Retry::_iceD_opIdempotent(
 /// \cond INTERNAL
 void
 Test::Retry::_iceD_opNotIdempotent(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->opNotIdempotent(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Retry::_iceD_sleep(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::int32_t iceP_delay;
     istr->readAll(iceP_delay);
     istr->endEncapsulation();
     this->sleep(iceP_delay, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
 Test::Retry::_iceD_shutdown(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     this->shutdown(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-Test::Retry::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Retry::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opIdempotent", "opNotIdempotent", "shutdown", "sleep"};
+    static constexpr ::std::array<::std::string_view, 9> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opIdempotent", "opNotIdempotent", "shutdown", "sleep"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -356,7 +357,7 @@ Test::Retry::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ic
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

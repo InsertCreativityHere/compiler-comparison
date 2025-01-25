@@ -19,6 +19,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -39,18 +40,18 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::CommunicatorDescriptor> iceC_IceGrid_CommunicatorDescriptor_init("::IceGrid::CommunicatorDescriptor");
-    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::ServerDescriptor> iceC_IceGrid_ServerDescriptor_init("::IceGrid::ServerDescriptor");
-    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::ServiceDescriptor> iceC_IceGrid_ServiceDescriptor_init("::IceGrid::ServiceDescriptor");
-    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::IceBoxDescriptor> iceC_IceGrid_IceBoxDescriptor_init("::IceGrid::IceBoxDescriptor");
-    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::LoadBalancingPolicy> iceC_IceGrid_LoadBalancingPolicy_init("::IceGrid::LoadBalancingPolicy");
-    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::RandomLoadBalancingPolicy> iceC_IceGrid_RandomLoadBalancingPolicy_init("::IceGrid::RandomLoadBalancingPolicy");
-    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::OrderedLoadBalancingPolicy> iceC_IceGrid_OrderedLoadBalancingPolicy_init("::IceGrid::OrderedLoadBalancingPolicy");
-    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::RoundRobinLoadBalancingPolicy> iceC_IceGrid_RoundRobinLoadBalancingPolicy_init("::IceGrid::RoundRobinLoadBalancingPolicy");
-    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::AdaptiveLoadBalancingPolicy> iceC_IceGrid_AdaptiveLoadBalancingPolicy_init("::IceGrid::AdaptiveLoadBalancingPolicy");
-    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedString> iceC_IceGrid_BoxedString_init("::IceGrid::BoxedString");
-    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedDistributionDescriptor> iceC_IceGrid_BoxedDistributionDescriptor_init("::IceGrid::BoxedDistributionDescriptor");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::IceGrid::CommunicatorDescriptor> iceC_IceGrid_CommunicatorDescriptor_init("::IceGrid::CommunicatorDescriptor");
+    const IceInternal::DefaultValueFactoryInit<::IceGrid::ServerDescriptor> iceC_IceGrid_ServerDescriptor_init("::IceGrid::ServerDescriptor");
+    const IceInternal::DefaultValueFactoryInit<::IceGrid::ServiceDescriptor> iceC_IceGrid_ServiceDescriptor_init("::IceGrid::ServiceDescriptor");
+    const IceInternal::DefaultValueFactoryInit<::IceGrid::IceBoxDescriptor> iceC_IceGrid_IceBoxDescriptor_init("::IceGrid::IceBoxDescriptor");
+    const IceInternal::DefaultValueFactoryInit<::IceGrid::LoadBalancingPolicy> iceC_IceGrid_LoadBalancingPolicy_init("::IceGrid::LoadBalancingPolicy");
+    const IceInternal::DefaultValueFactoryInit<::IceGrid::RandomLoadBalancingPolicy> iceC_IceGrid_RandomLoadBalancingPolicy_init("::IceGrid::RandomLoadBalancingPolicy");
+    const IceInternal::DefaultValueFactoryInit<::IceGrid::OrderedLoadBalancingPolicy> iceC_IceGrid_OrderedLoadBalancingPolicy_init("::IceGrid::OrderedLoadBalancingPolicy");
+    const IceInternal::DefaultValueFactoryInit<::IceGrid::RoundRobinLoadBalancingPolicy> iceC_IceGrid_RoundRobinLoadBalancingPolicy_init("::IceGrid::RoundRobinLoadBalancingPolicy");
+    const IceInternal::DefaultValueFactoryInit<::IceGrid::AdaptiveLoadBalancingPolicy> iceC_IceGrid_AdaptiveLoadBalancingPolicy_init("::IceGrid::AdaptiveLoadBalancingPolicy");
+    const IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedString> iceC_IceGrid_BoxedString_init("::IceGrid::BoxedString");
+    const IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedDistributionDescriptor> iceC_IceGrid_BoxedDistributionDescriptor_init("::IceGrid::BoxedDistributionDescriptor");
 }
 
 void
@@ -146,14 +147,14 @@ IceGrid::CommunicatorDescriptor::ice_printFields(std::ostream& os) const
     Ice::print(os << ", description = ", this->description);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceGrid::CommunicatorDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<CommunicatorDescriptor>::clone(*this);
 }
 
 void
-IceGrid::CommunicatorDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceGrid::CommunicatorDescriptor::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->adapters, this->propertySet, this->logs, this->description);
@@ -161,7 +162,7 @@ IceGrid::CommunicatorDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::CommunicatorDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+IceGrid::CommunicatorDescriptor::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->adapters, this->propertySet, this->logs, this->description);
@@ -215,14 +216,14 @@ IceGrid::ServerDescriptor::ice_printFields(std::ostream& os) const
     Ice::print(os << ", user = ", this->user);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceGrid::ServerDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<ServerDescriptor>::clone(*this);
 }
 
 void
-IceGrid::ServerDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceGrid::ServerDescriptor::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->id, this->exe, this->iceVersion, this->pwd, this->options, this->envs, this->activation, this->activationTimeout, this->deactivationTimeout, this->applicationDistrib, this->distrib, this->allocatable, this->user);
@@ -231,7 +232,7 @@ IceGrid::ServerDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::ServerDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+IceGrid::ServerDescriptor::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->id, this->exe, this->iceVersion, this->pwd, this->options, this->envs, this->activation, this->activationTimeout, this->deactivationTimeout, this->applicationDistrib, this->distrib, this->allocatable, this->user);
@@ -259,14 +260,14 @@ IceGrid::ServiceDescriptor::ice_printFields(std::ostream& os) const
     Ice::print(os << ", entry = ", this->entry);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceGrid::ServiceDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<ServiceDescriptor>::clone(*this);
 }
 
 void
-IceGrid::ServiceDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceGrid::ServiceDescriptor::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->name, this->entry);
@@ -275,7 +276,7 @@ IceGrid::ServiceDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::ServiceDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+IceGrid::ServiceDescriptor::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->name, this->entry);
@@ -355,14 +356,14 @@ IceGrid::IceBoxDescriptor::ice_printFields(std::ostream& os) const
     Ice::print(os << ", services = ", this->services);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceGrid::IceBoxDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<IceBoxDescriptor>::clone(*this);
 }
 
 void
-IceGrid::IceBoxDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceGrid::IceBoxDescriptor::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->services);
@@ -371,7 +372,7 @@ IceGrid::IceBoxDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::IceBoxDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+IceGrid::IceBoxDescriptor::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->services);
@@ -417,14 +418,14 @@ IceGrid::LoadBalancingPolicy::ice_printFields(std::ostream& os) const
     Ice::print(os << "nReplicas = ", this->nReplicas);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceGrid::LoadBalancingPolicy::_iceCloneImpl() const
 {
     return CloneEnabler<LoadBalancingPolicy>::clone(*this);
 }
 
 void
-IceGrid::LoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceGrid::LoadBalancingPolicy::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->nReplicas);
@@ -432,7 +433,7 @@ IceGrid::LoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::LoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
+IceGrid::LoadBalancingPolicy::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->nReplicas);
@@ -451,14 +452,14 @@ IceGrid::RandomLoadBalancingPolicy::ice_id() const noexcept
     return ice_staticId();
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceGrid::RandomLoadBalancingPolicy::_iceCloneImpl() const
 {
     return CloneEnabler<RandomLoadBalancingPolicy>::clone(*this);
 }
 
 void
-IceGrid::RandomLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceGrid::RandomLoadBalancingPolicy::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->endSlice();
@@ -466,7 +467,7 @@ IceGrid::RandomLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) con
 }
 
 void
-IceGrid::RandomLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
+IceGrid::RandomLoadBalancingPolicy::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->endSlice();
@@ -485,14 +486,14 @@ IceGrid::OrderedLoadBalancingPolicy::ice_id() const noexcept
     return ice_staticId();
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceGrid::OrderedLoadBalancingPolicy::_iceCloneImpl() const
 {
     return CloneEnabler<OrderedLoadBalancingPolicy>::clone(*this);
 }
 
 void
-IceGrid::OrderedLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceGrid::OrderedLoadBalancingPolicy::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->endSlice();
@@ -500,7 +501,7 @@ IceGrid::OrderedLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) co
 }
 
 void
-IceGrid::OrderedLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
+IceGrid::OrderedLoadBalancingPolicy::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->endSlice();
@@ -519,14 +520,14 @@ IceGrid::RoundRobinLoadBalancingPolicy::ice_id() const noexcept
     return ice_staticId();
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceGrid::RoundRobinLoadBalancingPolicy::_iceCloneImpl() const
 {
     return CloneEnabler<RoundRobinLoadBalancingPolicy>::clone(*this);
 }
 
 void
-IceGrid::RoundRobinLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceGrid::RoundRobinLoadBalancingPolicy::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->endSlice();
@@ -534,7 +535,7 @@ IceGrid::RoundRobinLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr)
 }
 
 void
-IceGrid::RoundRobinLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
+IceGrid::RoundRobinLoadBalancingPolicy::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->endSlice();
@@ -560,14 +561,14 @@ IceGrid::AdaptiveLoadBalancingPolicy::ice_printFields(std::ostream& os) const
     Ice::print(os << ", loadSample = ", this->loadSample);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceGrid::AdaptiveLoadBalancingPolicy::_iceCloneImpl() const
 {
     return CloneEnabler<AdaptiveLoadBalancingPolicy>::clone(*this);
 }
 
 void
-IceGrid::AdaptiveLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceGrid::AdaptiveLoadBalancingPolicy::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->loadSample);
@@ -576,7 +577,7 @@ IceGrid::AdaptiveLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) c
 }
 
 void
-IceGrid::AdaptiveLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
+IceGrid::AdaptiveLoadBalancingPolicy::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->loadSample);
@@ -645,14 +646,14 @@ IceGrid::BoxedString::ice_printFields(std::ostream& os) const
     Ice::print(os << "value = ", this->value);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceGrid::BoxedString::_iceCloneImpl() const
 {
     return CloneEnabler<BoxedString>::clone(*this);
 }
 
 void
-IceGrid::BoxedString::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceGrid::BoxedString::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->value);
@@ -660,7 +661,7 @@ IceGrid::BoxedString::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::BoxedString::_iceReadImpl(::Ice::InputStream* istr)
+IceGrid::BoxedString::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->value);
@@ -709,14 +710,14 @@ IceGrid::BoxedDistributionDescriptor::ice_printFields(std::ostream& os) const
     Ice::print(os << "value = ", this->value);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceGrid::BoxedDistributionDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<BoxedDistributionDescriptor>::clone(*this);
 }
 
 void
-IceGrid::BoxedDistributionDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceGrid::BoxedDistributionDescriptor::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->value);
@@ -724,7 +725,7 @@ IceGrid::BoxedDistributionDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) c
 }
 
 void
-IceGrid::BoxedDistributionDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+IceGrid::BoxedDistributionDescriptor::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->value);

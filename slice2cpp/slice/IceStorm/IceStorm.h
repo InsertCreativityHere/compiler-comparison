@@ -62,7 +62,7 @@ namespace IceStorm
 
 /// Publishers publish information on a particular topic. A topic logically represents a type.
 /// @see TopicManager
-class ICESTORM_API TopicPrx : public ::Ice::Proxy<TopicPrx, ::Ice::ObjectPrx>
+class ICESTORM_API TopicPrx : public Ice::Proxy<TopicPrx, Ice::ObjectPrx>
 {
 public:
 
@@ -70,13 +70,13 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The name of the topic.
     /// @see TopicManager#create
-    ::std::string getName(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::string getName(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the name of this topic.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     /// @see TopicManager#create
-    [[nodiscard]] ::std::future<::std::string> getNameAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::string> getNameAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Get the name of this topic.
     /// @param response The response callback.
@@ -86,10 +86,10 @@ public:
     /// @return A function that can be called to cancel the invocation locally.
     /// @see TopicManager#create
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getNameAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getNameAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::Ice::Context&) const;
+    void _iceI_getName(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
@@ -97,14 +97,14 @@ public:
     /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to publish data on this topic.
-    ::std::optional<::Ice::ObjectPrx> getPublisher(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::optional<Ice::ObjectPrx> getPublisher(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
     /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
     /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> getPublisherAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<Ice::ObjectPrx>> getPublisherAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
     /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
@@ -115,10 +115,10 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getPublisherAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getPublisherAsync(::std::function<void(::std::optional<Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getPublisher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::Ice::Context&) const;
+    void _iceI_getPublisher(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<Ice::ObjectPrx>>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
@@ -126,14 +126,14 @@ public:
     /// never null.
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to publish data on this topic.
-    ::std::optional<::Ice::ObjectPrx> getNonReplicatedPublisher(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::optional<Ice::ObjectPrx> getNonReplicatedPublisher(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
     /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
     /// never null.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> getNonReplicatedPublisherAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<Ice::ObjectPrx>> getNonReplicatedPublisherAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
     /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
@@ -144,10 +144,10 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getNonReplicatedPublisherAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getNonReplicatedPublisherAsync(::std::function<void(::std::optional<Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNonReplicatedPublisher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::Ice::Context&) const;
+    void _iceI_getNonReplicatedPublisher(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<Ice::ObjectPrx>>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
@@ -159,7 +159,7 @@ public:
     /// @throws IceStorm::BadQoS Raised if the requested quality of service is unavailable or invalid.
     /// @throws IceStorm::InvalidSubscriber Raised if the subscriber object is null.
     /// @see #unsubscribe
-    ::std::optional<::Ice::ObjectPrx> subscribeAndGetPublisher(const QoS& theQoS, const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::optional<Ice::ObjectPrx> subscribeAndGetPublisher(const QoS& theQoS, const ::std::optional<Ice::ObjectPrx>& subscriber, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
     /// @param theQoS The quality of service parameters for this subscription.
@@ -167,7 +167,7 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     /// @see #unsubscribe
-    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> subscribeAndGetPublisherAsync(const QoS& theQoS, const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<Ice::ObjectPrx>> subscribeAndGetPublisherAsync(const QoS& theQoS, const ::std::optional<Ice::ObjectPrx>& subscriber, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
     /// @param theQoS The quality of service parameters for this subscription.
@@ -179,24 +179,24 @@ public:
     /// @return A function that can be called to cancel the invocation locally.
     /// @see #unsubscribe
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    subscribeAndGetPublisherAsync(const QoS& theQoS, const ::std::optional<::Ice::ObjectPrx>& subscriber, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    subscribeAndGetPublisherAsync(const QoS& theQoS, const ::std::optional<Ice::ObjectPrx>& subscriber, ::std::function<void(::std::optional<Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_subscribeAndGetPublisher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const QoS&, const ::std::optional<::Ice::ObjectPrx>&, const ::Ice::Context&) const;
+    void _iceI_subscribeAndGetPublisher(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<Ice::ObjectPrx>>>&, const QoS&, const ::std::optional<Ice::ObjectPrx>&, const Ice::Context&) const;
     /// \endcond
 
     /// Unsubscribe the given <code>subscriber</code>.
     /// @param subscriber The proxy of an existing subscriber. This proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @see #subscribeAndGetPublisher
-    void unsubscribe(const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void unsubscribe(const ::std::optional<Ice::ObjectPrx>& subscriber, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Unsubscribe the given <code>subscriber</code>.
     /// @param subscriber The proxy of an existing subscriber. This proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     /// @see #subscribeAndGetPublisher
-    [[nodiscard]] ::std::future<void> unsubscribeAsync(const ::std::optional<::Ice::ObjectPrx>& subscriber, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> unsubscribeAsync(const ::std::optional<Ice::ObjectPrx>& subscriber, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Unsubscribe the given <code>subscriber</code>.
     /// @param subscriber The proxy of an existing subscriber. This proxy is never null.
@@ -207,10 +207,10 @@ public:
     /// @return A function that can be called to cancel the invocation locally.
     /// @see #subscribeAndGetPublisher
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unsubscribeAsync(const ::std::optional<::Ice::ObjectPrx>& subscriber, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    unsubscribeAsync(const ::std::optional<Ice::ObjectPrx>& subscriber, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unsubscribe(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<::Ice::ObjectPrx>&, const ::Ice::Context&) const;
+    void _iceI_unsubscribe(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<Ice::ObjectPrx>&, const Ice::Context&) const;
     /// \endcond
 
     /// Create a link to the given topic. All events originating on this topic will also be sent to
@@ -219,7 +219,7 @@ public:
     /// @param cost The cost to the linked topic.
     /// @param context The Context map to send with the invocation.
     /// @throws IceStorm::LinkExists Raised if a link to the same topic already exists.
-    void link(const ::std::optional<TopicPrx>& linkTo, ::std::int32_t cost, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void link(const ::std::optional<TopicPrx>& linkTo, ::std::int32_t cost, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Create a link to the given topic. All events originating on this topic will also be sent to
     /// <code>linkTo</code>.
@@ -227,7 +227,7 @@ public:
     /// @param cost The cost to the linked topic.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> linkAsync(const ::std::optional<TopicPrx>& linkTo, ::std::int32_t cost, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> linkAsync(const ::std::optional<TopicPrx>& linkTo, ::std::int32_t cost, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Create a link to the given topic. All events originating on this topic will also be sent to
     /// <code>linkTo</code>.
@@ -239,23 +239,23 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    linkAsync(const ::std::optional<TopicPrx>& linkTo, ::std::int32_t cost, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    linkAsync(const ::std::optional<TopicPrx>& linkTo, ::std::int32_t cost, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_link(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<TopicPrx>&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_link(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<TopicPrx>&, ::std::int32_t, const Ice::Context&) const;
     /// \endcond
 
     /// Destroy the link from this topic to the given topic <code>linkTo</code>.
     /// @param linkTo The topic to destroy the link to. This proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @throws IceStorm::NoSuchLink Raised if a link to the topic does not exist.
-    void unlink(const ::std::optional<TopicPrx>& linkTo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void unlink(const ::std::optional<TopicPrx>& linkTo, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Destroy the link from this topic to the given topic <code>linkTo</code>.
     /// @param linkTo The topic to destroy the link to. This proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> unlinkAsync(const ::std::optional<TopicPrx>& linkTo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> unlinkAsync(const ::std::optional<TopicPrx>& linkTo, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Destroy the link from this topic to the given topic <code>linkTo</code>.
     /// @param linkTo The topic to destroy the link to. This proxy is never null.
@@ -265,21 +265,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unlinkAsync(const ::std::optional<TopicPrx>& linkTo, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    unlinkAsync(const ::std::optional<TopicPrx>& linkTo, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_unlink(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<TopicPrx>&, const ::Ice::Context&) const;
+    void _iceI_unlink(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<TopicPrx>&, const Ice::Context&) const;
     /// \endcond
 
     /// Retrieve information on the current links.
     /// @param context The Context map to send with the invocation.
     /// @return A sequence of LinkInfo objects.
-    LinkInfoSeq getLinkInfoSeq(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    LinkInfoSeq getLinkInfoSeq(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Retrieve information on the current links.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<LinkInfoSeq> getLinkInfoSeqAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<LinkInfoSeq> getLinkInfoSeqAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Retrieve information on the current links.
     /// @param response The response callback.
@@ -288,21 +288,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getLinkInfoSeqAsync(::std::function<void(::IceStorm::LinkInfoSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getLinkInfoSeqAsync(::std::function<void(::IceStorm::LinkInfoSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getLinkInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LinkInfoSeq>>&, const ::Ice::Context&) const;
+    void _iceI_getLinkInfoSeq(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<LinkInfoSeq>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Retrieve the list of subscribers for this topic.
     /// @param context The Context map to send with the invocation.
     /// @return The sequence of Ice identities for the subscriber objects.
-    ::Ice::IdentitySeq getSubscribers(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::Ice::IdentitySeq getSubscribers(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Retrieve the list of subscribers for this topic.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::Ice::IdentitySeq> getSubscribersAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::Ice::IdentitySeq> getSubscribersAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Retrieve the list of subscribers for this topic.
     /// @param response The response callback.
@@ -311,20 +311,20 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getSubscribersAsync(::std::function<void(::Ice::IdentitySeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getSubscribersAsync(::std::function<void(::Ice::IdentitySeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getSubscribers(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>&, const ::Ice::Context&) const;
+    void _iceI_getSubscribers(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Destroy the topic.
     /// @param context The Context map to send with the invocation.
-    void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void destroy(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Destroy the topic.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> destroyAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> destroyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Destroy the topic.
     /// @param response The response callback.
@@ -333,21 +333,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    destroyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    destroyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
+    void _iceI_destroy(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    TopicPrx(const TopicPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    TopicPrx(const TopicPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    TopicPrx(TopicPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    TopicPrx(TopicPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    TopicPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    TopicPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~TopicPrx() override;
 
@@ -355,7 +355,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -364,19 +364,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static TopicPrx _fromReference(::IceInternal::ReferencePtr ref) { return TopicPrx(std::move(ref)); }
+    static TopicPrx _fromReference(IceInternal::ReferencePtr ref) { return TopicPrx(std::move(ref)); }
 
 protected:
 
     TopicPrx() = default;
 
-    explicit TopicPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit TopicPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -384,7 +384,7 @@ protected:
 
 /// A topic manager manages topics, and subscribers to topics.
 /// @see Topic
-class ICESTORM_API TopicManagerPrx : public ::Ice::Proxy<TopicManagerPrx, ::Ice::ObjectPrx>
+class ICESTORM_API TopicManagerPrx : public Ice::Proxy<TopicManagerPrx, Ice::ObjectPrx>
 {
 public:
 
@@ -393,13 +393,13 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to the topic instance. The returned proxy is never null.
     /// @throws IceStorm::TopicExists Raised if a topic with the same name already exists.
-    ::std::optional<TopicPrx> create(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::optional<TopicPrx> create(::std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Create a new topic. The topic name must be unique.
     /// @param name The name of the topic.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<TopicPrx>> createAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<TopicPrx>> createAsync(::std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Create a new topic. The topic name must be unique.
     /// @param name The name of the topic.
@@ -409,10 +409,10 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    createAsync(::std::string_view name, ::std::function<void(::std::optional<::IceStorm::TopicPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    createAsync(::std::string_view name, ::std::function<void(::std::optional<::IceStorm::TopicPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>&, ::std::string_view, const ::Ice::Context&) const;
+    void _iceI_create(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>&, ::std::string_view, const Ice::Context&) const;
     /// \endcond
 
     /// Retrieve a topic by name.
@@ -420,13 +420,13 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A proxy to the topic instance. The returned proxy is never null.
     /// @throws IceStorm::NoSuchTopic Raised if the topic does not exist.
-    ::std::optional<TopicPrx> retrieve(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::optional<TopicPrx> retrieve(::std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Retrieve a topic by name.
     /// @param name The name of the topic.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<TopicPrx>> retrieveAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<TopicPrx>> retrieveAsync(::std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Retrieve a topic by name.
     /// @param name The name of the topic.
@@ -436,21 +436,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    retrieveAsync(::std::string_view name, ::std::function<void(::std::optional<::IceStorm::TopicPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    retrieveAsync(::std::string_view name, ::std::function<void(::std::optional<::IceStorm::TopicPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_retrieve(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>&, ::std::string_view, const ::Ice::Context&) const;
+    void _iceI_retrieve(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>&, ::std::string_view, const Ice::Context&) const;
     /// \endcond
 
     /// Retrieve all topics managed by this topic manager.
     /// @param context The Context map to send with the invocation.
     /// @return A dictionary of string, topic proxy pairs.
-    TopicDict retrieveAll(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    TopicDict retrieveAll(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Retrieve all topics managed by this topic manager.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<TopicDict> retrieveAllAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<TopicDict> retrieveAllAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Retrieve all topics managed by this topic manager.
     /// @param response The response callback.
@@ -459,21 +459,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    retrieveAllAsync(::std::function<void(::IceStorm::TopicDict)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    retrieveAllAsync(::std::function<void(::IceStorm::TopicDict)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_retrieveAll(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TopicDict>>&, const ::Ice::Context&) const;
+    void _iceI_retrieveAll(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<TopicDict>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    TopicManagerPrx(const TopicManagerPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    TopicManagerPrx(const TopicManagerPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    TopicManagerPrx(TopicManagerPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    TopicManagerPrx(TopicManagerPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    TopicManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    TopicManagerPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~TopicManagerPrx() override;
 
@@ -481,7 +481,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -490,19 +490,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static TopicManagerPrx _fromReference(::IceInternal::ReferencePtr ref) { return TopicManagerPrx(std::move(ref)); }
+    static TopicManagerPrx _fromReference(IceInternal::ReferencePtr ref) { return TopicManagerPrx(std::move(ref)); }
 
 protected:
 
     TopicManagerPrx() = default;
 
-    explicit TopicManagerPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit TopicManagerPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -510,19 +510,19 @@ protected:
 
 /// This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
 /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
-class ICESTORM_API FinderPrx : public ::Ice::Proxy<FinderPrx, ::Ice::ObjectPrx>
+class ICESTORM_API FinderPrx : public Ice::Proxy<FinderPrx, Ice::ObjectPrx>
 {
 public:
 
     /// Get the topic manager proxy. The proxy might point to several replicas.
     /// @param context The Context map to send with the invocation.
     /// @return The topic manager proxy. The returned proxy is never null.
-    ::std::optional<TopicManagerPrx> getTopicManager(const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::optional<TopicManagerPrx> getTopicManager(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the topic manager proxy. The proxy might point to several replicas.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<TopicManagerPrx>> getTopicManagerAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<TopicManagerPrx>> getTopicManagerAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Get the topic manager proxy. The proxy might point to several replicas.
     /// @param response The response callback.
@@ -531,21 +531,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getTopicManagerAsync(::std::function<void(::std::optional<::IceStorm::TopicManagerPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getTopicManagerAsync(::std::function<void(::std::optional<::IceStorm::TopicManagerPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getTopicManager(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicManagerPrx>>>&, const ::Ice::Context&) const;
+    void _iceI_getTopicManager(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<TopicManagerPrx>>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    FinderPrx(const FinderPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    FinderPrx(const FinderPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    FinderPrx(FinderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    FinderPrx(FinderPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    FinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    FinderPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~FinderPrx() override;
 
@@ -553,7 +553,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -562,19 +562,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static FinderPrx _fromReference(::IceInternal::ReferencePtr ref) { return FinderPrx(std::move(ref)); }
+    static FinderPrx _fromReference(IceInternal::ReferencePtr ref) { return FinderPrx(std::move(ref)); }
 
 protected:
 
     FinderPrx() = default;
 
-    explicit FinderPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit FinderPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -610,7 +610,7 @@ struct LinkInfo
 ICESTORM_API ::std::ostream& operator<<(::std::ostream&, const LinkInfo&);
 
 /// This exception indicates that an attempt was made to create a link that already exists.
-class ICE_CLASS(ICESTORM_API) LinkExists : public ::Ice::UserException
+class ICE_CLASS(ICESTORM_API) LinkExists : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -647,13 +647,13 @@ public:
     ::std::string name;
 
 protected:
-    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICESTORM_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception indicates that an attempt was made to remove a link that does not exist.
-class ICE_CLASS(ICESTORM_API) NoSuchLink : public ::Ice::UserException
+class ICE_CLASS(ICESTORM_API) NoSuchLink : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -690,13 +690,13 @@ public:
     ::std::string name;
 
 protected:
-    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICESTORM_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
-class ICE_CLASS(ICESTORM_API) AlreadySubscribed : public ::Ice::UserException
+class ICE_CLASS(ICESTORM_API) AlreadySubscribed : public Ice::UserException
 {
 public:
     /// Obtains the Slice type ID of this exception.
@@ -708,13 +708,13 @@ public:
     ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
 
 protected:
-    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICESTORM_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception indicates that an attempt was made to subscribe a proxy that is null.
-class ICE_CLASS(ICESTORM_API) InvalidSubscriber : public ::Ice::UserException
+class ICE_CLASS(ICESTORM_API) InvalidSubscriber : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -751,13 +751,13 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICESTORM_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception indicates that a subscription failed due to an invalid QoS.
-class ICE_CLASS(ICESTORM_API) BadQoS : public ::Ice::UserException
+class ICE_CLASS(ICESTORM_API) BadQoS : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -794,13 +794,13 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICESTORM_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception indicates that an attempt was made to create a topic that already exists.
-class ICE_CLASS(ICESTORM_API) TopicExists : public ::Ice::UserException
+class ICE_CLASS(ICESTORM_API) TopicExists : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -837,13 +837,13 @@ public:
     ::std::string name;
 
 protected:
-    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICESTORM_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception indicates that an attempt was made to retrieve a topic that does not exist.
-class ICE_CLASS(ICESTORM_API) NoSuchTopic : public ::Ice::UserException
+class ICE_CLASS(ICESTORM_API) NoSuchTopic : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -880,9 +880,9 @@ public:
     ::std::string name;
 
 protected:
-    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICESTORM_API) void _readImpl(Ice::InputStream*) override;
 };
 
 using Ice::Tuple::operator<;
@@ -899,7 +899,7 @@ namespace IceStorm
 
 /// Publishers publish information on a particular topic. A topic logically represents a type.
 /// @see TopicManager
-class ICESTORM_API Topic : public virtual ::Ice::Object
+class ICESTORM_API Topic : public virtual Ice::Object
 {
 public:
 
@@ -908,12 +908,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -923,9 +923,9 @@ public:
     /// @param current The Current object for the invocation.
     /// @return The name of the topic.
     /// @see TopicManager#create
-    [[nodiscard]] virtual ::std::string getName(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::string getName(const Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    void _iceD_getName(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_getName(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
@@ -933,9 +933,9 @@ public:
     /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
     /// @param current The Current object for the invocation.
     /// @return A proxy to publish data on this topic.
-    [[nodiscard]] virtual ::std::optional<::Ice::ObjectPrx> getPublisher(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<Ice::ObjectPrx> getPublisher(const Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    void _iceD_getPublisher(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_getPublisher(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
@@ -943,9 +943,9 @@ public:
     /// never null.
     /// @param current The Current object for the invocation.
     /// @return A proxy to publish data on this topic.
-    [[nodiscard]] virtual ::std::optional<::Ice::ObjectPrx> getNonReplicatedPublisher(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<Ice::ObjectPrx> getNonReplicatedPublisher(const Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    void _iceD_getNonReplicatedPublisher(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_getNonReplicatedPublisher(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Subscribe with the given <code>qos</code> to this topic. A per-subscriber publisher object is returned.
@@ -957,18 +957,18 @@ public:
     /// @throws IceStorm::BadQoS Raised if the requested quality of service is unavailable or invalid.
     /// @throws IceStorm::InvalidSubscriber Raised if the subscriber object is null.
     /// @see #unsubscribe
-    virtual ::std::optional<::Ice::ObjectPrx> subscribeAndGetPublisher(QoS theQoS, ::std::optional<::Ice::ObjectPrx> subscriber, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<Ice::ObjectPrx> subscribeAndGetPublisher(QoS theQoS, ::std::optional<Ice::ObjectPrx> subscriber, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_subscribeAndGetPublisher(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_subscribeAndGetPublisher(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Unsubscribe the given <code>subscriber</code>.
     /// @param subscriber The proxy of an existing subscriber. This proxy is never null.
     /// @param current The Current object for the invocation.
     /// @see #subscribeAndGetPublisher
-    virtual void unsubscribe(::std::optional<::Ice::ObjectPrx> subscriber, const ::Ice::Current& current) = 0;
+    virtual void unsubscribe(::std::optional<Ice::ObjectPrx> subscriber, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_unsubscribe(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_unsubscribe(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Create a link to the given topic. All events originating on this topic will also be sent to
@@ -977,45 +977,45 @@ public:
     /// @param cost The cost to the linked topic.
     /// @param current The Current object for the invocation.
     /// @throws IceStorm::LinkExists Raised if a link to the same topic already exists.
-    virtual void link(::std::optional<TopicPrx> linkTo, ::std::int32_t cost, const ::Ice::Current& current) = 0;
+    virtual void link(::std::optional<TopicPrx> linkTo, ::std::int32_t cost, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_link(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_link(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Destroy the link from this topic to the given topic <code>linkTo</code>.
     /// @param linkTo The topic to destroy the link to. This proxy is never null.
     /// @param current The Current object for the invocation.
     /// @throws IceStorm::NoSuchLink Raised if a link to the topic does not exist.
-    virtual void unlink(::std::optional<TopicPrx> linkTo, const ::Ice::Current& current) = 0;
+    virtual void unlink(::std::optional<TopicPrx> linkTo, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_unlink(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_unlink(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Retrieve information on the current links.
     /// @param current The Current object for the invocation.
     /// @return A sequence of LinkInfo objects.
-    [[nodiscard]] virtual LinkInfoSeq getLinkInfoSeq(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual LinkInfoSeq getLinkInfoSeq(const Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    void _iceD_getLinkInfoSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_getLinkInfoSeq(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Retrieve the list of subscribers for this topic.
     /// @param current The Current object for the invocation.
     /// @return The sequence of Ice identities for the subscriber objects.
-    [[nodiscard]] virtual ::Ice::IdentitySeq getSubscribers(const ::Ice::Current& current) const = 0;
+    [[nodiscard]] virtual ::Ice::IdentitySeq getSubscribers(const Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    void _iceD_getSubscribers(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_getSubscribers(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Destroy the topic.
     /// @param current The Current object for the invocation.
-    virtual void destroy(const ::Ice::Current& current) = 0;
+    virtual void destroy(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_destroy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_destroy(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1023,7 +1023,7 @@ using TopicPtr = ::std::shared_ptr<Topic>;
 
 /// A topic manager manages topics, and subscribers to topics.
 /// @see Topic
-class ICESTORM_API TopicManager : public virtual ::Ice::Object
+class ICESTORM_API TopicManager : public virtual Ice::Object
 {
 public:
 
@@ -1032,12 +1032,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1048,9 +1048,9 @@ public:
     /// @param current The Current object for the invocation.
     /// @return A proxy to the topic instance. The returned proxy is never null.
     /// @throws IceStorm::TopicExists Raised if a topic with the same name already exists.
-    virtual ::std::optional<TopicPrx> create(::std::string name, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<TopicPrx> create(::std::string name, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_create(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_create(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Retrieve a topic by name.
@@ -1058,21 +1058,21 @@ public:
     /// @param current The Current object for the invocation.
     /// @return A proxy to the topic instance. The returned proxy is never null.
     /// @throws IceStorm::NoSuchTopic Raised if the topic does not exist.
-    virtual ::std::optional<TopicPrx> retrieve(::std::string name, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<TopicPrx> retrieve(::std::string name, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_retrieve(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_retrieve(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Retrieve all topics managed by this topic manager.
     /// @param current The Current object for the invocation.
     /// @return A dictionary of string, topic proxy pairs.
-    virtual TopicDict retrieveAll(const ::Ice::Current& current) = 0;
+    virtual TopicDict retrieveAll(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_retrieveAll(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_retrieveAll(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1080,7 +1080,7 @@ using TopicManagerPtr = ::std::shared_ptr<TopicManager>;
 
 /// This interface is advertised by the IceStorm service through the Ice object with the identity 'IceStorm/Finder'.
 /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
-class ICESTORM_API Finder : public virtual ::Ice::Object
+class ICESTORM_API Finder : public virtual Ice::Object
 {
 public:
 
@@ -1089,12 +1089,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -1103,13 +1103,13 @@ public:
     /// Get the topic manager proxy. The proxy might point to several replicas.
     /// @param current The Current object for the invocation.
     /// @return The topic manager proxy. The returned proxy is never null.
-    virtual ::std::optional<TopicManagerPrx> getTopicManager(const ::Ice::Current& current) = 0;
+    virtual ::std::optional<TopicManagerPrx> getTopicManager(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_getTopicManager(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_getTopicManager(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

@@ -19,6 +19,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -39,27 +40,27 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ApplicationNotExistException> iceC_IceGrid_ApplicationNotExistException_init("::IceGrid::ApplicationNotExistException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerNotExistException> iceC_IceGrid_ServerNotExistException_init("::IceGrid::ServerNotExistException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerStartException> iceC_IceGrid_ServerStartException_init("::IceGrid::ServerStartException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerStopException> iceC_IceGrid_ServerStopException_init("::IceGrid::ServerStopException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AdapterNotExistException> iceC_IceGrid_AdapterNotExistException_init("::IceGrid::AdapterNotExistException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ObjectExistsException> iceC_IceGrid_ObjectExistsException_init("::IceGrid::ObjectExistsException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ObjectNotRegisteredException> iceC_IceGrid_ObjectNotRegisteredException_init("::IceGrid::ObjectNotRegisteredException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::NodeNotExistException> iceC_IceGrid_NodeNotExistException_init("::IceGrid::NodeNotExistException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::RegistryNotExistException> iceC_IceGrid_RegistryNotExistException_init("::IceGrid::RegistryNotExistException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::DeploymentException> iceC_IceGrid_DeploymentException_init("::IceGrid::DeploymentException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::NodeUnreachableException> iceC_IceGrid_NodeUnreachableException_init("::IceGrid::NodeUnreachableException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerUnreachableException> iceC_IceGrid_ServerUnreachableException_init("::IceGrid::ServerUnreachableException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::RegistryUnreachableException> iceC_IceGrid_RegistryUnreachableException_init("::IceGrid::RegistryUnreachableException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::BadSignalException> iceC_IceGrid_BadSignalException_init("::IceGrid::BadSignalException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AccessDeniedException> iceC_IceGrid_AccessDeniedException_init("::IceGrid::AccessDeniedException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AllocationException> iceC_IceGrid_AllocationException_init("::IceGrid::AllocationException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AllocationTimeoutException> iceC_IceGrid_AllocationTimeoutException_init("::IceGrid::AllocationTimeoutException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::PermissionDeniedException> iceC_IceGrid_PermissionDeniedException_init("::IceGrid::PermissionDeniedException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ObserverAlreadyRegisteredException> iceC_IceGrid_ObserverAlreadyRegisteredException_init("::IceGrid::ObserverAlreadyRegisteredException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::FileNotAvailableException> iceC_IceGrid_FileNotAvailableException_init("::IceGrid::FileNotAvailableException");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ApplicationNotExistException> iceC_IceGrid_ApplicationNotExistException_init("::IceGrid::ApplicationNotExistException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerNotExistException> iceC_IceGrid_ServerNotExistException_init("::IceGrid::ServerNotExistException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerStartException> iceC_IceGrid_ServerStartException_init("::IceGrid::ServerStartException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerStopException> iceC_IceGrid_ServerStopException_init("::IceGrid::ServerStopException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AdapterNotExistException> iceC_IceGrid_AdapterNotExistException_init("::IceGrid::AdapterNotExistException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ObjectExistsException> iceC_IceGrid_ObjectExistsException_init("::IceGrid::ObjectExistsException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ObjectNotRegisteredException> iceC_IceGrid_ObjectNotRegisteredException_init("::IceGrid::ObjectNotRegisteredException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::NodeNotExistException> iceC_IceGrid_NodeNotExistException_init("::IceGrid::NodeNotExistException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::RegistryNotExistException> iceC_IceGrid_RegistryNotExistException_init("::IceGrid::RegistryNotExistException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::DeploymentException> iceC_IceGrid_DeploymentException_init("::IceGrid::DeploymentException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::NodeUnreachableException> iceC_IceGrid_NodeUnreachableException_init("::IceGrid::NodeUnreachableException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerUnreachableException> iceC_IceGrid_ServerUnreachableException_init("::IceGrid::ServerUnreachableException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::RegistryUnreachableException> iceC_IceGrid_RegistryUnreachableException_init("::IceGrid::RegistryUnreachableException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::BadSignalException> iceC_IceGrid_BadSignalException_init("::IceGrid::BadSignalException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AccessDeniedException> iceC_IceGrid_AccessDeniedException_init("::IceGrid::AccessDeniedException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AllocationException> iceC_IceGrid_AllocationException_init("::IceGrid::AllocationException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AllocationTimeoutException> iceC_IceGrid_AllocationTimeoutException_init("::IceGrid::AllocationTimeoutException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::PermissionDeniedException> iceC_IceGrid_PermissionDeniedException_init("::IceGrid::PermissionDeniedException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ObserverAlreadyRegisteredException> iceC_IceGrid_ObserverAlreadyRegisteredException_init("::IceGrid::ObserverAlreadyRegisteredException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::FileNotAvailableException> iceC_IceGrid_FileNotAvailableException_init("::IceGrid::FileNotAvailableException");
 }
 
 void
@@ -87,7 +88,7 @@ IceGrid::ApplicationNotExistException::ice_throw() const
 }
 
 void
-IceGrid::ApplicationNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::ApplicationNotExistException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->name);
@@ -95,7 +96,7 @@ IceGrid::ApplicationNotExistException::_writeImpl(::Ice::OutputStream* ostr) con
 }
 
 void
-IceGrid::ApplicationNotExistException::_readImpl(::Ice::InputStream* istr)
+IceGrid::ApplicationNotExistException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->name);
@@ -127,7 +128,7 @@ IceGrid::ServerNotExistException::ice_throw() const
 }
 
 void
-IceGrid::ServerNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::ServerNotExistException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->id);
@@ -135,7 +136,7 @@ IceGrid::ServerNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::ServerNotExistException::_readImpl(::Ice::InputStream* istr)
+IceGrid::ServerNotExistException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->id);
@@ -168,7 +169,7 @@ IceGrid::ServerStartException::ice_throw() const
 }
 
 void
-IceGrid::ServerStartException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::ServerStartException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->id, this->reason);
@@ -176,7 +177,7 @@ IceGrid::ServerStartException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::ServerStartException::_readImpl(::Ice::InputStream* istr)
+IceGrid::ServerStartException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->id, this->reason);
@@ -209,7 +210,7 @@ IceGrid::ServerStopException::ice_throw() const
 }
 
 void
-IceGrid::ServerStopException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::ServerStopException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->id, this->reason);
@@ -217,7 +218,7 @@ IceGrid::ServerStopException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::ServerStopException::_readImpl(::Ice::InputStream* istr)
+IceGrid::ServerStopException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->id, this->reason);
@@ -249,7 +250,7 @@ IceGrid::AdapterNotExistException::ice_throw() const
 }
 
 void
-IceGrid::AdapterNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::AdapterNotExistException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->id);
@@ -257,7 +258,7 @@ IceGrid::AdapterNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::AdapterNotExistException::_readImpl(::Ice::InputStream* istr)
+IceGrid::AdapterNotExistException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->id);
@@ -289,7 +290,7 @@ IceGrid::ObjectExistsException::ice_throw() const
 }
 
 void
-IceGrid::ObjectExistsException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::ObjectExistsException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->id);
@@ -297,7 +298,7 @@ IceGrid::ObjectExistsException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::ObjectExistsException::_readImpl(::Ice::InputStream* istr)
+IceGrid::ObjectExistsException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->id);
@@ -329,7 +330,7 @@ IceGrid::ObjectNotRegisteredException::ice_throw() const
 }
 
 void
-IceGrid::ObjectNotRegisteredException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::ObjectNotRegisteredException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->id);
@@ -337,7 +338,7 @@ IceGrid::ObjectNotRegisteredException::_writeImpl(::Ice::OutputStream* ostr) con
 }
 
 void
-IceGrid::ObjectNotRegisteredException::_readImpl(::Ice::InputStream* istr)
+IceGrid::ObjectNotRegisteredException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->id);
@@ -369,7 +370,7 @@ IceGrid::NodeNotExistException::ice_throw() const
 }
 
 void
-IceGrid::NodeNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::NodeNotExistException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->name);
@@ -377,7 +378,7 @@ IceGrid::NodeNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::NodeNotExistException::_readImpl(::Ice::InputStream* istr)
+IceGrid::NodeNotExistException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->name);
@@ -409,7 +410,7 @@ IceGrid::RegistryNotExistException::ice_throw() const
 }
 
 void
-IceGrid::RegistryNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::RegistryNotExistException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->name);
@@ -417,7 +418,7 @@ IceGrid::RegistryNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::RegistryNotExistException::_readImpl(::Ice::InputStream* istr)
+IceGrid::RegistryNotExistException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->name);
@@ -449,7 +450,7 @@ IceGrid::DeploymentException::ice_throw() const
 }
 
 void
-IceGrid::DeploymentException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::DeploymentException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->reason);
@@ -457,7 +458,7 @@ IceGrid::DeploymentException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::DeploymentException::_readImpl(::Ice::InputStream* istr)
+IceGrid::DeploymentException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->reason);
@@ -490,7 +491,7 @@ IceGrid::NodeUnreachableException::ice_throw() const
 }
 
 void
-IceGrid::NodeUnreachableException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::NodeUnreachableException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->name, this->reason);
@@ -498,7 +499,7 @@ IceGrid::NodeUnreachableException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::NodeUnreachableException::_readImpl(::Ice::InputStream* istr)
+IceGrid::NodeUnreachableException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->name, this->reason);
@@ -531,7 +532,7 @@ IceGrid::ServerUnreachableException::ice_throw() const
 }
 
 void
-IceGrid::ServerUnreachableException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::ServerUnreachableException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->name, this->reason);
@@ -539,7 +540,7 @@ IceGrid::ServerUnreachableException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::ServerUnreachableException::_readImpl(::Ice::InputStream* istr)
+IceGrid::ServerUnreachableException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->name, this->reason);
@@ -572,7 +573,7 @@ IceGrid::RegistryUnreachableException::ice_throw() const
 }
 
 void
-IceGrid::RegistryUnreachableException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::RegistryUnreachableException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->name, this->reason);
@@ -580,7 +581,7 @@ IceGrid::RegistryUnreachableException::_writeImpl(::Ice::OutputStream* ostr) con
 }
 
 void
-IceGrid::RegistryUnreachableException::_readImpl(::Ice::InputStream* istr)
+IceGrid::RegistryUnreachableException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->name, this->reason);
@@ -612,7 +613,7 @@ IceGrid::BadSignalException::ice_throw() const
 }
 
 void
-IceGrid::BadSignalException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::BadSignalException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->reason);
@@ -620,7 +621,7 @@ IceGrid::BadSignalException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::BadSignalException::_readImpl(::Ice::InputStream* istr)
+IceGrid::BadSignalException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->reason);
@@ -652,7 +653,7 @@ IceGrid::AccessDeniedException::ice_throw() const
 }
 
 void
-IceGrid::AccessDeniedException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::AccessDeniedException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->lockUserId);
@@ -660,7 +661,7 @@ IceGrid::AccessDeniedException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::AccessDeniedException::_readImpl(::Ice::InputStream* istr)
+IceGrid::AccessDeniedException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->lockUserId);
@@ -692,7 +693,7 @@ IceGrid::AllocationException::ice_throw() const
 }
 
 void
-IceGrid::AllocationException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::AllocationException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->reason);
@@ -700,7 +701,7 @@ IceGrid::AllocationException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::AllocationException::_readImpl(::Ice::InputStream* istr)
+IceGrid::AllocationException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->reason);
@@ -726,7 +727,7 @@ IceGrid::AllocationTimeoutException::ice_throw() const
 }
 
 void
-IceGrid::AllocationTimeoutException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::AllocationTimeoutException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->endSlice();
@@ -734,7 +735,7 @@ IceGrid::AllocationTimeoutException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::AllocationTimeoutException::_readImpl(::Ice::InputStream* istr)
+IceGrid::AllocationTimeoutException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->endSlice();
@@ -766,7 +767,7 @@ IceGrid::PermissionDeniedException::ice_throw() const
 }
 
 void
-IceGrid::PermissionDeniedException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::PermissionDeniedException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->reason);
@@ -774,7 +775,7 @@ IceGrid::PermissionDeniedException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::PermissionDeniedException::_readImpl(::Ice::InputStream* istr)
+IceGrid::PermissionDeniedException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->reason);
@@ -806,7 +807,7 @@ IceGrid::ObserverAlreadyRegisteredException::ice_throw() const
 }
 
 void
-IceGrid::ObserverAlreadyRegisteredException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::ObserverAlreadyRegisteredException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->id);
@@ -814,7 +815,7 @@ IceGrid::ObserverAlreadyRegisteredException::_writeImpl(::Ice::OutputStream* ost
 }
 
 void
-IceGrid::ObserverAlreadyRegisteredException::_readImpl(::Ice::InputStream* istr)
+IceGrid::ObserverAlreadyRegisteredException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->id);
@@ -846,7 +847,7 @@ IceGrid::FileNotAvailableException::ice_throw() const
 }
 
 void
-IceGrid::FileNotAvailableException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::FileNotAvailableException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->reason);
@@ -854,7 +855,7 @@ IceGrid::FileNotAvailableException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceGrid::FileNotAvailableException::_readImpl(::Ice::InputStream* istr)
+IceGrid::FileNotAvailableException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->reason);

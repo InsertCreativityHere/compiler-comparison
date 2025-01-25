@@ -52,7 +52,7 @@ namespace Test
 namespace Test
 {
 
-class BaseException : public ::Ice::UserException
+class BaseException : public Ice::UserException
 {
 public:
     /// Obtains the Slice type ID of this exception.
@@ -64,9 +64,9 @@ public:
     void ice_throw() const override;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
 class InvalidPointException : public BaseException
@@ -105,9 +105,9 @@ public:
     ::std::int32_t index;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
 class InvalidLengthException : public BaseException
@@ -146,12 +146,12 @@ public:
     ::std::int32_t length;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
-class OtherException : public ::Ice::UserException
+class OtherException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -192,9 +192,9 @@ public:
     bool b;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
 struct PointF
@@ -313,7 +313,7 @@ struct ColorPalette
 
 ::std::ostream& operator<<(::std::ostream&, const ColorPalette&);
 
-class Pen : public ::Ice::Value
+class Pen : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -349,11 +349,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     Pen(const Pen&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 struct Draw

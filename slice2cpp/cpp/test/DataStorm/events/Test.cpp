@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,9 +37,9 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::Base> iceC_Test_Base_init("::Test::Base");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::Extended> iceC_Test_Extended_init("::Test::Extended");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test::Base> iceC_Test_Base_init("::Test::Base");
+    const IceInternal::DefaultValueFactoryInit<::Test::Extended> iceC_Test_Extended_init("::Test::Extended");
 }
 
 void
@@ -76,14 +77,14 @@ Test::Base::ice_printFields(std::ostream& os) const
     Ice::print(os << "b = ", this->b);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::Base::_iceCloneImpl() const
 {
     return CloneEnabler<Base>::clone(*this);
 }
 
 void
-Test::Base::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::Base::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->b);
@@ -91,7 +92,7 @@ Test::Base::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::Base::_iceReadImpl(::Ice::InputStream* istr)
+Test::Base::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->b);
@@ -117,14 +118,14 @@ Test::Extended::ice_printFields(std::ostream& os) const
     Ice::print(os << ", e = ", this->e);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::Extended::_iceCloneImpl() const
 {
     return CloneEnabler<Extended>::clone(*this);
 }
 
 void
-Test::Extended::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::Extended::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->e);
@@ -133,7 +134,7 @@ Test::Extended::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::Extended::_iceReadImpl(::Ice::InputStream* istr)
+Test::Extended::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->e);

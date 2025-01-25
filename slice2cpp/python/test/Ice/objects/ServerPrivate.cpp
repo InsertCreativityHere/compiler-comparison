@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,43 +37,43 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::Empty> iceC_Test_Empty_init("::Test::Empty");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::AlsoEmpty> iceC_Test_AlsoEmpty_init("::Test::AlsoEmpty");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::COneMember> iceC_Test_COneMember_init("::Test::COneMember");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::CTwoMembers> iceC_Test_CTwoMembers_init("::Test::CTwoMembers");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::EOneMember> iceC_Test_EOneMember_init("::Test::EOneMember");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ETwoMembers> iceC_Test_ETwoMembers_init("::Test::ETwoMembers");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test::Empty> iceC_Test_Empty_init("::Test::Empty");
+    const IceInternal::DefaultValueFactoryInit<::Test::AlsoEmpty> iceC_Test_AlsoEmpty_init("::Test::AlsoEmpty");
+    const IceInternal::DefaultValueFactoryInit<::Test::COneMember> iceC_Test_COneMember_init("::Test::COneMember");
+    const IceInternal::DefaultValueFactoryInit<::Test::CTwoMembers> iceC_Test_CTwoMembers_init("::Test::CTwoMembers");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::EOneMember> iceC_Test_EOneMember_init("::Test::EOneMember");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::ETwoMembers> iceC_Test_ETwoMembers_init("::Test::ETwoMembers");
 }
 
 ::Test::AlsoEmptyPtr
-Test::UnexpectedObjectExceptionTestPrx::op(const ::Ice::Context& context) const
+Test::UnexpectedObjectExceptionTestPrx::op(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<AlsoEmptyPtr>(true, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context).get();
+    return IceInternal::makePromiseOutgoing<AlsoEmptyPtr>(true, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context).get();
 }
 
 ::std::future<::Test::AlsoEmptyPtr>
-Test::UnexpectedObjectExceptionTestPrx::opAsync(const ::Ice::Context& context) const
+Test::UnexpectedObjectExceptionTestPrx::opAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<AlsoEmptyPtr>(false, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context);
+    return IceInternal::makePromiseOutgoing<AlsoEmptyPtr>(false, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context);
 }
 
 ::std::function<void()>
-Test::UnexpectedObjectExceptionTestPrx::opAsync(::std::function<void(::Test::AlsoEmptyPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::UnexpectedObjectExceptionTestPrx::opAsync(::std::function<void(::Test::AlsoEmptyPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<AlsoEmptyPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::UnexpectedObjectExceptionTestPrx::_iceI_op, context);
+    return IceInternal::makeLambdaOutgoing<AlsoEmptyPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::UnexpectedObjectExceptionTestPrx::_iceI_op, context);
 }
 
 void
-Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<AlsoEmptyPtr>>& outAsync, const ::Ice::Context& context) const
+Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<AlsoEmptyPtr>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "op";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             AlsoEmptyPtr ret;
             istr->readAll(ret);
@@ -101,21 +102,21 @@ Test::Empty::ice_id() const noexcept
     return ice_staticId();
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::Empty::_iceCloneImpl() const
 {
     return CloneEnabler<Empty>::clone(*this);
 }
 
 void
-Test::Empty::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::Empty::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->endSlice();
 }
 
 void
-Test::Empty::_iceReadImpl(::Ice::InputStream* istr)
+Test::Empty::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->endSlice();
@@ -133,21 +134,21 @@ Test::AlsoEmpty::ice_id() const noexcept
     return ice_staticId();
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::AlsoEmpty::_iceCloneImpl() const
 {
     return CloneEnabler<AlsoEmpty>::clone(*this);
 }
 
 void
-Test::AlsoEmpty::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::AlsoEmpty::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->endSlice();
 }
 
 void
-Test::AlsoEmpty::_iceReadImpl(::Ice::InputStream* istr)
+Test::AlsoEmpty::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->endSlice();
@@ -171,14 +172,14 @@ Test::COneMember::ice_printFields(std::ostream& os) const
     Ice::print(os << "e = ", this->e);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::COneMember::_iceCloneImpl() const
 {
     return CloneEnabler<COneMember>::clone(*this);
 }
 
 void
-Test::COneMember::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::COneMember::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->e);
@@ -186,7 +187,7 @@ Test::COneMember::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::COneMember::_iceReadImpl(::Ice::InputStream* istr)
+Test::COneMember::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->e);
@@ -212,14 +213,14 @@ Test::CTwoMembers::ice_printFields(std::ostream& os) const
     Ice::print(os << ", e2 = ", this->e2);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::CTwoMembers::_iceCloneImpl() const
 {
     return CloneEnabler<CTwoMembers>::clone(*this);
 }
 
 void
-Test::CTwoMembers::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::CTwoMembers::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->e1, this->e2);
@@ -227,7 +228,7 @@ Test::CTwoMembers::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::CTwoMembers::_iceReadImpl(::Ice::InputStream* istr)
+Test::CTwoMembers::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->e1, this->e2);
@@ -267,7 +268,7 @@ Test::EOneMember::_usesClasses() const
 /// \endcond
 
 void
-Test::EOneMember::_writeImpl(::Ice::OutputStream* ostr) const
+Test::EOneMember::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->e);
@@ -275,7 +276,7 @@ Test::EOneMember::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::EOneMember::_readImpl(::Ice::InputStream* istr)
+Test::EOneMember::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->e);
@@ -316,7 +317,7 @@ Test::ETwoMembers::_usesClasses() const
 /// \endcond
 
 void
-Test::ETwoMembers::_writeImpl(::Ice::OutputStream* ostr) const
+Test::ETwoMembers::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->e1, this->e2);
@@ -324,7 +325,7 @@ Test::ETwoMembers::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::ETwoMembers::_readImpl(::Ice::InputStream* istr)
+Test::ETwoMembers::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->e1, this->e2);
@@ -363,14 +364,14 @@ Test::operator<<(::std::ostream& os, const ::Test::STwoMembers& value)
 }
 
 ::std::vector<::std::string>
-Test::UnexpectedObjectExceptionTest::ice_ids(const ::Ice::Current&) const
+Test::UnexpectedObjectExceptionTest::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::UnexpectedObjectExceptionTest"};
     return allTypeIds;
 }
 
 ::std::string
-Test::UnexpectedObjectExceptionTest::ice_id(const ::Ice::Current&) const
+Test::UnexpectedObjectExceptionTest::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -384,13 +385,13 @@ Test::UnexpectedObjectExceptionTest::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::UnexpectedObjectExceptionTest::_iceD_op(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const AlsoEmptyPtr ret = this->op(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
             ostr->writePendingValues();
@@ -401,19 +402,19 @@ Test::UnexpectedObjectExceptionTest::_iceD_op(
 
 /// \cond INTERNAL
 void
-Test::UnexpectedObjectExceptionTest::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::UnexpectedObjectExceptionTest::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -443,7 +444,7 @@ Test::UnexpectedObjectExceptionTest::dispatch(::Ice::IncomingRequest& request, :
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

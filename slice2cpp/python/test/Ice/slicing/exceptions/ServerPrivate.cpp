@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,11 +37,11 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownDerived> iceC_Test_UnknownDerived_init("::Test::UnknownDerived");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownIntermediate> iceC_Test_UnknownIntermediate_init("::Test::UnknownIntermediate");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownMostDerived1> iceC_Test_UnknownMostDerived1_init("::Test::UnknownMostDerived1");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownMostDerived2> iceC_Test_UnknownMostDerived2_init("::Test::UnknownMostDerived2");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownDerived> iceC_Test_UnknownDerived_init("::Test::UnknownDerived");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownIntermediate> iceC_Test_UnknownIntermediate_init("::Test::UnknownIntermediate");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownMostDerived1> iceC_Test_UnknownMostDerived1_init("::Test::UnknownMostDerived1");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownMostDerived2> iceC_Test_UnknownMostDerived2_init("::Test::UnknownMostDerived2");
 }
 
 void
@@ -69,7 +70,7 @@ Test::UnknownDerived::ice_throw() const
 }
 
 void
-Test::UnknownDerived::_writeImpl(::Ice::OutputStream* ostr) const
+Test::UnknownDerived::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->ud);
@@ -78,7 +79,7 @@ Test::UnknownDerived::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::UnknownDerived::_readImpl(::Ice::InputStream* istr)
+Test::UnknownDerived::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->ud);
@@ -112,7 +113,7 @@ Test::UnknownIntermediate::ice_throw() const
 }
 
 void
-Test::UnknownIntermediate::_writeImpl(::Ice::OutputStream* ostr) const
+Test::UnknownIntermediate::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->ui);
@@ -121,7 +122,7 @@ Test::UnknownIntermediate::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::UnknownIntermediate::_readImpl(::Ice::InputStream* istr)
+Test::UnknownIntermediate::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->ui);
@@ -155,7 +156,7 @@ Test::UnknownMostDerived1::ice_throw() const
 }
 
 void
-Test::UnknownMostDerived1::_writeImpl(::Ice::OutputStream* ostr) const
+Test::UnknownMostDerived1::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->umd1);
@@ -164,7 +165,7 @@ Test::UnknownMostDerived1::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::UnknownMostDerived1::_readImpl(::Ice::InputStream* istr)
+Test::UnknownMostDerived1::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->umd1);
@@ -198,7 +199,7 @@ Test::UnknownMostDerived2::ice_throw() const
 }
 
 void
-Test::UnknownMostDerived2::_writeImpl(::Ice::OutputStream* ostr) const
+Test::UnknownMostDerived2::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->umd2);
@@ -207,7 +208,7 @@ Test::UnknownMostDerived2::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::UnknownMostDerived2::_readImpl(::Ice::InputStream* istr)
+Test::UnknownMostDerived2::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->umd2);

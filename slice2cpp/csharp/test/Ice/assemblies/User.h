@@ -37,30 +37,30 @@ namespace User
 namespace User
 {
 
-class RegistryPrx : public ::Ice::Proxy<RegistryPrx, ::Ice::ObjectPrx>
+class RegistryPrx : public Ice::Proxy<RegistryPrx, Ice::ObjectPrx>
 {
 public:
 
-    UserInfoPtr getUserInfo(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    UserInfoPtr getUserInfo(::std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
-    [[nodiscard]] ::std::future<UserInfoPtr> getUserInfoAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<UserInfoPtr> getUserInfoAsync(::std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
 
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getUserInfoAsync(::std::string_view id, ::std::function<void(::User::UserInfoPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getUserInfoAsync(::std::string_view id, ::std::function<void(::User::UserInfoPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<UserInfoPtr>>&, ::std::string_view, const ::Ice::Context&) const;
+    void _iceI_getUserInfo(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<UserInfoPtr>>&, ::std::string_view, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    RegistryPrx(const RegistryPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    RegistryPrx(const RegistryPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    RegistryPrx(RegistryPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    RegistryPrx(RegistryPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    RegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    RegistryPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~RegistryPrx() override;
 
@@ -68,7 +68,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -77,19 +77,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static RegistryPrx _fromReference(::IceInternal::ReferencePtr ref) { return RegistryPrx(std::move(ref)); }
+    static RegistryPrx _fromReference(IceInternal::ReferencePtr ref) { return RegistryPrx(std::move(ref)); }
 
 protected:
 
     RegistryPrx() = default;
 
-    explicit RegistryPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit RegistryPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -100,7 +100,7 @@ protected:
 namespace User
 {
 
-class UserInfo : public ::Ice::Value
+class UserInfo : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -118,11 +118,11 @@ public:
 
     UserInfo(const UserInfo&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 }
@@ -130,7 +130,7 @@ public:
 namespace User
 {
 
-class Registry : public virtual ::Ice::Object
+class Registry : public virtual Ice::Object
 {
 public:
 
@@ -139,24 +139,24 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    virtual UserInfoPtr getUserInfo(::std::string id, const ::Ice::Current& current) = 0;
+    virtual UserInfoPtr getUserInfo(::std::string id, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_getUserInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_getUserInfo(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

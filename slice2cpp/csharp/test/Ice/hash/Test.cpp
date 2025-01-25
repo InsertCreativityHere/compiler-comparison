@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,12 +37,12 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::BaseException> iceC_Test_BaseException_init("::Test::BaseException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::InvalidPointException> iceC_Test_InvalidPointException_init("::Test::InvalidPointException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::InvalidLengthException> iceC_Test_InvalidLengthException_init("::Test::InvalidLengthException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::OtherException> iceC_Test_OtherException_init("::Test::OtherException");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::Pen> iceC_Test_Pen_init("::Test::Pen");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::BaseException> iceC_Test_BaseException_init("::Test::BaseException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::InvalidPointException> iceC_Test_InvalidPointException_init("::Test::InvalidPointException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::InvalidLengthException> iceC_Test_InvalidLengthException_init("::Test::InvalidLengthException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::OtherException> iceC_Test_OtherException_init("::Test::OtherException");
+    const IceInternal::DefaultValueFactoryInit<::Test::Pen> iceC_Test_Pen_init("::Test::Pen");
 }
 
 const char*
@@ -63,14 +64,14 @@ Test::BaseException::ice_throw() const
 }
 
 void
-Test::BaseException::_writeImpl(::Ice::OutputStream* ostr) const
+Test::BaseException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->endSlice();
 }
 
 void
-Test::BaseException::_readImpl(::Ice::InputStream* istr)
+Test::BaseException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->endSlice();
@@ -101,7 +102,7 @@ Test::InvalidPointException::ice_throw() const
 }
 
 void
-Test::InvalidPointException::_writeImpl(::Ice::OutputStream* ostr) const
+Test::InvalidPointException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->index);
@@ -110,7 +111,7 @@ Test::InvalidPointException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::InvalidPointException::_readImpl(::Ice::InputStream* istr)
+Test::InvalidPointException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->index);
@@ -143,7 +144,7 @@ Test::InvalidLengthException::ice_throw() const
 }
 
 void
-Test::InvalidLengthException::_writeImpl(::Ice::OutputStream* ostr) const
+Test::InvalidLengthException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->length);
@@ -152,7 +153,7 @@ Test::InvalidLengthException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::InvalidLengthException::_readImpl(::Ice::InputStream* istr)
+Test::InvalidLengthException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->length);
@@ -188,7 +189,7 @@ Test::OtherException::ice_throw() const
 }
 
 void
-Test::OtherException::_writeImpl(::Ice::OutputStream* ostr) const
+Test::OtherException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->x, this->y, this->z, this->b);
@@ -196,7 +197,7 @@ Test::OtherException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::OtherException::_readImpl(::Ice::InputStream* istr)
+Test::OtherException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->x, this->y, this->z, this->b);
@@ -320,14 +321,14 @@ Test::Pen::ice_printFields(std::ostream& os) const
     Ice::print(os << ", color = ", this->color);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::Pen::_iceCloneImpl() const
 {
     return CloneEnabler<Pen>::clone(*this);
 }
 
 void
-Test::Pen::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::Pen::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->thickness, this->color);
@@ -335,7 +336,7 @@ Test::Pen::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::Pen::_iceReadImpl(::Ice::InputStream* istr)
+Test::Pen::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->thickness, this->color);

@@ -31,7 +31,7 @@ namespace Core
 namespace Core
 {
 
-class ArgumentException : public ::Ice::UserException
+class ArgumentException : public Ice::UserException
 {
 public:
     /// Obtains the Slice type ID of this exception.
@@ -43,9 +43,9 @@ public:
     void ice_throw() const override;
 
 protected:
-    void _writeImpl(::Ice::OutputStream*) const override;
+    void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(::Ice::InputStream*) override;
+    void _readImpl(Ice::InputStream*) override;
 };
 
 }

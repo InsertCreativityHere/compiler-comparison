@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,14 +37,14 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::D3> iceC_Test_D3_init("::Test::D3");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::PCUnknown> iceC_Test_PCUnknown_init("::Test::PCUnknown");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived> iceC_Test_PCDerived_init("::Test::PCDerived");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived2> iceC_Test_PCDerived2_init("::Test::PCDerived2");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived3> iceC_Test_PCDerived3_init("::Test::PCDerived3");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::CompactPCDerived> iceC_Test_CompactPCDerived_init("::Test::CompactPCDerived");
-    const ::IceInternal::CompactIdInit iceC_Test_CompactPCDerived_compactIdInit ("::Test::CompactPCDerived", 57);
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test::D3> iceC_Test_D3_init("::Test::D3");
+    const IceInternal::DefaultValueFactoryInit<::Test::PCUnknown> iceC_Test_PCUnknown_init("::Test::PCUnknown");
+    const IceInternal::DefaultValueFactoryInit<::Test::PCDerived> iceC_Test_PCDerived_init("::Test::PCDerived");
+    const IceInternal::DefaultValueFactoryInit<::Test::PCDerived2> iceC_Test_PCDerived2_init("::Test::PCDerived2");
+    const IceInternal::DefaultValueFactoryInit<::Test::PCDerived3> iceC_Test_PCDerived3_init("::Test::PCDerived3");
+    const IceInternal::DefaultValueFactoryInit<::Test::CompactPCDerived> iceC_Test_CompactPCDerived_init("::Test::CompactPCDerived");
+    const IceInternal::CompactIdInit iceC_Test_CompactPCDerived_compactIdInit ("::Test::CompactPCDerived", 57);
 }
 
 const char*
@@ -66,14 +67,14 @@ Test::D3::ice_printFields(std::ostream& os) const
     Ice::print(os << ", pd3 = ", this->pd3);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::D3::_iceCloneImpl() const
 {
     return CloneEnabler<D3>::clone(*this);
 }
 
 void
-Test::D3::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::D3::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->sd3, this->pd3);
@@ -82,7 +83,7 @@ Test::D3::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::D3::_iceReadImpl(::Ice::InputStream* istr)
+Test::D3::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->sd3, this->pd3);
@@ -109,14 +110,14 @@ Test::PCUnknown::ice_printFields(std::ostream& os) const
     Ice::print(os << ", pu = ", this->pu);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::PCUnknown::_iceCloneImpl() const
 {
     return CloneEnabler<PCUnknown>::clone(*this);
 }
 
 void
-Test::PCUnknown::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::PCUnknown::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->pu);
@@ -125,7 +126,7 @@ Test::PCUnknown::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::PCUnknown::_iceReadImpl(::Ice::InputStream* istr)
+Test::PCUnknown::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->pu);
@@ -152,14 +153,14 @@ Test::PCDerived::ice_printFields(std::ostream& os) const
     Ice::print(os << ", pbs = ", this->pbs);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::PCDerived::_iceCloneImpl() const
 {
     return CloneEnabler<PCDerived>::clone(*this);
 }
 
 void
-Test::PCDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::PCDerived::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->pbs);
@@ -168,7 +169,7 @@ Test::PCDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::PCDerived::_iceReadImpl(::Ice::InputStream* istr)
+Test::PCDerived::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->pbs);
@@ -195,14 +196,14 @@ Test::PCDerived2::ice_printFields(std::ostream& os) const
     Ice::print(os << ", pcd2 = ", this->pcd2);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::PCDerived2::_iceCloneImpl() const
 {
     return CloneEnabler<PCDerived2>::clone(*this);
 }
 
 void
-Test::PCDerived2::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::PCDerived2::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->pcd2);
@@ -211,7 +212,7 @@ Test::PCDerived2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::PCDerived2::_iceReadImpl(::Ice::InputStream* istr)
+Test::PCDerived2::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->pcd2);
@@ -238,14 +239,14 @@ Test::PCDerived3::ice_printFields(std::ostream& os) const
     Ice::print(os << ", pcd3 = ", this->pcd3);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::PCDerived3::_iceCloneImpl() const
 {
     return CloneEnabler<PCDerived3>::clone(*this);
 }
 
 void
-Test::PCDerived3::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::PCDerived3::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->pcd3);
@@ -254,7 +255,7 @@ Test::PCDerived3::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::PCDerived3::_iceReadImpl(::Ice::InputStream* istr)
+Test::PCDerived3::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->pcd3);
@@ -281,14 +282,14 @@ Test::CompactPCDerived::ice_printFields(std::ostream& os) const
     Ice::print(os << ", pbs = ", this->pbs);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::CompactPCDerived::_iceCloneImpl() const
 {
     return CloneEnabler<CompactPCDerived>::clone(*this);
 }
 
 void
-Test::CompactPCDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::CompactPCDerived::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->pbs);
@@ -297,7 +298,7 @@ Test::CompactPCDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::CompactPCDerived::_iceReadImpl(::Ice::InputStream* istr)
+Test::CompactPCDerived::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->pbs);

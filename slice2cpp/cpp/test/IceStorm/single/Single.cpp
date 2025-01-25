@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -35,30 +36,30 @@
 #endif
 
 void
-Test::SinglePrx::event(::std::int32_t iceP_i, const ::Ice::Context& context) const
+Test::SinglePrx::event(::std::int32_t iceP_i, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &SinglePrx::_iceI_event, iceP_i, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &SinglePrx::_iceI_event, iceP_i, context).get();
 }
 
 ::std::future<void>
-Test::SinglePrx::eventAsync(::std::int32_t iceP_i, const ::Ice::Context& context) const
+Test::SinglePrx::eventAsync(::std::int32_t iceP_i, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &SinglePrx::_iceI_event, iceP_i, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &SinglePrx::_iceI_event, iceP_i, context);
 }
 
 ::std::function<void()>
-Test::SinglePrx::eventAsync(::std::int32_t iceP_i, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::SinglePrx::eventAsync(::std::int32_t iceP_i, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::SinglePrx::_iceI_event, iceP_i, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::SinglePrx::_iceI_event, iceP_i, context);
 }
 
 void
-Test::SinglePrx::_iceI_event(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_i, const ::Ice::Context& context) const
+Test::SinglePrx::_iceI_event(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_i, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "event";
 
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_i);
         },
@@ -74,14 +75,14 @@ Test::SinglePrx::ice_staticId() noexcept
 }
 
 ::std::vector<::std::string>
-Test::Single::ice_ids(const ::Ice::Current&) const
+Test::Single::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Single"};
     return allTypeIds;
 }
 
 ::std::string
-Test::Single::ice_id(const ::Ice::Current&) const
+Test::Single::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -95,35 +96,35 @@ Test::Single::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::Single::_iceD_event(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::int32_t iceP_i;
     istr->readAll(iceP_i);
     istr->endEncapsulation();
     this->event(iceP_i, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-Test::Single::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::Single::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"event", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"event", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -153,7 +154,7 @@ Test::Single::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::I
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

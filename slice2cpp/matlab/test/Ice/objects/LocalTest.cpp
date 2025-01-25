@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,16 +37,16 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::C1> iceC_LocalTest_C1_init("::LocalTest::C1");
-    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB1> iceC_LocalTest_CB1_init("::LocalTest::CB1");
-    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB2> iceC_LocalTest_CB2_init("::LocalTest::CB2");
-    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB3> iceC_LocalTest_CB3_init("::LocalTest::CB3");
-    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB4> iceC_LocalTest_CB4_init("::LocalTest::CB4");
-    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB5> iceC_LocalTest_CB5_init("::LocalTest::CB5");
-    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB6> iceC_LocalTest_CB6_init("::LocalTest::CB6");
-    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB7> iceC_LocalTest_CB7_init("::LocalTest::CB7");
-    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB8> iceC_LocalTest_CB8_init("::LocalTest::CB8");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::LocalTest::C1> iceC_LocalTest_C1_init("::LocalTest::C1");
+    const IceInternal::DefaultValueFactoryInit<::LocalTest::CB1> iceC_LocalTest_CB1_init("::LocalTest::CB1");
+    const IceInternal::DefaultValueFactoryInit<::LocalTest::CB2> iceC_LocalTest_CB2_init("::LocalTest::CB2");
+    const IceInternal::DefaultValueFactoryInit<::LocalTest::CB3> iceC_LocalTest_CB3_init("::LocalTest::CB3");
+    const IceInternal::DefaultValueFactoryInit<::LocalTest::CB4> iceC_LocalTest_CB4_init("::LocalTest::CB4");
+    const IceInternal::DefaultValueFactoryInit<::LocalTest::CB5> iceC_LocalTest_CB5_init("::LocalTest::CB5");
+    const IceInternal::DefaultValueFactoryInit<::LocalTest::CB6> iceC_LocalTest_CB6_init("::LocalTest::CB6");
+    const IceInternal::DefaultValueFactoryInit<::LocalTest::CB7> iceC_LocalTest_CB7_init("::LocalTest::CB7");
+    const IceInternal::DefaultValueFactoryInit<::LocalTest::CB8> iceC_LocalTest_CB8_init("::LocalTest::CB8");
 }
 
 const char*
@@ -66,14 +67,14 @@ LocalTest::C1::ice_printFields(std::ostream& os) const
     Ice::print(os << "i = ", this->i);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 LocalTest::C1::_iceCloneImpl() const
 {
     return CloneEnabler<C1>::clone(*this);
 }
 
 void
-LocalTest::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
+LocalTest::C1::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->i);
@@ -81,7 +82,7 @@ LocalTest::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-LocalTest::C1::_iceReadImpl(::Ice::InputStream* istr)
+LocalTest::C1::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->i);
@@ -226,14 +227,14 @@ LocalTest::CB1::ice_printFields(std::ostream& os) const
     Ice::print(os << "s1 = ", this->s1);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 LocalTest::CB1::_iceCloneImpl() const
 {
     return CloneEnabler<CB1>::clone(*this);
 }
 
 void
-LocalTest::CB1::_iceWriteImpl(::Ice::OutputStream* ostr) const
+LocalTest::CB1::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->s1);
@@ -241,7 +242,7 @@ LocalTest::CB1::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-LocalTest::CB1::_iceReadImpl(::Ice::InputStream* istr)
+LocalTest::CB1::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->s1);
@@ -266,14 +267,14 @@ LocalTest::CB2::ice_printFields(std::ostream& os) const
     Ice::print(os << "c1seq = ", this->c1seq);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 LocalTest::CB2::_iceCloneImpl() const
 {
     return CloneEnabler<CB2>::clone(*this);
 }
 
 void
-LocalTest::CB2::_iceWriteImpl(::Ice::OutputStream* ostr) const
+LocalTest::CB2::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->c1seq);
@@ -281,7 +282,7 @@ LocalTest::CB2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-LocalTest::CB2::_iceReadImpl(::Ice::InputStream* istr)
+LocalTest::CB2::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->c1seq);
@@ -306,14 +307,14 @@ LocalTest::CB3::ice_printFields(std::ostream& os) const
     Ice::print(os << "s1seq = ", this->s1seq);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 LocalTest::CB3::_iceCloneImpl() const
 {
     return CloneEnabler<CB3>::clone(*this);
 }
 
 void
-LocalTest::CB3::_iceWriteImpl(::Ice::OutputStream* ostr) const
+LocalTest::CB3::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->s1seq);
@@ -321,7 +322,7 @@ LocalTest::CB3::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-LocalTest::CB3::_iceReadImpl(::Ice::InputStream* istr)
+LocalTest::CB3::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->s1seq);
@@ -346,14 +347,14 @@ LocalTest::CB4::ice_printFields(std::ostream& os) const
     Ice::print(os << "c1dict = ", this->c1dict);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 LocalTest::CB4::_iceCloneImpl() const
 {
     return CloneEnabler<CB4>::clone(*this);
 }
 
 void
-LocalTest::CB4::_iceWriteImpl(::Ice::OutputStream* ostr) const
+LocalTest::CB4::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->c1dict);
@@ -361,7 +362,7 @@ LocalTest::CB4::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-LocalTest::CB4::_iceReadImpl(::Ice::InputStream* istr)
+LocalTest::CB4::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->c1dict);
@@ -386,14 +387,14 @@ LocalTest::CB5::ice_printFields(std::ostream& os) const
     Ice::print(os << "s1dict = ", this->s1dict);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 LocalTest::CB5::_iceCloneImpl() const
 {
     return CloneEnabler<CB5>::clone(*this);
 }
 
 void
-LocalTest::CB5::_iceWriteImpl(::Ice::OutputStream* ostr) const
+LocalTest::CB5::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->s1dict);
@@ -401,7 +402,7 @@ LocalTest::CB5::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-LocalTest::CB5::_iceReadImpl(::Ice::InputStream* istr)
+LocalTest::CB5::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->s1dict);
@@ -426,14 +427,14 @@ LocalTest::CB6::ice_printFields(std::ostream& os) const
     Ice::print(os << "c1seqseq = ", this->c1seqseq);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 LocalTest::CB6::_iceCloneImpl() const
 {
     return CloneEnabler<CB6>::clone(*this);
 }
 
 void
-LocalTest::CB6::_iceWriteImpl(::Ice::OutputStream* ostr) const
+LocalTest::CB6::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->c1seqseq);
@@ -441,7 +442,7 @@ LocalTest::CB6::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-LocalTest::CB6::_iceReadImpl(::Ice::InputStream* istr)
+LocalTest::CB6::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->c1seqseq);
@@ -466,14 +467,14 @@ LocalTest::CB7::ice_printFields(std::ostream& os) const
     Ice::print(os << "s1seqseq = ", this->s1seqseq);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 LocalTest::CB7::_iceCloneImpl() const
 {
     return CloneEnabler<CB7>::clone(*this);
 }
 
 void
-LocalTest::CB7::_iceWriteImpl(::Ice::OutputStream* ostr) const
+LocalTest::CB7::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->s1seqseq);
@@ -481,7 +482,7 @@ LocalTest::CB7::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-LocalTest::CB7::_iceReadImpl(::Ice::InputStream* istr)
+LocalTest::CB7::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->s1seqseq);
@@ -508,14 +509,14 @@ LocalTest::CB8::ice_printFields(std::ostream& os) const
     Ice::print(os << ", s1dict = ", this->s1dict);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 LocalTest::CB8::_iceCloneImpl() const
 {
     return CloneEnabler<CB8>::clone(*this);
 }
 
 void
-LocalTest::CB8::_iceWriteImpl(::Ice::OutputStream* ostr) const
+LocalTest::CB8::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->s1, this->c1seq, this->s1dict);
@@ -523,7 +524,7 @@ LocalTest::CB8::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-LocalTest::CB8::_iceReadImpl(::Ice::InputStream* istr)
+LocalTest::CB8::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->s1, this->c1seq, this->s1dict);

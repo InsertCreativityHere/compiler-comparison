@@ -73,7 +73,7 @@ struct SubscriberRecord
     /// Is this a link record, or a subscriber record?
     bool link;
     /// The subscriber object.
-    ::std::optional<::Ice::ObjectPrx> obj;
+    ::std::optional<Ice::ObjectPrx> obj;
     /// The QoS.
     ::IceStorm::QoS theQoS;
     /// The cost.
@@ -83,7 +83,7 @@ struct SubscriberRecord
 
     /// Obtains a tuple containing all of the struct's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::string&, const ::Ice::Identity&, const bool&, const ::std::optional<::Ice::ObjectPrx>&, const ::IceStorm::QoS&, const ::std::int32_t&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::string&, const ::Ice::Identity&, const bool&, const ::std::optional<Ice::ObjectPrx>&, const ::IceStorm::QoS&, const ::std::int32_t&, const ::std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
     {
         return std::tie(topicName, id, link, obj, theQoS, cost, theTopic);
     }

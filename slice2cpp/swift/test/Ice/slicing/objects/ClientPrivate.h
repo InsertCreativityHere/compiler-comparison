@@ -87,11 +87,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     D3(const D3&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class PCUnknown : public PBase
@@ -129,11 +129,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     PCUnknown(const PCUnknown&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class PCDerived : public PDerived
@@ -171,11 +171,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     PCDerived(const PCDerived&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class PCDerived2 : public PCDerived
@@ -213,11 +213,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     PCDerived2(const PCDerived2&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class PCDerived3 : public PCDerived2
@@ -227,7 +227,7 @@ public:
     PCDerived3() noexcept = default;
 
     /// One-shot constructor to initialize all data members.
-    PCDerived3(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2, ::Ice::ValuePtr pcd3) noexcept :
+    PCDerived3(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2, Ice::ValuePtr pcd3) noexcept :
         PCDerived2(pi, ::std::move(ps), ::std::move(pb), ::std::move(pbs), pcd2),
         pcd3(::std::move(pcd3))
     {
@@ -241,7 +241,7 @@ public:
 
     /// Obtains a tuple containing all of the value's data members.
     /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&, const ::std::int32_t&, const ::Ice::ValuePtr&> ice_tuple() const
+    [[nodiscard]] std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&, const ::std::int32_t&, const Ice::ValuePtr&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs, pcd2, pcd3);
     }
@@ -250,16 +250,16 @@ public:
     /// @return The cloned value.
     [[nodiscard]] PCDerived3Ptr ice_clone() const { return ::std::static_pointer_cast<PCDerived3>(_iceCloneImpl()); }
 
-    ::Ice::ValuePtr pcd3;
+    Ice::ValuePtr pcd3;
 
     void ice_printFields(std::ostream& os) const override;
     PCDerived3(const PCDerived3&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 class CompactPCDerived : public CompactPDerived
@@ -297,11 +297,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     CompactPCDerived(const CompactPCDerived&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 }

@@ -43,7 +43,7 @@ namespace IceGrid
 {
 
 /// This exception is raised if an application does not exist.
-class ICE_CLASS(ICEGRID_API) ApplicationNotExistException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) ApplicationNotExistException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -80,13 +80,13 @@ public:
     ::std::string name;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if a server does not exist.
-class ICE_CLASS(ICEGRID_API) ServerNotExistException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) ServerNotExistException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -123,13 +123,13 @@ public:
     ::std::string id;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if a server failed to start.
-class ICE_CLASS(ICEGRID_API) ServerStartException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) ServerStartException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -170,13 +170,13 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if a server failed to stop.
-class ICE_CLASS(ICEGRID_API) ServerStopException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) ServerStopException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -217,13 +217,13 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if an adapter does not exist.
-class ICE_CLASS(ICEGRID_API) AdapterNotExistException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) AdapterNotExistException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -260,13 +260,13 @@ public:
     ::std::string id;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if an object already exists.
-class ICE_CLASS(ICEGRID_API) ObjectExistsException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) ObjectExistsException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -303,13 +303,13 @@ public:
     ::Ice::Identity id;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if an object is not registered.
-class ICE_CLASS(ICEGRID_API) ObjectNotRegisteredException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) ObjectNotRegisteredException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -346,13 +346,13 @@ public:
     ::Ice::Identity id;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if a node does not exist.
-class ICE_CLASS(ICEGRID_API) NodeNotExistException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) NodeNotExistException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -389,13 +389,13 @@ public:
     ::std::string name;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if a registry does not exist.
-class ICE_CLASS(ICEGRID_API) RegistryNotExistException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) RegistryNotExistException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -432,13 +432,13 @@ public:
     ::std::string name;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// An exception for deployment errors.
-class ICE_CLASS(ICEGRID_API) DeploymentException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) DeploymentException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -475,13 +475,13 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if a node could not be reached.
-class ICE_CLASS(ICEGRID_API) NodeUnreachableException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) NodeUnreachableException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -522,13 +522,13 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if a server could not be reached.
-class ICE_CLASS(ICEGRID_API) ServerUnreachableException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) ServerUnreachableException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -569,13 +569,13 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if a registry could not be reached.
-class ICE_CLASS(ICEGRID_API) RegistryUnreachableException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) RegistryUnreachableException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -616,13 +616,13 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if an unknown signal was sent to to a server.
-class ICE_CLASS(ICEGRID_API) BadSignalException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) BadSignalException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -659,13 +659,13 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// his exception is raised if a registry lock wasn't acquired or is already held by a session.
-class ICE_CLASS(ICEGRID_API) AccessDeniedException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) AccessDeniedException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -702,13 +702,13 @@ public:
     ::std::string lockUserId;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if the allocation of an object failed.
-class ICE_CLASS(ICEGRID_API) AllocationException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) AllocationException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -745,9 +745,9 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if the request to allocate an object times out.
@@ -765,13 +765,13 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if a client is denied the ability to create a session with IceGrid.
-class ICE_CLASS(ICEGRID_API) PermissionDeniedException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) PermissionDeniedException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -808,15 +808,15 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if an observer is already registered with the registry.
 /// @see AdminSession#setObservers
 /// @see AdminSession#setObserversByIdentity
-class ICE_CLASS(ICEGRID_API) ObserverAlreadyRegisteredException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) ObserverAlreadyRegisteredException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -853,9 +853,9 @@ public:
     ::Ice::Identity id;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 /// This exception is raised if a file is not available.
@@ -865,7 +865,7 @@ protected:
 /// @see AdminSession#openNodeStdErr
 /// @see AdminSession#openRegistryStdOut
 /// @see AdminSession#openRegistryStdErr
-class ICE_CLASS(ICEGRID_API) FileNotAvailableException : public ::Ice::UserException
+class ICE_CLASS(ICEGRID_API) FileNotAvailableException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -902,9 +902,9 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
 };
 
 }

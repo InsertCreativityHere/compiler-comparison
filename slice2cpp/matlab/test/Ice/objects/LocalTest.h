@@ -96,7 +96,7 @@ namespace LocalTest
 namespace LocalTest
 {
 
-class C1 : public ::Ice::Value
+class C1 : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -130,11 +130,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     C1(const C1&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 struct S1
@@ -281,7 +281,7 @@ struct S8
 
 ::std::ostream& operator<<(::std::ostream&, const S8&);
 
-class CB1 : public ::Ice::Value
+class CB1 : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -315,14 +315,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     CB1(const CB1&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class CB2 : public ::Ice::Value
+class CB2 : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -356,14 +356,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     CB2(const CB2&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class CB3 : public ::Ice::Value
+class CB3 : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -397,14 +397,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     CB3(const CB3&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class CB4 : public ::Ice::Value
+class CB4 : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -438,14 +438,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     CB4(const CB4&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class CB5 : public ::Ice::Value
+class CB5 : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -479,14 +479,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     CB5(const CB5&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class CB6 : public ::Ice::Value
+class CB6 : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -520,14 +520,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     CB6(const CB6&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class CB7 : public ::Ice::Value
+class CB7 : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -561,14 +561,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     CB7(const CB7&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class CB8 : public ::Ice::Value
+class CB8 : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -606,11 +606,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     CB8(const CB8&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 struct StructKey

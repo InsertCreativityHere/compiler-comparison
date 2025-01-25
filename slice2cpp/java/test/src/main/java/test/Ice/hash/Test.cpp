@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,8 +37,8 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::Pen> iceC_Test_Pen_init("::Test::Pen");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test::Pen> iceC_Test_Pen_init("::Test::Pen");
 }
 
 void
@@ -157,14 +158,14 @@ Test::Pen::ice_printFields(std::ostream& os) const
     Ice::print(os << ", color = ", this->color);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::Pen::_iceCloneImpl() const
 {
     return CloneEnabler<Pen>::clone(*this);
 }
 
 void
-Test::Pen::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::Pen::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->thickness, this->color);
@@ -172,7 +173,7 @@ Test::Pen::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::Pen::_iceReadImpl(::Ice::InputStream* istr)
+Test::Pen::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->thickness, this->color);

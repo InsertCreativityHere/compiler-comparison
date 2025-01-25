@@ -19,6 +19,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -39,8 +40,8 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::IceMX::SessionMetrics> iceC_IceMX_SessionMetrics_init("::IceMX::SessionMetrics");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::IceMX::SessionMetrics> iceC_IceMX_SessionMetrics_init("::IceMX::SessionMetrics");
 }
 
 const char*
@@ -68,14 +69,14 @@ IceMX::SessionMetrics::ice_printFields(std::ostream& os) const
     Ice::print(os << ", overriddenServer = ", this->overriddenServer);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 IceMX::SessionMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<SessionMetrics>::clone(*this);
 }
 
 void
-IceMX::SessionMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceMX::SessionMetrics::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->forwardedClient, this->forwardedServer, this->routingTableSize, this->queuedClient, this->queuedServer, this->overriddenClient, this->overriddenServer);
@@ -84,7 +85,7 @@ IceMX::SessionMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-IceMX::SessionMetrics::_iceReadImpl(::Ice::InputStream* istr)
+IceMX::SessionMetrics::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->forwardedClient, this->forwardedServer, this->routingTableSize, this->queuedClient, this->queuedServer, this->overriddenClient, this->overriddenServer);

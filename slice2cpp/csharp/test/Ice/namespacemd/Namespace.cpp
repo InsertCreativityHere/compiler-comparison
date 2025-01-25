@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,11 +37,11 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::WithNamespace::C1> iceC_WithNamespace_C1_init("::WithNamespace::C1");
-    const ::IceInternal::DefaultValueFactoryInit<::WithNamespace::C2> iceC_WithNamespace_C2_init("::WithNamespace::C2");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::WithNamespace::E1> iceC_WithNamespace_E1_init("::WithNamespace::E1");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::WithNamespace::E2> iceC_WithNamespace_E2_init("::WithNamespace::E2");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::WithNamespace::C1> iceC_WithNamespace_C1_init("::WithNamespace::C1");
+    const IceInternal::DefaultValueFactoryInit<::WithNamespace::C2> iceC_WithNamespace_C2_init("::WithNamespace::C2");
+    const IceInternal::DefaultUserExceptionFactoryInit<::WithNamespace::E1> iceC_WithNamespace_E1_init("::WithNamespace::E1");
+    const IceInternal::DefaultUserExceptionFactoryInit<::WithNamespace::E2> iceC_WithNamespace_E2_init("::WithNamespace::E2");
 }
 
 const char*
@@ -61,14 +62,14 @@ WithNamespace::C1::ice_printFields(std::ostream& os) const
     Ice::print(os << "i = ", this->i);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 WithNamespace::C1::_iceCloneImpl() const
 {
     return CloneEnabler<C1>::clone(*this);
 }
 
 void
-WithNamespace::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
+WithNamespace::C1::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->i);
@@ -76,7 +77,7 @@ WithNamespace::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-WithNamespace::C1::_iceReadImpl(::Ice::InputStream* istr)
+WithNamespace::C1::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->i);
@@ -102,14 +103,14 @@ WithNamespace::C2::ice_printFields(std::ostream& os) const
     Ice::print(os << ", l = ", this->l);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 WithNamespace::C2::_iceCloneImpl() const
 {
     return CloneEnabler<C2>::clone(*this);
 }
 
 void
-WithNamespace::C2::_iceWriteImpl(::Ice::OutputStream* ostr) const
+WithNamespace::C2::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->l);
@@ -118,7 +119,7 @@ WithNamespace::C2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-WithNamespace::C2::_iceReadImpl(::Ice::InputStream* istr)
+WithNamespace::C2::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->l);
@@ -151,7 +152,7 @@ WithNamespace::E1::ice_throw() const
 }
 
 void
-WithNamespace::E1::_writeImpl(::Ice::OutputStream* ostr) const
+WithNamespace::E1::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->i);
@@ -159,7 +160,7 @@ WithNamespace::E1::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-WithNamespace::E1::_readImpl(::Ice::InputStream* istr)
+WithNamespace::E1::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->i);
@@ -192,7 +193,7 @@ WithNamespace::E2::ice_throw() const
 }
 
 void
-WithNamespace::E2::_writeImpl(::Ice::OutputStream* ostr) const
+WithNamespace::E2::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->l);
@@ -201,7 +202,7 @@ WithNamespace::E2::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-WithNamespace::E2::_readImpl(::Ice::InputStream* istr)
+WithNamespace::E2::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->l);

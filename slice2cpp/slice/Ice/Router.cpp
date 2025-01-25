@@ -19,6 +19,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -37,103 +38,103 @@
 #   endif
 #endif
 
-::std::optional<::Ice::ObjectPrx>
-Ice::RouterPrx::getClientProxy(::std::optional<bool>& iceP_hasRoutingTable, const ::Ice::Context& context) const
+::std::optional<Ice::ObjectPrx>
+Ice::RouterPrx::getClientProxy(::std::optional<bool>& iceP_hasRoutingTable, const Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>(true, this, &RouterPrx::_iceI_getClientProxy, context).get();
+    auto result = IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<Ice::ObjectPrx>, ::std::optional<bool>>>(true, this, &RouterPrx::_iceI_getClientProxy, context).get();
     iceP_hasRoutingTable = ::std::get<1>(result);
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>
-Ice::RouterPrx::getClientProxyAsync(const ::Ice::Context& context) const
+::std::future<::std::tuple<::std::optional<Ice::ObjectPrx>, ::std::optional<bool>>>
+Ice::RouterPrx::getClientProxyAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>(false, this, &RouterPrx::_iceI_getClientProxy, context);
+    return IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<Ice::ObjectPrx>, ::std::optional<bool>>>(false, this, &RouterPrx::_iceI_getClientProxy, context);
 }
 
 ::std::function<void()>
-Ice::RouterPrx::getClientProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Ice::RouterPrx::getClientProxyAsync(::std::function<void(::std::optional<Ice::ObjectPrx>, ::std::optional<bool>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>&& result) mutable
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<Ice::ObjectPrx>, ::std::optional<bool>>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
+    return IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<Ice::ObjectPrx>, ::std::optional<bool>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
 }
 
 void
-Ice::RouterPrx::_iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>>& outAsync, const Context& context) const
+Ice::RouterPrx::_iceI_getClientProxy(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<Ice::ObjectPrx>, ::std::optional<bool>>>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getClientProxy";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr,
-        [](InputStream* istr)
+        [](Ice::InputStream* istr)
         {
-            ::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>> v;
+            ::std::tuple<::std::optional<Ice::ObjectPrx>, ::std::optional<bool>> v;
             istr->readAll(::std::get<0>(v));
             istr->readAll({1}, ::std::get<1>(v));
             return v;
         });
 }
 
-::std::optional<::Ice::ObjectPrx>
-Ice::RouterPrx::getServerProxy(const ::Ice::Context& context) const
+::std::optional<Ice::ObjectPrx>
+Ice::RouterPrx::getServerProxy(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &RouterPrx::_iceI_getServerProxy, context).get();
+    return IceInternal::makePromiseOutgoing<::std::optional<Ice::ObjectPrx>>(true, this, &RouterPrx::_iceI_getServerProxy, context).get();
 }
 
-::std::future<::std::optional<::Ice::ObjectPrx>>
-Ice::RouterPrx::getServerProxyAsync(const ::Ice::Context& context) const
+::std::future<::std::optional<Ice::ObjectPrx>>
+Ice::RouterPrx::getServerProxyAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(false, this, &RouterPrx::_iceI_getServerProxy, context);
+    return IceInternal::makePromiseOutgoing<::std::optional<Ice::ObjectPrx>>(false, this, &RouterPrx::_iceI_getServerProxy, context);
 }
 
 ::std::function<void()>
-Ice::RouterPrx::getServerProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Ice::RouterPrx::getServerProxyAsync(::std::function<void(::std::optional<Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Ice::RouterPrx::_iceI_getServerProxy, context);
+    return IceInternal::makeLambdaOutgoing<::std::optional<Ice::ObjectPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Ice::RouterPrx::_iceI_getServerProxy, context);
 }
 
 void
-Ice::RouterPrx::_iceI_getServerProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const Context& context) const
+Ice::RouterPrx::_iceI_getServerProxy(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<Ice::ObjectPrx>>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getServerProxy";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
 
 ::Ice::ObjectProxySeq
-Ice::RouterPrx::addProxies(const ObjectProxySeq& iceP_proxies, const ::Ice::Context& context) const
+Ice::RouterPrx::addProxies(const ObjectProxySeq& iceP_proxies, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<ObjectProxySeq>(true, this, &RouterPrx::_iceI_addProxies, iceP_proxies, context).get();
+    return IceInternal::makePromiseOutgoing<ObjectProxySeq>(true, this, &RouterPrx::_iceI_addProxies, iceP_proxies, context).get();
 }
 
 ::std::future<::Ice::ObjectProxySeq>
-Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies, const ::Ice::Context& context) const
+Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<ObjectProxySeq>(false, this, &RouterPrx::_iceI_addProxies, iceP_proxies, context);
+    return IceInternal::makePromiseOutgoing<ObjectProxySeq>(false, this, &RouterPrx::_iceI_addProxies, iceP_proxies, context);
 }
 
 ::std::function<void()>
-Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies, ::std::function<void(::Ice::ObjectProxySeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies, ::std::function<void(::Ice::ObjectProxySeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<ObjectProxySeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Ice::RouterPrx::_iceI_addProxies, iceP_proxies, context);
+    return IceInternal::makeLambdaOutgoing<ObjectProxySeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Ice::RouterPrx::_iceI_addProxies, iceP_proxies, context);
 }
 
 void
-Ice::RouterPrx::_iceI_addProxies(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectProxySeq>>& outAsync, const ObjectProxySeq& iceP_proxies, const Context& context) const
+Ice::RouterPrx::_iceI_addProxies(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<ObjectProxySeq>>& outAsync, const ObjectProxySeq& iceP_proxies, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "addProxies";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::std::nullopt, context,
-        [&](OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Idempotent, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxies);
         },
@@ -149,30 +150,30 @@ Ice::RouterPrx::ice_staticId() noexcept
 }
 
 ::std::optional<::Ice::RouterPrx>
-Ice::RouterFinderPrx::getRouter(const ::Ice::Context& context) const
+Ice::RouterFinderPrx::getRouter(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<RouterPrx>>(true, this, &RouterFinderPrx::_iceI_getRouter, context).get();
+    return IceInternal::makePromiseOutgoing<::std::optional<RouterPrx>>(true, this, &RouterFinderPrx::_iceI_getRouter, context).get();
 }
 
 ::std::future<::std::optional<::Ice::RouterPrx>>
-Ice::RouterFinderPrx::getRouterAsync(const ::Ice::Context& context) const
+Ice::RouterFinderPrx::getRouterAsync(const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::optional<RouterPrx>>(false, this, &RouterFinderPrx::_iceI_getRouter, context);
+    return IceInternal::makePromiseOutgoing<::std::optional<RouterPrx>>(false, this, &RouterFinderPrx::_iceI_getRouter, context);
 }
 
 ::std::function<void()>
-Ice::RouterFinderPrx::getRouterAsync(::std::function<void(::std::optional<::Ice::RouterPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Ice::RouterFinderPrx::getRouterAsync(::std::function<void(::std::optional<::Ice::RouterPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<RouterPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Ice::RouterFinderPrx::_iceI_getRouter, context);
+    return IceInternal::makeLambdaOutgoing<::std::optional<RouterPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Ice::RouterFinderPrx::_iceI_getRouter, context);
 }
 
 void
-Ice::RouterFinderPrx::_iceI_getRouter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RouterPrx>>>& outAsync, const Context& context) const
+Ice::RouterFinderPrx::_iceI_getRouter(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<RouterPrx>>>& outAsync, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getRouter";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
         nullptr,
         nullptr);
 }
@@ -186,14 +187,14 @@ Ice::RouterFinderPrx::ice_staticId() noexcept
 }
 
 ::std::vector<::std::string>
-Ice::Router::ice_ids(const Current&) const
+Ice::Router::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Ice::Router"};
     return allTypeIds;
 }
 
 ::std::string
-Ice::Router::ice_id(const Current&) const
+Ice::Router::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -207,14 +208,14 @@ Ice::Router::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Ice::Router::_iceD_getClientProxy(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     ::std::optional<bool> iceP_hasRoutingTable;
-    const ::std::optional<::Ice::ObjectPrx> ret = this->getClientProxy(iceP_hasRoutingTable, request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    const ::std::optional<Ice::ObjectPrx> ret = this->getClientProxy(iceP_hasRoutingTable, request.current());
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
             ostr->writeAll({1}, iceP_hasRoutingTable);
@@ -226,13 +227,13 @@ Ice::Router::_iceD_getClientProxy(
 /// \cond INTERNAL
 void
 Ice::Router::_iceD_getServerProxy(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) const // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    const ::std::optional<::Ice::ObjectPrx> ret = this->getServerProxy(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    const ::std::optional<Ice::ObjectPrx> ret = this->getServerProxy(request.current());
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -243,17 +244,17 @@ Ice::Router::_iceD_getServerProxy(
 /// \cond INTERNAL
 void
 Ice::Router::_iceD_addProxies(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ObjectProxySeq iceP_proxies;
     istr->readAll(iceP_proxies);
     istr->endEncapsulation();
     const ObjectProxySeq ret = this->addProxies(::std::move(iceP_proxies), request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -263,19 +264,19 @@ Ice::Router::_iceD_addProxies(
 
 /// \cond INTERNAL
 void
-Ice::Router::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::Router::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"addProxies", "getClientProxy", "getServerProxy", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::array<::std::string_view, 7> allOperations{"addProxies", "getClientProxy", "getServerProxy", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -315,21 +316,21 @@ Ice::Router::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ic
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-Ice::RouterFinder::ice_ids(const Current&) const
+Ice::RouterFinder::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Ice::RouterFinder"};
     return allTypeIds;
 }
 
 ::std::string
-Ice::RouterFinder::ice_id(const Current&) const
+Ice::RouterFinder::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -343,13 +344,13 @@ Ice::RouterFinder::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Ice::RouterFinder::_iceD_getRouter(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     const ::std::optional<RouterPrx> ret = this->getRouter(request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -359,19 +360,19 @@ Ice::RouterFinder::_iceD_getRouter(
 
 /// \cond INTERNAL
 void
-Ice::RouterFinder::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Ice::RouterFinder::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"getRouter", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"getRouter", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -401,7 +402,7 @@ Ice::RouterFinder::dispatch(::Ice::IncomingRequest& request, ::std::function<voi
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

@@ -33,7 +33,7 @@ namespace Test
 namespace Test
 {
 
-class HoldPrx : public ::Ice::Proxy<HoldPrx, ::Ice::ObjectPrx>
+class HoldPrx : public Ice::Proxy<HoldPrx, Ice::ObjectPrx>
 {
 public:
 
@@ -42,7 +42,7 @@ public:
     /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
     /// milliseconds, puts the adapter on hold and then immediately reactivates it.
     /// @param context The Context map to send with the invocation.
-    void putOnHold(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void putOnHold(::std::int32_t delay, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Puts the adapter on hold, and optionally reactivates it.
     /// @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
@@ -50,7 +50,7 @@ public:
     /// milliseconds, puts the adapter on hold and then immediately reactivates it.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> putOnHoldAsync(::std::int32_t delay, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> putOnHoldAsync(::std::int32_t delay, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Puts the adapter on hold, and optionally reactivates it.
     /// @param delay When less than 0, puts the adapter on hold indefinitely. When 0, puts the adapter on hold and
@@ -62,20 +62,20 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    putOnHoldAsync(::std::int32_t delay, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    putOnHoldAsync(::std::int32_t delay, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_putOnHold(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const Ice::Context&) const;
     /// \endcond
 
     /// Starts a background task that calls waitForHold and activate on the adapter.
     /// @param context The Context map to send with the invocation.
-    void waitForHold(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void waitForHold(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Starts a background task that calls waitForHold and activate on the adapter.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> waitForHoldAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> waitForHoldAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Starts a background task that calls waitForHold and activate on the adapter.
     /// @param response The response callback.
@@ -84,20 +84,20 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    waitForHoldAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    waitForHoldAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_waitForHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
+    void _iceI_waitForHold(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Shuts down the server.
     /// @param context The Context map to send with the invocation.
-    void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Shuts down the server.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<void> shutdownAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Shuts down the server.
     /// @param response The response callback.
@@ -106,21 +106,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
+    void _iceI_shutdown(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    HoldPrx(const HoldPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    HoldPrx(const HoldPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    HoldPrx(HoldPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    HoldPrx(HoldPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    HoldPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    HoldPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~HoldPrx() override;
 
@@ -128,7 +128,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -137,19 +137,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static HoldPrx _fromReference(::IceInternal::ReferencePtr ref) { return HoldPrx(std::move(ref)); }
+    static HoldPrx _fromReference(IceInternal::ReferencePtr ref) { return HoldPrx(std::move(ref)); }
 
 protected:
 
     HoldPrx() = default;
 
-    explicit HoldPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit HoldPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -160,7 +160,7 @@ protected:
 namespace Test
 {
 
-class Hold : public virtual ::Ice::Object
+class Hold : public virtual Ice::Object
 {
 public:
 
@@ -169,12 +169,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -185,27 +185,27 @@ public:
     /// immediately reactivates it. When greater than 0, starts a background task that sleeps for delay
     /// milliseconds, puts the adapter on hold and then immediately reactivates it.
     /// @param current The Current object for the invocation.
-    virtual void putOnHold(::std::int32_t delay, const ::Ice::Current& current) = 0;
+    virtual void putOnHold(::std::int32_t delay, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_putOnHold(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_putOnHold(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Starts a background task that calls waitForHold and activate on the adapter.
     /// @param current The Current object for the invocation.
-    virtual void waitForHold(const ::Ice::Current& current) = 0;
+    virtual void waitForHold(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_waitForHold(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_waitForHold(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// Shuts down the server.
     /// @param current The Current object for the invocation.
-    virtual void shutdown(const ::Ice::Current& current) = 0;
+    virtual void shutdown(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_shutdown(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

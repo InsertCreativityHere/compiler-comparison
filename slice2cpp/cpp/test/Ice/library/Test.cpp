@@ -19,6 +19,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -39,50 +40,50 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UserError> iceC_Test_UserError_init("::Test::UserError");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::UserError> iceC_Test_UserError_init("::Test::UserError");
 }
 
 void
-Test::MyInterfacePrx::op(bool iceP_throwIt, const ::Ice::Context& context) const
+Test::MyInterfacePrx::op(bool iceP_throwIt, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyInterfacePrx::_iceI_op, iceP_throwIt, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &MyInterfacePrx::_iceI_op, iceP_throwIt, context).get();
 }
 
 ::std::future<void>
-Test::MyInterfacePrx::opAsync(bool iceP_throwIt, const ::Ice::Context& context) const
+Test::MyInterfacePrx::opAsync(bool iceP_throwIt, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyInterfacePrx::_iceI_op, iceP_throwIt, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &MyInterfacePrx::_iceI_op, iceP_throwIt, context);
 }
 
 ::std::function<void()>
-Test::MyInterfacePrx::opAsync(bool iceP_throwIt, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::MyInterfacePrx::opAsync(bool iceP_throwIt, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyInterfacePrx::_iceI_op, iceP_throwIt, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyInterfacePrx::_iceI_op, iceP_throwIt, context);
 }
 
 void
-Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_throwIt, const ::Ice::Context& context) const
+Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_throwIt, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "op";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_throwIt);
         },
-        [](const ::Ice::UserException& ex)
+        [](const Ice::UserException& ex)
         {
             try
             {
                 ex.ice_throw();
             }
-            catch(const UserError&)
+            catch (const UserError&)
             {
                 throw;
             }
-            catch(const ::Ice::UserException&)
+            catch (const Ice::UserException&)
             {
             }
         });
@@ -121,7 +122,7 @@ Test::UserError::ice_throw() const
 }
 
 void
-Test::UserError::_writeImpl(::Ice::OutputStream* ostr) const
+Test::UserError::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->message);
@@ -129,7 +130,7 @@ Test::UserError::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::UserError::_readImpl(::Ice::InputStream* istr)
+Test::UserError::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->message);
@@ -137,14 +138,14 @@ Test::UserError::_readImpl(::Ice::InputStream* istr)
 }
 
 ::std::vector<::std::string>
-Test::MyInterface::ice_ids(const ::Ice::Current&) const
+Test::MyInterface::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyInterface"};
     return allTypeIds;
 }
 
 ::std::string
-Test::MyInterface::ice_id(const ::Ice::Current&) const
+Test::MyInterface::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -158,35 +159,35 @@ Test::MyInterface::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test::MyInterface::_iceD_op(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     bool iceP_throwIt;
     istr->readAll(iceP_throwIt);
     istr->endEncapsulation();
     this->op(iceP_throwIt, request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+    sendResponse(Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
 void
-Test::MyInterface::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test::MyInterface::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -216,7 +217,7 @@ Test::MyInterface::dispatch(::Ice::IncomingRequest& request, ::std::function<voi
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

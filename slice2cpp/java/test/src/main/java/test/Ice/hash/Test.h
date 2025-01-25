@@ -168,7 +168,7 @@ struct ColorPalette
 
 ::std::ostream& operator<<(::std::ostream&, const ColorPalette&);
 
-class Pen : public ::Ice::Value
+class Pen : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -204,11 +204,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     Pen(const Pen&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 struct Draw

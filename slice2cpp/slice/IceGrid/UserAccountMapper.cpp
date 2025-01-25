@@ -19,6 +19,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -39,50 +40,50 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::UserAccountNotFoundException> iceC_IceGrid_UserAccountNotFoundException_init("::IceGrid::UserAccountNotFoundException");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::UserAccountNotFoundException> iceC_IceGrid_UserAccountNotFoundException_init("::IceGrid::UserAccountNotFoundException");
 }
 
 ::std::string
-IceGrid::UserAccountMapperPrx::getUserAccount(::std::string_view iceP_user, const ::Ice::Context& context) const
+IceGrid::UserAccountMapperPrx::getUserAccount(::std::string_view iceP_user, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &UserAccountMapperPrx::_iceI_getUserAccount, iceP_user, context).get();
+    return IceInternal::makePromiseOutgoing<::std::string>(true, this, &UserAccountMapperPrx::_iceI_getUserAccount, iceP_user, context).get();
 }
 
 ::std::future<::std::string>
-IceGrid::UserAccountMapperPrx::getUserAccountAsync(::std::string_view iceP_user, const ::Ice::Context& context) const
+IceGrid::UserAccountMapperPrx::getUserAccountAsync(::std::string_view iceP_user, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &UserAccountMapperPrx::_iceI_getUserAccount, iceP_user, context);
+    return IceInternal::makePromiseOutgoing<::std::string>(false, this, &UserAccountMapperPrx::_iceI_getUserAccount, iceP_user, context);
 }
 
 ::std::function<void()>
-IceGrid::UserAccountMapperPrx::getUserAccountAsync(::std::string_view iceP_user, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+IceGrid::UserAccountMapperPrx::getUserAccountAsync(::std::string_view iceP_user, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::UserAccountMapperPrx::_iceI_getUserAccount, iceP_user, context);
+    return IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::UserAccountMapperPrx::_iceI_getUserAccount, iceP_user, context);
 }
 
 void
-IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_user, const ::Ice::Context& context) const
+IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_user, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getUserAccount";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_user);
         },
-        [](const ::Ice::UserException& ex)
+        [](const Ice::UserException& ex)
         {
             try
             {
                 ex.ice_throw();
             }
-            catch(const UserAccountNotFoundException&)
+            catch (const UserAccountNotFoundException&)
             {
                 throw;
             }
-            catch(const ::Ice::UserException&)
+            catch (const Ice::UserException&)
             {
             }
         });
@@ -115,28 +116,28 @@ IceGrid::UserAccountNotFoundException::ice_throw() const
 }
 
 void
-IceGrid::UserAccountNotFoundException::_writeImpl(::Ice::OutputStream* ostr) const
+IceGrid::UserAccountNotFoundException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->endSlice();
 }
 
 void
-IceGrid::UserAccountNotFoundException::_readImpl(::Ice::InputStream* istr)
+IceGrid::UserAccountNotFoundException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->endSlice();
 }
 
 ::std::vector<::std::string>
-IceGrid::UserAccountMapper::ice_ids(const ::Ice::Current&) const
+IceGrid::UserAccountMapper::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::UserAccountMapper"};
     return allTypeIds;
 }
 
 ::std::string
-IceGrid::UserAccountMapper::ice_id(const ::Ice::Current&) const
+IceGrid::UserAccountMapper::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -150,17 +151,17 @@ IceGrid::UserAccountMapper::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 IceGrid::UserAccountMapper::_iceD_getUserAccount(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::string iceP_user;
     istr->readAll(iceP_user);
     istr->endEncapsulation();
     const ::std::string ret = this->getUserAccount(::std::move(iceP_user), request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
         },
@@ -170,19 +171,19 @@ IceGrid::UserAccountMapper::_iceD_getUserAccount(
 
 /// \cond INTERNAL
 void
-IceGrid::UserAccountMapper::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+IceGrid::UserAccountMapper::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"getUserAccount", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"getUserAccount", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -212,7 +213,7 @@ IceGrid::UserAccountMapper::dispatch(::Ice::IncomingRequest& request, ::std::fun
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

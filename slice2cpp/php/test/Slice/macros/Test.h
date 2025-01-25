@@ -37,7 +37,7 @@ namespace Test
 namespace Test
 {
 
-class Default : public ::Ice::Value
+class Default : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -73,14 +73,14 @@ public:
     void ice_printFields(std::ostream& os) const override;
     Default(const Default&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
-class NoDefault : public ::Ice::Value
+class NoDefault : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -116,11 +116,11 @@ public:
     void ice_printFields(std::ostream& os) const override;
     NoDefault(const NoDefault&) = default;
 
-    [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
+    void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void _iceReadImpl(::Ice::InputStream*) override;
+    void _iceReadImpl(Ice::InputStream*) override;
 };
 
 }

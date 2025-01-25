@@ -47,7 +47,7 @@ namespace Glacier2
 
 /// The Glacier2 permissions verifier. This is called through the process of establishing a session.
 /// @see Router
-class GLACIER2_API PermissionsVerifierPrx : public ::Ice::Proxy<PermissionsVerifierPrx, ::Ice::ObjectPrx>
+class GLACIER2_API PermissionsVerifierPrx : public Ice::Proxy<PermissionsVerifierPrx, Ice::ObjectPrx>
 {
 public:
 
@@ -59,14 +59,14 @@ public:
     /// @return True if access is granted, or false otherwise.
     /// @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
     /// returning false with a reason set in the reason out parameter.
-    bool checkPermissions(::std::string_view userId, ::std::string_view password, ::std::string& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool checkPermissions(::std::string_view userId, ::std::string_view password, ::std::string& reason, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Check whether a user has permission to access the router.
     /// @param userId The user id for which to check permission.
     /// @param password The user's password.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::tuple<bool, ::std::string>> checkPermissionsAsync(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<bool, ::std::string>> checkPermissionsAsync(::std::string_view userId, ::std::string_view password, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Check whether a user has permission to access the router.
     /// @param userId The user id for which to check permission.
@@ -77,21 +77,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    checkPermissionsAsync(::std::string_view userId, ::std::string_view password, ::std::function<void(bool, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    checkPermissionsAsync(::std::string_view userId, ::std::string_view password, ::std::function<void(bool, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
+    void _iceI_checkPermissions(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>&, ::std::string_view, ::std::string_view, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    PermissionsVerifierPrx(const PermissionsVerifierPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    PermissionsVerifierPrx(const PermissionsVerifierPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    PermissionsVerifierPrx(PermissionsVerifierPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    PermissionsVerifierPrx(PermissionsVerifierPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    PermissionsVerifierPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    PermissionsVerifierPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~PermissionsVerifierPrx() override;
 
@@ -99,7 +99,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -108,19 +108,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static PermissionsVerifierPrx _fromReference(::IceInternal::ReferencePtr ref) { return PermissionsVerifierPrx(std::move(ref)); }
+    static PermissionsVerifierPrx _fromReference(IceInternal::ReferencePtr ref) { return PermissionsVerifierPrx(std::move(ref)); }
 
 protected:
 
     PermissionsVerifierPrx() = default;
 
-    explicit PermissionsVerifierPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit PermissionsVerifierPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -128,7 +128,7 @@ protected:
 
 /// The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
 /// @see Router
-class GLACIER2_API SSLPermissionsVerifierPrx : public ::Ice::Proxy<SSLPermissionsVerifierPrx, ::Ice::ObjectPrx>
+class GLACIER2_API SSLPermissionsVerifierPrx : public Ice::Proxy<SSLPermissionsVerifierPrx, Ice::ObjectPrx>
 {
 public:
 
@@ -140,14 +140,14 @@ public:
     /// @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
     /// returning false with a reason set in the reason out parameter.
     /// @see SSLInfo
-    bool authorize(const SSLInfo& info, ::std::string& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool authorize(const SSLInfo& info, ::std::string& reason, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Check whether a user has permission to access the router.
     /// @param info The SSL information.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
     /// @see SSLInfo
-    [[nodiscard]] ::std::future<::std::tuple<bool, ::std::string>> authorizeAsync(const SSLInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<bool, ::std::string>> authorizeAsync(const SSLInfo& info, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Check whether a user has permission to access the router.
     /// @param info The SSL information.
@@ -158,21 +158,21 @@ public:
     /// @return A function that can be called to cancel the invocation locally.
     /// @see SSLInfo
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    authorizeAsync(const SSLInfo& info, ::std::function<void(bool, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    authorizeAsync(const SSLInfo& info, ::std::function<void(bool, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_authorize(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>&, const SSLInfo&, const ::Ice::Context&) const;
+    void _iceI_authorize(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>&, const SSLInfo&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    SSLPermissionsVerifierPrx(const SSLPermissionsVerifierPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    SSLPermissionsVerifierPrx(const SSLPermissionsVerifierPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    SSLPermissionsVerifierPrx(SSLPermissionsVerifierPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    SSLPermissionsVerifierPrx(SSLPermissionsVerifierPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    SSLPermissionsVerifierPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    SSLPermissionsVerifierPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~SSLPermissionsVerifierPrx() override;
 
@@ -180,7 +180,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -189,19 +189,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static SSLPermissionsVerifierPrx _fromReference(::IceInternal::ReferencePtr ref) { return SSLPermissionsVerifierPrx(std::move(ref)); }
+    static SSLPermissionsVerifierPrx _fromReference(IceInternal::ReferencePtr ref) { return SSLPermissionsVerifierPrx(std::move(ref)); }
 
 protected:
 
     SSLPermissionsVerifierPrx() = default;
 
-    explicit SSLPermissionsVerifierPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit SSLPermissionsVerifierPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -213,7 +213,7 @@ namespace Glacier2
 {
 
 /// This exception is raised if a client is denied the ability to create a session with the router.
-class ICE_CLASS(GLACIER2_API) PermissionDeniedException : public ::Ice::UserException
+class ICE_CLASS(GLACIER2_API) PermissionDeniedException : public Ice::UserException
 {
 public:
     /// Default constructor.
@@ -250,9 +250,9 @@ public:
     ::std::string reason;
 
 protected:
-    ICE_MEMBER(GLACIER2_API) void _writeImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(GLACIER2_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(GLACIER2_API) void _readImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(GLACIER2_API) void _readImpl(Ice::InputStream*) override;
 };
 
 }
@@ -262,7 +262,7 @@ namespace Glacier2
 
 /// The Glacier2 permissions verifier. This is called through the process of establishing a session.
 /// @see Router
-class GLACIER2_API PermissionsVerifier : public virtual ::Ice::Object
+class GLACIER2_API PermissionsVerifier : public virtual Ice::Object
 {
 public:
 
@@ -271,12 +271,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -290,13 +290,13 @@ public:
     /// @return True if access is granted, or false otherwise.
     /// @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
     /// returning false with a reason set in the reason out parameter.
-    virtual bool checkPermissions(::std::string userId, ::std::string password, ::std::string& reason, const ::Ice::Current& current) const = 0;
+    virtual bool checkPermissions(::std::string userId, ::std::string password, ::std::string& reason, const Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    void _iceD_checkPermissions(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_checkPermissions(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -304,7 +304,7 @@ using PermissionsVerifierPtr = ::std::shared_ptr<PermissionsVerifier>;
 
 /// The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
 /// @see Router
-class GLACIER2_API SSLPermissionsVerifier : public virtual ::Ice::Object
+class GLACIER2_API SSLPermissionsVerifier : public virtual Ice::Object
 {
 public:
 
@@ -313,12 +313,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const ::Ice::Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -332,13 +332,13 @@ public:
     /// @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
     /// returning false with a reason set in the reason out parameter.
     /// @see SSLInfo
-    virtual bool authorize(SSLInfo info, ::std::string& reason, const ::Ice::Current& current) const = 0;
+    virtual bool authorize(SSLInfo info, ::std::string& reason, const Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    void _iceD_authorize(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_authorize(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

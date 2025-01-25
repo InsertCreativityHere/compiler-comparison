@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,54 +37,54 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::User::UserInfo> iceC_User_UserInfo_init("::User::UserInfo");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::User::UserInfo> iceC_User_UserInfo_init("::User::UserInfo");
 }
 
 ::User::UserInfoPtr
-User::RegistryPrx::getUserInfo(::std::string_view iceP_id, const ::Ice::Context& context) const
+User::RegistryPrx::getUserInfo(::std::string_view iceP_id, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<UserInfoPtr>(true, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context).get();
+    return IceInternal::makePromiseOutgoing<UserInfoPtr>(true, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context).get();
 }
 
 ::std::future<::User::UserInfoPtr>
-User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id, const ::Ice::Context& context) const
+User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<UserInfoPtr>(false, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context);
+    return IceInternal::makePromiseOutgoing<UserInfoPtr>(false, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context);
 }
 
 ::std::function<void()>
-User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id, ::std::function<void(::User::UserInfoPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id, ::std::function<void(::User::UserInfoPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<UserInfoPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, iceP_id, context);
+    return IceInternal::makeLambdaOutgoing<UserInfoPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, iceP_id, context);
 }
 
 void
-User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<UserInfoPtr>>& outAsync, ::std::string_view iceP_id, const ::Ice::Context& context) const
+User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<UserInfoPtr>>& outAsync, ::std::string_view iceP_id, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getUserInfo";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
         },
-        [](const ::Ice::UserException& ex)
+        [](const Ice::UserException& ex)
         {
             try
             {
                 ex.ice_throw();
             }
-            catch(const ::Core::ArgumentException&)
+            catch (const ::Core::ArgumentException&)
             {
                 throw;
             }
-            catch(const ::Ice::UserException&)
+            catch (const Ice::UserException&)
             {
             }
         },
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             UserInfoPtr ret;
             istr->readAll(ret);
@@ -112,35 +113,35 @@ User::UserInfo::ice_id() const noexcept
     return ice_staticId();
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 User::UserInfo::_iceCloneImpl() const
 {
     return CloneEnabler<UserInfo>::clone(*this);
 }
 
 void
-User::UserInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
+User::UserInfo::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->endSlice();
 }
 
 void
-User::UserInfo::_iceReadImpl(::Ice::InputStream* istr)
+User::UserInfo::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->endSlice();
 }
 
 ::std::vector<::std::string>
-User::Registry::ice_ids(const ::Ice::Current&) const
+User::Registry::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::User::Registry"};
     return allTypeIds;
 }
 
 ::std::string
-User::Registry::ice_id(const ::Ice::Current&) const
+User::Registry::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -154,17 +155,17 @@ User::Registry::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 User::Registry::_iceD_getUserInfo(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse) // NOLINT(performance-unnecessary-value-param)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
     const UserInfoPtr ret = this->getUserInfo(::std::move(iceP_id), request.current());
-    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+    sendResponse(Ice::makeOutgoingResponse([&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
             ostr->writePendingValues();
@@ -175,19 +176,19 @@ User::Registry::_iceD_getUserInfo(
 
 /// \cond INTERNAL
 void
-User::Registry::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+User::Registry::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"getUserInfo", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
+    static constexpr ::std::array<::std::string_view, 5> allOperations{"getUserInfo", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -217,7 +218,7 @@ User::Registry::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

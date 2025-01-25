@@ -252,7 +252,7 @@ struct AdapterDescriptor
 ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const AdapterDescriptor&);
 
 /// A communicator descriptor.
-class ICE_CLASS(ICEGRID_API) CommunicatorDescriptor : public ::Ice::Value
+class ICE_CLASS(ICEGRID_API) CommunicatorDescriptor : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -300,11 +300,11 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
     CommunicatorDescriptor(const CommunicatorDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 /// A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
@@ -423,11 +423,11 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
     ServerDescriptor(const ServerDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 /// An IceBox service descriptor.
@@ -476,11 +476,11 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
     ServiceDescriptor(const ServiceDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 /// A server template instance descriptor.
@@ -615,11 +615,11 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
     IceBoxDescriptor(const IceBoxDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 /// A node descriptor.
@@ -653,7 +653,7 @@ struct NodeDescriptor
 ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const NodeDescriptor&);
 
 /// A base class for load balancing policies.
-class ICE_CLASS(ICEGRID_API) LoadBalancingPolicy : public ::Ice::Value
+class ICE_CLASS(ICEGRID_API) LoadBalancingPolicy : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -689,11 +689,11 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
     LoadBalancingPolicy(const LoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 /// Random load balancing policy.
@@ -713,11 +713,11 @@ public:using LoadBalancingPolicy::LoadBalancingPolicy;
 
     RandomLoadBalancingPolicy(const RandomLoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 /// Ordered load balancing policy.
@@ -737,11 +737,11 @@ public:using LoadBalancingPolicy::LoadBalancingPolicy;
 
     OrderedLoadBalancingPolicy(const OrderedLoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 /// Round robin load balancing policy.
@@ -761,11 +761,11 @@ public:using LoadBalancingPolicy::LoadBalancingPolicy;
 
     RoundRobinLoadBalancingPolicy(const RoundRobinLoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 /// Adaptive load balancing policy.
@@ -808,11 +808,11 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
     AdaptiveLoadBalancingPolicy(const AdaptiveLoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 /// A replica group descriptor.
@@ -882,7 +882,7 @@ struct ApplicationDescriptor
 ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const ApplicationDescriptor&);
 
 /// A "boxed" string.
-class ICE_CLASS(ICEGRID_API) BoxedString : public ::Ice::Value
+class ICE_CLASS(ICEGRID_API) BoxedString : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -918,11 +918,11 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
     BoxedString(const BoxedString&) = default;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 /// A node update descriptor to describe the updates to apply to a node of a deployed application.
@@ -964,7 +964,7 @@ struct NodeUpdateDescriptor
 ICEGRID_API ::std::ostream& operator<<(::std::ostream&, const NodeUpdateDescriptor&);
 
 /// A "boxed" distribution descriptor.
-class ICE_CLASS(ICEGRID_API) BoxedDistributionDescriptor : public ::Ice::Value
+class ICE_CLASS(ICEGRID_API) BoxedDistributionDescriptor : public Ice::Value
 {
 public:
     /// Default constructor.
@@ -1000,11 +1000,11 @@ public:
     ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
     BoxedDistributionDescriptor(const BoxedDistributionDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] ::Ice::ValuePtr _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(Ice::InputStream*) override;
 };
 
 /// An application update descriptor to describe the updates to apply to a deployed application.

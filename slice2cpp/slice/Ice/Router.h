@@ -38,7 +38,7 @@ namespace Ice
 
 /// The Ice router interface. Routers can be set either globally though the <code>Communicator</code>, or with
 /// <code>ice_router</code> on specific proxies.
-class ICE_API RouterPrx : public Proxy<RouterPrx, ObjectPrx>
+class ICE_API RouterPrx : public Ice::Proxy<RouterPrx, Ice::ObjectPrx>
 {
 public:
 
@@ -50,13 +50,13 @@ public:
     /// The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
     /// @param context The Context map to send with the invocation.
     /// @return The router's client proxy.
-    ::std::optional<::Ice::ObjectPrx> getClientProxy(::std::optional<bool>& hasRoutingTable, const Context& context = noExplicitContext) const;
+    ::std::optional<Ice::ObjectPrx> getClientProxy(::std::optional<bool>& hasRoutingTable, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
     /// If a null proxy is returned, the client will forward requests to the router's endpoints.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>> getClientProxyAsync(const Context& context = noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::tuple<::std::optional<Ice::ObjectPrx>, ::std::optional<bool>>> getClientProxyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
     /// If a null proxy is returned, the client will forward requests to the router's endpoints.
@@ -66,21 +66,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getClientProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
+    getClientProxyAsync(::std::function<void(::std::optional<Ice::ObjectPrx>, ::std::optional<bool>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>>&, const Context&) const;
+    void _iceI_getClientProxy(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<Ice::ObjectPrx>, ::std::optional<bool>>>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     /// @param context The Context map to send with the invocation.
     /// @return The router's server proxy.
-    ::std::optional<::Ice::ObjectPrx> getServerProxy(const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::optional<Ice::ObjectPrx> getServerProxy(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<::Ice::ObjectPrx>> getServerProxyAsync(const Context& context = noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<Ice::ObjectPrx>> getServerProxyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     /// @param response The response callback.
@@ -89,23 +89,23 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getServerProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
+    getServerProxyAsync(::std::function<void(::std::optional<Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const Context&) const;
+    void _iceI_getServerProxy(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<Ice::ObjectPrx>>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Add new proxy information to the router's routing table.
     /// @param proxies The proxies to add. Adding a null proxy is an error.
     /// @param context The Context map to send with the invocation.
     /// @return Proxies discarded by the router. These proxies are all non-null.
-    ObjectProxySeq addProxies(const ObjectProxySeq& proxies, const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ObjectProxySeq addProxies(const ObjectProxySeq& proxies, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Add new proxy information to the router's routing table.
     /// @param proxies The proxies to add. Adding a null proxy is an error.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<ObjectProxySeq> addProxiesAsync(const ObjectProxySeq& proxies, const Context& context = noExplicitContext) const;
+    [[nodiscard]] ::std::future<ObjectProxySeq> addProxiesAsync(const ObjectProxySeq& proxies, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Add new proxy information to the router's routing table.
     /// @param proxies The proxies to add. Adding a null proxy is an error.
@@ -115,21 +115,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    addProxiesAsync(const ObjectProxySeq& proxies, ::std::function<void(::Ice::ObjectProxySeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
+    addProxiesAsync(const ObjectProxySeq& proxies, ::std::function<void(::Ice::ObjectProxySeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addProxies(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectProxySeq>>&, const ObjectProxySeq&, const Context&) const;
+    void _iceI_addProxies(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<ObjectProxySeq>>&, const ObjectProxySeq&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    RouterPrx(const RouterPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    RouterPrx(const RouterPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    RouterPrx(RouterPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    RouterPrx(RouterPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    RouterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    RouterPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~RouterPrx() override;
 
@@ -137,7 +137,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -146,19 +146,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static RouterPrx _fromReference(::IceInternal::ReferencePtr ref) { return RouterPrx(std::move(ref)); }
+    static RouterPrx _fromReference(IceInternal::ReferencePtr ref) { return RouterPrx(std::move(ref)); }
 
 protected:
 
     RouterPrx() = default;
 
-    explicit RouterPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit RouterPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -167,7 +167,7 @@ protected:
 /// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
 /// through an Ice object with the identity 'Ice/RouterFinder'. This allows clients to retrieve the router proxy
 /// with just the endpoint information of the service.
-class ICE_API RouterFinderPrx : public Proxy<RouterFinderPrx, ObjectPrx>
+class ICE_API RouterFinderPrx : public Ice::Proxy<RouterFinderPrx, Ice::ObjectPrx>
 {
 public:
 
@@ -175,13 +175,13 @@ public:
     /// replicas. This proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The router proxy.
-    ::std::optional<RouterPrx> getRouter(const Context& context = noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+    ::std::optional<RouterPrx> getRouter(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
 
     /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
     /// replicas. This proxy is never null.
     /// @param context The Context map to send with the invocation.
     /// @return The future object for the invocation.
-    [[nodiscard]] ::std::future<::std::optional<RouterPrx>> getRouterAsync(const Context& context = noExplicitContext) const;
+    [[nodiscard]] ::std::future<::std::optional<RouterPrx>> getRouterAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
     /// replicas. This proxy is never null.
@@ -191,21 +191,21 @@ public:
     /// @param context The Context map to send with the invocation.
     /// @return A function that can be called to cancel the invocation locally.
     ::std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getRouterAsync(::std::function<void(::std::optional<::Ice::RouterPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
+    getRouterAsync(::std::function<void(::std::optional<::Ice::RouterPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getRouter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RouterPrx>>>&, const Context&) const;
+    void _iceI_getRouter(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::optional<RouterPrx>>>&, const Ice::Context&) const;
     /// \endcond
 
     /// Obtains the Slice type ID of this interface.
     /// @return The fully-scoped type ID.
     static const char* ice_staticId() noexcept;
 
-    RouterFinderPrx(const RouterFinderPrx& other) noexcept : ::Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+    RouterFinderPrx(const RouterFinderPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    RouterFinderPrx(RouterFinderPrx&& other) noexcept : ::Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+    RouterFinderPrx(RouterFinderPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    RouterFinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) : ::Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+    RouterFinderPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
     ~RouterFinderPrx() override;
 
@@ -213,7 +213,7 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(rhs);
+            Ice::ObjectPrx::operator=(rhs);
         }
         return *this;
     }
@@ -222,19 +222,19 @@ public:
     {
         if (this != &rhs)
         {
-            ::Ice::ObjectPrx::operator=(std::move(rhs));
+            Ice::ObjectPrx::operator=(std::move(rhs));
         }
         return *this;
     }
 
     /// \cond INTERNAL
-    static RouterFinderPrx _fromReference(::IceInternal::ReferencePtr ref) { return RouterFinderPrx(std::move(ref)); }
+    static RouterFinderPrx _fromReference(IceInternal::ReferencePtr ref) { return RouterFinderPrx(std::move(ref)); }
 
 protected:
 
     RouterFinderPrx() = default;
 
-    explicit RouterFinderPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(std::move(ref))
+    explicit RouterFinderPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
     {
     }
     /// \endcond
@@ -247,7 +247,7 @@ namespace Ice
 
 /// The Ice router interface. Routers can be set either globally though the <code>Communicator</code>, or with
 /// <code>ice_router</code> on specific proxies.
-class ICE_API Router : public virtual Object
+class ICE_API Router : public virtual Ice::Object
 {
 public:
 
@@ -256,12 +256,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -275,30 +275,30 @@ public:
     /// The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
     /// @param current The Current object for the invocation.
     /// @return The router's client proxy.
-    virtual ::std::optional<::Ice::ObjectPrx> getClientProxy(::std::optional<bool>& hasRoutingTable, const Current& current) const = 0;
+    virtual ::std::optional<Ice::ObjectPrx> getClientProxy(::std::optional<bool>& hasRoutingTable, const Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    void _iceD_getClientProxy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_getClientProxy(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     /// @param current The Current object for the invocation.
     /// @return The router's server proxy.
-    [[nodiscard]] virtual ::std::optional<::Ice::ObjectPrx> getServerProxy(const Current& current) const = 0;
+    [[nodiscard]] virtual ::std::optional<Ice::ObjectPrx> getServerProxy(const Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    void _iceD_getServerProxy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_getServerProxy(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// Add new proxy information to the router's routing table.
     /// @param proxies The proxies to add. Adding a null proxy is an error.
     /// @param current The Current object for the invocation.
     /// @return Proxies discarded by the router. These proxies are all non-null.
-    virtual ObjectProxySeq addProxies(ObjectProxySeq proxies, const Current& current) = 0;
+    virtual ObjectProxySeq addProxies(ObjectProxySeq proxies, const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_addProxies(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_addProxies(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -307,7 +307,7 @@ using RouterPtr = ::std::shared_ptr<Router>;
 /// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
 /// through an Ice object with the identity 'Ice/RouterFinder'. This allows clients to retrieve the router proxy
 /// with just the endpoint information of the service.
-class ICE_API RouterFinder : public virtual Object
+class ICE_API RouterFinder : public virtual Ice::Object
 {
 public:
 
@@ -316,12 +316,12 @@ public:
     /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Current& current) const override;
+    [[nodiscard]] ::std::vector<::std::string> ice_ids(const Ice::Current& current) const override;
 
     /// Obtains a Slice type ID representing the most-derived interface supported by this object.
     /// @param current The Current object for the invocation.
     /// @return A fully-scoped type ID.
-    [[nodiscard]] ::std::string ice_id(const Current& current) const override;
+    [[nodiscard]] ::std::string ice_id(const Ice::Current& current) const override;
 
     /// Obtains the Slice type ID corresponding to this interface.
     /// @return A fully-scoped type ID.
@@ -331,13 +331,13 @@ public:
     /// replicas. This proxy is never null.
     /// @param current The Current object for the invocation.
     /// @return The router proxy.
-    virtual ::std::optional<RouterPrx> getRouter(const Current& current) = 0;
+    virtual ::std::optional<RouterPrx> getRouter(const Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_getRouter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    void _iceD_getRouter(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    void dispatch(Ice::IncomingRequest&, ::std::function<void(Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

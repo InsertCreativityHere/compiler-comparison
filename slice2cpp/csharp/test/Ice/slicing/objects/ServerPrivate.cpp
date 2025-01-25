@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,16 +37,16 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultValueFactoryInit<::Test::SBSUnknownDerived> iceC_Test_SBSUnknownDerived_init("::Test::SBSUnknownDerived");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::SUnknown> iceC_Test_SUnknown_init("::Test::SUnknown");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::D2> iceC_Test_D2_init("::Test::D2");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::D4> iceC_Test_D4_init("::Test::D4");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownDerivedException> iceC_Test_UnknownDerivedException_init("::Test::UnknownDerivedException");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::MyClass> iceC_Test_MyClass_init("::Test::MyClass");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::PSUnknown> iceC_Test_PSUnknown_init("::Test::PSUnknown");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::PSUnknown2> iceC_Test_PSUnknown2_init("::Test::PSUnknown2");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::PSUnknownException> iceC_Test_PSUnknownException_init("::Test::PSUnknownException");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultValueFactoryInit<::Test::SBSUnknownDerived> iceC_Test_SBSUnknownDerived_init("::Test::SBSUnknownDerived");
+    const IceInternal::DefaultValueFactoryInit<::Test::SUnknown> iceC_Test_SUnknown_init("::Test::SUnknown");
+    const IceInternal::DefaultValueFactoryInit<::Test::D2> iceC_Test_D2_init("::Test::D2");
+    const IceInternal::DefaultValueFactoryInit<::Test::D4> iceC_Test_D4_init("::Test::D4");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownDerivedException> iceC_Test_UnknownDerivedException_init("::Test::UnknownDerivedException");
+    const IceInternal::DefaultValueFactoryInit<::Test::MyClass> iceC_Test_MyClass_init("::Test::MyClass");
+    const IceInternal::DefaultValueFactoryInit<::Test::PSUnknown> iceC_Test_PSUnknown_init("::Test::PSUnknown");
+    const IceInternal::DefaultValueFactoryInit<::Test::PSUnknown2> iceC_Test_PSUnknown2_init("::Test::PSUnknown2");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::PSUnknownException> iceC_Test_PSUnknownException_init("::Test::PSUnknownException");
 }
 
 const char*
@@ -67,14 +68,14 @@ Test::SBSUnknownDerived::ice_printFields(std::ostream& os) const
     Ice::print(os << ", sbsud = ", this->sbsud);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::SBSUnknownDerived::_iceCloneImpl() const
 {
     return CloneEnabler<SBSUnknownDerived>::clone(*this);
 }
 
 void
-Test::SBSUnknownDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::SBSUnknownDerived::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->sbsud);
@@ -83,7 +84,7 @@ Test::SBSUnknownDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::SBSUnknownDerived::_iceReadImpl(::Ice::InputStream* istr)
+Test::SBSUnknownDerived::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->sbsud);
@@ -110,14 +111,14 @@ Test::SUnknown::ice_printFields(std::ostream& os) const
     Ice::print(os << ", cycle = ", this->cycle);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::SUnknown::_iceCloneImpl() const
 {
     return CloneEnabler<SUnknown>::clone(*this);
 }
 
 void
-Test::SUnknown::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::SUnknown::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->su, this->cycle);
@@ -125,7 +126,7 @@ Test::SUnknown::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::SUnknown::_iceReadImpl(::Ice::InputStream* istr)
+Test::SUnknown::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->su, this->cycle);
@@ -152,14 +153,14 @@ Test::D2::ice_printFields(std::ostream& os) const
     Ice::print(os << ", pd2 = ", this->pd2);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::D2::_iceCloneImpl() const
 {
     return CloneEnabler<D2>::clone(*this);
 }
 
 void
-Test::D2::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::D2::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->sd2, this->pd2);
@@ -168,7 +169,7 @@ Test::D2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::D2::_iceReadImpl(::Ice::InputStream* istr)
+Test::D2::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->sd2, this->pd2);
@@ -196,14 +197,14 @@ Test::D4::ice_printFields(std::ostream& os) const
     Ice::print(os << ", p2 = ", this->p2);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::D4::_iceCloneImpl() const
 {
     return CloneEnabler<D4>::clone(*this);
 }
 
 void
-Test::D4::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::D4::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->p1, this->p2);
@@ -212,7 +213,7 @@ Test::D4::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::D4::_iceReadImpl(::Ice::InputStream* istr)
+Test::D4::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->p1, this->p2);
@@ -247,7 +248,7 @@ Test::UnknownDerivedException::ice_throw() const
 }
 
 void
-Test::UnknownDerivedException::_writeImpl(::Ice::OutputStream* ostr) const
+Test::UnknownDerivedException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->sude, this->pd2);
@@ -256,7 +257,7 @@ Test::UnknownDerivedException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::UnknownDerivedException::_readImpl(::Ice::InputStream* istr)
+Test::UnknownDerivedException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->sude, this->pd2);
@@ -282,14 +283,14 @@ Test::MyClass::ice_printFields(std::ostream& os) const
     Ice::print(os << "i = ", this->i);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::MyClass::_iceCloneImpl() const
 {
     return CloneEnabler<MyClass>::clone(*this);
 }
 
 void
-Test::MyClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::MyClass::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->i);
@@ -297,7 +298,7 @@ Test::MyClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
+Test::MyClass::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->i);
@@ -325,14 +326,14 @@ Test::PSUnknown::ice_printFields(std::ostream& os) const
     Ice::print(os << ", cl = ", this->cl);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::PSUnknown::_iceCloneImpl() const
 {
     return CloneEnabler<PSUnknown>::clone(*this);
 }
 
 void
-Test::PSUnknown::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::PSUnknown::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->psu, this->graph, this->cl);
@@ -341,7 +342,7 @@ Test::PSUnknown::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::PSUnknown::_iceReadImpl(::Ice::InputStream* istr)
+Test::PSUnknown::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->psu, this->graph, this->cl);
@@ -368,14 +369,14 @@ Test::PSUnknown2::ice_printFields(std::ostream& os) const
     Ice::print(os << ", pb = ", this->pb);
 }
 
-::Ice::ValuePtr
+Ice::ValuePtr
 Test::PSUnknown2::_iceCloneImpl() const
 {
     return CloneEnabler<PSUnknown2>::clone(*this);
 }
 
 void
-Test::PSUnknown2::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::PSUnknown2::_iceWriteImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->pb);
@@ -384,7 +385,7 @@ Test::PSUnknown2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::PSUnknown2::_iceReadImpl(::Ice::InputStream* istr)
+Test::PSUnknown2::_iceReadImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->pb);
@@ -425,7 +426,7 @@ Test::PSUnknownException::_usesClasses() const
 /// \endcond
 
 void
-Test::PSUnknownException::_writeImpl(::Ice::OutputStream* ostr) const
+Test::PSUnknownException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->writeAll(this->p);
@@ -434,7 +435,7 @@ Test::PSUnknownException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::PSUnknownException::_readImpl(::Ice::InputStream* istr)
+Test::PSUnknownException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->p);

@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,48 +37,48 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test1::WstringException> iceC_Test1_WstringException_init("::Test1::WstringException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::WstringException> iceC_Test2_WstringException_init("::Test2::WstringException");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test1::WstringException> iceC_Test1_WstringException_init("::Test1::WstringException");
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test2::WstringException> iceC_Test2_WstringException_init("::Test2::WstringException");
 }
 
 ::std::wstring
-Test1::WstringClassPrx::opString(::std::wstring_view iceP_s1, ::std::wstring& iceP_s2, const ::Ice::Context& context) const
+Test1::WstringClassPrx::opString(::std::wstring_view iceP_s1, ::std::wstring& iceP_s2, const Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(true, this, &WstringClassPrx::_iceI_opString, iceP_s1, context).get();
+    auto result = IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(true, this, &WstringClassPrx::_iceI_opString, iceP_s1, context).get();
     iceP_s2 = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::std::wstring, ::std::wstring>>
-Test1::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, const ::Ice::Context& context) const
+Test1::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(false, this, &WstringClassPrx::_iceI_opString, iceP_s1, context);
+    return IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(false, this, &WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 ::std::function<void()>
-Test1::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, ::std::function<void(::std::wstring, ::std::wstring)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test1::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, ::std::function<void(::std::wstring, ::std::wstring)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = ::std::move(response)](::std::tuple<::std::wstring, ::std::wstring>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test1::WstringClassPrx::_iceI_opString, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test1::WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 void
-Test1::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>& outAsync, ::std::wstring_view iceP_s1, const ::Ice::Context& context) const
+Test1::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>& outAsync, ::std::wstring_view iceP_s1, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opString";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
         },
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::std::tuple<::std::wstring, ::std::wstring> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
@@ -86,42 +87,42 @@ Test1::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::Ou
 }
 
 ::Test1::WstringStruct
-Test1::WstringClassPrx::opStruct(const WstringStruct& iceP_s1, WstringStruct& iceP_s2, const ::Ice::Context& context) const
+Test1::WstringClassPrx::opStruct(const WstringStruct& iceP_s1, WstringStruct& iceP_s2, const Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(true, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context).get();
+    auto result = IceInternal::makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(true, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context).get();
     iceP_s2 = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::Test1::WstringStruct, ::Test1::WstringStruct>>
-Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, const ::Ice::Context& context) const
+Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(false, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context);
+    return IceInternal::makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(false, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context);
 }
 
 ::std::function<void()>
-Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, ::std::function<void(::Test1::WstringStruct, ::Test1::WstringStruct)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, ::std::function<void(::Test1::WstringStruct, ::Test1::WstringStruct)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = ::std::move(response)](::std::tuple<WstringStruct, WstringStruct>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<WstringStruct, WstringStruct>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test1::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<::std::tuple<WstringStruct, WstringStruct>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test1::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
 }
 
 void
-Test1::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>& outAsync, const WstringStruct& iceP_s1, const ::Ice::Context& context) const
+Test1::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>& outAsync, const WstringStruct& iceP_s1, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opStruct";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
         },
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::std::tuple<WstringStruct, WstringStruct> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
@@ -130,45 +131,45 @@ Test1::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::Ou
 }
 
 void
-Test1::WstringClassPrx::throwExcept(::std::wstring_view iceP_reason, const ::Ice::Context& context) const
+Test1::WstringClassPrx::throwExcept(::std::wstring_view iceP_reason, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context).get();
 }
 
 ::std::future<void>
-Test1::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason, const ::Ice::Context& context) const
+Test1::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
 }
 
 ::std::function<void()>
-Test1::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test1::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test1::WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test1::WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
 }
 
 void
-Test1::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::wstring_view iceP_reason, const ::Ice::Context& context) const
+Test1::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::wstring_view iceP_reason, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "throwExcept";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_reason);
         },
-        [](const ::Ice::UserException& ex)
+        [](const Ice::UserException& ex)
         {
             try
             {
                 ex.ice_throw();
             }
-            catch(const WstringException&)
+            catch (const WstringException&)
             {
                 throw;
             }
-            catch(const ::Ice::UserException&)
+            catch (const Ice::UserException&)
             {
             }
         });
@@ -183,42 +184,42 @@ Test1::WstringClassPrx::ice_staticId() noexcept
 }
 
 ::std::wstring
-Test2::WstringClassPrx::opString(::std::wstring_view iceP_s1, ::std::wstring& iceP_s2, const ::Ice::Context& context) const
+Test2::WstringClassPrx::opString(::std::wstring_view iceP_s1, ::std::wstring& iceP_s2, const Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(true, this, &WstringClassPrx::_iceI_opString, iceP_s1, context).get();
+    auto result = IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(true, this, &WstringClassPrx::_iceI_opString, iceP_s1, context).get();
     iceP_s2 = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::std::wstring, ::std::wstring>>
-Test2::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, const ::Ice::Context& context) const
+Test2::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(false, this, &WstringClassPrx::_iceI_opString, iceP_s1, context);
+    return IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(false, this, &WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 ::std::function<void()>
-Test2::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, ::std::function<void(::std::wstring, ::std::wstring)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test2::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, ::std::function<void(::std::wstring, ::std::wstring)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = ::std::move(response)](::std::tuple<::std::wstring, ::std::wstring>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test2::WstringClassPrx::_iceI_opString, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test2::WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 void
-Test2::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>& outAsync, ::std::wstring_view iceP_s1, const ::Ice::Context& context) const
+Test2::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>& outAsync, ::std::wstring_view iceP_s1, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opString";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
         },
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::std::tuple<::std::wstring, ::std::wstring> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
@@ -227,42 +228,42 @@ Test2::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::Ou
 }
 
 ::Test2::WstringStruct
-Test2::WstringClassPrx::opStruct(const WstringStruct& iceP_s1, WstringStruct& iceP_s2, const ::Ice::Context& context) const
+Test2::WstringClassPrx::opStruct(const WstringStruct& iceP_s1, WstringStruct& iceP_s2, const Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(true, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context).get();
+    auto result = IceInternal::makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(true, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context).get();
     iceP_s2 = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::Test2::WstringStruct, ::Test2::WstringStruct>>
-Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, const ::Ice::Context& context) const
+Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(false, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context);
+    return IceInternal::makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(false, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context);
 }
 
 ::std::function<void()>
-Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, ::std::function<void(::Test2::WstringStruct, ::Test2::WstringStruct)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, ::std::function<void(::Test2::WstringStruct, ::Test2::WstringStruct)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
     auto responseCb = [response = ::std::move(response)](::std::tuple<WstringStruct, WstringStruct>&& result) mutable
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<WstringStruct, WstringStruct>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test2::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
+    return IceInternal::makeLambdaOutgoing<::std::tuple<WstringStruct, WstringStruct>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test2::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
 }
 
 void
-Test2::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>& outAsync, const WstringStruct& iceP_s1, const ::Ice::Context& context) const
+Test2::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>& outAsync, const WstringStruct& iceP_s1, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opStruct";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
         },
         nullptr,
-        [](::Ice::InputStream* istr)
+        [](Ice::InputStream* istr)
         {
             ::std::tuple<WstringStruct, WstringStruct> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
@@ -271,45 +272,45 @@ Test2::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::Ou
 }
 
 void
-Test2::WstringClassPrx::throwExcept(::std::wstring_view iceP_reason, const ::Ice::Context& context) const
+Test2::WstringClassPrx::throwExcept(::std::wstring_view iceP_reason, const Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context).get();
+    IceInternal::makePromiseOutgoing<void>(true, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context).get();
 }
 
 ::std::future<void>
-Test2::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason, const ::Ice::Context& context) const
+Test2::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason, const Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
+    return IceInternal::makePromiseOutgoing<void>(false, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
 }
 
 ::std::function<void()>
-Test2::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test2::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test2::WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
+    return IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test2::WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
 }
 
 void
-Test2::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::wstring_view iceP_reason, const ::Ice::Context& context) const
+Test2::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::wstring_view iceP_reason, const Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "throwExcept";
 
     _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::std::nullopt, context,
-        [&](::Ice::OutputStream* ostr)
+    outAsync->invoke(operationName, Ice::OperationMode::Normal, ::std::nullopt, context,
+        [&](Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_reason);
         },
-        [](const ::Ice::UserException& ex)
+        [](const Ice::UserException& ex)
         {
             try
             {
                 ex.ice_throw();
             }
-            catch(const WstringException&)
+            catch (const WstringException&)
             {
                 throw;
             }
-            catch(const ::Ice::UserException&)
+            catch (const Ice::UserException&)
             {
             }
         });
@@ -363,7 +364,7 @@ Test1::WstringException::ice_throw() const
 }
 
 void
-Test1::WstringException::_writeImpl(::Ice::OutputStream* ostr) const
+Test1::WstringException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->reason);
@@ -371,7 +372,7 @@ Test1::WstringException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test1::WstringException::_readImpl(::Ice::InputStream* istr)
+Test1::WstringException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->reason);
@@ -418,7 +419,7 @@ Test2::WstringException::ice_throw() const
 }
 
 void
-Test2::WstringException::_writeImpl(::Ice::OutputStream* ostr) const
+Test2::WstringException::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ostr->writeAll(this->reason);
@@ -426,7 +427,7 @@ Test2::WstringException::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test2::WstringException::_readImpl(::Ice::InputStream* istr)
+Test2::WstringException::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->readAll(this->reason);
@@ -434,14 +435,14 @@ Test2::WstringException::_readImpl(::Ice::InputStream* istr)
 }
 
 ::std::vector<::std::string>
-Test1::WstringClass::ice_ids(const ::Ice::Current&) const
+Test1::WstringClass::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test1::WstringClass"};
     return allTypeIds;
 }
 
 ::std::string
-Test1::WstringClass::ice_id(const ::Ice::Current&) const
+Test1::WstringClass::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -455,20 +456,20 @@ Test1::WstringClass::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test1::WstringClass::_iceD_opString(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::wstring iceP_s1;
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseHandler = ::std::make_shared<IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     auto responseCb = [responseHandler](::std::wstring_view ret, ::std::wstring_view iceP_s2)
     {
         responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
+            [&](Ice::OutputStream* ostr)
             {
                 ostr->writeAll(iceP_s2, ret);
             });
@@ -487,20 +488,20 @@ Test1::WstringClass::_iceD_opString(
 /// \cond INTERNAL
 void
 Test1::WstringClass::_iceD_opStruct(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     WstringStruct iceP_s1;
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseHandler = ::std::make_shared<IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     auto responseCb = [responseHandler](const WstringStruct& ret, const WstringStruct& iceP_s2)
     {
         responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
+            [&](Ice::OutputStream* ostr)
             {
                 ostr->writeAll(iceP_s2, ret);
             });
@@ -519,16 +520,16 @@ Test1::WstringClass::_iceD_opStruct(
 /// \cond INTERNAL
 void
 Test1::WstringClass::_iceD_throwExcept(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::wstring iceP_reason;
     istr->readAll(iceP_reason);
     istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseHandler = ::std::make_shared<IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     try
     {
         this->throwExceptAsync(::std::move(iceP_reason), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
@@ -542,19 +543,19 @@ Test1::WstringClass::_iceD_throwExcept(
 
 /// \cond INTERNAL
 void
-Test1::WstringClass::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test1::WstringClass::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opString", "opStruct", "throwExcept"};
+    static constexpr ::std::array<::std::string_view, 7> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "opString", "opStruct", "throwExcept"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -594,21 +595,21 @@ Test1::WstringClass::dispatch(::Ice::IncomingRequest& request, ::std::function<v
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }
 /// \endcond
 
 ::std::vector<::std::string>
-Test2::WstringClass::ice_ids(const ::Ice::Current&) const
+Test2::WstringClass::ice_ids(const Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test2::WstringClass"};
     return allTypeIds;
 }
 
 ::std::string
-Test2::WstringClass::ice_id(const ::Ice::Current&) const
+Test2::WstringClass::ice_id(const Ice::Current&) const
 {
     return ::std::string{ice_staticId()};
 }
@@ -622,20 +623,20 @@ Test2::WstringClass::ice_staticId() noexcept
 /// \cond INTERNAL
 void
 Test2::WstringClass::_iceD_opString(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::wstring iceP_s1;
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseHandler = ::std::make_shared<IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     auto responseCb = [responseHandler](::std::wstring_view ret, ::std::wstring_view iceP_s2)
     {
         responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
+            [&](Ice::OutputStream* ostr)
             {
                 ostr->writeAll(iceP_s2, ret);
             });
@@ -654,20 +655,20 @@ Test2::WstringClass::_iceD_opString(
 /// \cond INTERNAL
 void
 Test2::WstringClass::_iceD_opStruct(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     WstringStruct iceP_s1;
     istr->readAll(iceP_s1);
     istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseHandler = ::std::make_shared<IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     auto responseCb = [responseHandler](const WstringStruct& ret, const WstringStruct& iceP_s2)
     {
         responseHandler->sendResponse(
-            [&](::Ice::OutputStream* ostr)
+            [&](Ice::OutputStream* ostr)
             {
                 ostr->writeAll(iceP_s2, ret);
             });
@@ -686,16 +687,16 @@ Test2::WstringClass::_iceD_opStruct(
 /// \cond INTERNAL
 void
 Test2::WstringClass::_iceD_throwExcept(
-    ::Ice::IncomingRequest& request,
-    ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+    Ice::IncomingRequest& request,
+    ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    _iceCheckMode(Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::wstring iceP_reason;
     istr->readAll(iceP_reason);
     istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseHandler = ::std::make_shared<IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     try
     {
         this->throwExceptAsync(::std::move(iceP_reason), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
@@ -709,19 +710,19 @@ Test2::WstringClass::_iceD_throwExcept(
 
 /// \cond INTERNAL
 void
-Test2::WstringClass::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+Test2::WstringClass::dispatch(Ice::IncomingRequest& request, ::std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opString", "opStruct", "throwExcept"};
+    static constexpr ::std::array<::std::string_view, 7> allOperations{"ice_id", "ice_ids", "ice_isA", "ice_ping", "opString", "opStruct", "throwExcept"};
 
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
-    if(r.first == r.second)
+    const Ice::Current& current = request.current();
+    auto r = ::std::equal_range(allOperations.begin(), allOperations.end(), current.operation);
+    if (r.first == r.second)
     {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+        sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         return;
     }
 
-    switch(r.first - allOperations)
+    switch (r.first - allOperations.begin())
     {
         case 0:
         {
@@ -761,7 +762,7 @@ Test2::WstringClass::dispatch(::Ice::IncomingRequest& request, ::std::function<v
         default:
         {
             assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException{__FILE__, __LINE__}), current));
+            sendResponse(Ice::makeOutgoingResponse(::std::make_exception_ptr(Ice::OperationNotExistException{__FILE__, __LINE__}), current));
         }
     }
 }

@@ -16,6 +16,7 @@
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
 #include <algorithm>
+#include <array>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable : 4458) // declaration of ... hides class member
@@ -36,8 +37,8 @@
 
 namespace
 {
-    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedEx> iceC_Test_DerivedEx_init("::Test::DerivedEx");
+    const IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedEx> iceC_Test_DerivedEx_init("::Test::DerivedEx");
 }
 
 const char*
@@ -59,7 +60,7 @@ Test::DerivedEx::ice_throw() const
 }
 
 void
-Test::DerivedEx::_writeImpl(::Ice::OutputStream* ostr) const
+Test::DerivedEx::_writeImpl(Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
     ostr->endSlice();
@@ -67,7 +68,7 @@ Test::DerivedEx::_writeImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-Test::DerivedEx::_readImpl(::Ice::InputStream* istr)
+Test::DerivedEx::_readImpl(Ice::InputStream* istr)
 {
     istr->startSlice();
     istr->endSlice();
