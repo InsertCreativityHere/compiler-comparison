@@ -140,133 +140,133 @@ namespace Test
 
     class MyDerivedClassPrx;
 
-    const ::std::string s0 = "\\"; // NOLINT(cert-err58-cpp)
+    const ::std::string s0 = "\\"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string s1 = "A"; // NOLINT(cert-err58-cpp)
+    const ::std::string s1 = "A"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string s2 = "Ice"; // NOLINT(cert-err58-cpp)
+    const ::std::string s2 = "Ice"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string s3 = "A21"; // NOLINT(cert-err58-cpp)
+    const ::std::string s3 = "A21"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string s4 = "\\u0041 \\U00000041"; // NOLINT(cert-err58-cpp)
+    const ::std::string s4 = "\\u0041 \\U00000041"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string s5 = "\303\277"; // NOLINT(cert-err58-cpp)
+    const ::std::string s5 = "\303\277"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string s6 = "\317\277"; // NOLINT(cert-err58-cpp)
+    const ::std::string s6 = "\317\277"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string s7 = "\327\260"; // NOLINT(cert-err58-cpp)
+    const ::std::string s7 = "\327\260"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string s8 = "\360\220\200\200"; // NOLINT(cert-err58-cpp)
+    const ::std::string s8 = "\360\220\200\200"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string s9 = "\360\237\215\214"; // NOLINT(cert-err58-cpp)
+    const ::std::string s9 = "\360\237\215\214"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string s10 = "\340\266\247"; // NOLINT(cert-err58-cpp)
+    const ::std::string s10 = "\340\266\247"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string s11 = "\342\202\254\342\202\254\342\202\254"; // NOLINT(cert-err58-cpp)
+    const ::std::string s11 = "\342\202\254\342\202\254\342\202\254"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string s12 = "\\101"; // NOLINT(cert-err58-cpp)
+    const ::std::string s12 = "\\101"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string sw0 = "\\"; // NOLINT(cert-err58-cpp)
+    const ::std::string sw0 = "\\"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string sw1 = "A"; // NOLINT(cert-err58-cpp)
+    const ::std::string sw1 = "A"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string sw2 = "Ice"; // NOLINT(cert-err58-cpp)
+    const ::std::string sw2 = "Ice"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string sw3 = "A21"; // NOLINT(cert-err58-cpp)
+    const ::std::string sw3 = "A21"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string sw4 = "\\u0041 \\U00000041"; // NOLINT(cert-err58-cpp)
+    const ::std::string sw4 = "\\u0041 \\U00000041"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string sw5 = "\303\277"; // NOLINT(cert-err58-cpp)
+    const ::std::string sw5 = "\303\277"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string sw6 = "\317\277"; // NOLINT(cert-err58-cpp)
+    const ::std::string sw6 = "\317\277"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string sw7 = "\327\260"; // NOLINT(cert-err58-cpp)
+    const ::std::string sw7 = "\327\260"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string sw8 = "\360\220\200\200"; // NOLINT(cert-err58-cpp)
+    const ::std::string sw8 = "\360\220\200\200"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string sw9 = "\360\237\215\214"; // NOLINT(cert-err58-cpp)
+    const ::std::string sw9 = "\360\237\215\214"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string sw10 = "\340\266\247"; // NOLINT(cert-err58-cpp)
+    const ::std::string sw10 = "\340\266\247"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ss0 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT(cert-err58-cpp)
+    const ::std::string ss0 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ss1 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT(cert-err58-cpp)
+    const ::std::string ss1 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ss2 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT(cert-err58-cpp)
+    const ::std::string ss2 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ss3 = "\\\\U\\u\\"; // NOLINT(cert-err58-cpp)
+    const ::std::string ss3 = "\\\\U\\u\\"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ss4 = "\\A\\"; // NOLINT(cert-err58-cpp)
+    const ::std::string ss4 = "\\A\\"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ss5 = "\\u0041\\"; // NOLINT(cert-err58-cpp)
+    const ::std::string ss5 = "\\u0041\\"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string su0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT(cert-err58-cpp)
+    const ::std::string su0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string su1 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT(cert-err58-cpp)
+    const ::std::string su1 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string su2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT(cert-err58-cpp)
+    const ::std::string su2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ws0 = "\\"; // NOLINT(cert-err58-cpp)
+    const ::std::string ws0 = "\\"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ws1 = "A"; // NOLINT(cert-err58-cpp)
+    const ::std::string ws1 = "A"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ws2 = "Ice"; // NOLINT(cert-err58-cpp)
+    const ::std::string ws2 = "Ice"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ws3 = "A21"; // NOLINT(cert-err58-cpp)
+    const ::std::string ws3 = "A21"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ws4 = "\\u0041 \\U00000041"; // NOLINT(cert-err58-cpp)
+    const ::std::string ws4 = "\\u0041 \\U00000041"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ws5 = "\303\277"; // NOLINT(cert-err58-cpp)
+    const ::std::string ws5 = "\303\277"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ws6 = "\317\277"; // NOLINT(cert-err58-cpp)
+    const ::std::string ws6 = "\317\277"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ws7 = "\327\260"; // NOLINT(cert-err58-cpp)
+    const ::std::string ws7 = "\327\260"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ws8 = "\360\220\200\200"; // NOLINT(cert-err58-cpp)
+    const ::std::string ws8 = "\360\220\200\200"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ws9 = "\360\237\215\214"; // NOLINT(cert-err58-cpp)
+    const ::std::string ws9 = "\360\237\215\214"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string ws10 = "\340\266\247"; // NOLINT(cert-err58-cpp)
+    const ::std::string ws10 = "\340\266\247"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsw0 = "\\"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsw0 = "\\"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsw1 = "A"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsw1 = "A"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsw2 = "Ice"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsw2 = "Ice"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsw3 = "A21"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsw3 = "A21"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsw4 = "\\u0041 \\U00000041"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsw4 = "\\u0041 \\U00000041"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsw5 = "\303\277"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsw5 = "\303\277"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsw6 = "\317\277"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsw6 = "\317\277"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsw7 = "\327\260"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsw7 = "\327\260"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsw8 = "\360\220\200\200"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsw8 = "\360\220\200\200"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsw9 = "\360\237\215\214"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsw9 = "\360\237\215\214"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsw10 = "\340\266\247"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsw10 = "\340\266\247"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wss0 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT(cert-err58-cpp)
+    const ::std::string wss0 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wss1 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT(cert-err58-cpp)
+    const ::std::string wss1 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wss2 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT(cert-err58-cpp)
+    const ::std::string wss2 = "'\"\?\\\a\b\f\n\r\t\v\006"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wss3 = "\\\\U\\u\\"; // NOLINT(cert-err58-cpp)
+    const ::std::string wss3 = "\\\\U\\u\\"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wss4 = "\\A\\"; // NOLINT(cert-err58-cpp)
+    const ::std::string wss4 = "\\A\\"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wss5 = "\\u0041\\"; // NOLINT(cert-err58-cpp)
+    const ::std::string wss5 = "\\u0041\\"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsu0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsu0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsu1 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsu1 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
-    const ::std::string wsu2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT(cert-err58-cpp)
+    const ::std::string wsu2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203"; // NOLINT(cert-err58-cpp,modernize-raw-string-literal)
 
 }
 
