@@ -15,7 +15,6 @@
 
 import * as Ice_Long from "../Ice/Long.js";
 import * as Ice_Object from "../Ice/Object.js";
-import * as Ice_ObjectPrx from "../Ice/ObjectPrx.js";
 import * as Ice_StreamHelpers from "../Ice/StreamHelpers.js";
 import * as Ice_TypeRegistry from "../Ice/TypeRegistry.js";
 import * as Ice_Value from "../Ice/Value.js";
@@ -23,7 +22,6 @@ import * as Ice_Value from "../Ice/Value.js";
 const Ice = {
     ...Ice_Long,
     ...Ice_Object,
-    ...Ice_ObjectPrx,
     ...Ice_StreamHelpers,
     ...Ice_TypeRegistry,
     ...Ice_Value,
