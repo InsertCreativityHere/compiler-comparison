@@ -535,7 +535,6 @@ Test::Background::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Background::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -593,7 +592,6 @@ Test::Background::dispatch(Ice::IncomingRequest& request, std::function<void(Ice
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::BackgroundController::ice_ids(const Ice::Current&) const
@@ -793,7 +791,6 @@ Test::BackgroundController::_iceD_buffered(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::BackgroundController::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -891,4 +888,3 @@ Test::BackgroundController::dispatch(Ice::IncomingRequest& request, std::functio
         }
     }
 }
-/// \endcond

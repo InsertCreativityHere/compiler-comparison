@@ -288,7 +288,6 @@ Test::Backend::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Backend::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -341,7 +340,6 @@ Test::Backend::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::TestController::ice_ids(const Ice::Current&) const
@@ -398,7 +396,6 @@ Test::TestController::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestController::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -451,7 +448,6 @@ Test::TestController::dispatch(Ice::IncomingRequest& request, std::function<void
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::TestSession::ice_ids(const Ice::Current&) const
@@ -485,7 +481,6 @@ Test::TestSession::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestSession::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -538,4 +533,3 @@ Test::TestSession::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
         }
     }
 }
-/// \endcond

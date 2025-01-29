@@ -3255,7 +3255,6 @@ Test::Initial::_iceD_opF3(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -3443,7 +3442,6 @@ Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::TestIntf::ice_ids(const Ice::Current&) const
@@ -3495,7 +3493,6 @@ Test::TestIntf::_iceD_throwDerived(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -3548,7 +3545,6 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::UnexpectedObjectExceptionTest::ice_ids(const Ice::Current&) const
@@ -3587,7 +3583,6 @@ Test::UnexpectedObjectExceptionTest::_iceD_op(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::UnexpectedObjectExceptionTest::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -3635,4 +3630,3 @@ Test::UnexpectedObjectExceptionTest::dispatch(Ice::IncomingRequest& request, std
         }
     }
 }
-/// \endcond

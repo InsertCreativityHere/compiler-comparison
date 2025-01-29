@@ -594,7 +594,6 @@ Test::Callback::_iceD_getDatagramCount(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Callback::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -657,7 +656,6 @@ Test::Callback::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::MyClass::ice_ids(const Ice::Current&) const
@@ -895,7 +893,6 @@ Test::MyClass::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MyClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -998,4 +995,3 @@ Test::MyClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond

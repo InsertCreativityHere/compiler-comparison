@@ -149,7 +149,6 @@ Test::F2::_iceD_op(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::F2::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -197,4 +196,3 @@ Test::F2::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoi
         }
     }
 }
-/// \endcond

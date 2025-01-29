@@ -32,351 +32,341 @@ namespace Test
     class RemoteCommunicatorPrx;
 
     class RemoteCommunicatorFactoryPrx;
-
 }
 
 namespace Test
 {
-
-class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
-{
-public:
-
-    void sleep(std::int32_t ms, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> sleepAsync(std::int32_t ms, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    sleepAsync(std::int32_t ms, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_sleep(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    TestIntfPrx(const TestIntfPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    TestIntfPrx(TestIntfPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    TestIntfPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~TestIntfPrx() override;
-
-    TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
+    class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        void sleep(std::int32_t ms, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> sleepAsync(std::int32_t ms, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        sleepAsync(std::int32_t ms, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_sleep(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        TestIntfPrx(const TestIntfPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        TestIntfPrx(TestIntfPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        TestIntfPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~TestIntfPrx() override;
+
+        TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static TestIntfPrx _fromReference(IceInternal::ReferencePtr ref) { return TestIntfPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static TestIntfPrx _fromReference(IceInternal::ReferencePtr ref) { return TestIntfPrx(std::move(ref)); }
 
-protected:
+    protected:
+        TestIntfPrx() = default;
 
-    TestIntfPrx() = default;
-
-    explicit TestIntfPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
-class RemoteCommunicatorPrx : public Ice::Proxy<RemoteCommunicatorPrx, Ice::ObjectPrx>
-{
-public:
-
-    std::optional<TestIntfPrx> getObject(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<std::optional<TestIntfPrx>> getObjectAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getObjectAsync(std::function<void(std::optional<::Test::TestIntfPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getObject(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<TestIntfPrx>>>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::int32_t getThreadStartCount(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<std::int32_t> getThreadStartCountAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getThreadStartCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getThreadStartCount(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::int32_t getThreadStopCount(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<std::int32_t> getThreadStopCountAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getThreadStopCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getThreadStopCount(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void destroy(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> destroyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_destroy(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    RemoteCommunicatorPrx(const RemoteCommunicatorPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    RemoteCommunicatorPrx(RemoteCommunicatorPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    RemoteCommunicatorPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~RemoteCommunicatorPrx() override;
-
-    RemoteCommunicatorPrx& operator=(const RemoteCommunicatorPrx& rhs) noexcept
-    {
-        if (this != &rhs)
+        explicit TestIntfPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
         {
-            Ice::ObjectPrx::operator=(rhs);
         }
-        return *this;
-    }
+        /// \endcond
+    };
 
-    RemoteCommunicatorPrx& operator=(RemoteCommunicatorPrx&& rhs) noexcept
+    class RemoteCommunicatorPrx : public Ice::Proxy<RemoteCommunicatorPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        std::optional<TestIntfPrx> getObject(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<std::optional<TestIntfPrx>> getObjectAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getObjectAsync(std::function<void(std::optional<::Test::TestIntfPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getObject(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<TestIntfPrx>>>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::int32_t getThreadStartCount(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<std::int32_t> getThreadStartCountAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getThreadStartCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getThreadStartCount(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::int32_t getThreadStopCount(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<std::int32_t> getThreadStopCountAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getThreadStopCountAsync(std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getThreadStopCount(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void destroy(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> destroyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        destroyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_destroy(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        RemoteCommunicatorPrx(const RemoteCommunicatorPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        RemoteCommunicatorPrx(RemoteCommunicatorPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        RemoteCommunicatorPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~RemoteCommunicatorPrx() override;
+
+        RemoteCommunicatorPrx& operator=(const RemoteCommunicatorPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static RemoteCommunicatorPrx _fromReference(IceInternal::ReferencePtr ref) { return RemoteCommunicatorPrx(std::move(ref)); }
-
-protected:
-
-    RemoteCommunicatorPrx() = default;
-
-    explicit RemoteCommunicatorPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
-class RemoteCommunicatorFactoryPrx : public Ice::Proxy<RemoteCommunicatorFactoryPrx, Ice::ObjectPrx>
-{
-public:
-
-    std::optional<RemoteCommunicatorPrx> createCommunicator(const ::Ice::PropertyDict& props, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<std::optional<RemoteCommunicatorPrx>> createCommunicatorAsync(const ::Ice::PropertyDict& props, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    createCommunicatorAsync(const ::Ice::PropertyDict& props, std::function<void(std::optional<::Test::RemoteCommunicatorPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_createCommunicator(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<RemoteCommunicatorPrx>>>&, const ::Ice::PropertyDict&, const Ice::Context&) const;
-    /// \endcond
-
-    void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    RemoteCommunicatorFactoryPrx(const RemoteCommunicatorFactoryPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    RemoteCommunicatorFactoryPrx(RemoteCommunicatorFactoryPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    RemoteCommunicatorFactoryPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~RemoteCommunicatorFactoryPrx() override;
-
-    RemoteCommunicatorFactoryPrx& operator=(const RemoteCommunicatorFactoryPrx& rhs) noexcept
-    {
-        if (this != &rhs)
+        RemoteCommunicatorPrx& operator=(RemoteCommunicatorPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    RemoteCommunicatorFactoryPrx& operator=(RemoteCommunicatorFactoryPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        /// \cond INTERNAL
+        static RemoteCommunicatorPrx _fromReference(IceInternal::ReferencePtr ref) { return RemoteCommunicatorPrx(std::move(ref)); }
+
+    protected:
+        RemoteCommunicatorPrx() = default;
+
+        explicit RemoteCommunicatorPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
         }
-        return *this;
-    }
+        /// \endcond
+    };
 
-    /// \cond INTERNAL
-    static RemoteCommunicatorFactoryPrx _fromReference(IceInternal::ReferencePtr ref) { return RemoteCommunicatorFactoryPrx(std::move(ref)); }
-
-protected:
-
-    RemoteCommunicatorFactoryPrx() = default;
-
-    explicit RemoteCommunicatorFactoryPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+    class RemoteCommunicatorFactoryPrx : public Ice::Proxy<RemoteCommunicatorFactoryPrx, Ice::ObjectPrx>
     {
-    }
-    /// \endcond
-};
+    public:
 
+        std::optional<RemoteCommunicatorPrx> createCommunicator(const ::Ice::PropertyDict& props, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<std::optional<RemoteCommunicatorPrx>> createCommunicatorAsync(const ::Ice::PropertyDict& props, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        createCommunicatorAsync(const ::Ice::PropertyDict& props, std::function<void(std::optional<::Test::RemoteCommunicatorPrx>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_createCommunicator(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::optional<RemoteCommunicatorPrx>>>&, const ::Ice::PropertyDict&, const Ice::Context&) const;
+        /// \endcond
+
+        void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        RemoteCommunicatorFactoryPrx(const RemoteCommunicatorFactoryPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        RemoteCommunicatorFactoryPrx(RemoteCommunicatorFactoryPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        RemoteCommunicatorFactoryPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~RemoteCommunicatorFactoryPrx() override;
+
+        RemoteCommunicatorFactoryPrx& operator=(const RemoteCommunicatorFactoryPrx& rhs) noexcept
+        {
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
+        }
+
+        RemoteCommunicatorFactoryPrx& operator=(RemoteCommunicatorFactoryPrx&& rhs) noexcept
+        {
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
+        }
+
+        /// \cond INTERNAL
+        static RemoteCommunicatorFactoryPrx _fromReference(IceInternal::ReferencePtr ref) { return RemoteCommunicatorFactoryPrx(std::move(ref)); }
+
+    protected:
+        RemoteCommunicatorFactoryPrx() = default;
+
+        explicit RemoteCommunicatorFactoryPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 }
 
 namespace Test
 {
+    class TestIntf : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = TestIntfPrx;
 
-class TestIntf : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = TestIntfPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        virtual void sleep(std::int32_t ms, const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_sleep(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void sleep(std::int32_t ms, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_sleep(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+    using TestIntfPtr = std::shared_ptr<TestIntf>;
 
-using TestIntfPtr = std::shared_ptr<TestIntf>;
+    class RemoteCommunicator : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = RemoteCommunicatorPrx;
 
-class RemoteCommunicator : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = RemoteCommunicatorPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        virtual std::optional<TestIntfPrx> getObject(const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_getObject(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual std::optional<TestIntfPrx> getObject(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getObject(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual std::int32_t getThreadStartCount(const Ice::Current& current) = 0;
 
-    virtual std::int32_t getThreadStartCount(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getThreadStartCount(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_getThreadStartCount(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual std::int32_t getThreadStopCount(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getThreadStopCount(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual std::int32_t getThreadStopCount(const Ice::Current& current) = 0;
 
-    virtual void destroy(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_destroy(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_getThreadStopCount(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+        virtual void destroy(const Ice::Current& current) = 0;
 
-using RemoteCommunicatorPtr = std::shared_ptr<RemoteCommunicator>;
+        /// \cond INTERNAL
+        void _iceD_destroy(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-class RemoteCommunicatorFactory : public virtual Ice::Object
-{
-public:
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
 
-    using ProxyType = RemoteCommunicatorFactoryPrx;
+    using RemoteCommunicatorPtr = std::shared_ptr<RemoteCommunicator>;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+    class RemoteCommunicatorFactory : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = RemoteCommunicatorFactoryPrx;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    virtual std::optional<RemoteCommunicatorPrx> createCommunicator(::Ice::PropertyDict props, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_createCommunicator(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    virtual void shutdown(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual std::optional<RemoteCommunicatorPrx> createCommunicator(::Ice::PropertyDict props, const Ice::Current& current) = 0;
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+        /// \cond INTERNAL
+        void _iceD_createCommunicator(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-using RemoteCommunicatorFactoryPtr = std::shared_ptr<RemoteCommunicatorFactory>;
+        virtual void shutdown(const Ice::Current& current) = 0;
 
+        /// \cond INTERNAL
+        void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
+
+    using RemoteCommunicatorFactoryPtr = std::shared_ptr<RemoteCommunicatorFactory>;
 }
 
 #include <Ice/PopDisableWarnings.h>

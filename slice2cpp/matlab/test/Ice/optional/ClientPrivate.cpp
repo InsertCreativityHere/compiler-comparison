@@ -168,7 +168,6 @@ Test::Initial2::_iceD_opVoid(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Initial2::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -221,4 +220,3 @@ Test::Initial2::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond

@@ -742,7 +742,6 @@ Clash::Intf::_iceD_opOut(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Clash::Intf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -845,4 +844,3 @@ Clash::Intf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Out
         }
     }
 }
-/// \endcond

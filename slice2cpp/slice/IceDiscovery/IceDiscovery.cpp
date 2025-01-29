@@ -231,7 +231,6 @@ IceDiscovery::LookupReply::_iceD_foundAdapterById(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceDiscovery::LookupReply::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -284,7 +283,6 @@ IceDiscovery::LookupReply::dispatch(Ice::IncomingRequest& request, std::function
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceDiscovery::Lookup::ice_ids(const Ice::Current&) const
@@ -343,7 +341,6 @@ IceDiscovery::Lookup::_iceD_findAdapterById(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceDiscovery::Lookup::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -396,4 +393,3 @@ IceDiscovery::Lookup::dispatch(Ice::IncomingRequest& request, std::function<void
         }
     }
 }
-/// \endcond

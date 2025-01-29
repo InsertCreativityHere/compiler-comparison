@@ -38,180 +38,175 @@ namespace Test
     using CPtr = std::shared_ptr<C>;
 
     struct S3;
-
 }
 
 namespace Test
 {
-
-struct S1
-{
-    std::string name;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+    struct S1
     {
-        return std::tie(name);
-    }
+        std::string name;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(name);
+        }
 
-std::ostream& operator<<(std::ostream&, const S1&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct S2
-{
-    bool bo;
-    std::uint8_t by;
-    std::int16_t sh;
-    std::int32_t i;
-    std::int64_t l;
-    std::string str;
-    ::Test::IntSeq seq;
-    ::Test::S1 s;
+    std::ostream& operator<<(std::ostream&, const S1&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const std::string&, const ::Test::IntSeq&, const ::Test::S1&> ice_tuple() const
+    struct S2
     {
-        return std::tie(bo, by, sh, i, l, str, seq, s);
-    }
+        bool bo;
+        std::uint8_t by;
+        std::int16_t sh;
+        std::int32_t i;
+        std::int64_t l;
+        std::string str;
+        ::Test::IntSeq seq;
+        ::Test::S1 s;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const std::string&, const ::Test::IntSeq&, const ::Test::S1&> ice_tuple() const
+        {
+            return std::tie(bo, by, sh, i, l, str, seq, s);
+        }
 
-std::ostream& operator<<(std::ostream&, const S2&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-class C : public Ice::Value
-{
-public:
-    /// Default constructor.
-    C() noexcept = default;
+    std::ostream& operator<<(std::ostream&, const S2&);
 
-    /// One-shot constructor to initialize all data members.
-    explicit C(std::string name) noexcept :
-        name(std::move(name))
+    class C : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        C() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        explicit C(std::string name) noexcept :
+            name(std::move(name))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(name);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] CPtr ice_clone() const { return std::static_pointer_cast<C>(_iceCloneImpl()); }
+
+        std::string name;
+
+        void ice_printFields(std::ostream& os) const override;
+        C(const C&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    struct S3
     {
-        return std::tie(name);
-    }
+        ::Test::CPtr obj;
+        ::Test::StringDict sd;
+        std::optional<Ice::ObjectPrx> prx;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] CPtr ice_clone() const { return std::static_pointer_cast<C>(_iceCloneImpl()); }
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::CPtr&, const ::Test::StringDict&, const std::optional<Ice::ObjectPrx>&> ice_tuple() const
+        {
+            return std::tie(obj, sd, prx);
+        }
 
-    std::string name;
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-    void ice_printFields(std::ostream& os) const override;
-    C(const C&) = default;
+    std::ostream& operator<<(std::ostream&, const S3&);
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-struct S3
-{
-    ::Test::CPtr obj;
-    ::Test::StringDict sd;
-    std::optional<Ice::ObjectPrx> prx;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::CPtr&, const ::Test::StringDict&, const std::optional<Ice::ObjectPrx>&> ice_tuple() const
-    {
-        return std::tie(obj, sd, prx);
-    }
-
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
-
-std::ostream& operator<<(std::ostream&, const S3&);
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::Test::S1>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::S1>
-{
-    static void read(InputStream* istr, ::Test::S1& v)
+    template<>
+    struct StreamableTraits<::Test::S1>
     {
-        istr->readAll(v.name);
-    }
-};
-
-template<>
-struct StreamableTraits<::Test::S2>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 19;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::S2>
-{
-    static void read(InputStream* istr, ::Test::S2& v)
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::S1>
     {
-        istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.str, v.seq, v.s);
-    }
-};
+        static void read(InputStream* istr, ::Test::S1& v)
+        {
+            istr->readAll(v.name);
+        }
+    };
 
-template<>
-struct StreamableTraits<::Test::S3>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::S3>
-{
-    static void read(InputStream* istr, ::Test::S3& v)
+    template<>
+    struct StreamableTraits<::Test::S2>
     {
-        istr->readAll(v.obj, v.sd, v.prx);
-    }
-};
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 19;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::S2>
+    {
+        static void read(InputStream* istr, ::Test::S2& v)
+        {
+            istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.str, v.seq, v.s);
+        }
+    };
 
+    template<>
+    struct StreamableTraits<::Test::S3>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 4;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::S3>
+    {
+        static void read(InputStream* istr, ::Test::S3& v)
+        {
+            istr->readAll(v.obj, v.sd, v.prx);
+        }
+    };
 }
 /// \endcond
 

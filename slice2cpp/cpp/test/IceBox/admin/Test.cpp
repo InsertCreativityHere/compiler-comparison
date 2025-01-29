@@ -108,7 +108,6 @@ Test::TestFacet::_iceD_getChanges(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestFacet::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -156,4 +155,3 @@ Test::TestFacet::dispatch(Ice::IncomingRequest& request, std::function<void(Ice:
         }
     }
 }
-/// \endcond

@@ -1101,7 +1101,6 @@ Test::NumPy::Custom::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::NumPy::Custom::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1234,4 +1233,3 @@ Test::NumPy::Custom::dispatch(Ice::IncomingRequest& request, std::function<void(
         }
     }
 }
-/// \endcond

@@ -219,7 +219,6 @@ Ice::PropertiesAdmin::_iceD_setProperties(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Ice::PropertiesAdmin::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -277,4 +276,3 @@ Ice::PropertiesAdmin::dispatch(Ice::IncomingRequest& request, std::function<void
         }
     }
 }
-/// \endcond

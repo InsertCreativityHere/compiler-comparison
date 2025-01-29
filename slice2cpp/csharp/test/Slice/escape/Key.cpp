@@ -733,7 +733,6 @@ abstract::case::_iceD_catch(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 abstract::case::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -781,7 +780,6 @@ abstract::case::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 abstract::decimal::ice_ids(const Ice::Current&) const
@@ -815,7 +813,6 @@ abstract::decimal::_iceD_default(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 abstract::decimal::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -863,7 +860,6 @@ abstract::decimal::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 abstract::explicit::ice_ids(const Ice::Current&) const
@@ -884,7 +880,6 @@ abstract::explicit::ice_staticId() noexcept
     return "::abstract::explicit";
 }
 
-/// \cond INTERNAL
 void
 abstract::explicit::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -937,7 +932,6 @@ abstract::explicit::dispatch(Ice::IncomingRequest& request, std::function<void(I
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 abstract::optionalParams::ice_ids(const Ice::Current&) const
@@ -1066,7 +1060,6 @@ abstract::optionalParams::_iceD_foreach(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 abstract::optionalParams::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1129,7 +1122,6 @@ abstract::optionalParams::dispatch(Ice::IncomingRequest& request, std::function<
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 abstract::implicit::ice_ids(const Ice::Current&) const
@@ -1180,7 +1172,6 @@ abstract::implicit::_iceD_in(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 abstract::implicit::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1228,7 +1219,6 @@ abstract::implicit::dispatch(Ice::IncomingRequest& request, std::function<void(I
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 abstract::System::Test::ice_ids(const Ice::Current&) const
@@ -1262,7 +1252,6 @@ abstract::System::Test::_iceD_op(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 abstract::System::Test::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1310,7 +1299,6 @@ abstract::System::Test::dispatch(Ice::IncomingRequest& request, std::function<vo
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 System::Test::ice_ids(const Ice::Current&) const
@@ -1344,7 +1332,6 @@ System::Test::_iceD_op(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 System::Test::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1392,4 +1379,3 @@ System::Test::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
         }
     }
 }
-/// \endcond

@@ -31,106 +31,96 @@ namespace Test
 
     class NoDefault;
     using NoDefaultPtr = std::shared_ptr<NoDefault>;
-
 }
 
 namespace Test
 {
-
-class Default : public Ice::Value
-{
-public:
-    /// Default constructor.
-    Default() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    Default(std::int32_t x, std::int32_t y) noexcept :
-        x(x),
-        y(y)
+    class Default : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        Default() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        Default(std::int32_t x, std::int32_t y) noexcept :
+            x(x),
+            y(y)
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(x, y);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] DefaultPtr ice_clone() const { return std::static_pointer_cast<Default>(_iceCloneImpl()); }
+
+        std::int32_t x;
+        std::int32_t y;
+
+        void ice_printFields(std::ostream& os) const override;
+        Default(const Default&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class NoDefault : public Ice::Value
     {
-        return std::tie(x, y);
-    }
+    public:
+        /// Default constructor.
+        NoDefault() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] DefaultPtr ice_clone() const { return std::static_pointer_cast<Default>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        NoDefault(std::int32_t x, std::int32_t y) noexcept :
+            x(x),
+            y(y)
+        {
+        }
 
-    std::int32_t x;
-    std::int32_t y;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void ice_printFields(std::ostream& os) const override;
-    Default(const Default&) = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(x, y);
+        }
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] NoDefaultPtr ice_clone() const { return std::static_pointer_cast<NoDefault>(_iceCloneImpl()); }
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        std::int32_t x = 10;
+        std::int32_t y = 10;
 
-class NoDefault : public Ice::Value
-{
-public:
-    /// Default constructor.
-    NoDefault() noexcept = default;
+        void ice_printFields(std::ostream& os) const override;
+        NoDefault(const NoDefault&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    NoDefault(std::int32_t x, std::int32_t y) noexcept :
-        x(x),
-        y(y)
-    {
-    }
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(x, y);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] NoDefaultPtr ice_clone() const { return std::static_pointer_cast<NoDefault>(_iceCloneImpl()); }
-
-    std::int32_t x = 10;
-    std::int32_t y = 10;
-
-    void ice_printFields(std::ostream& os) const override;
-    NoDefault(const NoDefault&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 #include <Ice/PopDisableWarnings.h>
 #endif

@@ -174,7 +174,6 @@ User::Registry::_iceD_getUserInfo(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 User::Registry::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -222,4 +221,3 @@ User::Registry::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond

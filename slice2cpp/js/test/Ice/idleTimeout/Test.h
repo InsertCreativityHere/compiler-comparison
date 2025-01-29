@@ -31,296 +31,282 @@ namespace Test
     class TestIntfPrx;
 
     class TestIntfBidirPrx;
-
 }
 
 namespace Test
 {
-
-class DelayedTestIntfPrx : public Ice::Proxy<DelayedTestIntfPrx, Ice::ObjectPrx>
-{
-public:
-
-    void sleep(std::int32_t ms, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> sleepAsync(std::int32_t ms, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    sleepAsync(std::int32_t ms, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_sleep(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    DelayedTestIntfPrx(const DelayedTestIntfPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    DelayedTestIntfPrx(DelayedTestIntfPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    DelayedTestIntfPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~DelayedTestIntfPrx() override;
-
-    DelayedTestIntfPrx& operator=(const DelayedTestIntfPrx& rhs) noexcept
+    class DelayedTestIntfPrx : public Ice::Proxy<DelayedTestIntfPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        void sleep(std::int32_t ms, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> sleepAsync(std::int32_t ms, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        sleepAsync(std::int32_t ms, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_sleep(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        DelayedTestIntfPrx(const DelayedTestIntfPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        DelayedTestIntfPrx(DelayedTestIntfPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        DelayedTestIntfPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~DelayedTestIntfPrx() override;
+
+        DelayedTestIntfPrx& operator=(const DelayedTestIntfPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    DelayedTestIntfPrx& operator=(DelayedTestIntfPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        DelayedTestIntfPrx& operator=(DelayedTestIntfPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static DelayedTestIntfPrx _fromReference(IceInternal::ReferencePtr ref) { return DelayedTestIntfPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static DelayedTestIntfPrx _fromReference(IceInternal::ReferencePtr ref) { return DelayedTestIntfPrx(std::move(ref)); }
 
-protected:
+    protected:
+        DelayedTestIntfPrx() = default;
 
-    DelayedTestIntfPrx() = default;
+        explicit DelayedTestIntfPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 
-    explicit DelayedTestIntfPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+    class TestIntfPrx : public Ice::Proxy<TestIntfPrx, DelayedTestIntfPrx>
     {
-    }
-    /// \endcond
-};
+    public:
 
-class TestIntfPrx : public Ice::Proxy<TestIntfPrx, DelayedTestIntfPrx>
-{
-public:
+        void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
+        [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
 
-    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
 
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+        /// \cond INTERNAL
+        void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
 
-    /// \cond INTERNAL
-    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
 
-    TestIntfPrx(const TestIntfPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+        TestIntfPrx(const TestIntfPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    TestIntfPrx(TestIntfPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+        TestIntfPrx(TestIntfPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    TestIntfPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+        TestIntfPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
-    ~TestIntfPrx() override;
+        ~TestIntfPrx() override;
 
-    TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
-    {
-        if (this != &rhs)
+        TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static TestIntfPrx _fromReference(IceInternal::ReferencePtr ref) { return TestIntfPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static TestIntfPrx _fromReference(IceInternal::ReferencePtr ref) { return TestIntfPrx(std::move(ref)); }
 
-protected:
+    protected:
+        TestIntfPrx() = default;
 
-    TestIntfPrx() = default;
-
-    explicit TestIntfPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
+        explicit TestIntfPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic pop
 #endif
-};
+    };
 
-class TestIntfBidirPrx : public Ice::Proxy<TestIntfBidirPrx, Ice::ObjectPrx>
-{
-public:
-
-    void makeSleep(bool aborted, std::int32_t ms, const std::optional<DelayedTestIntfPrx>& target, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> makeSleepAsync(bool aborted, std::int32_t ms, const std::optional<DelayedTestIntfPrx>& target, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    makeSleepAsync(bool aborted, std::int32_t ms, const std::optional<DelayedTestIntfPrx>& target, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_makeSleep(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, bool, std::int32_t, const std::optional<DelayedTestIntfPrx>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    TestIntfBidirPrx(const TestIntfBidirPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    TestIntfBidirPrx(TestIntfBidirPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    TestIntfBidirPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~TestIntfBidirPrx() override;
-
-    TestIntfBidirPrx& operator=(const TestIntfBidirPrx& rhs) noexcept
+    class TestIntfBidirPrx : public Ice::Proxy<TestIntfBidirPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        void makeSleep(bool aborted, std::int32_t ms, const std::optional<DelayedTestIntfPrx>& target, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> makeSleepAsync(bool aborted, std::int32_t ms, const std::optional<DelayedTestIntfPrx>& target, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        makeSleepAsync(bool aborted, std::int32_t ms, const std::optional<DelayedTestIntfPrx>& target, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_makeSleep(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, bool, std::int32_t, const std::optional<DelayedTestIntfPrx>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        TestIntfBidirPrx(const TestIntfBidirPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        TestIntfBidirPrx(TestIntfBidirPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        TestIntfBidirPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~TestIntfBidirPrx() override;
+
+        TestIntfBidirPrx& operator=(const TestIntfBidirPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    TestIntfBidirPrx& operator=(TestIntfBidirPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        TestIntfBidirPrx& operator=(TestIntfBidirPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static TestIntfBidirPrx _fromReference(IceInternal::ReferencePtr ref) { return TestIntfBidirPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static TestIntfBidirPrx _fromReference(IceInternal::ReferencePtr ref) { return TestIntfBidirPrx(std::move(ref)); }
 
-protected:
+    protected:
+        TestIntfBidirPrx() = default;
 
-    TestIntfBidirPrx() = default;
-
-    explicit TestIntfBidirPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
+        explicit TestIntfBidirPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 }
 
 namespace Test
 {
+    class DelayedTestIntf : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = DelayedTestIntfPrx;
 
-class DelayedTestIntf : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = DelayedTestIntfPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        virtual void sleep(std::int32_t ms, const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_sleep(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void sleep(std::int32_t ms, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_sleep(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+    using DelayedTestIntfPtr = std::shared_ptr<DelayedTestIntf>;
 
-using DelayedTestIntfPtr = std::shared_ptr<DelayedTestIntf>;
+    class TestIntf : public virtual DelayedTestIntf
+    {
+    public:
+        using ProxyType = TestIntfPrx;
 
-class TestIntf : public virtual DelayedTestIntf
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = TestIntfPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        virtual void shutdown(const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void shutdown(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+    using TestIntfPtr = std::shared_ptr<TestIntf>;
 
-using TestIntfPtr = std::shared_ptr<TestIntf>;
+    class TestIntfBidir : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = TestIntfBidirPrx;
 
-class TestIntfBidir : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = TestIntfBidirPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        virtual void makeSleep(bool aborted, std::int32_t ms, std::optional<DelayedTestIntfPrx> target, const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_makeSleep(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void makeSleep(bool aborted, std::int32_t ms, std::optional<DelayedTestIntfPrx> target, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_makeSleep(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
-
-using TestIntfBidirPtr = std::shared_ptr<TestIntfBidir>;
-
+    using TestIntfBidirPtr = std::shared_ptr<TestIntfBidir>;
 }
 
 #include <Ice/PopDisableWarnings.h>

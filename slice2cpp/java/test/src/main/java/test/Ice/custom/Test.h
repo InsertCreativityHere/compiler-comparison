@@ -69,6 +69,7 @@ namespace Test
         E2,
         E3
     };
+
     std::ostream& operator<<(std::ostream&, E);
 
     using ESeq = std::vector<E>;
@@ -84,877 +85,907 @@ namespace Test
     using StringSeqSeq = std::vector<StringSeq>;
 
     class TestIntfPrx;
-
 }
 
 namespace Test
 {
-
-class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
-{
-public:
-
-    ASeq opASeq(const ASeq& inSeq, ASeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<ASeq, ASeq>> opASeqAsync(const ASeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opASeqAsync(const ASeq& inSeq, std::function<void(::Test::ASeq, ::Test::ASeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opASeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ASeq, ASeq>>>&, const ASeq&, const Ice::Context&) const;
-    /// \endcond
-
-    AArray opAArray(const AArray& inSeq, AArray& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<AArray, AArray>> opAArrayAsync(const AArray& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opAArrayAsync(const AArray& inSeq, std::function<void(::Test::AArray, ::Test::AArray)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opAArray(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AArray, AArray>>>&, const AArray&, const Ice::Context&) const;
-    /// \endcond
-
-    AList opAList(const AList& inSeq, AList& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<AList, AList>> opAListAsync(const AList& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opAListAsync(const AList& inSeq, std::function<void(::Test::AList, ::Test::AList)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opAList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AList, AList>>>&, const AList&, const Ice::Context&) const;
-    /// \endcond
-
-    BoolSeq opBoolSeq(const BoolSeq& inSeq, BoolSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<BoolSeq, BoolSeq>> opBoolSeqAsync(const BoolSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opBoolSeqAsync(const BoolSeq& inSeq, std::function<void(::Test::BoolSeq, ::Test::BoolSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opBoolSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<BoolSeq, BoolSeq>>>&, const BoolSeq&, const Ice::Context&) const;
-    /// \endcond
-
-    ByteSeq opByteSeq(const ByteSeq& inSeq, ByteSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<ByteSeq, ByteSeq>> opByteSeqAsync(const ByteSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opByteSeqAsync(const ByteSeq& inSeq, std::function<void(::Test::ByteSeq, ::Test::ByteSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opByteSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ByteSeq, ByteSeq>>>&, const ByteSeq&, const Ice::Context&) const;
-    /// \endcond
-
-    ShortSeq opShortSeq(const ShortSeq& inSeq, ShortSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<ShortSeq, ShortSeq>> opShortSeqAsync(const ShortSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opShortSeqAsync(const ShortSeq& inSeq, std::function<void(::Test::ShortSeq, ::Test::ShortSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opShortSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ShortSeq, ShortSeq>>>&, const ShortSeq&, const Ice::Context&) const;
-    /// \endcond
-
-    IntSeq opIntSeq(const IntSeq& inSeq, IntSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<IntSeq, IntSeq>> opIntSeqAsync(const IntSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opIntSeqAsync(const IntSeq& inSeq, std::function<void(::Test::IntSeq, ::Test::IntSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opIntSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<IntSeq, IntSeq>>>&, const IntSeq&, const Ice::Context&) const;
-    /// \endcond
-
-    LongSeq opLongSeq(const LongSeq& inSeq, LongSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<LongSeq, LongSeq>> opLongSeqAsync(const LongSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opLongSeqAsync(const LongSeq& inSeq, std::function<void(::Test::LongSeq, ::Test::LongSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opLongSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LongSeq, LongSeq>>>&, const LongSeq&, const Ice::Context&) const;
-    /// \endcond
-
-    FloatSeq opFloatSeq(const FloatSeq& inSeq, FloatSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<FloatSeq, FloatSeq>> opFloatSeqAsync(const FloatSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opFloatSeqAsync(const FloatSeq& inSeq, std::function<void(::Test::FloatSeq, ::Test::FloatSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opFloatSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<FloatSeq, FloatSeq>>>&, const FloatSeq&, const Ice::Context&) const;
-    /// \endcond
-
-    DoubleSeq opDoubleSeq(const DoubleSeq& inSeq, DoubleSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<DoubleSeq, DoubleSeq>> opDoubleSeqAsync(const DoubleSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opDoubleSeqAsync(const DoubleSeq& inSeq, std::function<void(::Test::DoubleSeq, ::Test::DoubleSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opDoubleSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<DoubleSeq, DoubleSeq>>>&, const DoubleSeq&, const Ice::Context&) const;
-    /// \endcond
-
-    StringSeq opStringSeq(const StringSeq& inSeq, StringSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<StringSeq, StringSeq>> opStringSeqAsync(const StringSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opStringSeqAsync(const StringSeq& inSeq, std::function<void(::Test::StringSeq, ::Test::StringSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opStringSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<StringSeq, StringSeq>>>&, const StringSeq&, const Ice::Context&) const;
-    /// \endcond
-
-    ESeq opESeq(const ESeq& inSeq, ESeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<ESeq, ESeq>> opESeqAsync(const ESeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opESeqAsync(const ESeq& inSeq, std::function<void(::Test::ESeq, ::Test::ESeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opESeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ESeq, ESeq>>>&, const ESeq&, const Ice::Context&) const;
-    /// \endcond
-
-    SSeq opSSeq(const SSeq& inSeq, SSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSSeqAsync(const SSeq& inSeq, std::function<void(::Test::SSeq, ::Test::SSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opSSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SSeq, SSeq>>>&, const SSeq&, const Ice::Context&) const;
-    /// \endcond
-
-    DSeq opDSeq(const DSeq& inSeq, DSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<DSeq, DSeq>> opDSeqAsync(const DSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opDSeqAsync(const DSeq& inSeq, std::function<void(::Test::DSeq, ::Test::DSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opDSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<DSeq, DSeq>>>&, const DSeq&, const Ice::Context&) const;
-    /// \endcond
-
-    StringSeqSeq opStringSeqSeq(const StringSeqSeq& inSeq, StringSeqSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<StringSeqSeq, StringSeqSeq>> opStringSeqSeqAsync(const StringSeqSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opStringSeqSeqAsync(const StringSeqSeq& inSeq, std::function<void(::Test::StringSeqSeq, ::Test::StringSeqSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opStringSeqSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<StringSeqSeq, StringSeqSeq>>>&, const StringSeqSeq&, const Ice::Context&) const;
-    /// \endcond
-
-    ByteBuffer opByteBufferSeq(const ByteBuffer& inSeq, ByteBuffer& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<ByteBuffer, ByteBuffer>> opByteBufferSeqAsync(const ByteBuffer& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opByteBufferSeqAsync(const ByteBuffer& inSeq, std::function<void(::Test::ByteBuffer, ::Test::ByteBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opByteBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ByteBuffer, ByteBuffer>>>&, const ByteBuffer&, const Ice::Context&) const;
-    /// \endcond
-
-    ShortBuffer opShortBufferSeq(const ShortBuffer& inSeq, ShortBuffer& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<ShortBuffer, ShortBuffer>> opShortBufferSeqAsync(const ShortBuffer& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opShortBufferSeqAsync(const ShortBuffer& inSeq, std::function<void(::Test::ShortBuffer, ::Test::ShortBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opShortBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ShortBuffer, ShortBuffer>>>&, const ShortBuffer&, const Ice::Context&) const;
-    /// \endcond
-
-    IntBuffer opIntBufferSeq(const IntBuffer& inSeq, IntBuffer& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<IntBuffer, IntBuffer>> opIntBufferSeqAsync(const IntBuffer& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opIntBufferSeqAsync(const IntBuffer& inSeq, std::function<void(::Test::IntBuffer, ::Test::IntBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opIntBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<IntBuffer, IntBuffer>>>&, const IntBuffer&, const Ice::Context&) const;
-    /// \endcond
-
-    LongBuffer opLongBufferSeq(const LongBuffer& inSeq, LongBuffer& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<LongBuffer, LongBuffer>> opLongBufferSeqAsync(const LongBuffer& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opLongBufferSeqAsync(const LongBuffer& inSeq, std::function<void(::Test::LongBuffer, ::Test::LongBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opLongBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LongBuffer, LongBuffer>>>&, const LongBuffer&, const Ice::Context&) const;
-    /// \endcond
-
-    FloatBuffer opFloatBufferSeq(const FloatBuffer& inSeq, FloatBuffer& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<FloatBuffer, FloatBuffer>> opFloatBufferSeqAsync(const FloatBuffer& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opFloatBufferSeqAsync(const FloatBuffer& inSeq, std::function<void(::Test::FloatBuffer, ::Test::FloatBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opFloatBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<FloatBuffer, FloatBuffer>>>&, const FloatBuffer&, const Ice::Context&) const;
-    /// \endcond
-
-    DoubleBuffer opDoubleBufferSeq(const DoubleBuffer& inSeq, DoubleBuffer& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<DoubleBuffer, DoubleBuffer>> opDoubleBufferSeqAsync(const DoubleBuffer& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opDoubleBufferSeqAsync(const DoubleBuffer& inSeq, std::function<void(::Test::DoubleBuffer, ::Test::DoubleBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opDoubleBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<DoubleBuffer, DoubleBuffer>>>&, const DoubleBuffer&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<ASeq> opOptASeq(const std::optional<ASeq>& inSeq, std::optional<ASeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<ASeq>, std::optional<ASeq>>> opOptASeqAsync(const std::optional<ASeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptASeqAsync(const std::optional<ASeq>& inSeq, std::function<void(std::optional<::Test::ASeq>, std::optional<::Test::ASeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptASeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ASeq>, std::optional<ASeq>>>>&, const std::optional<ASeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<AArray> opOptAArray(const std::optional<AArray>& inSeq, std::optional<AArray>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<AArray>, std::optional<AArray>>> opOptAArrayAsync(const std::optional<AArray>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptAArrayAsync(const std::optional<AArray>& inSeq, std::function<void(std::optional<::Test::AArray>, std::optional<::Test::AArray>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptAArray(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<AArray>, std::optional<AArray>>>>&, const std::optional<AArray>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<AList> opOptAList(const std::optional<AList>& inSeq, std::optional<AList>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<AList>, std::optional<AList>>> opOptAListAsync(const std::optional<AList>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptAListAsync(const std::optional<AList>& inSeq, std::function<void(std::optional<::Test::AList>, std::optional<::Test::AList>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptAList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<AList>, std::optional<AList>>>>&, const std::optional<AList>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<BoolSeq> opOptBoolSeq(const std::optional<BoolSeq>& inSeq, std::optional<BoolSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>> opOptBoolSeqAsync(const std::optional<BoolSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptBoolSeqAsync(const std::optional<BoolSeq>& inSeq, std::function<void(std::optional<::Test::BoolSeq>, std::optional<::Test::BoolSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptBoolSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>>>&, const std::optional<BoolSeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<ByteSeq> opOptByteSeq(const std::optional<ByteSeq>& inSeq, std::optional<ByteSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>> opOptByteSeqAsync(const std::optional<ByteSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptByteSeqAsync(const std::optional<ByteSeq>& inSeq, std::function<void(std::optional<::Test::ByteSeq>, std::optional<::Test::ByteSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptByteSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>>&, const std::optional<ByteSeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<ShortSeq> opOptShortSeq(const std::optional<ShortSeq>& inSeq, std::optional<ShortSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>> opOptShortSeqAsync(const std::optional<ShortSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptShortSeqAsync(const std::optional<ShortSeq>& inSeq, std::function<void(std::optional<::Test::ShortSeq>, std::optional<::Test::ShortSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptShortSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>>&, const std::optional<ShortSeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<IntSeq> opOptIntSeq(const std::optional<IntSeq>& inSeq, std::optional<IntSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>> opOptIntSeqAsync(const std::optional<IntSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptIntSeqAsync(const std::optional<IntSeq>& inSeq, std::function<void(std::optional<::Test::IntSeq>, std::optional<::Test::IntSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptIntSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>>>&, const std::optional<IntSeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<LongSeq> opOptLongSeq(const std::optional<LongSeq>& inSeq, std::optional<LongSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>> opOptLongSeqAsync(const std::optional<LongSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptLongSeqAsync(const std::optional<LongSeq>& inSeq, std::function<void(std::optional<::Test::LongSeq>, std::optional<::Test::LongSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptLongSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>>>&, const std::optional<LongSeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<FloatSeq> opOptFloatSeq(const std::optional<FloatSeq>& inSeq, std::optional<FloatSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>> opOptFloatSeqAsync(const std::optional<FloatSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptFloatSeqAsync(const std::optional<FloatSeq>& inSeq, std::function<void(std::optional<::Test::FloatSeq>, std::optional<::Test::FloatSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptFloatSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>>>&, const std::optional<FloatSeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<DoubleSeq> opOptDoubleSeq(const std::optional<DoubleSeq>& inSeq, std::optional<DoubleSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>> opOptDoubleSeqAsync(const std::optional<DoubleSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptDoubleSeqAsync(const std::optional<DoubleSeq>& inSeq, std::function<void(std::optional<::Test::DoubleSeq>, std::optional<::Test::DoubleSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptDoubleSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>>>&, const std::optional<DoubleSeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<StringSeq> opOptStringSeq(const std::optional<StringSeq>& inSeq, std::optional<StringSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>> opOptStringSeqAsync(const std::optional<StringSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptStringSeqAsync(const std::optional<StringSeq>& inSeq, std::function<void(std::optional<::Test::StringSeq>, std::optional<::Test::StringSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptStringSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>>&, const std::optional<StringSeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<ESeq> opOptESeq(const std::optional<ESeq>& inSeq, std::optional<ESeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<ESeq>, std::optional<ESeq>>> opOptESeqAsync(const std::optional<ESeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptESeqAsync(const std::optional<ESeq>& inSeq, std::function<void(std::optional<::Test::ESeq>, std::optional<::Test::ESeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptESeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ESeq>, std::optional<ESeq>>>>&, const std::optional<ESeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<SSeq> opOptSSeq(const std::optional<SSeq>& inSeq, std::optional<SSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<SSeq>, std::optional<SSeq>>> opOptSSeqAsync(const std::optional<SSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptSSeqAsync(const std::optional<SSeq>& inSeq, std::function<void(std::optional<::Test::SSeq>, std::optional<::Test::SSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptSSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<SSeq>, std::optional<SSeq>>>>&, const std::optional<SSeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<DSeq> opOptDSeq(const std::optional<DSeq>& inSeq, std::optional<DSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<DSeq>, std::optional<DSeq>>> opOptDSeqAsync(const std::optional<DSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptDSeqAsync(const std::optional<DSeq>& inSeq, std::function<void(std::optional<::Test::DSeq>, std::optional<::Test::DSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptDSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<DSeq>, std::optional<DSeq>>>>&, const std::optional<DSeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<StringSeqSeq> opOptStringSeqSeq(const std::optional<StringSeqSeq>& inSeq, std::optional<StringSeqSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>> opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& inSeq, std::function<void(std::optional<::Test::StringSeqSeq>, std::optional<::Test::StringSeqSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptStringSeqSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>>>&, const std::optional<StringSeqSeq>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<ByteBuffer> opOptByteBufferSeq(const std::optional<ByteBuffer>& inSeq, std::optional<ByteBuffer>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>> opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& inSeq, std::function<void(std::optional<::Test::ByteBuffer>, std::optional<::Test::ByteBuffer>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptByteBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>>>&, const std::optional<ByteBuffer>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<ShortBuffer> opOptShortBufferSeq(const std::optional<ShortBuffer>& inSeq, std::optional<ShortBuffer>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>> opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& inSeq, std::function<void(std::optional<::Test::ShortBuffer>, std::optional<::Test::ShortBuffer>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptShortBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>>>&, const std::optional<ShortBuffer>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<IntBuffer> opOptIntBufferSeq(const std::optional<IntBuffer>& inSeq, std::optional<IntBuffer>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>> opOptIntBufferSeqAsync(const std::optional<IntBuffer>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptIntBufferSeqAsync(const std::optional<IntBuffer>& inSeq, std::function<void(std::optional<::Test::IntBuffer>, std::optional<::Test::IntBuffer>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptIntBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>>>&, const std::optional<IntBuffer>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<LongBuffer> opOptLongBufferSeq(const std::optional<LongBuffer>& inSeq, std::optional<LongBuffer>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>> opOptLongBufferSeqAsync(const std::optional<LongBuffer>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptLongBufferSeqAsync(const std::optional<LongBuffer>& inSeq, std::function<void(std::optional<::Test::LongBuffer>, std::optional<::Test::LongBuffer>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptLongBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>>>&, const std::optional<LongBuffer>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<FloatBuffer> opOptFloatBufferSeq(const std::optional<FloatBuffer>& inSeq, std::optional<FloatBuffer>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>> opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& inSeq, std::function<void(std::optional<::Test::FloatBuffer>, std::optional<::Test::FloatBuffer>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptFloatBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>>>&, const std::optional<FloatBuffer>&, const Ice::Context&) const;
-    /// \endcond
-
-    std::optional<DoubleBuffer> opOptDoubleBufferSeq(const std::optional<DoubleBuffer>& inSeq, std::optional<DoubleBuffer>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>> opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& inSeq, std::function<void(std::optional<::Test::DoubleBuffer>, std::optional<::Test::DoubleBuffer>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOptDoubleBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>>>&, const std::optional<DoubleBuffer>&, const Ice::Context&) const;
-    /// \endcond
-
-    void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    TestIntfPrx(const TestIntfPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    TestIntfPrx(TestIntfPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    TestIntfPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~TestIntfPrx() override;
-
-    TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
+    class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        ASeq opASeq(const ASeq& inSeq, ASeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<ASeq, ASeq>> opASeqAsync(const ASeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opASeqAsync(const ASeq& inSeq, std::function<void(::Test::ASeq, ::Test::ASeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opASeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ASeq, ASeq>>>&, const ASeq&, const Ice::Context&) const;
+        /// \endcond
+
+        AArray opAArray(const AArray& inSeq, AArray& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<AArray, AArray>> opAArrayAsync(const AArray& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opAArrayAsync(const AArray& inSeq, std::function<void(::Test::AArray, ::Test::AArray)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opAArray(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AArray, AArray>>>&, const AArray&, const Ice::Context&) const;
+        /// \endcond
+
+        AList opAList(const AList& inSeq, AList& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<AList, AList>> opAListAsync(const AList& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opAListAsync(const AList& inSeq, std::function<void(::Test::AList, ::Test::AList)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opAList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<AList, AList>>>&, const AList&, const Ice::Context&) const;
+        /// \endcond
+
+        BoolSeq opBoolSeq(const BoolSeq& inSeq, BoolSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<BoolSeq, BoolSeq>> opBoolSeqAsync(const BoolSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opBoolSeqAsync(const BoolSeq& inSeq, std::function<void(::Test::BoolSeq, ::Test::BoolSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opBoolSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<BoolSeq, BoolSeq>>>&, const BoolSeq&, const Ice::Context&) const;
+        /// \endcond
+
+        ByteSeq opByteSeq(const ByteSeq& inSeq, ByteSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<ByteSeq, ByteSeq>> opByteSeqAsync(const ByteSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opByteSeqAsync(const ByteSeq& inSeq, std::function<void(::Test::ByteSeq, ::Test::ByteSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opByteSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ByteSeq, ByteSeq>>>&, const ByteSeq&, const Ice::Context&) const;
+        /// \endcond
+
+        ShortSeq opShortSeq(const ShortSeq& inSeq, ShortSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<ShortSeq, ShortSeq>> opShortSeqAsync(const ShortSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opShortSeqAsync(const ShortSeq& inSeq, std::function<void(::Test::ShortSeq, ::Test::ShortSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opShortSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ShortSeq, ShortSeq>>>&, const ShortSeq&, const Ice::Context&) const;
+        /// \endcond
+
+        IntSeq opIntSeq(const IntSeq& inSeq, IntSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<IntSeq, IntSeq>> opIntSeqAsync(const IntSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opIntSeqAsync(const IntSeq& inSeq, std::function<void(::Test::IntSeq, ::Test::IntSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opIntSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<IntSeq, IntSeq>>>&, const IntSeq&, const Ice::Context&) const;
+        /// \endcond
+
+        LongSeq opLongSeq(const LongSeq& inSeq, LongSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<LongSeq, LongSeq>> opLongSeqAsync(const LongSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opLongSeqAsync(const LongSeq& inSeq, std::function<void(::Test::LongSeq, ::Test::LongSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opLongSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LongSeq, LongSeq>>>&, const LongSeq&, const Ice::Context&) const;
+        /// \endcond
+
+        FloatSeq opFloatSeq(const FloatSeq& inSeq, FloatSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<FloatSeq, FloatSeq>> opFloatSeqAsync(const FloatSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opFloatSeqAsync(const FloatSeq& inSeq, std::function<void(::Test::FloatSeq, ::Test::FloatSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opFloatSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<FloatSeq, FloatSeq>>>&, const FloatSeq&, const Ice::Context&) const;
+        /// \endcond
+
+        DoubleSeq opDoubleSeq(const DoubleSeq& inSeq, DoubleSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<DoubleSeq, DoubleSeq>> opDoubleSeqAsync(const DoubleSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opDoubleSeqAsync(const DoubleSeq& inSeq, std::function<void(::Test::DoubleSeq, ::Test::DoubleSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opDoubleSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<DoubleSeq, DoubleSeq>>>&, const DoubleSeq&, const Ice::Context&) const;
+        /// \endcond
+
+        StringSeq opStringSeq(const StringSeq& inSeq, StringSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<StringSeq, StringSeq>> opStringSeqAsync(const StringSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opStringSeqAsync(const StringSeq& inSeq, std::function<void(::Test::StringSeq, ::Test::StringSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opStringSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<StringSeq, StringSeq>>>&, const StringSeq&, const Ice::Context&) const;
+        /// \endcond
+
+        ESeq opESeq(const ESeq& inSeq, ESeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<ESeq, ESeq>> opESeqAsync(const ESeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opESeqAsync(const ESeq& inSeq, std::function<void(::Test::ESeq, ::Test::ESeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opESeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ESeq, ESeq>>>&, const ESeq&, const Ice::Context&) const;
+        /// \endcond
+
+        SSeq opSSeq(const SSeq& inSeq, SSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<SSeq, SSeq>> opSSeqAsync(const SSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opSSeqAsync(const SSeq& inSeq, std::function<void(::Test::SSeq, ::Test::SSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opSSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SSeq, SSeq>>>&, const SSeq&, const Ice::Context&) const;
+        /// \endcond
+
+        DSeq opDSeq(const DSeq& inSeq, DSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<DSeq, DSeq>> opDSeqAsync(const DSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opDSeqAsync(const DSeq& inSeq, std::function<void(::Test::DSeq, ::Test::DSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opDSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<DSeq, DSeq>>>&, const DSeq&, const Ice::Context&) const;
+        /// \endcond
+
+        StringSeqSeq opStringSeqSeq(const StringSeqSeq& inSeq, StringSeqSeq& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<StringSeqSeq, StringSeqSeq>> opStringSeqSeqAsync(const StringSeqSeq& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opStringSeqSeqAsync(const StringSeqSeq& inSeq, std::function<void(::Test::StringSeqSeq, ::Test::StringSeqSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opStringSeqSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<StringSeqSeq, StringSeqSeq>>>&, const StringSeqSeq&, const Ice::Context&) const;
+        /// \endcond
+
+        ByteBuffer opByteBufferSeq(const ByteBuffer& inSeq, ByteBuffer& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<ByteBuffer, ByteBuffer>> opByteBufferSeqAsync(const ByteBuffer& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opByteBufferSeqAsync(const ByteBuffer& inSeq, std::function<void(::Test::ByteBuffer, ::Test::ByteBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opByteBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ByteBuffer, ByteBuffer>>>&, const ByteBuffer&, const Ice::Context&) const;
+        /// \endcond
+
+        ShortBuffer opShortBufferSeq(const ShortBuffer& inSeq, ShortBuffer& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<ShortBuffer, ShortBuffer>> opShortBufferSeqAsync(const ShortBuffer& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opShortBufferSeqAsync(const ShortBuffer& inSeq, std::function<void(::Test::ShortBuffer, ::Test::ShortBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opShortBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<ShortBuffer, ShortBuffer>>>&, const ShortBuffer&, const Ice::Context&) const;
+        /// \endcond
+
+        IntBuffer opIntBufferSeq(const IntBuffer& inSeq, IntBuffer& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<IntBuffer, IntBuffer>> opIntBufferSeqAsync(const IntBuffer& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opIntBufferSeqAsync(const IntBuffer& inSeq, std::function<void(::Test::IntBuffer, ::Test::IntBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opIntBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<IntBuffer, IntBuffer>>>&, const IntBuffer&, const Ice::Context&) const;
+        /// \endcond
+
+        LongBuffer opLongBufferSeq(const LongBuffer& inSeq, LongBuffer& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<LongBuffer, LongBuffer>> opLongBufferSeqAsync(const LongBuffer& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opLongBufferSeqAsync(const LongBuffer& inSeq, std::function<void(::Test::LongBuffer, ::Test::LongBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opLongBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<LongBuffer, LongBuffer>>>&, const LongBuffer&, const Ice::Context&) const;
+        /// \endcond
+
+        FloatBuffer opFloatBufferSeq(const FloatBuffer& inSeq, FloatBuffer& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<FloatBuffer, FloatBuffer>> opFloatBufferSeqAsync(const FloatBuffer& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opFloatBufferSeqAsync(const FloatBuffer& inSeq, std::function<void(::Test::FloatBuffer, ::Test::FloatBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opFloatBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<FloatBuffer, FloatBuffer>>>&, const FloatBuffer&, const Ice::Context&) const;
+        /// \endcond
+
+        DoubleBuffer opDoubleBufferSeq(const DoubleBuffer& inSeq, DoubleBuffer& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<DoubleBuffer, DoubleBuffer>> opDoubleBufferSeqAsync(const DoubleBuffer& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opDoubleBufferSeqAsync(const DoubleBuffer& inSeq, std::function<void(::Test::DoubleBuffer, ::Test::DoubleBuffer)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opDoubleBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<DoubleBuffer, DoubleBuffer>>>&, const DoubleBuffer&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<ASeq> opOptASeq(const std::optional<ASeq>& inSeq, std::optional<ASeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<ASeq>, std::optional<ASeq>>> opOptASeqAsync(const std::optional<ASeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptASeqAsync(const std::optional<ASeq>& inSeq, std::function<void(std::optional<::Test::ASeq>, std::optional<::Test::ASeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptASeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ASeq>, std::optional<ASeq>>>>&, const std::optional<ASeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<AArray> opOptAArray(const std::optional<AArray>& inSeq, std::optional<AArray>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<AArray>, std::optional<AArray>>> opOptAArrayAsync(const std::optional<AArray>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptAArrayAsync(const std::optional<AArray>& inSeq, std::function<void(std::optional<::Test::AArray>, std::optional<::Test::AArray>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptAArray(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<AArray>, std::optional<AArray>>>>&, const std::optional<AArray>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<AList> opOptAList(const std::optional<AList>& inSeq, std::optional<AList>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<AList>, std::optional<AList>>> opOptAListAsync(const std::optional<AList>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptAListAsync(const std::optional<AList>& inSeq, std::function<void(std::optional<::Test::AList>, std::optional<::Test::AList>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptAList(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<AList>, std::optional<AList>>>>&, const std::optional<AList>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<BoolSeq> opOptBoolSeq(const std::optional<BoolSeq>& inSeq, std::optional<BoolSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>> opOptBoolSeqAsync(const std::optional<BoolSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptBoolSeqAsync(const std::optional<BoolSeq>& inSeq, std::function<void(std::optional<::Test::BoolSeq>, std::optional<::Test::BoolSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptBoolSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>>>&, const std::optional<BoolSeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<ByteSeq> opOptByteSeq(const std::optional<ByteSeq>& inSeq, std::optional<ByteSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>> opOptByteSeqAsync(const std::optional<ByteSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptByteSeqAsync(const std::optional<ByteSeq>& inSeq, std::function<void(std::optional<::Test::ByteSeq>, std::optional<::Test::ByteSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptByteSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>>&, const std::optional<ByteSeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<ShortSeq> opOptShortSeq(const std::optional<ShortSeq>& inSeq, std::optional<ShortSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>> opOptShortSeqAsync(const std::optional<ShortSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptShortSeqAsync(const std::optional<ShortSeq>& inSeq, std::function<void(std::optional<::Test::ShortSeq>, std::optional<::Test::ShortSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptShortSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>>&, const std::optional<ShortSeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<IntSeq> opOptIntSeq(const std::optional<IntSeq>& inSeq, std::optional<IntSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>> opOptIntSeqAsync(const std::optional<IntSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptIntSeqAsync(const std::optional<IntSeq>& inSeq, std::function<void(std::optional<::Test::IntSeq>, std::optional<::Test::IntSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptIntSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>>>&, const std::optional<IntSeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<LongSeq> opOptLongSeq(const std::optional<LongSeq>& inSeq, std::optional<LongSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>> opOptLongSeqAsync(const std::optional<LongSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptLongSeqAsync(const std::optional<LongSeq>& inSeq, std::function<void(std::optional<::Test::LongSeq>, std::optional<::Test::LongSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptLongSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>>>&, const std::optional<LongSeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<FloatSeq> opOptFloatSeq(const std::optional<FloatSeq>& inSeq, std::optional<FloatSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>> opOptFloatSeqAsync(const std::optional<FloatSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptFloatSeqAsync(const std::optional<FloatSeq>& inSeq, std::function<void(std::optional<::Test::FloatSeq>, std::optional<::Test::FloatSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptFloatSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>>>&, const std::optional<FloatSeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<DoubleSeq> opOptDoubleSeq(const std::optional<DoubleSeq>& inSeq, std::optional<DoubleSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>> opOptDoubleSeqAsync(const std::optional<DoubleSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptDoubleSeqAsync(const std::optional<DoubleSeq>& inSeq, std::function<void(std::optional<::Test::DoubleSeq>, std::optional<::Test::DoubleSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptDoubleSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>>>&, const std::optional<DoubleSeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<StringSeq> opOptStringSeq(const std::optional<StringSeq>& inSeq, std::optional<StringSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>> opOptStringSeqAsync(const std::optional<StringSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptStringSeqAsync(const std::optional<StringSeq>& inSeq, std::function<void(std::optional<::Test::StringSeq>, std::optional<::Test::StringSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptStringSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>>&, const std::optional<StringSeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<ESeq> opOptESeq(const std::optional<ESeq>& inSeq, std::optional<ESeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<ESeq>, std::optional<ESeq>>> opOptESeqAsync(const std::optional<ESeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptESeqAsync(const std::optional<ESeq>& inSeq, std::function<void(std::optional<::Test::ESeq>, std::optional<::Test::ESeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptESeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ESeq>, std::optional<ESeq>>>>&, const std::optional<ESeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<SSeq> opOptSSeq(const std::optional<SSeq>& inSeq, std::optional<SSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<SSeq>, std::optional<SSeq>>> opOptSSeqAsync(const std::optional<SSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptSSeqAsync(const std::optional<SSeq>& inSeq, std::function<void(std::optional<::Test::SSeq>, std::optional<::Test::SSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptSSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<SSeq>, std::optional<SSeq>>>>&, const std::optional<SSeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<DSeq> opOptDSeq(const std::optional<DSeq>& inSeq, std::optional<DSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<DSeq>, std::optional<DSeq>>> opOptDSeqAsync(const std::optional<DSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptDSeqAsync(const std::optional<DSeq>& inSeq, std::function<void(std::optional<::Test::DSeq>, std::optional<::Test::DSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptDSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<DSeq>, std::optional<DSeq>>>>&, const std::optional<DSeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<StringSeqSeq> opOptStringSeqSeq(const std::optional<StringSeqSeq>& inSeq, std::optional<StringSeqSeq>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>> opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& inSeq, std::function<void(std::optional<::Test::StringSeqSeq>, std::optional<::Test::StringSeqSeq>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptStringSeqSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>>>&, const std::optional<StringSeqSeq>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<ByteBuffer> opOptByteBufferSeq(const std::optional<ByteBuffer>& inSeq, std::optional<ByteBuffer>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>> opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& inSeq, std::function<void(std::optional<::Test::ByteBuffer>, std::optional<::Test::ByteBuffer>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptByteBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>>>&, const std::optional<ByteBuffer>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<ShortBuffer> opOptShortBufferSeq(const std::optional<ShortBuffer>& inSeq, std::optional<ShortBuffer>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>> opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& inSeq, std::function<void(std::optional<::Test::ShortBuffer>, std::optional<::Test::ShortBuffer>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptShortBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>>>&, const std::optional<ShortBuffer>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<IntBuffer> opOptIntBufferSeq(const std::optional<IntBuffer>& inSeq, std::optional<IntBuffer>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>> opOptIntBufferSeqAsync(const std::optional<IntBuffer>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptIntBufferSeqAsync(const std::optional<IntBuffer>& inSeq, std::function<void(std::optional<::Test::IntBuffer>, std::optional<::Test::IntBuffer>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptIntBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>>>&, const std::optional<IntBuffer>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<LongBuffer> opOptLongBufferSeq(const std::optional<LongBuffer>& inSeq, std::optional<LongBuffer>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>> opOptLongBufferSeqAsync(const std::optional<LongBuffer>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptLongBufferSeqAsync(const std::optional<LongBuffer>& inSeq, std::function<void(std::optional<::Test::LongBuffer>, std::optional<::Test::LongBuffer>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptLongBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>>>&, const std::optional<LongBuffer>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<FloatBuffer> opOptFloatBufferSeq(const std::optional<FloatBuffer>& inSeq, std::optional<FloatBuffer>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>> opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& inSeq, std::function<void(std::optional<::Test::FloatBuffer>, std::optional<::Test::FloatBuffer>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptFloatBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>>>&, const std::optional<FloatBuffer>&, const Ice::Context&) const;
+        /// \endcond
+
+        std::optional<DoubleBuffer> opOptDoubleBufferSeq(const std::optional<DoubleBuffer>& inSeq, std::optional<DoubleBuffer>& outSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>> opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& inSeq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& inSeq, std::function<void(std::optional<::Test::DoubleBuffer>, std::optional<::Test::DoubleBuffer>)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opOptDoubleBufferSeq(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>>>&, const std::optional<DoubleBuffer>&, const Ice::Context&) const;
+        /// \endcond
+
+        void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        TestIntfPrx(const TestIntfPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        TestIntfPrx(TestIntfPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        TestIntfPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~TestIntfPrx() override;
+
+        TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static TestIntfPrx _fromReference(IceInternal::ReferencePtr ref) { return TestIntfPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static TestIntfPrx _fromReference(IceInternal::ReferencePtr ref) { return TestIntfPrx(std::move(ref)); }
 
-protected:
+    protected:
+        TestIntfPrx() = default;
 
-    TestIntfPrx() = default;
-
-    explicit TestIntfPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
+        explicit TestIntfPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 }
 
 namespace Test
 {
-
-struct A
-{
-    std::int32_t i;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+    struct A
     {
-        return std::tie(i);
-    }
+        std::int32_t i;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(i);
+        }
 
-std::ostream& operator<<(std::ostream&, const A&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct S
-{
-    ::Test::E en;
+    std::ostream& operator<<(std::ostream&, const A&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::E&> ice_tuple() const
+    struct S
     {
-        return std::tie(en);
-    }
+        ::Test::E en;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::E&> ice_tuple() const
+        {
+            return std::tie(en);
+        }
 
-std::ostream& operator<<(std::ostream&, const S&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
+    std::ostream& operator<<(std::ostream&, const S&);
 
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 namespace Test
 {
+    class TestIntf : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = TestIntfPrx;
 
-class TestIntf : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = TestIntfPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        virtual ASeq opASeq(ASeq inSeq, ASeq& outSeq, const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_opASeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual ASeq opASeq(ASeq inSeq, ASeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opASeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual AArray opAArray(AArray inSeq, AArray& outSeq, const Ice::Current& current) = 0;
 
-    virtual AArray opAArray(AArray inSeq, AArray& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opAArray(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opAArray(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual AList opAList(AList inSeq, AList& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opAList(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual AList opAList(AList inSeq, AList& outSeq, const Ice::Current& current) = 0;
 
-    virtual BoolSeq opBoolSeq(BoolSeq inSeq, BoolSeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opBoolSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opAList(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual ByteSeq opByteSeq(ByteSeq inSeq, ByteSeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opByteSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual BoolSeq opBoolSeq(BoolSeq inSeq, BoolSeq& outSeq, const Ice::Current& current) = 0;
 
-    virtual ShortSeq opShortSeq(ShortSeq inSeq, ShortSeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opShortSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opBoolSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual IntSeq opIntSeq(IntSeq inSeq, IntSeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opIntSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual ByteSeq opByteSeq(ByteSeq inSeq, ByteSeq& outSeq, const Ice::Current& current) = 0;
 
-    virtual LongSeq opLongSeq(LongSeq inSeq, LongSeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opLongSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opByteSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual FloatSeq opFloatSeq(FloatSeq inSeq, FloatSeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opFloatSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual ShortSeq opShortSeq(ShortSeq inSeq, ShortSeq& outSeq, const Ice::Current& current) = 0;
 
-    virtual DoubleSeq opDoubleSeq(DoubleSeq inSeq, DoubleSeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opDoubleSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opShortSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual StringSeq opStringSeq(StringSeq inSeq, StringSeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opStringSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual IntSeq opIntSeq(IntSeq inSeq, IntSeq& outSeq, const Ice::Current& current) = 0;
 
-    virtual ESeq opESeq(ESeq inSeq, ESeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opESeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opIntSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual SSeq opSSeq(SSeq inSeq, SSeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opSSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual LongSeq opLongSeq(LongSeq inSeq, LongSeq& outSeq, const Ice::Current& current) = 0;
 
-    virtual DSeq opDSeq(DSeq inSeq, DSeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opDSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opLongSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual StringSeqSeq opStringSeqSeq(StringSeqSeq inSeq, StringSeqSeq& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opStringSeqSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual FloatSeq opFloatSeq(FloatSeq inSeq, FloatSeq& outSeq, const Ice::Current& current) = 0;
 
-    virtual ByteBuffer opByteBufferSeq(ByteBuffer inSeq, ByteBuffer& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opByteBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opFloatSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual ShortBuffer opShortBufferSeq(ShortBuffer inSeq, ShortBuffer& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opShortBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual DoubleSeq opDoubleSeq(DoubleSeq inSeq, DoubleSeq& outSeq, const Ice::Current& current) = 0;
 
-    virtual IntBuffer opIntBufferSeq(IntBuffer inSeq, IntBuffer& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opIntBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opDoubleSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual LongBuffer opLongBufferSeq(LongBuffer inSeq, LongBuffer& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opLongBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual StringSeq opStringSeq(StringSeq inSeq, StringSeq& outSeq, const Ice::Current& current) = 0;
 
-    virtual FloatBuffer opFloatBufferSeq(FloatBuffer inSeq, FloatBuffer& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opFloatBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opStringSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual DoubleBuffer opDoubleBufferSeq(DoubleBuffer inSeq, DoubleBuffer& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opDoubleBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual ESeq opESeq(ESeq inSeq, ESeq& outSeq, const Ice::Current& current) = 0;
 
-    virtual std::optional<ASeq> opOptASeq(std::optional<ASeq> inSeq, std::optional<ASeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptASeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opESeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual std::optional<AArray> opOptAArray(std::optional<AArray> inSeq, std::optional<AArray>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptAArray(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual SSeq opSSeq(SSeq inSeq, SSeq& outSeq, const Ice::Current& current) = 0;
 
-    virtual std::optional<AList> opOptAList(std::optional<AList> inSeq, std::optional<AList>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptAList(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opSSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual std::optional<BoolSeq> opOptBoolSeq(std::optional<BoolSeq> inSeq, std::optional<BoolSeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptBoolSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual DSeq opDSeq(DSeq inSeq, DSeq& outSeq, const Ice::Current& current) = 0;
 
-    virtual std::optional<ByteSeq> opOptByteSeq(std::optional<ByteSeq> inSeq, std::optional<ByteSeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptByteSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opDSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual std::optional<ShortSeq> opOptShortSeq(std::optional<ShortSeq> inSeq, std::optional<ShortSeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptShortSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual StringSeqSeq opStringSeqSeq(StringSeqSeq inSeq, StringSeqSeq& outSeq, const Ice::Current& current) = 0;
 
-    virtual std::optional<IntSeq> opOptIntSeq(std::optional<IntSeq> inSeq, std::optional<IntSeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptIntSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opStringSeqSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual std::optional<LongSeq> opOptLongSeq(std::optional<LongSeq> inSeq, std::optional<LongSeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptLongSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual ByteBuffer opByteBufferSeq(ByteBuffer inSeq, ByteBuffer& outSeq, const Ice::Current& current) = 0;
 
-    virtual std::optional<FloatSeq> opOptFloatSeq(std::optional<FloatSeq> inSeq, std::optional<FloatSeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptFloatSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opByteBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual std::optional<DoubleSeq> opOptDoubleSeq(std::optional<DoubleSeq> inSeq, std::optional<DoubleSeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptDoubleSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual ShortBuffer opShortBufferSeq(ShortBuffer inSeq, ShortBuffer& outSeq, const Ice::Current& current) = 0;
 
-    virtual std::optional<StringSeq> opOptStringSeq(std::optional<StringSeq> inSeq, std::optional<StringSeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptStringSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opShortBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual std::optional<ESeq> opOptESeq(std::optional<ESeq> inSeq, std::optional<ESeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptESeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual IntBuffer opIntBufferSeq(IntBuffer inSeq, IntBuffer& outSeq, const Ice::Current& current) = 0;
 
-    virtual std::optional<SSeq> opOptSSeq(std::optional<SSeq> inSeq, std::optional<SSeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptSSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opIntBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual std::optional<DSeq> opOptDSeq(std::optional<DSeq> inSeq, std::optional<DSeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptDSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual LongBuffer opLongBufferSeq(LongBuffer inSeq, LongBuffer& outSeq, const Ice::Current& current) = 0;
 
-    virtual std::optional<StringSeqSeq> opOptStringSeqSeq(std::optional<StringSeqSeq> inSeq, std::optional<StringSeqSeq>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptStringSeqSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opLongBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual std::optional<ByteBuffer> opOptByteBufferSeq(std::optional<ByteBuffer> inSeq, std::optional<ByteBuffer>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptByteBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual FloatBuffer opFloatBufferSeq(FloatBuffer inSeq, FloatBuffer& outSeq, const Ice::Current& current) = 0;
 
-    virtual std::optional<ShortBuffer> opOptShortBufferSeq(std::optional<ShortBuffer> inSeq, std::optional<ShortBuffer>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptShortBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opFloatBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual std::optional<IntBuffer> opOptIntBufferSeq(std::optional<IntBuffer> inSeq, std::optional<IntBuffer>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptIntBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual DoubleBuffer opDoubleBufferSeq(DoubleBuffer inSeq, DoubleBuffer& outSeq, const Ice::Current& current) = 0;
 
-    virtual std::optional<LongBuffer> opOptLongBufferSeq(std::optional<LongBuffer> inSeq, std::optional<LongBuffer>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptLongBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opDoubleBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual std::optional<FloatBuffer> opOptFloatBufferSeq(std::optional<FloatBuffer> inSeq, std::optional<FloatBuffer>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptFloatBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual std::optional<ASeq> opOptASeq(std::optional<ASeq> inSeq, std::optional<ASeq>& outSeq, const Ice::Current& current) = 0;
 
-    virtual std::optional<DoubleBuffer> opOptDoubleBufferSeq(std::optional<DoubleBuffer> inSeq, std::optional<DoubleBuffer>& outSeq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opOptDoubleBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opOptASeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void shutdown(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual std::optional<AArray> opOptAArray(std::optional<AArray> inSeq, std::optional<AArray>& outSeq, const Ice::Current& current) = 0;
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+        /// \cond INTERNAL
+        void _iceD_opOptAArray(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-using TestIntfPtr = std::shared_ptr<TestIntf>;
+        virtual std::optional<AList> opOptAList(std::optional<AList> inSeq, std::optional<AList>& outSeq, const Ice::Current& current) = 0;
 
+        /// \cond INTERNAL
+        void _iceD_opOptAList(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<BoolSeq> opOptBoolSeq(std::optional<BoolSeq> inSeq, std::optional<BoolSeq>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptBoolSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<ByteSeq> opOptByteSeq(std::optional<ByteSeq> inSeq, std::optional<ByteSeq>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptByteSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<ShortSeq> opOptShortSeq(std::optional<ShortSeq> inSeq, std::optional<ShortSeq>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptShortSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<IntSeq> opOptIntSeq(std::optional<IntSeq> inSeq, std::optional<IntSeq>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptIntSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<LongSeq> opOptLongSeq(std::optional<LongSeq> inSeq, std::optional<LongSeq>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptLongSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<FloatSeq> opOptFloatSeq(std::optional<FloatSeq> inSeq, std::optional<FloatSeq>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptFloatSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<DoubleSeq> opOptDoubleSeq(std::optional<DoubleSeq> inSeq, std::optional<DoubleSeq>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptDoubleSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<StringSeq> opOptStringSeq(std::optional<StringSeq> inSeq, std::optional<StringSeq>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptStringSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<ESeq> opOptESeq(std::optional<ESeq> inSeq, std::optional<ESeq>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptESeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<SSeq> opOptSSeq(std::optional<SSeq> inSeq, std::optional<SSeq>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptSSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<DSeq> opOptDSeq(std::optional<DSeq> inSeq, std::optional<DSeq>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptDSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<StringSeqSeq> opOptStringSeqSeq(std::optional<StringSeqSeq> inSeq, std::optional<StringSeqSeq>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptStringSeqSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<ByteBuffer> opOptByteBufferSeq(std::optional<ByteBuffer> inSeq, std::optional<ByteBuffer>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptByteBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<ShortBuffer> opOptShortBufferSeq(std::optional<ShortBuffer> inSeq, std::optional<ShortBuffer>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptShortBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<IntBuffer> opOptIntBufferSeq(std::optional<IntBuffer> inSeq, std::optional<IntBuffer>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptIntBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<LongBuffer> opOptLongBufferSeq(std::optional<LongBuffer> inSeq, std::optional<LongBuffer>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptLongBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<FloatBuffer> opOptFloatBufferSeq(std::optional<FloatBuffer> inSeq, std::optional<FloatBuffer>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptFloatBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual std::optional<DoubleBuffer> opOptDoubleBufferSeq(std::optional<DoubleBuffer> inSeq, std::optional<DoubleBuffer>& outSeq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_opOptDoubleBufferSeq(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void shutdown(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
+
+    using TestIntfPtr = std::shared_ptr<TestIntf>;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::Test::A>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::Test::A>
-{
-    static void read(InputStream* istr, ::Test::A& v)
+    template<>
+    struct StreamableTraits<::Test::A>
     {
-        istr->readAll(v.i);
-    }
-};
-
-template<>
-struct StreamableTraits< ::Test::E>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryEnum;
-    static const int minValue = 0;
-    static const int maxValue = 2;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamableTraits<::Test::S>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::S>
-{
-    static void read(InputStream* istr, ::Test::S& v)
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 4;
+        static const bool fixedLength = true;
+    };
+    
+    template<>
+    struct StreamReader<::Test::A>
     {
-        istr->readAll(v.en);
-    }
-};
+        static void read(InputStream* istr, ::Test::A& v)
+        {
+            istr->readAll(v.i);
+        }
+    };
 
+    template<>
+    struct StreamableTraits< ::Test::E>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryEnum;
+        static const int minValue = 0;
+        static const int maxValue = 2;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+
+    template<>
+    struct StreamableTraits<::Test::S>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::S>
+    {
+        static void read(InputStream* istr, ::Test::S& v)
+        {
+            istr->readAll(v.en);
+        }
+    };
 }
 /// \endcond
 

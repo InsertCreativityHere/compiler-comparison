@@ -31,179 +31,170 @@ namespace Test
 
 namespace Test
 {
-
-class UnknownDerived : public Base
-{
-public:
-    /// Default constructor.
-    UnknownDerived() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    UnknownDerived(std::string b, std::string ud) noexcept :
-        Base(std::move(b)),
-        ud(std::move(ud))
+    class UnknownDerived : public Base
     {
-    }
+    public:
+        /// Default constructor.
+        UnknownDerived() noexcept = default;
 
-    /// Copy constructor.
-    UnknownDerived(const UnknownDerived&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        UnknownDerived(std::string b, std::string ud) noexcept :
+            Base(std::move(b)),
+            ud(std::move(ud))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        /// Copy constructor.
+        UnknownDerived(const UnknownDerived&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(b, ud);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        std::string ud;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class UnknownIntermediate : public Base
     {
-        return std::tie(b, ud);
-    }
+    public:
+        /// Default constructor.
+        UnknownIntermediate() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        UnknownIntermediate(std::string b, std::string ui) noexcept :
+            Base(std::move(b)),
+            ui(std::move(ui))
+        {
+        }
+
+        /// Copy constructor.
+        UnknownIntermediate(const UnknownIntermediate&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(b, ui);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    std::string ud;
+        std::string ui;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void _readImpl(Ice::InputStream*) override;
+    };
 
-class UnknownIntermediate : public Base
-{
-public:
-    /// Default constructor.
-    UnknownIntermediate() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    UnknownIntermediate(std::string b, std::string ui) noexcept :
-        Base(std::move(b)),
-        ui(std::move(ui))
+    class UnknownMostDerived1 : public KnownIntermediate
     {
-    }
+    public:
+        /// Default constructor.
+        UnknownMostDerived1() noexcept = default;
 
-    /// Copy constructor.
-    UnknownIntermediate(const UnknownIntermediate&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        UnknownMostDerived1(std::string b, std::string ki, std::string umd1) noexcept :
+            KnownIntermediate(std::move(b), std::move(ki)),
+            umd1(std::move(umd1))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        /// Copy constructor.
+        UnknownMostDerived1(const UnknownMostDerived1&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(b, ki, umd1);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        std::string umd1;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class UnknownMostDerived2 : public UnknownIntermediate
     {
-        return std::tie(b, ui);
-    }
+    public:
+        /// Default constructor.
+        UnknownMostDerived2() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        UnknownMostDerived2(std::string b, std::string ui, std::string umd2) noexcept :
+            UnknownIntermediate(std::move(b), std::move(ui)),
+            umd2(std::move(umd2))
+        {
+        }
+
+        /// Copy constructor.
+        UnknownMostDerived2(const UnknownMostDerived2&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(b, ui, umd2);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    std::string ui;
+        std::string umd2;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
-
-class UnknownMostDerived1 : public KnownIntermediate
-{
-public:
-    /// Default constructor.
-    UnknownMostDerived1() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    UnknownMostDerived1(std::string b, std::string ki, std::string umd1) noexcept :
-        KnownIntermediate(std::move(b), std::move(ki)),
-        umd1(std::move(umd1))
-    {
-    }
-
-    /// Copy constructor.
-    UnknownMostDerived1(const UnknownMostDerived1&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
-    {
-        return std::tie(b, ki, umd1);
-    }
-
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    std::string umd1;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-class UnknownMostDerived2 : public UnknownIntermediate
-{
-public:
-    /// Default constructor.
-    UnknownMostDerived2() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    UnknownMostDerived2(std::string b, std::string ui, std::string umd2) noexcept :
-        UnknownIntermediate(std::move(b), std::move(ui)),
-        umd2(std::move(umd2))
-    {
-    }
-
-    /// Copy constructor.
-    UnknownMostDerived2(const UnknownMostDerived2&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
-    {
-        return std::tie(b, ui, umd2);
-    }
-
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    std::string umd2;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
+        void _readImpl(Ice::InputStream*) override;
+    };
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 #include <Ice/PopDisableWarnings.h>
 #endif

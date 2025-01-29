@@ -90,714 +90,709 @@ namespace LocalTest
     using C1DictDict = std::map<std::int32_t, C1Dict>;
 
     using S1DictDict = std::map<std::int32_t, S1Dict>;
-
 }
 
 namespace LocalTest
 {
-
-class C1 : public Ice::Value
-{
-public:
-    /// Default constructor.
-    C1() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    explicit C1(std::int32_t i) noexcept :
-        i(i)
+    class C1 : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        C1() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        explicit C1(std::int32_t i) noexcept :
+            i(i)
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(i);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] C1Ptr ice_clone() const { return std::static_pointer_cast<C1>(_iceCloneImpl()); }
+
+        std::int32_t i;
+
+        void ice_printFields(std::ostream& os) const override;
+        C1(const C1&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    struct S1
     {
-        return std::tie(i);
-    }
+        ::LocalTest::C1Ptr c1;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] C1Ptr ice_clone() const { return std::static_pointer_cast<C1>(_iceCloneImpl()); }
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::C1Ptr&> ice_tuple() const
+        {
+            return std::tie(c1);
+        }
 
-    std::int32_t i;
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-    void ice_printFields(std::ostream& os) const override;
-    C1(const C1&) = default;
+    std::ostream& operator<<(std::ostream&, const S1&);
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-struct S1
-{
-    ::LocalTest::C1Ptr c1;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::C1Ptr&> ice_tuple() const
+    struct S2
     {
-        return std::tie(c1);
-    }
+        ::LocalTest::S1 s1;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::S1&> ice_tuple() const
+        {
+            return std::tie(s1);
+        }
 
-std::ostream& operator<<(std::ostream&, const S1&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct S2
-{
-    ::LocalTest::S1 s1;
+    std::ostream& operator<<(std::ostream&, const S2&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::S1&> ice_tuple() const
+    struct S3
     {
-        return std::tie(s1);
-    }
+        ::LocalTest::C1Seq c1seq;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::C1Seq&> ice_tuple() const
+        {
+            return std::tie(c1seq);
+        }
 
-std::ostream& operator<<(std::ostream&, const S2&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct S3
-{
-    ::LocalTest::C1Seq c1seq;
+    std::ostream& operator<<(std::ostream&, const S3&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::C1Seq&> ice_tuple() const
+    struct S4
     {
-        return std::tie(c1seq);
-    }
+        ::LocalTest::S1Seq s1seq;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::S1Seq&> ice_tuple() const
+        {
+            return std::tie(s1seq);
+        }
 
-std::ostream& operator<<(std::ostream&, const S3&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct S4
-{
-    ::LocalTest::S1Seq s1seq;
+    std::ostream& operator<<(std::ostream&, const S4&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::S1Seq&> ice_tuple() const
+    struct S5
     {
-        return std::tie(s1seq);
-    }
+        ::LocalTest::C1Dict c1dict;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::C1Dict&> ice_tuple() const
+        {
+            return std::tie(c1dict);
+        }
 
-std::ostream& operator<<(std::ostream&, const S4&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct S5
-{
-    ::LocalTest::C1Dict c1dict;
+    std::ostream& operator<<(std::ostream&, const S5&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::C1Dict&> ice_tuple() const
+    struct S6
     {
-        return std::tie(c1dict);
-    }
+        ::LocalTest::S1Dict s1dict;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::S1Dict&> ice_tuple() const
+        {
+            return std::tie(s1dict);
+        }
 
-std::ostream& operator<<(std::ostream&, const S5&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct S6
-{
-    ::LocalTest::S1Dict s1dict;
+    std::ostream& operator<<(std::ostream&, const S6&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::S1Dict&> ice_tuple() const
+    struct S7
     {
-        return std::tie(s1dict);
-    }
+        ::LocalTest::C1SeqSeq c1seqseq;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::C1SeqSeq&> ice_tuple() const
+        {
+            return std::tie(c1seqseq);
+        }
 
-std::ostream& operator<<(std::ostream&, const S6&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct S7
-{
-    ::LocalTest::C1SeqSeq c1seqseq;
+    std::ostream& operator<<(std::ostream&, const S7&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::C1SeqSeq&> ice_tuple() const
+    struct S8
     {
-        return std::tie(c1seqseq);
-    }
+        ::LocalTest::S1SeqSeq s1seqseq;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::S1SeqSeq&> ice_tuple() const
+        {
+            return std::tie(s1seqseq);
+        }
 
-std::ostream& operator<<(std::ostream&, const S7&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct S8
-{
-    ::LocalTest::S1SeqSeq s1seqseq;
+    std::ostream& operator<<(std::ostream&, const S8&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::S1SeqSeq&> ice_tuple() const
+    class CB1 : public Ice::Value
     {
-        return std::tie(s1seqseq);
-    }
+    public:
+        /// Default constructor.
+        CB1() noexcept = default;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// One-shot constructor to initialize all data members.
+        explicit CB1(::LocalTest::S1 s1) noexcept :
+            s1(std::move(s1))
+        {
+        }
 
-std::ostream& operator<<(std::ostream&, const S8&);
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-class CB1 : public Ice::Value
-{
-public:
-    /// Default constructor.
-    CB1() noexcept = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    /// One-shot constructor to initialize all data members.
-    explicit CB1(::LocalTest::S1 s1) noexcept :
-        s1(std::move(s1))
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::S1&> ice_tuple() const
+        {
+            return std::tie(s1);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] CB1Ptr ice_clone() const { return std::static_pointer_cast<CB1>(_iceCloneImpl()); }
+
+        ::LocalTest::S1 s1;
+
+        void ice_printFields(std::ostream& os) const override;
+        CB1(const CB1&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class CB2 : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        CB2() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        explicit CB2(::LocalTest::C1Seq c1seq) noexcept :
+            c1seq(std::move(c1seq))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::S1&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::C1Seq&> ice_tuple() const
+        {
+            return std::tie(c1seq);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] CB2Ptr ice_clone() const { return std::static_pointer_cast<CB2>(_iceCloneImpl()); }
+
+        ::LocalTest::C1Seq c1seq;
+
+        void ice_printFields(std::ostream& os) const override;
+        CB2(const CB2&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class CB3 : public Ice::Value
     {
-        return std::tie(s1);
-    }
+    public:
+        /// Default constructor.
+        CB3() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] CB1Ptr ice_clone() const { return std::static_pointer_cast<CB1>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        explicit CB3(::LocalTest::S1Seq s1seq) noexcept :
+            s1seq(std::move(s1seq))
+        {
+        }
 
-    ::LocalTest::S1 s1;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void ice_printFields(std::ostream& os) const override;
-    CB1(const CB1&) = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::S1Seq&> ice_tuple() const
+        {
+            return std::tie(s1seq);
+        }
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] CB3Ptr ice_clone() const { return std::static_pointer_cast<CB3>(_iceCloneImpl()); }
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        ::LocalTest::S1Seq s1seq;
 
-class CB2 : public Ice::Value
-{
-public:
-    /// Default constructor.
-    CB2() noexcept = default;
+        void ice_printFields(std::ostream& os) const override;
+        CB3(const CB3&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    explicit CB2(::LocalTest::C1Seq c1seq) noexcept :
-        c1seq(std::move(c1seq))
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class CB4 : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        CB4() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        explicit CB4(::LocalTest::C1Dict c1dict) noexcept :
+            c1dict(std::move(c1dict))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::C1Seq&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::C1Dict&> ice_tuple() const
+        {
+            return std::tie(c1dict);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] CB4Ptr ice_clone() const { return std::static_pointer_cast<CB4>(_iceCloneImpl()); }
+
+        ::LocalTest::C1Dict c1dict;
+
+        void ice_printFields(std::ostream& os) const override;
+        CB4(const CB4&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class CB5 : public Ice::Value
     {
-        return std::tie(c1seq);
-    }
+    public:
+        /// Default constructor.
+        CB5() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] CB2Ptr ice_clone() const { return std::static_pointer_cast<CB2>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        explicit CB5(::LocalTest::S1Dict s1dict) noexcept :
+            s1dict(std::move(s1dict))
+        {
+        }
 
-    ::LocalTest::C1Seq c1seq;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void ice_printFields(std::ostream& os) const override;
-    CB2(const CB2&) = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::S1Dict&> ice_tuple() const
+        {
+            return std::tie(s1dict);
+        }
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] CB5Ptr ice_clone() const { return std::static_pointer_cast<CB5>(_iceCloneImpl()); }
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        ::LocalTest::S1Dict s1dict;
 
-class CB3 : public Ice::Value
-{
-public:
-    /// Default constructor.
-    CB3() noexcept = default;
+        void ice_printFields(std::ostream& os) const override;
+        CB5(const CB5&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    explicit CB3(::LocalTest::S1Seq s1seq) noexcept :
-        s1seq(std::move(s1seq))
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class CB6 : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        CB6() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        explicit CB6(::LocalTest::C1SeqSeq c1seqseq) noexcept :
+            c1seqseq(std::move(c1seqseq))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::S1Seq&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::C1SeqSeq&> ice_tuple() const
+        {
+            return std::tie(c1seqseq);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] CB6Ptr ice_clone() const { return std::static_pointer_cast<CB6>(_iceCloneImpl()); }
+
+        ::LocalTest::C1SeqSeq c1seqseq;
+
+        void ice_printFields(std::ostream& os) const override;
+        CB6(const CB6&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class CB7 : public Ice::Value
     {
-        return std::tie(s1seq);
-    }
+    public:
+        /// Default constructor.
+        CB7() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] CB3Ptr ice_clone() const { return std::static_pointer_cast<CB3>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        explicit CB7(::LocalTest::S1SeqSeq s1seqseq) noexcept :
+            s1seqseq(std::move(s1seqseq))
+        {
+        }
 
-    ::LocalTest::S1Seq s1seq;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void ice_printFields(std::ostream& os) const override;
-    CB3(const CB3&) = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::S1SeqSeq&> ice_tuple() const
+        {
+            return std::tie(s1seqseq);
+        }
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] CB7Ptr ice_clone() const { return std::static_pointer_cast<CB7>(_iceCloneImpl()); }
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        ::LocalTest::S1SeqSeq s1seqseq;
 
-class CB4 : public Ice::Value
-{
-public:
-    /// Default constructor.
-    CB4() noexcept = default;
+        void ice_printFields(std::ostream& os) const override;
+        CB7(const CB7&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    explicit CB4(::LocalTest::C1Dict c1dict) noexcept :
-        c1dict(std::move(c1dict))
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class CB8 : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        CB8() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        CB8(::LocalTest::S1 s1, ::LocalTest::C1Seq c1seq, ::LocalTest::S1Dict s1dict) noexcept :
+            s1(std::move(s1)),
+            c1seq(std::move(c1seq)),
+            s1dict(std::move(s1dict))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::C1Dict&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::LocalTest::S1&, const ::LocalTest::C1Seq&, const ::LocalTest::S1Dict&> ice_tuple() const
+        {
+            return std::tie(s1, c1seq, s1dict);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] CB8Ptr ice_clone() const { return std::static_pointer_cast<CB8>(_iceCloneImpl()); }
+
+        ::LocalTest::S1 s1;
+        ::LocalTest::C1Seq c1seq;
+        ::LocalTest::S1Dict s1dict;
+
+        void ice_printFields(std::ostream& os) const override;
+        CB8(const CB8&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    struct StructKey
     {
-        return std::tie(c1dict);
-    }
+        std::int32_t i;
+        std::int32_t j;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] CB4Ptr ice_clone() const { return std::static_pointer_cast<CB4>(_iceCloneImpl()); }
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(i, j);
+        }
 
-    ::LocalTest::C1Dict c1dict;
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-    void ice_printFields(std::ostream& os) const override;
-    CB4(const CB4&) = default;
+    std::ostream& operator<<(std::ostream&, const StructKey&);
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class CB5 : public Ice::Value
-{
-public:
-    /// Default constructor.
-    CB5() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    explicit CB5(::LocalTest::S1Dict s1dict) noexcept :
-        s1dict(std::move(s1dict))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::S1Dict&> ice_tuple() const
-    {
-        return std::tie(s1dict);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] CB5Ptr ice_clone() const { return std::static_pointer_cast<CB5>(_iceCloneImpl()); }
-
-    ::LocalTest::S1Dict s1dict;
-
-    void ice_printFields(std::ostream& os) const override;
-    CB5(const CB5&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class CB6 : public Ice::Value
-{
-public:
-    /// Default constructor.
-    CB6() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    explicit CB6(::LocalTest::C1SeqSeq c1seqseq) noexcept :
-        c1seqseq(std::move(c1seqseq))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::C1SeqSeq&> ice_tuple() const
-    {
-        return std::tie(c1seqseq);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] CB6Ptr ice_clone() const { return std::static_pointer_cast<CB6>(_iceCloneImpl()); }
-
-    ::LocalTest::C1SeqSeq c1seqseq;
-
-    void ice_printFields(std::ostream& os) const override;
-    CB6(const CB6&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class CB7 : public Ice::Value
-{
-public:
-    /// Default constructor.
-    CB7() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    explicit CB7(::LocalTest::S1SeqSeq s1seqseq) noexcept :
-        s1seqseq(std::move(s1seqseq))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::S1SeqSeq&> ice_tuple() const
-    {
-        return std::tie(s1seqseq);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] CB7Ptr ice_clone() const { return std::static_pointer_cast<CB7>(_iceCloneImpl()); }
-
-    ::LocalTest::S1SeqSeq s1seqseq;
-
-    void ice_printFields(std::ostream& os) const override;
-    CB7(const CB7&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class CB8 : public Ice::Value
-{
-public:
-    /// Default constructor.
-    CB8() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    CB8(::LocalTest::S1 s1, ::LocalTest::C1Seq c1seq, ::LocalTest::S1Dict s1dict) noexcept :
-        s1(std::move(s1)),
-        c1seq(std::move(c1seq)),
-        s1dict(std::move(s1dict))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::LocalTest::S1&, const ::LocalTest::C1Seq&, const ::LocalTest::S1Dict&> ice_tuple() const
-    {
-        return std::tie(s1, c1seq, s1dict);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] CB8Ptr ice_clone() const { return std::static_pointer_cast<CB8>(_iceCloneImpl()); }
-
-    ::LocalTest::S1 s1;
-    ::LocalTest::C1Seq c1seq;
-    ::LocalTest::S1Dict s1dict;
-
-    void ice_printFields(std::ostream& os) const override;
-    CB8(const CB8&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-struct StructKey
-{
-    std::int32_t i;
-    std::int32_t j;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(i, j);
-    }
-
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
-
-std::ostream& operator<<(std::ostream&, const StructKey&);
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::LocalTest::S1>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::LocalTest::S1>
-{
-    static void read(InputStream* istr, ::LocalTest::S1& v)
+    template<>
+    struct StreamableTraits<::LocalTest::S1>
     {
-        istr->readAll(v.c1);
-    }
-};
-
-template<>
-struct StreamableTraits<::LocalTest::S2>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::LocalTest::S2>
-{
-    static void read(InputStream* istr, ::LocalTest::S2& v)
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::LocalTest::S1>
     {
-        istr->readAll(v.s1);
-    }
-};
+        static void read(InputStream* istr, ::LocalTest::S1& v)
+        {
+            istr->readAll(v.c1);
+        }
+    };
 
-template<>
-struct StreamableTraits<::LocalTest::S3>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::LocalTest::S3>
-{
-    static void read(InputStream* istr, ::LocalTest::S3& v)
+    template<>
+    struct StreamableTraits<::LocalTest::S2>
     {
-        istr->readAll(v.c1seq);
-    }
-};
-
-template<>
-struct StreamableTraits<::LocalTest::S4>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::LocalTest::S4>
-{
-    static void read(InputStream* istr, ::LocalTest::S4& v)
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::LocalTest::S2>
     {
-        istr->readAll(v.s1seq);
-    }
-};
+        static void read(InputStream* istr, ::LocalTest::S2& v)
+        {
+            istr->readAll(v.s1);
+        }
+    };
 
-template<>
-struct StreamableTraits<::LocalTest::S5>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::LocalTest::S5>
-{
-    static void read(InputStream* istr, ::LocalTest::S5& v)
+    template<>
+    struct StreamableTraits<::LocalTest::S3>
     {
-        istr->readAll(v.c1dict);
-    }
-};
-
-template<>
-struct StreamableTraits<::LocalTest::S6>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::LocalTest::S6>
-{
-    static void read(InputStream* istr, ::LocalTest::S6& v)
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::LocalTest::S3>
     {
-        istr->readAll(v.s1dict);
-    }
-};
+        static void read(InputStream* istr, ::LocalTest::S3& v)
+        {
+            istr->readAll(v.c1seq);
+        }
+    };
 
-template<>
-struct StreamableTraits<::LocalTest::S7>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::LocalTest::S7>
-{
-    static void read(InputStream* istr, ::LocalTest::S7& v)
+    template<>
+    struct StreamableTraits<::LocalTest::S4>
     {
-        istr->readAll(v.c1seqseq);
-    }
-};
-
-template<>
-struct StreamableTraits<::LocalTest::S8>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::LocalTest::S8>
-{
-    static void read(InputStream* istr, ::LocalTest::S8& v)
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::LocalTest::S4>
     {
-        istr->readAll(v.s1seqseq);
-    }
-};
+        static void read(InputStream* istr, ::LocalTest::S4& v)
+        {
+            istr->readAll(v.s1seq);
+        }
+    };
 
-template<>
-struct StreamableTraits<::LocalTest::StructKey>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 8;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::LocalTest::StructKey>
-{
-    static void read(InputStream* istr, ::LocalTest::StructKey& v)
+    template<>
+    struct StreamableTraits<::LocalTest::S5>
     {
-        istr->readAll(v.i, v.j);
-    }
-};
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::LocalTest::S5>
+    {
+        static void read(InputStream* istr, ::LocalTest::S5& v)
+        {
+            istr->readAll(v.c1dict);
+        }
+    };
 
+    template<>
+    struct StreamableTraits<::LocalTest::S6>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::LocalTest::S6>
+    {
+        static void read(InputStream* istr, ::LocalTest::S6& v)
+        {
+            istr->readAll(v.s1dict);
+        }
+    };
+
+    template<>
+    struct StreamableTraits<::LocalTest::S7>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::LocalTest::S7>
+    {
+        static void read(InputStream* istr, ::LocalTest::S7& v)
+        {
+            istr->readAll(v.c1seqseq);
+        }
+    };
+
+    template<>
+    struct StreamableTraits<::LocalTest::S8>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::LocalTest::S8>
+    {
+        static void read(InputStream* istr, ::LocalTest::S8& v)
+        {
+            istr->readAll(v.s1seqseq);
+        }
+    };
+
+    template<>
+    struct StreamableTraits<::LocalTest::StructKey>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 8;
+        static const bool fixedLength = true;
+    };
+    
+    template<>
+    struct StreamReader<::LocalTest::StructKey>
+    {
+        static void read(InputStream* istr, ::LocalTest::StructKey& v)
+        {
+            istr->readAll(v.i, v.j);
+        }
+    };
 }
 /// \endcond
 

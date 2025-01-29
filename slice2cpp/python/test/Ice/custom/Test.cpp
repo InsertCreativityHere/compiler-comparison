@@ -1652,7 +1652,6 @@ Test::Custom::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Custom::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1820,4 +1819,3 @@ Test::Custom::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
         }
     }
 }
-/// \endcond

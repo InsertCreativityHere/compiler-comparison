@@ -192,7 +192,6 @@ Test::Hold::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Hold::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -250,4 +249,3 @@ Test::Hold::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outg
         }
     }
 }
-/// \endcond

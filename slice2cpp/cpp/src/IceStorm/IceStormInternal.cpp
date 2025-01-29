@@ -285,7 +285,6 @@ IceStorm::TopicLink::_iceD_forward(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceStorm::TopicLink::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -333,7 +332,6 @@ IceStorm::TopicLink::dispatch(Ice::IncomingRequest& request, std::function<void(
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceStorm::TopicInternal::ice_ids(const Ice::Current&) const
@@ -388,7 +386,6 @@ IceStorm::TopicInternal::_iceD_reap(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceStorm::TopicInternal::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -491,7 +488,6 @@ IceStorm::TopicInternal::dispatch(Ice::IncomingRequest& request, std::function<v
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceStorm::TopicManagerInternal::ice_ids(const Ice::Current&) const
@@ -529,7 +525,6 @@ IceStorm::TopicManagerInternal::_iceD_getReplicaNode(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceStorm::TopicManagerInternal::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -592,4 +587,3 @@ IceStorm::TopicManagerInternal::dispatch(Ice::IncomingRequest& request, std::fun
         }
     }
 }
-/// \endcond

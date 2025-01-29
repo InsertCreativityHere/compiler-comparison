@@ -35,1024 +35,1029 @@ namespace Test
 
     class PreservedClass;
     using PreservedClassPtr = std::shared_ptr<PreservedClass>;
-
 }
 
 namespace Test
 {
-
-class RelayPrx : public Ice::Proxy<RelayPrx, Ice::ObjectPrx>
-{
-public:
-
-    void knownPreservedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> knownPreservedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownPreservedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_knownPreservedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void knownPreservedAsKnownPreserved(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> knownPreservedAsKnownPreservedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownPreservedAsKnownPreservedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_knownPreservedAsKnownPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void unknownPreservedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> unknownPreservedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownPreservedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_unknownPreservedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void unknownPreservedAsKnownPreserved(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> unknownPreservedAsKnownPreservedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownPreservedAsKnownPreservedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_unknownPreservedAsKnownPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    RelayPrx(const RelayPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    RelayPrx(RelayPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    RelayPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~RelayPrx() override;
-
-    RelayPrx& operator=(const RelayPrx& rhs) noexcept
+    class RelayPrx : public Ice::Proxy<RelayPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        void knownPreservedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> knownPreservedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        knownPreservedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_knownPreservedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void knownPreservedAsKnownPreserved(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> knownPreservedAsKnownPreservedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        knownPreservedAsKnownPreservedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_knownPreservedAsKnownPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void unknownPreservedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> unknownPreservedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        unknownPreservedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_unknownPreservedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void unknownPreservedAsKnownPreserved(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> unknownPreservedAsKnownPreservedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        unknownPreservedAsKnownPreservedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_unknownPreservedAsKnownPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        RelayPrx(const RelayPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        RelayPrx(RelayPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        RelayPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~RelayPrx() override;
+
+        RelayPrx& operator=(const RelayPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    RelayPrx& operator=(RelayPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        RelayPrx& operator=(RelayPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static RelayPrx _fromReference(IceInternal::ReferencePtr ref) { return RelayPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static RelayPrx _fromReference(IceInternal::ReferencePtr ref) { return RelayPrx(std::move(ref)); }
 
-protected:
+    protected:
+        RelayPrx() = default;
 
-    RelayPrx() = default;
-
-    explicit RelayPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
-class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
-{
-public:
-
-    void baseAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> baseAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    baseAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_baseAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void unknownDerivedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> unknownDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_unknownDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void knownDerivedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> knownDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_knownDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void knownDerivedAsKnownDerived(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> knownDerivedAsKnownDerivedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownDerivedAsKnownDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_knownDerivedAsKnownDerived(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void unknownIntermediateAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> unknownIntermediateAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownIntermediateAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_unknownIntermediateAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void knownIntermediateAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> knownIntermediateAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownIntermediateAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_knownIntermediateAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void knownMostDerivedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> knownMostDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownMostDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_knownMostDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void knownIntermediateAsKnownIntermediate(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> knownIntermediateAsKnownIntermediateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownIntermediateAsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_knownIntermediateAsKnownIntermediate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void knownMostDerivedAsKnownIntermediate(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> knownMostDerivedAsKnownIntermediateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownMostDerivedAsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_knownMostDerivedAsKnownIntermediate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void knownMostDerivedAsKnownMostDerived(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> knownMostDerivedAsKnownMostDerivedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownMostDerivedAsKnownMostDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_knownMostDerivedAsKnownMostDerived(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void unknownMostDerived1AsBase(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> unknownMostDerived1AsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownMostDerived1AsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_unknownMostDerived1AsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void unknownMostDerived1AsKnownIntermediate(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> unknownMostDerived1AsKnownIntermediateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownMostDerived1AsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_unknownMostDerived1AsKnownIntermediate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void unknownMostDerived2AsBase(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> unknownMostDerived2AsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownMostDerived2AsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_unknownMostDerived2AsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void unknownMostDerived2AsBaseCompact(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> unknownMostDerived2AsBaseCompactAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownMostDerived2AsBaseCompactAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_unknownMostDerived2AsBaseCompact(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void knownPreservedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> knownPreservedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownPreservedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_knownPreservedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void knownPreservedAsKnownPreserved(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> knownPreservedAsKnownPreservedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    knownPreservedAsKnownPreservedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_knownPreservedAsKnownPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void relayKnownPreservedAsBase(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> relayKnownPreservedAsBaseAsync(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    relayKnownPreservedAsBaseAsync(const std::optional<RelayPrx>& r, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_relayKnownPreservedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<RelayPrx>&, const Ice::Context&) const;
-    /// \endcond
-
-    void relayKnownPreservedAsKnownPreserved(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> relayKnownPreservedAsKnownPreservedAsync(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    relayKnownPreservedAsKnownPreservedAsync(const std::optional<RelayPrx>& r, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_relayKnownPreservedAsKnownPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<RelayPrx>&, const Ice::Context&) const;
-    /// \endcond
-
-    void unknownPreservedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> unknownPreservedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownPreservedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_unknownPreservedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void unknownPreservedAsKnownPreserved(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> unknownPreservedAsKnownPreservedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    unknownPreservedAsKnownPreservedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_unknownPreservedAsKnownPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void relayUnknownPreservedAsBase(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> relayUnknownPreservedAsBaseAsync(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    relayUnknownPreservedAsBaseAsync(const std::optional<RelayPrx>& r, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_relayUnknownPreservedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<RelayPrx>&, const Ice::Context&) const;
-    /// \endcond
-
-    void relayUnknownPreservedAsKnownPreserved(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> relayUnknownPreservedAsKnownPreservedAsync(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    relayUnknownPreservedAsKnownPreservedAsync(const std::optional<RelayPrx>& r, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_relayUnknownPreservedAsKnownPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<RelayPrx>&, const Ice::Context&) const;
-    /// \endcond
-
-    void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    TestIntfPrx(const TestIntfPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    TestIntfPrx(TestIntfPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    TestIntfPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~TestIntfPrx() override;
-
-    TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
-    {
-        if (this != &rhs)
+        explicit RelayPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
         {
-            Ice::ObjectPrx::operator=(rhs);
         }
-        return *this;
-    }
+        /// \endcond
+    };
 
-    TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
+    class TestIntfPrx : public Ice::Proxy<TestIntfPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        void baseAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> baseAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        baseAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_baseAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void unknownDerivedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> unknownDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        unknownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_unknownDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void knownDerivedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> knownDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        knownDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_knownDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void knownDerivedAsKnownDerived(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> knownDerivedAsKnownDerivedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        knownDerivedAsKnownDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_knownDerivedAsKnownDerived(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void unknownIntermediateAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> unknownIntermediateAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        unknownIntermediateAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_unknownIntermediateAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void knownIntermediateAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> knownIntermediateAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        knownIntermediateAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_knownIntermediateAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void knownMostDerivedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> knownMostDerivedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        knownMostDerivedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_knownMostDerivedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void knownIntermediateAsKnownIntermediate(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> knownIntermediateAsKnownIntermediateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        knownIntermediateAsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_knownIntermediateAsKnownIntermediate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void knownMostDerivedAsKnownIntermediate(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> knownMostDerivedAsKnownIntermediateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        knownMostDerivedAsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_knownMostDerivedAsKnownIntermediate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void knownMostDerivedAsKnownMostDerived(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> knownMostDerivedAsKnownMostDerivedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        knownMostDerivedAsKnownMostDerivedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_knownMostDerivedAsKnownMostDerived(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void unknownMostDerived1AsBase(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> unknownMostDerived1AsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        unknownMostDerived1AsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_unknownMostDerived1AsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void unknownMostDerived1AsKnownIntermediate(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> unknownMostDerived1AsKnownIntermediateAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        unknownMostDerived1AsKnownIntermediateAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_unknownMostDerived1AsKnownIntermediate(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void unknownMostDerived2AsBase(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> unknownMostDerived2AsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        unknownMostDerived2AsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_unknownMostDerived2AsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void unknownMostDerived2AsBaseCompact(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> unknownMostDerived2AsBaseCompactAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        unknownMostDerived2AsBaseCompactAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_unknownMostDerived2AsBaseCompact(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void knownPreservedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> knownPreservedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        knownPreservedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_knownPreservedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void knownPreservedAsKnownPreserved(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> knownPreservedAsKnownPreservedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        knownPreservedAsKnownPreservedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_knownPreservedAsKnownPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void relayKnownPreservedAsBase(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> relayKnownPreservedAsBaseAsync(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        relayKnownPreservedAsBaseAsync(const std::optional<RelayPrx>& r, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_relayKnownPreservedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<RelayPrx>&, const Ice::Context&) const;
+        /// \endcond
+
+        void relayKnownPreservedAsKnownPreserved(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> relayKnownPreservedAsKnownPreservedAsync(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        relayKnownPreservedAsKnownPreservedAsync(const std::optional<RelayPrx>& r, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_relayKnownPreservedAsKnownPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<RelayPrx>&, const Ice::Context&) const;
+        /// \endcond
+
+        void unknownPreservedAsBase(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> unknownPreservedAsBaseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        unknownPreservedAsBaseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_unknownPreservedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void unknownPreservedAsKnownPreserved(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> unknownPreservedAsKnownPreservedAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        unknownPreservedAsKnownPreservedAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_unknownPreservedAsKnownPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void relayUnknownPreservedAsBase(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> relayUnknownPreservedAsBaseAsync(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        relayUnknownPreservedAsBaseAsync(const std::optional<RelayPrx>& r, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_relayUnknownPreservedAsBase(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<RelayPrx>&, const Ice::Context&) const;
+        /// \endcond
+
+        void relayUnknownPreservedAsKnownPreserved(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> relayUnknownPreservedAsKnownPreservedAsync(const std::optional<RelayPrx>& r, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        relayUnknownPreservedAsKnownPreservedAsync(const std::optional<RelayPrx>& r, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_relayUnknownPreservedAsKnownPreserved(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const std::optional<RelayPrx>&, const Ice::Context&) const;
+        /// \endcond
+
+        void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        TestIntfPrx(const TestIntfPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        TestIntfPrx(TestIntfPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        TestIntfPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~TestIntfPrx() override;
+
+        TestIntfPrx& operator=(const TestIntfPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static TestIntfPrx _fromReference(IceInternal::ReferencePtr ref) { return TestIntfPrx(std::move(ref)); }
+        TestIntfPrx& operator=(TestIntfPrx&& rhs) noexcept
+        {
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
+        }
 
-protected:
+        /// \cond INTERNAL
+        static TestIntfPrx _fromReference(IceInternal::ReferencePtr ref) { return TestIntfPrx(std::move(ref)); }
 
-    TestIntfPrx() = default;
+    protected:
+        TestIntfPrx() = default;
 
-    explicit TestIntfPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
+        explicit TestIntfPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 }
 
 namespace Test
 {
-
-class Base : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    Base() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    Base(std::string b) noexcept :
-        b(std::move(b))
+    class Base : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        Base() noexcept = default;
 
-    /// Copy constructor.
-    Base(const Base&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        Base(std::string b) noexcept :
+            b(std::move(b))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        /// Copy constructor.
+        Base(const Base&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(b);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        std::string b;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class KnownDerived : public Base
     {
-        return std::tie(b);
-    }
+    public:
+        /// Default constructor.
+        KnownDerived() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        KnownDerived(std::string b, std::string kd) noexcept :
+            Base(std::move(b)),
+            kd(std::move(kd))
+        {
+        }
+
+        /// Copy constructor.
+        KnownDerived(const KnownDerived&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(b, kd);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    std::string b;
+        std::string kd;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void _readImpl(Ice::InputStream*) override;
+    };
 
-class KnownDerived : public Base
-{
-public:
-    /// Default constructor.
-    KnownDerived() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    KnownDerived(std::string b, std::string kd) noexcept :
-        Base(std::move(b)),
-        kd(std::move(kd))
+    class KnownIntermediate : public Base
     {
-    }
+    public:
+        /// Default constructor.
+        KnownIntermediate() noexcept = default;
 
-    /// Copy constructor.
-    KnownDerived(const KnownDerived&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        KnownIntermediate(std::string b, std::string ki) noexcept :
+            Base(std::move(b)),
+            ki(std::move(ki))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        /// Copy constructor.
+        KnownIntermediate(const KnownIntermediate&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(b, ki);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        std::string ki;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class KnownMostDerived : public KnownIntermediate
     {
-        return std::tie(b, kd);
-    }
+    public:
+        /// Default constructor.
+        KnownMostDerived() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        KnownMostDerived(std::string b, std::string ki, std::string kmd) noexcept :
+            KnownIntermediate(std::move(b), std::move(ki)),
+            kmd(std::move(kmd))
+        {
+        }
+
+        /// Copy constructor.
+        KnownMostDerived(const KnownMostDerived&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(b, ki, kmd);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    std::string kd;
+        std::string kmd;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void _readImpl(Ice::InputStream*) override;
+    };
 
-class KnownIntermediate : public Base
-{
-public:
-    /// Default constructor.
-    KnownIntermediate() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    KnownIntermediate(std::string b, std::string ki) noexcept :
-        Base(std::move(b)),
-        ki(std::move(ki))
+    class KnownPreserved : public Base
     {
-    }
+    public:
+        /// Default constructor.
+        KnownPreserved() noexcept = default;
 
-    /// Copy constructor.
-    KnownIntermediate(const KnownIntermediate&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        KnownPreserved(std::string b, std::string kp) noexcept :
+            Base(std::move(b)),
+            kp(std::move(kp))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        /// Copy constructor.
+        KnownPreserved(const KnownPreserved&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(b, kp);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        std::string kp;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class KnownPreservedDerived : public KnownPreserved
     {
-        return std::tie(b, ki);
-    }
+    public:
+        /// Default constructor.
+        KnownPreservedDerived() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        KnownPreservedDerived(std::string b, std::string kp, std::string kpd) noexcept :
+            KnownPreserved(std::move(b), std::move(kp)),
+            kpd(std::move(kpd))
+        {
+        }
+
+        /// Copy constructor.
+        KnownPreservedDerived(const KnownPreservedDerived&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(b, kp, kpd);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    std::string ki;
+        std::string kpd;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void _readImpl(Ice::InputStream*) override;
+    };
 
-class KnownMostDerived : public KnownIntermediate
-{
-public:
-    /// Default constructor.
-    KnownMostDerived() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    KnownMostDerived(std::string b, std::string ki, std::string kmd) noexcept :
-        KnownIntermediate(std::move(b), std::move(ki)),
-        kmd(std::move(kmd))
+    class BaseClass : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        BaseClass() noexcept = default;
 
-    /// Copy constructor.
-    KnownMostDerived(const KnownMostDerived&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        explicit BaseClass(std::string bc) noexcept :
+            bc(std::move(bc))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(bc);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] BaseClassPtr ice_clone() const { return std::static_pointer_cast<BaseClass>(_iceCloneImpl()); }
+
+        std::string bc;
+
+        void ice_printFields(std::ostream& os) const override;
+        BaseClass(const BaseClass&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class PreservedClass : public BaseClass
     {
-        return std::tie(b, ki, kmd);
-    }
+    public:
+        /// Default constructor.
+        PreservedClass() noexcept = default;
 
+        /// One-shot constructor to initialize all data members.
+        PreservedClass(std::string bc, std::string pc) noexcept :
+            BaseClass(std::move(bc)),
+            pc(std::move(pc))
+        {
+        }
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(bc, pc);
+        }
 
-    std::string kmd;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] PreservedClassPtr ice_clone() const { return std::static_pointer_cast<PreservedClass>(_iceCloneImpl()); }
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+        std::string pc;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void ice_printFields(std::ostream& os) const override;
+        PreservedClass(const PreservedClass&) = default;
 
-class KnownPreserved : public Base
-{
-public:
-    /// Default constructor.
-    KnownPreserved() noexcept = default;
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    /// One-shot constructor to initialize all data members.
-    KnownPreserved(std::string b, std::string kp) noexcept :
-        Base(std::move(b)),
-        kp(std::move(kp))
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class Preserved1 : public KnownPreservedDerived
     {
-    }
+    public:
+        /// Default constructor.
+        Preserved1() noexcept = default;
 
-    /// Copy constructor.
-    KnownPreserved(const KnownPreserved&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        Preserved1(std::string b, std::string kp, std::string kpd, BaseClassPtr p1) noexcept :
+            KnownPreservedDerived(std::move(b), std::move(kp), std::move(kpd)),
+            p1(std::move(p1))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        /// Copy constructor.
+        Preserved1(const Preserved1&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&, const ::Test::BaseClassPtr&> ice_tuple() const
+        {
+            return std::tie(b, kp, kpd, p1);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        /// \cond STREAM
+        [[nodiscard]] bool _usesClasses() const override;
+        /// \endcond
+
+        ::Test::BaseClassPtr p1;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class Preserved2 : public Preserved1
     {
-        return std::tie(b, kp);
-    }
+    public:
+        /// Default constructor.
+        Preserved2() noexcept = default;
 
+        /// One-shot constructor to initialize all data members.
+        Preserved2(std::string b, std::string kp, std::string kpd, BaseClassPtr p1, BaseClassPtr p2) noexcept :
+            Preserved1(std::move(b), std::move(kp), std::move(kpd), std::move(p1)),
+            p2(std::move(p2))
+        {
+        }
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// Copy constructor.
+        Preserved2(const Preserved2&) noexcept = default;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&, const ::Test::BaseClassPtr&, const ::Test::BaseClassPtr&> ice_tuple() const
+        {
+            return std::tie(b, kp, kpd, p1, p2);
+        }
 
-    void ice_throw() const override;
 
-    std::string kp;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void ice_throw() const override;
 
-class KnownPreservedDerived : public KnownPreserved
-{
-public:
-    /// Default constructor.
-    KnownPreservedDerived() noexcept = default;
+        ::Test::BaseClassPtr p2;
 
-    /// One-shot constructor to initialize all data members.
-    KnownPreservedDerived(std::string b, std::string kp, std::string kpd) noexcept :
-        KnownPreserved(std::move(b), std::move(kp)),
-        kpd(std::move(kpd))
-    {
-    }
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    /// Copy constructor.
-    KnownPreservedDerived(const KnownPreservedDerived&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&> ice_tuple() const
-    {
-        return std::tie(b, kp, kpd);
-    }
-
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    std::string kpd;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-class BaseClass : public Ice::Value
-{
-public:
-    /// Default constructor.
-    BaseClass() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    explicit BaseClass(std::string bc) noexcept :
-        bc(std::move(bc))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
-    {
-        return std::tie(bc);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] BaseClassPtr ice_clone() const { return std::static_pointer_cast<BaseClass>(_iceCloneImpl()); }
-
-    std::string bc;
-
-    void ice_printFields(std::ostream& os) const override;
-    BaseClass(const BaseClass&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class PreservedClass : public BaseClass
-{
-public:
-    /// Default constructor.
-    PreservedClass() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    PreservedClass(std::string bc, std::string pc) noexcept :
-        BaseClass(std::move(bc)),
-        pc(std::move(pc))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
-    {
-        return std::tie(bc, pc);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] PreservedClassPtr ice_clone() const { return std::static_pointer_cast<PreservedClass>(_iceCloneImpl()); }
-
-    std::string pc;
-
-    void ice_printFields(std::ostream& os) const override;
-    PreservedClass(const PreservedClass&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class Preserved1 : public KnownPreservedDerived
-{
-public:
-    /// Default constructor.
-    Preserved1() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    Preserved1(std::string b, std::string kp, std::string kpd, BaseClassPtr p1) noexcept :
-        KnownPreservedDerived(std::move(b), std::move(kp), std::move(kpd)),
-        p1(std::move(p1))
-    {
-    }
-
-    /// Copy constructor.
-    Preserved1(const Preserved1&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&, const ::Test::BaseClassPtr&> ice_tuple() const
-    {
-        return std::tie(b, kp, kpd, p1);
-    }
-
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    /// \cond STREAM
-    [[nodiscard]] bool _usesClasses() const override;
-    /// \endcond
-
-    ::Test::BaseClassPtr p1;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-class Preserved2 : public Preserved1
-{
-public:
-    /// Default constructor.
-    Preserved2() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    Preserved2(std::string b, std::string kp, std::string kpd, BaseClassPtr p1, BaseClassPtr p2) noexcept :
-        Preserved1(std::move(b), std::move(kp), std::move(kpd), std::move(p1)),
-        p2(std::move(p2))
-    {
-    }
-
-    /// Copy constructor.
-    Preserved2(const Preserved2&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&, const ::Test::BaseClassPtr&, const ::Test::BaseClassPtr&> ice_tuple() const
-    {
-        return std::tie(b, kp, kpd, p1, p2);
-    }
-
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    ::Test::BaseClassPtr p2;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
+        void _readImpl(Ice::InputStream*) override;
+    };
 }
 
 namespace Test
 {
+    class Relay : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = RelayPrx;
 
-class Relay : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = RelayPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        virtual void knownPreservedAsBase(const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_knownPreservedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void knownPreservedAsBase(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_knownPreservedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void knownPreservedAsKnownPreserved(const Ice::Current& current) = 0;
 
-    virtual void knownPreservedAsKnownPreserved(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_knownPreservedAsKnownPreserved(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_knownPreservedAsKnownPreserved(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void unknownPreservedAsBase(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_unknownPreservedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void unknownPreservedAsBase(const Ice::Current& current) = 0;
 
-    virtual void unknownPreservedAsKnownPreserved(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_unknownPreservedAsKnownPreserved(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_unknownPreservedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+        virtual void unknownPreservedAsKnownPreserved(const Ice::Current& current) = 0;
 
-using RelayPtr = std::shared_ptr<Relay>;
+        /// \cond INTERNAL
+        void _iceD_unknownPreservedAsKnownPreserved(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-class TestIntf : public virtual Ice::Object
-{
-public:
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
 
-    using ProxyType = TestIntfPrx;
+    using RelayPtr = std::shared_ptr<Relay>;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+    class TestIntf : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = TestIntfPrx;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    virtual void baseAsBase(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_baseAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    virtual void unknownDerivedAsBase(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_unknownDerivedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void baseAsBase(const Ice::Current& current) = 0;
 
-    virtual void knownDerivedAsBase(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_knownDerivedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_baseAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void knownDerivedAsKnownDerived(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_knownDerivedAsKnownDerived(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void unknownDerivedAsBase(const Ice::Current& current) = 0;
 
-    virtual void unknownIntermediateAsBase(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_unknownIntermediateAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_unknownDerivedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void knownIntermediateAsBase(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_knownIntermediateAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void knownDerivedAsBase(const Ice::Current& current) = 0;
 
-    virtual void knownMostDerivedAsBase(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_knownMostDerivedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_knownDerivedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void knownIntermediateAsKnownIntermediate(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_knownIntermediateAsKnownIntermediate(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void knownDerivedAsKnownDerived(const Ice::Current& current) = 0;
 
-    virtual void knownMostDerivedAsKnownIntermediate(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_knownMostDerivedAsKnownIntermediate(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_knownDerivedAsKnownDerived(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void knownMostDerivedAsKnownMostDerived(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_knownMostDerivedAsKnownMostDerived(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void unknownIntermediateAsBase(const Ice::Current& current) = 0;
 
-    virtual void unknownMostDerived1AsBase(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_unknownMostDerived1AsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_unknownIntermediateAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void unknownMostDerived1AsKnownIntermediate(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_unknownMostDerived1AsKnownIntermediate(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void knownIntermediateAsBase(const Ice::Current& current) = 0;
 
-    virtual void unknownMostDerived2AsBase(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_unknownMostDerived2AsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_knownIntermediateAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void unknownMostDerived2AsBaseCompact(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_unknownMostDerived2AsBaseCompact(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void knownMostDerivedAsBase(const Ice::Current& current) = 0;
 
-    virtual void knownPreservedAsBase(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_knownPreservedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_knownMostDerivedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void knownPreservedAsKnownPreserved(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_knownPreservedAsKnownPreserved(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void knownIntermediateAsKnownIntermediate(const Ice::Current& current) = 0;
 
-    virtual void relayKnownPreservedAsBase(std::optional<RelayPrx> r, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_relayKnownPreservedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_knownIntermediateAsKnownIntermediate(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void relayKnownPreservedAsKnownPreserved(std::optional<RelayPrx> r, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_relayKnownPreservedAsKnownPreserved(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void knownMostDerivedAsKnownIntermediate(const Ice::Current& current) = 0;
 
-    virtual void unknownPreservedAsBase(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_unknownPreservedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_knownMostDerivedAsKnownIntermediate(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void unknownPreservedAsKnownPreserved(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_unknownPreservedAsKnownPreserved(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void knownMostDerivedAsKnownMostDerived(const Ice::Current& current) = 0;
 
-    virtual void relayUnknownPreservedAsBase(std::optional<RelayPrx> r, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_relayUnknownPreservedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_knownMostDerivedAsKnownMostDerived(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void relayUnknownPreservedAsKnownPreserved(std::optional<RelayPrx> r, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_relayUnknownPreservedAsKnownPreserved(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void unknownMostDerived1AsBase(const Ice::Current& current) = 0;
 
-    virtual void shutdown(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_unknownMostDerived1AsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+        virtual void unknownMostDerived1AsKnownIntermediate(const Ice::Current& current) = 0;
 
-using TestIntfPtr = std::shared_ptr<TestIntf>;
+        /// \cond INTERNAL
+        void _iceD_unknownMostDerived1AsKnownIntermediate(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
+        virtual void unknownMostDerived2AsBase(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_unknownMostDerived2AsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void unknownMostDerived2AsBaseCompact(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_unknownMostDerived2AsBaseCompact(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void knownPreservedAsBase(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_knownPreservedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void knownPreservedAsKnownPreserved(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_knownPreservedAsKnownPreserved(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void relayKnownPreservedAsBase(std::optional<RelayPrx> r, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_relayKnownPreservedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void relayKnownPreservedAsKnownPreserved(std::optional<RelayPrx> r, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_relayKnownPreservedAsKnownPreserved(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void unknownPreservedAsBase(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_unknownPreservedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void unknownPreservedAsKnownPreserved(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_unknownPreservedAsKnownPreserved(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void relayUnknownPreservedAsBase(std::optional<RelayPrx> r, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_relayUnknownPreservedAsBase(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void relayUnknownPreservedAsKnownPreserved(std::optional<RelayPrx> r, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_relayUnknownPreservedAsKnownPreserved(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void shutdown(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
+
+    using TestIntfPtr = std::shared_ptr<TestIntf>;
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 #include <Ice/PopDisableWarnings.h>
 #endif

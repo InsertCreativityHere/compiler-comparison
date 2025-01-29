@@ -472,7 +472,6 @@ Test::TestIntf::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -540,7 +539,6 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::TestIntfController::ice_ids(const Ice::Current&) const
@@ -600,7 +598,6 @@ Test::TestIntfController::_iceD_interrupt(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestIntfController::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -658,4 +655,3 @@ Test::TestIntfController::dispatch(Ice::IncomingRequest& request, std::function<
         }
     }
 }
-/// \endcond

@@ -30,64 +30,59 @@ namespace IceGrid
     using StringLongDict = std::map<std::string, std::int64_t>;
 
     struct AllData;
-
 }
 
 namespace IceGrid
 {
-
-struct AllData
-{
-    ::IceGrid::ApplicationInfoSeq applications;
-    ::IceGrid::AdapterInfoSeq adapters;
-    ::IceGrid::ObjectInfoSeq objects;
-    ::IceGrid::ObjectInfoSeq internalObjects;
-    ::IceGrid::StringLongDict serials;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::IceGrid::ApplicationInfoSeq&, const ::IceGrid::AdapterInfoSeq&, const ::IceGrid::ObjectInfoSeq&, const ::IceGrid::ObjectInfoSeq&, const ::IceGrid::StringLongDict&> ice_tuple() const
+    struct AllData
     {
-        return std::tie(applications, adapters, objects, internalObjects, serials);
-    }
+        ::IceGrid::ApplicationInfoSeq applications;
+        ::IceGrid::AdapterInfoSeq adapters;
+        ::IceGrid::ObjectInfoSeq objects;
+        ::IceGrid::ObjectInfoSeq internalObjects;
+        ::IceGrid::StringLongDict serials;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::IceGrid::ApplicationInfoSeq&, const ::IceGrid::AdapterInfoSeq&, const ::IceGrid::ObjectInfoSeq&, const ::IceGrid::ObjectInfoSeq&, const ::IceGrid::StringLongDict&> ice_tuple() const
+        {
+            return std::tie(applications, adapters, objects, internalObjects, serials);
+        }
 
-std::ostream& operator<<(std::ostream&, const AllData&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
+    std::ostream& operator<<(std::ostream&, const AllData&);
 
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::IceGrid::AllData>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 5;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::IceGrid::AllData>
-{
-    static void read(InputStream* istr, ::IceGrid::AllData& v)
+    template<>
+    struct StreamableTraits<::IceGrid::AllData>
     {
-        istr->readAll(v.applications, v.adapters, v.objects, v.internalObjects, v.serials);
-    }
-};
-
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 5;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::IceGrid::AllData>
+    {
+        static void read(InputStream* istr, ::IceGrid::AllData& v)
+        {
+            istr->readAll(v.applications, v.adapters, v.objects, v.internalObjects, v.serials);
+        }
+    };
 }
 /// \endcond
 

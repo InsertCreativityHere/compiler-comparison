@@ -303,7 +303,6 @@ Test::MyClass::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MyClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -366,4 +365,3 @@ Test::MyClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond

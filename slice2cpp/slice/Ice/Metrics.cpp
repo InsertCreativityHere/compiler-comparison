@@ -863,7 +863,6 @@ IceMX::MetricsAdmin::_iceD_getMetricsFailures(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceMX::MetricsAdmin::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -936,4 +935,3 @@ IceMX::MetricsAdmin::dispatch(Ice::IncomingRequest& request, std::function<void(
         }
     }
 }
-/// \endcond

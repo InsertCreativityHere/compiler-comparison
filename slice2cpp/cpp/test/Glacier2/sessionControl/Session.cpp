@@ -155,7 +155,6 @@ Test::Session::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Session::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -213,4 +212,3 @@ Test::Session::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond

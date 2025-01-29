@@ -155,7 +155,6 @@ Ice::Process::_iceD_writeMessage(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Ice::Process::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -208,4 +207,3 @@ Ice::Process::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
         }
     }
 }
-/// \endcond

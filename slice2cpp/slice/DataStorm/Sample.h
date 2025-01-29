@@ -48,27 +48,25 @@ namespace DataStorm
         /// The element has been removed.
         Remove
     };
+
     DATASTORM_API std::ostream& operator<<(std::ostream&, SampleEvent);
 
     /// A sequence of sample event.
     using SampleEventSeq = std::vector<SampleEvent>;
-
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits< ::DataStorm::SampleEvent>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryEnum;
-    static const int minValue = 0;
-    static const int maxValue = 3;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
+    template<>
+    struct StreamableTraits< ::DataStorm::SampleEvent>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryEnum;
+        static const int minValue = 0;
+        static const int maxValue = 3;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
 }
 /// \endcond
 

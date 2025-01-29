@@ -29,315 +29,320 @@
 namespace Test
 {
     class InitialPrx;
-
 }
 
 namespace Test
 {
-
-class InitialPrx : public Ice::Proxy<InitialPrx, Ice::ObjectPrx>
-{
-public:
-
-    ::Test1::C1Ptr getTest1C2AsC1(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<::Test1::C1Ptr> getTest1C2AsC1Async(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getTest1C2AsC1Async(std::function<void(::Test1::C1Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getTest1C2AsC1(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Test1::C1Ptr>>&, const Ice::Context&) const;
-    /// \endcond
-
-    ::Test1::C2Ptr getTest1C2AsC2(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<::Test1::C2Ptr> getTest1C2AsC2Async(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getTest1C2AsC2Async(std::function<void(::Test1::C2Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getTest1C2AsC2(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Test1::C2Ptr>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwTest1E2AsE1(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwTest1E2AsE1Async(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwTest1E2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwTest1E2AsE1(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwTest1E2AsE2(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwTest1E2AsE2Async(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwTest1E2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwTest1E2AsE2(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwTest1Notify(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwTest1NotifyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwTest1NotifyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwTest1Notify(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    ::Test2::C1Ptr getTest2C2AsC1(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<::Test2::C1Ptr> getTest2C2AsC1Async(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getTest2C2AsC1Async(std::function<void(::Test2::C1Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getTest2C2AsC1(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Test2::C1Ptr>>&, const Ice::Context&) const;
-    /// \endcond
-
-    ::Test2::C2Ptr getTest2C2AsC2(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<::Test2::C2Ptr> getTest2C2AsC2Async(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getTest2C2AsC2Async(std::function<void(::Test2::C2Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getTest2C2AsC2(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Test2::C2Ptr>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwTest2E2AsE1(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwTest2E2AsE1Async(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwTest2E2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwTest2E2AsE1(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwTest2E2AsE2(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwTest2E2AsE2Async(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwTest2E2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwTest2E2AsE2(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    ::Test3::C1Ptr getTest3C2AsC1(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<::Test3::C1Ptr> getTest3C2AsC1Async(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getTest3C2AsC1Async(std::function<void(::Test3::C1Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getTest3C2AsC1(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Test3::C1Ptr>>&, const Ice::Context&) const;
-    /// \endcond
-
-    ::Test3::C2Ptr getTest3C2AsC2(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<::Test3::C2Ptr> getTest3C2AsC2Async(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getTest3C2AsC2Async(std::function<void(::Test3::C2Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getTest3C2AsC2(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Test3::C2Ptr>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwTest3E2AsE1(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwTest3E2AsE1Async(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwTest3E2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwTest3E2AsE1(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwTest3E2AsE2(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwTest3E2AsE2Async(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwTest3E2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwTest3E2AsE2(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    InitialPrx(const InitialPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    InitialPrx(InitialPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    InitialPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~InitialPrx() override;
-
-    InitialPrx& operator=(const InitialPrx& rhs) noexcept
+    class InitialPrx : public Ice::Proxy<InitialPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        ::Test1::C1Ptr getTest1C2AsC1(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<::Test1::C1Ptr> getTest1C2AsC1Async(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getTest1C2AsC1Async(std::function<void(::Test1::C1Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getTest1C2AsC1(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Test1::C1Ptr>>&, const Ice::Context&) const;
+        /// \endcond
+
+        ::Test1::C2Ptr getTest1C2AsC2(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<::Test1::C2Ptr> getTest1C2AsC2Async(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getTest1C2AsC2Async(std::function<void(::Test1::C2Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getTest1C2AsC2(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Test1::C2Ptr>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwTest1E2AsE1(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwTest1E2AsE1Async(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwTest1E2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwTest1E2AsE1(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwTest1E2AsE2(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwTest1E2AsE2Async(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwTest1E2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwTest1E2AsE2(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwTest1Notify(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwTest1NotifyAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwTest1NotifyAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwTest1Notify(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        ::Test2::C1Ptr getTest2C2AsC1(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<::Test2::C1Ptr> getTest2C2AsC1Async(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getTest2C2AsC1Async(std::function<void(::Test2::C1Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getTest2C2AsC1(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Test2::C1Ptr>>&, const Ice::Context&) const;
+        /// \endcond
+
+        ::Test2::C2Ptr getTest2C2AsC2(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<::Test2::C2Ptr> getTest2C2AsC2Async(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getTest2C2AsC2Async(std::function<void(::Test2::C2Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getTest2C2AsC2(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Test2::C2Ptr>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwTest2E2AsE1(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwTest2E2AsE1Async(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwTest2E2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwTest2E2AsE1(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwTest2E2AsE2(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwTest2E2AsE2Async(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwTest2E2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwTest2E2AsE2(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        ::Test3::C1Ptr getTest3C2AsC1(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<::Test3::C1Ptr> getTest3C2AsC1Async(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getTest3C2AsC1Async(std::function<void(::Test3::C1Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getTest3C2AsC1(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Test3::C1Ptr>>&, const Ice::Context&) const;
+        /// \endcond
+
+        ::Test3::C2Ptr getTest3C2AsC2(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<::Test3::C2Ptr> getTest3C2AsC2Async(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getTest3C2AsC2Async(std::function<void(::Test3::C2Ptr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getTest3C2AsC2(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Test3::C2Ptr>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwTest3E2AsE1(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwTest3E2AsE1Async(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwTest3E2AsE1Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwTest3E2AsE1(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwTest3E2AsE2(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwTest3E2AsE2Async(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwTest3E2AsE2Async(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwTest3E2AsE2(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        InitialPrx(const InitialPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        InitialPrx(InitialPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        InitialPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~InitialPrx() override;
+
+        InitialPrx& operator=(const InitialPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    InitialPrx& operator=(InitialPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        InitialPrx& operator=(InitialPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static InitialPrx _fromReference(IceInternal::ReferencePtr ref) { return InitialPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static InitialPrx _fromReference(IceInternal::ReferencePtr ref) { return InitialPrx(std::move(ref)); }
 
-protected:
+    protected:
+        InitialPrx() = default;
 
-    InitialPrx() = default;
-
-    explicit InitialPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
+        explicit InitialPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 }
 
 namespace Test
 {
+    class Initial : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = InitialPrx;
 
-class Initial : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = InitialPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        virtual ::Test1::C1Ptr getTest1C2AsC1(const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_getTest1C2AsC1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual ::Test1::C1Ptr getTest1C2AsC1(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getTest1C2AsC1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual ::Test1::C2Ptr getTest1C2AsC2(const Ice::Current& current) = 0;
 
-    virtual ::Test1::C2Ptr getTest1C2AsC2(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getTest1C2AsC2(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_getTest1C2AsC2(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void throwTest1E2AsE1(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwTest1E2AsE1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwTest1E2AsE1(const Ice::Current& current) = 0;
 
-    virtual void throwTest1E2AsE2(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwTest1E2AsE2(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwTest1E2AsE1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void throwTest1Notify(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwTest1Notify(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwTest1E2AsE2(const Ice::Current& current) = 0;
 
-    virtual ::Test2::C1Ptr getTest2C2AsC1(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getTest2C2AsC1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwTest1E2AsE2(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual ::Test2::C2Ptr getTest2C2AsC2(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getTest2C2AsC2(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwTest1Notify(const Ice::Current& current) = 0;
 
-    virtual void throwTest2E2AsE1(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwTest2E2AsE1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwTest1Notify(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void throwTest2E2AsE2(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwTest2E2AsE2(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual ::Test2::C1Ptr getTest2C2AsC1(const Ice::Current& current) = 0;
 
-    virtual ::Test3::C1Ptr getTest3C2AsC1(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getTest3C2AsC1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_getTest2C2AsC1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual ::Test3::C2Ptr getTest3C2AsC2(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getTest3C2AsC2(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual ::Test2::C2Ptr getTest2C2AsC2(const Ice::Current& current) = 0;
 
-    virtual void throwTest3E2AsE1(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwTest3E2AsE1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_getTest2C2AsC2(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void throwTest3E2AsE2(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwTest3E2AsE2(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwTest2E2AsE1(const Ice::Current& current) = 0;
 
-    virtual void shutdown(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwTest2E2AsE1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+        virtual void throwTest2E2AsE2(const Ice::Current& current) = 0;
 
-using InitialPtr = std::shared_ptr<Initial>;
+        /// \cond INTERNAL
+        void _iceD_throwTest2E2AsE2(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
+        virtual ::Test3::C1Ptr getTest3C2AsC1(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_getTest3C2AsC1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual ::Test3::C2Ptr getTest3C2AsC2(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_getTest3C2AsC2(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void throwTest3E2AsE1(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_throwTest3E2AsE1(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void throwTest3E2AsE2(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_throwTest3E2AsE2(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void shutdown(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
+
+    using InitialPtr = std::shared_ptr<Initial>;
 }
 
 #include <Ice/PopDisableWarnings.h>

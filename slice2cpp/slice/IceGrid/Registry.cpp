@@ -628,7 +628,6 @@ IceGrid::Query::_iceD_findAllReplicas(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::Query::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -696,7 +695,6 @@ IceGrid::Query::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceGrid::Registry::ice_ids(const Ice::Current&) const
@@ -812,7 +810,6 @@ IceGrid::Registry::_iceD_getSessionTimeout(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::Registry::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -880,7 +877,6 @@ IceGrid::Registry::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceGrid::Locator::ice_ids(const Ice::Current&) const
@@ -935,7 +931,6 @@ IceGrid::Locator::_iceD_getLocalQuery(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::Locator::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1003,4 +998,3 @@ IceGrid::Locator::dispatch(Ice::IncomingRequest& request, std::function<void(Ice
         }
     }
 }
-/// \endcond

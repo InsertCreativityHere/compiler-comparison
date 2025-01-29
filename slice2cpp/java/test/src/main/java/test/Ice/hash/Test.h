@@ -46,323 +46,318 @@ namespace Test
     using PenPtr = std::shared_ptr<Pen>;
 
     struct Draw;
-
 }
 
 namespace Test
 {
-
-struct PointF
-{
-    float x;
-    float y;
-    float z;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const float&, const float&, const float&> ice_tuple() const
+    struct PointF
     {
-        return std::tie(x, y, z);
-    }
+        float x;
+        float y;
+        float z;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const float&, const float&, const float&> ice_tuple() const
+        {
+            return std::tie(x, y, z);
+        }
 
-std::ostream& operator<<(std::ostream&, const PointF&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct PointD
-{
-    double x;
-    double y;
-    double z;
+    std::ostream& operator<<(std::ostream&, const PointF&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const double&, const double&, const double&> ice_tuple() const
+    struct PointD
     {
-        return std::tie(x, y, z);
-    }
+        double x;
+        double y;
+        double z;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const double&, const double&, const double&> ice_tuple() const
+        {
+            return std::tie(x, y, z);
+        }
 
-std::ostream& operator<<(std::ostream&, const PointD&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct Point
-{
-    std::int32_t x;
-    std::int32_t y;
+    std::ostream& operator<<(std::ostream&, const PointD&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
+    struct Point
     {
-        return std::tie(x, y);
-    }
+        std::int32_t x;
+        std::int32_t y;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(x, y);
+        }
 
-std::ostream& operator<<(std::ostream&, const Point&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct Polyline
-{
-    ::Test::Points vertices;
+    std::ostream& operator<<(std::ostream&, const Point&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::Points&> ice_tuple() const
+    struct Polyline
     {
-        return std::tie(vertices);
-    }
+        ::Test::Points vertices;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::Points&> ice_tuple() const
+        {
+            return std::tie(vertices);
+        }
 
-std::ostream& operator<<(std::ostream&, const Polyline&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct Color
-{
-    std::int32_t r;
-    std::int32_t g;
-    std::int32_t b;
-    std::int32_t a;
+    std::ostream& operator<<(std::ostream&, const Polyline&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
+    struct Color
     {
-        return std::tie(r, g, b, a);
-    }
+        std::int32_t r;
+        std::int32_t g;
+        std::int32_t b;
+        std::int32_t a;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(r, g, b, a);
+        }
 
-std::ostream& operator<<(std::ostream&, const Color&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct ColorPalette
-{
-    ::Test::StringColorMap colors;
+    std::ostream& operator<<(std::ostream&, const Color&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::StringColorMap&> ice_tuple() const
+    struct ColorPalette
     {
-        return std::tie(colors);
-    }
+        ::Test::StringColorMap colors;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::StringColorMap&> ice_tuple() const
+        {
+            return std::tie(colors);
+        }
 
-std::ostream& operator<<(std::ostream&, const ColorPalette&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-class Pen : public Ice::Value
-{
-public:
-    /// Default constructor.
-    Pen() noexcept = default;
+    std::ostream& operator<<(std::ostream&, const ColorPalette&);
 
-    /// One-shot constructor to initialize all data members.
-    Pen(std::int32_t thickness, ::Test::Color color) noexcept :
-        thickness(thickness),
-        color(color)
+    class Pen : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        Pen() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        Pen(std::int32_t thickness, ::Test::Color color) noexcept :
+            thickness(thickness),
+            color(color)
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const ::Test::Color&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const ::Test::Color&> ice_tuple() const
+        {
+            return std::tie(thickness, color);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] PenPtr ice_clone() const { return std::static_pointer_cast<Pen>(_iceCloneImpl()); }
+
+        std::int32_t thickness;
+        ::Test::Color color;
+
+        void ice_printFields(std::ostream& os) const override;
+        Pen(const Pen&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    struct Draw
     {
-        return std::tie(thickness, color);
-    }
+        ::Test::Color backgroundColor;
+        ::Test::PenPtr pen;
+        bool shared;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] PenPtr ice_clone() const { return std::static_pointer_cast<Pen>(_iceCloneImpl()); }
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::Color&, const ::Test::PenPtr&, const bool&> ice_tuple() const
+        {
+            return std::tie(backgroundColor, pen, shared);
+        }
 
-    std::int32_t thickness;
-    ::Test::Color color;
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-    void ice_printFields(std::ostream& os) const override;
-    Pen(const Pen&) = default;
+    std::ostream& operator<<(std::ostream&, const Draw&);
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-struct Draw
-{
-    ::Test::Color backgroundColor;
-    ::Test::PenPtr pen;
-    bool shared;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::Color&, const ::Test::PenPtr&, const bool&> ice_tuple() const
-    {
-        return std::tie(backgroundColor, pen, shared);
-    }
-
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
-
-std::ostream& operator<<(std::ostream&, const Draw&);
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::Test::PointF>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 12;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::Test::PointF>
-{
-    static void read(InputStream* istr, ::Test::PointF& v)
+    template<>
+    struct StreamableTraits<::Test::PointF>
     {
-        istr->readAll(v.x, v.y, v.z);
-    }
-};
-
-template<>
-struct StreamableTraits<::Test::PointD>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 24;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::Test::PointD>
-{
-    static void read(InputStream* istr, ::Test::PointD& v)
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 12;
+        static const bool fixedLength = true;
+    };
+    
+    template<>
+    struct StreamReader<::Test::PointF>
     {
-        istr->readAll(v.x, v.y, v.z);
-    }
-};
+        static void read(InputStream* istr, ::Test::PointF& v)
+        {
+            istr->readAll(v.x, v.y, v.z);
+        }
+    };
 
-template<>
-struct StreamableTraits<::Test::Point>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 8;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::Test::Point>
-{
-    static void read(InputStream* istr, ::Test::Point& v)
+    template<>
+    struct StreamableTraits<::Test::PointD>
     {
-        istr->readAll(v.x, v.y);
-    }
-};
-
-template<>
-struct StreamableTraits<::Test::Polyline>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::Polyline>
-{
-    static void read(InputStream* istr, ::Test::Polyline& v)
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 24;
+        static const bool fixedLength = true;
+    };
+    
+    template<>
+    struct StreamReader<::Test::PointD>
     {
-        istr->readAll(v.vertices);
-    }
-};
+        static void read(InputStream* istr, ::Test::PointD& v)
+        {
+            istr->readAll(v.x, v.y, v.z);
+        }
+    };
 
-template<>
-struct StreamableTraits<::Test::Color>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 16;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::Test::Color>
-{
-    static void read(InputStream* istr, ::Test::Color& v)
+    template<>
+    struct StreamableTraits<::Test::Point>
     {
-        istr->readAll(v.r, v.g, v.b, v.a);
-    }
-};
-
-template<>
-struct StreamableTraits<::Test::ColorPalette>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::ColorPalette>
-{
-    static void read(InputStream* istr, ::Test::ColorPalette& v)
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 8;
+        static const bool fixedLength = true;
+    };
+    
+    template<>
+    struct StreamReader<::Test::Point>
     {
-        istr->readAll(v.colors);
-    }
-};
+        static void read(InputStream* istr, ::Test::Point& v)
+        {
+            istr->readAll(v.x, v.y);
+        }
+    };
 
-template<>
-struct StreamableTraits<::Test::Draw>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 18;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::Draw>
-{
-    static void read(InputStream* istr, ::Test::Draw& v)
+    template<>
+    struct StreamableTraits<::Test::Polyline>
     {
-        istr->readAll(v.backgroundColor, v.pen, v.shared);
-    }
-};
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::Polyline>
+    {
+        static void read(InputStream* istr, ::Test::Polyline& v)
+        {
+            istr->readAll(v.vertices);
+        }
+    };
 
+    template<>
+    struct StreamableTraits<::Test::Color>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 16;
+        static const bool fixedLength = true;
+    };
+    
+    template<>
+    struct StreamReader<::Test::Color>
+    {
+        static void read(InputStream* istr, ::Test::Color& v)
+        {
+            istr->readAll(v.r, v.g, v.b, v.a);
+        }
+    };
+
+    template<>
+    struct StreamableTraits<::Test::ColorPalette>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::ColorPalette>
+    {
+        static void read(InputStream* istr, ::Test::ColorPalette& v)
+        {
+            istr->readAll(v.colors);
+        }
+    };
+
+    template<>
+    struct StreamableTraits<::Test::Draw>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 18;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::Draw>
+    {
+        static void read(InputStream* istr, ::Test::Draw& v)
+        {
+            istr->readAll(v.backgroundColor, v.pen, v.shared);
+        }
+    };
 }
 /// \endcond
 

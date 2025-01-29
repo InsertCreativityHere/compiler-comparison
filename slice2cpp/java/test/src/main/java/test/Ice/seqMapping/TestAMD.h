@@ -46,294 +46,285 @@ namespace Test
 
     class Baz;
     using BazPtr = std::shared_ptr<Baz>;
-
 }
 
 namespace Test
 {
-
-class MyClassPrx : public Ice::Proxy<MyClassPrx, Ice::ObjectPrx>
-{
-public:
-
-    void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    SerialSmall opSerialSmallJava(const SerialSmall& i, SerialSmall& o, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<SerialSmall, SerialSmall>> opSerialSmallJavaAsync(const SerialSmall& i, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSerialSmallJavaAsync(const SerialSmall& i, std::function<void(::Test::SerialSmall, ::Test::SerialSmall)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opSerialSmallJava(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SerialSmall, SerialSmall>>>&, const SerialSmall&, const Ice::Context&) const;
-    /// \endcond
-
-    SerialLarge opSerialLargeJava(const SerialLarge& i, SerialLarge& o, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<SerialLarge, SerialLarge>> opSerialLargeJavaAsync(const SerialLarge& i, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSerialLargeJavaAsync(const SerialLarge& i, std::function<void(::Test::SerialLarge, ::Test::SerialLarge)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opSerialLargeJava(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SerialLarge, SerialLarge>>>&, const SerialLarge&, const Ice::Context&) const;
-    /// \endcond
-
-    SerialStruct opSerialStructJava(const SerialStruct& i, SerialStruct& o, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::tuple<SerialStruct, SerialStruct>> opSerialStructJavaAsync(const SerialStruct& i, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opSerialStructJavaAsync(const SerialStruct& i, std::function<void(::Test::SerialStruct, ::Test::SerialStruct)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opSerialStructJava(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SerialStruct, SerialStruct>>>&, const SerialStruct&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    MyClassPrx(const MyClassPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    MyClassPrx(MyClassPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    MyClassPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~MyClassPrx() override;
-
-    MyClassPrx& operator=(const MyClassPrx& rhs) noexcept
+    class MyClassPrx : public Ice::Proxy<MyClassPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        SerialSmall opSerialSmallJava(const SerialSmall& i, SerialSmall& o, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<SerialSmall, SerialSmall>> opSerialSmallJavaAsync(const SerialSmall& i, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opSerialSmallJavaAsync(const SerialSmall& i, std::function<void(::Test::SerialSmall, ::Test::SerialSmall)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opSerialSmallJava(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SerialSmall, SerialSmall>>>&, const SerialSmall&, const Ice::Context&) const;
+        /// \endcond
+
+        SerialLarge opSerialLargeJava(const SerialLarge& i, SerialLarge& o, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<SerialLarge, SerialLarge>> opSerialLargeJavaAsync(const SerialLarge& i, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opSerialLargeJavaAsync(const SerialLarge& i, std::function<void(::Test::SerialLarge, ::Test::SerialLarge)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opSerialLargeJava(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SerialLarge, SerialLarge>>>&, const SerialLarge&, const Ice::Context&) const;
+        /// \endcond
+
+        SerialStruct opSerialStructJava(const SerialStruct& i, SerialStruct& o, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::tuple<SerialStruct, SerialStruct>> opSerialStructJavaAsync(const SerialStruct& i, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opSerialStructJavaAsync(const SerialStruct& i, std::function<void(::Test::SerialStruct, ::Test::SerialStruct)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_opSerialStructJava(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<SerialStruct, SerialStruct>>>&, const SerialStruct&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        MyClassPrx(const MyClassPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        MyClassPrx(MyClassPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        MyClassPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~MyClassPrx() override;
+
+        MyClassPrx& operator=(const MyClassPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    MyClassPrx& operator=(MyClassPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        MyClassPrx& operator=(MyClassPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static MyClassPrx _fromReference(IceInternal::ReferencePtr ref) { return MyClassPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static MyClassPrx _fromReference(IceInternal::ReferencePtr ref) { return MyClassPrx(std::move(ref)); }
 
-protected:
+    protected:
+        MyClassPrx() = default;
 
-    MyClassPrx() = default;
-
-    explicit MyClassPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
+        explicit MyClassPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 }
 
 namespace Test
 {
-
-struct Foo
-{
-    ::Test::SerialLarge SLmem;
-    ::Test::SLS SLSmem;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
+    struct Foo
     {
-        return std::tie(SLmem, SLSmem);
-    }
+        ::Test::SerialLarge SLmem;
+        ::Test::SLS SLSmem;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
+        {
+            return std::tie(SLmem, SLSmem);
+        }
 
-std::ostream& operator<<(std::ostream&, const Foo&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-class Bar : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    Bar() noexcept = default;
+    std::ostream& operator<<(std::ostream&, const Foo&);
 
-    /// One-shot constructor to initialize all data members.
-    Bar(SerialLarge SLmem, SLS SLSmem) noexcept :
-        SLmem(std::move(SLmem)),
-        SLSmem(std::move(SLSmem))
+    class Bar : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        Bar() noexcept = default;
 
-    /// Copy constructor.
-    Bar(const Bar&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        Bar(SerialLarge SLmem, SLS SLSmem) noexcept :
+            SLmem(std::move(SLmem)),
+            SLSmem(std::move(SLSmem))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
+        /// Copy constructor.
+        Bar(const Bar&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
+        {
+            return std::tie(SLmem, SLSmem);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        ::Test::SerialLarge SLmem;
+        ::Test::SLS SLSmem;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class Baz : public Ice::Value
     {
-        return std::tie(SLmem, SLSmem);
-    }
+    public:
+        /// Default constructor.
+        Baz() noexcept = default;
 
+        /// One-shot constructor to initialize all data members.
+        Baz(::Test::SerialLarge SLmem, ::Test::SLS SLSmem) noexcept :
+            SLmem(std::move(SLmem)),
+            SLSmem(std::move(SLSmem))
+        {
+        }
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
+        {
+            return std::tie(SLmem, SLSmem);
+        }
 
-    ::Test::SerialLarge SLmem;
-    ::Test::SLS SLSmem;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] BazPtr ice_clone() const { return std::static_pointer_cast<Baz>(_iceCloneImpl()); }
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+        ::Test::SerialLarge SLmem;
+        ::Test::SLS SLSmem;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void ice_printFields(std::ostream& os) const override;
+        Baz(const Baz&) = default;
 
-class Baz : public Ice::Value
-{
-public:
-    /// Default constructor.
-    Baz() noexcept = default;
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    /// One-shot constructor to initialize all data members.
-    Baz(::Test::SerialLarge SLmem, ::Test::SLS SLSmem) noexcept :
-        SLmem(std::move(SLmem)),
-        SLSmem(std::move(SLSmem))
-    {
-    }
+        void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::SerialLarge&, const ::Test::SLS&> ice_tuple() const
-    {
-        return std::tie(SLmem, SLSmem);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] BazPtr ice_clone() const { return std::static_pointer_cast<Baz>(_iceCloneImpl()); }
-
-    ::Test::SerialLarge SLmem;
-    ::Test::SLS SLSmem;
-
-    void ice_printFields(std::ostream& os) const override;
-    Baz(const Baz&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 namespace Test
 {
+    class MyClass : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = MyClassPrx;
 
-class MyClass : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = MyClassPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        virtual void shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void opSerialSmallJavaAsync(SerialSmall i, std::function<void(const SerialSmall& returnValue, const SerialSmall& o)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
 
-    virtual void opSerialSmallJavaAsync(SerialSmall i, std::function<void(const SerialSmall& returnValue, const SerialSmall& o)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opSerialSmallJava(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opSerialSmallJava(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void opSerialLargeJavaAsync(SerialLarge i, std::function<void(const SerialLarge& returnValue, const SerialLarge& o)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opSerialLargeJava(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void opSerialLargeJavaAsync(SerialLarge i, std::function<void(const SerialLarge& returnValue, const SerialLarge& o)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
 
-    virtual void opSerialStructJavaAsync(SerialStruct i, std::function<void(const SerialStruct& returnValue, const SerialStruct& o)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opSerialStructJava(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_opSerialLargeJava(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+        virtual void opSerialStructJavaAsync(SerialStruct i, std::function<void(const SerialStruct& returnValue, const SerialStruct& o)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
 
-using MyClassPtr = std::shared_ptr<MyClass>;
+        /// \cond INTERNAL
+        void _iceD_opSerialStructJava(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
+
+    using MyClassPtr = std::shared_ptr<MyClass>;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::Test::Foo>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 2;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::Foo>
-{
-    static void read(InputStream* istr, ::Test::Foo& v)
+    template<>
+    struct StreamableTraits<::Test::Foo>
     {
-        istr->readAll(v.SLmem, v.SLSmem);
-    }
-};
-
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 2;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::Foo>
+    {
+        static void read(InputStream* istr, ::Test::Foo& v)
+        {
+            istr->readAll(v.SLmem, v.SLSmem);
+        }
+    };
 }
 /// \endcond
 

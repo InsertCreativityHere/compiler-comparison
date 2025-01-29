@@ -2703,7 +2703,6 @@ Test::Initial::_iceD_hasF3(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -2891,4 +2890,3 @@ Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond

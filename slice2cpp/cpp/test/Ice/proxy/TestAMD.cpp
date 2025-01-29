@@ -207,7 +207,6 @@ Test::MyClass::_iceD_getContext(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MyClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -260,7 +259,6 @@ Test::MyClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::MyDerivedClass::ice_ids(const Ice::Current&) const
@@ -313,7 +311,6 @@ Test::MyDerivedClass::_iceD_echo(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MyDerivedClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -371,4 +368,3 @@ Test::MyDerivedClass::dispatch(Ice::IncomingRequest& request, std::function<void
         }
     }
 }
-/// \endcond

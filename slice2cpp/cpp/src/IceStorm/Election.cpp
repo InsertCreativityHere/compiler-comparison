@@ -810,7 +810,6 @@ IceStormElection::ReplicaObserver::_iceD_removeSubscriber(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceStormElection::ReplicaObserver::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -878,7 +877,6 @@ IceStormElection::ReplicaObserver::dispatch(Ice::IncomingRequest& request, std::
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceStormElection::TopicManagerSync::ice_ids(const Ice::Current&) const
@@ -918,7 +916,6 @@ IceStormElection::TopicManagerSync::_iceD_getContent(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceStormElection::TopicManagerSync::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -966,7 +963,6 @@ IceStormElection::TopicManagerSync::dispatch(Ice::IncomingRequest& request, std:
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceStormElection::Node::ice_ids(const Ice::Current&) const
@@ -1138,7 +1134,6 @@ IceStormElection::Node::_iceD_query(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceStormElection::Node::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1221,4 +1216,3 @@ IceStormElection::Node::dispatch(Ice::IncomingRequest& request, std::function<vo
         }
     }
 }
-/// \endcond

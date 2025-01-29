@@ -33,115 +33,110 @@ namespace IceStorm
     struct SubscriberRecord;
 
     using SubscriberRecordSeq = std::vector<SubscriberRecord>;
-
 }
 
 namespace IceStorm
 {
-
-/// The key for persistent subscribers, or topics.
-/// If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
-/// otherwise the record holds a subscription record.
-struct SubscriberRecordKey
-{
-    /// The topic identity.
-    ::Ice::Identity topic;
-    /// The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
-    ::Ice::Identity id;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Ice::Identity&, const ::Ice::Identity&> ice_tuple() const
+    /// The key for persistent subscribers, or topics.
+    /// If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
+    /// otherwise the record holds a subscription record.
+    struct SubscriberRecordKey
     {
-        return std::tie(topic, id);
-    }
+        /// The topic identity.
+        ::Ice::Identity topic;
+        /// The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
+        ::Ice::Identity id;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Ice::Identity&, const ::Ice::Identity&> ice_tuple() const
+        {
+            return std::tie(topic, id);
+        }
 
-std::ostream& operator<<(std::ostream&, const SubscriberRecordKey&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-/// Used to store persistent information for persistent subscribers.
-struct SubscriberRecord
-{
-    /// The name of the topic.
-    std::string topicName;
-    /// The subscriber identity.
-    ::Ice::Identity id;
-    /// Is this a link record, or a subscriber record?
-    bool link;
-    /// The subscriber object.
-    std::optional<Ice::ObjectPrx> obj;
-    /// The QoS.
-    ::IceStorm::QoS theQoS;
-    /// The cost.
-    std::int32_t cost;
-    /// The linked topic.
-    std::optional<::IceStorm::TopicPrx> theTopic;
+    std::ostream& operator<<(std::ostream&, const SubscriberRecordKey&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const ::Ice::Identity&, const bool&, const std::optional<Ice::ObjectPrx>&, const ::IceStorm::QoS&, const std::int32_t&, const std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
+    /// Used to store persistent information for persistent subscribers.
+    struct SubscriberRecord
     {
-        return std::tie(topicName, id, link, obj, theQoS, cost, theTopic);
-    }
+        /// The name of the topic.
+        std::string topicName;
+        /// The subscriber identity.
+        ::Ice::Identity id;
+        /// Is this a link record, or a subscriber record?
+        bool link;
+        /// The subscriber object.
+        std::optional<Ice::ObjectPrx> obj;
+        /// The QoS.
+        ::IceStorm::QoS theQoS;
+        /// The cost.
+        std::int32_t cost;
+        /// The linked topic.
+        std::optional<::IceStorm::TopicPrx> theTopic;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const ::Ice::Identity&, const bool&, const std::optional<Ice::ObjectPrx>&, const ::IceStorm::QoS&, const std::int32_t&, const std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
+        {
+            return std::tie(topicName, id, link, obj, theQoS, cost, theTopic);
+        }
 
-std::ostream& operator<<(std::ostream&, const SubscriberRecord&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
+    std::ostream& operator<<(std::ostream&, const SubscriberRecord&);
 
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::IceStorm::SubscriberRecordKey>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::IceStorm::SubscriberRecordKey>
-{
-    static void read(InputStream* istr, ::IceStorm::SubscriberRecordKey& v)
+    template<>
+    struct StreamableTraits<::IceStorm::SubscriberRecordKey>
     {
-        istr->readAll(v.topic, v.id);
-    }
-};
-
-template<>
-struct StreamableTraits<::IceStorm::SubscriberRecord>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 13;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::IceStorm::SubscriberRecord>
-{
-    static void read(InputStream* istr, ::IceStorm::SubscriberRecord& v)
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 4;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::IceStorm::SubscriberRecordKey>
     {
-        istr->readAll(v.topicName, v.id, v.link, v.obj, v.theQoS, v.cost, v.theTopic);
-    }
-};
+        static void read(InputStream* istr, ::IceStorm::SubscriberRecordKey& v)
+        {
+            istr->readAll(v.topic, v.id);
+        }
+    };
 
+    template<>
+    struct StreamableTraits<::IceStorm::SubscriberRecord>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 13;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::IceStorm::SubscriberRecord>
+    {
+        static void read(InputStream* istr, ::IceStorm::SubscriberRecord& v)
+        {
+            istr->readAll(v.topicName, v.id, v.link, v.obj, v.theQoS, v.cost, v.theTopic);
+        }
+    };
 }
 /// \endcond
 

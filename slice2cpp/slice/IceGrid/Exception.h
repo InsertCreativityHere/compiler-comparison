@@ -41,880 +41,871 @@ namespace IceGrid
 
 namespace IceGrid
 {
-
-/// This exception is raised if an application does not exist.
-class ICE_CLASS(ICEGRID_API) ApplicationNotExistException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    ApplicationNotExistException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param name The name of the application.
-    ApplicationNotExistException(std::string name) noexcept :
-        name(std::move(name))
+    /// This exception is raised if an application does not exist.
+    class ICE_CLASS(ICEGRID_API) ApplicationNotExistException : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        ApplicationNotExistException() noexcept = default;
 
-    /// Copy constructor.
-    ApplicationNotExistException(const ApplicationNotExistException&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        /// @param name The name of the application.
+        ApplicationNotExistException(std::string name) noexcept :
+            name(std::move(name))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        /// Copy constructor.
+        ApplicationNotExistException(const ApplicationNotExistException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(name);
+        }
+
+
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
+        /// The name of the application.
+        std::string name;
+
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
+
+    /// This exception is raised if a server does not exist.
+    class ICE_CLASS(ICEGRID_API) ServerNotExistException : public Ice::UserException
     {
-        return std::tie(name);
-    }
+    public:
+        /// Default constructor.
+        ServerNotExistException() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        /// @param id The identifier of the server.
+        ServerNotExistException(std::string id) noexcept :
+            id(std::move(id))
+        {
+        }
+
+        /// Copy constructor.
+        ServerNotExistException(const ServerNotExistException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(id);
+        }
 
 
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
-    /// The name of the application.
-    std::string name;
+        /// The identifier of the server.
+        std::string id;
 
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
 
-/// This exception is raised if a server does not exist.
-class ICE_CLASS(ICEGRID_API) ServerNotExistException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    ServerNotExistException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param id The identifier of the server.
-    ServerNotExistException(std::string id) noexcept :
-        id(std::move(id))
+    /// This exception is raised if a server failed to start.
+    class ICE_CLASS(ICEGRID_API) ServerStartException : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        ServerStartException() noexcept = default;
 
-    /// Copy constructor.
-    ServerNotExistException(const ServerNotExistException&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        /// @param id The identifier of the server.
+        /// @param reason The reason for the failure.
+        ServerStartException(std::string id, std::string reason) noexcept :
+            id(std::move(id)),
+            reason(std::move(reason))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        /// Copy constructor.
+        ServerStartException(const ServerStartException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(id, reason);
+        }
+
+
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
+        /// The identifier of the server.
+        std::string id;
+        /// The reason for the failure.
+        std::string reason;
+
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
+
+    /// This exception is raised if a server failed to stop.
+    class ICE_CLASS(ICEGRID_API) ServerStopException : public Ice::UserException
     {
-        return std::tie(id);
-    }
+    public:
+        /// Default constructor.
+        ServerStopException() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        /// @param id The identifier of the server.
+        /// @param reason The reason for the failure.
+        ServerStopException(std::string id, std::string reason) noexcept :
+            id(std::move(id)),
+            reason(std::move(reason))
+        {
+        }
+
+        /// Copy constructor.
+        ServerStopException(const ServerStopException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(id, reason);
+        }
 
 
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
-    /// The identifier of the server.
-    std::string id;
+        /// The identifier of the server.
+        std::string id;
+        /// The reason for the failure.
+        std::string reason;
 
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
 
-/// This exception is raised if a server failed to start.
-class ICE_CLASS(ICEGRID_API) ServerStartException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    ServerStartException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param id The identifier of the server.
-    /// @param reason The reason for the failure.
-    ServerStartException(std::string id, std::string reason) noexcept :
-        id(std::move(id)),
-        reason(std::move(reason))
+    /// This exception is raised if an adapter does not exist.
+    class ICE_CLASS(ICEGRID_API) AdapterNotExistException : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        AdapterNotExistException() noexcept = default;
 
-    /// Copy constructor.
-    ServerStartException(const ServerStartException&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        /// @param id The id of the object adapter.
+        AdapterNotExistException(std::string id) noexcept :
+            id(std::move(id))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        /// Copy constructor.
+        AdapterNotExistException(const AdapterNotExistException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(id);
+        }
+
+
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
+        /// The id of the object adapter.
+        std::string id;
+
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
+
+    /// This exception is raised if an object already exists.
+    class ICE_CLASS(ICEGRID_API) ObjectExistsException : public Ice::UserException
     {
-        return std::tie(id, reason);
-    }
+    public:
+        /// Default constructor.
+        ObjectExistsException() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        /// @param id The identity of the object.
+        ObjectExistsException(::Ice::Identity id) noexcept :
+            id(std::move(id))
+        {
+        }
+
+        /// Copy constructor.
+        ObjectExistsException(const ObjectExistsException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Ice::Identity&> ice_tuple() const
+        {
+            return std::tie(id);
+        }
 
 
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
-    /// The identifier of the server.
-    std::string id;
-    /// The reason for the failure.
-    std::string reason;
+        /// The identity of the object.
+        ::Ice::Identity id;
 
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
 
-/// This exception is raised if a server failed to stop.
-class ICE_CLASS(ICEGRID_API) ServerStopException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    ServerStopException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param id The identifier of the server.
-    /// @param reason The reason for the failure.
-    ServerStopException(std::string id, std::string reason) noexcept :
-        id(std::move(id)),
-        reason(std::move(reason))
+    /// This exception is raised if an object is not registered.
+    class ICE_CLASS(ICEGRID_API) ObjectNotRegisteredException : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        ObjectNotRegisteredException() noexcept = default;
 
-    /// Copy constructor.
-    ServerStopException(const ServerStopException&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        /// @param id The identity of the object.
+        ObjectNotRegisteredException(::Ice::Identity id) noexcept :
+            id(std::move(id))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        /// Copy constructor.
+        ObjectNotRegisteredException(const ObjectNotRegisteredException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Ice::Identity&> ice_tuple() const
+        {
+            return std::tie(id);
+        }
+
+
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
+        /// The identity of the object.
+        ::Ice::Identity id;
+
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
+
+    /// This exception is raised if a node does not exist.
+    class ICE_CLASS(ICEGRID_API) NodeNotExistException : public Ice::UserException
     {
-        return std::tie(id, reason);
-    }
+    public:
+        /// Default constructor.
+        NodeNotExistException() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        /// @param name The node name.
+        NodeNotExistException(std::string name) noexcept :
+            name(std::move(name))
+        {
+        }
+
+        /// Copy constructor.
+        NodeNotExistException(const NodeNotExistException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(name);
+        }
 
 
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
-    /// The identifier of the server.
-    std::string id;
-    /// The reason for the failure.
-    std::string reason;
+        /// The node name.
+        std::string name;
 
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
 
-/// This exception is raised if an adapter does not exist.
-class ICE_CLASS(ICEGRID_API) AdapterNotExistException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    AdapterNotExistException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param id The id of the object adapter.
-    AdapterNotExistException(std::string id) noexcept :
-        id(std::move(id))
+    /// This exception is raised if a registry does not exist.
+    class ICE_CLASS(ICEGRID_API) RegistryNotExistException : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        RegistryNotExistException() noexcept = default;
 
-    /// Copy constructor.
-    AdapterNotExistException(const AdapterNotExistException&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        /// @param name The registry name.
+        RegistryNotExistException(std::string name) noexcept :
+            name(std::move(name))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        /// Copy constructor.
+        RegistryNotExistException(const RegistryNotExistException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(name);
+        }
+
+
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
+        /// The registry name.
+        std::string name;
+
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
+
+    /// An exception for deployment errors.
+    class ICE_CLASS(ICEGRID_API) DeploymentException : public Ice::UserException
     {
-        return std::tie(id);
-    }
+    public:
+        /// Default constructor.
+        DeploymentException() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        /// @param reason The reason for the failure.
+        DeploymentException(std::string reason) noexcept :
+            reason(std::move(reason))
+        {
+        }
+
+        /// Copy constructor.
+        DeploymentException(const DeploymentException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(reason);
+        }
 
 
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
-    /// The id of the object adapter.
-    std::string id;
+        /// The reason for the failure.
+        std::string reason;
 
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
 
-/// This exception is raised if an object already exists.
-class ICE_CLASS(ICEGRID_API) ObjectExistsException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    ObjectExistsException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param id The identity of the object.
-    ObjectExistsException(::Ice::Identity id) noexcept :
-        id(std::move(id))
+    /// This exception is raised if a node could not be reached.
+    class ICE_CLASS(ICEGRID_API) NodeUnreachableException : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        NodeUnreachableException() noexcept = default;
 
-    /// Copy constructor.
-    ObjectExistsException(const ObjectExistsException&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        /// @param name The name of the node that is not reachable.
+        /// @param reason The reason why the node couldn't be reached.
+        NodeUnreachableException(std::string name, std::string reason) noexcept :
+            name(std::move(name)),
+            reason(std::move(reason))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Ice::Identity&> ice_tuple() const
+        /// Copy constructor.
+        NodeUnreachableException(const NodeUnreachableException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(name, reason);
+        }
+
+
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
+        /// The name of the node that is not reachable.
+        std::string name;
+        /// The reason why the node couldn't be reached.
+        std::string reason;
+
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
+
+    /// This exception is raised if a server could not be reached.
+    class ICE_CLASS(ICEGRID_API) ServerUnreachableException : public Ice::UserException
     {
-        return std::tie(id);
-    }
+    public:
+        /// Default constructor.
+        ServerUnreachableException() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        /// @param name The id of the server that is not reachable.
+        /// @param reason The reason why the server couldn't be reached.
+        ServerUnreachableException(std::string name, std::string reason) noexcept :
+            name(std::move(name)),
+            reason(std::move(reason))
+        {
+        }
+
+        /// Copy constructor.
+        ServerUnreachableException(const ServerUnreachableException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(name, reason);
+        }
 
 
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
-    /// The identity of the object.
-    ::Ice::Identity id;
+        /// The id of the server that is not reachable.
+        std::string name;
+        /// The reason why the server couldn't be reached.
+        std::string reason;
 
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
 
-/// This exception is raised if an object is not registered.
-class ICE_CLASS(ICEGRID_API) ObjectNotRegisteredException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    ObjectNotRegisteredException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param id The identity of the object.
-    ObjectNotRegisteredException(::Ice::Identity id) noexcept :
-        id(std::move(id))
+    /// This exception is raised if a registry could not be reached.
+    class ICE_CLASS(ICEGRID_API) RegistryUnreachableException : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        RegistryUnreachableException() noexcept = default;
 
-    /// Copy constructor.
-    ObjectNotRegisteredException(const ObjectNotRegisteredException&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        /// @param name The name of the registry that is not reachable.
+        /// @param reason The reason why the registry couldn't be reached.
+        RegistryUnreachableException(std::string name, std::string reason) noexcept :
+            name(std::move(name)),
+            reason(std::move(reason))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Ice::Identity&> ice_tuple() const
+        /// Copy constructor.
+        RegistryUnreachableException(const RegistryUnreachableException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(name, reason);
+        }
+
+
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
+        /// The name of the registry that is not reachable.
+        std::string name;
+        /// The reason why the registry couldn't be reached.
+        std::string reason;
+
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
+
+    /// This exception is raised if an unknown signal was sent to to a server.
+    class ICE_CLASS(ICEGRID_API) BadSignalException : public Ice::UserException
     {
-        return std::tie(id);
-    }
+    public:
+        /// Default constructor.
+        BadSignalException() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        /// @param reason The details of the unknown signal.
+        BadSignalException(std::string reason) noexcept :
+            reason(std::move(reason))
+        {
+        }
+
+        /// Copy constructor.
+        BadSignalException(const BadSignalException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(reason);
+        }
 
 
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
-    /// The identity of the object.
-    ::Ice::Identity id;
+        /// The details of the unknown signal.
+        std::string reason;
 
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
 
-/// This exception is raised if a node does not exist.
-class ICE_CLASS(ICEGRID_API) NodeNotExistException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    NodeNotExistException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param name The node name.
-    NodeNotExistException(std::string name) noexcept :
-        name(std::move(name))
+    /// his exception is raised if a registry lock wasn't acquired or is already held by a session.
+    class ICE_CLASS(ICEGRID_API) AccessDeniedException : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        AccessDeniedException() noexcept = default;
 
-    /// Copy constructor.
-    NodeNotExistException(const NodeNotExistException&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        /// @param lockUserId The id of the user holding the lock (if any).
+        AccessDeniedException(std::string lockUserId) noexcept :
+            lockUserId(std::move(lockUserId))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        /// Copy constructor.
+        AccessDeniedException(const AccessDeniedException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(lockUserId);
+        }
+
+
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
+        /// The id of the user holding the lock (if any).
+        std::string lockUserId;
+
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
+
+    /// This exception is raised if the allocation of an object failed.
+    class ICE_CLASS(ICEGRID_API) AllocationException : public Ice::UserException
     {
-        return std::tie(name);
-    }
+    public:
+        /// Default constructor.
+        AllocationException() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        /// @param reason The reason why the object couldn't be allocated.
+        AllocationException(std::string reason) noexcept :
+            reason(std::move(reason))
+        {
+        }
+
+        /// Copy constructor.
+        AllocationException(const AllocationException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(reason);
+        }
 
 
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
-    /// The node name.
-    std::string name;
+        /// The reason why the object couldn't be allocated.
+        std::string reason;
 
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
 
-/// This exception is raised if a registry does not exist.
-class ICE_CLASS(ICEGRID_API) RegistryNotExistException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    RegistryNotExistException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param name The registry name.
-    RegistryNotExistException(std::string name) noexcept :
-        name(std::move(name))
+    /// This exception is raised if the request to allocate an object times out.
+    class ICE_CLASS(ICEGRID_API) AllocationTimeoutException : public AllocationException
     {
-    }
+    public:
+        using AllocationException::AllocationException;
 
-    /// Copy constructor.
-    RegistryNotExistException(const RegistryNotExistException&) noexcept = default;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
+
+    /// This exception is raised if a client is denied the ability to create a session with IceGrid.
+    class ICE_CLASS(ICEGRID_API) PermissionDeniedException : public Ice::UserException
     {
-        return std::tie(name);
-    }
+    public:
+        /// Default constructor.
+        PermissionDeniedException() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        /// @param reason The reason why permission was denied.
+        PermissionDeniedException(std::string reason) noexcept :
+            reason(std::move(reason))
+        {
+        }
+
+        /// Copy constructor.
+        PermissionDeniedException(const PermissionDeniedException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(reason);
+        }
 
 
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
-    /// The registry name.
-    std::string name;
+        /// The reason why permission was denied.
+        std::string reason;
 
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
 
-/// An exception for deployment errors.
-class ICE_CLASS(ICEGRID_API) DeploymentException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    DeploymentException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param reason The reason for the failure.
-    DeploymentException(std::string reason) noexcept :
-        reason(std::move(reason))
+    /// This exception is raised if an observer is already registered with the registry.
+    /// @see AdminSession#setObservers
+    /// @see AdminSession#setObserversByIdentity
+    class ICE_CLASS(ICEGRID_API) ObserverAlreadyRegisteredException : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        ObserverAlreadyRegisteredException() noexcept = default;
 
-    /// Copy constructor.
-    DeploymentException(const DeploymentException&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        /// @param id The identity of the observer.
+        ObserverAlreadyRegisteredException(::Ice::Identity id) noexcept :
+            id(std::move(id))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        /// Copy constructor.
+        ObserverAlreadyRegisteredException(const ObserverAlreadyRegisteredException&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Ice::Identity&> ice_tuple() const
+        {
+            return std::tie(id);
+        }
+
+
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
+        /// The identity of the observer.
+        ::Ice::Identity id;
+
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
+
+    /// This exception is raised if a file is not available.
+    /// @see AdminSession#openServerStdOut
+    /// @see AdminSession#openServerStdErr
+    /// @see AdminSession#openNodeStdOut
+    /// @see AdminSession#openNodeStdErr
+    /// @see AdminSession#openRegistryStdOut
+    /// @see AdminSession#openRegistryStdErr
+    class ICE_CLASS(ICEGRID_API) FileNotAvailableException : public Ice::UserException
     {
-        return std::tie(reason);
-    }
+    public:
+        /// Default constructor.
+        FileNotAvailableException() noexcept = default;
 
+        /// One-shot constructor to initialize all data members.
+        /// @param reason The reason for the failure.
+        FileNotAvailableException(std::string reason) noexcept :
+            reason(std::move(reason))
+        {
+        }
 
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
+        /// Copy constructor.
+        FileNotAvailableException(const FileNotAvailableException&) noexcept = default;
 
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(reason);
+        }
 
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
-    /// The reason for the failure.
-    std::string reason;
+        ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
 
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
+        ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
+        ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
 
-/// This exception is raised if a node could not be reached.
-class ICE_CLASS(ICEGRID_API) NodeUnreachableException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    NodeUnreachableException() noexcept = default;
+        /// The reason for the failure.
+        std::string reason;
 
-    /// One-shot constructor to initialize all data members.
-    /// @param name The name of the node that is not reachable.
-    /// @param reason The reason why the node couldn't be reached.
-    NodeUnreachableException(std::string name, std::string reason) noexcept :
-        name(std::move(name)),
-        reason(std::move(reason))
-    {
-    }
+    protected:
+        ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    /// Copy constructor.
-    NodeUnreachableException(const NodeUnreachableException&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
-    {
-        return std::tie(name, reason);
-    }
-
-
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
-
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
-
-    /// The name of the node that is not reachable.
-    std::string name;
-    /// The reason why the node couldn't be reached.
-    std::string reason;
-
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
-
-/// This exception is raised if a server could not be reached.
-class ICE_CLASS(ICEGRID_API) ServerUnreachableException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    ServerUnreachableException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param name The id of the server that is not reachable.
-    /// @param reason The reason why the server couldn't be reached.
-    ServerUnreachableException(std::string name, std::string reason) noexcept :
-        name(std::move(name)),
-        reason(std::move(reason))
-    {
-    }
-
-    /// Copy constructor.
-    ServerUnreachableException(const ServerUnreachableException&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
-    {
-        return std::tie(name, reason);
-    }
-
-
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
-
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
-
-    /// The id of the server that is not reachable.
-    std::string name;
-    /// The reason why the server couldn't be reached.
-    std::string reason;
-
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
-
-/// This exception is raised if a registry could not be reached.
-class ICE_CLASS(ICEGRID_API) RegistryUnreachableException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    RegistryUnreachableException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param name The name of the registry that is not reachable.
-    /// @param reason The reason why the registry couldn't be reached.
-    RegistryUnreachableException(std::string name, std::string reason) noexcept :
-        name(std::move(name)),
-        reason(std::move(reason))
-    {
-    }
-
-    /// Copy constructor.
-    RegistryUnreachableException(const RegistryUnreachableException&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
-    {
-        return std::tie(name, reason);
-    }
-
-
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
-
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
-
-    /// The name of the registry that is not reachable.
-    std::string name;
-    /// The reason why the registry couldn't be reached.
-    std::string reason;
-
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
-
-/// This exception is raised if an unknown signal was sent to to a server.
-class ICE_CLASS(ICEGRID_API) BadSignalException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    BadSignalException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param reason The details of the unknown signal.
-    BadSignalException(std::string reason) noexcept :
-        reason(std::move(reason))
-    {
-    }
-
-    /// Copy constructor.
-    BadSignalException(const BadSignalException&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
-    {
-        return std::tie(reason);
-    }
-
-
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
-
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
-
-    /// The details of the unknown signal.
-    std::string reason;
-
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
-
-/// his exception is raised if a registry lock wasn't acquired or is already held by a session.
-class ICE_CLASS(ICEGRID_API) AccessDeniedException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    AccessDeniedException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param lockUserId The id of the user holding the lock (if any).
-    AccessDeniedException(std::string lockUserId) noexcept :
-        lockUserId(std::move(lockUserId))
-    {
-    }
-
-    /// Copy constructor.
-    AccessDeniedException(const AccessDeniedException&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
-    {
-        return std::tie(lockUserId);
-    }
-
-
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
-
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
-
-    /// The id of the user holding the lock (if any).
-    std::string lockUserId;
-
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
-
-/// This exception is raised if the allocation of an object failed.
-class ICE_CLASS(ICEGRID_API) AllocationException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    AllocationException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param reason The reason why the object couldn't be allocated.
-    AllocationException(std::string reason) noexcept :
-        reason(std::move(reason))
-    {
-    }
-
-    /// Copy constructor.
-    AllocationException(const AllocationException&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
-    {
-        return std::tie(reason);
-    }
-
-
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
-
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
-
-    /// The reason why the object couldn't be allocated.
-    std::string reason;
-
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
-
-/// This exception is raised if the request to allocate an object times out.
-class ICE_CLASS(ICEGRID_API) AllocationTimeoutException : public AllocationException
-{
-public:
-    using AllocationException::AllocationException;
-
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
-
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
-
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
-
-/// This exception is raised if a client is denied the ability to create a session with IceGrid.
-class ICE_CLASS(ICEGRID_API) PermissionDeniedException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    PermissionDeniedException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param reason The reason why permission was denied.
-    PermissionDeniedException(std::string reason) noexcept :
-        reason(std::move(reason))
-    {
-    }
-
-    /// Copy constructor.
-    PermissionDeniedException(const PermissionDeniedException&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
-    {
-        return std::tie(reason);
-    }
-
-
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
-
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
-
-    /// The reason why permission was denied.
-    std::string reason;
-
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
-
-/// This exception is raised if an observer is already registered with the registry.
-/// @see AdminSession#setObservers
-/// @see AdminSession#setObserversByIdentity
-class ICE_CLASS(ICEGRID_API) ObserverAlreadyRegisteredException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    ObserverAlreadyRegisteredException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param id The identity of the observer.
-    ObserverAlreadyRegisteredException(::Ice::Identity id) noexcept :
-        id(std::move(id))
-    {
-    }
-
-    /// Copy constructor.
-    ObserverAlreadyRegisteredException(const ObserverAlreadyRegisteredException&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Ice::Identity&> ice_tuple() const
-    {
-        return std::tie(id);
-    }
-
-
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
-
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
-
-    /// The identity of the observer.
-    ::Ice::Identity id;
-
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
-
-/// This exception is raised if a file is not available.
-/// @see AdminSession#openServerStdOut
-/// @see AdminSession#openServerStdErr
-/// @see AdminSession#openNodeStdOut
-/// @see AdminSession#openNodeStdErr
-/// @see AdminSession#openRegistryStdOut
-/// @see AdminSession#openRegistryStdErr
-class ICE_CLASS(ICEGRID_API) FileNotAvailableException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    FileNotAvailableException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param reason The reason for the failure.
-    FileNotAvailableException(std::string reason) noexcept :
-        reason(std::move(reason))
-    {
-    }
-
-    /// Copy constructor.
-    FileNotAvailableException(const FileNotAvailableException&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
-    {
-        return std::tie(reason);
-    }
-
-
-    ICE_MEMBER(ICEGRID_API) void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICEGRID_API) static const char* ice_staticId() noexcept;
-
-    ICE_MEMBER(ICEGRID_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
-
-    /// The reason for the failure.
-    std::string reason;
-
-protected:
-    ICE_MEMBER(ICEGRID_API) void _writeImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
-};
-
+        ICE_MEMBER(ICEGRID_API) void _readImpl(Ice::InputStream*) override;
+    };
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 #include <Ice/PopDisableWarnings.h>
 #endif

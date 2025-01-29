@@ -153,7 +153,6 @@ IceLocatorDiscovery::LookupReply::_iceD_foundLocator(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceLocatorDiscovery::LookupReply::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -201,7 +200,6 @@ IceLocatorDiscovery::LookupReply::dispatch(Ice::IncomingRequest& request, std::f
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceLocatorDiscovery::Lookup::ice_ids(const Ice::Current&) const
@@ -240,7 +238,6 @@ IceLocatorDiscovery::Lookup::_iceD_findLocator(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceLocatorDiscovery::Lookup::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -288,4 +285,3 @@ IceLocatorDiscovery::Lookup::dispatch(Ice::IncomingRequest& request, std::functi
         }
     }
 }
-/// \endcond

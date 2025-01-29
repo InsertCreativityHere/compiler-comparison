@@ -53,7 +53,6 @@ namespace Ice
 
     /// Uniquely identifies SSL iAP-based endpoints.
     constexpr std::int16_t iAPSEndpointType = 9;
-
 }
 
 #include <Ice/PopDisableWarnings.h>

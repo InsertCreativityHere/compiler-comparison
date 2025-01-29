@@ -68,811 +68,804 @@ namespace IceMX
 
     class ConnectionMetrics;
     using ConnectionMetricsPtr = std::shared_ptr<ConnectionMetrics>;
-
 }
 
 namespace IceMX
 {
-
-/// The metrics administrative facet interface. This interface allows remote administrative clients to access
-/// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
-class ICE_API MetricsAdminPrx : public Ice::Proxy<MetricsAdminPrx, Ice::ObjectPrx>
-{
-public:
-
-    /// Get the names of enabled and disabled metrics.
-    /// @param disabledViews The names of the disabled views.
-    /// @param context The Context map to send with the invocation.
-    /// @return The name of the enabled views.
-    ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Get the names of enabled and disabled metrics.
-    /// @param context The Context map to send with the invocation.
-    /// @return The future object for the invocation.
-    [[nodiscard]] std::future<std::tuple<::Ice::StringSeq, ::Ice::StringSeq>> getMetricsViewNamesAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Get the names of enabled and disabled metrics.
-    /// @param response The response callback.
-    /// @param ex The exception callback.
-    /// @param sent The sent callback.
-    /// @param context The Context map to send with the invocation.
-    /// @return A function that can be called to cancel the invocation locally.
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getMetricsViewNamesAsync(std::function<void(::Ice::StringSeq, ::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getMetricsViewNames(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Enables a metrics view.
-    /// @param name The metrics view name.
-    /// @param context The Context map to send with the invocation.
-    /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-    void enableMetricsView(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Enables a metrics view.
-    /// @param name The metrics view name.
-    /// @param context The Context map to send with the invocation.
-    /// @return The future object for the invocation.
-    [[nodiscard]] std::future<void> enableMetricsViewAsync(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Enables a metrics view.
-    /// @param name The metrics view name.
-    /// @param response The response callback.
-    /// @param ex The exception callback.
-    /// @param sent The sent callback.
-    /// @param context The Context map to send with the invocation.
-    /// @return A function that can be called to cancel the invocation locally.
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    enableMetricsViewAsync(std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_enableMetricsView(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const Ice::Context&) const;
-    /// \endcond
-
-    /// Disable a metrics view.
-    /// @param name The metrics view name.
-    /// @param context The Context map to send with the invocation.
-    /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-    void disableMetricsView(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Disable a metrics view.
-    /// @param name The metrics view name.
-    /// @param context The Context map to send with the invocation.
-    /// @return The future object for the invocation.
-    [[nodiscard]] std::future<void> disableMetricsViewAsync(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Disable a metrics view.
-    /// @param name The metrics view name.
-    /// @param response The response callback.
-    /// @param ex The exception callback.
-    /// @param sent The sent callback.
-    /// @param context The Context map to send with the invocation.
-    /// @return A function that can be called to cancel the invocation locally.
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    disableMetricsViewAsync(std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_disableMetricsView(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const Ice::Context&) const;
-    /// \endcond
-
-    /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
-    /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
-    /// dependent of the invocation latency for this operation.
-    /// @param view The name of the metrics view.
-    /// @param timestamp The local time of the process when the metrics object were retrieved.
-    /// @param context The Context map to send with the invocation.
-    /// @return The metrics view data.
-    /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-    MetricsView getMetricsView(std::string_view view, std::int64_t& timestamp, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
-    /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
-    /// dependent of the invocation latency for this operation.
-    /// @param view The name of the metrics view.
-    /// @param context The Context map to send with the invocation.
-    /// @return The future object for the invocation.
-    [[nodiscard]] std::future<std::tuple<MetricsView, std::int64_t>> getMetricsViewAsync(std::string_view view, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
-    /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
-    /// dependent of the invocation latency for this operation.
-    /// @param view The name of the metrics view.
-    /// @param response The response callback.
-    /// @param ex The exception callback.
-    /// @param sent The sent callback.
-    /// @param context The Context map to send with the invocation.
-    /// @return A function that can be called to cancel the invocation locally.
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getMetricsViewAsync(std::string_view view, std::function<void(::IceMX::MetricsView, std::int64_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getMetricsView(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<MetricsView, std::int64_t>>>&, std::string_view, const Ice::Context&) const;
-    /// \endcond
-
-    /// Get the metrics failures associated with the given view and map.
-    /// @param view The name of the metrics view.
-    /// @param map The name of the metrics map.
-    /// @param context The Context map to send with the invocation.
-    /// @return The metrics failures associated with the map.
-    /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-    MetricsFailuresSeq getMapMetricsFailures(std::string_view view, std::string_view map, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    /// Get the metrics failures associated with the given view and map.
-    /// @param view The name of the metrics view.
-    /// @param map The name of the metrics map.
-    /// @param context The Context map to send with the invocation.
-    /// @return The future object for the invocation.
-    [[nodiscard]] std::future<MetricsFailuresSeq> getMapMetricsFailuresAsync(std::string_view view, std::string_view map, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Get the metrics failures associated with the given view and map.
-    /// @param view The name of the metrics view.
-    /// @param map The name of the metrics map.
-    /// @param response The response callback.
-    /// @param ex The exception callback.
-    /// @param sent The sent callback.
-    /// @param context The Context map to send with the invocation.
-    /// @return A function that can be called to cancel the invocation locally.
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getMapMetricsFailuresAsync(std::string_view view, std::string_view map, std::function<void(::IceMX::MetricsFailuresSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getMapMetricsFailures(const std::shared_ptr<IceInternal::OutgoingAsyncT<MetricsFailuresSeq>>&, std::string_view, std::string_view, const Ice::Context&) const;
-    /// \endcond
-
-    /// Get the metrics failure associated for the given metrics.
-    /// @param view The name of the metrics view.
-    /// @param map The name of the metrics map.
-    /// @param id The ID of the metrics.
-    /// @param context The Context map to send with the invocation.
-    /// @return The metrics failures associated with the metrics.
-    /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-    MetricsFailures getMetricsFailures(std::string_view view, std::string_view map, std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    /// Get the metrics failure associated for the given metrics.
-    /// @param view The name of the metrics view.
-    /// @param map The name of the metrics map.
-    /// @param id The ID of the metrics.
-    /// @param context The Context map to send with the invocation.
-    /// @return The future object for the invocation.
-    [[nodiscard]] std::future<MetricsFailures> getMetricsFailuresAsync(std::string_view view, std::string_view map, std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Get the metrics failure associated for the given metrics.
-    /// @param view The name of the metrics view.
-    /// @param map The name of the metrics map.
-    /// @param id The ID of the metrics.
-    /// @param response The response callback.
-    /// @param ex The exception callback.
-    /// @param sent The sent callback.
-    /// @param context The Context map to send with the invocation.
-    /// @return A function that can be called to cancel the invocation locally.
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    getMetricsFailuresAsync(std::string_view view, std::string_view map, std::string_view id, std::function<void(::IceMX::MetricsFailures)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getMetricsFailures(const std::shared_ptr<IceInternal::OutgoingAsyncT<MetricsFailures>>&, std::string_view, std::string_view, std::string_view, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    MetricsAdminPrx(const MetricsAdminPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    MetricsAdminPrx(MetricsAdminPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    MetricsAdminPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~MetricsAdminPrx() override;
-
-    MetricsAdminPrx& operator=(const MetricsAdminPrx& rhs) noexcept
+    /// The metrics administrative facet interface. This interface allows remote administrative clients to access
+    /// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
+    class ICE_API MetricsAdminPrx : public Ice::Proxy<MetricsAdminPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        /// Get the names of enabled and disabled metrics.
+        /// @param disabledViews The names of the disabled views.
+        /// @param context The Context map to send with the invocation.
+        /// @return The name of the enabled views.
+        ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Get the names of enabled and disabled metrics.
+        /// @param context The Context map to send with the invocation.
+        /// @return The future object for the invocation.
+        [[nodiscard]] std::future<std::tuple<::Ice::StringSeq, ::Ice::StringSeq>> getMetricsViewNamesAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Get the names of enabled and disabled metrics.
+        /// @param response The response callback.
+        /// @param ex The exception callback.
+        /// @param sent The sent callback.
+        /// @param context The Context map to send with the invocation.
+        /// @return A function that can be called to cancel the invocation locally.
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getMetricsViewNamesAsync(std::function<void(::Ice::StringSeq, ::Ice::StringSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getMetricsViewNames(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Enables a metrics view.
+        /// @param name The metrics view name.
+        /// @param context The Context map to send with the invocation.
+        /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+        void enableMetricsView(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Enables a metrics view.
+        /// @param name The metrics view name.
+        /// @param context The Context map to send with the invocation.
+        /// @return The future object for the invocation.
+        [[nodiscard]] std::future<void> enableMetricsViewAsync(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Enables a metrics view.
+        /// @param name The metrics view name.
+        /// @param response The response callback.
+        /// @param ex The exception callback.
+        /// @param sent The sent callback.
+        /// @param context The Context map to send with the invocation.
+        /// @return A function that can be called to cancel the invocation locally.
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        enableMetricsViewAsync(std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_enableMetricsView(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const Ice::Context&) const;
+        /// \endcond
+
+        /// Disable a metrics view.
+        /// @param name The metrics view name.
+        /// @param context The Context map to send with the invocation.
+        /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+        void disableMetricsView(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Disable a metrics view.
+        /// @param name The metrics view name.
+        /// @param context The Context map to send with the invocation.
+        /// @return The future object for the invocation.
+        [[nodiscard]] std::future<void> disableMetricsViewAsync(std::string_view name, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Disable a metrics view.
+        /// @param name The metrics view name.
+        /// @param response The response callback.
+        /// @param ex The exception callback.
+        /// @param sent The sent callback.
+        /// @param context The Context map to send with the invocation.
+        /// @return A function that can be called to cancel the invocation locally.
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        disableMetricsViewAsync(std::string_view name, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_disableMetricsView(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, const Ice::Context&) const;
+        /// \endcond
+
+        /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+        /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
+        /// dependent of the invocation latency for this operation.
+        /// @param view The name of the metrics view.
+        /// @param timestamp The local time of the process when the metrics object were retrieved.
+        /// @param context The Context map to send with the invocation.
+        /// @return The metrics view data.
+        /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+        MetricsView getMetricsView(std::string_view view, std::int64_t& timestamp, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+        /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
+        /// dependent of the invocation latency for this operation.
+        /// @param view The name of the metrics view.
+        /// @param context The Context map to send with the invocation.
+        /// @return The future object for the invocation.
+        [[nodiscard]] std::future<std::tuple<MetricsView, std::int64_t>> getMetricsViewAsync(std::string_view view, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+        /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
+        /// dependent of the invocation latency for this operation.
+        /// @param view The name of the metrics view.
+        /// @param response The response callback.
+        /// @param ex The exception callback.
+        /// @param sent The sent callback.
+        /// @param context The Context map to send with the invocation.
+        /// @return A function that can be called to cancel the invocation locally.
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getMetricsViewAsync(std::string_view view, std::function<void(::IceMX::MetricsView, std::int64_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getMetricsView(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::tuple<MetricsView, std::int64_t>>>&, std::string_view, const Ice::Context&) const;
+        /// \endcond
+
+        /// Get the metrics failures associated with the given view and map.
+        /// @param view The name of the metrics view.
+        /// @param map The name of the metrics map.
+        /// @param context The Context map to send with the invocation.
+        /// @return The metrics failures associated with the map.
+        /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+        MetricsFailuresSeq getMapMetricsFailures(std::string_view view, std::string_view map, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        /// Get the metrics failures associated with the given view and map.
+        /// @param view The name of the metrics view.
+        /// @param map The name of the metrics map.
+        /// @param context The Context map to send with the invocation.
+        /// @return The future object for the invocation.
+        [[nodiscard]] std::future<MetricsFailuresSeq> getMapMetricsFailuresAsync(std::string_view view, std::string_view map, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Get the metrics failures associated with the given view and map.
+        /// @param view The name of the metrics view.
+        /// @param map The name of the metrics map.
+        /// @param response The response callback.
+        /// @param ex The exception callback.
+        /// @param sent The sent callback.
+        /// @param context The Context map to send with the invocation.
+        /// @return A function that can be called to cancel the invocation locally.
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getMapMetricsFailuresAsync(std::string_view view, std::string_view map, std::function<void(::IceMX::MetricsFailuresSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getMapMetricsFailures(const std::shared_ptr<IceInternal::OutgoingAsyncT<MetricsFailuresSeq>>&, std::string_view, std::string_view, const Ice::Context&) const;
+        /// \endcond
+
+        /// Get the metrics failure associated for the given metrics.
+        /// @param view The name of the metrics view.
+        /// @param map The name of the metrics map.
+        /// @param id The ID of the metrics.
+        /// @param context The Context map to send with the invocation.
+        /// @return The metrics failures associated with the metrics.
+        /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+        MetricsFailures getMetricsFailures(std::string_view view, std::string_view map, std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        /// Get the metrics failure associated for the given metrics.
+        /// @param view The name of the metrics view.
+        /// @param map The name of the metrics map.
+        /// @param id The ID of the metrics.
+        /// @param context The Context map to send with the invocation.
+        /// @return The future object for the invocation.
+        [[nodiscard]] std::future<MetricsFailures> getMetricsFailuresAsync(std::string_view view, std::string_view map, std::string_view id, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Get the metrics failure associated for the given metrics.
+        /// @param view The name of the metrics view.
+        /// @param map The name of the metrics map.
+        /// @param id The ID of the metrics.
+        /// @param response The response callback.
+        /// @param ex The exception callback.
+        /// @param sent The sent callback.
+        /// @param context The Context map to send with the invocation.
+        /// @return A function that can be called to cancel the invocation locally.
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        getMetricsFailuresAsync(std::string_view view, std::string_view map, std::string_view id, std::function<void(::IceMX::MetricsFailures)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_getMetricsFailures(const std::shared_ptr<IceInternal::OutgoingAsyncT<MetricsFailures>>&, std::string_view, std::string_view, std::string_view, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        MetricsAdminPrx(const MetricsAdminPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        MetricsAdminPrx(MetricsAdminPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        MetricsAdminPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~MetricsAdminPrx() override;
+
+        MetricsAdminPrx& operator=(const MetricsAdminPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    MetricsAdminPrx& operator=(MetricsAdminPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        MetricsAdminPrx& operator=(MetricsAdminPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static MetricsAdminPrx _fromReference(IceInternal::ReferencePtr ref) { return MetricsAdminPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static MetricsAdminPrx _fromReference(IceInternal::ReferencePtr ref) { return MetricsAdminPrx(std::move(ref)); }
 
-protected:
+    protected:
+        MetricsAdminPrx() = default;
 
-    MetricsAdminPrx() = default;
-
-    explicit MetricsAdminPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
+        explicit MetricsAdminPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 }
 
 namespace IceMX
 {
-
-/// The base class for metrics. A metrics object represents a collection of measurements associated to a given a
-/// system.
-class ICE_CLASS(ICE_API) Metrics : public Ice::Value
-{
-public:
-    /// Default constructor.
-    Metrics() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param id The metrics identifier.
-    /// @param total The total number of objects observed by this metrics.
-    /// @param current The number of objects currently observed by this metrics.
-    /// @param totalLifetime The sum of the lifetime of each observed objects.
-    /// @param failures The number of failures observed.
-    Metrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures) noexcept :
-        id(std::move(id)),
-        total(total),
-        current(current),
-        totalLifetime(totalLifetime),
-        failures(failures)
+    /// The base class for metrics. A metrics object represents a collection of measurements associated to a given a
+    /// system.
+    class ICE_CLASS(ICE_API) Metrics : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        Metrics() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        /// @param id The metrics identifier.
+        /// @param total The total number of objects observed by this metrics.
+        /// @param current The number of objects currently observed by this metrics.
+        /// @param totalLifetime The sum of the lifetime of each observed objects.
+        /// @param failures The number of failures observed.
+        Metrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures) noexcept :
+            id(std::move(id)),
+            total(total),
+            current(current),
+            totalLifetime(totalLifetime),
+            failures(failures)
+        {
+        }
 
-    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&> ice_tuple() const
+        ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(id, total, current, totalLifetime, failures);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] MetricsPtr ice_clone() const { return std::static_pointer_cast<Metrics>(_iceCloneImpl()); }
+
+        /// The metrics identifier.
+        std::string id;
+        /// The total number of objects observed by this metrics. This includes the number of currently observed objects
+        /// and the number of objects observed in the past.
+        std::int64_t total = INT64_C(0);
+        /// The number of objects currently observed by this metrics.
+        std::int32_t current = 0;
+        /// The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
+        /// currently observed, only the objects observed in the past.
+        std::int64_t totalLifetime = INT64_C(0);
+        /// The number of failures observed.
+        std::int32_t failures = 0;
+
+        ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
+        Metrics(const Metrics&) = default;
+
+        ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    /// A structure to keep track of failures associated with a given metrics.
+    struct MetricsFailures
     {
-        return std::tie(id, total, current, totalLifetime, failures);
-    }
+        /// The identifier of the metrics object associated to the failures.
+        std::string id;
+        /// The failures observed for this metrics.
+        ::IceMX::StringIntDict failures;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] MetricsPtr ice_clone() const { return std::static_pointer_cast<Metrics>(_iceCloneImpl()); }
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const ::IceMX::StringIntDict&> ice_tuple() const
+        {
+            return std::tie(id, failures);
+        }
 
-    /// The metrics identifier.
-    std::string id;
-    /// The total number of objects observed by this metrics. This includes the number of currently observed objects
-    /// and the number of objects observed in the past.
-    std::int64_t total = INT64_C(0);
-    /// The number of objects currently observed by this metrics.
-    std::int32_t current = 0;
-    /// The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
-    /// currently observed, only the objects observed in the past.
-    std::int64_t totalLifetime = INT64_C(0);
-    /// The number of failures observed.
-    std::int32_t failures = 0;
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        ICE_API void ice_printFields(std::ostream& os) const;
+    };
 
-    ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
-    Metrics(const Metrics&) = default;
+    ICE_API std::ostream& operator<<(std::ostream&, const MetricsFailures&);
 
-    ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
-};
-
-/// A structure to keep track of failures associated with a given metrics.
-struct MetricsFailures
-{
-    /// The identifier of the metrics object associated to the failures.
-    std::string id;
-    /// The failures observed for this metrics.
-    ::IceMX::StringIntDict failures;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const ::IceMX::StringIntDict&> ice_tuple() const
+    /// Raised if a metrics view cannot be found.
+    class ICE_CLASS(ICE_API) UnknownMetricsView : public Ice::UserException
     {
-        return std::tie(id, failures);
-    }
+    public:
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    ICE_API void ice_printFields(std::ostream& os) const;
-};
+        ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-ICE_API std::ostream& operator<<(std::ostream&, const MetricsFailures&);
+        ICE_MEMBER(ICE_API) void ice_throw() const override;
 
-/// Raised if a metrics view cannot be found.
-class ICE_CLASS(ICE_API) UnknownMetricsView : public Ice::UserException
-{
-public:
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
+    protected:
+        ICE_MEMBER(ICE_API) void _writeImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        ICE_MEMBER(ICE_API) void _readImpl(Ice::InputStream*) override;
+    };
 
-    ICE_MEMBER(ICE_API) void ice_throw() const override;
-
-protected:
-    ICE_MEMBER(ICE_API) void _writeImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICE_API) void _readImpl(Ice::InputStream*) override;
-};
-
-/// Provides information on the number of threads currently in use and their activity.
-class ICE_CLASS(ICE_API) ThreadMetrics : public Metrics
-{
-public:
-    /// Default constructor.
-    ThreadMetrics() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param id The metrics identifier.
-    /// @param total The total number of objects observed by this metrics.
-    /// @param current The number of objects currently observed by this metrics.
-    /// @param totalLifetime The sum of the lifetime of each observed objects.
-    /// @param failures The number of failures observed.
-    /// @param inUseForIO The number of threads which are currently performing socket read or writes.
-    /// @param inUseForUser The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
-    /// @param inUseForOther The number of threads which are currently performing other activities.
-    ThreadMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int32_t inUseForIO, std::int32_t inUseForUser, std::int32_t inUseForOther) noexcept :
-        Metrics(std::move(id), total, current, totalLifetime, failures),
-        inUseForIO(inUseForIO),
-        inUseForUser(inUseForUser),
-        inUseForOther(inUseForOther)
+    /// Provides information on the number of threads currently in use and their activity.
+    class ICE_CLASS(ICE_API) ThreadMetrics : public Metrics
     {
-    }
+    public:
+        /// Default constructor.
+        ThreadMetrics() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        /// @param id The metrics identifier.
+        /// @param total The total number of objects observed by this metrics.
+        /// @param current The number of objects currently observed by this metrics.
+        /// @param totalLifetime The sum of the lifetime of each observed objects.
+        /// @param failures The number of failures observed.
+        /// @param inUseForIO The number of threads which are currently performing socket read or writes.
+        /// @param inUseForUser The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
+        /// @param inUseForOther The number of threads which are currently performing other activities.
+        ThreadMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int32_t inUseForIO, std::int32_t inUseForUser, std::int32_t inUseForOther) noexcept :
+            Metrics(std::move(id), total, current, totalLifetime, failures),
+            inUseForIO(inUseForIO),
+            inUseForUser(inUseForUser),
+            inUseForOther(inUseForOther)
+        {
+        }
 
-    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
+        ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(id, total, current, totalLifetime, failures, inUseForIO, inUseForUser, inUseForOther);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] ThreadMetricsPtr ice_clone() const { return std::static_pointer_cast<ThreadMetrics>(_iceCloneImpl()); }
+
+        /// The number of threads which are currently performing socket read or writes.
+        std::int32_t inUseForIO = 0;
+        /// The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
+        std::int32_t inUseForUser = 0;
+        /// The number of threads which are currently performing other activities. These are all other that are not
+        /// counted with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
+        std::int32_t inUseForOther = 0;
+
+        ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
+        ThreadMetrics(const ThreadMetrics&) = default;
+
+        ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    /// Provides information on servant dispatch.
+    class ICE_CLASS(ICE_API) DispatchMetrics : public Metrics
     {
-        return std::tie(id, total, current, totalLifetime, failures, inUseForIO, inUseForUser, inUseForOther);
-    }
+    public:
+        /// Default constructor.
+        DispatchMetrics() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] ThreadMetricsPtr ice_clone() const { return std::static_pointer_cast<ThreadMetrics>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        /// @param id The metrics identifier.
+        /// @param total The total number of objects observed by this metrics.
+        /// @param current The number of objects currently observed by this metrics.
+        /// @param totalLifetime The sum of the lifetime of each observed objects.
+        /// @param failures The number of failures observed.
+        /// @param userException The number of dispatch that failed with a user exception.
+        /// @param size The size of the dispatch.
+        /// @param replySize The size of the dispatch reply.
+        DispatchMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int32_t userException, std::int64_t size, std::int64_t replySize) noexcept :
+            Metrics(std::move(id), total, current, totalLifetime, failures),
+            userException(userException),
+            size(size),
+            replySize(replySize)
+        {
+        }
 
-    /// The number of threads which are currently performing socket read or writes.
-    std::int32_t inUseForIO = 0;
-    /// The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
-    std::int32_t inUseForUser = 0;
-    /// The number of threads which are currently performing other activities. These are all other that are not
-    /// counted with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
-    std::int32_t inUseForOther = 0;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
-    ThreadMetrics(const ThreadMetrics&) = default;
+        ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int32_t&, const std::int64_t&, const std::int64_t&> ice_tuple() const
+        {
+            return std::tie(id, total, current, totalLifetime, failures, userException, size, replySize);
+        }
 
-    ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] DispatchMetricsPtr ice_clone() const { return std::static_pointer_cast<DispatchMetrics>(_iceCloneImpl()); }
 
-    ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
-};
+        /// The number of dispatch that failed with a user exception.
+        std::int32_t userException = 0;
+        /// The size of the dispatch. This corresponds to the size of the marshaled input parameters.
+        std::int64_t size = INT64_C(0);
+        /// The size of the dispatch reply. This corresponds to the size of the marshaled output and return parameters.
+        std::int64_t replySize = INT64_C(0);
 
-/// Provides information on servant dispatch.
-class ICE_CLASS(ICE_API) DispatchMetrics : public Metrics
-{
-public:
-    /// Default constructor.
-    DispatchMetrics() noexcept = default;
+        ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
+        DispatchMetrics(const DispatchMetrics&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    /// @param id The metrics identifier.
-    /// @param total The total number of objects observed by this metrics.
-    /// @param current The number of objects currently observed by this metrics.
-    /// @param totalLifetime The sum of the lifetime of each observed objects.
-    /// @param failures The number of failures observed.
-    /// @param userException The number of dispatch that failed with a user exception.
-    /// @param size The size of the dispatch.
-    /// @param replySize The size of the dispatch reply.
-    DispatchMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int32_t userException, std::int64_t size, std::int64_t replySize) noexcept :
-        Metrics(std::move(id), total, current, totalLifetime, failures),
-        userException(userException),
-        size(size),
-        replySize(replySize)
+        ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    /// Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
+    /// collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
+    /// embedded within {@link InvocationMetrics}.
+    class ICE_CLASS(ICE_API) ChildInvocationMetrics : public Metrics
     {
-    }
+    public:
+        /// Default constructor.
+        ChildInvocationMetrics() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        /// @param id The metrics identifier.
+        /// @param total The total number of objects observed by this metrics.
+        /// @param current The number of objects currently observed by this metrics.
+        /// @param totalLifetime The sum of the lifetime of each observed objects.
+        /// @param failures The number of failures observed.
+        /// @param size The size of the invocation.
+        /// @param replySize The size of the invocation reply.
+        ChildInvocationMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int64_t size, std::int64_t replySize) noexcept :
+            Metrics(std::move(id), total, current, totalLifetime, failures),
+            size(size),
+            replySize(replySize)
+        {
+        }
 
-    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int32_t&, const std::int64_t&, const std::int64_t&> ice_tuple() const
+        ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int64_t&> ice_tuple() const
+        {
+            return std::tie(id, total, current, totalLifetime, failures, size, replySize);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] ChildInvocationMetricsPtr ice_clone() const { return std::static_pointer_cast<ChildInvocationMetrics>(_iceCloneImpl()); }
+
+        /// The size of the invocation. This corresponds to the size of the marshaled input parameters.
+        std::int64_t size = INT64_C(0);
+        /// The size of the invocation reply. This corresponds to the size of the marshaled output and return
+        /// parameters.
+        std::int64_t replySize = INT64_C(0);
+
+        ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
+        ChildInvocationMetrics(const ChildInvocationMetrics&) = default;
+
+        ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    /// Provides information on invocations that are collocated. Collocated metrics are embedded within
+    /// {@link InvocationMetrics}.
+    class ICE_CLASS(ICE_API) CollocatedMetrics : public ChildInvocationMetrics
     {
-        return std::tie(id, total, current, totalLifetime, failures, userException, size, replySize);
-    }
+    public:using ChildInvocationMetrics::ChildInvocationMetrics;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] DispatchMetricsPtr ice_clone() const { return std::static_pointer_cast<DispatchMetrics>(_iceCloneImpl()); }
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    /// The number of dispatch that failed with a user exception.
-    std::int32_t userException = 0;
-    /// The size of the dispatch. This corresponds to the size of the marshaled input parameters.
-    std::int64_t size = INT64_C(0);
-    /// The size of the dispatch reply. This corresponds to the size of the marshaled output and return parameters.
-    std::int64_t replySize = INT64_C(0);
+        ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
-    DispatchMetrics(const DispatchMetrics&) = default;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] CollocatedMetricsPtr ice_clone() const { return std::static_pointer_cast<CollocatedMetrics>(_iceCloneImpl()); }
 
-    ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        CollocatedMetrics(const CollocatedMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
+        ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
-};
+        ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-/// Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
-/// collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
-/// embedded within {@link InvocationMetrics}.
-class ICE_CLASS(ICE_API) ChildInvocationMetrics : public Metrics
-{
-public:
-    /// Default constructor.
-    ChildInvocationMetrics() noexcept = default;
+        ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
+    };
 
-    /// One-shot constructor to initialize all data members.
-    /// @param id The metrics identifier.
-    /// @param total The total number of objects observed by this metrics.
-    /// @param current The number of objects currently observed by this metrics.
-    /// @param totalLifetime The sum of the lifetime of each observed objects.
-    /// @param failures The number of failures observed.
-    /// @param size The size of the invocation.
-    /// @param replySize The size of the invocation reply.
-    ChildInvocationMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int64_t size, std::int64_t replySize) noexcept :
-        Metrics(std::move(id), total, current, totalLifetime, failures),
-        size(size),
-        replySize(replySize)
+    /// Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
+    /// within {@link InvocationMetrics}.
+    class ICE_CLASS(ICE_API) RemoteMetrics : public ChildInvocationMetrics
     {
-    }
+    public:using ChildInvocationMetrics::ChildInvocationMetrics;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int64_t&> ice_tuple() const
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] RemoteMetricsPtr ice_clone() const { return std::static_pointer_cast<RemoteMetrics>(_iceCloneImpl()); }
+
+        RemoteMetrics(const RemoteMetrics&) = default;
+
+        ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    /// Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
+    class ICE_CLASS(ICE_API) InvocationMetrics : public Metrics
     {
-        return std::tie(id, total, current, totalLifetime, failures, size, replySize);
-    }
+    public:
+        /// Default constructor.
+        InvocationMetrics() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] ChildInvocationMetricsPtr ice_clone() const { return std::static_pointer_cast<ChildInvocationMetrics>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        /// @param id The metrics identifier.
+        /// @param total The total number of objects observed by this metrics.
+        /// @param current The number of objects currently observed by this metrics.
+        /// @param totalLifetime The sum of the lifetime of each observed objects.
+        /// @param failures The number of failures observed.
+        /// @param retry The number of retries for the invocation(s).
+        /// @param userException The number of invocations that failed with a user exception.
+        /// @param remotes The remote invocation metrics map.
+        /// @param collocated The collocated invocation metrics map.
+        InvocationMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int32_t retry, std::int32_t userException, ::IceMX::MetricsMap remotes, ::IceMX::MetricsMap collocated) noexcept :
+            Metrics(std::move(id), total, current, totalLifetime, failures),
+            retry(retry),
+            userException(userException),
+            remotes(std::move(remotes)),
+            collocated(std::move(collocated))
+        {
+        }
 
-    /// The size of the invocation. This corresponds to the size of the marshaled input parameters.
-    std::int64_t size = INT64_C(0);
-    /// The size of the invocation reply. This corresponds to the size of the marshaled output and return
-    /// parameters.
-    std::int64_t replySize = INT64_C(0);
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
-    ChildInvocationMetrics(const ChildInvocationMetrics&) = default;
+        ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&, const ::IceMX::MetricsMap&, const ::IceMX::MetricsMap&> ice_tuple() const
+        {
+            return std::tie(id, total, current, totalLifetime, failures, retry, userException, remotes, collocated);
+        }
 
-    ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] InvocationMetricsPtr ice_clone() const { return std::static_pointer_cast<InvocationMetrics>(_iceCloneImpl()); }
 
-    ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
-};
+        /// The number of retries for the invocation(s).
+        std::int32_t retry = 0;
+        /// The number of invocations that failed with a user exception.
+        std::int32_t userException = 0;
+        /// The remote invocation metrics map.
+        /// @see RemoteMetrics
+        ::IceMX::MetricsMap remotes;
+        /// The collocated invocation metrics map.
+        /// @see CollocatedMetrics
+        ::IceMX::MetricsMap collocated;
 
-/// Provides information on invocations that are collocated. Collocated metrics are embedded within
-/// {@link InvocationMetrics}.
-class ICE_CLASS(ICE_API) CollocatedMetrics : public ChildInvocationMetrics
-{
-public:using ChildInvocationMetrics::ChildInvocationMetrics;
+        ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
+        InvocationMetrics(const InvocationMetrics&) = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
+        ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] CollocatedMetricsPtr ice_clone() const { return std::static_pointer_cast<CollocatedMetrics>(_iceCloneImpl()); }
+        ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
+    };
 
-    CollocatedMetrics(const CollocatedMetrics&) = default;
-
-    ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
-};
-
-/// Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
-/// within {@link InvocationMetrics}.
-class ICE_CLASS(ICE_API) RemoteMetrics : public ChildInvocationMetrics
-{
-public:using ChildInvocationMetrics::ChildInvocationMetrics;
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
-
-    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] RemoteMetricsPtr ice_clone() const { return std::static_pointer_cast<RemoteMetrics>(_iceCloneImpl()); }
-
-    RemoteMetrics(const RemoteMetrics&) = default;
-
-    ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
-};
-
-/// Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
-class ICE_CLASS(ICE_API) InvocationMetrics : public Metrics
-{
-public:
-    /// Default constructor.
-    InvocationMetrics() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param id The metrics identifier.
-    /// @param total The total number of objects observed by this metrics.
-    /// @param current The number of objects currently observed by this metrics.
-    /// @param totalLifetime The sum of the lifetime of each observed objects.
-    /// @param failures The number of failures observed.
-    /// @param retry The number of retries for the invocation(s).
-    /// @param userException The number of invocations that failed with a user exception.
-    /// @param remotes The remote invocation metrics map.
-    /// @param collocated The collocated invocation metrics map.
-    InvocationMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int32_t retry, std::int32_t userException, ::IceMX::MetricsMap remotes, ::IceMX::MetricsMap collocated) noexcept :
-        Metrics(std::move(id), total, current, totalLifetime, failures),
-        retry(retry),
-        userException(userException),
-        remotes(std::move(remotes)),
-        collocated(std::move(collocated))
+    /// Provides information on the data sent and received over Ice connections.
+    class ICE_CLASS(ICE_API) ConnectionMetrics : public Metrics
     {
-    }
+    public:
+        /// Default constructor.
+        ConnectionMetrics() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        /// @param id The metrics identifier.
+        /// @param total The total number of objects observed by this metrics.
+        /// @param current The number of objects currently observed by this metrics.
+        /// @param totalLifetime The sum of the lifetime of each observed objects.
+        /// @param failures The number of failures observed.
+        /// @param receivedBytes The number of bytes received by the connection.
+        /// @param sentBytes The number of bytes sent by the connection.
+        ConnectionMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int64_t receivedBytes, std::int64_t sentBytes) noexcept :
+            Metrics(std::move(id), total, current, totalLifetime, failures),
+            receivedBytes(receivedBytes),
+            sentBytes(sentBytes)
+        {
+        }
 
-    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&, const ::IceMX::MetricsMap&, const ::IceMX::MetricsMap&> ice_tuple() const
-    {
-        return std::tie(id, total, current, totalLifetime, failures, retry, userException, remotes, collocated);
-    }
+        ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] InvocationMetricsPtr ice_clone() const { return std::static_pointer_cast<InvocationMetrics>(_iceCloneImpl()); }
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int64_t&> ice_tuple() const
+        {
+            return std::tie(id, total, current, totalLifetime, failures, receivedBytes, sentBytes);
+        }
 
-    /// The number of retries for the invocation(s).
-    std::int32_t retry = 0;
-    /// The number of invocations that failed with a user exception.
-    std::int32_t userException = 0;
-    /// The remote invocation metrics map.
-    /// @see RemoteMetrics
-    ::IceMX::MetricsMap remotes;
-    /// The collocated invocation metrics map.
-    /// @see CollocatedMetrics
-    ::IceMX::MetricsMap collocated;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] ConnectionMetricsPtr ice_clone() const { return std::static_pointer_cast<ConnectionMetrics>(_iceCloneImpl()); }
 
-    ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
-    InvocationMetrics(const InvocationMetrics&) = default;
+        /// The number of bytes received by the connection.
+        std::int64_t receivedBytes = INT64_C(0);
+        /// The number of bytes sent by the connection.
+        std::int64_t sentBytes = INT64_C(0);
 
-    ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
+        ConnectionMetrics(const ConnectionMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
+        ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
-};
+        ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-/// Provides information on the data sent and received over Ice connections.
-class ICE_CLASS(ICE_API) ConnectionMetrics : public Metrics
-{
-public:
-    /// Default constructor.
-    ConnectionMetrics() noexcept = default;
+        ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
+    };
 
-    /// One-shot constructor to initialize all data members.
-    /// @param id The metrics identifier.
-    /// @param total The total number of objects observed by this metrics.
-    /// @param current The number of objects currently observed by this metrics.
-    /// @param totalLifetime The sum of the lifetime of each observed objects.
-    /// @param failures The number of failures observed.
-    /// @param receivedBytes The number of bytes received by the connection.
-    /// @param sentBytes The number of bytes sent by the connection.
-    ConnectionMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int64_t receivedBytes, std::int64_t sentBytes) noexcept :
-        Metrics(std::move(id), total, current, totalLifetime, failures),
-        receivedBytes(receivedBytes),
-        sentBytes(sentBytes)
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICE_API) static const char* ice_staticId() noexcept;
-
-    ICE_MEMBER(ICE_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int64_t&> ice_tuple() const
-    {
-        return std::tie(id, total, current, totalLifetime, failures, receivedBytes, sentBytes);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] ConnectionMetricsPtr ice_clone() const { return std::static_pointer_cast<ConnectionMetrics>(_iceCloneImpl()); }
-
-    /// The number of bytes received by the connection.
-    std::int64_t receivedBytes = INT64_C(0);
-    /// The number of bytes sent by the connection.
-    std::int64_t sentBytes = INT64_C(0);
-
-    ICE_MEMBER(ICE_API) void ice_printFields(std::ostream& os) const override;
-    ConnectionMetrics(const ConnectionMetrics&) = default;
-
-    ICE_MEMBER(ICE_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    ICE_MEMBER(ICE_API) void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICE_API) void _iceReadImpl(Ice::InputStream*) override;
-};
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 namespace IceMX
 {
+    /// The metrics administrative facet interface. This interface allows remote administrative clients to access
+    /// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
+    class ICE_API MetricsAdmin : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = MetricsAdminPrx;
 
-/// The metrics administrative facet interface. This interface allows remote administrative clients to access
-/// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
-class ICE_API MetricsAdmin : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = MetricsAdminPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        /// Get the names of enabled and disabled metrics.
+        /// @param disabledViews The names of the disabled views.
+        /// @param current The Current object for the invocation.
+        /// @return The name of the enabled views.
+        virtual ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_getMetricsViewNames(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// Get the names of enabled and disabled metrics.
-    /// @param disabledViews The names of the disabled views.
-    /// @param current The Current object for the invocation.
-    /// @return The name of the enabled views.
-    virtual ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getMetricsViewNames(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// Enables a metrics view.
+        /// @param name The metrics view name.
+        /// @param current The Current object for the invocation.
+        /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+        virtual void enableMetricsView(std::string name, const Ice::Current& current) = 0;
 
-    /// Enables a metrics view.
-    /// @param name The metrics view name.
-    /// @param current The Current object for the invocation.
-    /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-    virtual void enableMetricsView(std::string name, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_enableMetricsView(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_enableMetricsView(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// Disable a metrics view.
-    /// @param name The metrics view name.
-    /// @param current The Current object for the invocation.
-    /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-    virtual void disableMetricsView(std::string name, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_disableMetricsView(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// Disable a metrics view.
+        /// @param name The metrics view name.
+        /// @param current The Current object for the invocation.
+        /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+        virtual void disableMetricsView(std::string name, const Ice::Current& current) = 0;
 
-    /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
-    /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
-    /// dependent of the invocation latency for this operation.
-    /// @param view The name of the metrics view.
-    /// @param timestamp The local time of the process when the metrics object were retrieved.
-    /// @param current The Current object for the invocation.
-    /// @return The metrics view data.
-    /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-    virtual MetricsView getMetricsView(std::string view, std::int64_t& timestamp, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getMetricsView(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_disableMetricsView(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// Get the metrics failures associated with the given view and map.
-    /// @param view The name of the metrics view.
-    /// @param map The name of the metrics map.
-    /// @param current The Current object for the invocation.
-    /// @return The metrics failures associated with the map.
-    /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-    virtual MetricsFailuresSeq getMapMetricsFailures(std::string view, std::string map, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getMapMetricsFailures(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+        /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
+        /// dependent of the invocation latency for this operation.
+        /// @param view The name of the metrics view.
+        /// @param timestamp The local time of the process when the metrics object were retrieved.
+        /// @param current The Current object for the invocation.
+        /// @return The metrics view data.
+        /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+        virtual MetricsView getMetricsView(std::string view, std::int64_t& timestamp, const Ice::Current& current) = 0;
 
-    /// Get the metrics failure associated for the given metrics.
-    /// @param view The name of the metrics view.
-    /// @param map The name of the metrics map.
-    /// @param id The ID of the metrics.
-    /// @param current The Current object for the invocation.
-    /// @return The metrics failures associated with the metrics.
-    /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-    virtual MetricsFailures getMetricsFailures(std::string view, std::string map, std::string id, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_getMetricsFailures(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_getMetricsView(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+        /// Get the metrics failures associated with the given view and map.
+        /// @param view The name of the metrics view.
+        /// @param map The name of the metrics map.
+        /// @param current The Current object for the invocation.
+        /// @return The metrics failures associated with the map.
+        /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+        virtual MetricsFailuresSeq getMapMetricsFailures(std::string view, std::string map, const Ice::Current& current) = 0;
 
-using MetricsAdminPtr = std::shared_ptr<MetricsAdmin>;
+        /// \cond INTERNAL
+        void _iceD_getMapMetricsFailures(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
+        /// Get the metrics failure associated for the given metrics.
+        /// @param view The name of the metrics view.
+        /// @param map The name of the metrics map.
+        /// @param id The ID of the metrics.
+        /// @param current The Current object for the invocation.
+        /// @return The metrics failures associated with the metrics.
+        /// @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+        virtual MetricsFailures getMetricsFailures(std::string view, std::string map, std::string id, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_getMetricsFailures(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
+
+    using MetricsAdminPtr = std::shared_ptr<MetricsAdmin>;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::IceMX::MetricsFailures>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 2;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::IceMX::MetricsFailures>
-{
-    static void read(InputStream* istr, ::IceMX::MetricsFailures& v)
+    template<>
+    struct StreamableTraits<::IceMX::MetricsFailures>
     {
-        istr->readAll(v.id, v.failures);
-    }
-};
-
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 2;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::IceMX::MetricsFailures>
+    {
+        static void read(InputStream* istr, ::IceMX::MetricsFailures& v)
+        {
+            istr->readAll(v.id, v.failures);
+        }
+    };
 }
 /// \endcond
 

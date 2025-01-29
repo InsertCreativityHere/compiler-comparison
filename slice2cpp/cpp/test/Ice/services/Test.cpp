@@ -110,7 +110,6 @@ Test::Clock::_iceD_tick(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Clock::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -158,4 +157,3 @@ Test::Clock::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Out
         }
     }
 }
-/// \endcond

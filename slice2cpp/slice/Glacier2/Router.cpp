@@ -507,7 +507,6 @@ Glacier2::Router::_iceD_getACMTimeout(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Glacier2::Router::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -600,4 +599,3 @@ Glacier2::Router::dispatch(Ice::IncomingRequest& request, std::function<void(Ice
         }
     }
 }
-/// \endcond

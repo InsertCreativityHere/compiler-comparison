@@ -149,7 +149,6 @@ Test::Priority::_iceD_getPriority(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Priority::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -202,4 +201,3 @@ Test::Priority::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond

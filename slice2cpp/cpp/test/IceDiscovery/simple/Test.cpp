@@ -268,7 +268,6 @@ Test::TestIntf::_iceD_getAdapterId(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -316,7 +315,6 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Controller::ice_ids(const Ice::Current&) const
@@ -422,7 +420,6 @@ Test::Controller::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Controller::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -490,4 +487,3 @@ Test::Controller::dispatch(Ice::IncomingRequest& request, std::function<void(Ice
         }
     }
 }
-/// \endcond

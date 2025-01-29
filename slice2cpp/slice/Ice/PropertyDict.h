@@ -32,7 +32,6 @@ namespace Ice
     /// strings.
     /// @see PropertiesAdmin#getPropertiesForPrefix
     using PropertyDict = std::map<std::string, std::string>;
-
 }
 
 #include <Ice/PopDisableWarnings.h>

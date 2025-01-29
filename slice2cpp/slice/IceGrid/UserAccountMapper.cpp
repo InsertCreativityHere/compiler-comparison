@@ -169,7 +169,6 @@ IceGrid::UserAccountMapper::_iceD_getUserAccount(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::UserAccountMapper::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -217,4 +216,3 @@ IceGrid::UserAccountMapper::dispatch(Ice::IncomingRequest& request, std::functio
         }
     }
 }
-/// \endcond

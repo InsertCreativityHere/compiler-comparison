@@ -34,68 +34,63 @@ namespace Ice
 
     /// A sequence of identities.
     using IdentitySeq = std::vector<Identity>;
-
 }
 
 namespace Ice
 {
-
-/// The identity of an Ice object. In a proxy, an empty {@link Identity#name} denotes a nil proxy. An identity with
-/// an empty {@link Identity#name} and a non-empty {@link Identity#category} is illegal. You cannot add a servant
-/// with an empty name to the Active Servant Map.
-/// @see ServantLocator
-/// @see ObjectAdapter#addServantLocator
-struct Identity
-{
-    /// The name of the Ice object.
-    std::string name;
-    /// The Ice object category.
-    std::string category;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+    /// The identity of an Ice object. In a proxy, an empty {@link Identity#name} denotes a nil proxy. An identity with
+    /// an empty {@link Identity#name} and a non-empty {@link Identity#category} is illegal. You cannot add a servant
+    /// with an empty name to the Active Servant Map.
+    /// @see ServantLocator
+    /// @see ObjectAdapter#addServantLocator
+    struct Identity
     {
-        return std::tie(name, category);
-    }
+        /// The name of the Ice object.
+        std::string name;
+        /// The Ice object category.
+        std::string category;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    ICE_API void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(name, category);
+        }
 
-ICE_API std::ostream& operator<<(std::ostream&, const Identity&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        ICE_API void ice_printFields(std::ostream& os) const;
+    };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
+    ICE_API std::ostream& operator<<(std::ostream&, const Identity&);
 
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::Ice::Identity>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 2;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Ice::Identity>
-{
-    static void read(InputStream* istr, ::Ice::Identity& v)
+    template<>
+    struct StreamableTraits<::Ice::Identity>
     {
-        istr->readAll(v.name, v.category);
-    }
-};
-
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 2;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Ice::Identity>
+    {
+        static void read(InputStream* istr, ::Ice::Identity& v)
+        {
+            istr->readAll(v.name, v.category);
+        }
+    };
 }
 /// \endcond
 

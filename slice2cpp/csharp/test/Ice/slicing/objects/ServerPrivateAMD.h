@@ -47,410 +47,400 @@ namespace Test
 
     class PSUnknown2;
     using PSUnknown2Ptr = std::shared_ptr<PSUnknown2>;
-
 }
 
 namespace Test
 {
-
-class SBSUnknownDerived : public SBase
-{
-public:
-    /// Default constructor.
-    SBSUnknownDerived() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    SBSUnknownDerived(std::string sb, std::string sbsud) noexcept :
-        SBase(std::move(sb)),
-        sbsud(std::move(sbsud))
+    class SBSUnknownDerived : public SBase
     {
-    }
+    public:
+        /// Default constructor.
+        SBSUnknownDerived() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        SBSUnknownDerived(std::string sb, std::string sbsud) noexcept :
+            SBase(std::move(sb)),
+            sbsud(std::move(sbsud))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(sb, sbsud);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] SBSUnknownDerivedPtr ice_clone() const { return std::static_pointer_cast<SBSUnknownDerived>(_iceCloneImpl()); }
+
+        std::string sbsud;
+
+        void ice_printFields(std::ostream& os) const override;
+        SBSUnknownDerived(const SBSUnknownDerived&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class SUnknown : public Ice::Value
     {
-        return std::tie(sb, sbsud);
-    }
+    public:
+        /// Default constructor.
+        SUnknown() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] SBSUnknownDerivedPtr ice_clone() const { return std::static_pointer_cast<SBSUnknownDerived>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        SUnknown(std::string su, ::Test::SUnknownPtr cycle) noexcept :
+            su(std::move(su)),
+            cycle(std::move(cycle))
+        {
+        }
 
-    std::string sbsud;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void ice_printFields(std::ostream& os) const override;
-    SBSUnknownDerived(const SBSUnknownDerived&) = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const ::Test::SUnknownPtr&> ice_tuple() const
+        {
+            return std::tie(su, cycle);
+        }
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] SUnknownPtr ice_clone() const { return std::static_pointer_cast<SUnknown>(_iceCloneImpl()); }
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        std::string su;
+        ::Test::SUnknownPtr cycle;
 
-class SUnknown : public Ice::Value
-{
-public:
-    /// Default constructor.
-    SUnknown() noexcept = default;
+        void ice_printFields(std::ostream& os) const override;
+        SUnknown(const SUnknown&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    SUnknown(std::string su, ::Test::SUnknownPtr cycle) noexcept :
-        su(std::move(su)),
-        cycle(std::move(cycle))
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class D2 : public B
     {
-    }
+    public:
+        /// Default constructor.
+        D2() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        D2(std::string sb, ::Test::BPtr pb, std::string sd2, ::Test::BPtr pd2) noexcept :
+            B(std::move(sb), std::move(pb)),
+            sd2(std::move(sd2)),
+            pd2(std::move(pd2))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const ::Test::SUnknownPtr&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const ::Test::BPtr&, const std::string&, const ::Test::BPtr&> ice_tuple() const
+        {
+            return std::tie(sb, pb, sd2, pd2);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] D2Ptr ice_clone() const { return std::static_pointer_cast<D2>(_iceCloneImpl()); }
+
+        std::string sd2;
+        ::Test::BPtr pd2;
+
+        void ice_printFields(std::ostream& os) const override;
+        D2(const D2&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class D4 : public B
     {
-        return std::tie(su, cycle);
-    }
+    public:
+        /// Default constructor.
+        D4() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] SUnknownPtr ice_clone() const { return std::static_pointer_cast<SUnknown>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        D4(std::string sb, ::Test::BPtr pb, ::Test::BPtr p1, ::Test::BPtr p2) noexcept :
+            B(std::move(sb), std::move(pb)),
+            p1(std::move(p1)),
+            p2(std::move(p2))
+        {
+        }
 
-    std::string su;
-    ::Test::SUnknownPtr cycle;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void ice_printFields(std::ostream& os) const override;
-    SUnknown(const SUnknown&) = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const ::Test::BPtr&, const ::Test::BPtr&, const ::Test::BPtr&> ice_tuple() const
+        {
+            return std::tie(sb, pb, p1, p2);
+        }
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] D4Ptr ice_clone() const { return std::static_pointer_cast<D4>(_iceCloneImpl()); }
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        ::Test::BPtr p1;
+        ::Test::BPtr p2;
 
-class D2 : public B
-{
-public:
-    /// Default constructor.
-    D2() noexcept = default;
+        void ice_printFields(std::ostream& os) const override;
+        D4(const D4&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    D2(std::string sb, ::Test::BPtr pb, std::string sd2, ::Test::BPtr pd2) noexcept :
-        B(std::move(sb), std::move(pb)),
-        sd2(std::move(sd2)),
-        pd2(std::move(pd2))
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class UnknownDerivedException : public BaseException
     {
-    }
+    public:
+        /// Default constructor.
+        UnknownDerivedException() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        UnknownDerivedException(std::string sbe, BPtr pb, std::string sude, D2Ptr pd2) noexcept :
+            BaseException(std::move(sbe), std::move(pb)),
+            sude(std::move(sude)),
+            pd2(std::move(pd2))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Copy constructor.
+        UnknownDerivedException(const UnknownDerivedException&) noexcept = default;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const ::Test::BPtr&, const std::string&, const ::Test::BPtr&> ice_tuple() const
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const ::Test::BPtr&, const std::string&, const ::Test::D2Ptr&> ice_tuple() const
+        {
+            return std::tie(sbe, pb, sude, pd2);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        std::string sude;
+        ::Test::D2Ptr pd2;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class MyClass : public Ice::Value
     {
-        return std::tie(sb, pb, sd2, pd2);
-    }
+    public:
+        /// Default constructor.
+        MyClass() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] D2Ptr ice_clone() const { return std::static_pointer_cast<D2>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        explicit MyClass(std::int32_t i) noexcept :
+            i(i)
+        {
+        }
 
-    std::string sd2;
-    ::Test::BPtr pd2;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void ice_printFields(std::ostream& os) const override;
-    D2(const D2&) = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(i);
+        }
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] MyClassPtr ice_clone() const { return std::static_pointer_cast<MyClass>(_iceCloneImpl()); }
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        std::int32_t i;
 
-class D4 : public B
-{
-public:
-    /// Default constructor.
-    D4() noexcept = default;
+        void ice_printFields(std::ostream& os) const override;
+        MyClass(const MyClass&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    D4(std::string sb, ::Test::BPtr pb, ::Test::BPtr p1, ::Test::BPtr p2) noexcept :
-        B(std::move(sb), std::move(pb)),
-        p1(std::move(p1)),
-        p2(std::move(p2))
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class PSUnknown : public Preserved
     {
-    }
+    public:
+        /// Default constructor.
+        PSUnknown() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        PSUnknown(std::int32_t pi, std::string ps, std::string psu, ::Test::PNodePtr graph, ::Test::MyClassPtr cl) noexcept :
+            Preserved(pi, std::move(ps)),
+            psu(std::move(psu)),
+            graph(std::move(graph)),
+            cl(std::move(cl))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const ::Test::BPtr&, const ::Test::BPtr&, const ::Test::BPtr&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const std::string&, const std::string&, const ::Test::PNodePtr&, const ::Test::MyClassPtr&> ice_tuple() const
+        {
+            return std::tie(pi, ps, psu, graph, cl);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] PSUnknownPtr ice_clone() const { return std::static_pointer_cast<PSUnknown>(_iceCloneImpl()); }
+
+        std::string psu;
+        ::Test::PNodePtr graph;
+        ::Test::MyClassPtr cl;
+
+        void ice_printFields(std::ostream& os) const override;
+        PSUnknown(const PSUnknown&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class PSUnknown2 : public Preserved
     {
-        return std::tie(sb, pb, p1, p2);
-    }
+    public:
+        /// Default constructor.
+        PSUnknown2() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] D4Ptr ice_clone() const { return std::static_pointer_cast<D4>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        PSUnknown2(std::int32_t pi, std::string ps, ::Test::PBasePtr pb) noexcept :
+            Preserved(pi, std::move(ps)),
+            pb(std::move(pb))
+        {
+        }
 
-    ::Test::BPtr p1;
-    ::Test::BPtr p2;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void ice_printFields(std::ostream& os) const override;
-    D4(const D4&) = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const std::string&, const ::Test::PBasePtr&> ice_tuple() const
+        {
+            return std::tie(pi, ps, pb);
+        }
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] PSUnknown2Ptr ice_clone() const { return std::static_pointer_cast<PSUnknown2>(_iceCloneImpl()); }
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        ::Test::PBasePtr pb;
 
-class UnknownDerivedException : public BaseException
-{
-public:
-    /// Default constructor.
-    UnknownDerivedException() noexcept = default;
+        void ice_printFields(std::ostream& os) const override;
+        PSUnknown2(const PSUnknown2&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    UnknownDerivedException(std::string sbe, BPtr pb, std::string sude, D2Ptr pd2) noexcept :
-        BaseException(std::move(sbe), std::move(pb)),
-        sude(std::move(sude)),
-        pd2(std::move(pd2))
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class PSUnknownException : public PreservedException
     {
-    }
+    public:
+        /// Default constructor.
+        PSUnknownException() noexcept = default;
 
-    /// Copy constructor.
-    UnknownDerivedException(const UnknownDerivedException&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        PSUnknownException(PSUnknown2Ptr p) noexcept :
+            PreservedException(),
+            p(std::move(p))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const ::Test::BPtr&, const std::string&, const ::Test::D2Ptr&> ice_tuple() const
-    {
-        return std::tie(sbe, pb, sude, pd2);
-    }
+        /// Copy constructor.
+        PSUnknownException(const PSUnknownException&) noexcept = default;
 
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    std::string sude;
-    ::Test::D2Ptr pd2;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-class MyClass : public Ice::Value
-{
-public:
-    /// Default constructor.
-    MyClass() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    explicit MyClass(std::int32_t i) noexcept :
-        i(i)
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] MyClassPtr ice_clone() const { return std::static_pointer_cast<MyClass>(_iceCloneImpl()); }
-
-    std::int32_t i;
-
-    void ice_printFields(std::ostream& os) const override;
-    MyClass(const MyClass&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class PSUnknown : public Preserved
-{
-public:
-    /// Default constructor.
-    PSUnknown() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    PSUnknown(std::int32_t pi, std::string ps, std::string psu, ::Test::PNodePtr graph, ::Test::MyClassPtr cl) noexcept :
-        Preserved(pi, std::move(ps)),
-        psu(std::move(psu)),
-        graph(std::move(graph)),
-        cl(std::move(cl))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::string&, const std::string&, const ::Test::PNodePtr&, const ::Test::MyClassPtr&> ice_tuple() const
-    {
-        return std::tie(pi, ps, psu, graph, cl);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] PSUnknownPtr ice_clone() const { return std::static_pointer_cast<PSUnknown>(_iceCloneImpl()); }
-
-    std::string psu;
-    ::Test::PNodePtr graph;
-    ::Test::MyClassPtr cl;
-
-    void ice_printFields(std::ostream& os) const override;
-    PSUnknown(const PSUnknown&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class PSUnknown2 : public Preserved
-{
-public:
-    /// Default constructor.
-    PSUnknown2() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    PSUnknown2(std::int32_t pi, std::string ps, ::Test::PBasePtr pb) noexcept :
-        Preserved(pi, std::move(ps)),
-        pb(std::move(pb))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::string&, const ::Test::PBasePtr&> ice_tuple() const
-    {
-        return std::tie(pi, ps, pb);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] PSUnknown2Ptr ice_clone() const { return std::static_pointer_cast<PSUnknown2>(_iceCloneImpl()); }
-
-    ::Test::PBasePtr pb;
-
-    void ice_printFields(std::ostream& os) const override;
-    PSUnknown2(const PSUnknown2&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class PSUnknownException : public PreservedException
-{
-public:
-    /// Default constructor.
-    PSUnknownException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    PSUnknownException(PSUnknown2Ptr p) noexcept :
-        PreservedException(),
-        p(std::move(p))
-    {
-    }
-
-    /// Copy constructor.
-    PSUnknownException(const PSUnknownException&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::PSUnknown2Ptr&> ice_tuple() const
-    {
-        return std::tie(p);
-    }
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::PSUnknown2Ptr&> ice_tuple() const
+        {
+            return std::tie(p);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    /// \cond STREAM
-    [[nodiscard]] bool _usesClasses() const override;
-    /// \endcond
+        /// \cond STREAM
+        [[nodiscard]] bool _usesClasses() const override;
+        /// \endcond
 
-    ::Test::PSUnknown2Ptr p;
+        ::Test::PSUnknown2Ptr p;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
-
+        void _readImpl(Ice::InputStream*) override;
+    };
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 #include <Ice/PopDisableWarnings.h>
 #endif

@@ -245,7 +245,6 @@ Test::Retry::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Retry::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -308,4 +307,3 @@ Test::Retry::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Out
         }
     }
 }
-/// \endcond

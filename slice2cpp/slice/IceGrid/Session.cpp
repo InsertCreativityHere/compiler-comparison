@@ -382,7 +382,6 @@ IceGrid::Session::_iceD_setAllocationTimeout(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::Session::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -455,4 +454,3 @@ IceGrid::Session::dispatch(Ice::IncomingRequest& request, std::function<void(Ice
         }
     }
 }
-/// \endcond

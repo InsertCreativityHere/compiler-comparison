@@ -161,7 +161,6 @@ Test::TestIntf::_iceD_getArgs(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -214,4 +213,3 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond

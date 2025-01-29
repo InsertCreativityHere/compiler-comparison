@@ -30,7 +30,6 @@ namespace Ice
     /// use matching Slice definitions. Ice 3.8 no longer generates Slice checksums but we keep the dictionary definition
     /// for backward compatibility.
     using SliceChecksumDict = std::map<std::string, std::string>;
-
 }
 
 #include <Ice/PopDisableWarnings.h>

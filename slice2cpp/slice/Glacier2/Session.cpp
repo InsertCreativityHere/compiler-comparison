@@ -608,7 +608,6 @@ Glacier2::Session::_iceD_destroy(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Glacier2::Session::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -656,7 +655,6 @@ Glacier2::Session::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Glacier2::StringSet::ice_ids(const Ice::Current&) const
@@ -728,7 +726,6 @@ Glacier2::StringSet::_iceD_get(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Glacier2::StringSet::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -786,7 +783,6 @@ Glacier2::StringSet::dispatch(Ice::IncomingRequest& request, std::function<void(
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Glacier2::IdentitySet::ice_ids(const Ice::Current&) const
@@ -858,7 +854,6 @@ Glacier2::IdentitySet::_iceD_get(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Glacier2::IdentitySet::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -916,7 +911,6 @@ Glacier2::IdentitySet::dispatch(Ice::IncomingRequest& request, std::function<voi
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Glacier2::SessionControl::ice_ids(const Ice::Current&) const
@@ -1018,7 +1012,6 @@ Glacier2::SessionControl::_iceD_destroy(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Glacier2::SessionControl::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1086,7 +1079,6 @@ Glacier2::SessionControl::dispatch(Ice::IncomingRequest& request, std::function<
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Glacier2::SessionManager::ice_ids(const Ice::Current&) const
@@ -1129,7 +1121,6 @@ Glacier2::SessionManager::_iceD_create(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Glacier2::SessionManager::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1177,7 +1168,6 @@ Glacier2::SessionManager::dispatch(Ice::IncomingRequest& request, std::function<
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Glacier2::SSLSessionManager::ice_ids(const Ice::Current&) const
@@ -1220,7 +1210,6 @@ Glacier2::SSLSessionManager::_iceD_create(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Glacier2::SSLSessionManager::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1268,4 +1257,3 @@ Glacier2::SSLSessionManager::dispatch(Ice::IncomingRequest& request, std::functi
         }
     }
 }
-/// \endcond

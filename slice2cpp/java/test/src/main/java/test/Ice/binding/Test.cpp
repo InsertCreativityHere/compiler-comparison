@@ -272,7 +272,6 @@ Test::TestIntf::_iceD_getAdapterName(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -320,7 +319,6 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::RemoteObjectAdapter::ice_ids(const Ice::Current&) const
@@ -371,7 +369,6 @@ Test::RemoteObjectAdapter::_iceD_deactivate(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::RemoteObjectAdapter::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -424,7 +421,6 @@ Test::RemoteObjectAdapter::dispatch(Ice::IncomingRequest& request, std::function
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::RemoteCommunicator::ice_ids(const Ice::Current&) const
@@ -497,7 +493,6 @@ Test::RemoteCommunicator::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicator::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -555,4 +550,3 @@ Test::RemoteCommunicator::dispatch(Ice::IncomingRequest& request, std::function<
         }
     }
 }
-/// \endcond

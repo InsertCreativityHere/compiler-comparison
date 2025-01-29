@@ -103,7 +103,6 @@ Test::Interface2::_iceD_method(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Interface2::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -151,4 +150,3 @@ Test::Interface2::dispatch(Ice::IncomingRequest& request, std::function<void(Ice
         }
     }
 }
-/// \endcond

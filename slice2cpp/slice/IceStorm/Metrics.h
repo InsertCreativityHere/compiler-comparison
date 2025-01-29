@@ -41,132 +41,122 @@ namespace IceMX
 
     class SubscriberMetrics;
     using SubscriberMetricsPtr = std::shared_ptr<SubscriberMetrics>;
-
 }
 
 namespace IceMX
 {
-
-/// Provides information on IceStorm topics.
-class ICE_CLASS(ICESTORM_API) TopicMetrics : public Metrics
-{
-public:
-    /// Default constructor.
-    TopicMetrics() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    /// @param id The metrics identifier.
-    /// @param total The total number of objects observed by this metrics.
-    /// @param current The number of objects currently observed by this metrics.
-    /// @param totalLifetime The sum of the lifetime of each observed objects.
-    /// @param failures The number of failures observed.
-    /// @param published Number of events published on the topic by publishers.
-    /// @param forwarded Number of events forwarded on the topic by IceStorm topic links.
-    TopicMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int64_t published, std::int64_t forwarded) noexcept :
-        Metrics(std::move(id), total, current, totalLifetime, failures),
-        published(published),
-        forwarded(forwarded)
+    /// Provides information on IceStorm topics.
+    class ICE_CLASS(ICESTORM_API) TopicMetrics : public Metrics
     {
-    }
+    public:
+        /// Default constructor.
+        TopicMetrics() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        /// @param id The metrics identifier.
+        /// @param total The total number of objects observed by this metrics.
+        /// @param current The number of objects currently observed by this metrics.
+        /// @param totalLifetime The sum of the lifetime of each observed objects.
+        /// @param failures The number of failures observed.
+        /// @param published Number of events published on the topic by publishers.
+        /// @param forwarded Number of events forwarded on the topic by IceStorm topic links.
+        TopicMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int64_t published, std::int64_t forwarded) noexcept :
+            Metrics(std::move(id), total, current, totalLifetime, failures),
+            published(published),
+            forwarded(forwarded)
+        {
+        }
 
-    ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int64_t&> ice_tuple() const
+        ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int64_t&> ice_tuple() const
+        {
+            return std::tie(id, total, current, totalLifetime, failures, published, forwarded);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] TopicMetricsPtr ice_clone() const { return std::static_pointer_cast<TopicMetrics>(_iceCloneImpl()); }
+
+        /// Number of events published on the topic by publishers.
+        std::int64_t published = INT64_C(0);
+        /// Number of events forwarded on the topic by IceStorm topic links.
+        std::int64_t forwarded = INT64_C(0);
+
+        ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
+        TopicMetrics(const TopicMetrics&) = default;
+
+        ICE_MEMBER(ICESTORM_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        ICE_MEMBER(ICESTORM_API) void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    /// Provides information on IceStorm subscribers.
+    class ICE_CLASS(ICESTORM_API) SubscriberMetrics : public Metrics
     {
-        return std::tie(id, total, current, totalLifetime, failures, published, forwarded);
-    }
+    public:
+        /// Default constructor.
+        SubscriberMetrics() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] TopicMetricsPtr ice_clone() const { return std::static_pointer_cast<TopicMetrics>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        /// @param id The metrics identifier.
+        /// @param total The total number of objects observed by this metrics.
+        /// @param current The number of objects currently observed by this metrics.
+        /// @param totalLifetime The sum of the lifetime of each observed objects.
+        /// @param failures The number of failures observed.
+        /// @param queued Number of queued events.
+        /// @param outstanding Number of outstanding events.
+        /// @param delivered Number of forwarded events.
+        SubscriberMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int32_t queued, std::int32_t outstanding, std::int64_t delivered) noexcept :
+            Metrics(std::move(id), total, current, totalLifetime, failures),
+            queued(queued),
+            outstanding(outstanding),
+            delivered(delivered)
+        {
+        }
 
-    /// Number of events published on the topic by publishers.
-    std::int64_t published = INT64_C(0);
-    /// Number of events forwarded on the topic by IceStorm topic links.
-    std::int64_t forwarded = INT64_C(0);
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
 
-    ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
-    TopicMetrics(const TopicMetrics&) = default;
+        ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
 
-    ICE_MEMBER(ICESTORM_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int64_t&> ice_tuple() const
+        {
+            return std::tie(id, total, current, totalLifetime, failures, queued, outstanding, delivered);
+        }
 
-    ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] SubscriberMetricsPtr ice_clone() const { return std::static_pointer_cast<SubscriberMetrics>(_iceCloneImpl()); }
 
-    ICE_MEMBER(ICESTORM_API) void _iceReadImpl(Ice::InputStream*) override;
-};
+        /// Number of queued events.
+        std::int32_t queued = 0;
+        /// Number of outstanding events.
+        std::int32_t outstanding = 0;
+        /// Number of forwarded events.
+        std::int64_t delivered = INT64_C(0);
 
-/// Provides information on IceStorm subscribers.
-class ICE_CLASS(ICESTORM_API) SubscriberMetrics : public Metrics
-{
-public:
-    /// Default constructor.
-    SubscriberMetrics() noexcept = default;
+        ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
+        SubscriberMetrics(const SubscriberMetrics&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    /// @param id The metrics identifier.
-    /// @param total The total number of objects observed by this metrics.
-    /// @param current The number of objects currently observed by this metrics.
-    /// @param totalLifetime The sum of the lifetime of each observed objects.
-    /// @param failures The number of failures observed.
-    /// @param queued Number of queued events.
-    /// @param outstanding Number of outstanding events.
-    /// @param delivered Number of forwarded events.
-    SubscriberMetrics(std::string id, std::int64_t total, std::int32_t current, std::int64_t totalLifetime, std::int32_t failures, std::int32_t queued, std::int32_t outstanding, std::int64_t delivered) noexcept :
-        Metrics(std::move(id), total, current, totalLifetime, failures),
-        queued(queued),
-        outstanding(outstanding),
-        delivered(delivered)
-    {
-    }
+        ICE_MEMBER(ICESTORM_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    ICE_MEMBER(ICESTORM_API) static const char* ice_staticId() noexcept;
+        ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    ICE_MEMBER(ICESTORM_API) [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::int64_t&, const std::int32_t&, const std::int64_t&, const std::int32_t&, const std::int32_t&, const std::int32_t&, const std::int64_t&> ice_tuple() const
-    {
-        return std::tie(id, total, current, totalLifetime, failures, queued, outstanding, delivered);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] SubscriberMetricsPtr ice_clone() const { return std::static_pointer_cast<SubscriberMetrics>(_iceCloneImpl()); }
-
-    /// Number of queued events.
-    std::int32_t queued = 0;
-    /// Number of outstanding events.
-    std::int32_t outstanding = 0;
-    /// Number of forwarded events.
-    std::int64_t delivered = INT64_C(0);
-
-    ICE_MEMBER(ICESTORM_API) void ice_printFields(std::ostream& os) const override;
-    SubscriberMetrics(const SubscriberMetrics&) = default;
-
-    ICE_MEMBER(ICESTORM_API) [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    ICE_MEMBER(ICESTORM_API) void _iceReadImpl(Ice::InputStream*) override;
-};
-
+        ICE_MEMBER(ICESTORM_API) void _iceReadImpl(Ice::InputStream*) override;
+    };
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 #include <Ice/PopDisableWarnings.h>
 #endif

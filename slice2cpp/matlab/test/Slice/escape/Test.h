@@ -64,6 +64,7 @@ namespace classdef
             xor,
             LAST
         };
+
         std::ostream& operator<<(std::ostream&, bitand);
 
         struct bitor;
@@ -87,517 +88,505 @@ namespace classdef
         class elseifPrx;
 
         constexpr std::int32_t methods = 1;
-
     }
 }
 
 namespace classdef
 {
 
-namespace break
-{
-
-class elseifPrx : public Ice::Proxy<elseifPrx, Ice::ObjectPrx>
-{
-public:
-
-    void events(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> eventsAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    eventsAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_events(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void function(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> functionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    functionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_function(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void delete(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> deleteAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    deleteAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_delete(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void checkedCast(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> checkedCastAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    checkedCastAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_checkedCast(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    elseifPrx(const elseifPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    elseifPrx(elseifPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    elseifPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~elseifPrx() override;
-
-    elseifPrx& operator=(const elseifPrx& rhs) noexcept
+    namespace break
     {
-        if (this != &rhs)
+        class elseifPrx : public Ice::Proxy<elseifPrx, Ice::ObjectPrx>
         {
-            Ice::ObjectPrx::operator=(rhs);
-        }
-        return *this;
-    }
+        public:
 
-    elseifPrx& operator=(elseifPrx&& rhs) noexcept
+            void events(const Ice::Context& context = Ice::noExplicitContext) const;
+
+            [[nodiscard]] std::future<void> eventsAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+            std::function<void()> // NOLINT(modernize-use-nodiscard)
+            eventsAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+            /// \cond INTERNAL
+            void _iceI_events(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+            /// \endcond
+
+            void function(const Ice::Context& context = Ice::noExplicitContext) const;
+
+            [[nodiscard]] std::future<void> functionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+            std::function<void()> // NOLINT(modernize-use-nodiscard)
+            functionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+            /// \cond INTERNAL
+            void _iceI_function(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+            /// \endcond
+
+            void delete(const Ice::Context& context = Ice::noExplicitContext) const;
+
+            [[nodiscard]] std::future<void> deleteAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+            std::function<void()> // NOLINT(modernize-use-nodiscard)
+            deleteAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+            /// \cond INTERNAL
+            void _iceI_delete(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+            /// \endcond
+
+            void checkedCast(const Ice::Context& context = Ice::noExplicitContext) const;
+
+            [[nodiscard]] std::future<void> checkedCastAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+            std::function<void()> // NOLINT(modernize-use-nodiscard)
+            checkedCastAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+            /// \cond INTERNAL
+            void _iceI_checkedCast(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+            /// \endcond
+
+            /// Obtains the Slice type ID of this interface.
+            /// @return The fully-scoped type ID.
+            static const char* ice_staticId() noexcept;
+
+            elseifPrx(const elseifPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+            elseifPrx(elseifPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+            elseifPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+            ~elseifPrx() override;
+
+            elseifPrx& operator=(const elseifPrx& rhs) noexcept
+            {
+                if (this != &rhs)
+                {
+                    Ice::ObjectPrx::operator=(rhs);
+                }
+                return *this;
+            }
+
+            elseifPrx& operator=(elseifPrx&& rhs) noexcept
+            {
+                if (this != &rhs)
+                {
+                    Ice::ObjectPrx::operator=(std::move(rhs));
+                }
+                return *this;
+            }
+
+            /// \cond INTERNAL
+            static elseifPrx _fromReference(IceInternal::ReferencePtr ref) { return elseifPrx(std::move(ref)); }
+
+        protected:
+            elseifPrx() = default;
+
+            explicit elseifPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+            {
+            }
+            /// \endcond
+        };
+    }
+}
+
+namespace classdef
+{
+
+    namespace break
     {
-        if (this != &rhs)
+        struct bitor
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
-        }
-        return *this;
+            ::classdef::break::bitand case = ::classdef::break::bitand::catch;
+            std::int32_t continue = 1;
+            std::int32_t eq = 2;
+            std::int32_t ne = 3;
+
+            /// Obtains a tuple containing all of the struct's data members.
+            /// @return The data members in a tuple.
+            [[nodiscard]] std::tuple<const ::classdef::break::bitand&, const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
+            {
+                return std::tie(case, continue, eq, ne);
+            }
+
+            /// Outputs the name and value of each field of this instance to the stream.
+            /// @param os The output stream.
+            void ice_printFields(std::ostream& os) const;
+        };
+
+        std::ostream& operator<<(std::ostream&, const bitor&);
+
+        class logical : public Ice::Value
+        {
+        public:
+            /// Default constructor.
+            logical() noexcept = default;
+
+            /// One-shot constructor to initialize all data members.
+            logical(::classdef::break::bitand else, ::classdef::break::bitor for, bool int64) noexcept :
+                else(else),
+                for(for),
+                int64(int64)
+            {
+            }
+
+            /// Obtains the Slice type ID of this value.
+            /// @return The fully-scoped type ID.
+            static const char* ice_staticId() noexcept;
+
+            [[nodiscard]] const char* ice_id() const noexcept override;
+
+            /// Obtains a tuple containing all of the value's data members.
+            /// @return The data members in a tuple.
+            [[nodiscard]] std::tuple<const ::classdef::break::bitand&, const ::classdef::break::bitor&, const bool&> ice_tuple() const
+            {
+                return std::tie(else, for, int64);
+            }
+
+            /// Creates a shallow polymorphic copy of this instance.
+            /// @return The cloned value.
+            [[nodiscard]] logicalPtr ice_clone() const { return std::static_pointer_cast<logical>(_iceCloneImpl()); }
+
+            ::classdef::break::bitand else = ::classdef::break::bitand::enumeration;
+            ::classdef::break::bitor for;
+            bool int64 = true;
+
+            void ice_printFields(std::ostream& os) const override;
+            logical(const logical&) = default;
+
+            [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+            void _iceWriteImpl(Ice::OutputStream*) const override;
+
+            void _iceReadImpl(Ice::InputStream*) override;
+        };
+
+        class xor : public logical
+        {
+        public:
+            /// Default constructor.
+            xor() noexcept = default;
+
+            /// One-shot constructor to initialize all data members.
+            xor(::classdef::break::bitand else, ::classdef::break::bitor for, bool int64, std::int32_t return) noexcept :
+                logical(else, for, int64),
+                return(return)
+            {
+            }
+
+            /// Obtains the Slice type ID of this value.
+            /// @return The fully-scoped type ID.
+            static const char* ice_staticId() noexcept;
+
+            [[nodiscard]] const char* ice_id() const noexcept override;
+
+            /// Obtains a tuple containing all of the value's data members.
+            /// @return The data members in a tuple.
+            [[nodiscard]] std::tuple<const ::classdef::break::bitand&, const ::classdef::break::bitor&, const bool&, const std::int32_t&> ice_tuple() const
+            {
+                return std::tie(else, for, int64, return);
+            }
+
+            /// Creates a shallow polymorphic copy of this instance.
+            /// @return The cloned value.
+            [[nodiscard]] xorPtr ice_clone() const { return std::static_pointer_cast<xor>(_iceCloneImpl()); }
+
+            std::int32_t return = 1;
+
+            void ice_printFields(std::ostream& os) const override;
+            xor(const xor&) = default;
+
+            [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+            void _iceWriteImpl(Ice::OutputStream*) const override;
+
+            void _iceReadImpl(Ice::InputStream*) override;
+        };
+
+        class try : public Ice::Value
+        {
+        public:
+            /// Default constructor.
+            try() noexcept = default;
+
+            /// One-shot constructor to initialize all data members.
+            try(std::int32_t while, std::int32_t delete) noexcept :
+                while(while),
+                delete(delete)
+            {
+            }
+
+            /// Obtains the Slice type ID of this value.
+            /// @return The fully-scoped type ID.
+            static const char* ice_staticId() noexcept;
+
+            [[nodiscard]] const char* ice_id() const noexcept override;
+
+            /// Obtains a tuple containing all of the value's data members.
+            /// @return The data members in a tuple.
+            [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
+            {
+                return std::tie(while, delete);
+            }
+
+            /// Creates a shallow polymorphic copy of this instance.
+            /// @return The cloned value.
+            [[nodiscard]] tryPtr ice_clone() const { return std::static_pointer_cast<try>(_iceCloneImpl()); }
+
+            std::int32_t while = 1;
+            std::int32_t delete = 2;
+
+            void ice_printFields(std::ostream& os) const override;
+            try(const try&) = default;
+
+            [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+            void _iceWriteImpl(Ice::OutputStream*) const override;
+
+            void _iceReadImpl(Ice::InputStream*) override;
+        };
+
+        class properties : public try
+        {
+        public:
+            /// Default constructor.
+            properties() noexcept = default;
+
+            /// One-shot constructor to initialize all data members.
+            properties(std::int32_t while, std::int32_t delete, std::int32_t if, ::classdef::break::xorPtr catch, ::classdef::break::parfor spmd, ::classdef::break::switch otherwise) noexcept :
+                try(while, delete),
+                if(if),
+                catch(std::move(catch)),
+                spmd(std::move(spmd)),
+                otherwise(std::move(otherwise))
+            {
+            }
+
+            /// Obtains the Slice type ID of this value.
+            /// @return The fully-scoped type ID.
+            static const char* ice_staticId() noexcept;
+
+            [[nodiscard]] const char* ice_id() const noexcept override;
+
+            /// Obtains a tuple containing all of the value's data members.
+            /// @return The data members in a tuple.
+            [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&, const std::int32_t&, const ::classdef::break::xorPtr&, const ::classdef::break::parfor&, const ::classdef::break::switch&> ice_tuple() const
+            {
+                return std::tie(while, delete, if, catch, spmd, otherwise);
+            }
+
+            /// Creates a shallow polymorphic copy of this instance.
+            /// @return The cloned value.
+            [[nodiscard]] propertiesPtr ice_clone() const { return std::static_pointer_cast<properties>(_iceCloneImpl()); }
+
+            std::int32_t if = 2;
+            ::classdef::break::xorPtr catch;
+            ::classdef::break::parfor spmd;
+            ::classdef::break::switch otherwise;
+
+            void ice_printFields(std::ostream& os) const override;
+            properties(const properties&) = default;
+
+            [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+            void _iceWriteImpl(Ice::OutputStream*) const override;
+
+            void _iceReadImpl(Ice::InputStream*) override;
+        };
+
+        class persistent : public Ice::UserException
+        {
+        public:
+            /// Default constructor.
+            persistent() noexcept = default;
+
+            /// One-shot constructor to initialize all data members.
+            persistent(std::string identifier, std::string message, std::string stack, std::string cause, std::string type, logicalPtr end) noexcept :
+                identifier(std::move(identifier)),
+                message(std::move(message)),
+                stack(std::move(stack)),
+                cause(std::move(cause)),
+                type(std::move(type)),
+                end(std::move(end))
+            {
+            }
+
+            /// Copy constructor.
+            persistent(const persistent&) noexcept = default;
+
+            /// Obtains a tuple containing all of the exception's data members.
+            /// @return The data members in a tuple.
+            [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&, const std::string&, const std::string&, const ::classdef::break::logicalPtr&> ice_tuple() const
+            {
+                return std::tie(identifier, message, stack, cause, type, end);
+            }
+
+
+            void ice_printFields(std::ostream& os) const override;
+            /// Obtains the Slice type ID of this exception.
+            /// @return The fully-scoped type ID.
+            static const char* ice_staticId() noexcept;
+
+            [[nodiscard]] const char* ice_id() const noexcept override;
+
+            void ice_throw() const override;
+
+            /// \cond STREAM
+            [[nodiscard]] bool _usesClasses() const override;
+            /// \endcond
+
+            std::string identifier = "1";
+            std::string message = "2";
+            std::string stack = "3";
+            std::string cause = "4";
+            std::string type = "5";
+            ::classdef::break::logicalPtr end;
+
+        protected:
+            void _writeImpl(Ice::OutputStream*) const override;
+
+            void _readImpl(Ice::InputStream*) override;
+        };
+
+        class global : public persistent
+        {
+        public:
+            /// Default constructor.
+            global() noexcept = default;
+
+            /// One-shot constructor to initialize all data members.
+            global(std::string identifier, std::string message, std::string stack, std::string cause, std::string type, logicalPtr end, std::int32_t enumeration) noexcept :
+                persistent(std::move(identifier), std::move(message), std::move(stack), std::move(cause), std::move(type), std::move(end)),
+                enumeration(enumeration)
+            {
+            }
+
+            /// Copy constructor.
+            global(const global&) noexcept = default;
+
+            /// Obtains a tuple containing all of the exception's data members.
+            /// @return The data members in a tuple.
+            [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&, const std::string&, const std::string&, const ::classdef::break::logicalPtr&, const std::int32_t&> ice_tuple() const
+            {
+                return std::tie(identifier, message, stack, cause, type, end, enumeration);
+            }
+
+
+            void ice_printFields(std::ostream& os) const override;
+            /// Obtains the Slice type ID of this exception.
+            /// @return The fully-scoped type ID.
+            static const char* ice_staticId() noexcept;
+
+            [[nodiscard]] const char* ice_id() const noexcept override;
+
+            void ice_throw() const override;
+
+            std::int32_t enumeration = 1;
+
+        protected:
+            void _writeImpl(Ice::OutputStream*) const override;
+
+            void _readImpl(Ice::InputStream*) override;
+        };
+
+        using Ice::Tuple::operator<;
+        using Ice::Tuple::operator<=;
+        using Ice::Tuple::operator>;
+        using Ice::Tuple::operator>=;
+        using Ice::Tuple::operator==;
+        using Ice::Tuple::operator!=;
     }
 
-    /// \cond INTERNAL
-    static elseifPrx _fromReference(IceInternal::ReferencePtr ref) { return elseifPrx(std::move(ref)); }
-
-protected:
-
-    elseifPrx() = default;
-
-    explicit elseifPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
-}
-
-}
-
-namespace classdef
-{
-
-namespace break
-{
-
-struct bitor
-{
-    ::classdef::break::bitand case = ::classdef::break::bitand::catch;
-    std::int32_t continue = 1;
-    std::int32_t eq = 2;
-    std::int32_t ne = 3;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::classdef::break::bitand&, const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(case, continue, eq, ne);
-    }
-
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
-
-std::ostream& operator<<(std::ostream&, const bitor&);
-
-class logical : public Ice::Value
-{
-public:
-    /// Default constructor.
-    logical() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    logical(::classdef::break::bitand else, ::classdef::break::bitor for, bool int64) noexcept :
-        else(else),
-        for(for),
-        int64(int64)
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::classdef::break::bitand&, const ::classdef::break::bitor&, const bool&> ice_tuple() const
-    {
-        return std::tie(else, for, int64);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] logicalPtr ice_clone() const { return std::static_pointer_cast<logical>(_iceCloneImpl()); }
-
-    ::classdef::break::bitand else = ::classdef::break::bitand::enumeration;
-    ::classdef::break::bitor for;
-    bool int64 = true;
-
-    void ice_printFields(std::ostream& os) const override;
-    logical(const logical&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class xor : public logical
-{
-public:
-    /// Default constructor.
-    xor() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    xor(::classdef::break::bitand else, ::classdef::break::bitor for, bool int64, std::int32_t return) noexcept :
-        logical(else, for, int64),
-        return(return)
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::classdef::break::bitand&, const ::classdef::break::bitor&, const bool&, const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(else, for, int64, return);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] xorPtr ice_clone() const { return std::static_pointer_cast<xor>(_iceCloneImpl()); }
-
-    std::int32_t return = 1;
-
-    void ice_printFields(std::ostream& os) const override;
-    xor(const xor&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class try : public Ice::Value
-{
-public:
-    /// Default constructor.
-    try() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    try(std::int32_t while, std::int32_t delete) noexcept :
-        while(while),
-        delete(delete)
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(while, delete);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] tryPtr ice_clone() const { return std::static_pointer_cast<try>(_iceCloneImpl()); }
-
-    std::int32_t while = 1;
-    std::int32_t delete = 2;
-
-    void ice_printFields(std::ostream& os) const override;
-    try(const try&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class properties : public try
-{
-public:
-    /// Default constructor.
-    properties() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    properties(std::int32_t while, std::int32_t delete, std::int32_t if, ::classdef::break::xorPtr catch, ::classdef::break::parfor spmd, ::classdef::break::switch otherwise) noexcept :
-        try(while, delete),
-        if(if),
-        catch(std::move(catch)),
-        spmd(std::move(spmd)),
-        otherwise(std::move(otherwise))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&, const std::int32_t&, const ::classdef::break::xorPtr&, const ::classdef::break::parfor&, const ::classdef::break::switch&> ice_tuple() const
-    {
-        return std::tie(while, delete, if, catch, spmd, otherwise);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] propertiesPtr ice_clone() const { return std::static_pointer_cast<properties>(_iceCloneImpl()); }
-
-    std::int32_t if = 2;
-    ::classdef::break::xorPtr catch;
-    ::classdef::break::parfor spmd;
-    ::classdef::break::switch otherwise;
-
-    void ice_printFields(std::ostream& os) const override;
-    properties(const properties&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class persistent : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    persistent() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    persistent(std::string identifier, std::string message, std::string stack, std::string cause, std::string type, logicalPtr end) noexcept :
-        identifier(std::move(identifier)),
-        message(std::move(message)),
-        stack(std::move(stack)),
-        cause(std::move(cause)),
-        type(std::move(type)),
-        end(std::move(end))
-    {
-    }
-
-    /// Copy constructor.
-    persistent(const persistent&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&, const std::string&, const std::string&, const ::classdef::break::logicalPtr&> ice_tuple() const
-    {
-        return std::tie(identifier, message, stack, cause, type, end);
-    }
-
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    /// \cond STREAM
-    [[nodiscard]] bool _usesClasses() const override;
-    /// \endcond
-
-    std::string identifier = "1";
-    std::string message = "2";
-    std::string stack = "3";
-    std::string cause = "4";
-    std::string type = "5";
-    ::classdef::break::logicalPtr end;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-class global : public persistent
-{
-public:
-    /// Default constructor.
-    global() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    global(std::string identifier, std::string message, std::string stack, std::string cause, std::string type, logicalPtr end, std::int32_t enumeration) noexcept :
-        persistent(std::move(identifier), std::move(message), std::move(stack), std::move(cause), std::move(type), std::move(end)),
-        enumeration(enumeration)
-    {
-    }
-
-    /// Copy constructor.
-    global(const global&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::string&, const std::string&, const std::string&, const ::classdef::break::logicalPtr&, const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(identifier, message, stack, cause, type, end, enumeration);
-    }
-
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    std::int32_t enumeration = 1;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
-}
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 namespace classdef
 {
 
-namespace break
-{
+    namespace break
+    {
+        class elseif : public virtual Ice::Object
+        {
+        public:
+            using ProxyType = elseifPrx;
 
-class elseif : public virtual Ice::Object
-{
-public:
+            /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+            /// @param current The Current object for the invocation.
+            /// @return A list of fully-scoped type IDs.
+            [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = elseifPrx;
+            /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+            /// @param current The Current object for the invocation.
+            /// @return A fully-scoped type ID.
+            [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+            /// Obtains the Slice type ID corresponding to this interface.
+            /// @return A fully-scoped type ID.
+            static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+            virtual void events(const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+            /// \cond INTERNAL
+            void _iceD_events(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+            /// \endcond
 
-    virtual void events(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_events(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+            virtual void function(const Ice::Current& current) = 0;
 
-    virtual void function(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_function(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+            /// \cond INTERNAL
+            void _iceD_function(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+            /// \endcond
 
-    virtual void delete(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_delete(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+            virtual void delete(const Ice::Current& current) = 0;
 
-    virtual void checkedCast(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_checkedCast(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+            /// \cond INTERNAL
+            void _iceD_delete(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+            /// \endcond
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+            virtual void checkedCast(const Ice::Current& current) = 0;
 
-using elseifPtr = std::shared_ptr<elseif>;
+            /// \cond INTERNAL
+            void _iceD_checkedCast(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+            /// \endcond
 
-}
+            void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+        };
 
+        using elseifPtr = std::shared_ptr<elseif>;
+    }
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits< ::classdef::break::bitand>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryEnum;
-    static const int minValue = 0;
-    static const int maxValue = 31;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamableTraits<::classdef::break::bitor>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 13;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::classdef::break::bitor>
-{
-    static void read(InputStream* istr, ::classdef::break::bitor& v)
+    template<>
+    struct StreamableTraits< ::classdef::break::bitand>
     {
-        istr->readAll(v.case, v.continue, v.eq, v.ne);
-    }
-};
+        static const StreamHelperCategory helper = StreamHelperCategoryEnum;
+        static const int minValue = 0;
+        static const int maxValue = 31;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
 
+    template<>
+    struct StreamableTraits<::classdef::break::bitor>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 13;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::classdef::break::bitor>
+    {
+        static void read(InputStream* istr, ::classdef::break::bitor& v)
+        {
+            istr->readAll(v.case, v.continue, v.eq, v.ne);
+        }
+    };
 }
 /// \endcond
 

@@ -574,7 +574,6 @@ Test::RemoteCommunicator::_iceD_destroy(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicator::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -662,7 +661,6 @@ Test::RemoteCommunicator::dispatch(Ice::IncomingRequest& request, std::function<
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::RemoteCommunicatorFactory::ice_ids(const Ice::Current&) const
@@ -717,7 +715,6 @@ Test::RemoteCommunicatorFactory::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorFactory::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -770,7 +767,6 @@ Test::RemoteCommunicatorFactory::dispatch(Ice::IncomingRequest& request, std::fu
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::TestFacet::ice_ids(const Ice::Current&) const
@@ -804,7 +800,6 @@ Test::TestFacet::_iceD_op(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestFacet::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -852,4 +847,3 @@ Test::TestFacet::dispatch(Ice::IncomingRequest& request, std::function<void(Ice:
         }
     }
 }
-/// \endcond

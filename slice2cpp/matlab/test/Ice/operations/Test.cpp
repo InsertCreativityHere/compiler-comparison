@@ -4572,7 +4572,6 @@ Test::MyClass::_iceD_opMDict2(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MyClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -4960,7 +4959,6 @@ Test::MyClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::MyDerivedClass::ice_ids(const Ice::Current&) const
@@ -5038,7 +5036,6 @@ Test::MyDerivedClass::_iceD_opMyStruct1(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MyDerivedClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -5441,7 +5438,6 @@ Test::MyDerivedClass::dispatch(Ice::IncomingRequest& request, std::function<void
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test2::MyDerivedClass::ice_ids(const Ice::Current&) const
@@ -5462,7 +5458,6 @@ Test2::MyDerivedClass::ice_staticId() noexcept
     return "::Test2::MyDerivedClass";
 }
 
-/// \cond INTERNAL
 void
 Test2::MyDerivedClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -5850,4 +5845,3 @@ Test2::MyDerivedClass::dispatch(Ice::IncomingRequest& request, std::function<voi
         }
     }
 }
-/// \endcond

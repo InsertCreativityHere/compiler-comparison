@@ -110,7 +110,6 @@ Test::Event::_iceD_pub(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Event::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -158,4 +157,3 @@ Test::Event::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Out
         }
     }
 }
-/// \endcond

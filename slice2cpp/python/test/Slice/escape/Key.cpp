@@ -397,7 +397,6 @@ and::del::_iceD_elif(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 and::del::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -445,7 +444,6 @@ and::del::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoi
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 and::exec::ice_ids(const Ice::Current&) const
@@ -479,7 +477,6 @@ and::exec::_iceD_finally(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 and::exec::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -527,7 +524,6 @@ and::exec::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgo
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 and::if::ice_ids(const Ice::Current&) const
@@ -548,7 +544,6 @@ and::if::ice_staticId() noexcept
     return "::and::if";
 }
 
-/// \cond INTERNAL
 void
 and::if::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -601,7 +596,6 @@ and::if::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoin
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 and::print::ice_ids(const Ice::Current&) const
@@ -649,7 +643,6 @@ and::print::_iceD_raise(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 and::print::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -697,4 +690,3 @@ and::print::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outg
         }
     }
 }
-/// \endcond

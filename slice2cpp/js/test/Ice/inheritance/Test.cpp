@@ -1550,7 +1550,6 @@ Test::MA::IA::_iceD_iaop(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MA::IA::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1598,7 +1597,6 @@ Test::MA::IA::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::MB::IB1::ice_ids(const Ice::Current&) const
@@ -1640,7 +1638,6 @@ Test::MB::IB1::_iceD_ib1op(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MB::IB1::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1693,7 +1690,6 @@ Test::MB::IB1::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::MB::IB2::ice_ids(const Ice::Current&) const
@@ -1735,7 +1731,6 @@ Test::MB::IB2::_iceD_ib2op(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MB::IB2::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1788,7 +1783,6 @@ Test::MB::IB2::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::MA::IC::ice_ids(const Ice::Current&) const
@@ -1830,7 +1824,6 @@ Test::MA::IC::_iceD_icop(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MA::IC::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1893,7 +1886,6 @@ Test::MA::IC::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Initial::ice_ids(const Ice::Current&) const
@@ -1995,7 +1987,6 @@ Test::Initial::_iceD_icop(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -2063,7 +2054,6 @@ Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Echo::ice_ids(const Ice::Current&) const
@@ -2136,7 +2126,6 @@ Test::Echo::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Echo::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -2199,4 +2188,3 @@ Test::Echo::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outg
         }
     }
 }
-/// \endcond

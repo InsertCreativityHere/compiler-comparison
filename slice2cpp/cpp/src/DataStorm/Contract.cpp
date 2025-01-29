@@ -1059,7 +1059,6 @@ DataStormContract::Session::_iceD_disconnected(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 DataStormContract::Session::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1157,7 +1156,6 @@ DataStormContract::Session::dispatch(Ice::IncomingRequest& request, std::functio
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 DataStormContract::PublisherSession::ice_ids(const Ice::Current&) const
@@ -1178,7 +1176,6 @@ DataStormContract::PublisherSession::ice_staticId() noexcept
     return "::DataStormContract::PublisherSession";
 }
 
-/// \cond INTERNAL
 void
 DataStormContract::PublisherSession::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1276,7 +1273,6 @@ DataStormContract::PublisherSession::dispatch(Ice::IncomingRequest& request, std
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 DataStormContract::SubscriberSession::ice_ids(const Ice::Current&) const
@@ -1316,7 +1312,6 @@ DataStormContract::SubscriberSession::_iceD_s(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 DataStormContract::SubscriberSession::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1419,7 +1414,6 @@ DataStormContract::SubscriberSession::dispatch(Ice::IncomingRequest& request, st
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 DataStormContract::Node::ice_ids(const Ice::Current&) const
@@ -1494,7 +1488,6 @@ DataStormContract::Node::_iceD_confirmCreateSession(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 DataStormContract::Node::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1552,7 +1545,6 @@ DataStormContract::Node::dispatch(Ice::IncomingRequest& request, std::function<v
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 DataStormContract::Lookup::ice_ids(const Ice::Current&) const
@@ -1649,7 +1641,6 @@ DataStormContract::Lookup::_iceD_createSession(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 DataStormContract::Lookup::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1712,4 +1703,3 @@ DataStormContract::Lookup::dispatch(Ice::IncomingRequest& request, std::function
         }
     }
 }
-/// \endcond

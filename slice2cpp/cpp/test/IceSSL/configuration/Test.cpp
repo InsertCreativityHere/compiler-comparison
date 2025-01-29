@@ -251,7 +251,6 @@ Test::Server::_iceD_checkCert(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Server::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -304,7 +303,6 @@ Test::Server::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::ServerFactory::ice_ids(const Ice::Current&) const
@@ -376,7 +374,6 @@ Test::ServerFactory::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::ServerFactory::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -434,4 +431,3 @@ Test::ServerFactory::dispatch(Ice::IncomingRequest& request, std::function<void(
         }
     }
 }
-/// \endcond

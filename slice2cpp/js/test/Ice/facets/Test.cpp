@@ -542,7 +542,6 @@ Test::A::_iceD_callA(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::A::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -590,7 +589,6 @@ Test::A::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoin
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::B::ice_ids(const Ice::Current&) const
@@ -628,7 +626,6 @@ Test::B::_iceD_callB(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::B::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -681,7 +678,6 @@ Test::B::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoin
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::C::ice_ids(const Ice::Current&) const
@@ -719,7 +715,6 @@ Test::C::_iceD_callC(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::C::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -772,7 +767,6 @@ Test::C::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoin
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::D::ice_ids(const Ice::Current&) const
@@ -810,7 +804,6 @@ Test::D::_iceD_callD(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::D::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -873,7 +866,6 @@ Test::D::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoin
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::E::ice_ids(const Ice::Current&) const
@@ -911,7 +903,6 @@ Test::E::_iceD_callE(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::E::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -959,7 +950,6 @@ Test::E::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoin
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::F::ice_ids(const Ice::Current&) const
@@ -997,7 +987,6 @@ Test::F::_iceD_callF(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::F::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1050,7 +1039,6 @@ Test::F::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoin
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::G::ice_ids(const Ice::Current&) const
@@ -1101,7 +1089,6 @@ Test::G::_iceD_callG(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::G::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1154,7 +1141,6 @@ Test::G::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoin
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::H::ice_ids(const Ice::Current&) const
@@ -1192,7 +1178,6 @@ Test::H::_iceD_callH(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::H::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1250,7 +1235,6 @@ Test::H::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoin
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Echo::ice_ids(const Ice::Current&) const
@@ -1323,7 +1307,6 @@ Test::Echo::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Echo::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1386,4 +1369,3 @@ Test::Echo::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outg
         }
     }
 }
-/// \endcond

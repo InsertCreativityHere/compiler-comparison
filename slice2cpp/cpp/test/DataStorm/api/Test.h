@@ -30,101 +30,96 @@ namespace Test
 
     class ClassKey;
     using ClassKeyPtr = std::shared_ptr<ClassKey>;
-
 }
 
 namespace Test
 {
-
-struct StructKey
-{
-    std::int32_t value;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+    struct StructKey
     {
-        return std::tie(value);
-    }
+        std::int32_t value;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(value);
+        }
 
-std::ostream& operator<<(std::ostream&, const StructKey&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-class ClassKey : public Ice::Value
-{
-public:
-    /// Default constructor.
-    ClassKey() noexcept = default;
+    std::ostream& operator<<(std::ostream&, const StructKey&);
 
-    /// One-shot constructor to initialize all data members.
-    explicit ClassKey(std::int32_t value) noexcept :
-        value(value)
+    class ClassKey : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        ClassKey() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        explicit ClassKey(std::int32_t value) noexcept :
+            value(value)
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(value);
-    }
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] ClassKeyPtr ice_clone() const { return std::static_pointer_cast<ClassKey>(_iceCloneImpl()); }
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(value);
+        }
 
-    std::int32_t value;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] ClassKeyPtr ice_clone() const { return std::static_pointer_cast<ClassKey>(_iceCloneImpl()); }
 
-    void ice_printFields(std::ostream& os) const override;
-    ClassKey(const ClassKey&) = default;
+        std::int32_t value;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        void ice_printFields(std::ostream& os) const override;
+        ClassKey(const ClassKey&) = default;
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        void _iceWriteImpl(Ice::OutputStream*) const override;
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
 
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::Test::StructKey>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::Test::StructKey>
-{
-    static void read(InputStream* istr, ::Test::StructKey& v)
+    template<>
+    struct StreamableTraits<::Test::StructKey>
     {
-        istr->readAll(v.value);
-    }
-};
-
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 4;
+        static const bool fixedLength = true;
+    };
+    
+    template<>
+    struct StreamReader<::Test::StructKey>
+    {
+        static void read(InputStream* istr, ::Test::StructKey& v)
+        {
+            istr->readAll(v.value);
+        }
+    };
 }
 /// \endcond
 

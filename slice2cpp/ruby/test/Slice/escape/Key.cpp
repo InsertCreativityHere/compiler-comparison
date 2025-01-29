@@ -458,7 +458,6 @@ BEGIN::break::_iceD_instance_variables(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 BEGIN::break::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -521,7 +520,6 @@ BEGIN::break::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 BEGIN::elsif::ice_ids(const Ice::Current&) const
@@ -542,7 +540,6 @@ BEGIN::elsif::ice_staticId() noexcept
     return "::BEGIN::elsif";
 }
 
-/// \cond INTERNAL
 void
 BEGIN::elsif::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -605,7 +602,6 @@ BEGIN::elsif::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 BEGIN::extend::ice_ids(const Ice::Current&) const
@@ -653,7 +649,6 @@ BEGIN::extend::_iceD_for(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 BEGIN::extend::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -701,4 +696,3 @@ BEGIN::extend::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond

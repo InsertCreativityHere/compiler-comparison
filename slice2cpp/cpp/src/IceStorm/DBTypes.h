@@ -29,69 +29,64 @@
 namespace IceStormElection
 {
     using StringLogUpdateDict = std::map<std::string, LogUpdate>;
-
 }
 
 namespace IceStorm
 {
+
     using SubscriberRecordDict = std::map<SubscriberRecordKey, SubscriberRecord>;
 
     struct AllData;
-
 }
 
 namespace IceStorm
 {
-
-struct AllData
-{
-    ::IceStormElection::StringLogUpdateDict llus;
-    ::IceStorm::SubscriberRecordDict subscribers;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::IceStormElection::StringLogUpdateDict&, const ::IceStorm::SubscriberRecordDict&> ice_tuple() const
+    struct AllData
     {
-        return std::tie(llus, subscribers);
-    }
+        ::IceStormElection::StringLogUpdateDict llus;
+        ::IceStorm::SubscriberRecordDict subscribers;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::IceStormElection::StringLogUpdateDict&, const ::IceStorm::SubscriberRecordDict&> ice_tuple() const
+        {
+            return std::tie(llus, subscribers);
+        }
 
-std::ostream& operator<<(std::ostream&, const AllData&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
+    std::ostream& operator<<(std::ostream&, const AllData&);
 
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::IceStorm::AllData>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 2;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::IceStorm::AllData>
-{
-    static void read(InputStream* istr, ::IceStorm::AllData& v)
+    template<>
+    struct StreamableTraits<::IceStorm::AllData>
     {
-        istr->readAll(v.llus, v.subscribers);
-    }
-};
-
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 2;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::IceStorm::AllData>
+    {
+        static void read(InputStream* istr, ::IceStorm::AllData& v)
+        {
+            istr->readAll(v.llus, v.subscribers);
+        }
+    };
 }
 /// \endcond
 

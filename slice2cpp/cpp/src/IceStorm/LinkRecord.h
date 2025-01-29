@@ -29,66 +29,61 @@
 namespace IceStorm
 {
     struct LinkRecord;
-
 }
 
 namespace IceStorm
 {
-
-/// Used to store persistent information for Topic federation.
-struct LinkRecord
-{
-    /// The topic link object.
-    std::optional<::IceStorm::TopicLinkPrx> obj;
-    /// The cost.
-    std::int32_t cost;
-    /// The linked topic for getLinkInfoSeq
-    std::optional<::IceStorm::TopicPrx> theTopic;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::optional<::IceStorm::TopicLinkPrx>&, const std::int32_t&, const std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
+    /// Used to store persistent information for Topic federation.
+    struct LinkRecord
     {
-        return std::tie(obj, cost, theTopic);
-    }
+        /// The topic link object.
+        std::optional<::IceStorm::TopicLinkPrx> obj;
+        /// The cost.
+        std::int32_t cost;
+        /// The linked topic for getLinkInfoSeq
+        std::optional<::IceStorm::TopicPrx> theTopic;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::optional<::IceStorm::TopicLinkPrx>&, const std::int32_t&, const std::optional<::IceStorm::TopicPrx>&> ice_tuple() const
+        {
+            return std::tie(obj, cost, theTopic);
+        }
 
-std::ostream& operator<<(std::ostream&, const LinkRecord&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
+    std::ostream& operator<<(std::ostream&, const LinkRecord&);
 
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::IceStorm::LinkRecord>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 8;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::IceStorm::LinkRecord>
-{
-    static void read(InputStream* istr, ::IceStorm::LinkRecord& v)
+    template<>
+    struct StreamableTraits<::IceStorm::LinkRecord>
     {
-        istr->readAll(v.obj, v.cost, v.theTopic);
-    }
-};
-
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 8;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::IceStorm::LinkRecord>
+    {
+        static void read(InputStream* istr, ::IceStorm::LinkRecord& v)
+        {
+            istr->readAll(v.obj, v.cost, v.theTopic);
+        }
+    };
 }
 /// \endcond
 

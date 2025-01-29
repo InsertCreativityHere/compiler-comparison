@@ -30,6 +30,7 @@ namespace abstract
     {
         boolean
     };
+
     std::ostream& operator<<(std::ostream&, assert);
 
     struct break;
@@ -72,562 +73,540 @@ namespace abstract
     constexpr std::int32_t finally = 0;
 
     constexpr std::int32_t getClass = 0;
-
 }
 
 namespace abstract
 {
-
-class catchPrx : public Ice::Proxy<catchPrx, Ice::ObjectPrx>
-{
-public:
-
-    void checkedCast(std::int32_t clone, std::int32_t& continue, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<std::int32_t> checkedCastAsync(std::int32_t clone, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    checkedCastAsync(std::int32_t clone, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_checkedCast(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    catchPrx(const catchPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    catchPrx(catchPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    catchPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~catchPrx() override;
-
-    catchPrx& operator=(const catchPrx& rhs) noexcept
+    class catchPrx : public Ice::Proxy<catchPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        void checkedCast(std::int32_t clone, std::int32_t& continue, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<std::int32_t> checkedCastAsync(std::int32_t clone, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        checkedCastAsync(std::int32_t clone, std::function<void(std::int32_t)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_checkedCast(const std::shared_ptr<IceInternal::OutgoingAsyncT<std::int32_t>>&, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        catchPrx(const catchPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        catchPrx(catchPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        catchPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~catchPrx() override;
+
+        catchPrx& operator=(const catchPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    catchPrx& operator=(catchPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        catchPrx& operator=(catchPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static catchPrx _fromReference(IceInternal::ReferencePtr ref) { return catchPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static catchPrx _fromReference(IceInternal::ReferencePtr ref) { return catchPrx(std::move(ref)); }
 
-protected:
+    protected:
+        catchPrx() = default;
 
-    catchPrx() = default;
-
-    explicit catchPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
-class defaultPrx : public Ice::Proxy<defaultPrx, Ice::ObjectPrx>
-{
-public:
-
-    void do(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> doAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    doAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_do(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    defaultPrx(const defaultPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    defaultPrx(defaultPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    defaultPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~defaultPrx() override;
-
-    defaultPrx& operator=(const defaultPrx& rhs) noexcept
-    {
-        if (this != &rhs)
+        explicit catchPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
         {
-            Ice::ObjectPrx::operator=(rhs);
         }
-        return *this;
-    }
+        /// \endcond
+    };
 
-    defaultPrx& operator=(defaultPrx&& rhs) noexcept
+    class defaultPrx : public Ice::Proxy<defaultPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        void do(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> doAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        doAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_do(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        defaultPrx(const defaultPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        defaultPrx(defaultPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        defaultPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~defaultPrx() override;
+
+        defaultPrx& operator=(const defaultPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static defaultPrx _fromReference(IceInternal::ReferencePtr ref) { return defaultPrx(std::move(ref)); }
+        defaultPrx& operator=(defaultPrx&& rhs) noexcept
+        {
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
+        }
 
-protected:
+        /// \cond INTERNAL
+        static defaultPrx _fromReference(IceInternal::ReferencePtr ref) { return defaultPrx(std::move(ref)); }
 
-    defaultPrx() = default;
+    protected:
+        defaultPrx() = default;
 
-    explicit defaultPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        explicit defaultPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
+
+    class finalizePrx : public Ice::Proxy<finalizePrx, defaultPrx, catchPrx>
     {
-    }
-    /// \endcond
-};
+    public:
 
-class finalizePrx : public Ice::Proxy<finalizePrx, defaultPrx, catchPrx>
-{
-public:
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
 #   pragma GCC diagnostic ignored "-Wextra" // initialize all virtual bases in correct order
 #endif
 
-    finalizePrx(const finalizePrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+        finalizePrx(const finalizePrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
 
-    finalizePrx(finalizePrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+        finalizePrx(finalizePrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
 
-    finalizePrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+        finalizePrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
 
-    ~finalizePrx() override;
+        ~finalizePrx() override;
 
-    finalizePrx& operator=(const finalizePrx& rhs) noexcept
-    {
-        if (this != &rhs)
+        finalizePrx& operator=(const finalizePrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    finalizePrx& operator=(finalizePrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        finalizePrx& operator=(finalizePrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static finalizePrx _fromReference(IceInternal::ReferencePtr ref) { return finalizePrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static finalizePrx _fromReference(IceInternal::ReferencePtr ref) { return finalizePrx(std::move(ref)); }
 
-protected:
+    protected:
+        finalizePrx() = default;
 
-    finalizePrx() = default;
-
-    explicit finalizePrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
+        explicit finalizePrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic pop
 #endif
-};
+    };
 
-class newPrx : public Ice::Proxy<newPrx, Ice::ObjectPrx>
-{
-public:
-
-    assert notify(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<assert> notifyAsync(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    notifyAsync(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, std::function<void(::abstract::assert)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_notify(const std::shared_ptr<IceInternal::OutgoingAsyncT<assert>>&, const break&, const elsePtr&, const std::optional<finalizePrx>&, const std::optional<catchPrx>&, const std::optional<defaultPrx>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    newPrx(const newPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    newPrx(newPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    newPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~newPrx() override;
-
-    newPrx& operator=(const newPrx& rhs) noexcept
+    class newPrx : public Ice::Proxy<newPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        assert notify(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<assert> notifyAsync(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        notifyAsync(const break& notifyAll, const elsePtr& null, const std::optional<finalizePrx>& package, const std::optional<catchPrx>& public, const std::optional<defaultPrx>& return, std::int32_t static, std::int32_t strictfp, std::int32_t super, std::function<void(::abstract::assert)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_notify(const std::shared_ptr<IceInternal::OutgoingAsyncT<assert>>&, const break&, const elsePtr&, const std::optional<finalizePrx>&, const std::optional<catchPrx>&, const std::optional<defaultPrx>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        newPrx(const newPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        newPrx(newPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        newPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~newPrx() override;
+
+        newPrx& operator=(const newPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    newPrx& operator=(newPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        newPrx& operator=(newPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static newPrx _fromReference(IceInternal::ReferencePtr ref) { return newPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static newPrx _fromReference(IceInternal::ReferencePtr ref) { return newPrx(std::move(ref)); }
 
-protected:
+    protected:
+        newPrx() = default;
 
-    newPrx() = default;
-
-    explicit newPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
+        explicit newPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 }
 
 namespace abstract
 {
-
-struct break
-{
-    std::int32_t case;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+    struct break
     {
-        return std::tie(case);
-    }
+        std::int32_t case;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(case);
+        }
 
-std::ostream& operator<<(std::ostream&, const break&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-class else : public Ice::Value
-{
-public:
-    /// Default constructor.
-    else() noexcept = default;
+    std::ostream& operator<<(std::ostream&, const break&);
 
-    /// One-shot constructor to initialize all data members.
-    else(std::int32_t if, std::optional<::abstract::defaultPrx> equals, std::int32_t final) noexcept :
-        if(if),
-        equals(std::move(equals)),
-        final(final)
+    class else : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        else() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        else(std::int32_t if, std::optional<::abstract::defaultPrx> equals, std::int32_t final) noexcept :
+            if(if),
+            equals(std::move(equals)),
+            final(final)
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::optional<::abstract::defaultPrx>&, const std::int32_t&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const std::optional<::abstract::defaultPrx>&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(if, equals, final);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] elsePtr ice_clone() const { return std::static_pointer_cast<else>(_iceCloneImpl()); }
+
+        std::int32_t if;
+        std::optional<::abstract::defaultPrx> equals;
+        std::int32_t final;
+
+        void ice_printFields(std::ostream& os) const override;
+        else(const else&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class hashCode : public Ice::UserException
     {
-        return std::tie(if, equals, final);
-    }
+    public:
+        /// Default constructor.
+        hashCode() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] elsePtr ice_clone() const { return std::static_pointer_cast<else>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        hashCode(std::int32_t if) noexcept :
+            if(if)
+        {
+        }
 
-    std::int32_t if;
-    std::optional<::abstract::defaultPrx> equals;
-    std::int32_t final;
+        /// Copy constructor.
+        hashCode(const hashCode&) noexcept = default;
 
-    void ice_printFields(std::ostream& os) const override;
-    else(const else&) = default;
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(if);
+        }
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-class hashCode : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    hashCode() noexcept = default;
+        void ice_throw() const override;
 
-    /// One-shot constructor to initialize all data members.
-    hashCode(std::int32_t if) noexcept :
-        if(if)
+        std::int32_t if;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class import : public hashCode
     {
-    }
+    public:
+        /// Default constructor.
+        import() noexcept = default;
 
-    /// Copy constructor.
-    hashCode(const hashCode&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        import(std::int32_t if, std::int32_t instanceof, std::int32_t native) noexcept :
+            hashCode(if),
+            instanceof(instanceof),
+            native(native)
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(if);
-    }
+        /// Copy constructor.
+        import(const import&) noexcept = default;
 
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    std::int32_t if;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-class import : public hashCode
-{
-public:
-    /// Default constructor.
-    import() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    import(std::int32_t if, std::int32_t instanceof, std::int32_t native) noexcept :
-        hashCode(if),
-        instanceof(instanceof),
-        native(native)
-    {
-    }
-
-    /// Copy constructor.
-    import(const import&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(if, instanceof, native);
-    }
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(if, instanceof, native);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    std::int32_t instanceof;
-    std::int32_t native;
+        std::int32_t instanceof;
+        std::int32_t native;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void _readImpl(Ice::InputStream*) override;
+    };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 namespace abstract
 {
+    class catch : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = catchPrx;
 
-class catch : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = catchPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        virtual void checkedCastAsync(std::int32_t clone, std::function<void(std::int32_t continue)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_checkedCast(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void checkedCastAsync(std::int32_t clone, std::function<void(std::int32_t continue)> response, std::function<void(std::exception_ptr)> exception, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_checkedCast(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+    using catchPtr = std::shared_ptr<catch>;
 
-using catchPtr = std::shared_ptr<catch>;
+    class default : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = defaultPrx;
 
-class default : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = defaultPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        virtual void do(const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_do(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void do(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_do(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+    using defaultPtr = std::shared_ptr<default>;
 
-using defaultPtr = std::shared_ptr<default>;
+    class finalize : public virtual default,
+                     public virtual catch
+    {
+    public:
+        using ProxyType = finalizePrx;
 
-class finalize : public virtual default,
-                 public virtual catch
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = finalizePrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+    using finalizePtr = std::shared_ptr<finalize>;
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+    class new : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = newPrx;
 
-using finalizePtr = std::shared_ptr<finalize>;
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-class new : public virtual Ice::Object
-{
-public:
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    using ProxyType = newPrx;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        virtual assert notify(break notifyAll, elsePtr null, std::optional<finalizePrx> package, std::optional<catchPrx> public, std::optional<defaultPrx> return, std::int32_t static, std::int32_t strictfp, std::int32_t super, const Ice::Current& current) = 0;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        /// \cond INTERNAL
+        void _iceD_notify(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
 
-    virtual assert notify(break notifyAll, elsePtr null, std::optional<finalizePrx> package, std::optional<catchPrx> public, std::optional<defaultPrx> return, std::int32_t static, std::int32_t strictfp, std::int32_t super, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_notify(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
-
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
-
-using newPtr = std::shared_ptr<new>;
-
+    using newPtr = std::shared_ptr<new>;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits< ::abstract::assert>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryEnum;
-    static const int minValue = 0;
-    static const int maxValue = 0;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamableTraits<::abstract::break>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::abstract::break>
-{
-    static void read(InputStream* istr, ::abstract::break& v)
+    template<>
+    struct StreamableTraits< ::abstract::assert>
     {
-        istr->readAll(v.case);
-    }
-};
+        static const StreamHelperCategory helper = StreamHelperCategoryEnum;
+        static const int minValue = 0;
+        static const int maxValue = 0;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
 
+    template<>
+    struct StreamableTraits<::abstract::break>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 4;
+        static const bool fixedLength = true;
+    };
+    
+    template<>
+    struct StreamReader<::abstract::break>
+    {
+        static void read(InputStream* istr, ::abstract::break& v)
+        {
+            istr->readAll(v.case);
+        }
+    };
 }
 /// \endcond
 

@@ -294,7 +294,6 @@ Test::Timeout::_iceD_sleep(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Timeout::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -352,7 +351,6 @@ Test::Timeout::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Controller::ice_ids(const Ice::Current&) const
@@ -416,7 +414,6 @@ Test::Controller::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Controller::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -474,4 +471,3 @@ Test::Controller::dispatch(Ice::IncomingRequest& request, std::function<void(Ice
         }
     }
 }
-/// \endcond

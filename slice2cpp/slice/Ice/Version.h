@@ -32,59 +32,56 @@ namespace Ice
     struct ProtocolVersion;
 
     struct EncodingVersion;
-
 }
 
 namespace Ice
 {
-
-/// A version structure for the protocol version.
-struct ProtocolVersion
-{
-    std::uint8_t major;
-    std::uint8_t minor;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::uint8_t&, const std::uint8_t&> ice_tuple() const
+    /// A version structure for the protocol version.
+    struct ProtocolVersion
     {
-        return std::tie(major, minor);
-    }
+        std::uint8_t major;
+        std::uint8_t minor;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    ICE_API void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::uint8_t&, const std::uint8_t&> ice_tuple() const
+        {
+            return std::tie(major, minor);
+        }
 
-ICE_API std::ostream& operator<<(std::ostream&, const ProtocolVersion&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        ICE_API void ice_printFields(std::ostream& os) const;
+    };
 
-/// A version structure for the encoding version.
-struct EncodingVersion
-{
-    std::uint8_t major;
-    std::uint8_t minor;
+    ICE_API std::ostream& operator<<(std::ostream&, const ProtocolVersion&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::uint8_t&, const std::uint8_t&> ice_tuple() const
+    /// A version structure for the encoding version.
+    struct EncodingVersion
     {
-        return std::tie(major, minor);
-    }
+        std::uint8_t major;
+        std::uint8_t minor;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    ICE_API void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::uint8_t&, const std::uint8_t&> ice_tuple() const
+        {
+            return std::tie(major, minor);
+        }
 
-ICE_API std::ostream& operator<<(std::ostream&, const EncodingVersion&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        ICE_API void ice_printFields(std::ostream& os) const;
+    };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
+    ICE_API std::ostream& operator<<(std::ostream&, const EncodingVersion&);
 
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 #include <Ice/PopDisableWarnings.h>

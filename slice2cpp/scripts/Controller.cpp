@@ -969,7 +969,6 @@ Test::Common::TestCase::_iceD_destroy(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Common::TestCase::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1032,7 +1031,6 @@ Test::Common::TestCase::dispatch(Ice::IncomingRequest& request, std::function<vo
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Common::Controller::ice_ids(const Ice::Current&) const
@@ -1138,7 +1136,6 @@ Test::Common::Controller::_iceD_getHost(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Common::Controller::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1201,7 +1198,6 @@ Test::Common::Controller::dispatch(Ice::IncomingRequest& request, std::function<
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Common::Process::ice_ids(const Ice::Current&) const
@@ -1277,7 +1273,6 @@ Test::Common::Process::_iceD_terminate(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Common::Process::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1335,7 +1330,6 @@ Test::Common::Process::dispatch(Ice::IncomingRequest& request, std::function<voi
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Common::ProcessController::ice_ids(const Ice::Current&) const
@@ -1401,7 +1395,6 @@ Test::Common::ProcessController::_iceD_getHost(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Common::ProcessController::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1454,7 +1447,6 @@ Test::Common::ProcessController::dispatch(Ice::IncomingRequest& request, std::fu
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Common::BrowserProcessController::ice_ids(const Ice::Current&) const
@@ -1492,7 +1484,6 @@ Test::Common::BrowserProcessController::_iceD_redirect(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Common::BrowserProcessController::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1550,7 +1541,6 @@ Test::Common::BrowserProcessController::dispatch(Ice::IncomingRequest& request, 
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Common::ProcessControllerRegistry::ice_ids(const Ice::Current&) const
@@ -1588,7 +1578,6 @@ Test::Common::ProcessControllerRegistry::_iceD_setProcessController(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Common::ProcessControllerRegistry::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1636,4 +1625,3 @@ Test::Common::ProcessControllerRegistry::dispatch(Ice::IncomingRequest& request,
         }
     }
 }
-/// \endcond

@@ -514,7 +514,6 @@ Test1::WstringClass::_iceD_throwExcept(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test1::WstringClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -572,7 +571,6 @@ Test1::WstringClass::dispatch(Ice::IncomingRequest& request, std::function<void(
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test2::WstringClass::ice_ids(const Ice::Current&) const
@@ -654,7 +652,6 @@ Test2::WstringClass::_iceD_throwExcept(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test2::WstringClass::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -712,4 +709,3 @@ Test2::WstringClass::dispatch(Ice::IncomingRequest& request, std::function<void(
         }
     }
 }
-/// \endcond

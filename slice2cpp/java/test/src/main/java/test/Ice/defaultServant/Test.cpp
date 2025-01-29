@@ -108,7 +108,6 @@ Test::MyObject::_iceD_getName(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MyObject::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -156,4 +155,3 @@ Test::MyObject::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond

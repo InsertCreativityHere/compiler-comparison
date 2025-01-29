@@ -406,7 +406,6 @@ and::break::_iceD_case(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 and::break::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -454,7 +453,6 @@ and::break::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outg
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 and::func::ice_ids(const Ice::Current&) const
@@ -488,7 +486,6 @@ and::func::_iceD_public(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 and::func::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -536,7 +533,6 @@ and::func::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgo
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 and::do::ice_ids(const Ice::Current&) const
@@ -557,7 +553,6 @@ and::do::ice_staticId() noexcept
     return "::and::do";
 }
 
-/// \cond INTERNAL
 void
 and::do::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -610,7 +605,6 @@ and::do::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outgoin
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 and::friend::ice_ids(const Ice::Current&) const
@@ -665,7 +659,6 @@ and::friend::_iceD_goto(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 and::friend::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -713,4 +706,3 @@ and::friend::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Out
         }
     }
 }
-/// \endcond

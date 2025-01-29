@@ -744,7 +744,6 @@ await::case::_iceD_catch(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 await::case::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -792,7 +791,6 @@ await::case::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Out
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 await::typeof::ice_ids(const Ice::Current&) const
@@ -826,7 +824,6 @@ await::typeof::_iceD_default(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 await::typeof::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -874,7 +871,6 @@ await::typeof::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 await::explicit::ice_ids(const Ice::Current&) const
@@ -895,7 +891,6 @@ await::explicit::ice_staticId() noexcept
     return "::await::explicit";
 }
 
-/// \cond INTERNAL
 void
 await::explicit::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -948,7 +943,6 @@ await::explicit::dispatch(Ice::IncomingRequest& request, std::function<void(Ice:
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 await::optionalParams::ice_ids(const Ice::Current&) const
@@ -1080,7 +1074,6 @@ await::optionalParams::_iceD_foreach(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 await::optionalParams::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1143,7 +1136,6 @@ await::optionalParams::dispatch(Ice::IncomingRequest& request, std::function<voi
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 await::implicit::ice_ids(const Ice::Current&) const
@@ -1195,7 +1187,6 @@ await::implicit::_iceD_in(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 await::implicit::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1243,7 +1234,6 @@ await::implicit::dispatch(Ice::IncomingRequest& request, std::function<void(Ice:
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 await::System::Test::ice_ids(const Ice::Current&) const
@@ -1277,7 +1267,6 @@ await::System::Test::_iceD_op(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 await::System::Test::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1325,7 +1314,6 @@ await::System::Test::dispatch(Ice::IncomingRequest& request, std::function<void(
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 System::Test::ice_ids(const Ice::Current&) const
@@ -1359,7 +1347,6 @@ System::Test::_iceD_op(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 System::Test::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1407,4 +1394,3 @@ System::Test::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
         }
     }
 }
-/// \endcond

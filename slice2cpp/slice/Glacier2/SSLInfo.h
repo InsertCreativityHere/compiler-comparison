@@ -37,73 +37,68 @@
 namespace Glacier2
 {
     struct SSLInfo;
-
 }
 
 namespace Glacier2
 {
-
-/// Information taken from an SSL connection used for permissions verification.
-/// @see PermissionsVerifier
-struct SSLInfo
-{
-    /// The remote host.
-    std::string remoteHost;
-    /// The remote port.
-    std::int32_t remotePort;
-    /// The router's host.
-    std::string localHost;
-    /// The router's port.
-    std::int32_t localPort;
-    /// The negotiated cipher suite.
-    std::string cipher;
-    /// The certificate chain.
-    ::Ice::StringSeq certs;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::int32_t&, const std::string&, const std::int32_t&, const std::string&, const ::Ice::StringSeq&> ice_tuple() const
+    /// Information taken from an SSL connection used for permissions verification.
+    /// @see PermissionsVerifier
+    struct SSLInfo
     {
-        return std::tie(remoteHost, remotePort, localHost, localPort, cipher, certs);
-    }
+        /// The remote host.
+        std::string remoteHost;
+        /// The remote port.
+        std::int32_t remotePort;
+        /// The router's host.
+        std::string localHost;
+        /// The router's port.
+        std::int32_t localPort;
+        /// The negotiated cipher suite.
+        std::string cipher;
+        /// The certificate chain.
+        ::Ice::StringSeq certs;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    GLACIER2_API void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::int32_t&, const std::string&, const std::int32_t&, const std::string&, const ::Ice::StringSeq&> ice_tuple() const
+        {
+            return std::tie(remoteHost, remotePort, localHost, localPort, cipher, certs);
+        }
 
-GLACIER2_API std::ostream& operator<<(std::ostream&, const SSLInfo&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        GLACIER2_API void ice_printFields(std::ostream& os) const;
+    };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
+    GLACIER2_API std::ostream& operator<<(std::ostream&, const SSLInfo&);
 
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::Glacier2::SSLInfo>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 12;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Glacier2::SSLInfo>
-{
-    static void read(InputStream* istr, ::Glacier2::SSLInfo& v)
+    template<>
+    struct StreamableTraits<::Glacier2::SSLInfo>
     {
-        istr->readAll(v.remoteHost, v.remotePort, v.localHost, v.localPort, v.cipher, v.certs);
-    }
-};
-
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 12;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Glacier2::SSLInfo>
+    {
+        static void read(InputStream* istr, ::Glacier2::SSLInfo& v)
+        {
+            istr->readAll(v.remoteHost, v.remotePort, v.localHost, v.localPort, v.cipher, v.certs);
+        }
+    };
 }
 /// \endcond
 

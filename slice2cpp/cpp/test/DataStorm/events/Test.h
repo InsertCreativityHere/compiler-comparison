@@ -33,145 +33,140 @@ namespace Test
 
     class Extended;
     using ExtendedPtr = std::shared_ptr<Extended>;
-
 }
 
 namespace Test
 {
-
-struct StructValue
-{
-    std::string firstName;
-    std::string lastName;
-    std::int32_t age;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::int32_t&> ice_tuple() const
+    struct StructValue
     {
-        return std::tie(firstName, lastName, age);
-    }
+        std::string firstName;
+        std::string lastName;
+        std::int32_t age;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::string&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(firstName, lastName, age);
+        }
 
-std::ostream& operator<<(std::ostream&, const StructValue&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-class Base : public Ice::Value
-{
-public:
-    /// Default constructor.
-    Base() noexcept = default;
+    std::ostream& operator<<(std::ostream&, const StructValue&);
 
-    /// One-shot constructor to initialize all data members.
-    explicit Base(std::string b) noexcept :
-        b(std::move(b))
+    class Base : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        Base() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        explicit Base(std::string b) noexcept :
+            b(std::move(b))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(b);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] BasePtr ice_clone() const { return std::static_pointer_cast<Base>(_iceCloneImpl()); }
+
+        std::string b;
+
+        void ice_printFields(std::ostream& os) const override;
+        Base(const Base&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class Extended : public Base
     {
-        return std::tie(b);
-    }
+    public:
+        /// Default constructor.
+        Extended() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] BasePtr ice_clone() const { return std::static_pointer_cast<Base>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        Extended(std::string b, std::int32_t e) noexcept :
+            Base(std::move(b)),
+            e(e)
+        {
+        }
 
-    std::string b;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void ice_printFields(std::ostream& os) const override;
-    Base(const Base&) = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(b, e);
+        }
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] ExtendedPtr ice_clone() const { return std::static_pointer_cast<Extended>(_iceCloneImpl()); }
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        std::int32_t e;
 
-class Extended : public Base
-{
-public:
-    /// Default constructor.
-    Extended() noexcept = default;
+        void ice_printFields(std::ostream& os) const override;
+        Extended(const Extended&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    Extended(std::string b, std::int32_t e) noexcept :
-        Base(std::move(b)),
-        e(e)
-    {
-    }
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(b, e);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] ExtendedPtr ice_clone() const { return std::static_pointer_cast<Extended>(_iceCloneImpl()); }
-
-    std::int32_t e;
-
-    void ice_printFields(std::ostream& os) const override;
-    Extended(const Extended&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::Test::StructValue>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 6;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::StructValue>
-{
-    static void read(InputStream* istr, ::Test::StructValue& v)
+    template<>
+    struct StreamableTraits<::Test::StructValue>
     {
-        istr->readAll(v.firstName, v.lastName, v.age);
-    }
-};
-
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 6;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::StructValue>
+    {
+        static void read(InputStream* istr, ::Test::StructValue& v)
+        {
+            istr->readAll(v.firstName, v.lastName, v.age);
+        }
+    };
 }
 /// \endcond
 

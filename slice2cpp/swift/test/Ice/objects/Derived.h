@@ -29,62 +29,52 @@ namespace Test
 {
     class Derived;
     using DerivedPtr = std::shared_ptr<Derived>;
-
 }
 
 namespace Test
 {
-
-class Derived : public Base
-{
-public:
-    /// Default constructor.
-    Derived() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    Derived(::Test::S theS, std::string str, std::string b) noexcept :
-        Base(std::move(theS), std::move(str)),
-        b(std::move(b))
+    class Derived : public Base
     {
-    }
+    public:
+        /// Default constructor.
+        Derived() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        Derived(::Test::S theS, std::string str, std::string b) noexcept :
+            Base(std::move(theS), std::move(str)),
+            b(std::move(b))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::S&, const std::string&, const std::string&> ice_tuple() const
-    {
-        return std::tie(theS, str, b);
-    }
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] DerivedPtr ice_clone() const { return std::static_pointer_cast<Derived>(_iceCloneImpl()); }
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::S&, const std::string&, const std::string&> ice_tuple() const
+        {
+            return std::tie(theS, str, b);
+        }
 
-    std::string b;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] DerivedPtr ice_clone() const { return std::static_pointer_cast<Derived>(_iceCloneImpl()); }
 
-    void ice_printFields(std::ostream& os) const override;
-    Derived(const Derived&) = default;
+        std::string b;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        void ice_printFields(std::ostream& os) const override;
+        Derived(const Derived&) = default;
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        void _iceWriteImpl(Ice::OutputStream*) const override;
 
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 #include <Ice/PopDisableWarnings.h>
 #endif

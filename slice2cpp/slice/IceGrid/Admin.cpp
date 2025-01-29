@@ -4680,7 +4680,6 @@ IceGrid::Admin::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::Admin::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -4948,7 +4947,6 @@ IceGrid::Admin::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceGrid::FileIterator::ice_ids(const Ice::Current&) const
@@ -5004,7 +5002,6 @@ IceGrid::FileIterator::_iceD_destroy(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::FileIterator::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -5057,7 +5054,6 @@ IceGrid::FileIterator::dispatch(Ice::IncomingRequest& request, std::function<voi
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceGrid::RegistryObserver::ice_ids(const Ice::Current&) const
@@ -5129,7 +5125,6 @@ IceGrid::RegistryObserver::_iceD_registryDown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::RegistryObserver::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -5187,7 +5182,6 @@ IceGrid::RegistryObserver::dispatch(Ice::IncomingRequest& request, std::function
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceGrid::NodeObserver::ice_ids(const Ice::Current&) const
@@ -5295,7 +5289,6 @@ IceGrid::NodeObserver::_iceD_updateAdapter(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::NodeObserver::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -5363,7 +5356,6 @@ IceGrid::NodeObserver::dispatch(Ice::IncomingRequest& request, std::function<voi
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceGrid::ApplicationObserver::ice_ids(const Ice::Current&) const
@@ -5459,7 +5451,6 @@ IceGrid::ApplicationObserver::_iceD_applicationUpdated(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::ApplicationObserver::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -5522,7 +5513,6 @@ IceGrid::ApplicationObserver::dispatch(Ice::IncomingRequest& request, std::funct
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceGrid::AdapterObserver::ice_ids(const Ice::Current&) const
@@ -5611,7 +5601,6 @@ IceGrid::AdapterObserver::_iceD_adapterRemoved(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::AdapterObserver::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -5674,7 +5663,6 @@ IceGrid::AdapterObserver::dispatch(Ice::IncomingRequest& request, std::function<
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceGrid::ObjectObserver::ice_ids(const Ice::Current&) const
@@ -5763,7 +5751,6 @@ IceGrid::ObjectObserver::_iceD_objectRemoved(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::ObjectObserver::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -5826,7 +5813,6 @@ IceGrid::ObjectObserver::dispatch(Ice::IncomingRequest& request, std::function<v
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceGrid::AdminSession::ice_ids(const Ice::Current&) const
@@ -6138,7 +6124,6 @@ IceGrid::AdminSession::_iceD_openRegistryStdOut(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::AdminSession::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -6261,4 +6246,3 @@ IceGrid::AdminSession::dispatch(Ice::IncomingRequest& request, std::function<voi
         }
     }
 }
-/// \endcond

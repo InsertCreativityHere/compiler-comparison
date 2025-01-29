@@ -663,7 +663,6 @@ Test::PingReply::_iceD_reply(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::PingReply::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -711,7 +710,6 @@ Test::PingReply::dispatch(Ice::IncomingRequest& request, std::function<void(Ice:
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::TestIntf::ice_ids(const Ice::Current&) const
@@ -966,7 +964,6 @@ Test::TestIntf::_iceD_pingBiDir(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1084,7 +1081,6 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::TestIntfController::ice_ids(const Ice::Current&) const
@@ -1131,7 +1127,6 @@ Test::TestIntfController::_iceD_resumeAdapter(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestIntfController::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1184,4 +1179,3 @@ Test::TestIntfController::dispatch(Ice::IncomingRequest& request, std::function<
         }
     }
 }
-/// \endcond

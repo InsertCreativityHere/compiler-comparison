@@ -317,7 +317,6 @@ Test::CallbackReceiver::_iceD_callbackEx(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::CallbackReceiver::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -370,7 +369,6 @@ Test::CallbackReceiver::dispatch(Ice::IncomingRequest& request, std::function<vo
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Callback::ice_ids(const Ice::Current&) const
@@ -438,7 +436,6 @@ Test::Callback::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Callback::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -496,4 +493,3 @@ Test::Callback::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond

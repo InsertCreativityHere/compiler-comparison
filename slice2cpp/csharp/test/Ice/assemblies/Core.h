@@ -30,32 +30,23 @@ namespace Core
 
 namespace Core
 {
+    class ArgumentException : public Ice::UserException
+    {
+    public:
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-class ArgumentException : public Ice::UserException
-{
-public:
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        void ice_throw() const override;
 
-    void ice_throw() const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
+        void _readImpl(Ice::InputStream*) override;
+    };
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 #include <Ice/PopDisableWarnings.h>
 #endif

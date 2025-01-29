@@ -430,7 +430,6 @@ IceBox::ServiceObserver::_iceD_servicesStopped(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceBox::ServiceObserver::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -483,7 +482,6 @@ IceBox::ServiceObserver::dispatch(Ice::IncomingRequest& request, std::function<v
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceBox::ServiceManager::ice_ids(const Ice::Current&) const
@@ -568,7 +566,6 @@ IceBox::ServiceManager::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceBox::ServiceManager::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -631,4 +628,3 @@ IceBox::ServiceManager::dispatch(Ice::IncomingRequest& request, std::function<vo
         }
     }
 }
-/// \endcond

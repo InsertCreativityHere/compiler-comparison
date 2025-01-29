@@ -365,7 +365,6 @@ Ice::RemoteLogger::_iceD_log(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Ice::RemoteLogger::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -418,7 +417,6 @@ Ice::RemoteLogger::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Ice::LoggerAdmin::ice_ids(const Ice::Current&) const
@@ -504,7 +502,6 @@ Ice::LoggerAdmin::_iceD_getLog(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Ice::LoggerAdmin::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -562,4 +559,3 @@ Ice::LoggerAdmin::dispatch(Ice::IncomingRequest& request, std::function<void(Ice
         }
     }
 }
-/// \endcond

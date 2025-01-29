@@ -373,7 +373,6 @@ Test::TestLocatorRegistry::_iceD_addObject(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestLocatorRegistry::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -436,7 +435,6 @@ Test::TestLocatorRegistry::dispatch(Ice::IncomingRequest& request, std::function
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::TestLocator::ice_ids(const Ice::Current&) const
@@ -474,7 +472,6 @@ Test::TestLocator::_iceD_getRequestCount(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestLocator::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -537,7 +534,6 @@ Test::TestLocator::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::ServerManager::ice_ids(const Ice::Current&) const
@@ -584,7 +580,6 @@ Test::ServerManager::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::ServerManager::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -637,7 +632,6 @@ Test::ServerManager::dispatch(Ice::IncomingRequest& request, std::function<void(
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Hello::ice_ids(const Ice::Current&) const
@@ -671,7 +665,6 @@ Test::Hello::_iceD_sayHello(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Hello::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -719,7 +712,6 @@ Test::Hello::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Out
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::TestIntf::ice_ids(const Ice::Current&) const
@@ -800,7 +792,6 @@ Test::TestIntf::_iceD_migrateHello(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -863,4 +854,3 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond

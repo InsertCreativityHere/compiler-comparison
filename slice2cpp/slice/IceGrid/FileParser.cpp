@@ -186,7 +186,6 @@ IceGrid::FileParser::_iceD_parse(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceGrid::FileParser::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -234,4 +233,3 @@ IceGrid::FileParser::dispatch(Ice::IncomingRequest& request, std::function<void(
         }
     }
 }
-/// \endcond

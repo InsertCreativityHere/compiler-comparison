@@ -110,7 +110,6 @@ Test::Single::_iceD_event(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Single::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -158,4 +157,3 @@ Test::Single::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
         }
     }
 }
-/// \endcond

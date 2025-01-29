@@ -1491,7 +1491,6 @@ Test::Thrower::_iceD_throwAfterException(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Thrower::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1634,7 +1633,6 @@ Test::Thrower::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::WrongOperation::ice_ids(const Ice::Current&) const
@@ -1675,7 +1673,6 @@ Test::WrongOperation::_iceD_noSuchOperation(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::WrongOperation::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1723,4 +1720,3 @@ Test::WrongOperation::dispatch(Ice::IncomingRequest& request, std::function<void
         }
     }
 }
-/// \endcond

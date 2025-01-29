@@ -389,7 +389,6 @@ abstract::catch::_iceD_checkedCast(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 abstract::catch::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -437,7 +436,6 @@ abstract::catch::dispatch(Ice::IncomingRequest& request, std::function<void(Ice:
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 abstract::default::ice_ids(const Ice::Current&) const
@@ -471,7 +469,6 @@ abstract::default::_iceD_do(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 abstract::default::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -519,7 +516,6 @@ abstract::default::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 abstract::finalize::ice_ids(const Ice::Current&) const
@@ -540,7 +536,6 @@ abstract::finalize::ice_staticId() noexcept
     return "::abstract::finalize";
 }
 
-/// \cond INTERNAL
 void
 abstract::finalize::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -593,7 +588,6 @@ abstract::finalize::dispatch(Ice::IncomingRequest& request, std::function<void(I
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 abstract::new::ice_ids(const Ice::Current&) const
@@ -643,7 +637,6 @@ abstract::new::_iceD_notify(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 abstract::new::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -691,4 +684,3 @@ abstract::new::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond

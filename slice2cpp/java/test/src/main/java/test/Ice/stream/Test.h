@@ -33,6 +33,7 @@ namespace Test
         enum2,
         enum3
     };
+
     std::ostream& operator<<(std::ostream&, MyEnum);
 
     class MyClass;
@@ -82,374 +83,363 @@ namespace Test
     using LongFloatD = std::map<std::int64_t, float>;
 
     using StringStringD = std::map<std::string, std::string>;
-
 }
 
 namespace Test
 {
-
-class MyInterfacePrx : public Ice::Proxy<MyInterfacePrx, Ice::ObjectPrx>
-{
-public:
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    MyInterfacePrx(const MyInterfacePrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    MyInterfacePrx(MyInterfacePrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    MyInterfacePrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~MyInterfacePrx() override;
-
-    MyInterfacePrx& operator=(const MyInterfacePrx& rhs) noexcept
+    class MyInterfacePrx : public Ice::Proxy<MyInterfacePrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        MyInterfacePrx(const MyInterfacePrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        MyInterfacePrx(MyInterfacePrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        MyInterfacePrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~MyInterfacePrx() override;
+
+        MyInterfacePrx& operator=(const MyInterfacePrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    MyInterfacePrx& operator=(MyInterfacePrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        MyInterfacePrx& operator=(MyInterfacePrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static MyInterfacePrx _fromReference(IceInternal::ReferencePtr ref) { return MyInterfacePrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static MyInterfacePrx _fromReference(IceInternal::ReferencePtr ref) { return MyInterfacePrx(std::move(ref)); }
 
-protected:
+    protected:
+        MyInterfacePrx() = default;
 
-    MyInterfacePrx() = default;
-
-    explicit MyInterfacePrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
+        explicit MyInterfacePrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 }
 
 namespace Test
 {
-
-struct LargeStruct
-{
-    bool bo;
-    std::uint8_t by;
-    std::int16_t sh;
-    std::int32_t i;
-    std::int64_t l;
-    float f;
-    double d;
-    std::string str;
-    ::Test::MyEnum e;
-    std::optional<::Test::MyInterfacePrx> p;
-    ::Test::SerialSmall ss;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::MyEnum&, const std::optional<::Test::MyInterfacePrx>&, const ::Test::SerialSmall&> ice_tuple() const
+    struct LargeStruct
     {
-        return std::tie(bo, by, sh, i, l, f, d, str, e, p, ss);
-    }
+        bool bo;
+        std::uint8_t by;
+        std::int16_t sh;
+        std::int32_t i;
+        std::int64_t l;
+        float f;
+        double d;
+        std::string str;
+        ::Test::MyEnum e;
+        std::optional<::Test::MyInterfacePrx> p;
+        ::Test::SerialSmall ss;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::MyEnum&, const std::optional<::Test::MyInterfacePrx>&, const ::Test::SerialSmall&> ice_tuple() const
+        {
+            return std::tie(bo, by, sh, i, l, f, d, str, e, p, ss);
+        }
 
-std::ostream& operator<<(std::ostream&, const LargeStruct&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct Point
-{
-    std::int32_t x;
-    std::int32_t y;
+    std::ostream& operator<<(std::ostream&, const LargeStruct&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
+    struct Point
     {
-        return std::tie(x, y);
-    }
+        std::int32_t x;
+        std::int32_t y;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(x, y);
+        }
 
-std::ostream& operator<<(std::ostream&, const Point&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-class OptionalClass : public Ice::Value
-{
-public:
-    /// Default constructor.
-    OptionalClass() noexcept = default;
+    std::ostream& operator<<(std::ostream&, const Point&);
 
-    /// One-shot constructor to initialize all data members.
-    OptionalClass(bool bo, std::uint8_t by, std::optional<std::int16_t> sh, std::optional<std::int32_t> i, std::optional<::Test::LargeStruct> s, std::optional<::Test::MyEnumS> enumS4, std::optional<::Test::ByteBoolD> byteBoolD6, std::optional<::Test::ShortIntD> shortIntD7, std::optional<::Test::MyEnum> enum8, std::optional<::Ice::IntSeq> intSeq12, std::optional<::Ice::ByteSeq> byteSeq13, std::optional<::Ice::StringSeq> stringSeq14, std::optional<::Test::Point> p15) noexcept :
-        bo(bo),
-        by(by),
-        sh(sh),
-        i(i),
-        s(std::move(s)),
-        enumS4(std::move(enumS4)),
-        byteBoolD6(std::move(byteBoolD6)),
-        shortIntD7(std::move(shortIntD7)),
-        enum8(enum8),
-        intSeq12(std::move(intSeq12)),
-        byteSeq13(std::move(byteSeq13)),
-        stringSeq14(std::move(stringSeq14)),
-        p15(p15)
+    class OptionalClass : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        OptionalClass() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        OptionalClass(bool bo, std::uint8_t by, std::optional<std::int16_t> sh, std::optional<std::int32_t> i, std::optional<::Test::LargeStruct> s, std::optional<::Test::MyEnumS> enumS4, std::optional<::Test::ByteBoolD> byteBoolD6, std::optional<::Test::ShortIntD> shortIntD7, std::optional<::Test::MyEnum> enum8, std::optional<::Ice::IntSeq> intSeq12, std::optional<::Ice::ByteSeq> byteSeq13, std::optional<::Ice::StringSeq> stringSeq14, std::optional<::Test::Point> p15) noexcept :
+            bo(bo),
+            by(by),
+            sh(sh),
+            i(i),
+            s(std::move(s)),
+            enumS4(std::move(enumS4)),
+            byteBoolD6(std::move(byteBoolD6)),
+            shortIntD7(std::move(shortIntD7)),
+            enum8(enum8),
+            intSeq12(std::move(intSeq12)),
+            byteSeq13(std::move(byteSeq13)),
+            stringSeq14(std::move(stringSeq14)),
+            p15(p15)
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::optional<std::int16_t>&, const std::optional<std::int32_t>&, const std::optional<::Test::LargeStruct>&, const std::optional<::Test::MyEnumS>&, const std::optional<::Test::ByteBoolD>&, const std::optional<::Test::ShortIntD>&, const std::optional<::Test::MyEnum>&, const std::optional<::Ice::IntSeq>&, const std::optional<::Ice::ByteSeq>&, const std::optional<::Ice::StringSeq>&, const std::optional<::Test::Point>&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::optional<std::int16_t>&, const std::optional<std::int32_t>&, const std::optional<::Test::LargeStruct>&, const std::optional<::Test::MyEnumS>&, const std::optional<::Test::ByteBoolD>&, const std::optional<::Test::ShortIntD>&, const std::optional<::Test::MyEnum>&, const std::optional<::Ice::IntSeq>&, const std::optional<::Ice::ByteSeq>&, const std::optional<::Ice::StringSeq>&, const std::optional<::Test::Point>&> ice_tuple() const
+        {
+            return std::tie(bo, by, sh, i, s, enumS4, byteBoolD6, shortIntD7, enum8, intSeq12, byteSeq13, stringSeq14, p15);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] OptionalClassPtr ice_clone() const { return std::static_pointer_cast<OptionalClass>(_iceCloneImpl()); }
+
+        bool bo;
+        std::uint8_t by;
+        std::optional<std::int16_t> sh;
+        std::optional<std::int32_t> i;
+        std::optional<::Test::LargeStruct> s;
+        std::optional<::Test::MyEnumS> enumS4;
+        std::optional<::Test::ByteBoolD> byteBoolD6;
+        std::optional<::Test::ShortIntD> shortIntD7;
+        std::optional<::Test::MyEnum> enum8;
+        std::optional<::Ice::IntSeq> intSeq12;
+        std::optional<::Ice::ByteSeq> byteSeq13;
+        std::optional<::Ice::StringSeq> stringSeq14;
+        std::optional<::Test::Point> p15;
+
+        void ice_printFields(std::ostream& os) const override;
+        OptionalClass(const OptionalClass&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class MyClass : public Ice::Value
     {
-        return std::tie(bo, by, sh, i, s, enumS4, byteBoolD6, shortIntD7, enum8, intSeq12, byteSeq13, stringSeq14, p15);
-    }
+    public:
+        /// Default constructor.
+        MyClass() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] OptionalClassPtr ice_clone() const { return std::static_pointer_cast<OptionalClass>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        MyClass(::Test::MyClassPtr c, std::optional<::Test::MyInterfacePrx> prx, Ice::ValuePtr o, ::Test::LargeStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) noexcept :
+            c(std::move(c)),
+            prx(std::move(prx)),
+            o(std::move(o)),
+            s(std::move(s)),
+            seq1(std::move(seq1)),
+            seq2(std::move(seq2)),
+            seq3(std::move(seq3)),
+            seq4(std::move(seq4)),
+            seq5(std::move(seq5)),
+            seq6(std::move(seq6)),
+            seq7(std::move(seq7)),
+            seq8(std::move(seq8)),
+            seq9(std::move(seq9)),
+            seq10(std::move(seq10)),
+            d(std::move(d))
+        {
+        }
 
-    bool bo;
-    std::uint8_t by;
-    std::optional<std::int16_t> sh;
-    std::optional<std::int32_t> i;
-    std::optional<::Test::LargeStruct> s;
-    std::optional<::Test::MyEnumS> enumS4;
-    std::optional<::Test::ByteBoolD> byteBoolD6;
-    std::optional<::Test::ShortIntD> shortIntD7;
-    std::optional<::Test::MyEnum> enum8;
-    std::optional<::Ice::IntSeq> intSeq12;
-    std::optional<::Ice::ByteSeq> byteSeq13;
-    std::optional<::Ice::StringSeq> stringSeq14;
-    std::optional<::Test::Point> p15;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void ice_printFields(std::ostream& os) const override;
-    OptionalClass(const OptionalClass&) = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::MyClassPtr&, const std::optional<::Test::MyInterfacePrx>&, const Ice::ValuePtr&, const ::Test::LargeStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
+        {
+            return std::tie(c, prx, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d);
+        }
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] MyClassPtr ice_clone() const { return std::static_pointer_cast<MyClass>(_iceCloneImpl()); }
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        ::Test::MyClassPtr c;
+        std::optional<::Test::MyInterfacePrx> prx;
+        Ice::ValuePtr o;
+        ::Test::LargeStruct s;
+        ::Ice::BoolSeq seq1;
+        ::Ice::ByteSeq seq2;
+        ::Ice::ShortSeq seq3;
+        ::Ice::IntSeq seq4;
+        ::Ice::LongSeq seq5;
+        ::Ice::FloatSeq seq6;
+        ::Ice::DoubleSeq seq7;
+        ::Ice::StringSeq seq8;
+        ::Test::MyEnumS seq9;
+        ::Test::MyClassS seq10;
+        ::Test::StringMyClassD d;
 
-class MyClass : public Ice::Value
-{
-public:
-    /// Default constructor.
-    MyClass() noexcept = default;
+        void ice_printFields(std::ostream& os) const override;
+        MyClass(const MyClass&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    MyClass(::Test::MyClassPtr c, std::optional<::Test::MyInterfacePrx> prx, Ice::ValuePtr o, ::Test::LargeStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) noexcept :
-        c(std::move(c)),
-        prx(std::move(prx)),
-        o(std::move(o)),
-        s(std::move(s)),
-        seq1(std::move(seq1)),
-        seq2(std::move(seq2)),
-        seq3(std::move(seq3)),
-        seq4(std::move(seq4)),
-        seq5(std::move(seq5)),
-        seq6(std::move(seq6)),
-        seq7(std::move(seq7)),
-        seq8(std::move(seq8)),
-        seq9(std::move(seq9)),
-        seq10(std::move(seq10)),
-        d(std::move(d))
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class MyException : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        MyException() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        MyException(MyClassPtr c) noexcept :
+            c(std::move(c))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Copy constructor.
+        MyException(const MyException&) noexcept = default;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::MyClassPtr&, const std::optional<::Test::MyInterfacePrx>&, const Ice::ValuePtr&, const ::Test::LargeStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
-    {
-        return std::tie(c, prx, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] MyClassPtr ice_clone() const { return std::static_pointer_cast<MyClass>(_iceCloneImpl()); }
-
-    ::Test::MyClassPtr c;
-    std::optional<::Test::MyInterfacePrx> prx;
-    Ice::ValuePtr o;
-    ::Test::LargeStruct s;
-    ::Ice::BoolSeq seq1;
-    ::Ice::ByteSeq seq2;
-    ::Ice::ShortSeq seq3;
-    ::Ice::IntSeq seq4;
-    ::Ice::LongSeq seq5;
-    ::Ice::FloatSeq seq6;
-    ::Ice::DoubleSeq seq7;
-    ::Ice::StringSeq seq8;
-    ::Test::MyEnumS seq9;
-    ::Test::MyClassS seq10;
-    ::Test::StringMyClassD d;
-
-    void ice_printFields(std::ostream& os) const override;
-    MyClass(const MyClass&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class MyException : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    MyException() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    MyException(MyClassPtr c) noexcept :
-        c(std::move(c))
-    {
-    }
-
-    /// Copy constructor.
-    MyException(const MyException&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::MyClassPtr&> ice_tuple() const
-    {
-        return std::tie(c);
-    }
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::MyClassPtr&> ice_tuple() const
+        {
+            return std::tie(c);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    /// \cond STREAM
-    [[nodiscard]] bool _usesClasses() const override;
-    /// \endcond
+        /// \cond STREAM
+        [[nodiscard]] bool _usesClasses() const override;
+        /// \endcond
 
-    ::Test::MyClassPtr c;
+        ::Test::MyClassPtr c;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void _readImpl(Ice::InputStream*) override;
+    };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 namespace Test
 {
+    class MyInterface : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = MyInterfacePrx;
 
-class MyInterface : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = MyInterfacePrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+    };
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
-
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-};
-
-using MyInterfacePtr = std::shared_ptr<MyInterface>;
-
+    using MyInterfacePtr = std::shared_ptr<MyInterface>;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits< ::Test::MyEnum>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryEnum;
-    static const int minValue = 0;
-    static const int maxValue = 2;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamableTraits<::Test::LargeStruct>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 33;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::LargeStruct>
-{
-    static void read(InputStream* istr, ::Test::LargeStruct& v)
+    template<>
+    struct StreamableTraits< ::Test::MyEnum>
     {
-        istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.f, v.d, v.str, v.e, v.p, v.ss);
-    }
-};
+        static const StreamHelperCategory helper = StreamHelperCategoryEnum;
+        static const int minValue = 0;
+        static const int maxValue = 2;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
 
-template<>
-struct StreamableTraits<::Test::Point>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 8;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::Test::Point>
-{
-    static void read(InputStream* istr, ::Test::Point& v)
+    template<>
+    struct StreamableTraits<::Test::LargeStruct>
     {
-        istr->readAll(v.x, v.y);
-    }
-};
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 33;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::LargeStruct>
+    {
+        static void read(InputStream* istr, ::Test::LargeStruct& v)
+        {
+            istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.f, v.d, v.str, v.e, v.p, v.ss);
+        }
+    };
 
+    template<>
+    struct StreamableTraits<::Test::Point>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 8;
+        static const bool fixedLength = true;
+    };
+    
+    template<>
+    struct StreamReader<::Test::Point>
+    {
+        static void read(InputStream* istr, ::Test::Point& v)
+        {
+            istr->readAll(v.x, v.y);
+        }
+    };
 }
 /// \endcond
 

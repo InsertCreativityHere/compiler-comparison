@@ -33,13 +33,12 @@ namespace Test
         namespace SubSubA1
         {
             constexpr std::int32_t Value2 = 11;
-
         }
 
         namespace SubSubA2
         {
-            constexpr std::int32_t Value1 = 30;
 
+            constexpr std::int32_t Value1 = 30;
         }
     }
 
@@ -48,8 +47,8 @@ namespace Test
 
         namespace SubSubB1
         {
-            constexpr std::int32_t Value2 = 21;
 
+            constexpr std::int32_t Value2 = 21;
         }
     }
 }

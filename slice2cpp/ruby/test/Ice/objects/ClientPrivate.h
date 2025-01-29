@@ -47,420 +47,408 @@ namespace Test
     using DOneMember = std::map<std::int32_t, COneMemberPtr>;
 
     using DTwoMembers = std::map<std::int32_t, CTwoMembersPtr>;
-
 }
 
 namespace Test
 {
-
-class UnexpectedObjectExceptionTestPrx : public Ice::Proxy<UnexpectedObjectExceptionTestPrx, Ice::ObjectPrx>
-{
-public:
-
-    EmptyPtr op(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<EmptyPtr> opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    opAsync(std::function<void(::Test::EmptyPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_op(const std::shared_ptr<IceInternal::OutgoingAsyncT<EmptyPtr>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    UnexpectedObjectExceptionTestPrx(const UnexpectedObjectExceptionTestPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    UnexpectedObjectExceptionTestPrx(UnexpectedObjectExceptionTestPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    UnexpectedObjectExceptionTestPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~UnexpectedObjectExceptionTestPrx() override;
-
-    UnexpectedObjectExceptionTestPrx& operator=(const UnexpectedObjectExceptionTestPrx& rhs) noexcept
+    class UnexpectedObjectExceptionTestPrx : public Ice::Proxy<UnexpectedObjectExceptionTestPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        EmptyPtr op(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<EmptyPtr> opAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        opAsync(std::function<void(::Test::EmptyPtr)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_op(const std::shared_ptr<IceInternal::OutgoingAsyncT<EmptyPtr>>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        UnexpectedObjectExceptionTestPrx(const UnexpectedObjectExceptionTestPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        UnexpectedObjectExceptionTestPrx(UnexpectedObjectExceptionTestPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        UnexpectedObjectExceptionTestPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~UnexpectedObjectExceptionTestPrx() override;
+
+        UnexpectedObjectExceptionTestPrx& operator=(const UnexpectedObjectExceptionTestPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    UnexpectedObjectExceptionTestPrx& operator=(UnexpectedObjectExceptionTestPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        UnexpectedObjectExceptionTestPrx& operator=(UnexpectedObjectExceptionTestPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static UnexpectedObjectExceptionTestPrx _fromReference(IceInternal::ReferencePtr ref) { return UnexpectedObjectExceptionTestPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static UnexpectedObjectExceptionTestPrx _fromReference(IceInternal::ReferencePtr ref) { return UnexpectedObjectExceptionTestPrx(std::move(ref)); }
 
-protected:
+    protected:
+        UnexpectedObjectExceptionTestPrx() = default;
 
-    UnexpectedObjectExceptionTestPrx() = default;
-
-    explicit UnexpectedObjectExceptionTestPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
+        explicit UnexpectedObjectExceptionTestPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 }
 
 namespace Test
 {
-
-class Empty : public Ice::Value
-{
-public:
-    /// Default constructor.
-    Empty() noexcept = default;
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] EmptyPtr ice_clone() const { return std::static_pointer_cast<Empty>(_iceCloneImpl()); }
-
-    Empty(const Empty&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class AlsoEmpty : public Ice::Value
-{
-public:
-    /// Default constructor.
-    AlsoEmpty() noexcept = default;
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] AlsoEmptyPtr ice_clone() const { return std::static_pointer_cast<AlsoEmpty>(_iceCloneImpl()); }
-
-    AlsoEmpty(const AlsoEmpty&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class COneMember : public Ice::Value
-{
-public:
-    /// Default constructor.
-    COneMember() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    explicit COneMember(::Test::EmptyPtr e) noexcept :
-        e(std::move(e))
+    class Empty : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        Empty() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] EmptyPtr ice_clone() const { return std::static_pointer_cast<Empty>(_iceCloneImpl()); }
+
+        Empty(const Empty&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class AlsoEmpty : public Ice::Value
     {
-        return std::tie(e);
-    }
+    public:
+        /// Default constructor.
+        AlsoEmpty() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] COneMemberPtr ice_clone() const { return std::static_pointer_cast<COneMember>(_iceCloneImpl()); }
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    ::Test::EmptyPtr e;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_printFields(std::ostream& os) const override;
-    COneMember(const COneMember&) = default;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] AlsoEmptyPtr ice_clone() const { return std::static_pointer_cast<AlsoEmpty>(_iceCloneImpl()); }
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        AlsoEmpty(const AlsoEmpty&) = default;
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        void _iceWriteImpl(Ice::OutputStream*) const override;
 
-class CTwoMembers : public Ice::Value
-{
-public:
-    /// Default constructor.
-    CTwoMembers() noexcept = default;
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
 
-    /// One-shot constructor to initialize all data members.
-    CTwoMembers(::Test::EmptyPtr e1, ::Test::EmptyPtr e2) noexcept :
-        e1(std::move(e1)),
-        e2(std::move(e2))
+    class COneMember : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        COneMember() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        explicit COneMember(::Test::EmptyPtr e) noexcept :
+            e(std::move(e))
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
+        {
+            return std::tie(e);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] COneMemberPtr ice_clone() const { return std::static_pointer_cast<COneMember>(_iceCloneImpl()); }
+
+        ::Test::EmptyPtr e;
+
+        void ice_printFields(std::ostream& os) const override;
+        COneMember(const COneMember&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class CTwoMembers : public Ice::Value
     {
-        return std::tie(e1, e2);
-    }
+    public:
+        /// Default constructor.
+        CTwoMembers() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] CTwoMembersPtr ice_clone() const { return std::static_pointer_cast<CTwoMembers>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        CTwoMembers(::Test::EmptyPtr e1, ::Test::EmptyPtr e2) noexcept :
+            e1(std::move(e1)),
+            e2(std::move(e2))
+        {
+        }
 
-    ::Test::EmptyPtr e1;
-    ::Test::EmptyPtr e2;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void ice_printFields(std::ostream& os) const override;
-    CTwoMembers(const CTwoMembers&) = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
+        {
+            return std::tie(e1, e2);
+        }
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] CTwoMembersPtr ice_clone() const { return std::static_pointer_cast<CTwoMembers>(_iceCloneImpl()); }
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        ::Test::EmptyPtr e1;
+        ::Test::EmptyPtr e2;
 
-class EOneMember : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    EOneMember() noexcept = default;
+        void ice_printFields(std::ostream& os) const override;
+        CTwoMembers(const CTwoMembers&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    EOneMember(EmptyPtr e) noexcept :
-        e(std::move(e))
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class EOneMember : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        EOneMember() noexcept = default;
 
-    /// Copy constructor.
-    EOneMember(const EOneMember&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        EOneMember(EmptyPtr e) noexcept :
+            e(std::move(e))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
+        /// Copy constructor.
+        EOneMember(const EOneMember&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
+        {
+            return std::tie(e);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        /// \cond STREAM
+        [[nodiscard]] bool _usesClasses() const override;
+        /// \endcond
+
+        ::Test::EmptyPtr e;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class ETwoMembers : public Ice::UserException
     {
-        return std::tie(e);
-    }
+    public:
+        /// Default constructor.
+        ETwoMembers() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        ETwoMembers(EmptyPtr e1, EmptyPtr e2) noexcept :
+            e1(std::move(e1)),
+            e2(std::move(e2))
+        {
+        }
+
+        /// Copy constructor.
+        ETwoMembers(const ETwoMembers&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
+        {
+            return std::tie(e1, e2);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    /// \cond STREAM
-    [[nodiscard]] bool _usesClasses() const override;
-    /// \endcond
+        /// \cond STREAM
+        [[nodiscard]] bool _usesClasses() const override;
+        /// \endcond
 
-    ::Test::EmptyPtr e;
+        ::Test::EmptyPtr e1;
+        ::Test::EmptyPtr e2;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void _readImpl(Ice::InputStream*) override;
+    };
 
-class ETwoMembers : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    ETwoMembers() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    ETwoMembers(EmptyPtr e1, EmptyPtr e2) noexcept :
-        e1(std::move(e1)),
-        e2(std::move(e2))
+    struct SOneMember
     {
-    }
+        ::Test::EmptyPtr e;
 
-    /// Copy constructor.
-    ETwoMembers(const ETwoMembers&) noexcept = default;
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
+        {
+            return std::tie(e);
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
+
+    std::ostream& operator<<(std::ostream&, const SOneMember&);
+
+    struct STwoMembers
     {
-        return std::tie(e1, e2);
-    }
+        ::Test::EmptyPtr e1;
+        ::Test::EmptyPtr e2;
 
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
+        {
+            return std::tie(e1, e2);
+        }
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+    std::ostream& operator<<(std::ostream&, const STwoMembers&);
 
-    void ice_throw() const override;
-
-    /// \cond STREAM
-    [[nodiscard]] bool _usesClasses() const override;
-    /// \endcond
-
-    ::Test::EmptyPtr e1;
-    ::Test::EmptyPtr e2;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-struct SOneMember
-{
-    ::Test::EmptyPtr e;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::EmptyPtr&> ice_tuple() const
-    {
-        return std::tie(e);
-    }
-
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
-
-std::ostream& operator<<(std::ostream&, const SOneMember&);
-
-struct STwoMembers
-{
-    ::Test::EmptyPtr e1;
-    ::Test::EmptyPtr e2;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const ::Test::EmptyPtr&, const ::Test::EmptyPtr&> ice_tuple() const
-    {
-        return std::tie(e1, e2);
-    }
-
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
-
-std::ostream& operator<<(std::ostream&, const STwoMembers&);
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 namespace Test
 {
+    class UnexpectedObjectExceptionTest : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = UnexpectedObjectExceptionTestPrx;
 
-class UnexpectedObjectExceptionTest : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = UnexpectedObjectExceptionTestPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        virtual EmptyPtr op(const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_op(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual EmptyPtr op(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_op(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
-
-using UnexpectedObjectExceptionTestPtr = std::shared_ptr<UnexpectedObjectExceptionTest>;
-
+    using UnexpectedObjectExceptionTestPtr = std::shared_ptr<UnexpectedObjectExceptionTest>;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::Test::SOneMember>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::SOneMember>
-{
-    static void read(InputStream* istr, ::Test::SOneMember& v)
+    template<>
+    struct StreamableTraits<::Test::SOneMember>
     {
-        istr->readAll(v.e);
-    }
-};
-
-template<>
-struct StreamableTraits<::Test::STwoMembers>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 2;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::STwoMembers>
-{
-    static void read(InputStream* istr, ::Test::STwoMembers& v)
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::SOneMember>
     {
-        istr->readAll(v.e1, v.e2);
-    }
-};
+        static void read(InputStream* istr, ::Test::SOneMember& v)
+        {
+            istr->readAll(v.e);
+        }
+    };
 
+    template<>
+    struct StreamableTraits<::Test::STwoMembers>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 2;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::STwoMembers>
+    {
+        static void read(InputStream* istr, ::Test::STwoMembers& v)
+        {
+            istr->readAll(v.e1, v.e2);
+        }
+    };
 }
 /// \endcond
 

@@ -27,64 +27,59 @@
 namespace IceStormElection
 {
     struct LogUpdate;
-
 }
 
 namespace IceStormElection
 {
-
-/// A struct used for marking the last log update.
-struct LogUpdate
-{
-    /// The generation.
-    std::int64_t generation;
-    /// The iteration within this generation.
-    std::int64_t iteration;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int64_t&, const std::int64_t&> ice_tuple() const
+    /// A struct used for marking the last log update.
+    struct LogUpdate
     {
-        return std::tie(generation, iteration);
-    }
+        /// The generation.
+        std::int64_t generation;
+        /// The iteration within this generation.
+        std::int64_t iteration;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int64_t&, const std::int64_t&> ice_tuple() const
+        {
+            return std::tie(generation, iteration);
+        }
 
-std::ostream& operator<<(std::ostream&, const LogUpdate&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
+    std::ostream& operator<<(std::ostream&, const LogUpdate&);
 
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits<::IceStormElection::LogUpdate>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 16;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::IceStormElection::LogUpdate>
-{
-    static void read(InputStream* istr, ::IceStormElection::LogUpdate& v)
+    template<>
+    struct StreamableTraits<::IceStormElection::LogUpdate>
     {
-        istr->readAll(v.generation, v.iteration);
-    }
-};
-
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 16;
+        static const bool fixedLength = true;
+    };
+    
+    template<>
+    struct StreamReader<::IceStormElection::LogUpdate>
+    {
+        static void read(InputStream* istr, ::IceStormElection::LogUpdate& v)
+        {
+            istr->readAll(v.generation, v.iteration);
+        }
+    };
 }
 /// \endcond
 

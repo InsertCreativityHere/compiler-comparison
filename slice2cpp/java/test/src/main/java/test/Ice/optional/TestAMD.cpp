@@ -2693,7 +2693,6 @@ Test::MyInterface::_iceD_op(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MyInterface::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -2741,7 +2740,6 @@ Test::MyInterface::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Initial::ice_ids(const Ice::Current&) const
@@ -4146,7 +4144,6 @@ Test::Initial::_iceD_supportsJavaSerializable(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -4414,4 +4411,3 @@ Test::Initial::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::O
         }
     }
 }
-/// \endcond

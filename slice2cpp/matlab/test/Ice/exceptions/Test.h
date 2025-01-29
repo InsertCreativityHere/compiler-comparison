@@ -31,893 +31,890 @@ namespace Test
 
     class ThrowerPrx;
 
-
     namespace Mod
     {
     }
+
     class WrongOperationPrx;
-
 }
 
 namespace Test
 {
-
-class EmptyPrx : public Ice::Proxy<EmptyPrx, Ice::ObjectPrx>
-{
-public:
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    EmptyPrx(const EmptyPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    EmptyPrx(EmptyPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    EmptyPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~EmptyPrx() override;
-
-    EmptyPrx& operator=(const EmptyPrx& rhs) noexcept
+    class EmptyPrx : public Ice::Proxy<EmptyPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        EmptyPrx(const EmptyPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        EmptyPrx(EmptyPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        EmptyPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~EmptyPrx() override;
+
+        EmptyPrx& operator=(const EmptyPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    EmptyPrx& operator=(EmptyPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        EmptyPrx& operator=(EmptyPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static EmptyPrx _fromReference(IceInternal::ReferencePtr ref) { return EmptyPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static EmptyPrx _fromReference(IceInternal::ReferencePtr ref) { return EmptyPrx(std::move(ref)); }
 
-protected:
+    protected:
+        EmptyPrx() = default;
 
-    EmptyPrx() = default;
-
-    explicit EmptyPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
-class ThrowerPrx : public Ice::Proxy<ThrowerPrx, Ice::ObjectPrx>
-{
-public:
-
-    void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    bool supportsUndeclaredExceptions(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<bool> supportsUndeclaredExceptionsAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    supportsUndeclaredExceptionsAsync(std::function<void(bool)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_supportsUndeclaredExceptions(const std::shared_ptr<IceInternal::OutgoingAsyncT<bool>>&, const Ice::Context&) const;
-    /// \endcond
-
-    bool supportsAssertException(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<bool> supportsAssertExceptionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    supportsAssertExceptionAsync(std::function<void(bool)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_supportsAssertException(const std::shared_ptr<IceInternal::OutgoingAsyncT<bool>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwAasA(std::int32_t a, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwAasAAsync(std::int32_t a, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwAasAAsync(std::int32_t a, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwAasA(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    void throwAorDasAorD(std::int32_t a, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwAorDasAorDAsync(std::int32_t a, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwAorDasAorDAsync(std::int32_t a, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwAorDasAorD(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    void throwBasA(std::int32_t a, std::int32_t b, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwBasAAsync(std::int32_t a, std::int32_t b, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwBasAAsync(std::int32_t a, std::int32_t b, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwBasA(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    void throwCasA(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwCasAAsync(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwCasAAsync(std::int32_t a, std::int32_t b, std::int32_t c, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwCasA(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    void throwBasB(std::int32_t a, std::int32_t b, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwBasBAsync(std::int32_t a, std::int32_t b, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwBasBAsync(std::int32_t a, std::int32_t b, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwBasB(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    void throwCasB(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwCasBAsync(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwCasBAsync(std::int32_t a, std::int32_t b, std::int32_t c, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwCasB(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    void throwCasC(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwCasCAsync(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwCasCAsync(std::int32_t a, std::int32_t b, std::int32_t c, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwCasC(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    void throwModA(std::int32_t a, std::int32_t a2, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwModAAsync(std::int32_t a, std::int32_t a2, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwModAAsync(std::int32_t a, std::int32_t a2, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwModA(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    void throwUndeclaredA(std::int32_t a, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwUndeclaredAAsync(std::int32_t a, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwUndeclaredAAsync(std::int32_t a, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwUndeclaredA(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    void throwUndeclaredB(std::int32_t a, std::int32_t b, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwUndeclaredBAsync(std::int32_t a, std::int32_t b, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwUndeclaredBAsync(std::int32_t a, std::int32_t b, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwUndeclaredB(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    void throwUndeclaredC(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwUndeclaredCAsync(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwUndeclaredCAsync(std::int32_t a, std::int32_t b, std::int32_t c, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwUndeclaredC(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    void throwLocalException(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwLocalExceptionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwLocalExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwLocalException(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwNonIceException(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwNonIceExceptionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwNonIceExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwNonIceException(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwAssertException(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwAssertExceptionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwAssertExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwAssertException(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    ::Ice::ByteSeq throwMemoryLimitException(const ::Ice::ByteSeq& seq, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
-
-    [[nodiscard]] std::future<::Ice::ByteSeq> throwMemoryLimitExceptionAsync(const ::Ice::ByteSeq& seq, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwMemoryLimitExceptionAsync(const ::Ice::ByteSeq& seq, std::function<void(::Ice::ByteSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwMemoryLimitException(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, const ::Ice::ByteSeq&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwLocalExceptionIdempotent(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwLocalExceptionIdempotentAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwLocalExceptionIdempotentAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwLocalExceptionIdempotent(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwAfterResponse(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwAfterResponseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwAfterResponseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwAfterResponse(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    void throwAfterException(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> throwAfterExceptionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    throwAfterExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwAfterException(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    ThrowerPrx(const ThrowerPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    ThrowerPrx(ThrowerPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    ThrowerPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~ThrowerPrx() override;
-
-    ThrowerPrx& operator=(const ThrowerPrx& rhs) noexcept
-    {
-        if (this != &rhs)
+        explicit EmptyPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
         {
-            Ice::ObjectPrx::operator=(rhs);
         }
-        return *this;
-    }
+        /// \endcond
+    };
 
-    ThrowerPrx& operator=(ThrowerPrx&& rhs) noexcept
+    class ThrowerPrx : public Ice::Proxy<ThrowerPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        bool supportsUndeclaredExceptions(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<bool> supportsUndeclaredExceptionsAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        supportsUndeclaredExceptionsAsync(std::function<void(bool)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_supportsUndeclaredExceptions(const std::shared_ptr<IceInternal::OutgoingAsyncT<bool>>&, const Ice::Context&) const;
+        /// \endcond
+
+        bool supportsAssertException(const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<bool> supportsAssertExceptionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        supportsAssertExceptionAsync(std::function<void(bool)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_supportsAssertException(const std::shared_ptr<IceInternal::OutgoingAsyncT<bool>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwAasA(std::int32_t a, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwAasAAsync(std::int32_t a, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwAasAAsync(std::int32_t a, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwAasA(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        void throwAorDasAorD(std::int32_t a, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwAorDasAorDAsync(std::int32_t a, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwAorDasAorDAsync(std::int32_t a, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwAorDasAorD(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        void throwBasA(std::int32_t a, std::int32_t b, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwBasAAsync(std::int32_t a, std::int32_t b, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwBasAAsync(std::int32_t a, std::int32_t b, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwBasA(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        void throwCasA(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwCasAAsync(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwCasAAsync(std::int32_t a, std::int32_t b, std::int32_t c, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwCasA(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        void throwBasB(std::int32_t a, std::int32_t b, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwBasBAsync(std::int32_t a, std::int32_t b, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwBasBAsync(std::int32_t a, std::int32_t b, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwBasB(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        void throwCasB(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwCasBAsync(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwCasBAsync(std::int32_t a, std::int32_t b, std::int32_t c, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwCasB(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        void throwCasC(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwCasCAsync(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwCasCAsync(std::int32_t a, std::int32_t b, std::int32_t c, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwCasC(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        void throwModA(std::int32_t a, std::int32_t a2, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwModAAsync(std::int32_t a, std::int32_t a2, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwModAAsync(std::int32_t a, std::int32_t a2, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwModA(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        void throwUndeclaredA(std::int32_t a, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwUndeclaredAAsync(std::int32_t a, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwUndeclaredAAsync(std::int32_t a, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwUndeclaredA(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        void throwUndeclaredB(std::int32_t a, std::int32_t b, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwUndeclaredBAsync(std::int32_t a, std::int32_t b, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwUndeclaredBAsync(std::int32_t a, std::int32_t b, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwUndeclaredB(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        void throwUndeclaredC(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwUndeclaredCAsync(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwUndeclaredCAsync(std::int32_t a, std::int32_t b, std::int32_t c, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwUndeclaredC(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::int32_t, std::int32_t, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        void throwLocalException(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwLocalExceptionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwLocalExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwLocalException(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwNonIceException(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwNonIceExceptionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwNonIceExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwNonIceException(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwAssertException(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwAssertExceptionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwAssertExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwAssertException(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        ::Ice::ByteSeq throwMemoryLimitException(const ::Ice::ByteSeq& seq, const Ice::Context& context = Ice::noExplicitContext) const; // NOLINT(modernize-use-nodiscard)
+
+        [[nodiscard]] std::future<::Ice::ByteSeq> throwMemoryLimitExceptionAsync(const ::Ice::ByteSeq& seq, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwMemoryLimitExceptionAsync(const ::Ice::ByteSeq& seq, std::function<void(::Ice::ByteSeq)> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwMemoryLimitException(const std::shared_ptr<IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, const ::Ice::ByteSeq&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwLocalExceptionIdempotent(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwLocalExceptionIdempotentAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwLocalExceptionIdempotentAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwLocalExceptionIdempotent(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwAfterResponse(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwAfterResponseAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwAfterResponseAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwAfterResponse(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        void throwAfterException(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> throwAfterExceptionAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        throwAfterExceptionAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_throwAfterException(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        ThrowerPrx(const ThrowerPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        ThrowerPrx(ThrowerPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        ThrowerPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~ThrowerPrx() override;
+
+        ThrowerPrx& operator=(const ThrowerPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static ThrowerPrx _fromReference(IceInternal::ReferencePtr ref) { return ThrowerPrx(std::move(ref)); }
-
-protected:
-
-    ThrowerPrx() = default;
-
-    explicit ThrowerPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
-class WrongOperationPrx : public Ice::Proxy<WrongOperationPrx, Ice::ObjectPrx>
-{
-public:
-
-    void noSuchOperation(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    [[nodiscard]] std::future<void> noSuchOperationAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    noSuchOperationAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_noSuchOperation(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    WrongOperationPrx(const WrongOperationPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    WrongOperationPrx(WrongOperationPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    WrongOperationPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~WrongOperationPrx() override;
-
-    WrongOperationPrx& operator=(const WrongOperationPrx& rhs) noexcept
-    {
-        if (this != &rhs)
+        ThrowerPrx& operator=(ThrowerPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    WrongOperationPrx& operator=(WrongOperationPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        /// \cond INTERNAL
+        static ThrowerPrx _fromReference(IceInternal::ReferencePtr ref) { return ThrowerPrx(std::move(ref)); }
+
+    protected:
+        ThrowerPrx() = default;
+
+        explicit ThrowerPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
         }
-        return *this;
-    }
+        /// \endcond
+    };
 
-    /// \cond INTERNAL
-    static WrongOperationPrx _fromReference(IceInternal::ReferencePtr ref) { return WrongOperationPrx(std::move(ref)); }
-
-protected:
-
-    WrongOperationPrx() = default;
-
-    explicit WrongOperationPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+    class WrongOperationPrx : public Ice::Proxy<WrongOperationPrx, Ice::ObjectPrx>
     {
-    }
-    /// \endcond
-};
+    public:
 
+        void noSuchOperation(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        [[nodiscard]] std::future<void> noSuchOperationAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        noSuchOperationAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_noSuchOperation(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        WrongOperationPrx(const WrongOperationPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        WrongOperationPrx(WrongOperationPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        WrongOperationPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~WrongOperationPrx() override;
+
+        WrongOperationPrx& operator=(const WrongOperationPrx& rhs) noexcept
+        {
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
+        }
+
+        WrongOperationPrx& operator=(WrongOperationPrx&& rhs) noexcept
+        {
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
+        }
+
+        /// \cond INTERNAL
+        static WrongOperationPrx _fromReference(IceInternal::ReferencePtr ref) { return WrongOperationPrx(std::move(ref)); }
+
+    protected:
+        WrongOperationPrx() = default;
+
+        explicit WrongOperationPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 }
 
 namespace Test
 {
-
-class A : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    A() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    A(std::int32_t aMem) noexcept :
-        aMem(aMem)
+    class A : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        A() noexcept = default;
 
-    /// Copy constructor.
-    A(const A&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        A(std::int32_t aMem) noexcept :
+            aMem(aMem)
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+        /// Copy constructor.
+        A(const A&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(aMem);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        std::int32_t aMem;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class B : public A
     {
-        return std::tie(aMem);
-    }
+    public:
+        /// Default constructor.
+        B() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        B(std::int32_t aMem, std::int32_t bMem) noexcept :
+            A(aMem),
+            bMem(bMem)
+        {
+        }
+
+        /// Copy constructor.
+        B(const B&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(aMem, bMem);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    std::int32_t aMem;
+        std::int32_t bMem;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void _readImpl(Ice::InputStream*) override;
+    };
 
-class B : public A
-{
-public:
-    /// Default constructor.
-    B() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    B(std::int32_t aMem, std::int32_t bMem) noexcept :
-        A(aMem),
-        bMem(bMem)
+    class C : public B
     {
-    }
+    public:
+        /// Default constructor.
+        C() noexcept = default;
 
-    /// Copy constructor.
-    B(const B&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        C(std::int32_t aMem, std::int32_t bMem, std::int32_t cMem) noexcept :
+            B(aMem, bMem),
+            cMem(cMem)
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
+        /// Copy constructor.
+        C(const C&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(aMem, bMem, cMem);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        std::int32_t cMem;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class D : public Ice::UserException
     {
-        return std::tie(aMem, bMem);
-    }
+    public:
+        /// Default constructor.
+        D() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        D(std::int32_t dMem) noexcept :
+            dMem(dMem)
+        {
+        }
+
+        /// Copy constructor.
+        D(const D&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(dMem);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    std::int32_t bMem;
+        std::int32_t dMem;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void _readImpl(Ice::InputStream*) override;
+    };
 
-class C : public B
-{
-public:
-    /// Default constructor.
-    C() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    C(std::int32_t aMem, std::int32_t bMem, std::int32_t cMem) noexcept :
-        B(aMem, bMem),
-        cMem(cMem)
+    class E : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        E() noexcept = default;
 
-    /// Copy constructor.
-    C(const C&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        E(std::string data) noexcept :
+            data(std::move(data))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&, const std::int32_t&> ice_tuple() const
+        /// Copy constructor.
+        E(const E&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(data);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        std::string data;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class F : public Ice::UserException
     {
-        return std::tie(aMem, bMem, cMem);
-    }
+    public:
+        /// Default constructor.
+        F() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        F(std::string data) noexcept :
+            data(std::move(data))
+        {
+        }
+
+        /// Copy constructor.
+        F(const F&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
+        {
+            return std::tie(data);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    std::int32_t cMem;
+        std::string data;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void _readImpl(Ice::InputStream*) override;
+    };
 
-class D : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    D() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    D(std::int32_t dMem) noexcept :
-        dMem(dMem)
+    namespace Mod
     {
+
+        class A : public ::Test::A
+        {
+        public:
+            /// Default constructor.
+            A() noexcept = default;
+
+            /// One-shot constructor to initialize all data members.
+            A(std::int32_t aMem, std::int32_t a2Mem) noexcept :
+                ::Test::A(aMem),
+                a2Mem(a2Mem)
+            {
+            }
+
+            /// Copy constructor.
+            A(const A&) noexcept = default;
+
+            /// Obtains a tuple containing all of the exception's data members.
+            /// @return The data members in a tuple.
+            [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
+            {
+                return std::tie(aMem, a2Mem);
+            }
+
+
+            void ice_printFields(std::ostream& os) const override;
+            /// Obtains the Slice type ID of this exception.
+            /// @return The fully-scoped type ID.
+            static const char* ice_staticId() noexcept;
+
+            [[nodiscard]] const char* ice_id() const noexcept override;
+
+            void ice_throw() const override;
+
+            std::int32_t a2Mem;
+
+        protected:
+            void _writeImpl(Ice::OutputStream*) const override;
+
+            void _readImpl(Ice::InputStream*) override;
+        };
     }
-
-    /// Copy constructor.
-    D(const D&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(dMem);
-    }
-
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    std::int32_t dMem;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-class E : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    E() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    E(std::string data) noexcept :
-        data(std::move(data))
-    {
-    }
-
-    /// Copy constructor.
-    E(const E&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
-    {
-        return std::tie(data);
-    }
-
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    std::string data;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-class F : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    F() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    F(std::string data) noexcept :
-        data(std::move(data))
-    {
-    }
-
-    /// Copy constructor.
-    F(const F&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&> ice_tuple() const
-    {
-        return std::tie(data);
-    }
-
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    std::string data;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-namespace Mod
-{
-
-class A : public ::Test::A
-{
-public:
-    /// Default constructor.
-    A() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    A(std::int32_t aMem, std::int32_t a2Mem) noexcept :
-        ::Test::A(aMem),
-        a2Mem(a2Mem)
-    {
-    }
-
-    /// Copy constructor.
-    A(const A&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&, const std::int32_t&> ice_tuple() const
-    {
-        return std::tie(aMem, a2Mem);
-    }
-
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    std::int32_t a2Mem;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-}
-
 }
 
 namespace Test
 {
+    class Empty : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = EmptyPrx;
 
-class Empty : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = EmptyPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+    };
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+    using EmptyPtr = std::shared_ptr<Empty>;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-};
+    class Thrower : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = ThrowerPrx;
 
-using EmptyPtr = std::shared_ptr<Empty>;
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-class Thrower : public virtual Ice::Object
-{
-public:
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    using ProxyType = ThrowerPrx;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        virtual void shutdown(const Ice::Current& current) = 0;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        /// \cond INTERNAL
+        void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        virtual bool supportsUndeclaredExceptions(const Ice::Current& current) = 0;
 
-    virtual void shutdown(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_supportsUndeclaredExceptions(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual bool supportsUndeclaredExceptions(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_supportsUndeclaredExceptions(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual bool supportsAssertException(const Ice::Current& current) = 0;
 
-    virtual bool supportsAssertException(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_supportsAssertException(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_supportsAssertException(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void throwAasA(std::int32_t a, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwAasA(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwAasA(std::int32_t a, const Ice::Current& current) = 0;
 
-    virtual void throwAorDasAorD(std::int32_t a, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwAorDasAorD(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwAasA(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void throwBasA(std::int32_t a, std::int32_t b, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwBasA(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwAorDasAorD(std::int32_t a, const Ice::Current& current) = 0;
 
-    virtual void throwCasA(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwCasA(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwAorDasAorD(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void throwBasB(std::int32_t a, std::int32_t b, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwBasB(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwBasA(std::int32_t a, std::int32_t b, const Ice::Current& current) = 0;
 
-    virtual void throwCasB(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwCasB(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwBasA(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void throwCasC(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwCasC(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwCasA(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Current& current) = 0;
 
-    virtual void throwModA(std::int32_t a, std::int32_t a2, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwModA(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwCasA(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void throwUndeclaredA(std::int32_t a, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwUndeclaredA(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwBasB(std::int32_t a, std::int32_t b, const Ice::Current& current) = 0;
 
-    virtual void throwUndeclaredB(std::int32_t a, std::int32_t b, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwUndeclaredB(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwBasB(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void throwUndeclaredC(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwUndeclaredC(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwCasB(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Current& current) = 0;
 
-    virtual void throwLocalException(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwLocalException(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwCasB(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void throwNonIceException(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwNonIceException(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwCasC(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Current& current) = 0;
 
-    virtual void throwAssertException(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwAssertException(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwCasC(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual ::Ice::ByteSeq throwMemoryLimitException(::Ice::ByteSeq seq, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwMemoryLimitException(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwModA(std::int32_t a, std::int32_t a2, const Ice::Current& current) = 0;
 
-    virtual void throwLocalExceptionIdempotent(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwLocalExceptionIdempotent(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwModA(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    virtual void throwAfterResponse(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwAfterResponse(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        virtual void throwUndeclaredA(std::int32_t a, const Ice::Current& current) = 0;
 
-    virtual void throwAfterException(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_throwAfterException(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwUndeclaredA(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+        virtual void throwUndeclaredB(std::int32_t a, std::int32_t b, const Ice::Current& current) = 0;
 
-using ThrowerPtr = std::shared_ptr<Thrower>;
+        /// \cond INTERNAL
+        void _iceD_throwUndeclaredB(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-class WrongOperation : public virtual Ice::Object
-{
-public:
+        virtual void throwUndeclaredC(std::int32_t a, std::int32_t b, std::int32_t c, const Ice::Current& current) = 0;
 
-    using ProxyType = WrongOperationPrx;
+        /// \cond INTERNAL
+        void _iceD_throwUndeclaredC(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        virtual void throwLocalException(const Ice::Current& current) = 0;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        /// \cond INTERNAL
+        void _iceD_throwLocalException(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        virtual void throwNonIceException(const Ice::Current& current) = 0;
 
-    virtual void noSuchOperation(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_noSuchOperation(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_throwNonIceException(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+        virtual void throwAssertException(const Ice::Current& current) = 0;
 
-using WrongOperationPtr = std::shared_ptr<WrongOperation>;
+        /// \cond INTERNAL
+        void _iceD_throwAssertException(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
+        virtual ::Ice::ByteSeq throwMemoryLimitException(::Ice::ByteSeq seq, const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_throwMemoryLimitException(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void throwLocalExceptionIdempotent(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_throwLocalExceptionIdempotent(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void throwAfterResponse(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_throwAfterResponse(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        virtual void throwAfterException(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_throwAfterException(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
+
+    using ThrowerPtr = std::shared_ptr<Thrower>;
+
+    class WrongOperation : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = WrongOperationPrx;
+
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        virtual void noSuchOperation(const Ice::Current& current) = 0;
+
+        /// \cond INTERNAL
+        void _iceD_noSuchOperation(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
+
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
+
+    using WrongOperationPtr = std::shared_ptr<WrongOperation>;
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 #include <Ice/PopDisableWarnings.h>
 #endif

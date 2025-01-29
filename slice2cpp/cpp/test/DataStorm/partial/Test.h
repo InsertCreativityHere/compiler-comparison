@@ -28,65 +28,55 @@ namespace Test
 {
     class Stock;
     using StockPtr = std::shared_ptr<Stock>;
-
 }
 
 namespace Test
 {
-
-class Stock : public Ice::Value
-{
-public:
-    /// Default constructor.
-    Stock() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    Stock(float price, float lastBid, float lastAsk) noexcept :
-        price(price),
-        lastBid(lastBid),
-        lastAsk(lastAsk)
+    class Stock : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        Stock() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        Stock(float price, float lastBid, float lastAsk) noexcept :
+            price(price),
+            lastBid(lastBid),
+            lastAsk(lastAsk)
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const float&, const float&, const float&> ice_tuple() const
-    {
-        return std::tie(price, lastBid, lastAsk);
-    }
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] StockPtr ice_clone() const { return std::static_pointer_cast<Stock>(_iceCloneImpl()); }
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const float&, const float&, const float&> ice_tuple() const
+        {
+            return std::tie(price, lastBid, lastAsk);
+        }
 
-    float price;
-    float lastBid;
-    float lastAsk;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] StockPtr ice_clone() const { return std::static_pointer_cast<Stock>(_iceCloneImpl()); }
 
-    void ice_printFields(std::ostream& os) const override;
-    Stock(const Stock&) = default;
+        float price;
+        float lastBid;
+        float lastAsk;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        void ice_printFields(std::ostream& os) const override;
+        Stock(const Stock&) = default;
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        void _iceWriteImpl(Ice::OutputStream*) const override;
 
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 #include <Ice/PopDisableWarnings.h>
 #endif

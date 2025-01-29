@@ -290,7 +290,6 @@ Test::TestIntf::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -348,7 +347,6 @@ Test::TestIntf::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::Responder::ice_ids(const Ice::Current&) const
@@ -412,7 +410,6 @@ Test::Responder::_iceD_pendingResponseCount(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Responder::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -470,4 +467,3 @@ Test::Responder::dispatch(Ice::IncomingRequest& request, std::function<void(Ice:
         }
     }
 }
-/// \endcond

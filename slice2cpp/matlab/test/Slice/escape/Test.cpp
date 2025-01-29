@@ -597,7 +597,6 @@ classdef::break::elseif::_iceD_checkedCast(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 classdef::break::elseif::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -660,4 +659,3 @@ classdef::break::elseif::dispatch(Ice::IncomingRequest& request, std::function<v
         }
     }
 }
-/// \endcond

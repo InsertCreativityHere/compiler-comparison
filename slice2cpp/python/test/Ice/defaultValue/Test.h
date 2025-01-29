@@ -32,20 +32,22 @@ namespace Test
         green,
         blue
     };
-    std::ostream& operator<<(std::ostream&, Color);
 
+    std::ostream& operator<<(std::ostream&, Color);
 
     namespace Nested
     {
+
         enum class Color : std::uint8_t
         {
             red,
             green,
             blue
         };
-        std::ostream& operator<<(std::ostream&, Color);
 
+        std::ostream& operator<<(std::ostream&, Color);
     }
+
     struct Struct1;
 
     constexpr bool ConstBool = true;
@@ -111,657 +113,652 @@ namespace Test
 
     class ClassNoDefaults;
     using ClassNoDefaultsPtr = std::shared_ptr<ClassNoDefaults>;
-
 }
 
 namespace Test
 {
-
-struct Struct1
-{
-    bool boolFalse = false;
-    bool boolTrue = true;
-    std::uint8_t b = 254;
-    std::int16_t s = 16000;
-    std::int32_t i = 3;
-    std::int64_t l = INT64_C(4);
-    float f = 5.1F;
-    double d = 6.2;
-    std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
-    ::Test::Color c1 = ::Test::Color::red;
-    ::Test::Color c2 = ::Test::Color::green;
-    ::Test::Color c3 = ::Test::Color::blue;
-    ::Test::Nested::Color nc1 = ::Test::Nested::Color::red;
-    ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
-    ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
-    std::string noDefault;
-    std::int32_t zeroI = 0;
-    std::int64_t zeroL = INT64_C(0);
-    float zeroF = 0.0F;
-    float zeroDotF = 0.0F;
-    double zeroD = 0;
-    double zeroDotD = 0;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+    struct Struct1
     {
-        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
-    }
+        bool boolFalse = false;
+        bool boolTrue = true;
+        std::uint8_t b = 254;
+        std::int16_t s = 16000;
+        std::int32_t i = 3;
+        std::int64_t l = INT64_C(4);
+        float f = 5.1F;
+        double d = 6.2;
+        std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
+        ::Test::Color c1 = ::Test::Color::red;
+        ::Test::Color c2 = ::Test::Color::green;
+        ::Test::Color c3 = ::Test::Color::blue;
+        ::Test::Nested::Color nc1 = ::Test::Nested::Color::red;
+        ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
+        ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
+        std::string noDefault;
+        std::int32_t zeroI = 0;
+        std::int64_t zeroL = INT64_C(0);
+        float zeroF = 0.0F;
+        float zeroDotF = 0.0F;
+        double zeroD = 0;
+        double zeroDotD = 0;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+        {
+            return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
+        }
 
-std::ostream& operator<<(std::ostream&, const Struct1&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-struct Struct2
-{
-    bool boolTrue = ::Test::ConstBool;
-    std::uint8_t b = ::Test::ConstByte;
-    std::int16_t s = ::Test::ConstShort;
-    std::int32_t i = ::Test::ConstInt;
-    std::int64_t l = ::Test::ConstLong;
-    float f = ::Test::ConstFloat;
-    double d = ::Test::ConstDouble;
-    std::string str = ::Test::ConstString;
-    ::Test::Color c1 = ::Test::ConstColor1;
-    ::Test::Color c2 = ::Test::ConstColor2;
-    ::Test::Color c3 = ::Test::ConstColor3;
-    ::Test::Nested::Color nc1 = ::Test::ConstNestedColor1;
-    ::Test::Nested::Color nc2 = ::Test::ConstNestedColor2;
-    ::Test::Nested::Color nc3 = ::Test::ConstNestedColor3;
-    std::int32_t zeroI = ::Test::ConstZeroI;
-    std::int64_t zeroL = ::Test::ConstZeroL;
-    float zeroF = ::Test::ConstZeroF;
-    float zeroDotF = ::Test::ConstZeroDotF;
-    double zeroD = ::Test::ConstZeroD;
-    double zeroDotD = ::Test::ConstZeroDotD;
+    std::ostream& operator<<(std::ostream&, const Struct1&);
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+    struct Struct2
     {
-        return std::tie(boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
-    }
+        bool boolTrue = ::Test::ConstBool;
+        std::uint8_t b = ::Test::ConstByte;
+        std::int16_t s = ::Test::ConstShort;
+        std::int32_t i = ::Test::ConstInt;
+        std::int64_t l = ::Test::ConstLong;
+        float f = ::Test::ConstFloat;
+        double d = ::Test::ConstDouble;
+        std::string str = ::Test::ConstString;
+        ::Test::Color c1 = ::Test::ConstColor1;
+        ::Test::Color c2 = ::Test::ConstColor2;
+        ::Test::Color c3 = ::Test::ConstColor3;
+        ::Test::Nested::Color nc1 = ::Test::ConstNestedColor1;
+        ::Test::Nested::Color nc2 = ::Test::ConstNestedColor2;
+        ::Test::Nested::Color nc3 = ::Test::ConstNestedColor3;
+        std::int32_t zeroI = ::Test::ConstZeroI;
+        std::int64_t zeroL = ::Test::ConstZeroL;
+        float zeroF = ::Test::ConstZeroF;
+        float zeroDotF = ::Test::ConstZeroDotF;
+        double zeroD = ::Test::ConstZeroD;
+        double zeroDotD = ::Test::ConstZeroDotD;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+        {
+            return std::tie(boolTrue, b, s, i, l, f, d, str, c1, c2, c3, nc1, nc2, nc3, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
+        }
 
-std::ostream& operator<<(std::ostream&, const Struct2&);
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-class Base : public Ice::Value
-{
-public:
-    /// Default constructor.
-    Base() noexcept = default;
+    std::ostream& operator<<(std::ostream&, const Struct2&);
 
-    /// One-shot constructor to initialize all data members.
-    Base(bool boolFalse, bool boolTrue, std::uint8_t b, std::int16_t s, std::int32_t i, std::int64_t l, float f, double d, std::string str, std::string noDefault, std::int32_t zeroI, std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) noexcept :
-        boolFalse(boolFalse),
-        boolTrue(boolTrue),
-        b(b),
-        s(s),
-        i(i),
-        l(l),
-        f(f),
-        d(d),
-        str(std::move(str)),
-        noDefault(std::move(noDefault)),
-        zeroI(zeroI),
-        zeroL(zeroL),
-        zeroF(zeroF),
-        zeroDotF(zeroDotF),
-        zeroD(zeroD),
-        zeroDotD(zeroDotD)
+    class Base : public Ice::Value
     {
-    }
+    public:
+        /// Default constructor.
+        Base() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        Base(bool boolFalse, bool boolTrue, std::uint8_t b, std::int16_t s, std::int32_t i, std::int64_t l, float f, double d, std::string str, std::string noDefault, std::int32_t zeroI, std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) noexcept :
+            boolFalse(boolFalse),
+            boolTrue(boolTrue),
+            b(b),
+            s(s),
+            i(i),
+            l(l),
+            f(f),
+            d(d),
+            str(std::move(str)),
+            noDefault(std::move(noDefault)),
+            zeroI(zeroI),
+            zeroL(zeroL),
+            zeroF(zeroF),
+            zeroDotF(zeroDotF),
+            zeroD(zeroD),
+            zeroDotD(zeroDotD)
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+        {
+            return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] BasePtr ice_clone() const { return std::static_pointer_cast<Base>(_iceCloneImpl()); }
+
+        bool boolFalse = false;
+        bool boolTrue = true;
+        std::uint8_t b = 1;
+        std::int16_t s = 2;
+        std::int32_t i = 3;
+        std::int64_t l = INT64_C(4);
+        float f = 5.1F;
+        double d = 6.2;
+        std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
+        std::string noDefault;
+        std::int32_t zeroI = 0;
+        std::int64_t zeroL = INT64_C(0);
+        float zeroF = 0.0F;
+        float zeroDotF = 0.0F;
+        double zeroD = 0;
+        double zeroDotD = 0;
+
+        void ice_printFields(std::ostream& os) const override;
+        Base(const Base&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class Derived : public Base
     {
-        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
-    }
+    public:
+        /// Default constructor.
+        Derived() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] BasePtr ice_clone() const { return std::static_pointer_cast<Base>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        Derived(bool boolFalse, bool boolTrue, std::uint8_t b, std::int16_t s, std::int32_t i, std::int64_t l, float f, double d, std::string str, std::string noDefault, std::int32_t zeroI, std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
+            Base(boolFalse, boolTrue, b, s, i, l, f, d, std::move(str), std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
+            c1(c1),
+            c2(c2),
+            c3(c3),
+            nc1(nc1),
+            nc2(nc2),
+            nc3(nc3)
+        {
+        }
 
-    bool boolFalse = false;
-    bool boolTrue = true;
-    std::uint8_t b = 1;
-    std::int16_t s = 2;
-    std::int32_t i = 3;
-    std::int64_t l = INT64_C(4);
-    float f = 5.1F;
-    double d = 6.2;
-    std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
-    std::string noDefault;
-    std::int32_t zeroI = 0;
-    std::int64_t zeroL = INT64_C(0);
-    float zeroF = 0.0F;
-    float zeroDotF = 0.0F;
-    double zeroD = 0;
-    double zeroDotD = 0;
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void ice_printFields(std::ostream& os) const override;
-    Base(const Base&) = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
+        {
+            return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
+        }
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] DerivedPtr ice_clone() const { return std::static_pointer_cast<Derived>(_iceCloneImpl()); }
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        ::Test::Color c1 = ::Test::Color::red;
+        ::Test::Color c2 = ::Test::Color::green;
+        ::Test::Color c3 = ::Test::Color::blue;
+        ::Test::Nested::Color nc1 = ::Test::Nested::Color::red;
+        ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
+        ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
 
-class Derived : public Base
-{
-public:
-    /// Default constructor.
-    Derived() noexcept = default;
+        void ice_printFields(std::ostream& os) const override;
+        Derived(const Derived&) = default;
 
-    /// One-shot constructor to initialize all data members.
-    Derived(bool boolFalse, bool boolTrue, std::uint8_t b, std::int16_t s, std::int32_t i, std::int64_t l, float f, double d, std::string str, std::string noDefault, std::int32_t zeroI, std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
-        Base(boolFalse, boolTrue, b, s, i, l, f, d, std::move(str), std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
-        c1(c1),
-        c2(c2),
-        c3(c3),
-        nc1(nc1),
-        nc2(nc2),
-        nc3(nc3)
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class BaseEx : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        BaseEx() noexcept = default;
 
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// One-shot constructor to initialize all data members.
+        BaseEx(bool boolFalse, bool boolTrue, std::uint8_t b, std::int16_t s, std::int32_t i, std::int64_t l, float f, double d, std::string str, std::string noDefault, std::int32_t zeroI, std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) noexcept :
+            boolFalse(boolFalse),
+            boolTrue(boolTrue),
+            b(b),
+            s(s),
+            i(i),
+            l(l),
+            f(f),
+            d(d),
+            str(std::move(str)),
+            noDefault(std::move(noDefault)),
+            zeroI(zeroI),
+            zeroL(zeroL),
+            zeroF(zeroF),
+            zeroDotF(zeroDotF),
+            zeroD(zeroD),
+            zeroDotD(zeroDotD)
+        {
+        }
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        /// Copy constructor.
+        BaseEx(const BaseEx&) noexcept = default;
 
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+        {
+            return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        bool boolFalse = false;
+        bool boolTrue = true;
+        std::uint8_t b = 1;
+        std::int16_t s = 2;
+        std::int32_t i = 3;
+        std::int64_t l = INT64_C(4);
+        float f = 5.1F;
+        double d = 6.2;
+        std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
+        std::string noDefault;
+        std::int32_t zeroI = 0;
+        std::int64_t zeroL = INT64_C(0);
+        float zeroF = 0.0F;
+        float zeroDotF = 0.0F;
+        double zeroD = 0;
+        double zeroDotD = 0;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class DerivedEx : public BaseEx
     {
-        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
-    }
+    public:
+        /// Default constructor.
+        DerivedEx() noexcept = default;
 
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] DerivedPtr ice_clone() const { return std::static_pointer_cast<Derived>(_iceCloneImpl()); }
+        /// One-shot constructor to initialize all data members.
+        DerivedEx(bool boolFalse, bool boolTrue, std::uint8_t b, std::int16_t s, std::int32_t i, std::int64_t l, float f, double d, std::string str, std::string noDefault, std::int32_t zeroI, std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
+            BaseEx(boolFalse, boolTrue, b, s, i, l, f, d, std::move(str), std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
+            c1(c1),
+            c2(c2),
+            c3(c3),
+            nc1(nc1),
+            nc2(nc2),
+            nc3(nc3)
+        {
+        }
 
-    ::Test::Color c1 = ::Test::Color::red;
-    ::Test::Color c2 = ::Test::Color::green;
-    ::Test::Color c3 = ::Test::Color::blue;
-    ::Test::Nested::Color nc1 = ::Test::Nested::Color::red;
-    ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
-    ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
+        /// Copy constructor.
+        DerivedEx(const DerivedEx&) noexcept = default;
 
-    void ice_printFields(std::ostream& os) const override;
-    Derived(const Derived&) = default;
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
+        {
+            return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
+        }
 
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    void _iceWriteImpl(Ice::OutputStream*) const override;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    void _iceReadImpl(Ice::InputStream*) override;
-};
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-class BaseEx : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    BaseEx() noexcept = default;
+        void ice_throw() const override;
 
-    /// One-shot constructor to initialize all data members.
-    BaseEx(bool boolFalse, bool boolTrue, std::uint8_t b, std::int16_t s, std::int32_t i, std::int64_t l, float f, double d, std::string str, std::string noDefault, std::int32_t zeroI, std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) noexcept :
-        boolFalse(boolFalse),
-        boolTrue(boolTrue),
-        b(b),
-        s(s),
-        i(i),
-        l(l),
-        f(f),
-        d(d),
-        str(std::move(str)),
-        noDefault(std::move(noDefault)),
-        zeroI(zeroI),
-        zeroL(zeroL),
-        zeroF(zeroF),
-        zeroDotF(zeroDotF),
-        zeroD(zeroD),
-        zeroDotD(zeroDotD)
+        ::Test::Color c1 = ::Test::ConstColor1;
+        ::Test::Color c2 = ::Test::ConstColor2;
+        ::Test::Color c3 = ::Test::ConstColor3;
+        ::Test::Nested::Color nc1 = ::Test::ConstNestedColor1;
+        ::Test::Nested::Color nc2 = ::Test::ConstNestedColor2;
+        ::Test::Nested::Color nc3 = ::Test::ConstNestedColor3;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    struct InnerStruct
     {
-    }
+        std::int32_t a;
 
-    /// Copy constructor.
-    BaseEx(const BaseEx&) noexcept = default;
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+        {
+            return std::tie(a);
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&> ice_tuple() const
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
+
+    std::ostream& operator<<(std::ostream&, const InnerStruct&);
+
+    struct StructNoDefaults
     {
-        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD);
-    }
+        bool bo;
+        std::uint8_t b;
+        std::int16_t s;
+        std::int32_t i;
+        std::int64_t l;
+        float f;
+        double d;
+        std::string str;
+        ::Test::Color c1;
+        ::Test::ByteSeq bs;
+        ::Test::IntSeq iseq;
+        ::Test::IntStringDict dict;
+        ::Test::InnerStruct st;
 
+        /// Obtains a tuple containing all of the struct's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::IntSeq&, const ::Test::IntStringDict&, const ::Test::InnerStruct&> ice_tuple() const
+        {
+            return std::tie(bo, b, s, i, l, f, d, str, c1, bs, iseq, dict, st);
+        }
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// Outputs the name and value of each field of this instance to the stream.
+        /// @param os The output stream.
+        void ice_printFields(std::ostream& os) const;
+    };
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+    std::ostream& operator<<(std::ostream&, const StructNoDefaults&);
 
-    void ice_throw() const override;
-
-    bool boolFalse = false;
-    bool boolTrue = true;
-    std::uint8_t b = 1;
-    std::int16_t s = 2;
-    std::int32_t i = 3;
-    std::int64_t l = INT64_C(4);
-    float f = 5.1F;
-    double d = 6.2;
-    std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
-    std::string noDefault;
-    std::int32_t zeroI = 0;
-    std::int64_t zeroL = INT64_C(0);
-    float zeroF = 0.0F;
-    float zeroDotF = 0.0F;
-    double zeroD = 0;
-    double zeroDotD = 0;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-class DerivedEx : public BaseEx
-{
-public:
-    /// Default constructor.
-    DerivedEx() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    DerivedEx(bool boolFalse, bool boolTrue, std::uint8_t b, std::int16_t s, std::int32_t i, std::int64_t l, float f, double d, std::string str, std::string noDefault, std::int32_t zeroI, std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
-        BaseEx(boolFalse, boolTrue, b, s, i, l, f, d, std::move(str), std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
-        c1(c1),
-        c2(c2),
-        c3(c3),
-        nc1(nc1),
-        nc2(nc2),
-        nc3(nc3)
+    class ExceptionNoDefaultsBase : public Ice::UserException
     {
-    }
+    public:
+        /// Default constructor.
+        ExceptionNoDefaultsBase() noexcept = default;
 
-    /// Copy constructor.
-    DerivedEx(const DerivedEx&) noexcept = default;
+        /// One-shot constructor to initialize all data members.
+        ExceptionNoDefaultsBase(std::string str, Color c1, ByteSeq bs) noexcept :
+            str(std::move(str)),
+            c1(c1),
+            bs(std::move(bs))
+        {
+        }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const std::string&, const std::int32_t&, const std::int64_t&, const float&, const float&, const double&, const double&, const ::Test::Color&, const ::Test::Color&, const ::Test::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&, const ::Test::Nested::Color&> ice_tuple() const
+        /// Copy constructor.
+        ExceptionNoDefaultsBase(const ExceptionNoDefaultsBase&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
+        {
+            return std::tie(str, c1, bs);
+        }
+
+
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        [[nodiscard]] const char* ice_id() const noexcept override;
+
+        void ice_throw() const override;
+
+        std::string str;
+        ::Test::Color c1;
+        ::Test::ByteSeq bs;
+
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
+
+        void _readImpl(Ice::InputStream*) override;
+    };
+
+    class ExceptionNoDefaults : public ExceptionNoDefaultsBase
     {
-        return std::tie(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD, c1, c2, c3, nc1, nc2, nc3);
-    }
+    public:
+        /// Default constructor.
+        ExceptionNoDefaults() noexcept = default;
+
+        /// One-shot constructor to initialize all data members.
+        ExceptionNoDefaults(std::string str, Color c1, ByteSeq bs, InnerStruct st, IntStringDict dict) noexcept :
+            ExceptionNoDefaultsBase(std::move(str), c1, std::move(bs)),
+            st(st),
+            dict(std::move(dict))
+        {
+        }
+
+        /// Copy constructor.
+        ExceptionNoDefaults(const ExceptionNoDefaults&) noexcept = default;
+
+        /// Obtains a tuple containing all of the exception's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
+        {
+            return std::tie(str, c1, bs, st, dict);
+        }
 
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        void ice_printFields(std::ostream& os) const override;
+        /// Obtains the Slice type ID of this exception.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    void ice_throw() const override;
+        void ice_throw() const override;
 
-    ::Test::Color c1 = ::Test::ConstColor1;
-    ::Test::Color c2 = ::Test::ConstColor2;
-    ::Test::Color c3 = ::Test::ConstColor3;
-    ::Test::Nested::Color nc1 = ::Test::ConstNestedColor1;
-    ::Test::Nested::Color nc2 = ::Test::ConstNestedColor2;
-    ::Test::Nested::Color nc3 = ::Test::ConstNestedColor3;
+        ::Test::InnerStruct st;
+        ::Test::IntStringDict dict;
 
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
+    protected:
+        void _writeImpl(Ice::OutputStream*) const override;
 
-    void _readImpl(Ice::InputStream*) override;
-};
+        void _readImpl(Ice::InputStream*) override;
+    };
 
-struct InnerStruct
-{
-    std::int32_t a;
-
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::int32_t&> ice_tuple() const
+    class ClassNoDefaultsBase : public Ice::Value
     {
-        return std::tie(a);
-    }
+    public:
+        /// Default constructor.
+        ClassNoDefaultsBase() noexcept = default;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// One-shot constructor to initialize all data members.
+        ClassNoDefaultsBase(std::string str, ::Test::Color c1, ::Test::ByteSeq bs) noexcept :
+            str(std::move(str)),
+            c1(c1),
+            bs(std::move(bs))
+        {
+        }
 
-std::ostream& operator<<(std::ostream&, const InnerStruct&);
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-struct StructNoDefaults
-{
-    bool bo;
-    std::uint8_t b;
-    std::int16_t s;
-    std::int32_t i;
-    std::int64_t l;
-    float f;
-    double d;
-    std::string str;
-    ::Test::Color c1;
-    ::Test::ByteSeq bs;
-    ::Test::IntSeq iseq;
-    ::Test::IntStringDict dict;
-    ::Test::InnerStruct st;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    /// Obtains a tuple containing all of the struct's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const bool&, const std::uint8_t&, const std::int16_t&, const std::int32_t&, const std::int64_t&, const float&, const double&, const std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::IntSeq&, const ::Test::IntStringDict&, const ::Test::InnerStruct&> ice_tuple() const
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
+        {
+            return std::tie(str, c1, bs);
+        }
+
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] ClassNoDefaultsBasePtr ice_clone() const { return std::static_pointer_cast<ClassNoDefaultsBase>(_iceCloneImpl()); }
+
+        std::string str;
+        ::Test::Color c1;
+        ::Test::ByteSeq bs;
+
+        void ice_printFields(std::ostream& os) const override;
+        ClassNoDefaultsBase(const ClassNoDefaultsBase&) = default;
+
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
+
+        void _iceWriteImpl(Ice::OutputStream*) const override;
+
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
+
+    class ClassNoDefaults : public ClassNoDefaultsBase
     {
-        return std::tie(bo, b, s, i, l, f, d, str, c1, bs, iseq, dict, st);
-    }
+    public:
+        /// Default constructor.
+        ClassNoDefaults() noexcept = default;
 
-    /// Outputs the name and value of each field of this instance to the stream.
-    /// @param os The output stream.
-    void ice_printFields(std::ostream& os) const;
-};
+        /// One-shot constructor to initialize all data members.
+        ClassNoDefaults(std::string str, ::Test::Color c1, ::Test::ByteSeq bs, ::Test::InnerStruct st, ::Test::IntStringDict dict) noexcept :
+            ClassNoDefaultsBase(std::move(str), c1, std::move(bs)),
+            st(st),
+            dict(std::move(dict))
+        {
+        }
 
-std::ostream& operator<<(std::ostream&, const StructNoDefaults&);
+        /// Obtains the Slice type ID of this value.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-class ExceptionNoDefaultsBase : public Ice::UserException
-{
-public:
-    /// Default constructor.
-    ExceptionNoDefaultsBase() noexcept = default;
+        [[nodiscard]] const char* ice_id() const noexcept override;
 
-    /// One-shot constructor to initialize all data members.
-    ExceptionNoDefaultsBase(std::string str, Color c1, ByteSeq bs) noexcept :
-        str(std::move(str)),
-        c1(c1),
-        bs(std::move(bs))
-    {
-    }
+        /// Obtains a tuple containing all of the value's data members.
+        /// @return The data members in a tuple.
+        [[nodiscard]] std::tuple<const std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
+        {
+            return std::tie(str, c1, bs, st, dict);
+        }
 
-    /// Copy constructor.
-    ExceptionNoDefaultsBase(const ExceptionNoDefaultsBase&) noexcept = default;
+        /// Creates a shallow polymorphic copy of this instance.
+        /// @return The cloned value.
+        [[nodiscard]] ClassNoDefaultsPtr ice_clone() const { return std::static_pointer_cast<ClassNoDefaults>(_iceCloneImpl()); }
 
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
-    {
-        return std::tie(str, c1, bs);
-    }
+        ::Test::InnerStruct st;
+        ::Test::IntStringDict dict;
 
+        void ice_printFields(std::ostream& os) const override;
+        ClassNoDefaults(const ClassNoDefaults&) = default;
 
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
 
-    [[nodiscard]] const char* ice_id() const noexcept override;
+        void _iceWriteImpl(Ice::OutputStream*) const override;
 
-    void ice_throw() const override;
+        void _iceReadImpl(Ice::InputStream*) override;
+    };
 
-    std::string str;
-    ::Test::Color c1;
-    ::Test::ByteSeq bs;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-class ExceptionNoDefaults : public ExceptionNoDefaultsBase
-{
-public:
-    /// Default constructor.
-    ExceptionNoDefaults() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    ExceptionNoDefaults(std::string str, Color c1, ByteSeq bs, InnerStruct st, IntStringDict dict) noexcept :
-        ExceptionNoDefaultsBase(std::move(str), c1, std::move(bs)),
-        st(st),
-        dict(std::move(dict))
-    {
-    }
-
-    /// Copy constructor.
-    ExceptionNoDefaults(const ExceptionNoDefaults&) noexcept = default;
-
-    /// Obtains a tuple containing all of the exception's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
-    {
-        return std::tie(str, c1, bs, st, dict);
-    }
-
-
-    void ice_printFields(std::ostream& os) const override;
-    /// Obtains the Slice type ID of this exception.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    void ice_throw() const override;
-
-    ::Test::InnerStruct st;
-    ::Test::IntStringDict dict;
-
-protected:
-    void _writeImpl(Ice::OutputStream*) const override;
-
-    void _readImpl(Ice::InputStream*) override;
-};
-
-class ClassNoDefaultsBase : public Ice::Value
-{
-public:
-    /// Default constructor.
-    ClassNoDefaultsBase() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    ClassNoDefaultsBase(std::string str, ::Test::Color c1, ::Test::ByteSeq bs) noexcept :
-        str(std::move(str)),
-        c1(c1),
-        bs(std::move(bs))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const ::Test::Color&, const ::Test::ByteSeq&> ice_tuple() const
-    {
-        return std::tie(str, c1, bs);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] ClassNoDefaultsBasePtr ice_clone() const { return std::static_pointer_cast<ClassNoDefaultsBase>(_iceCloneImpl()); }
-
-    std::string str;
-    ::Test::Color c1;
-    ::Test::ByteSeq bs;
-
-    void ice_printFields(std::ostream& os) const override;
-    ClassNoDefaultsBase(const ClassNoDefaultsBase&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-class ClassNoDefaults : public ClassNoDefaultsBase
-{
-public:
-    /// Default constructor.
-    ClassNoDefaults() noexcept = default;
-
-    /// One-shot constructor to initialize all data members.
-    ClassNoDefaults(std::string str, ::Test::Color c1, ::Test::ByteSeq bs, ::Test::InnerStruct st, ::Test::IntStringDict dict) noexcept :
-        ClassNoDefaultsBase(std::move(str), c1, std::move(bs)),
-        st(st),
-        dict(std::move(dict))
-    {
-    }
-
-    /// Obtains the Slice type ID of this value.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    [[nodiscard]] const char* ice_id() const noexcept override;
-
-    /// Obtains a tuple containing all of the value's data members.
-    /// @return The data members in a tuple.
-    [[nodiscard]] std::tuple<const std::string&, const ::Test::Color&, const ::Test::ByteSeq&, const ::Test::InnerStruct&, const ::Test::IntStringDict&> ice_tuple() const
-    {
-        return std::tie(str, c1, bs, st, dict);
-    }
-
-    /// Creates a shallow polymorphic copy of this instance.
-    /// @return The cloned value.
-    [[nodiscard]] ClassNoDefaultsPtr ice_clone() const { return std::static_pointer_cast<ClassNoDefaults>(_iceCloneImpl()); }
-
-    ::Test::InnerStruct st;
-    ::Test::IntStringDict dict;
-
-    void ice_printFields(std::ostream& os) const override;
-    ClassNoDefaults(const ClassNoDefaults&) = default;
-
-    [[nodiscard]] Ice::ValuePtr _iceCloneImpl() const override;
-
-    void _iceWriteImpl(Ice::OutputStream*) const override;
-
-    void _iceReadImpl(Ice::InputStream*) override;
-};
-
-using Ice::Tuple::operator<;
-using Ice::Tuple::operator<=;
-using Ice::Tuple::operator>;
-using Ice::Tuple::operator>=;
-using Ice::Tuple::operator==;
-using Ice::Tuple::operator!=;
-
+    using Ice::Tuple::operator<;
+    using Ice::Tuple::operator<=;
+    using Ice::Tuple::operator>;
+    using Ice::Tuple::operator>=;
+    using Ice::Tuple::operator==;
+    using Ice::Tuple::operator!=;
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits< ::Test::Color>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryEnum;
-    static const int minValue = 0;
-    static const int maxValue = 2;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamableTraits< ::Test::Nested::Color>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryEnum;
-    static const int minValue = 0;
-    static const int maxValue = 2;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamableTraits<::Test::Struct1>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 73;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::Struct1>
-{
-    static void read(InputStream* istr, ::Test::Struct1& v)
+    template<>
+    struct StreamableTraits< ::Test::Color>
     {
-        istr->readAll(v.boolFalse, v.boolTrue, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3, v.noDefault, v.zeroI, v.zeroL, v.zeroF, v.zeroDotF, v.zeroD, v.zeroDotD);
-    }
-};
+        static const StreamHelperCategory helper = StreamHelperCategoryEnum;
+        static const int minValue = 0;
+        static const int maxValue = 2;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
 
-template<>
-struct StreamableTraits<::Test::Struct2>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 71;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::Struct2>
-{
-    static void read(InputStream* istr, ::Test::Struct2& v)
+    template<>
+    struct StreamableTraits< ::Test::Nested::Color>
     {
-        istr->readAll(v.boolTrue, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3, v.zeroI, v.zeroL, v.zeroF, v.zeroDotF, v.zeroD, v.zeroDotD);
-    }
-};
+        static const StreamHelperCategory helper = StreamHelperCategoryEnum;
+        static const int minValue = 0;
+        static const int maxValue = 2;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
 
-template<>
-struct StreamableTraits<::Test::InnerStruct>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::Test::InnerStruct>
-{
-    static void read(InputStream* istr, ::Test::InnerStruct& v)
+    template<>
+    struct StreamableTraits<::Test::Struct1>
     {
-        istr->readAll(v.a);
-    }
-};
-
-template<>
-struct StreamableTraits<::Test::StructNoDefaults>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 37;
-    static const bool fixedLength = false;
-};
-
-template<>
-struct StreamReader<::Test::StructNoDefaults>
-{
-    static void read(InputStream* istr, ::Test::StructNoDefaults& v)
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 73;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::Struct1>
     {
-        istr->readAll(v.bo, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.c1, v.bs, v.iseq, v.dict, v.st);
-    }
-};
+        static void read(InputStream* istr, ::Test::Struct1& v)
+        {
+            istr->readAll(v.boolFalse, v.boolTrue, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3, v.noDefault, v.zeroI, v.zeroL, v.zeroF, v.zeroDotF, v.zeroD, v.zeroDotD);
+        }
+    };
 
+    template<>
+    struct StreamableTraits<::Test::Struct2>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 71;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::Struct2>
+    {
+        static void read(InputStream* istr, ::Test::Struct2& v)
+        {
+            istr->readAll(v.boolTrue, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.c1, v.c2, v.c3, v.nc1, v.nc2, v.nc3, v.zeroI, v.zeroL, v.zeroF, v.zeroDotF, v.zeroD, v.zeroDotD);
+        }
+    };
+
+    template<>
+    struct StreamableTraits<::Test::InnerStruct>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 4;
+        static const bool fixedLength = true;
+    };
+    
+    template<>
+    struct StreamReader<::Test::InnerStruct>
+    {
+        static void read(InputStream* istr, ::Test::InnerStruct& v)
+        {
+            istr->readAll(v.a);
+        }
+    };
+
+    template<>
+    struct StreamableTraits<::Test::StructNoDefaults>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryStruct;
+        static const int minWireSize = 37;
+        static const bool fixedLength = false;
+    };
+    
+    template<>
+    struct StreamReader<::Test::StructNoDefaults>
+    {
+        static void read(InputStream* istr, ::Test::StructNoDefaults& v)
+        {
+            istr->readAll(v.bo, v.b, v.s, v.i, v.l, v.f, v.d, v.str, v.c1, v.bs, v.iseq, v.dict, v.st);
+        }
+    };
 }
 /// \endcond
 

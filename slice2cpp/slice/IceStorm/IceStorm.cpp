@@ -1049,7 +1049,6 @@ IceStorm::Topic::_iceD_destroy(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceStorm::Topic::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1142,7 +1141,6 @@ IceStorm::Topic::dispatch(Ice::IncomingRequest& request, std::function<void(Ice:
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceStorm::TopicManager::ice_ids(const Ice::Current&) const
@@ -1222,7 +1220,6 @@ IceStorm::TopicManager::_iceD_retrieveAll(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceStorm::TopicManager::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1280,7 +1277,6 @@ IceStorm::TopicManager::dispatch(Ice::IncomingRequest& request, std::function<vo
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 IceStorm::Finder::ice_ids(const Ice::Current&) const
@@ -1318,7 +1314,6 @@ IceStorm::Finder::_iceD_getTopicManager(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 IceStorm::Finder::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -1366,4 +1361,3 @@ IceStorm::Finder::dispatch(Ice::IncomingRequest& request, std::function<void(Ice
         }
     }
 }
-/// \endcond

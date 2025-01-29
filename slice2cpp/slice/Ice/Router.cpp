@@ -262,7 +262,6 @@ Ice::Router::_iceD_addProxies(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Ice::Router::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -320,7 +319,6 @@ Ice::Router::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Out
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Ice::RouterFinder::ice_ids(const Ice::Current&) const
@@ -358,7 +356,6 @@ Ice::RouterFinder::_iceD_getRouter(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Ice::RouterFinder::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -406,4 +403,3 @@ Ice::RouterFinder::dispatch(Ice::IncomingRequest& request, std::function<void(Ic
         }
     }
 }
-/// \endcond

@@ -337,7 +337,6 @@ Test::Echo::_iceD_supportsCompress(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::Echo::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -405,7 +404,6 @@ Test::Echo::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Outg
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Test::MyObject::ice_ids(const Ice::Current&) const
@@ -456,7 +454,6 @@ Test::MyObject::_iceD_shutdown(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Test::MyObject::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -509,4 +506,3 @@ Test::MyObject::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::
         }
     }
 }
-/// \endcond

@@ -62,7 +62,6 @@ namespace Ice
 
     /// A sequence of object proxies.
     using ObjectProxySeq = std::vector<std::optional<Ice::ObjectPrx>>;
-
 }
 
 #include <Ice/PopDisableWarnings.h>

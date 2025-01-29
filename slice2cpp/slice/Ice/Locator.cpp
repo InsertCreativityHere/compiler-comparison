@@ -628,7 +628,6 @@ Ice::Locator::_iceD_getRegistry(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Ice::Locator::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -686,7 +685,6 @@ Ice::Locator::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::Ou
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Ice::LocatorRegistry::ice_ids(const Ice::Current&) const
@@ -783,7 +781,6 @@ Ice::LocatorRegistry::_iceD_setServerProcessProxy(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Ice::LocatorRegistry::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -841,7 +838,6 @@ Ice::LocatorRegistry::dispatch(Ice::IncomingRequest& request, std::function<void
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Ice::LocatorFinder::ice_ids(const Ice::Current&) const
@@ -879,7 +875,6 @@ Ice::LocatorFinder::_iceD_getLocator(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Ice::LocatorFinder::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -927,4 +922,3 @@ Ice::LocatorFinder::dispatch(Ice::IncomingRequest& request, std::function<void(I
         }
     }
 }
-/// \endcond

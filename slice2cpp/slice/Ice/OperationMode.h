@@ -45,24 +45,22 @@ namespace Ice
         /// and propagate the failure to the application only if the second attempt fails.
         Idempotent
     };
-    ICE_API std::ostream& operator<<(std::ostream&, OperationMode);
 
+    ICE_API std::ostream& operator<<(std::ostream&, OperationMode);
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits< ::Ice::OperationMode>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryEnum;
-    static const int minValue = 0;
-    static const int maxValue = 2;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
+    template<>
+    struct StreamableTraits< ::Ice::OperationMode>
+    {
+        static const StreamHelperCategory helper = StreamHelperCategoryEnum;
+        static const int minValue = 0;
+        static const int maxValue = 2;
+        static const int minWireSize = 1;
+        static const bool fixedLength = false;
+    };
 }
 /// \endcond
 

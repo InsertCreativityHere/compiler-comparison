@@ -27,169 +27,162 @@
 namespace Ice
 {
     class ProcessPrx;
-
 }
 
 namespace Ice
 {
-
-/// An administrative interface for process management. Managed servers must implement this interface.
-/// <p class="Note">A servant implementing this interface is a potential target for denial-of-service attacks,
-/// therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
-/// identity harder to guess, and be registered in an object adapter with a secured endpoint.
-class ICE_API ProcessPrx : public Ice::Proxy<ProcessPrx, Ice::ObjectPrx>
-{
-public:
-
-    /// Initiate a graceful shut-down.
-    /// @param context The Context map to send with the invocation.
-    /// @see Communicator#shutdown
-    void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Initiate a graceful shut-down.
-    /// @param context The Context map to send with the invocation.
-    /// @return The future object for the invocation.
-    /// @see Communicator#shutdown
-    [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Initiate a graceful shut-down.
-    /// @param response The response callback.
-    /// @param ex The exception callback.
-    /// @param sent The sent callback.
-    /// @param context The Context map to send with the invocation.
-    /// @return A function that can be called to cancel the invocation locally.
-    /// @see Communicator#shutdown
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
-    /// \endcond
-
-    /// Write a message on the process' stdout or stderr.
-    /// @param message The message.
-    /// @param fd 1 for stdout, 2 for stderr.
-    /// @param context The Context map to send with the invocation.
-    void writeMessage(std::string_view message, std::int32_t fd, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Write a message on the process' stdout or stderr.
-    /// @param message The message.
-    /// @param fd 1 for stdout, 2 for stderr.
-    /// @param context The Context map to send with the invocation.
-    /// @return The future object for the invocation.
-    [[nodiscard]] std::future<void> writeMessageAsync(std::string_view message, std::int32_t fd, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// Write a message on the process' stdout or stderr.
-    /// @param message The message.
-    /// @param fd 1 for stdout, 2 for stderr.
-    /// @param response The response callback.
-    /// @param ex The exception callback.
-    /// @param sent The sent callback.
-    /// @param context The Context map to send with the invocation.
-    /// @return A function that can be called to cancel the invocation locally.
-    std::function<void()> // NOLINT(modernize-use-nodiscard)
-    writeMessageAsync(std::string_view message, std::int32_t fd, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_writeMessage(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::int32_t, const Ice::Context&) const;
-    /// \endcond
-
-    /// Obtains the Slice type ID of this interface.
-    /// @return The fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
-
-    ProcessPrx(const ProcessPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
-
-    ProcessPrx(ProcessPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
-
-    ProcessPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
-
-    ~ProcessPrx() override;
-
-    ProcessPrx& operator=(const ProcessPrx& rhs) noexcept
+    /// An administrative interface for process management. Managed servers must implement this interface.
+    /// <p class="Note">A servant implementing this interface is a potential target for denial-of-service attacks,
+    /// therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+    /// identity harder to guess, and be registered in an object adapter with a secured endpoint.
+    class ICE_API ProcessPrx : public Ice::Proxy<ProcessPrx, Ice::ObjectPrx>
     {
-        if (this != &rhs)
+    public:
+
+        /// Initiate a graceful shut-down.
+        /// @param context The Context map to send with the invocation.
+        /// @see Communicator#shutdown
+        void shutdown(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Initiate a graceful shut-down.
+        /// @param context The Context map to send with the invocation.
+        /// @return The future object for the invocation.
+        /// @see Communicator#shutdown
+        [[nodiscard]] std::future<void> shutdownAsync(const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Initiate a graceful shut-down.
+        /// @param response The response callback.
+        /// @param ex The exception callback.
+        /// @param sent The sent callback.
+        /// @param context The Context map to send with the invocation.
+        /// @return A function that can be called to cancel the invocation locally.
+        /// @see Communicator#shutdown
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        shutdownAsync(std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_shutdown(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, const Ice::Context&) const;
+        /// \endcond
+
+        /// Write a message on the process' stdout or stderr.
+        /// @param message The message.
+        /// @param fd 1 for stdout, 2 for stderr.
+        /// @param context The Context map to send with the invocation.
+        void writeMessage(std::string_view message, std::int32_t fd, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Write a message on the process' stdout or stderr.
+        /// @param message The message.
+        /// @param fd 1 for stdout, 2 for stderr.
+        /// @param context The Context map to send with the invocation.
+        /// @return The future object for the invocation.
+        [[nodiscard]] std::future<void> writeMessageAsync(std::string_view message, std::int32_t fd, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// Write a message on the process' stdout or stderr.
+        /// @param message The message.
+        /// @param fd 1 for stdout, 2 for stderr.
+        /// @param response The response callback.
+        /// @param ex The exception callback.
+        /// @param sent The sent callback.
+        /// @param context The Context map to send with the invocation.
+        /// @return A function that can be called to cancel the invocation locally.
+        std::function<void()> // NOLINT(modernize-use-nodiscard)
+        writeMessageAsync(std::string_view message, std::int32_t fd, std::function<void()> response, std::function<void(std::exception_ptr)> ex = nullptr, std::function<void(bool)> sent = nullptr, const Ice::Context& context = Ice::noExplicitContext) const;
+
+        /// \cond INTERNAL
+        void _iceI_writeMessage(const std::shared_ptr<IceInternal::OutgoingAsyncT<void>>&, std::string_view, std::int32_t, const Ice::Context&) const;
+        /// \endcond
+
+        /// Obtains the Slice type ID of this interface.
+        /// @return The fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
+
+        ProcessPrx(const ProcessPrx& other) noexcept : Ice::ObjectPrx(other) {} // NOLINT(modernize-use-equals-default)
+
+        ProcessPrx(ProcessPrx&& other) noexcept : Ice::ObjectPrx(std::move(other)) {} // NOLINT(modernize-use-equals-default)
+
+        ProcessPrx(const Ice::CommunicatorPtr& communicator, std::string_view proxyString) : Ice::ObjectPrx(communicator, proxyString) {} // NOLINT(modernize-use-equals-default)
+
+        ~ProcessPrx() override;
+
+        ProcessPrx& operator=(const ProcessPrx& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(rhs);
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(rhs);
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    ProcessPrx& operator=(ProcessPrx&& rhs) noexcept
-    {
-        if (this != &rhs)
+        ProcessPrx& operator=(ProcessPrx&& rhs) noexcept
         {
-            Ice::ObjectPrx::operator=(std::move(rhs));
+            if (this != &rhs)
+            {
+                Ice::ObjectPrx::operator=(std::move(rhs));
+            }
+            return *this;
         }
-        return *this;
-    }
 
-    /// \cond INTERNAL
-    static ProcessPrx _fromReference(IceInternal::ReferencePtr ref) { return ProcessPrx(std::move(ref)); }
+        /// \cond INTERNAL
+        static ProcessPrx _fromReference(IceInternal::ReferencePtr ref) { return ProcessPrx(std::move(ref)); }
 
-protected:
+    protected:
+        ProcessPrx() = default;
 
-    ProcessPrx() = default;
-
-    explicit ProcessPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
+        explicit ProcessPrx(IceInternal::ReferencePtr&& ref) : Ice::ObjectPrx(std::move(ref))
+        {
+        }
+        /// \endcond
+    };
 }
 
 namespace Ice
 {
+    /// An administrative interface for process management. Managed servers must implement this interface.
+    /// <p class="Note">A servant implementing this interface is a potential target for denial-of-service attacks,
+    /// therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+    /// identity harder to guess, and be registered in an object adapter with a secured endpoint.
+    class ICE_API Process : public virtual Ice::Object
+    {
+    public:
+        using ProxyType = ProcessPrx;
 
-/// An administrative interface for process management. Managed servers must implement this interface.
-/// <p class="Note">A servant implementing this interface is a potential target for denial-of-service attacks,
-/// therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
-/// identity harder to guess, and be registered in an object adapter with a secured endpoint.
-class ICE_API Process : public virtual Ice::Object
-{
-public:
+        /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A list of fully-scoped type IDs.
+        [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
 
-    using ProxyType = ProcessPrx;
+        /// Obtains a Slice type ID representing the most-derived interface supported by this object.
+        /// @param current The Current object for the invocation.
+        /// @return A fully-scoped type ID.
+        [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
 
-    /// Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A list of fully-scoped type IDs.
-    [[nodiscard]] std::vector<std::string> ice_ids(const Ice::Current& current) const override;
+        /// Obtains the Slice type ID corresponding to this interface.
+        /// @return A fully-scoped type ID.
+        static const char* ice_staticId() noexcept;
 
-    /// Obtains a Slice type ID representing the most-derived interface supported by this object.
-    /// @param current The Current object for the invocation.
-    /// @return A fully-scoped type ID.
-    [[nodiscard]] std::string ice_id(const Ice::Current& current) const override;
+        /// Initiate a graceful shut-down.
+        /// @param current The Current object for the invocation.
+        /// @see Communicator#shutdown
+        virtual void shutdown(const Ice::Current& current) = 0;
 
-    /// Obtains the Slice type ID corresponding to this interface.
-    /// @return A fully-scoped type ID.
-    static const char* ice_staticId() noexcept;
+        /// \cond INTERNAL
+        void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// Initiate a graceful shut-down.
-    /// @param current The Current object for the invocation.
-    /// @see Communicator#shutdown
-    virtual void shutdown(const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_shutdown(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// Write a message on the process' stdout or stderr.
+        /// @param message The message.
+        /// @param fd 1 for stdout, 2 for stderr.
+        /// @param current The Current object for the invocation.
+        virtual void writeMessage(std::string message, std::int32_t fd, const Ice::Current& current) = 0;
 
-    /// Write a message on the process' stdout or stderr.
-    /// @param message The message.
-    /// @param fd 1 for stdout, 2 for stderr.
-    /// @param current The Current object for the invocation.
-    virtual void writeMessage(std::string message, std::int32_t fd, const Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_writeMessage(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
-    /// \endcond
+        /// \cond INTERNAL
+        void _iceD_writeMessage(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>);
+        /// \endcond
 
-    /// \cond INTERNAL
-    void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
+        void dispatch(Ice::IncomingRequest&, std::function<void(Ice::OutgoingResponse)>) override;
+    };
 
-using ProcessPtr = std::shared_ptr<Process>;
-
+    using ProcessPtr = std::shared_ptr<Process>;
 }
 
 #include <Ice/PopDisableWarnings.h>

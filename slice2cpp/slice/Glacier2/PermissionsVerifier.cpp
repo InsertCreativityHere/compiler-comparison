@@ -256,7 +256,6 @@ Glacier2::PermissionsVerifier::_iceD_checkPermissions(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Glacier2::PermissionsVerifier::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -304,7 +303,6 @@ Glacier2::PermissionsVerifier::dispatch(Ice::IncomingRequest& request, std::func
         }
     }
 }
-/// \endcond
 
 std::vector<std::string>
 Glacier2::SSLPermissionsVerifier::ice_ids(const Ice::Current&) const
@@ -347,7 +345,6 @@ Glacier2::SSLPermissionsVerifier::_iceD_authorize(
 }
 /// \endcond
 
-/// \cond INTERNAL
 void
 Glacier2::SSLPermissionsVerifier::dispatch(Ice::IncomingRequest& request, std::function<void(Ice::OutgoingResponse)> sendResponse)
 {
@@ -395,4 +392,3 @@ Glacier2::SSLPermissionsVerifier::dispatch(Ice::IncomingRequest& request, std::f
         }
     }
 }
-/// \endcond
