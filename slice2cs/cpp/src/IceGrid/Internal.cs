@@ -359,6 +359,10 @@ namespace IceGrid
         /// <summary>
         /// Set the direct proxy for this adapter.
         /// </summary>
+        /// <param name="proxy">
+        /// The direct proxy. The direct proxy should be created with the object adapter and should contain the
+        /// object adapter endpoints.
+        /// </param>
         /// <param name="current">The Current object for the dispatch.</param>
         /// <exception cref="IceGrid.AdapterActiveException">
         /// The adapter is already active. It's not possible to override the direct proxy of
@@ -1044,6 +1048,10 @@ namespace IceGrid
         /// <summary>
         /// Set the direct proxy for this adapter.
         /// </summary>
+        /// <param name="proxy">
+        /// The direct proxy. The direct proxy should be created with the object adapter and should contain the
+        /// object adapter endpoints.
+        /// </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <exception cref="IceGrid.AdapterActiveException">
         /// The adapter is already active. It's not possible to override the direct proxy of
@@ -1054,6 +1062,10 @@ namespace IceGrid
         /// <summary>
         /// Set the direct proxy for this adapter.
         /// </summary>
+        /// <param name="proxy">
+        /// The direct proxy. The direct proxy should be created with the object adapter and should contain the
+        /// object adapter endpoints.
+        /// </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>

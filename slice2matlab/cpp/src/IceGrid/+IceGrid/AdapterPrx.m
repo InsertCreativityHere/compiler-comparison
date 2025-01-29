@@ -72,7 +72,8 @@ classdef AdapterPrx < Ice.ObjectPrx
             % setDirectProxy   Set the direct proxy for this adapter.
             %
             % Parameters:
-            %   proxy (Ice.ObjectPrx)
+            %   proxy (Ice.ObjectPrx) - The direct proxy. The direct proxy should be created with the object adapter and should contain the
+            %     object adapter endpoints.
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
@@ -88,7 +89,8 @@ classdef AdapterPrx < Ice.ObjectPrx
             % setDirectProxyAsync   Set the direct proxy for this adapter.
             %
             % Parameters:
-            %   proxy (Ice.ObjectPrx)
+            %   proxy (Ice.ObjectPrx) - The direct proxy. The direct proxy should be created with the object adapter and should contain the
+            %     object adapter endpoints.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

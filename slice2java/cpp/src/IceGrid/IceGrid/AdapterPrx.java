@@ -155,6 +155,8 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Set the direct proxy for this adapter.
+     * @param proxy The direct proxy. The direct proxy should be created with the object adapter and should contain the
+     * object adapter endpoints.
      * @throws AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
      * an active adapter.
      **/
@@ -166,6 +168,8 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Set the direct proxy for this adapter.
+     * @param proxy The direct proxy. The direct proxy should be created with the object adapter and should contain the
+     * object adapter endpoints.
      * @param context The Context map to send with the invocation.
      * @throws AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
      * an active adapter.
@@ -189,6 +193,8 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Set the direct proxy for this adapter.
+     * @param proxy The direct proxy. The direct proxy should be created with the object adapter and should contain the
+     * object adapter endpoints.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> setDirectProxyAsync(com.zeroc.Ice.ObjectPrx proxy)
@@ -198,6 +204,8 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Set the direct proxy for this adapter.
+     * @param proxy The direct proxy. The direct proxy should be created with the object adapter and should contain the
+     * object adapter endpoints.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/

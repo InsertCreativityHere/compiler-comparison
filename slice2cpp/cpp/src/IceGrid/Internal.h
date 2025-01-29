@@ -151,17 +151,23 @@ namespace IceGrid
         /// \endcond
 
         /// Set the direct proxy for this adapter.
+        /// @param proxy The direct proxy. The direct proxy should be created with the object adapter and should contain the
+        /// object adapter endpoints.
         /// @param context The Context map to send with the invocation.
         /// @throws IceGrid::AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
         /// an active adapter.
         void setDirectProxy(const std::optional<Ice::ObjectPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Set the direct proxy for this adapter.
+        /// @param proxy The direct proxy. The direct proxy should be created with the object adapter and should contain the
+        /// object adapter endpoints.
         /// @param context The Context map to send with the invocation.
         /// @return The future object for the invocation.
         [[nodiscard]] std::future<void> setDirectProxyAsync(const std::optional<Ice::ObjectPrx>& proxy, const Ice::Context& context = Ice::noExplicitContext) const;
 
         /// Set the direct proxy for this adapter.
+        /// @param proxy The direct proxy. The direct proxy should be created with the object adapter and should contain the
+        /// object adapter endpoints.
         /// @param response The response callback.
         /// @param exception The exception callback.
         /// @param sent The sent callback.
@@ -2284,6 +2290,8 @@ namespace IceGrid
         /// \endcond
 
         /// Set the direct proxy for this adapter.
+        /// @param proxy The direct proxy. The direct proxy should be created with the object adapter and should contain the
+        /// object adapter endpoints.
         /// @param current The Current object for the invocation.
         /// @throws IceGrid::AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
         /// an active adapter.

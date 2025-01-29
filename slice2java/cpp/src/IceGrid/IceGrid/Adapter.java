@@ -34,6 +34,8 @@ public interface Adapter extends com.zeroc.Ice.Object
 
     /**
      * Set the direct proxy for this adapter.
+     * @param proxy The direct proxy. The direct proxy should be created with the object adapter and should contain the
+     * object adapter endpoints.
      * @param current The Current object for the invocation.
      * @throws AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
      * an active adapter.

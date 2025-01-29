@@ -310,6 +310,8 @@ if 'AdapterPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             proxy : (Ice.ObjectPrx or None)
+                The direct proxy. The direct proxy should be created with the object adapter and should contain the
+                object adapter endpoints.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -328,6 +330,8 @@ if 'AdapterPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             proxy : (Ice.ObjectPrx or None)
+                The direct proxy. The direct proxy should be created with the object adapter and should contain the
+                object adapter endpoints.
             context : Ice.Context
                 The request context for the invocation.
             
@@ -409,6 +413,8 @@ if 'AdapterPrx' not in _M_IceGrid.__dict__:
             Parameters
             ----------
             proxy : (Ice.ObjectPrx or None)
+                The direct proxy. The direct proxy should be created with the object adapter and should contain the
+                object adapter endpoints.
             current : Ice.Current
                 The Current object for the dispatch.
             
